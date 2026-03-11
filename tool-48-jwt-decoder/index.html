@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JWTデコーダー | DevTools Japan</title>
+    <meta name="description" content="JSON Web Tokenのペイロードをデコード表示">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#080810;--bg-card:#101018;--border:#1e1e30;--text:#e0e0f0;--text2:#7878a8;--text3:#404060;--accent:#6366f1;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0a0a14;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>JWTデコーダー</h1><p>JSON Web Tokenのペイロードをデコード表示</p></header>
+    <div class="card"><h3>JWT入力</h3><textarea id="input" style="width:100%;min-height:100px;background:#0a0a14;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:JetBrains Mono;font-size:0.8rem;padding:14px;outline:none;resize:vertical;word-break:break-all" oninput="decode()" placeholder="eyJhbGciOiJIUzI1NiIs...">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkRldlRvb2xzIEphcGFuIiwiaWF0IjoxNzEwMTE1MjAwfQ.signature</textarea></div>
+<div class="card"><h3>ヘッダー</h3><pre id="header" style="font-family:JetBrains Mono;font-size:0.8rem;color:var(--accent);white-space:pre-wrap;word-break:break-all"></pre></div>
+<div class="card"><h3>ペイロード</h3><pre id="payload" style="font-family:JetBrains Mono;font-size:0.8rem;color:#22c55e;white-space:pre-wrap;word-break:break-all"></pre></div>
+<div class="card" id="expCard" style="display:none"><h3>有効期限</h3><div id="expInfo" style="font-size:0.9rem;color:var(--text2)"></div></div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content"><h2>JWTデコーダーについて</h2><p>JSON Web Tokenのペイロードをデコード表示。ブラウザ上で動作し、データがサーバーに送信されることはありません。</p></div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+function decode(){const jwt=document.getElementById('input').value.trim();const parts=jwt.split('.');if(parts.length!==3){document.getElementById('header').textContent='有効なJWTを入力してください';document.getElementById('payload').textContent='';return}
+try{const h=JSON.parse(atob(parts[0]));const p=JSON.parse(atob(parts[1]));
+document.getElementById('header').textContent=JSON.stringify(h,null,2);
+document.getElementById('payload').textContent=JSON.stringify(p,null,2);
+if(p.exp){const d=new Date(p.exp*1000);const now=new Date();const expired=now>d;
+document.getElementById('expCard').style.display='block';
+document.getElementById('expInfo').innerHTML='<span style="color:'+(expired?'#ef4444':'#22c55e')+'">'+(expired?'期限切れ':'有効')+'</span> — '+d.toLocaleString('ja-JP')}
+else{document.getElementById('expCard').style.display='none'}}catch(e){document.getElementById('header').textContent='デコードエラー: '+e.message;document.getElementById('payload').textContent=''}}
+decode()
+</script>
+</body>
+</html>

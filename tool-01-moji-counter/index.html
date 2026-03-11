@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字数カウンター | リアルタイム文字数・単語数・行数カウント</title>
+    <meta name="description" content="テキストの文字数・単語数・行数・バイト数をリアルタイムでカウント。スペース除外、改行除外にも対応。ブログ記事、レポート、SNS投稿の文字数管理に。">
+    <meta name="keywords" content="文字数カウント,文字数カウンター,単語数,行数,バイト数,Twitter文字数">
+    <meta property="og:title" content="文字数カウンター | 無料オンラインツール">
+    <meta property="og:description" content="リアルタイムで文字数・単語数・行数をカウント。SNS投稿やレポート作成に。">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a26;
+            --bg-card-hover: #22222f;
+            --border: #2a2a3a;
+            --text-primary: #e8e8f0;
+            --text-secondary: #8888a0;
+            --text-muted: #55556a;
+            --accent-cyan: #00d4ff;
+            --accent-cyan-dim: rgba(0, 212, 255, 0.1);
+            --accent-violet: #8b5cf6;
+            --accent-violet-dim: rgba(139, 92, 246, 0.1);
+            --accent-emerald: #10b981;
+            --accent-emerald-dim: rgba(16, 185, 129, 0.1);
+            --accent-amber: #f59e0b;
+            --accent-amber-dim: rgba(245, 158, 11, 0.1);
+            --accent-rose: #f43f5e;
+            --accent-rose-dim: rgba(244, 63, 94, 0.1);
+            --accent-blue: #3b82f6;
+            --accent-blue-dim: rgba(59, 130, 246, 0.1);
+            --radius: 12px;
+            --shadow: 0 4px 24px rgba(0,0,0,0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.07;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .glow-orb-1 { width: 600px; height: 600px; background: var(--accent-cyan); top: -200px; right: -100px; }
+        .glow-orb-2 { width: 400px; height: 400px; background: var(--accent-violet); bottom: -100px; left: -100px; }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Ad placeholder */
+        .ad-slot {
+            background: var(--bg-secondary);
+            border: 1px dashed var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 12px;
+            margin-bottom: 32px;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .editor-wrapper {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 240px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--text-primary);
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 15px;
+            line-height: 1.8;
+            padding: 20px;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        textarea:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 3px var(--accent-cyan-dim);
+        }
+
+        textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .editor-actions {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-icon {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+
+        .btn-icon:hover {
+            background: var(--bg-card-hover);
+            color: var(--text-primary);
+            border-color: var(--accent-cyan);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 640px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            header h1 { font-size: 1.5rem; }
+            .container { padding: 24px 16px; }
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            transition: all 0.25s;
+        }
+
+        .stat-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stat-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.75rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+        }
+
+        .stat-card[data-type="chars"] .stat-dot { background: var(--accent-cyan); }
+        .stat-card[data-type="chars"] .stat-value { color: var(--accent-cyan); }
+        .stat-card[data-type="chars-no-space"] .stat-dot { background: var(--accent-violet); }
+        .stat-card[data-type="chars-no-space"] .stat-value { color: var(--accent-violet); }
+        .stat-card[data-type="words"] .stat-dot { background: var(--accent-emerald); }
+        .stat-card[data-type="words"] .stat-value { color: var(--accent-emerald); }
+        .stat-card[data-type="lines"] .stat-dot { background: var(--accent-amber); }
+        .stat-card[data-type="lines"] .stat-value { color: var(--accent-amber); }
+        .stat-card[data-type="bytes"] .stat-dot { background: var(--accent-rose); }
+        .stat-card[data-type="bytes"] .stat-value { color: var(--accent-rose); }
+        .stat-card[data-type="paragraphs"] .stat-dot { background: var(--accent-blue); }
+        .stat-card[data-type="paragraphs"] .stat-value { color: var(--accent-blue); }
+
+        .sns-limits {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .sns-limits h3 {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 16px;
+        }
+
+        .sns-bar-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .sns-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sns-bar-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            min-width: 100px;
+            white-space: nowrap;
+        }
+
+        .sns-bar-track {
+            flex: 1;
+            height: 8px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .sns-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.4s ease;
+            min-width: 0;
+        }
+
+        .sns-bar-fill.ok { background: var(--accent-emerald); }
+        .sns-bar-fill.warn { background: var(--accent-amber); }
+        .sns-bar-fill.over { background: var(--accent-rose); }
+
+        .sns-bar-count {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            min-width: 70px;
+            text-align: right;
+        }
+
+        .options-row {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .option-chip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+            user-select: none;
+        }
+
+        .option-chip:hover { border-color: var(--accent-cyan); color: var(--text-primary); }
+        .option-chip.active { border-color: var(--accent-cyan); background: var(--accent-cyan-dim); color: var(--accent-cyan); }
+
+        .option-chip input { display: none; }
+
+        .reading-time {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            padding: 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 24px;
+        }
+
+        .reading-time span {
+            color: var(--accent-cyan);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        /* SEO content section */
+        .seo-content {
+            margin-top: 48px;
+            padding: 32px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 2;
+        }
+
+        .seo-content h2 {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+        }
+
+        .seo-content h3 {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+        .seo-content p { margin-bottom: 12px; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .stat-card { animation: fadeIn 0.4s ease forwards; }
+        .stat-card:nth-child(1) { animation-delay: 0.05s; }
+        .stat-card:nth-child(2) { animation-delay: 0.1s; }
+        .stat-card:nth-child(3) { animation-delay: 0.15s; }
+        .stat-card:nth-child(4) { animation-delay: 0.2s; }
+        .stat-card:nth-child(5) { animation-delay: 0.25s; }
+        .stat-card:nth-child(6) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <div class="container">
+        <!-- Top Ad Slot -->
+        <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+
+        <header>
+            <h1>文字数カウンター</h1>
+            <p>テキストの文字数・単語数・行数をリアルタイムでカウント</p>
+        </header>
+
+        <div class="editor-wrapper">
+            <textarea id="textInput" placeholder="ここにテキストを入力またはペーストしてください..."></textarea>
+            <div class="editor-actions">
+                <button class="btn-icon" onclick="copyText()" title="コピー"></button>
+                <button class="btn-icon" onclick="clearText()" title="クリア">X</button>
+            </div>
+        </div>
+
+        <div class="options-row">
+            <label class="option-chip" id="chipHalfwidth">
+                <input type="checkbox" id="optHalfwidth" onchange="countAll()">
+                半角を0.5文字で計算
+            </label>
+            <label class="option-chip" id="chipNewline">
+                <input type="checkbox" id="optNewline" onchange="countAll()">
+                改行を除外
+            </label>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card" data-type="chars">
+                <div class="stat-label"><span class="stat-dot"></span>文字数</div>
+                <div class="stat-value" id="charCount">0</div>
+            </div>
+            <div class="stat-card" data-type="chars-no-space">
+                <div class="stat-label"><span class="stat-dot"></span>文字数（空白除外）</div>
+                <div class="stat-value" id="charNoSpaceCount">0</div>
+            </div>
+            <div class="stat-card" data-type="words">
+                <div class="stat-label"><span class="stat-dot"></span>単語数</div>
+                <div class="stat-value" id="wordCount">0</div>
+            </div>
+            <div class="stat-card" data-type="lines">
+                <div class="stat-label"><span class="stat-dot"></span>行数</div>
+                <div class="stat-value" id="lineCount">0</div>
+            </div>
+            <div class="stat-card" data-type="bytes">
+                <div class="stat-label"><span class="stat-dot"></span>バイト数</div>
+                <div class="stat-value" id="byteCount">0</div>
+            </div>
+            <div class="stat-card" data-type="paragraphs">
+                <div class="stat-label"><span class="stat-dot"></span>段落数</div>
+                <div class="stat-value" id="paragraphCount">0</div>
+            </div>
+        </div>
+
+        <div class="reading-time">
+            読了時間：約 <span id="readingTime">0</span> 分（日本語 400文字/分 で計算）
+        </div>
+
+        <div class="sns-limits">
+            <h3>SNS文字数制限チェック</h3>
+            <div class="sns-bar-group">
+                <div class="sns-bar-item">
+                    <span class="sns-bar-label">X (Twitter)</span>
+                    <div class="sns-bar-track"><div class="sns-bar-fill ok" id="barTwitter" style="width:0%"></div></div>
+                    <span class="sns-bar-count" id="countTwitter">0 / 140</span>
+                </div>
+                <div class="sns-bar-item">
+                    <span class="sns-bar-label">Instagram</span>
+                    <div class="sns-bar-track"><div class="sns-bar-fill ok" id="barInsta" style="width:0%"></div></div>
+                    <span class="sns-bar-count" id="countInsta">0 / 2,200</span>
+                </div>
+                <div class="sns-bar-item">
+                    <span class="sns-bar-label">LINE</span>
+                    <div class="sns-bar-track"><div class="sns-bar-fill ok" id="barLine" style="width:0%"></div></div>
+                    <span class="sns-bar-count" id="countLine">0 / 10,000</span>
+                </div>
+                <div class="sns-bar-item">
+                    <span class="sns-bar-label">メタディスクリプション</span>
+                    <div class="sns-bar-track"><div class="sns-bar-fill ok" id="barMeta" style="width:0%"></div></div>
+                    <span class="sns-bar-count" id="countMeta">0 / 120</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Middle Ad Slot -->
+        <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+
+        <!-- SEO Content -->
+        <div class="seo-content">
+            <h2>文字数カウンターの使い方</h2>
+            <p>このツールは、テキストエリアに入力された文字の数をリアルタイムでカウントします。ブログ記事の執筆、SNS投稿の文字数確認、レポートや論文の文字数管理など、さまざまな場面でご活用いただけます。</p>
+
+            <h3>カウントできる項目</h3>
+            <p>文字数（全体）、文字数（空白除外）、単語数、行数、バイト数（UTF-8）、段落数の6項目をリアルタイムでカウントします。さらに、日本語の平均読書速度（400文字/分）に基づいた読了時間の目安も表示します。</p>
+
+            <h3>SNS文字数制限チェック</h3>
+            <p>X（旧Twitter）の140文字制限、Instagramキャプションの2,200文字制限、LINEの10,000文字制限、SEOメタディスクリプションの120文字の目安に対する進捗をビジュアルで確認できます。</p>
+
+            <h3>オプション機能</h3>
+            <p>「半角を0.5文字で計算」をONにすると、半角英数字を0.5文字としてカウントします。原稿用紙（400字詰め）の換算に便利です。「改行を除外」をONにすると、改行コードを文字数から除外してカウントします。</p>
+        </div>
+
+        <!-- Bottom Ad Slot -->
+        <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+
+        <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+    </div>
+
+    <script>
+        const textInput = document.getElementById('textInput');
+        const optHalfwidth = document.getElementById('optHalfwidth');
+        const optNewline = document.getElementById('optNewline');
+
+        textInput.addEventListener('input', countAll);
+
+        function countAll() {
+            const raw = textInput.value;
+            let text = raw;
+
+            // Toggle chip styles
+            document.getElementById('chipHalfwidth').classList.toggle('active', optHalfwidth.checked);
+            document.getElementById('chipNewline').classList.toggle('active', optNewline.checked);
+
+            // Character count
+            let charCount = 0;
+            if (optNewline.checked) {
+                text = raw.replace(/\n/g, '');
+            }
+
+            if (optHalfwidth.checked) {
+                for (const ch of text) {
+                    charCount += (ch.charCodeAt(0) <= 0x7E || (ch.charCodeAt(0) >= 0xFF61 && ch.charCodeAt(0) <= 0xFF9F)) ? 0.5 : 1;
+                }
+                charCount = Math.ceil(charCount * 10) / 10;
+            } else {
+                charCount = [...text].length;
+            }
+
+            // Characters without spaces
+            const noSpace = text.replace(/[\s\u3000]/g, '');
+            let charNoSpace = 0;
+            if (optHalfwidth.checked) {
+                for (const ch of noSpace) {
+                    charNoSpace += (ch.charCodeAt(0) <= 0x7E || (ch.charCodeAt(0) >= 0xFF61 && ch.charCodeAt(0) <= 0xFF9F)) ? 0.5 : 1;
+                }
+                charNoSpace = Math.ceil(charNoSpace * 10) / 10;
+            } else {
+                charNoSpace = [...noSpace].length;
+            }
+
+            // Word count (handles Japanese + English)
+            const wordCount = raw.trim() === '' ? 0 : (() => {
+                const english = raw.match(/[a-zA-Z0-9]+/g) || [];
+                const japanese = raw.match(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF\u3400-\u4DBF]/g) || [];
+                return english.length + japanese.length;
+            })();
+
+            // Line count
+            const lineCount = raw === '' ? 0 : raw.split('\n').length;
+
+            // Byte count (UTF-8)
+            const byteCount = new Blob([raw]).size;
+
+            // Paragraph count
+            const paragraphs = raw.split(/\n\s*\n/).filter(p => p.trim().length > 0);
+            const paragraphCount = raw.trim() === '' ? 0 : paragraphs.length;
+
+            // Reading time
+            const totalChars = [...noSpace].length;
+            const readingMinutes = Math.max(1, Math.ceil(totalChars / 400));
+
+            // Update DOM
+            document.getElementById('charCount').textContent = charCount.toLocaleString();
+            document.getElementById('charNoSpaceCount').textContent = charNoSpace.toLocaleString();
+            document.getElementById('wordCount').textContent = wordCount.toLocaleString();
+            document.getElementById('lineCount').textContent = lineCount.toLocaleString();
+            document.getElementById('byteCount').textContent = byteCount.toLocaleString();
+            document.getElementById('paragraphCount').textContent = paragraphCount.toLocaleString();
+            document.getElementById('readingTime').textContent = raw.trim() === '' ? '0' : readingMinutes;
+
+            // SNS bars
+            const rawLen = [...raw].length;
+            updateSnsBar('barTwitter', 'countTwitter', rawLen, 140);
+            updateSnsBar('barInsta', 'countInsta', rawLen, 2200);
+            updateSnsBar('barLine', 'countLine', rawLen, 10000);
+            updateSnsBar('barMeta', 'countMeta', rawLen, 120);
+        }
+
+        function updateSnsBar(barId, countId, current, max) {
+            const bar = document.getElementById(barId);
+            const count = document.getElementById(countId);
+            const pct = Math.min((current / max) * 100, 100);
+            bar.style.width = pct + '%';
+            bar.className = 'sns-bar-fill ' + (pct <= 80 ? 'ok' : pct <= 100 ? 'warn' : 'over');
+            if (current > max) bar.className = 'sns-bar-fill over';
+            count.textContent = current.toLocaleString() + ' / ' + max.toLocaleString();
+        }
+
+        function copyText() {
+            navigator.clipboard.writeText(textInput.value);
+        }
+
+        function clearText() {
+            textInput.value = '';
+            countAll();
+            textInput.focus();
+        }
+
+        // Initialize
+        countAll();
+    </script>
+</body>
+</html>

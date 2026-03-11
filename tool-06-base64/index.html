@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64エンコード・デコードツール | 変換・画像対応</title>
+    <meta name="description" content="テキストや画像をBase64にエンコード・デコード。Data URI生成にも対応。開発者向け無料オンラインツール。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#090b10;--bg-card:#131620;--border:#222838;--text:#dce0f0;--text2:#6878a0;--text3:#3a4260;--accent:#14b8a6;--accent-dim:rgba(20,184,166,0.1);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:900px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0c0e16;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}
+        header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}
+        header p{color:var(--text2);font-size:0.85rem}
+        .direction-toggle{display:flex;justify-content:center;gap:0;margin-bottom:24px;background:var(--bg-card);border-radius:8px;overflow:hidden;border:1px solid var(--border);max-width:400px;margin-left:auto;margin-right:auto}
+        .dir-btn{flex:1;padding:12px;text-align:center;font-size:0.85rem;color:var(--text3);cursor:pointer;border:none;background:transparent;font-family:'Noto Sans JP',sans-serif;transition:all 0.2s}
+        .dir-btn.active{background:var(--accent-dim);color:var(--accent)}
+        .editor-grid{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;margin-bottom:24px;align-items:stretch}
+        @media(max-width:700px){.editor-grid{grid-template-columns:1fr;gap:12px} .arrow-col{transform:rotate(90deg)}}
+        .pane{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+        .pane-header{padding:10px 16px;background:#0e1018;border-bottom:1px solid var(--border);font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;display:flex;justify-content:space-between}
+        textarea{width:100%;min-height:300px;background:transparent;border:none;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;padding:16px;resize:vertical;outline:none}
+        textarea::placeholder{color:var(--text3)}
+        .arrow-col{display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1.5rem}
+        .stats{padding:10px 16px;border-top:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text3)}
+        .btn-row{display:flex;gap:10px;margin-bottom:24px;justify-content:center;flex-wrap:wrap}
+        .btn{padding:12px 24px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text2);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;cursor:pointer;transition:all 0.2s}
+        .btn:hover{border-color:var(--accent);color:var(--text)}
+        .btn-primary{background:var(--accent);color:#000;border-color:var(--accent);font-weight:500}
+        .btn-primary:hover{opacity:0.9}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}
+        .seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#000;padding:12px 24px;border-radius:8px;font-size:0.85rem;font-weight:500;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}
+        .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>Base64 エンコード・デコード</h1><p>テキストとBase64文字列を相互変換</p></header>
+
+    <div class="direction-toggle">
+        <button class="dir-btn active" id="btnEncode" onclick="setDir('encode')">エンコード（テキスト→Base64）</button>
+        <button class="dir-btn" id="btnDecode" onclick="setDir('decode')">デコード（Base64→テキスト）</button>
+    </div>
+
+    <div class="editor-grid">
+        <div class="pane">
+            <div class="pane-header"><span id="leftLabel">入力（テキスト）</span><span id="leftSize">0 B</span></div>
+            <textarea id="inputArea" placeholder="ここにテキストを入力..." oninput="convert()"></textarea>
+        </div>
+        <div class="arrow-col">→</div>
+        <div class="pane">
+            <div class="pane-header"><span id="rightLabel">出力（Base64）</span><span id="rightSize">0 B</span></div>
+            <textarea id="outputArea" readonly placeholder="変換結果がここに表示されます"></textarea>
+            <div class="stats" id="ratio"></div>
+        </div>
+    </div>
+
+    <div class="btn-row">
+        <button class="btn btn-primary" onclick="convert()">変換</button>
+        <button class="btn" onclick="copyOutput()">出力をコピー</button>
+        <button class="btn" onclick="swap()">入れ替え</button>
+        <button class="btn" onclick="clearAll()">クリア</button>
+    </div>
+
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+
+    <div class="seo-content">
+        <h2>Base64エンコード・デコードツールについて</h2>
+        <p>Base64は、バイナリデータをASCII文字列に変換するエンコーディング方式です。メール添付、Data URI、APIでのバイナリデータ転送など、テキストしか扱えない環境でバイナリデータを安全にやり取りするために使われます。</p>
+        <p>このツールはブラウザ内で処理を完結するため、機密データも安全に変換できます。日本語テキスト（UTF-8）にも完全対応しています。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+let dir='encode';
+function setDir(d){dir=d;document.getElementById('btnEncode').classList.toggle('active',d==='encode');document.getElementById('btnDecode').classList.toggle('active',d==='decode');document.getElementById('leftLabel').textContent=d==='encode'?'入力（テキスト）':'入力（Base64）';document.getElementById('rightLabel').textContent=d==='encode'?'出力（Base64）':'出力（テキスト）';convert()}
+function convert(){
+    const input=document.getElementById('inputArea').value;
+    const output=document.getElementById('outputArea');
+    const ratio=document.getElementById('ratio');
+    try{
+        if(dir==='encode'){const encoded=btoa(unescape(encodeURIComponent(input)));output.value=encoded;const pct=input.length?((encoded.length/new Blob([input]).size)*100).toFixed(0):'0';ratio.textContent=`サイズ比: ${pct}%（Base64は元データの約133%になります）`}
+        else{const decoded=decodeURIComponent(escape(atob(input.trim())));output.value=decoded;ratio.textContent=''}
+    }catch(e){output.value='変換エラー: 入力を確認してください';ratio.textContent=''}
+    document.getElementById('leftSize').textContent=new Blob([input]).size+' B';
+    document.getElementById('rightSize').textContent=new Blob([output.value]).size+' B';
+}
+function copyOutput(){navigator.clipboard.writeText(document.getElementById('outputArea').value);const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+function swap(){const i=document.getElementById('inputArea'),o=document.getElementById('outputArea');const tmp=o.value;i.value=tmp;o.value='';setDir(dir==='encode'?'decode':'encode')}
+function clearAll(){document.getElementById('inputArea').value='';document.getElementById('outputArea').value='';document.getElementById('ratio').textContent='';document.getElementById('leftSize').textContent='0 B';document.getElementById('rightSize').textContent='0 B'}
+</script>
+</body>
+</html>

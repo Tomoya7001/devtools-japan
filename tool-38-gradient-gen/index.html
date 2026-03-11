@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSSグラデーション生成 | DevTools Japan</title>
+    <meta name="description" content="CSSグラデーションを視覚的に作成。コードをワンクリックコピー。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#080810;--bg-card:#101018;--border:#1e1e30;--text:#e0e0f0;--text2:#7878a8;--text3:#404060;--accent:#ec4899;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0a0a14;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .preview{height:200px;border-radius:12px;margin-bottom:20px;border:1px solid var(--border);transition:background 0.3s}.controls{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px}.code-box{font-family:"JetBrains Mono",monospace;font-size:0.8rem;background:#0a0a14;border:1px solid var(--border);border-radius:8px;padding:14px;color:var(--text2);cursor:pointer;margin-bottom:24px;word-break:break-all;transition:all 0.2s}.code-box:hover{border-color:var(--accent);color:var(--text)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>CSSグラデーション生成</h1><p>CSSグラデーションを視覚的に作成。コードをワンクリックコピー。</p></header>
+    <div class="preview" id="preview"></div>
+<div class="controls">
+<div style="display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+<label style="font-size:0.75rem;color:var(--text3)">色1</label><input type="color" id="c1" value="#6366f1" onchange="gen()" style="width:48px;height:36px;border:none;border-radius:6px;cursor:pointer">
+<label style="font-size:0.75rem;color:var(--text3)">色2</label><input type="color" id="c2" value="#ec4899" onchange="gen()" style="width:48px;height:36px;border:none;border-radius:6px;cursor:pointer">
+<label style="font-size:0.75rem;color:var(--text3)">色3</label><input type="color" id="c3" value="#f97316" onchange="gen()" style="width:48px;height:36px;border:none;border-radius:6px;cursor:pointer">
+<label style="font-size:0.75rem;color:var(--text3)">角度</label><input type="range" id="angle" min="0" max="360" value="135" oninput="gen()" style="width:120px"><span id="angleVal" style="font-family:JetBrains Mono;font-size:0.8rem;color:var(--accent)">135°</span>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<button onclick="setPreset('#667eea','#764ba2','#f093fb',135)" style="width:32px;height:32px;border-radius:6px;border:1px solid var(--border);background:linear-gradient(135deg,#667eea,#764ba2);cursor:pointer"></button>
+<button onclick="setPreset('#f12711','#f5af19','#f12711',90)" style="width:32px;height:32px;border-radius:6px;border:1px solid var(--border);background:linear-gradient(90deg,#f12711,#f5af19);cursor:pointer"></button>
+<button onclick="setPreset('#11998e','#38ef7d','#11998e',135)" style="width:32px;height:32px;border-radius:6px;border:1px solid var(--border);background:linear-gradient(135deg,#11998e,#38ef7d);cursor:pointer"></button>
+<button onclick="setPreset('#2193b0','#6dd5ed','#2193b0',90)" style="width:32px;height:32px;border-radius:6px;border:1px solid var(--border);background:linear-gradient(90deg,#2193b0,#6dd5ed);cursor:pointer"></button>
+<button onclick="setPreset('#0f0c29','#302b63','#24243e',180)" style="width:32px;height:32px;border-radius:6px;border:1px solid var(--border);background:linear-gradient(180deg,#0f0c29,#302b63,#24243e);cursor:pointer"></button>
+</div>
+</div>
+<div class="code-box" id="code" onclick="navigator.clipboard.writeText(this.textContent);showToast()"></div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content"><h2>CSSグラデーション生成について</h2><p>CSSのlinear-gradientプロパティを視覚的に作成するツールです。色の追加、角度の変更をリアルタイムでプレビューし、CSSコードをワンクリックでコピーできます。</p></div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+function gen(){const c1=document.getElementById('c1').value,c2=document.getElementById('c2').value,c3=document.getElementById('c3').value,a=document.getElementById('angle').value;
+document.getElementById('angleVal').textContent=a+'°';
+const css='linear-gradient('+a+'deg, '+c1+', '+c2+', '+c3+')';
+document.getElementById('preview').style.background=css;
+document.getElementById('code').textContent='background: '+css+';'}
+function setPreset(a,b,c,angle){document.getElementById('c1').value=a;document.getElementById('c2').value=b;document.getElementById('c3').value=c;document.getElementById('angle').value=angle;gen()}
+gen();
+</script>
+</body>
+</html>

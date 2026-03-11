@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テキスト反転ツール | DevTools Japan</title>
+    <meta name="description" content="テキストの文字順を逆転・行順を反転">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#080810;--bg-card:#101018;--border:#1e1e30;--text:#e0e0f0;--text2:#7878a8;--text3:#404060;--accent:#f43f5e;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0a0a14;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>テキスト反転ツール</h1><p>テキストの文字順を逆転・行順を反転</p></header>
+    <div class="card"><textarea id="input" style="width:100%;min-height:120px;background:#0a0a14;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:Noto Sans JP;font-size:14px;padding:14px;outline:none;resize:vertical" oninput="conv()" placeholder="テキストを入力...">Hello こんにちは 世界</textarea></div>
+<div style="display:flex;gap:8px;margin-bottom:16px;justify-content:center;flex-wrap:wrap"><button onclick="mode='char';conv()" style="padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:var(--text2);cursor:pointer;font-family:Noto Sans JP;font-size:0.8rem">文字反転</button><button onclick="mode='word';conv()" style="padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:var(--text2);cursor:pointer;font-family:Noto Sans JP;font-size:0.8rem">単語反転</button><button onclick="mode='line';conv()" style="padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:var(--text2);cursor:pointer;font-family:Noto Sans JP;font-size:0.8rem">行反転</button></div>
+<div class="card"><div id="output" style="font-family:JetBrains Mono;font-size:1rem;color:var(--accent);min-height:40px;word-break:break-all"></div></div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content"><h2>テキスト反転ツールについて</h2><p>テキストの文字順を逆転・行順を反転。ブラウザ上で動作し、データがサーバーに送信されることはありません。</p></div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+let mode='char';function conv(){const t=document.getElementById('input').value;let r='';if(mode==='char')r=[...t].reverse().join('');else if(mode==='word')r=t.split(' ').reverse().join(' ');else r=t.split('\n').reverse().join('\n');document.getElementById('output').textContent=r}conv()
+</script>
+</body>
+</html>

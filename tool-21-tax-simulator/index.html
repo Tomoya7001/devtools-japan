@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>確定申告シミュレーター | フリーランス・副業の税金計算</title>
+    <meta name="description" content="フリーランス・副業の所得税・住民税・手取りを自動計算。経費入力で節税額がわかる。確定申告の事前シミュレーションに。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#0c0a06;--bg-card:#1a1608;--border:#302810;--text:#f0e8d0;--text2:#a89860;--text3:#685830;--accent:#f59e0b;--accent-dim:rgba(245,158,11,0.1);--green:#22c55e;--red:#ef4444;--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0e0c06;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(48,40,16,0.5)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input{width:180px;padding:10px 14px;background:#141006;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr} .row{flex-wrap:wrap;gap:8px} .row input{width:100%}}
+        .result-item{background:#141006;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700}
+        .result-item .value.income{color:var(--accent)}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .breakdown{margin-top:12px}
+        .breakdown .brow{display:flex;justify-content:space-between;padding:6px 0;font-size:0.8rem;color:var(--text2);border-bottom:1px solid rgba(48,40,16,0.3)}
+        .breakdown .brow .val{font-family:'JetBrains Mono',monospace;color:var(--text)}
+        .note{background:var(--accent-dim);border:1px solid rgba(245,158,11,0.2);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--accent);margin-bottom:24px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>確定申告シミュレーター</h1><p>フリーランス・副業の税金・手取りを自動計算</p></header>
+    <div class="note">注意: このツールは概算シミュレーションです。正確な税額は税理士にご相談ください。2024年分（令和6年）の税率に基づいています。</div>
+
+    <div class="card"><h3>収入</h3>
+        <div class="row"><label>年間売上（収入）</label><input type="number" id="revenue" value="5000000" oninput="calc()"><span class="unit">円</span></div>
+    </div>
+    <div class="card"><h3>経費</h3>
+        <div class="row"><label>通信費（ネット・スマホ）</label><input type="number" id="exp1" value="120000" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>家賃（按分）</label><input type="number" id="exp2" value="360000" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>交通費</label><input type="number" id="exp3" value="60000" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>消耗品・備品</label><input type="number" id="exp4" value="100000" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>外注費</label><input type="number" id="exp5" value="0" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>その他経費</label><input type="number" id="exp6" value="50000" oninput="calc()"><span class="unit">円</span></div>
+    </div>
+    <div class="card"><h3>控除</h3>
+        <div class="row"><label>青色申告特別控除</label><input type="number" id="blue" value="650000" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>社会保険料控除</label><input type="number" id="social" value="600000" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>基礎控除</label><input type="number" id="basic" value="480000" readonly><span class="unit">円</span></div>
+    </div>
+
+    <div class="card"><h3>計算結果</h3>
+        <div class="result-grid">
+            <div class="result-item"><div class="label">所得金額</div><div class="value income" id="rIncome">—</div></div>
+            <div class="result-item"><div class="label">課税所得</div><div class="value income" id="rTaxable">—</div></div>
+            <div class="result-item"><div class="label">所得税 + 復興特別税</div><div class="value tax" id="rIncomeTax">—</div></div>
+            <div class="result-item"><div class="label">住民税（概算）</div><div class="value tax" id="rResTax">—</div></div>
+            <div class="result-item"><div class="label">税金合計</div><div class="value tax" id="rTotalTax">—</div><div class="sub" id="rTaxRate"></div></div>
+            <div class="result-item"><div class="label">年間手取り</div><div class="value take" id="rTakeHome">—</div><div class="sub" id="rMonthly"></div></div>
+        </div>
+        <div class="breakdown" id="breakdown"></div>
+    </div>
+
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content">
+        <h2>確定申告シミュレーターについて</h2>
+        <p>フリーランスや副業の方向けに、年間の売上・経費・控除から所得税・住民税・手取りを概算計算するツールです。経費を増やした場合の節税効果もリアルタイムで確認できます。</p>
+        <p>青色申告特別控除（65万円/10万円）、基礎控除（48万円）、社会保険料控除に対応。所得税は累進課税率（5%〜45%）に基づいて計算しています。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+const TAX_BRACKETS=[[1950000,0.05,0],[3300000,0.10,97500],[6950000,0.20,427500],[9000000,0.23,636000],[18000000,0.33,1536000],[40000000,0.40,2796000],[Infinity,0.45,4796000]];
+function calcIncomeTax(taxable){if(taxable<=0)return 0;for(const[limit,rate,deduct]of TAX_BRACKETS){if(taxable<=limit)return Math.floor(taxable*rate-deduct)}return 0}
+function fmt(n){return'¥'+Math.floor(n).toLocaleString()}
+function val(id){return parseInt(document.getElementById(id).value)||0}
+function calc(){
+    const revenue=val('revenue');
+    const expenses=val('exp1')+val('exp2')+val('exp3')+val('exp4')+val('exp5')+val('exp6');
+    const income=Math.max(0,revenue-expenses);
+    const blue=val('blue');
+    const social=val('social');
+    const basic=val('basic');
+    const totalDeductions=blue+social+basic;
+    const taxable=Math.max(0,income-totalDeductions);
+    const incomeTax=calcIncomeTax(taxable);
+    const reconstructionTax=Math.floor(incomeTax*0.021);
+    const totalIncomeTax=incomeTax+reconstructionTax;
+    const resTax=Math.floor(taxable*0.10)+5000;// 住民税概算（10%+均等割5000円）
+    const totalTax=totalIncomeTax+(taxable>0?resTax:0);
+    const takeHome=revenue-expenses-totalTax-social;
+    const taxRate=revenue>0?((totalTax/revenue)*100).toFixed(1):'0';
+    document.getElementById('rIncome').textContent=fmt(income);
+    document.getElementById('rTaxable').textContent=fmt(taxable);
+    document.getElementById('rIncomeTax').textContent=fmt(totalIncomeTax);
+    document.getElementById('rResTax').textContent=fmt(taxable>0?resTax:0);
+    document.getElementById('rTotalTax').textContent=fmt(totalTax);
+    document.getElementById('rTaxRate').textContent=`実効税率: ${taxRate}%`;
+    document.getElementById('rTakeHome').textContent=fmt(takeHome);
+    document.getElementById('rMonthly').textContent=`月額: ${fmt(takeHome/12)}`;
+    document.getElementById('breakdown').innerHTML=`
+        <div class="brow"><span>売上</span><span class="val">${fmt(revenue)}</span></div>
+        <div class="brow"><span>− 経費合計</span><span class="val">${fmt(expenses)}</span></div>
+        <div class="brow"><span>＝ 所得金額</span><span class="val">${fmt(income)}</span></div>
+        <div class="brow"><span>− 控除合計（青色+社保+基礎）</span><span class="val">${fmt(totalDeductions)}</span></div>
+        <div class="brow"><span>＝ 課税所得</span><span class="val">${fmt(taxable)}</span></div>
+        <div class="brow"><span>所得税</span><span class="val">${fmt(incomeTax)}</span></div>
+        <div class="brow"><span>復興特別所得税（2.1%）</span><span class="val">${fmt(reconstructionTax)}</span></div>
+        <div class="brow"><span>住民税（概算10%+均等割）</span><span class="val">${fmt(taxable>0?resTax:0)}</span></div>
+    `;
+}
+calc();
+</script>
+</body>
+</html>

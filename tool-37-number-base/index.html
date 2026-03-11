@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>進数変換ツール | DevTools Japan</title>
+    <meta name="description" content="2進数・8進数・10進数・16進数を相互変換。プログラミング・ネットワーク設計に。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#080810;--bg-card:#101018;--border:#1e1e30;--text:#e0e0f0;--text2:#7878a8;--text3:#404060;--accent:#14b8a6;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0a0a14;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .field{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:10px;display:flex;align-items:center;gap:12px}.field label{min-width:50px;font-size:0.75rem;color:var(--text3)}.field input{flex:1;padding:10px;background:#0a0a14;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:"JetBrains Mono",monospace;font-size:0.95rem;outline:none}.field input:focus{border-color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>進数変換ツール</h1><p>2進数・8進数・10進数・16進数を相互変換。プログラミング・ネットワーク設計に。</p></header>
+    <div class="field"><label>10進</label><input id="dec" value="255" oninput="fromDec()"></div>
+<div class="field"><label>16進</label><input id="hex" value="FF" oninput="fromHex()"></div>
+<div class="field"><label>8進</label><input id="oct" value="377" oninput="fromOct()"></div>
+<div class="field"><label>2進</label><input id="bin" value="11111111" oninput="fromBin()"></div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content"><h2>進数変換ツールについて</h2><p>プログラミングで頻繁に使われる2進数（バイナリ）、8進数（オクタル）、10進数（デシマル）、16進数（ヘキサデシマル）を相互変換するツールです。</p></div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+function update(n){if(isNaN(n))return;document.getElementById('dec').value=n;document.getElementById('hex').value=n.toString(16).toUpperCase();document.getElementById('oct').value=n.toString(8);document.getElementById('bin').value=n.toString(2)}
+function fromDec(){update(parseInt(document.getElementById('dec').value)||0)}
+function fromHex(){update(parseInt(document.getElementById('hex').value,16)||0)}
+function fromOct(){update(parseInt(document.getElementById('oct').value,8)||0)}
+function fromBin(){update(parseInt(document.getElementById('bin').value,2)||0)}
+</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正規表現テスター | リアルタイム正規表現チェック・マッチング</title>
+    <meta name="description" content="正規表現をリアルタイムでテスト。マッチ結果のハイライト表示、グループキャプチャ、フラグ設定に対応。JavaScript正規表現の学習にも。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#080c0a;--bg-card:#101816;--border:#1e2e28;--text:#d8f0e8;--text2:#6098a0;--text3:#385048;--accent:#34d399;--accent-dim:rgba(52,211,153,0.1);--match1:rgba(52,211,153,0.25);--match2:rgba(96,165,250,0.25);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:900px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0a100e;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .regex-input-row{display:flex;gap:8px;margin-bottom:16px;align-items:stretch}
+        .regex-field{flex:1;display:flex;align-items:center;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;padding:0 4px}
+        .regex-field .slash{color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:1.1rem;padding:0 8px}
+        .regex-field input{flex:1;padding:14px 4px;background:transparent;border:none;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.95rem;outline:none}
+        .regex-field input::placeholder{color:var(--text3)}
+        .flags{display:flex;gap:4px}
+        .flag-btn{width:40px;height:48px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:var(--text3);font-family:'JetBrains Mono',monospace;font-size:0.9rem;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center}
+        .flag-btn.active{background:var(--accent-dim);color:var(--accent);border-color:var(--accent)}
+        .pane{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:16px;overflow:hidden}
+        .pane-header{padding:10px 16px;background:#0a110f;border-bottom:1px solid var(--border);font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;display:flex;justify-content:space-between}
+        textarea{width:100%;min-height:180px;background:transparent;border:none;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.8;padding:16px;resize:vertical;outline:none}
+        textarea::placeholder{color:var(--text3)}
+        .highlight-area{min-height:100px;padding:16px;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.8;white-space:pre-wrap;word-break:break-all}
+        .highlight-area mark{background:var(--match1);color:var(--accent);border-radius:2px;padding:1px 0}
+        .highlight-area mark:nth-of-type(even){background:var(--match2);color:#60a5fa}
+        .results-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:24px}
+        .results-card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
+        .match-item{padding:8px 12px;background:rgba(52,211,153,0.05);border-radius:6px;margin-bottom:6px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--text2)}
+        .match-item .idx{color:var(--accent);font-weight:500;margin-right:8px}
+        .match-item .val{color:var(--text)}
+        .match-item .grp{color:#60a5fa;margin-left:12px}
+        .no-match{color:var(--text3);font-size:0.85rem;font-style:italic}
+        .quick-refs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px}
+        .ref-chip{padding:6px 12px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text3);cursor:pointer;transition:all 0.2s}
+        .ref-chip:hover{border-color:var(--accent);color:var(--text)}
+        .ref-chip span{color:var(--text2);font-family:'Noto Sans JP',sans-serif;margin-left:4px}
+        .error-bar{padding:10px 16px;background:rgba(239,68,68,0.08);color:#ef4444;font-size:0.8rem;font-family:'JetBrains Mono',monospace;border-radius:8px;margin-bottom:16px;display:none}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>正規表現テスター</h1><p>リアルタイムで正規表現をテスト。マッチ結果をハイライト表示。</p></header>
+
+    <div class="regex-input-row">
+        <div class="regex-field">
+            <span class="slash">/</span>
+            <input id="regexInput" placeholder="正規表現パターン..." oninput="test()">
+            <span class="slash">/</span>
+        </div>
+        <div class="flags">
+            <button class="flag-btn active" id="fg" onclick="toggleFlag(this)" title="global">g</button>
+            <button class="flag-btn" id="fi" onclick="toggleFlag(this)" title="case insensitive">i</button>
+            <button class="flag-btn active" id="fm" onclick="toggleFlag(this)" title="multiline">m</button>
+        </div>
+    </div>
+
+    <div class="error-bar" id="errorBar"></div>
+
+    <div class="pane"><div class="pane-header"><span>テスト文字列</span></div><textarea id="testStr" placeholder="テストしたい文字列を入力..." oninput="test()">Hello World! こんにちは世界。
+test@example.com
+電話: 090-1234-5678
+2026年3月11日
+https://devtools-japan.com/tools</textarea></div>
+
+    <div class="pane"><div class="pane-header"><span>マッチ結果（ハイライト）</span><span id="matchCount">0 件</span></div><div class="highlight-area" id="highlighted"></div></div>
+
+    <div class="results-card">
+        <h3>マッチ詳細</h3>
+        <div id="matchList"><p class="no-match">正規表現を入力してください</p></div>
+    </div>
+
+    <p style="font-size:0.75rem;color:var(--text3);margin-bottom:8px">クイックリファレンス（クリックで挿入）</p>
+    <div class="quick-refs">
+        <span class="ref-chip" onclick="ins('\\d+')">\d+ <span>数字</span></span>
+        <span class="ref-chip" onclick="ins('[a-zA-Z]+')">[a-zA-Z]+ <span>英字</span></span>
+        <span class="ref-chip" onclick="ins('[\\u3040-\\u309F]+')">[ひらがな] <span>ひらがな</span></span>
+        <span class="ref-chip" onclick="ins('[\\u30A0-\\u30FF]+')">[カタカナ] <span>カタカナ</span></span>
+        <span class="ref-chip" onclick="ins('[\\u4E00-\\u9FFF]+')">[漢字] <span>漢字</span></span>
+        <span class="ref-chip" onclick="ins('[\\w.-]+@[\\w.-]+')">[email] <span>メール</span></span>
+        <span class="ref-chip" onclick="ins('https?://[\\S]+')">[url] <span>URL</span></span>
+        <span class="ref-chip" onclick="ins('\\d{2,4}-\\d{2,4}-\\d{4}')">[tel] <span>電話番号</span></span>
+    </div>
+
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content">
+        <h2>正規表現テスターの使い方</h2>
+        <p>上部のフィールドに正規表現パターンを入力し、テスト文字列に対するマッチ結果をリアルタイムで確認できます。マッチした部分はハイライト表示され、グループキャプチャの内容も確認できます。</p>
+        <p>フラグ（g: グローバル、i: 大文字小文字無視、m: 複数行モード）をクリックで切り替え可能です。JavaScript互換の正規表現エンジンを使用しています。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+function toggleFlag(el){el.classList.toggle('active');test()}
+function getFlags(){let f='';if(document.getElementById('fg').classList.contains('active'))f+='g';if(document.getElementById('fi').classList.contains('active'))f+='i';if(document.getElementById('fm').classList.contains('active'))f+='m';return f}
+function ins(p){document.getElementById('regexInput').value=p;test()}
+function test(){
+    const pattern=document.getElementById('regexInput').value;
+    const str=document.getElementById('testStr').value;
+    const errBar=document.getElementById('errorBar');
+    const hl=document.getElementById('highlighted');
+    const list=document.getElementById('matchList');
+    const countEl=document.getElementById('matchCount');
+    errBar.style.display='none';
+    if(!pattern){hl.textContent=str;list.innerHTML='<p class="no-match">正規表現を入力してください</p>';countEl.textContent='0 件';return}
+    let regex;
+    try{regex=new RegExp(pattern,getFlags())}catch(e){errBar.textContent='エラー: '+e.message;errBar.style.display='block';hl.textContent=str;list.innerHTML='';countEl.textContent='0 件';return}
+    // Highlight
+    const matches=[];let m;const flags=getFlags();
+    if(flags.includes('g')){const r2=new RegExp(pattern,flags);while((m=r2.exec(str))!==null){matches.push({index:m.index,value:m[0],groups:m.slice(1)});if(!m[0])r2.lastIndex++}}
+    else{m=regex.exec(str);if(m)matches.push({index:m.index,value:m[0],groups:m.slice(1)})}
+    countEl.textContent=matches.length+' 件';
+    if(!matches.length){hl.textContent=str;list.innerHTML='<p class="no-match">マッチなし</p>';return}
+    // Build highlighted HTML
+    let html='',last=0;
+    matches.forEach(m=>{html+=escHtml(str.slice(last,m.index))+'<mark>'+escHtml(m.value)+'</mark>';last=m.index+m.value.length});
+    html+=escHtml(str.slice(last));
+    hl.innerHTML=html;
+    // Match list
+    list.innerHTML=matches.map((m,i)=>{let s=`<div class="match-item"><span class="idx">#${i+1}</span><span class="val">"${escHtml(m.value)}"</span> <span style="color:var(--text3)">index: ${m.index}</span>`;if(m.groups.length)m.groups.forEach((g,gi)=>{s+=`<span class="grp">Group ${gi+1}: "${escHtml(g||'')}"</span>`});return s+'</div>'}).join('');
+}
+function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+test();
+</script>
+</body>
+</html>

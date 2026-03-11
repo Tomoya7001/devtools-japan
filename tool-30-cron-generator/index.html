@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cron式ジェネレーター | スケジュール設定を簡単作成</title>
+    <meta name="description" content="Cron式（crontab）を簡単に生成・解読。次回実行時刻の表示付き。定期実行タスクのスケジュール設定に。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#060810;--bg-card:#0c1018;--border:#182030;--text:#d0e0f8;--text2:#5080b8;--text3:#2c4870;--accent:#3b82f6;--accent-dim:rgba(59,130,246,0.1);--green:#22c55e;--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#080c14;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .cron-display{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:20px}
+        .cron-display .expr{font-family:'JetBrains Mono',monospace;font-size:2rem;color:var(--accent);letter-spacing:0.1em;margin-bottom:8px;cursor:pointer}
+        .cron-display .human{font-size:0.9rem;color:var(--green);margin-bottom:4px}
+        .cron-display .next{font-size:0.8rem;color:var(--text2)}
+        .fields{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:20px}
+        @media(max-width:600px){.fields{grid-template-columns:repeat(3,1fr)}}
+        .field{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-align:center}
+        .field label{display:block;font-size:0.65rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
+        .field input{width:100%;padding:8px;background:#080c14;border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:1rem;text-align:center;outline:none}
+        .field input:focus{border-color:var(--accent)}
+        .field .hint{font-size:0.6rem;color:var(--text3);margin-top:4px}
+        .presets{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+        .preset{padding:8px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;font-size:0.75rem;color:var(--text2);cursor:pointer;transition:all 0.2s}
+        .preset:hover{border-color:var(--accent);color:var(--text)}
+        .next-runs{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:24px}
+        .next-runs h3{font-size:0.75rem;color:var(--text3);margin-bottom:10px}
+        .next-runs .run{padding:6px 0;font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--text2);border-bottom:1px solid rgba(24,32,48,0.5)}
+        .ref-table{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:24px}
+        .ref-table h3{font-size:0.75rem;color:var(--text3);margin-bottom:10px}
+        .ref-table table{width:100%;font-size:0.75rem;border-collapse:collapse}
+        .ref-table th{text-align:left;padding:6px 8px;color:var(--text2);border-bottom:1px solid var(--border)}
+        .ref-table td{padding:6px 8px;color:var(--text3);border-bottom:1px solid rgba(24,32,48,0.3)}
+        .ref-table td:first-child{font-family:'JetBrains Mono',monospace;color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>Cron式ジェネレーター</h1><p>crontabのスケジュール式を簡単作成・解読</p></header>
+    <div class="cron-display"><div class="expr" id="cronExpr" onclick="navigator.clipboard.writeText(this.textContent);showToast()">0 9 * * *</div><div class="human" id="humanText">毎日 9:00 に実行</div><div class="next" id="nextRun"></div></div>
+    <div class="fields">
+        <div class="field"><label>分</label><input id="f0" value="0" oninput="update()"><div class="hint">0-59</div></div>
+        <div class="field"><label>時</label><input id="f1" value="9" oninput="update()"><div class="hint">0-23</div></div>
+        <div class="field"><label>日</label><input id="f2" value="*" oninput="update()"><div class="hint">1-31</div></div>
+        <div class="field"><label>月</label><input id="f3" value="*" oninput="update()"><div class="hint">1-12</div></div>
+        <div class="field"><label>曜日</label><input id="f4" value="*" oninput="update()"><div class="hint">0-6 (日-土)</div></div>
+    </div>
+    <p style="font-size:0.75rem;color:var(--text3);margin-bottom:8px">プリセット（クリックで適用）</p>
+    <div class="presets">
+        <span class="preset" onclick="set('0 * * * *')">毎時0分</span>
+        <span class="preset" onclick="set('0 9 * * *')">毎日9:00</span>
+        <span class="preset" onclick="set('0 9 * * 1')">毎週月曜9:00</span>
+        <span class="preset" onclick="set('0 0 1 * *')">毎月1日 0:00</span>
+        <span class="preset" onclick="set('*/5 * * * *')">5分ごと</span>
+        <span class="preset" onclick="set('*/15 * * * *')">15分ごと</span>
+        <span class="preset" onclick="set('0 */2 * * *')">2時間ごと</span>
+        <span class="preset" onclick="set('0 9,18 * * *')">9:00と18:00</span>
+        <span class="preset" onclick="set('0 9 * * 1-5')">平日9:00</span>
+        <span class="preset" onclick="set('0 0 * * 0')">毎週日曜0:00</span>
+    </div>
+    <div class="next-runs"><h3>次の5回の実行予定</h3><div id="nextRuns"></div></div>
+    <div class="ref-table"><h3>Cron式リファレンス</h3>
+        <table><thead><tr><th>記号</th><th>意味</th><th>例</th></tr></thead><tbody>
+            <tr><td>*</td><td>すべての値</td><td>毎分/毎時/毎日...</td></tr>
+            <tr><td>*/n</td><td>n間隔</td><td>*/5 = 5分ごと</td></tr>
+            <tr><td>n,m</td><td>特定の値</td><td>1,15 = 1日と15日</td></tr>
+            <tr><td>n-m</td><td>範囲</td><td>1-5 = 月〜金</td></tr>
+        </tbody></table>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content">
+        <h2>Cron式とは</h2>
+        <p>Cron式（crontab）は、Linux/Unixシステムで定期実行タスクのスケジュールを指定するための書式です。5つのフィールド（分・時・日・月・曜日）で構成され、サーバーの自動バックアップやバッチ処理のスケジューリングに使用されます。</p>
+        <p>このツールでは、Cron式の生成と日本語での意味解説、次回実行時刻の計算を行います。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+const DOW=['日','月','火','水','木','金','土'];
+function set(expr){const p=expr.split(' ');for(let i=0;i<5;i++)document.getElementById('f'+i).value=p[i];update()}
+function update(){
+    const parts=[0,1,2,3,4].map(i=>document.getElementById('f'+i).value.trim()||'*');
+    const expr=parts.join(' ');
+    document.getElementById('cronExpr').textContent=expr;
+    document.getElementById('humanText').textContent=toHuman(parts);
+    calcNext(parts);
+}
+function toHuman(p){
+    const [min,hour,day,month,dow]=p;
+    let parts=[];
+    if(dow!=='*'){
+        if(dow.includes('-')){const[a,b]=dow.split('-');parts.push(`${DOW[a]}〜${DOW[b]}曜日`)}
+        else if(dow.includes(',')){parts.push(dow.split(',').map(d=>DOW[d]+'曜').join('・'))}
+        else parts.push(DOW[dow]+'曜日');
+    }
+    if(month!=='*')parts.push(month+'月');
+    if(day!=='*'){if(day.includes('/'))parts.push(day.replace('*/','')+' 日ごと');else parts.push(day+'日')}
+    if(hour!=='*'){
+        if(hour.includes('/'))parts.push(hour.replace('*/','')+' 時間ごと');
+        else if(hour.includes(','))parts.push(hour.split(',').join('時・')+'時');
+        else parts.push(hour+':'+min.padStart(2,'0'));
+    }else if(min!=='*'){
+        if(min.includes('/'))parts.push(min.replace('*/','')+' 分ごと');
+        else parts.push('毎時 '+min+' 分');
+    }else{parts.push('毎分')}
+    if(!parts.length)return'毎分実行';
+    let prefix=day==='*'&&month==='*'&&dow==='*'?'毎日':'';
+    return(prefix?prefix+' ':'')+parts.join(' ')+'に実行';
+}
+function calcNext(p){
+    const[minF,hourF,dayF,monthF,dowF]=p;
+    const runs=[];
+    const now=new Date();
+    let d=new Date(now);
+    for(let attempt=0;attempt<10000&&runs.length<5;attempt++){
+        d=new Date(d.getTime()+60000);
+        if(!matchField(d.getMonth()+1,monthF))continue;
+        if(!matchField(d.getDate(),dayF))continue;
+        if(!matchField(d.getDay(),dowF))continue;
+        if(!matchField(d.getHours(),hourF))continue;
+        if(!matchField(d.getMinutes(),minF))continue;
+        runs.push(new Date(d));
+    }
+    document.getElementById('nextRuns').innerHTML=runs.map(r=>`<div class="run">${r.toLocaleString('ja-JP',{timeZone:'Asia/Tokyo'})} (${DOW[r.getDay()]})</div>`).join('')||'<div class="run">計算できませんでした</div>';
+}
+function matchField(val,field){
+    if(field==='*')return true;
+    if(field.includes('/')){const step=parseInt(field.split('/')[1]);return val%step===0}
+    if(field.includes(',')){return field.split(',').map(Number).includes(val)}
+    if(field.includes('-')){const[a,b]=field.split('-').map(Number);return val>=a&&val<=b}
+    return parseInt(field)===val;
+}
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+update();
+</script>
+</body>
+</html>

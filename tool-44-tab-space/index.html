@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タブ⇔スペース変換 | DevTools Japan</title>
+    <meta name="description" content="タブとスペースを相互変換。インデント幅指定可能">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#080810;--bg-card:#101018;--border:#1e1e30;--text:#e0e0f0;--text2:#7878a8;--text3:#404060;--accent:#10b981;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0a0a14;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>タブ⇔スペース変換</h1><p>タブとスペースを相互変換。インデント幅指定可能</p></header>
+    <div style="display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap;justify-content:center"><button onclick="conv('t2s')" style="padding:10px 20px;background:var(--accent);color:#000;border:none;border-radius:8px;cursor:pointer;font-family:Noto Sans JP;font-size:0.85rem">Tab → Space</button><button onclick="conv('s2t')" style="padding:10px 20px;background:var(--bg-card);border:1px solid var(--border);color:var(--text2);border-radius:8px;cursor:pointer;font-family:Noto Sans JP;font-size:0.85rem">Space → Tab</button><label style="font-size:0.8rem;color:var(--text2)">スペース数:</label><select id="spaces" style="padding:8px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;color:var(--text);outline:none"><option>2</option><option selected>4</option><option>8</option></select></div>
+<div class="card"><textarea id="input" style="width:100%;min-height:200px;background:#0a0a14;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:JetBrains Mono;font-size:13px;padding:14px;outline:none;resize:vertical;tab-size:4" placeholder="テキストを入力...">function hello() {
+\tconst msg = "Hello";
+\tconsole.log(msg);
+}</textarea></div>
+<div style="text-align:center;margin-bottom:24px"><button onclick="navigator.clipboard.writeText(document.getElementById('input').value);showToast()" style="padding:10px 20px;background:var(--bg-card);border:1px solid var(--border);color:var(--text2);border-radius:8px;cursor:pointer;font-family:Noto Sans JP;font-size:0.85rem">結果をコピー</button></div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content"><h2>タブ⇔スペース変換について</h2><p>タブとスペースを相互変換。インデント幅指定可能。ブラウザ上で動作し、データがサーバーに送信されることはありません。</p></div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+function conv(dir){const ta=document.getElementById('input');const sp=parseInt(document.getElementById('spaces').value);if(dir==='t2s')ta.value=ta.value.replace(/\t/g,' '.repeat(sp));else ta.value=ta.value.replace(new RegExp(' '.repeat(sp),'g'),'\t')}
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>バイト変換ツール | B・KB・MB・GB・TB相互変換</title>
+    <meta name="description" content="バイト(B)、キロバイト(KB)、メガバイト(MB)、ギガバイト(GB)、テラバイト(TB)を相互変換。ファイルサイズ・通信量の換算に。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#080808;--bg-card:#141414;--border:#242424;--text:#e8e8e8;--text2:#888888;--text3:#505050;--accent:#ec4899;--accent-dim:rgba(236,72,153,0.1);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:700px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0c0c0c;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .input-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:20px;display:flex;gap:12px;align-items:end;flex-wrap:wrap}
+        .input-card .field{flex:1;min-width:150px}
+        .input-card label{display:block;font-size:0.75rem;color:var(--text3);margin-bottom:6px}
+        .input-card input{width:100%;padding:12px 14px;background:#0c0c0c;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:1rem;outline:none}
+        .input-card input:focus{border-color:var(--accent)}
+        .input-card select{padding:12px 14px;background:#0c0c0c;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;min-width:100px}
+        .results{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+        .result-row{display:flex;align-items:center;justify-content:space-between;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;transition:all 0.2s}
+        .result-row:hover{border-color:var(--accent);background:var(--accent-dim)}
+        .result-row .unit-name{font-size:0.85rem;color:var(--text2);min-width:100px}
+        .result-row .unit-abbr{font-size:0.7rem;color:var(--text3);margin-left:4px}
+        .result-row .value{font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--text);text-align:right}
+        .note{font-size:0.75rem;color:var(--text3);text-align:center;margin-bottom:24px}
+        .toggle{display:flex;gap:0;margin-bottom:20px;background:var(--bg-card);border-radius:8px;overflow:hidden;border:1px solid var(--border);max-width:400px;margin-left:auto;margin-right:auto}
+        .toggle button{flex:1;padding:10px;font-size:0.8rem;color:var(--text3);cursor:pointer;border:none;background:transparent;font-family:'Noto Sans JP',sans-serif;transition:all 0.2s}
+        .toggle button.active{background:var(--accent-dim);color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>バイト変換ツール</h1><p>B・KB・MB・GB・TBを相互変換</p></header>
+    <div class="toggle"><button class="active" id="b1024" onclick="setBase(1024)">1024基準（KiB）</button><button id="b1000" onclick="setBase(1000)">1000基準（SI）</button></div>
+    <div class="input-card">
+        <div class="field"><label>値を入力</label><input type="number" id="input" value="1" step="any" oninput="convert()"></div>
+        <div class="field" style="flex:0;min-width:100px"><label>単位</label><select id="unit" onchange="convert()"><option value="0">B</option><option value="1">KB</option><option value="2" selected>MB</option><option value="3">GB</option><option value="4">TB</option><option value="5">PB</option></select></div>
+    </div>
+    <div class="results" id="results"></div>
+    <div class="note">クリックで値をコピーできます</div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content">
+        <h2>バイト変換ツールについて</h2>
+        <p>ファイルサイズやデータ通信量の単位変換ツールです。B（バイト）、KB（キロバイト）、MB（メガバイト）、GB（ギガバイト）、TB（テラバイト）、PB（ペタバイト）を相互変換できます。</p>
+        <p>コンピュータの慣習的な1024基準と、SI単位系の1000基準の両方に対応。ストレージ容量の確認や通信量の計算に便利です。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+let base=1024;
+const names1024=['Byte','KiB','MiB','GiB','TiB','PiB'];
+const names1000=['Byte','KB','MB','GB','TB','PB'];
+function setBase(b){base=b;document.getElementById('b1024').classList.toggle('active',b===1024);document.getElementById('b1000').classList.toggle('active',b===1000);convert()}
+function convert(){
+    const val=parseFloat(document.getElementById('input').value)||0;
+    const exp=parseInt(document.getElementById('unit').value);
+    const bytes=val*Math.pow(base,exp);
+    const names=base===1024?names1024:names1000;
+    const el=document.getElementById('results');
+    el.innerHTML=names.map((n,i)=>{
+        const v=bytes/Math.pow(base,i);
+        const display=v===0?'0':v<0.001?v.toExponential(3):v>=1e12?v.toExponential(3):v%1===0?v.toLocaleString():v.toFixed(v<1?6:v<100?4:2);
+        return`<div class="result-row" onclick="navigator.clipboard.writeText('${display}');showToast()"><span class="unit-name">${n}</span><span class="value">${display}</span></div>`;
+    }).join('');
+}
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+convert();
+</script>
+</body>
+</html>

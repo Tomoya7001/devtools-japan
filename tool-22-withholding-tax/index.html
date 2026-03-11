@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>源泉徴収税計算ツール | 報酬の手取り額を即計算</title>
+    <meta name="description" content="フリーランス報酬の源泉徴収税額と手取り額を自動計算。税込・税抜の逆算にも対応。請求書作成の参考に。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#0a080c;--bg-card:#161220;--border:#28203a;--text:#e8e0f4;--text2:#9078b0;--text3:#584070;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.1);--green:#22c55e;--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:700px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0c0a12;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(40,32,58,0.5);flex-wrap:wrap}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1;min-width:120px}
+        .row input,.row select{padding:10px 14px;background:#100c18;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.9rem;outline:none}
+        .row input{width:180px;text-align:right}
+        .row input:focus{border-color:var(--accent)}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}}
+        .result-item{background:#100c18;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent)}
+        .result-item .value.green{color:var(--green)}
+        .result-item .value.red{color:#ef4444}
+        .formula{background:#100c18;border:1px solid var(--border);border-radius:8px;padding:14px;margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--text2);line-height:1.8}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>源泉徴収税計算ツール</h1><p>フリーランス報酬の源泉徴収税額・手取り額を自動計算</p></header>
+    <div class="card"><h3>入力</h3>
+        <div class="row"><label>報酬額（税抜）</label><input type="number" id="amount" value="100000" oninput="calc()"> 円</div>
+        <div class="row"><label>消費税</label><select id="tax" onchange="calc()"><option value="10">10%</option><option value="8">8%（軽減）</option><option value="0">なし</option></select></div>
+        <div class="row"><label>計算方法</label><select id="method" onchange="calc()"><option value="normal">報酬額から源泉徴収税を計算</option><option value="reverse">手取り額から逆算</option></select></div>
+    </div>
+    <div class="card"><h3>計算結果</h3>
+        <div class="result-grid">
+            <div class="result-item"><div class="label">報酬額（税抜）</div><div class="value" id="rBase">—</div></div>
+            <div class="result-item"><div class="label">源泉徴収税額</div><div class="value red" id="rWithhold">—</div></div>
+            <div class="result-item"><div class="label">手取り額</div><div class="value green" id="rNet">—</div></div>
+        </div>
+        <div class="formula" id="formula"></div>
+    </div>
+    <div class="card"><h3>請求書記載例</h3>
+        <div class="formula" id="invoice"></div>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content">
+        <h2>源泉徴収税の計算方法</h2>
+        <p>フリーランスが受け取る報酬（原稿料、デザイン料、コンサルティング料等）からは、支払者が源泉徴収税を差し引いて支払います。税率は報酬額が100万円以下の場合は10.21%、100万円超の部分は20.42%です。</p>
+        <p>消費税が明確に区分されている場合は、税抜金額に対して源泉徴収税を計算します。請求書で消費税を区分記載することで、源泉徴収税額を抑えることができます。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+function fmt(n){return'¥'+Math.floor(n).toLocaleString()}
+function calcWithholding(amount){
+    if(amount<=0)return 0;
+    if(amount<=1000000)return Math.floor(amount*0.1021);
+    return Math.floor(1000000*0.1021+(amount-1000000)*0.2042);
+}
+function reverseCalc(netAmount){
+    // Find gross amount that results in netAmount after withholding
+    // For amounts <=1M: net = gross - gross*0.1021 = gross*0.8979 → gross = net/0.8979
+    let gross=netAmount/0.8979;
+    if(gross>1000000){
+        // net = gross - (1M*0.1021 + (gross-1M)*0.2042)
+        // net = gross - 102100 - 0.2042*gross + 204200
+        // net = gross*(1-0.2042) + 102100
+        // net = 0.7958*gross + 102100
+        gross=(netAmount-102100)/0.7958;
+    }
+    return Math.ceil(gross);
+}
+function calc(){
+    const method=document.getElementById('method').value;
+    const input=parseInt(document.getElementById('amount').value)||0;
+    const taxRate=parseInt(document.getElementById('tax').value)/100;
+    let base,withhold,net,consumptionTax;
+    if(method==='normal'){
+        base=input;
+        withhold=calcWithholding(base);
+        consumptionTax=Math.floor(base*taxRate);
+        net=base+consumptionTax-withhold;
+    }else{
+        // Reverse: input is desired net
+        base=reverseCalc(input);
+        withhold=calcWithholding(base);
+        consumptionTax=Math.floor(base*taxRate);
+        net=base+consumptionTax-withhold;
+    }
+    document.getElementById('rBase').textContent=fmt(base);
+    document.getElementById('rWithhold').textContent=fmt(withhold);
+    document.getElementById('rNet').textContent=fmt(net);
+    const rate=base<=1000000?'10.21%':'10.21%（100万以下）+ 20.42%（100万超）';
+    document.getElementById('formula').innerHTML=`報酬: ${fmt(base)}<br>源泉徴収税率: ${rate}<br>源泉徴収税額: ${fmt(withhold)}<br>消費税（${(taxRate*100)}%）: ${fmt(consumptionTax)}<br>振込額: ${fmt(base)} + ${fmt(consumptionTax)} - ${fmt(withhold)} = <strong style="color:var(--green)">${fmt(net)}</strong>`;
+    document.getElementById('invoice').innerHTML=`報酬金額: ${fmt(base)}<br>消費税（${(taxRate*100)}%）: ${fmt(consumptionTax)}<br>源泉徴収税: -${fmt(withhold)}<br>──────────<br>ご請求金額: <strong style="color:var(--green)">${fmt(net)}</strong>`;
+}
+calc();
+</script>
+</body>
+</html>

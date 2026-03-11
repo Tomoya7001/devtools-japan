@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OGPプレビューチェッカー | SNSシェア表示確認ツール</title>
+    <meta name="description" content="OGP画像・タイトル・説明文を入力して、Twitter・Facebook・LINEでの表示をプレビュー。SNSシェア前の確認に。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#0a0808;--bg-card:#181414;--border:#2e2424;--text:#f0e4e4;--text2:#a07878;--text3:#604444;--accent:#ef4444;--accent-dim:rgba(239,68,68,0.1);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:900px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0c0a0a;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .inputs{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px;display:flex;flex-direction:column;gap:12px}
+        .inputs label{font-size:0.75rem;color:var(--text3);display:block;margin-bottom:4px}
+        .inputs input,.inputs textarea{width:100%;padding:10px 14px;background:#120e0e;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;outline:none}
+        .inputs textarea{min-height:60px;resize:vertical}
+        .inputs input:focus,.inputs textarea:focus{border-color:var(--accent)}
+        .preview-label{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px}
+        .previews{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+        @media(max-width:700px){.previews{grid-template-columns:1fr}}
+        .preview-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+        .preview-card .plabel{padding:8px 14px;background:#120e0e;font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;border-bottom:1px solid var(--border)}
+        .ogp-twitter{background:#15202b;border-radius:12px;overflow:hidden;margin:12px}
+        .ogp-twitter .img{background:#1a2836;height:140px;display:flex;align-items:center;justify-content:center;color:#3d5a73;font-size:0.8rem;background-size:cover;background-position:center}
+        .ogp-twitter .body{padding:10px 14px}
+        .ogp-twitter .body .url{font-size:0.7rem;color:#6e8899;margin-bottom:2px}
+        .ogp-twitter .body .title{font-size:0.85rem;color:#d9d9d9;font-weight:500;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+        .ogp-twitter .body .desc{font-size:0.75rem;color:#6e8899;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+        .ogp-fb{background:#242526;border-radius:8px;overflow:hidden;margin:12px}
+        .ogp-fb .img{background:#3a3b3c;height:140px;display:flex;align-items:center;justify-content:center;color:#606770;font-size:0.8rem;background-size:cover;background-position:center}
+        .ogp-fb .body{padding:10px 14px;background:#3a3b3c}
+        .ogp-fb .body .url{font-size:0.65rem;color:#b0b3b8;text-transform:uppercase;margin-bottom:2px}
+        .ogp-fb .body .title{font-size:0.85rem;color:#e4e6eb;font-weight:600;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+        .ogp-fb .body .desc{font-size:0.75rem;color:#b0b3b8;overflow:hidden;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}
+        .ogp-line{background:#eee;border-radius:8px;overflow:hidden;margin:12px}
+        .ogp-line .img{background:#ddd;height:140px;display:flex;align-items:center;justify-content:center;color:#999;font-size:0.8rem;background-size:cover;background-position:center}
+        .ogp-line .body{padding:10px 14px}
+        .ogp-line .body .title{font-size:0.85rem;color:#333;font-weight:500;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+        .ogp-line .body .desc{font-size:0.75rem;color:#888;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+        .meta-output{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:24px}
+        .meta-output h3{font-size:0.75rem;color:var(--text3);margin-bottom:8px}
+        .meta-output pre{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text2);line-height:1.6;overflow-x:auto;background:#0c0808;padding:12px;border-radius:8px;cursor:pointer}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>OGPプレビューチェッカー</h1><p>SNSでシェアした時の表示をプレビュー確認</p></header>
+    <div class="inputs">
+        <div><label>ページURL</label><input id="url" value="https://example.com/blog/my-article" oninput="render()"></div>
+        <div><label>og:title（タイトル）</label><input id="title" value="AIを使った効率的なプログラミング学習法" oninput="render()"></div>
+        <div><label>og:description（説明文）</label><textarea id="desc" oninput="render()">2026年最新のAIツールを活用して、プログラミングスキルを最速で身につける方法を解説します。</textarea></div>
+        <div><label>og:image URL（画像URL）</label><input id="img" placeholder="https://example.com/ogp.jpg" oninput="render()"></div>
+    </div>
+    <div class="previews">
+        <div class="preview-card"><div class="plabel">X (Twitter) カード</div><div class="ogp-twitter"><div class="img" id="twImg">1200×628 推奨</div><div class="body"><div class="url" id="twUrl">example.com</div><div class="title" id="twTitle"></div><div class="desc" id="twDesc"></div></div></div></div>
+        <div class="preview-card"><div class="plabel">Facebook</div><div class="ogp-fb"><div class="img" id="fbImg">1200×630 推奨</div><div class="body"><div class="url" id="fbUrl">EXAMPLE.COM</div><div class="title" id="fbTitle"></div><div class="desc" id="fbDesc"></div></div></div></div>
+        <div class="preview-card"><div class="plabel">LINE</div><div class="ogp-line"><div class="img" id="liImg">画像プレビュー</div><div class="body"><div class="title" id="liTitle"></div><div class="desc" id="liDesc"></div></div></div></div>
+    </div>
+    <div class="meta-output"><h3>OGPメタタグ（クリックでコピー）</h3><pre id="metaCode" onclick="navigator.clipboard.writeText(this.textContent);showToast()"></pre></div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content">
+        <h2>OGP（Open Graph Protocol）とは</h2>
+        <p>OGPは、SNSでWebページがシェアされた際の表示内容（タイトル、説明文、画像）を指定するためのメタタグ仕様です。適切に設定することで、SNSでのクリック率を大幅に向上させることができます。</p>
+        <p>推奨画像サイズはTwitterカードが1200×628px、Facebook/LINEが1200×630pxです。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+function render(){
+    const url=document.getElementById('url').value;
+    const title=document.getElementById('title').value;
+    const desc=document.getElementById('desc').value;
+    const img=document.getElementById('img').value;
+    const domain=url.replace(/https?:\/\//,'').split('/')[0];
+    document.getElementById('twTitle').textContent=title;
+    document.getElementById('twDesc').textContent=desc;
+    document.getElementById('twUrl').textContent=domain;
+    document.getElementById('fbTitle').textContent=title;
+    document.getElementById('fbDesc').textContent=desc;
+    document.getElementById('fbUrl').textContent=domain.toUpperCase();
+    document.getElementById('liTitle').textContent=title;
+    document.getElementById('liDesc').textContent=desc;
+    if(img){
+        ['twImg','fbImg','liImg'].forEach(id=>{const el=document.getElementById(id);el.style.backgroundImage=`url(${img})`;el.textContent=''});
+    }else{
+        ['twImg','fbImg','liImg'].forEach(id=>{const el=document.getElementById(id);el.style.backgroundImage='';el.textContent='画像URL未設定'});
+    }
+    const esc=s=>s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    document.getElementById('metaCode').textContent=`<meta property="og:title" content="${esc(title)}">\n<meta property="og:description" content="${esc(desc)}">\n<meta property="og:image" content="${esc(img)}">\n<meta property="og:url" content="${esc(url)}">\n<meta property="og:type" content="article">\n<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:title" content="${esc(title)}">\n<meta name="twitter:description" content="${esc(desc)}">\n<meta name="twitter:image" content="${esc(img)}">`;
+}
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+render();
+</script>
+</body>
+</html>

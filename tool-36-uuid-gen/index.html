@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UUID生成ツール | DevTools Japan</title>
+    <meta name="description" content="UUID v4をワンクリックで生成。一括生成にも対応。API開発やDB設計に。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#080810;--bg-card:#101018;--border:#1e1e30;--text:#e0e0f0;--text2:#7878a8;--text3:#404060;--accent:#6366f1;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0a0a14;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .uuid-list{font-family:"JetBrains Mono",monospace;font-size:0.85rem}.uuid-item{padding:10px 14px;background:#0a0a14;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;transition:all 0.15s;color:var(--text2)}.uuid-item:hover{border-color:var(--accent);color:var(--text);background:var(--accent-dim)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>UUID生成ツール</h1><p>UUID v4をワンクリックで生成。一括生成にも対応。API開発やDB設計に。</p></header>
+    <div class="card" style="text-align:center">
+<div id="mainUuid" style="font-family:JetBrains Mono;font-size:1.6rem;color:var(--accent);padding:20px;cursor:pointer;word-break:break-all" onclick="navigator.clipboard.writeText(this.textContent);showToast()">生成中...</div>
+<div style="display:flex;gap:10px;justify-content:center;margin-top:12px">
+<button onclick="genOne()" style="padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:Noto Sans JP;font-size:0.85rem">新規生成</button>
+<button onclick="genBatch()" style="padding:10px 24px;background:var(--bg-card);color:var(--text2);border:1px solid var(--border);border-radius:8px;cursor:pointer;font-family:Noto Sans JP;font-size:0.85rem">10個一括生成</button>
+</div></div>
+<div class="card" id="batchCard" style="display:none"><h3>一括生成結果（クリックでコピー）</h3><div class="uuid-list" id="batchList"></div></div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content"><h2>UUID生成ツールについて</h2><p>UUID（Universally Unique Identifier）はデータベースのプライマリキーやAPIのトークンとして広く使われる一意識別子です。このツールはcrypto.randomUUID()を使用した安全なUUID v4を生成します。</p></div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+function genUuid(){return crypto.randomUUID?crypto.randomUUID():'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const r=Math.random()*16|0;return(c==='x'?r:(r&0x3|0x8)).toString(16)})}
+function genOne(){document.getElementById('mainUuid').textContent=genUuid()}
+function genBatch(){const list=document.getElementById('batchList');const card=document.getElementById('batchCard');
+list.innerHTML=Array.from({length:10},()=>genUuid()).map(u=>'<div class="uuid-item" onclick="navigator.clipboard.writeText(this.textContent);showToast()">'+u+'</div>').join('');card.style.display='block'}
+genOne();
+</script>
+</body>
+</html>

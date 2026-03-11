@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ダミーテキスト生成ツール | 日本語Lorem Ipsum</title>
+    <meta name="description" content="日本語のダミーテキスト（Lorem Ipsum）を自動生成。段落数・文字数を指定可能。Webデザインのモックアップ作成に。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#0c0a08;--bg-card:#1a1610;--border:#2e2818;--text:#f0e8d8;--text2:#a89870;--text3:#685838;--accent:#eab308;--accent-dim:rgba(234,179,8,0.1);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0e0c08;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .settings{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:20px;display:flex;gap:16px;flex-wrap:wrap;align-items:end}
+        .field{display:flex;flex-direction:column;gap:4px}
+        .field label{font-size:0.75rem;color:var(--text3)}
+        .field select,.field input{padding:10px 14px;background:#141008;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;outline:none}
+        .btn{padding:10px 20px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text2);font-size:0.8rem;cursor:pointer;transition:all 0.2s;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{border-color:var(--accent);color:var(--text)}.btn-primary{background:var(--accent);color:#000;border-color:var(--accent);font-weight:500}
+        .output{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:20px;min-height:200px}
+        .output p{margin-bottom:12px;line-height:1.9;color:var(--text2);font-size:0.9rem}
+        .output .count{text-align:right;font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text3);margin-top:12px;padding-top:8px;border-top:1px solid var(--border)}
+        .btn-row{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#000;padding:12px 24px;border-radius:8px;font-size:0.85rem;font-weight:500;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>ダミーテキスト生成</h1><p>日本語のダミーテキスト（Lorem Ipsum）を自動生成</p></header>
+    <div class="settings">
+        <div class="field"><label>言語</label><select id="lang"><option value="ja">日本語</option><option value="en">English（Lorem Ipsum）</option></select></div>
+        <div class="field"><label>段落数</label><input type="number" id="paragraphs" value="3" min="1" max="20"></div>
+        <div class="field"><label>1段落あたりの文数</label><input type="number" id="sentences" value="4" min="1" max="10"></div>
+        <button class="btn btn-primary" onclick="generate()">生成する</button>
+    </div>
+    <div class="output" id="output"></div>
+    <div class="btn-row">
+        <button class="btn" onclick="copyAll()">テキストをコピー</button>
+        <button class="btn" onclick="copyHtml()">HTMLをコピー</button>
+        <button class="btn" onclick="generate()">再生成</button>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content">
+        <h2>ダミーテキスト生成ツールについて</h2>
+        <p>Webデザインのモックアップ作成、印刷物のレイアウト確認、プレゼンテーションの仮テキストなどに使える日本語ダミーテキストを自動生成します。</p>
+        <p>段落数と文数を指定でき、日本語と英語（クラシックなLorem Ipsum）の両方に対応。生成されたテキストはプレーンテキストまたはHTMLタグ付きでコピー可能です。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+const jaS=["私たちは新しい技術の可能性を常に探求しています。","デジタル化が進む現代社会において、情報の価値はますます高まっています。","効率的なワークフローの構築は、組織の成長に不可欠な要素です。","ユーザー体験を中心に据えた設計思想が、優れたプロダクトを生み出します。","データに基づく意思決定が、ビジネスの成功確率を大幅に向上させます。","継続的な学習と改善のサイクルが、長期的な競争優位性を生み出します。","グローバルな視点とローカルな実行力の両立が求められています。","コミュニケーションの質が、チームのパフォーマンスを左右します。","持続可能な成長を実現するためには、環境への配慮が欠かせません。","イノベーションは既存の枠組みを超えることから始まります。","市場の変化に迅速に対応する柔軟性が、企業の生存を左右します。","品質への妥協なきこだわりが、顧客からの信頼を勝ち取ります。","多様性を尊重する文化が、創造性豊かなアイデアを育みます。","テクノロジーの進歩は、人々の生活をより豊かにする力を持っています。","明確なビジョンと戦略が、組織全体の方向性を定めます。"];
+const enS=["Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.","Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.","Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.","Nulla pariatur excepteur sint occaecat cupidatat non proident.","Curabitur pretium tincidunt lacus nulla gravida orci.","Pellentesque habitant morbi tristique senectus et netus et malesuada.","Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.","Maecenas faucibus mollis interdum sed posuere consectetur est at lobortis."];
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)]}
+function generate(){
+    const lang=document.getElementById('lang').value;const pCount=parseInt(document.getElementById('paragraphs').value);const sCount=parseInt(document.getElementById('sentences').value);
+    const src=lang==='ja'?jaS:enS;let html='',total=0;
+    for(let p=0;p<pCount;p++){let para='';for(let s=0;s<sCount;s++)para+=pick(src);html+=`<p>${para}</p>`;total+=[...para].length}
+    html+=`<div class="count">${total.toLocaleString()}文字 / ${pCount}段落</div>`;
+    document.getElementById('output').innerHTML=html;
+}
+function copyAll(){const ps=[...document.querySelectorAll('#output p')].map(p=>p.textContent).join('\n\n');navigator.clipboard.writeText(ps);showToast()}
+function copyHtml(){const ps=[...document.querySelectorAll('#output p')].map(p=>'<p>'+p.textContent+'</p>').join('\n');navigator.clipboard.writeText(ps);showToast()}
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+generate();
+</script>
+</body>
+</html>

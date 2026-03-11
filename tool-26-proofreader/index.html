@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章校正チェッカー | 日本語テキストの表記ゆれ・誤字検出</title>
+    <meta name="description" content="日本語テキストの表記ゆれ、二重助詞、ら抜き言葉、冗長表現を自動検出。ブログ・ビジネス文書の品質向上に。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#08080a;--bg-card:#121216;--border:#222228;--text:#e0e0e8;--text2:#8080a0;--text3:#484860;--accent:#10b981;--accent-dim:rgba(16,185,129,0.1);--warn:#f59e0b;--warn-dim:rgba(245,158,11,0.1);--err:#ef4444;--err-dim:rgba(239,68,68,0.1);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:900px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0a0a0e;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .editor{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:16px;overflow:hidden}
+        .editor-header{padding:10px 16px;background:#0c0c10;border-bottom:1px solid var(--border);font-size:0.75rem;color:var(--text3);display:flex;justify-content:space-between}
+        textarea{width:100%;min-height:200px;background:transparent;border:none;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:14px;line-height:2;padding:16px;resize:vertical;outline:none}
+        .btn-row{display:flex;gap:10px;margin-bottom:20px;justify-content:center}
+        .btn{padding:12px 24px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text2);font-size:0.85rem;cursor:pointer;transition:all 0.2s;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{border-color:var(--accent);color:var(--text)}.btn-primary{background:var(--accent);color:#000;font-weight:500;border-color:var(--accent)}
+        .score-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;margin-bottom:20px}
+        .score-card .score{font-family:'JetBrains Mono',monospace;font-size:3rem;font-weight:700}
+        .score-card .score.good{color:var(--accent)}.score-card .score.warn{color:var(--warn)}.score-card .score.bad{color:var(--err)}
+        .score-card .sub{font-size:0.85rem;color:var(--text2);margin-top:4px}
+        .issues{margin-bottom:24px}
+        .issue{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:8px;display:flex;align-items:start;gap:12px}
+        .issue .badge{padding:4px 10px;border-radius:12px;font-size:0.65rem;font-weight:500;white-space:nowrap;margin-top:2px}
+        .issue .badge.error{background:var(--err-dim);color:var(--err)}.issue .badge.warn{background:var(--warn-dim);color:var(--warn)}.issue .badge.info{background:var(--accent-dim);color:var(--accent)}
+        .issue .body{flex:1}.issue .body .text{font-size:0.85rem;color:var(--text);margin-bottom:4px}.issue .body .suggest{font-size:0.75rem;color:var(--text2)}
+        .no-issues{text-align:center;padding:40px;color:var(--accent);font-size:1.1rem}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>文章校正チェッカー</h1><p>日本語テキストの表記ゆれ・冗長表現・誤用を自動検出</p></header>
+    <div class="editor"><div class="editor-header"><span>テキスト入力</span><span id="charInfo">0文字</span></div>
+    <textarea id="input" oninput="updateCount()">私はこの問題についてについて考えてみました。食べれるものが少ないので、全然大丈夫だと思います。その為、すごいいい結果が出ると思います。彼は走ることが出来ることが出来ます。やっぱりこのプロジェクトはとてもすごく重要です。</textarea></div>
+    <div class="btn-row"><button class="btn btn-primary" onclick="check()">校正チェック</button></div>
+    <div class="score-card" id="scoreCard" style="display:none"><div class="score" id="score"></div><div class="sub" id="scoreSub"></div></div>
+    <div class="issues" id="issues"></div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content">
+        <h2>文章校正チェッカーについて</h2>
+        <p>日本語テキストに含まれる表記ゆれ、二重表現、ら抜き言葉、冗長表現、助詞の重複などを自動検出するツールです。ブログ記事、ビジネスメール、レポート、プレゼン資料の品質向上にお役立てください。</p>
+        <p>100点満点のスコアで文章の品質を評価します。検出された問題には修正提案が表示されます。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+function updateCount(){document.getElementById('charInfo').textContent=[...document.getElementById('input').value].length+'文字'}
+const RULES=[
+    {pattern:/(.{1,4})について\1について/g,type:'error',msg:'「{0}」が重複しています',suggest:'重複を削除してください'},
+    {pattern:/([がのをにへとでやかも])\1/g,type:'error',msg:'助詞「{0}」が連続しています',suggest:'助詞の重複を修正してください'},
+    {pattern:/食べれる|見れる|出れる|起きれる|寝れる|着れる/g,type:'warn',msg:'ら抜き言葉「{0}」',suggest:'「食べられる」「見られる」等に修正を検討'},
+    {pattern:/することができる/g,type:'warn',msg:'冗長表現「することができる」',suggest:'「〜できる」に簡略化できます'},
+    {pattern:/ことが出来る/g,type:'warn',msg:'冗長表現「ことが出来る」',suggest:'「〜できる」に簡略化を検討'},
+    {pattern:/全然[^な]*[いだ](?!め|けない)/g,type:'info',msg:'「全然」の用法を確認',suggest:'「全然〜ない」が本来の用法です（肯定文での使用は口語的）'},
+    {pattern:/すごい(?=[^く])/g,type:'info',msg:'「すごい」→「すごく」',suggest:'副詞として使う場合は「すごく」が文法的に正しい表現です'},
+    {pattern:/とても.{0,4}すごく|すごく.{0,4}とても/g,type:'warn',msg:'強調表現の重複',suggest:'「とても」「すごく」のいずれかに統一してください'},
+    {pattern:/その為/g,type:'info',msg:'「その為」→「そのため」',suggest:'公用文では平仮名表記が推奨されます'},
+    {pattern:/出来る/g,type:'info',msg:'「出来る」→「できる」',suggest:'補助動詞は平仮名表記が一般的です'},
+    {pattern:/(.)\1{3,}/g,type:'warn',msg:'文字「{0}」の過剰な繰り返し',suggest:'繰り返し文字を減らすことを検討してください'},
+    {pattern:/。。|、、|！！|？？/g,type:'warn',msg:'句読点の重複「{0}」',suggest:'句読点は1つにしてください'},
+];
+function check(){
+    const text=document.getElementById('input').value;
+    const issues=[];
+    RULES.forEach(rule=>{
+        let m;const r=new RegExp(rule.pattern.source,rule.pattern.flags);
+        while((m=r.exec(text))!==null){
+            issues.push({type:rule.type,msg:rule.msg.replace('{0}',m[1]||m[0]),suggest:rule.suggest,match:m[0],index:m.index});
+        }
+    });
+    // Score
+    const penalty=issues.reduce((s,i)=>s+(i.type==='error'?15:i.type==='warn'?8:3),0);
+    const score=Math.max(0,100-penalty);
+    const scoreEl=document.getElementById('score');
+    scoreEl.textContent=score+'点';
+    scoreEl.className='score '+(score>=80?'good':score>=50?'warn':'bad');
+    document.getElementById('scoreSub').textContent=issues.length===0?'問題は見つかりませんでした！':`${issues.length}件の指摘があります`;
+    document.getElementById('scoreCard').style.display='block';
+    const el=document.getElementById('issues');
+    if(!issues.length){el.innerHTML='<div class="no-issues">問題は検出されませんでした</div>';return}
+    el.innerHTML=issues.map(i=>`<div class="issue"><span class="badge ${i.type}">${i.type==='error'?'エラー':i.type==='warn'?'警告':'提案'}</span><div class="body"><div class="text">${i.msg}</div><div class="suggest">→ ${i.suggest}</div></div></div>`).join('');
+}
+updateCount();
+</script>
+</body>
+</html>

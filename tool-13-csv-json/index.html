@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV ⇔ JSON変換ツール | CSVとJSONを相互変換</title>
+    <meta name="description" content="CSVとJSONを相互変換するオンラインツール。ファイルアップロードにも対応。データ加工・API連携に便利。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#08090e;--bg-card:#101218;--border:#202838;--text:#d8e0f0;--text2:#6878a8;--text3:#384060;--accent:#0ea5e9;--accent-dim:rgba(14,165,233,0.1);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:1000px;margin:0 auto;padding:32px 20px}
+        .ad-slot{background:#0a0c14;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:24px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:32px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .mode-toggle{display:flex;justify-content:center;gap:0;margin-bottom:20px;background:var(--bg-card);border-radius:8px;overflow:hidden;border:1px solid var(--border);max-width:400px;margin-left:auto;margin-right:auto}
+        .mode-btn{flex:1;padding:12px;text-align:center;font-size:0.85rem;color:var(--text3);cursor:pointer;border:none;background:transparent;font-family:'Noto Sans JP',sans-serif;transition:all 0.2s}
+        .mode-btn.active{background:var(--accent-dim);color:var(--accent)}
+        .editor-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+        @media(max-width:700px){.editor-grid{grid-template-columns:1fr}}
+        .pane{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+        .pane-header{padding:10px 16px;background:#0a0c12;border-bottom:1px solid var(--border);font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em}
+        textarea{width:100%;min-height:300px;background:transparent;border:none;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;padding:16px;resize:vertical;outline:none}
+        textarea::placeholder{color:var(--text3)}
+        .btn-row{display:flex;gap:10px;margin-bottom:20px;justify-content:center;flex-wrap:wrap}
+        .btn{padding:10px 20px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text2);font-family:'Noto Sans JP',sans-serif;font-size:0.8rem;cursor:pointer;transition:all 0.2s}
+        .btn:hover{border-color:var(--accent);color:var(--text)}.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:500}
+        .preview-table{overflow-x:auto;margin-bottom:24px;display:none}
+        .preview-table table{border-collapse:collapse;width:100%;font-size:0.8rem}
+        .preview-table th{background:var(--bg-card);color:var(--accent);padding:8px 12px;border:1px solid var(--border);text-align:left;white-space:nowrap}
+        .preview-table td{padding:8px 12px;border:1px solid var(--border);color:var(--text2);white-space:nowrap}
+        .error-bar{padding:10px 16px;background:rgba(239,68,68,0.08);color:#ef4444;font-size:0.8rem;border-radius:8px;margin-bottom:16px;display:none}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;font-weight:500;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>CSV ⇔ JSON 変換</h1><p>CSVとJSONデータを相互変換。テーブルプレビュー付き。</p></header>
+    <div class="mode-toggle">
+        <button class="mode-btn active" id="mCsv" onclick="setMode('csv2json')">CSV → JSON</button>
+        <button class="mode-btn" id="mJson" onclick="setMode('json2csv')">JSON → CSV</button>
+    </div>
+    <div class="editor-grid">
+        <div class="pane"><div class="pane-header" id="inLabel">入力（CSV）</div><textarea id="inputArea" placeholder="CSVデータを入力..." oninput="convert()">名前,年齢,言語
+田中太郎,28,Python
+佐藤花子,32,JavaScript
+鈴木一郎,25,Rust</textarea></div>
+        <div class="pane"><div class="pane-header" id="outLabel">出力（JSON）</div><textarea id="outputArea" readonly placeholder="変換結果"></textarea></div>
+    </div>
+    <div class="error-bar" id="errBar"></div>
+    <div class="btn-row">
+        <button class="btn btn-primary" onclick="convert()">変換</button>
+        <button class="btn" onclick="navigator.clipboard.writeText(document.getElementById('outputArea').value);showToast()">コピー</button>
+        <button class="btn" onclick="downloadOutput()">ダウンロード</button>
+        <button class="btn" onclick="document.getElementById('inputArea').value='';document.getElementById('outputArea').value=''">クリア</button>
+    </div>
+    <div class="preview-table" id="tablePreview"><table id="previewTbl"></table></div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content">
+        <h2>CSV ⇔ JSON変換ツールについて</h2>
+        <p>CSVファイルのデータをJSON形式に変換、またはJSONデータをCSV形式に変換するツールです。API開発やデータ分析、スプレッドシートとの連携作業に便利です。</p>
+        <p>変換結果はテーブル形式でもプレビューでき、ワンクリックでコピーやダウンロードが可能です。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+let mode='csv2json';
+function setMode(m){mode=m;document.getElementById('mCsv').classList.toggle('active',m==='csv2json');document.getElementById('mJson').classList.toggle('active',m==='json2csv');document.getElementById('inLabel').textContent=m==='csv2json'?'入力（CSV）':'入力（JSON）';document.getElementById('outLabel').textContent=m==='csv2json'?'出力（JSON）':'出力（CSV）';convert()}
+function parseCSV(csv){const lines=csv.trim().split('\n');const headers=lines[0].split(',').map(h=>h.trim());const data=[];for(let i=1;i<lines.length;i++){if(!lines[i].trim())continue;const vals=lines[i].split(',').map(v=>v.trim());const obj={};headers.forEach((h,j)=>{const v=vals[j]||'';obj[h]=isNaN(v)||v===''?v:Number(v)});data.push(obj)}return data}
+function jsonToCSV(json){const arr=JSON.parse(json);if(!Array.isArray(arr)||!arr.length)return'';const headers=Object.keys(arr[0]);return headers.join(',')+'\n'+arr.map(row=>headers.map(h=>{const v=row[h];return typeof v==='string'&&v.includes(',')?`"${v}"`:v??''}).join(',')).join('\n')}
+function convert(){
+    const input=document.getElementById('inputArea').value.trim();
+    const output=document.getElementById('outputArea');
+    const err=document.getElementById('errBar');
+    err.style.display='none';
+    if(!input){output.value='';document.getElementById('tablePreview').style.display='none';return}
+    try{
+        if(mode==='csv2json'){const data=parseCSV(input);output.value=JSON.stringify(data,null,2);showTable(data)}
+        else{const csv=jsonToCSV(input);output.value=csv;try{showTable(JSON.parse(input))}catch(e){}}
+    }catch(e){err.textContent='変換エラー: '+e.message;err.style.display='block';output.value=''}
+}
+function showTable(data){
+    if(!data.length){document.getElementById('tablePreview').style.display='none';return}
+    const headers=Object.keys(data[0]);
+    let html='<thead><tr>'+headers.map(h=>'<th>'+h+'</th>').join('')+'</tr></thead><tbody>';
+    data.slice(0,20).forEach(row=>{html+='<tr>'+headers.map(h=>'<td>'+(row[h]??'')+'</td>').join('')+'</tr>'});
+    html+='</tbody>';
+    document.getElementById('previewTbl').innerHTML=html;
+    document.getElementById('tablePreview').style.display='block';
+}
+function downloadOutput(){
+    const ext=mode==='csv2json'?'json':'csv';
+    const blob=new Blob([document.getElementById('outputArea').value],{type:'text/plain'});
+    const a=document.createElement('a');a.download='converted.'+ext;a.href=URL.createObjectURL(blob);a.click();
+}
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+convert();
+</script>
+</body>
+</html>

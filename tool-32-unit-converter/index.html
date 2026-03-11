@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>単位変換ツール | 長さ・重さ・温度を一括変換</title>
+    <meta name="description" content="長さ、重さ、温度、面積、速度の単位を瞬時に変換。メートル法・ヤードポンド法対応。日常計算に便利。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#0a0806;--bg-card:#181410;--border:#2c2418;--text:#f0e8d8;--text2:#a89068;--text3:#685030;--accent:#f97316;--accent-dim:rgba(249,115,22,0.1);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:700px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0c0a06;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .cat-tabs{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:20px}
+        .cat-tab{padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;font-size:0.8rem;color:var(--text2);cursor:pointer;transition:all 0.2s;font-family:'Noto Sans JP',sans-serif}
+        .cat-tab.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
+        .converter{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px}
+        .conv-row{display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+        .conv-row input{flex:1;min-width:120px;padding:14px;background:#120e08;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:1.1rem;outline:none;text-align:right}
+        .conv-row input:focus{border-color:var(--accent)}
+        .conv-row select{padding:14px;background:#120e08;border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:0.85rem;outline:none;min-width:100px;font-family:'Noto Sans JP',sans-serif}
+        .swap-btn{width:40px;height:40px;background:var(--bg-card);border:1px solid var(--border);border-radius:50%;color:var(--accent);font-size:1.2rem;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center}
+        .swap-btn:hover{background:var(--accent-dim);border-color:var(--accent)}
+        .result-all{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:24px}
+        .result-all h3{font-size:0.75rem;color:var(--text3);margin-bottom:10px}
+        .rrow{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(44,36,24,0.3);font-size:0.8rem;cursor:pointer;transition:background 0.15s;padding:6px 8px;border-radius:4px}
+        .rrow:hover{background:var(--accent-dim)}
+        .rrow .unit{color:var(--text2)}.rrow .val{font-family:'JetBrains Mono',monospace;color:var(--text)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>単位変換ツール</h1><p>長さ・重さ・温度・面積・速度を瞬時に変換</p></header>
+    <div class="cat-tabs" id="tabs"></div>
+    <div class="converter">
+        <div class="conv-row">
+            <input type="number" id="valA" value="1" step="any" oninput="calc()">
+            <select id="unitA" onchange="calc()"></select>
+        </div>
+        <div style="text-align:center;margin-bottom:16px"><button class="swap-btn" onclick="swap()">⇅</button></div>
+        <div class="conv-row">
+            <input type="number" id="valB" readonly>
+            <select id="unitB" onchange="calc()"></select>
+        </div>
+    </div>
+    <div class="result-all"><h3>すべての単位で表示</h3><div id="allResults"></div></div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content">
+        <h2>単位変換ツールについて</h2>
+        <p>メートル法（SI単位系）とヤードポンド法の単位を相互変換するツールです。長さ、重さ、温度、面積、速度の5カテゴリに対応。海外レシピの分量変換、旅行先での距離感覚の換算、技術文書の単位統一などに便利です。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+const CATS={
+    length:{label:'長さ',units:{mm:{name:'ミリメートル',factor:0.001},cm:{name:'センチメートル',factor:0.01},m:{name:'メートル',factor:1},km:{name:'キロメートル',factor:1000},in:{name:'インチ',factor:0.0254},ft:{name:'フィート',factor:0.3048},yd:{name:'ヤード',factor:0.9144},mi:{name:'マイル',factor:1609.344},sun:{name:'寸',factor:0.0303},shaku:{name:'尺',factor:0.3030}}},
+    weight:{label:'重さ',units:{mg:{name:'ミリグラム',factor:0.001},g:{name:'グラム',factor:1},kg:{name:'キログラム',factor:1000},t:{name:'トン',factor:1e6},oz:{name:'オンス',factor:28.3495},lb:{name:'ポンド',factor:453.592},kan:{name:'貫',factor:3750}}},
+    temp:{label:'温度',units:{c:{name:'℃（セルシウス）',factor:'c'},f:{name:'℉（ファーレンハイト）',factor:'f'},k:{name:'K（ケルビン）',factor:'k'}}},
+    area:{label:'面積',units:{mm2:{name:'mm²',factor:1e-6},cm2:{name:'cm²',factor:1e-4},m2:{name:'m²',factor:1},km2:{name:'km²',factor:1e6},ha:{name:'ヘクタール',factor:1e4},a:{name:'アール',factor:100},tsubo:{name:'坪',factor:3.306},sqft:{name:'平方フィート',factor:0.0929}}},
+    speed:{label:'速度',units:{ms:{name:'m/s',factor:1},kmh:{name:'km/h',factor:0.27778},mph:{name:'mph',factor:0.44704},kn:{name:'ノット',factor:0.51444},mach:{name:'マッハ',factor:343}}}
+};
+let activeCat='length';
+const tabs=document.getElementById('tabs');
+Object.entries(CATS).forEach(([k,v])=>{tabs.innerHTML+=`<button class="cat-tab${k==='length'?' active':''}" onclick="setCat('${k}',this)">${v.label}</button>`});
+function setCat(c,btn){activeCat=c;document.querySelectorAll('.cat-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');buildSelects();calc()}
+function buildSelects(){
+    const units=CATS[activeCat].units;const keys=Object.keys(units);
+    const optHtml=keys.map(k=>`<option value="${k}">${units[k].name}</option>`).join('');
+    document.getElementById('unitA').innerHTML=optHtml;
+    document.getElementById('unitB').innerHTML=optHtml;
+    if(keys.length>1)document.getElementById('unitB').selectedIndex=1;
+}
+function convert(val,from,to){
+    const units=CATS[activeCat].units;
+    if(activeCat==='temp'){
+        let c=val;
+        if(from==='f')c=(val-32)*5/9;else if(from==='k')c=val-273.15;
+        if(to==='c')return c;if(to==='f')return c*9/5+32;return c+273.15;
+    }
+    if(!units[from]||!units[to])return 0;return val*units[from].factor/units[to].factor;
+}
+function calc(){
+    const val=parseFloat(document.getElementById('valA').value)||0;
+    const from=document.getElementById('unitA').value;
+    const to=document.getElementById('unitB').value;
+    const result=convert(val,from,to);
+    document.getElementById('valB').value=Number.isInteger(result)?result:result.toPrecision(8);
+    const units=CATS[activeCat].units;
+    document.getElementById('allResults').innerHTML=Object.entries(units).map(([k,u])=>{
+        const v=convert(val,from,k);const display=Number.isInteger(v)?v.toLocaleString():v<0.001?v.toExponential(3):v.toPrecision(6);
+        return`<div class="rrow" onclick="navigator.clipboard.writeText('${display}');showToast()"><span class="unit">${u.name}</span><span class="val">${display}</span></div>`;
+    }).join('');
+}
+function swap(){const a=document.getElementById('unitA'),b=document.getElementById('unitB');const t=a.value;a.value=b.value;b.value=t;calc()}
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+buildSelects();calc();
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>読み上げ時間計算ツール | プレゼン・スピーチの所要時間</title>
+    <meta name="description" content="テキストの読み上げ時間を自動計算。プレゼン、スピーチ、YouTube台本の所要時間が一目でわかる。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#080a0e;--bg-card:#10141c;--border:#1c2838;--text:#d8e4f4;--text2:#6888b0;--text3:#384868;--accent:#0ea5e9;--accent-dim:rgba(14,165,233,0.1);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0a0e14;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .pane{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:20px;overflow:hidden}
+        .pane-header{padding:10px 16px;background:#0c1018;border-bottom:1px solid var(--border);font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;display:flex;justify-content:space-between}
+        textarea{width:100%;min-height:200px;background:transparent;border:none;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:14px;line-height:1.8;padding:16px;resize:vertical;outline:none}
+        textarea::placeholder{color:var(--text3)}
+        .speed-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;justify-content:center}
+        .speed-chip{padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;font-size:0.8rem;color:var(--text2);cursor:pointer;transition:all 0.2s}
+        .speed-chip.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
+        .results{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+        @media(max-width:600px){.results{grid-template-columns:1fr}}
+        .result-item{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--accent)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .breakdown{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:24px}
+        .breakdown h3{font-size:0.75rem;color:var(--text3);margin-bottom:12px}
+        .brow{display:flex;justify-content:space-between;padding:6px 0;font-size:0.8rem;color:var(--text2);border-bottom:1px solid rgba(28,40,56,0.5)}
+        .brow .val{font-family:'JetBrains Mono',monospace;color:var(--text)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>読み上げ時間計算</h1><p>テキストの読み上げ・プレゼン所要時間を自動計算</p></header>
+    <p style="font-size:0.75rem;color:var(--text3);margin-bottom:8px;text-align:center">読み上げ速度を選択</p>
+    <div class="speed-row">
+        <span class="speed-chip" data-speed="250" onclick="setSpeed(this)">ゆっくり（250字/分）</span>
+        <span class="speed-chip active" data-speed="350" onclick="setSpeed(this)">普通（350字/分）</span>
+        <span class="speed-chip" data-speed="450" onclick="setSpeed(this)">早口（450字/分）</span>
+        <span class="speed-chip" data-speed="500" onclick="setSpeed(this)">アナウンサー（500字/分）</span>
+    </div>
+    <div class="pane"><div class="pane-header"><span>テキスト入力</span><span id="charCount">0文字</span></div><textarea id="input" placeholder="プレゼン原稿やスピーチ原稿を入力..." oninput="calc()">本日はお忙しい中お集まりいただき、ありがとうございます。これから、弊社の新しいプロジェクトについてご説明いたします。
+
+まず、プロジェクトの背景についてお話しします。昨今のデジタル化の波は、私たちのビジネスにも大きな変化をもたらしています。特にAI技術の進展は、従来の業務プロセスを根本から変革する可能性を秘めています。
+
+次に、具体的な計画についてご説明します。第一フェーズでは市場調査を実施し、第二フェーズでプロトタイプを開発、第三フェーズで本格的なサービス展開を予定しています。
+
+最後に、期待される成果について触れさせていただきます。本プロジェクトにより、業務効率の30%向上と、新規顧客の20%増加を目指します。
+
+ご質問がございましたら、お気軽にどうぞ。ありがとうございました。</textarea></div>
+    <div class="results">
+        <div class="result-item"><div class="label">読み上げ時間</div><div class="value" id="rTime">—</div><div class="sub" id="rTimeSec"></div></div>
+        <div class="result-item"><div class="label">文字数</div><div class="value" id="rChars">—</div><div class="sub">空白除外</div></div>
+        <div class="result-item"><div class="label">原稿用紙</div><div class="value" id="rPages">—</div><div class="sub">400字詰め</div></div>
+    </div>
+    <div class="breakdown"><h3>各速度での目安</h3>
+        <div class="brow"><span>ゆっくり（250字/分）</span><span class="val" id="bSlow"></span></div>
+        <div class="brow"><span>普通（350字/分）</span><span class="val" id="bNormal"></span></div>
+        <div class="brow"><span>早口（450字/分）</span><span class="val" id="bFast"></span></div>
+        <div class="brow"><span>アナウンサー（500字/分）</span><span class="val" id="bNews"></span></div>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content">
+        <h2>読み上げ時間計算ツールについて</h2>
+        <p>プレゼンテーション、スピーチ、YouTube動画の台本など、テキストを読み上げた際のおおよその所要時間を計算するツールです。日本語の平均的な読み上げ速度は300〜400字/分と言われています。</p>
+        <p>速度は「ゆっくり」「普通」「早口」「アナウンサー」の4段階から選択可能。各速度での目安時間も一覧で確認できます。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+let speed=350;
+function setSpeed(el){speed=parseInt(el.dataset.speed);document.querySelectorAll('.speed-chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');calc()}
+function fmtTime(min){const m=Math.floor(min);const s=Math.round((min-m)*60);return m>0?`${m}分${s>0?s+'秒':''}`:s+'秒'}
+function calc(){
+    const text=document.getElementById('input').value;
+    const chars=[...text.replace(/[\s\u3000]/g,'')].length;
+    const min=chars/speed;
+    document.getElementById('rTime').textContent=fmtTime(min);
+    document.getElementById('rTimeSec').textContent=Math.round(min*60)+'秒';
+    document.getElementById('charCount').textContent=chars+'文字';
+    document.getElementById('rChars').textContent=chars.toLocaleString();
+    document.getElementById('rPages').textContent=(chars/400).toFixed(1)+'枚';
+    document.getElementById('bSlow').textContent=fmtTime(chars/250);
+    document.getElementById('bNormal').textContent=fmtTime(chars/350);
+    document.getElementById('bFast').textContent=fmtTime(chars/450);
+    document.getElementById('bNews').textContent=fmtTime(chars/500);
+}
+calc();
+</script>
+</body>
+</html>

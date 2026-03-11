@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画像圧縮ツール | JPEG・PNG画像を無料でオンライン圧縮</title>
+    <meta name="description" content="画像をブラウザ上で圧縮。サーバーへのアップロード不要でプライバシー安全。JPEG・PNGに対応。品質調整・リサイズも可能。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#0a0608;--bg-card:#161218;--border:#2e2430;--text:#f0e4e8;--text2:#a07888;--text3:#604858;--accent:#f43f5e;--accent-dim:rgba(244,63,94,0.1);--green:#22c55e;--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0e0a0c;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+
+        .dropzone{border:2px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:all 0.3s;margin-bottom:24px;background:var(--bg-card)}
+        .dropzone:hover,.dropzone.dragover{border-color:var(--accent);background:var(--accent-dim)}
+        .dropzone .icon{font-size:3rem;margin-bottom:12px}
+        .dropzone p{color:var(--text2);font-size:0.9rem}
+        .dropzone small{color:var(--text3);font-size:0.75rem}
+        input[type="file"]{display:none}
+
+        .settings{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px;display:none}
+        .settings h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .setting-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .setting-row:last-child{border-bottom:none}
+        .setting-label{font-size:0.85rem;color:var(--text2)}
+        .slider-group{display:flex;align-items:center;gap:12px}
+        .slider-val{font-family:'JetBrains Mono',monospace;font-size:0.9rem;color:var(--accent);min-width:44px;text-align:right}
+        input[type="range"]{-webkit-appearance:none;width:160px;height:6px;background:#1a1218;border-radius:3px;outline:none}
+        input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;background:var(--accent);border-radius:50%;cursor:pointer}
+        select{padding:8px 12px;background:#1a1218;border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Noto Sans JP',sans-serif;outline:none}
+
+        .result{display:none;margin-bottom:24px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+        @media(max-width:640px){.result-grid{grid-template-columns:1fr}}
+        .result-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+        .result-card .label{padding:8px 16px;background:#100c10;border-bottom:1px solid var(--border);font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;display:flex;justify-content:space-between}
+        .result-card img{width:100%;height:200px;object-fit:contain;background:#0a060a}
+        .savings{text-align:center;padding:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:16px}
+        .savings .pct{font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:700;color:var(--green)}
+        .savings .detail{font-size:0.8rem;color:var(--text2);margin-top:4px}
+        .btn{padding:12px 24px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text2);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+        .btn:hover{border-color:var(--accent);color:var(--text)}
+        .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:500}
+        .btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>画像圧縮ツール</h1><p>ブラウザ上で画像を圧縮。サーバー送信なし・プライバシー安全。</p></header>
+
+    <div class="dropzone" id="dropzone" onclick="document.getElementById('fileInput').click()">
+        <div class="icon"></div>
+        <p>クリックまたはドラッグ＆ドロップで画像を選択</p>
+        <small>JPEG・PNG対応 / 最大10MB</small>
+    </div>
+    <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" onchange="handleFile(this.files[0])">
+
+    <div class="settings" id="settings">
+        <h3>圧縮設定</h3>
+        <div class="setting-row">
+            <span class="setting-label">品質</span>
+            <div class="slider-group">
+                <input type="range" id="quality" min="10" max="100" value="75" oninput="document.getElementById('qualVal').textContent=this.value+'%'">
+                <span class="slider-val" id="qualVal">75%</span>
+            </div>
+        </div>
+        <div class="setting-row">
+            <span class="setting-label">最大幅（px）</span>
+            <div class="slider-group">
+                <input type="range" id="maxWidth" min="320" max="4096" value="1920" step="64" oninput="document.getElementById('widthVal').textContent=this.value+'px'">
+                <span class="slider-val" id="widthVal">1920px</span>
+            </div>
+        </div>
+        <div class="setting-row">
+            <span class="setting-label">出力形式</span>
+            <select id="outputFormat"><option value="image/jpeg">JPEG</option><option value="image/png">PNG</option><option value="image/webp">WebP</option></select>
+        </div>
+    </div>
+
+    <div class="btn-row" id="compressRow" style="display:none">
+        <button class="btn btn-primary" onclick="compress()">圧縮する</button>
+        <button class="btn" onclick="reset()">リセット</button>
+    </div>
+
+    <div class="result" id="result">
+        <div class="savings" id="savings">
+            <div class="pct" id="savingPct">-0%</div>
+            <div class="detail" id="savingDetail">0 KB → 0 KB</div>
+        </div>
+        <div class="result-grid">
+            <div class="result-card"><div class="label"><span>元画像</span><span id="origSize">0 KB</span></div><img id="origImg"></div>
+            <div class="result-card"><div class="label"><span>圧縮後</span><span id="compSize">0 KB</span></div><img id="compImg"></div>
+        </div>
+        <div class="btn-row">
+            <button class="btn btn-primary" onclick="download()">ダウンロード</button>
+            <button class="btn" onclick="compress()">再圧縮</button>
+        </div>
+    </div>
+
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content">
+        <h2>画像圧縮ツールについて</h2>
+        <p>画像をブラウザ内で圧縮するため、サーバーへのアップロードは一切不要です。プライバシーが気になる画像も安心して処理できます。JPEG、PNG、WebP形式に対応し、品質とサイズのバランスを自由に調整できます。</p>
+        <p>ブログやWebサイトの画像最適化、メール添付用の軽量化、SNS投稿用のリサイズなど、さまざまな場面でご活用ください。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+let originalFile=null,compressedBlob=null;
+const dz=document.getElementById('dropzone');
+dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('dragover')});
+dz.addEventListener('dragleave',()=>dz.classList.remove('dragover'));
+dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('dragover');if(e.dataTransfer.files[0])handleFile(e.dataTransfer.files[0])});
+
+function handleFile(file){
+    if(!file||!file.type.startsWith('image/'))return;
+    if(file.size>10*1024*1024){alert('10MB以下の画像を選択してください');return}
+    originalFile=file;
+    document.getElementById('origImg').src=URL.createObjectURL(file);
+    document.getElementById('settings').style.display='block';
+    document.getElementById('compressRow').style.display='flex';
+    document.getElementById('result').style.display='none';
+    dz.innerHTML=`<div class="icon">OK</div><p>${file.name}</p><small>${formatSize(file.size)}</small>`;
+}
+
+function compress(){
+    if(!originalFile)return;
+    const quality=parseInt(document.getElementById('quality').value)/100;
+    const maxW=parseInt(document.getElementById('maxWidth').value);
+    const format=document.getElementById('outputFormat').value;
+    const img=new Image();
+    img.onload=()=>{
+        let w=img.width,h=img.height;
+        if(w>maxW){h=Math.round(h*(maxW/w));w=maxW}
+        const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;
+        const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0,w,h);
+        canvas.toBlob(blob=>{
+            compressedBlob=blob;
+            document.getElementById('compImg').src=URL.createObjectURL(blob);
+            const origS=originalFile.size,compS=blob.size;
+            const saving=Math.round((1-compS/origS)*100);
+            document.getElementById('savingPct').textContent=`-${saving}%`;
+            document.getElementById('savingPct').style.color=saving>0?'#22c55e':'#f43f5e';
+            document.getElementById('savingDetail').textContent=`${formatSize(origS)} → ${formatSize(compS)}`;
+            document.getElementById('origSize').textContent=formatSize(origS);
+            document.getElementById('compSize').textContent=formatSize(compS);
+            document.getElementById('result').style.display='block';
+        },format,quality);
+    };
+    img.src=URL.createObjectURL(originalFile);
+}
+
+function download(){
+    if(!compressedBlob)return;
+    const ext=document.getElementById('outputFormat').value.split('/')[1];
+    const a=document.createElement('a');a.download=`compressed.${ext}`;a.href=URL.createObjectURL(compressedBlob);a.click();
+}
+
+function reset(){
+    originalFile=null;compressedBlob=null;
+    document.getElementById('settings').style.display='none';
+    document.getElementById('compressRow').style.display='none';
+    document.getElementById('result').style.display='none';
+    dz.innerHTML='<div class="icon"></div><p>クリックまたはドラッグ＆ドロップで画像を選択</p><small>JPEG・PNG対応 / 最大10MB</small>';
+}
+
+function formatSize(b){return b>1024*1024?(b/1024/1024).toFixed(1)+' MB':(b/1024).toFixed(0)+' KB'}
+</script>
+</body>
+</html>

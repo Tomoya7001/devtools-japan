@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdownプレビュー | リアルタイムMarkdown→HTML変換</title>
+    <meta name="description" content="Markdownをリアルタイムでプレビュー表示。HTML出力のコピーも可能。ブログ執筆やREADME作成に便利な無料オンラインツール。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#0a0a0f;--bg-card:#141420;--border:#252538;--text:#e0e0f0;--text2:#7878a8;--text3:#404060;--accent:#818cf8;--accent-dim:rgba(129,140,248,0.1);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:1200px;margin:0 auto;padding:32px 20px}
+        .ad-slot{background:#0e0e18;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:24px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:28px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .toolbar{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+        .btn{padding:8px 16px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text2);font-size:0.75rem;cursor:pointer;transition:all 0.2s;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{border-color:var(--accent);color:var(--text)}.btn.active{background:var(--accent-dim);color:var(--accent);border-color:var(--accent)}
+        .editor-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:24px;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;min-height:500px}
+        @media(max-width:768px){.editor-grid{grid-template-columns:1fr;min-height:auto}}
+        .pane-header{padding:8px 16px;background:#0c0c18;border-bottom:1px solid var(--border);font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em}
+        .edit-pane{background:var(--bg-card);display:flex;flex-direction:column;border-right:1px solid var(--border)}
+        textarea{flex:1;width:100%;min-height:460px;background:transparent;border:none;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.8;padding:16px;resize:none;outline:none}
+        textarea::placeholder{color:var(--text3)}
+        .preview-pane{background:#111118;display:flex;flex-direction:column}
+        .preview-body{flex:1;padding:20px;overflow:auto;font-size:15px;line-height:1.9;color:var(--text)}
+        .preview-body h1{font-size:1.6rem;margin:20px 0 10px;color:#fff;border-bottom:1px solid var(--border);padding-bottom:8px}
+        .preview-body h2{font-size:1.3rem;margin:18px 0 8px;color:#f0f0ff}
+        .preview-body h3{font-size:1.1rem;margin:14px 0 6px;color:#e0e0f8}
+        .preview-body p{margin:8px 0}
+        .preview-body code{background:rgba(129,140,248,0.12);color:var(--accent);padding:2px 6px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:0.85em}
+        .preview-body pre{background:#0a0a14;border:1px solid var(--border);border-radius:8px;padding:16px;overflow-x:auto;margin:12px 0}
+        .preview-body pre code{background:none;padding:0;color:var(--text2)}
+        .preview-body blockquote{border-left:3px solid var(--accent);padding:8px 16px;margin:12px 0;color:var(--text2);background:var(--accent-dim);border-radius:0 8px 8px 0}
+        .preview-body ul,.preview-body ol{padding-left:24px;margin:8px 0}
+        .preview-body li{margin:4px 0}
+        .preview-body a{color:var(--accent);text-decoration:none}
+        .preview-body strong{color:#fff}
+        .preview-body em{color:var(--text2)}
+        .preview-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+        .preview-body table{border-collapse:collapse;width:100%;margin:12px 0}
+        .preview-body th,.preview-body td{border:1px solid var(--border);padding:8px 12px;text-align:left}
+        .preview-body th{background:var(--bg-card)}
+        .preview-body img{max-width:100%;border-radius:8px}
+        .html-output{display:none;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:24px;overflow:hidden}
+        .html-output textarea{min-height:200px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#000;padding:12px 24px;border-radius:8px;font-size:0.85rem;font-weight:500;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>Markdownプレビュー</h1><p>リアルタイムでMarkdownをプレビュー。HTMLコードも取得可能。</p></header>
+    <div class="toolbar">
+        <button class="btn" onclick="insertMd('**','太字')">B</button>
+        <button class="btn" onclick="insertMd('*','斜体')"><i>I</i></button>
+        <button class="btn" onclick="insertMd('`','コード')">code</button>
+        <button class="btn" onclick="insertLine('## ')">H2</button>
+        <button class="btn" onclick="insertLine('### ')">H3</button>
+        <button class="btn" onclick="insertLine('- ')">リスト</button>
+        <button class="btn" onclick="insertLine('> ')">引用</button>
+        <button class="btn" onclick="insertLine('---')">区切り線</button>
+        <button class="btn" onclick="toggleHtml()" id="btnHtml">HTML表示</button>
+        <button class="btn" onclick="copyHtml()">HTMLコピー</button>
+    </div>
+    <div class="editor-grid">
+        <div class="edit-pane">
+            <div class="pane-header">Markdown入力</div>
+            <textarea id="mdInput" placeholder="# Markdownを入力..." oninput="render()"># Markdownプレビューへようこそ
+
+これは **太字** と *斜体* のテストです。
+
+## 機能一覧
+
+- リアルタイムプレビュー
+- HTMLコード出力
+- ツールバーからの書式挿入
+
+### コードブロック
+
+```
+const hello = "こんにちは";
+console.log(hello);
+```
+
+> これは引用ブロックです。
+> 複数行にも対応しています。
+
+| 言語 | 人気度 |
+|------|--------|
+| Python | ★★★★★ |
+| JavaScript | ★★★★☆ |
+
+---
+
+[DevTools Japan](https://devtools-japan.com) でもっと便利なツールを！</textarea>
+        </div>
+        <div class="preview-pane">
+            <div class="pane-header">プレビュー</div>
+            <div class="preview-body" id="preview"></div>
+        </div>
+    </div>
+    <div class="html-output" id="htmlOutput">
+        <div class="pane-header">HTML出力</div>
+        <textarea id="htmlCode" readonly></textarea>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content">
+        <h2>Markdownプレビューツールについて</h2>
+        <p>Markdownで書いたテキストをリアルタイムでHTMLプレビューするツールです。ブログ記事の下書き、GitHubのREADME作成、ドキュメント執筆など、さまざまな場面で活用できます。</p>
+        <p>見出し、リスト、コードブロック、テーブル、引用、リンク、太字・斜体など主要なMarkdown記法に対応しています。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+function mdToHtml(md){
+    let html=md;
+    // Code blocks first (protect from other parsing)
+    html=html.replace(/```([\s\S]*?)```/g,'<pre><code>$1</code></pre>');
+    // Inline code
+    html=html.replace(/`([^`]+)`/g,'<code>$1</code>');
+    // Tables
+    html=html.replace(/^(\|.+\|)\n(\|[-| :]+\|)\n((?:\|.+\|\n?)*)/gm,(m,header,sep,body)=>{
+        const ths=header.split('|').filter(c=>c.trim()).map(c=>'<th>'+c.trim()+'</th>').join('');
+        const rows=body.trim().split('\n').map(r=>'<tr>'+r.split('|').filter(c=>c.trim()).map(c=>'<td>'+c.trim()+'</td>').join('')+'</tr>').join('');
+        return '<table><thead><tr>'+ths+'</tr></thead><tbody>'+rows+'</tbody></table>';
+    });
+    // Headers
+    html=html.replace(/^### (.+)$/gm,'<h3>$1</h3>');
+    html=html.replace(/^## (.+)$/gm,'<h2>$1</h2>');
+    html=html.replace(/^# (.+)$/gm,'<h1>$1</h1>');
+    // Blockquotes
+    html=html.replace(/^> (.+)$/gm,'<blockquote>$1</blockquote>');
+    html=html.replace(/<\/blockquote>\n<blockquote>/g,'\n');
+    // HR
+    html=html.replace(/^---$/gm,'<hr>');
+    // Bold and italic
+    html=html.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+    html=html.replace(/\*(.+?)\*/g,'<em>$1</em>');
+    // Links
+    html=html.replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2">$1</a>');
+    // Images
+    html=html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g,'<img src="$2" alt="$1">');
+    // Unordered lists
+    html=html.replace(/^- (.+)$/gm,'<li>$1</li>');
+    html=html.replace(/((?:<li>.*<\/li>\n?)+)/g,'<ul>$1</ul>');
+    // Ordered lists
+    html=html.replace(/^\d+\. (.+)$/gm,'<li>$1</li>');
+    // Paragraphs
+    html=html.replace(/^(?!<[hupboltia]|<\/)(.+)$/gm,function(m,p1){return p1.trim()?'<p>'+p1+'</p>':''});
+    // Clean up
+    html=html.replace(/\n{2,}/g,'\n');
+    return html.trim();
+}
+function render(){
+    const md=document.getElementById('mdInput').value;
+    const html=mdToHtml(md);
+    document.getElementById('preview').innerHTML=html;
+    document.getElementById('htmlCode').value=html;
+}
+function insertMd(wrap,placeholder){
+    const ta=document.getElementById('mdInput');
+    const start=ta.selectionStart,end=ta.selectionEnd;
+    const sel=ta.value.substring(start,end)||placeholder;
+    ta.value=ta.value.substring(0,start)+wrap+sel+wrap+ta.value.substring(end);
+    ta.focus();render();
+}
+function insertLine(prefix){
+    const ta=document.getElementById('mdInput');
+    const start=ta.selectionStart;
+    ta.value=ta.value.substring(0,start)+'\n'+prefix+ta.value.substring(start);
+    ta.focus();render();
+}
+function toggleHtml(){
+    const el=document.getElementById('htmlOutput');
+    const show=el.style.display==='none'||!el.style.display;
+    el.style.display=show?'block':'none';
+    document.getElementById('btnHtml').classList.toggle('active',show);
+}
+function copyHtml(){
+    navigator.clipboard.writeText(document.getElementById('htmlCode').value);
+    const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500);
+}
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プレースホルダー画像生成 | DevTools Japan</title>
+    <meta name="description" content="指定サイズのダミー画像URLを生成。Webデザインのモックアップ作成に。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#080810;--bg-card:#101018;--border:#1e1e30;--text:#e0e0f0;--text2:#7878a8;--text3:#404060;--accent:#0ea5e9;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0a0a14;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .preview-img{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;margin-bottom:16px;min-height:200px;display:flex;align-items:center;justify-content:center}.preview-img img{max-width:100%;border-radius:8px}.url-box{font-family:"JetBrains Mono",monospace;font-size:0.75rem;background:#0a0a14;border:1px solid var(--border);border-radius:8px;padding:12px;color:var(--text2);cursor:pointer;word-break:break-all;margin-bottom:8px;transition:all 0.15s}.url-box:hover{border-color:var(--accent);color:var(--text)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>プレースホルダー画像生成</h1><p>指定サイズのダミー画像URLを生成。Webデザインのモックアップ作成に。</p></header>
+    <div class="card">
+<div style="display:flex;gap:12px;flex-wrap:wrap;align-items:end">
+<div><label style="font-size:0.7rem;color:var(--text3);display:block;margin-bottom:4px">幅</label><input id="w" type="number" value="800" style="width:100px;padding:10px;background:#0a0a14;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:JetBrains Mono;outline:none" oninput="gen()"></div>
+<div><label style="font-size:0.7rem;color:var(--text3);display:block;margin-bottom:4px">高さ</label><input id="h" type="number" value="400" style="width:100px;padding:10px;background:#0a0a14;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:JetBrains Mono;outline:none" oninput="gen()"></div>
+<div><label style="font-size:0.7rem;color:var(--text3);display:block;margin-bottom:4px">背景色</label><input type="color" id="bg" value="#1a1a2e" onchange="gen()" style="width:60px;height:38px;border:none;border-radius:6px;cursor:pointer"></div>
+<div><label style="font-size:0.7rem;color:var(--text3);display:block;margin-bottom:4px">文字色</label><input type="color" id="fg" value="#ffffff" onchange="gen()" style="width:60px;height:38px;border:none;border-radius:6px;cursor:pointer"></div>
+<div><label style="font-size:0.7rem;color:var(--text3);display:block;margin-bottom:4px">テキスト</label><input id="txt" value="" placeholder="サイズが入る" style="width:140px;padding:10px;background:#0a0a14;border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:0.8rem;outline:none" oninput="gen()"></div>
+</div></div>
+<div class="preview-img"><canvas id="canvas"></canvas></div>
+<div class="url-box" id="htmlCode" onclick="navigator.clipboard.writeText(this.textContent);showToast()"></div>
+<div style="display:flex;gap:10px;margin-bottom:24px">
+<button onclick="dl()" style="padding:10px 20px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:Noto Sans JP;font-size:0.85rem">ダウンロード</button>
+</div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content"><h2>プレースホルダー画像生成について</h2><p>Webデザインのモックアップやプロトタイプ作成時に使える、指定サイズのプレースホルダー画像URLを生成するツールです。</p></div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+function gen(){
+    const w=parseInt(document.getElementById('w').value)||200,h=parseInt(document.getElementById('h').value)||200;
+    const bg=document.getElementById('bg').value,fg=document.getElementById('fg').value;
+    const txt=document.getElementById('txt').value||w+'×'+h;
+    const c=document.getElementById('canvas');c.width=w;c.height=h;
+    const ctx=c.getContext('2d');ctx.fillStyle=bg;ctx.fillRect(0,0,w,h);
+    const fs=Math.min(w,h)*0.12;ctx.fillStyle=fg;ctx.font=fs+'px JetBrains Mono, monospace';
+    ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(txt,w/2,h/2);
+    document.getElementById('htmlCode').textContent='<img src="data:image/png..." width="'+w+'" height="'+h+'" alt="placeholder">';}
+function dl(){const c=document.getElementById('canvas');const a=document.createElement('a');a.download='placeholder.png';a.href=c.toDataURL();a.click()}
+gen();
+</script>
+</body>
+</html>

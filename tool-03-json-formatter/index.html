@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON整形ツール | JSONフォーマッター・バリデーター</title>
+    <meta name="description" content="JSONデータを見やすく整形・検証するオンラインツール。構文エラーの検出、ミニファイ、ツリー表示にも対応。開発者必須の無料ツール。">
+    <meta name="keywords" content="JSON整形,JSONフォーマッター,JSON検証,JSONバリデーター,JSON変換,JSONビューアー">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0d0d12;
+            --bg-secondary: #13131a;
+            --bg-card: #1a1a24;
+            --bg-input: #111118;
+            --border: #2a2a38;
+            --text-primary: #d8d8e8;
+            --text-secondary: #7878a0;
+            --text-muted: #484868;
+            --accent-orange: #ff8a40;
+            --accent-orange-dim: rgba(255,138,64,0.1);
+            --accent-purple: #a855f7;
+            --accent-green: #22c55e;
+            --accent-red: #ef4444;
+            --accent-blue: #60a5fa;
+            --accent-yellow: #eab308;
+            --json-key: #ff8a40;
+            --json-string: #22c55e;
+            --json-number: #60a5fa;
+            --json-bool: #a855f7;
+            --json-null: #ef4444;
+            --radius: 12px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 32px 20px; }
+        .ad-slot {
+            background: var(--bg-secondary); border: 1px dashed var(--border);
+            border-radius: var(--radius); padding: 20px; text-align: center;
+            color: var(--text-muted); font-size: 12px; margin-bottom: 28px;
+            min-height: 90px; display: flex; align-items: center; justify-content: center;
+        }
+        header { text-align: center; margin-bottom: 32px; }
+        header h1 {
+            font-size: 1.8rem; font-weight: 700; margin-bottom: 8px;
+            color: var(--accent-orange);
+        }
+        header p { color: var(--text-secondary); font-size: 0.85rem; }
+
+        .toolbar {
+            display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;
+            align-items: center;
+        }
+        .btn {
+            padding: 10px 18px; border: 1px solid var(--border); border-radius: 8px;
+            background: var(--bg-card); color: var(--text-secondary);
+            font-family: 'Noto Sans JP', sans-serif; font-size: 0.8rem;
+            cursor: pointer; transition: all 0.2s; white-space: nowrap;
+        }
+        .btn:hover { border-color: var(--accent-orange); color: var(--text-primary); background: var(--accent-orange-dim); }
+        .btn-primary { background: var(--accent-orange); color: #000; border-color: var(--accent-orange); font-weight: 500; }
+        .btn-primary:hover { background: #ffa060; }
+
+        .status-badge {
+            margin-left: auto; padding: 6px 16px; border-radius: 20px;
+            font-size: 0.75rem; font-weight: 500;
+        }
+        .status-valid { background: rgba(34,197,94,0.12); color: var(--accent-green); border: 1px solid rgba(34,197,94,0.2); }
+        .status-invalid { background: rgba(239,68,68,0.12); color: var(--accent-red); border: 1px solid rgba(239,68,68,0.2); }
+        .status-empty { background: var(--bg-card); color: var(--text-muted); border: 1px solid var(--border); }
+
+        .editor-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;
+        }
+        @media (max-width: 768px) {
+            .editor-grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 1.4rem; }
+        }
+
+        .editor-pane {
+            display: flex; flex-direction: column;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); overflow: hidden;
+        }
+        .pane-header {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 10px 16px; background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+        }
+        .pane-title { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+        .pane-info { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); }
+
+        textarea {
+            width: 100%; min-height: 400px; background: var(--bg-input); border: none;
+            color: var(--text-primary); font-family: 'JetBrains Mono', monospace;
+            font-size: 13px; line-height: 1.7; padding: 16px; resize: vertical; outline: none;
+        }
+        textarea::placeholder { color: var(--text-muted); }
+
+        .output-pre {
+            width: 100%; min-height: 400px; background: var(--bg-input);
+            font-family: 'JetBrains Mono', monospace; font-size: 13px;
+            line-height: 1.7; padding: 16px; overflow: auto; white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .error-msg {
+            padding: 12px 16px; background: rgba(239,68,68,0.08);
+            border-top: 1px solid rgba(239,68,68,0.15); color: var(--accent-red);
+            font-size: 0.8rem; font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stats-row {
+            display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px;
+        }
+        .stat-chip {
+            padding: 8px 16px; background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 20px; font-size: 0.75rem; color: var(--text-secondary);
+        }
+        .stat-chip span {
+            font-family: 'JetBrains Mono', monospace; color: var(--accent-orange);
+            font-weight: 500;
+        }
+
+        .seo-content {
+            margin-top: 40px; padding: 32px; background: var(--bg-card);
+            border: 1px solid var(--border); border-radius: var(--radius);
+            color: var(--text-secondary); font-size: 0.85rem; line-height: 2;
+        }
+        .seo-content h2 { color: var(--text-primary); font-size: 1.1rem; margin-bottom: 16px; }
+        .seo-content h3 { color: var(--text-primary); font-size: 0.95rem; margin-top: 20px; margin-bottom: 8px; }
+        .seo-content p { margin-bottom: 12px; }
+
+        footer {
+            text-align: center; margin-top: 48px; padding-top: 24px;
+            border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.75rem;
+        }
+
+        .copied-toast {
+            position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%) translateY(20px);
+            background: var(--accent-green); color: #000; padding: 12px 24px;
+            border-radius: 8px; font-size: 0.85rem; font-weight: 500;
+            opacity: 0; transition: all 0.3s; pointer-events: none; z-index: 100;
+        }
+        .copied-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+        .tab-row {
+            display: flex; gap: 0; margin-bottom: 0;
+        }
+        .tab-btn {
+            padding: 8px 16px; background: transparent; border: none; border-bottom: 2px solid transparent;
+            color: var(--text-muted); font-size: 0.75rem; cursor: pointer; transition: all 0.2s;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .tab-btn.active { color: var(--accent-orange); border-bottom-color: var(--accent-orange); }
+        .tab-btn:hover { color: var(--text-secondary); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+
+        <header>
+            <h1>{ } JSON整形ツール</h1>
+            <p>JSONデータの整形・検証・ミニファイをブラウザ上で実行</p>
+        </header>
+
+        <div class="toolbar">
+            <button class="btn btn-primary" onclick="formatJSON()">整形</button>
+            <button class="btn" onclick="minifyJSON()">ミニファイ</button>
+            <button class="btn" onclick="validateJSON()">検証</button>
+            <button class="btn" onclick="copyOutput()">コピー</button>
+            <button class="btn" onclick="clearAll()">クリア</button>
+            <button class="btn" onclick="loadSample()">サンプル</button>
+            <div class="status-badge status-empty" id="statusBadge">入力待ち</div>
+        </div>
+
+        <div class="editor-grid">
+            <div class="editor-pane">
+                <div class="pane-header">
+                    <span class="pane-title">入力（JSON）</span>
+                    <span class="pane-info" id="inputInfo">0 文字</span>
+                </div>
+                <textarea id="jsonInput" placeholder='ここにJSONを貼り付けてください&#10;&#10;例:&#10;{"name": "太郎", "age": 25}' oninput="onInputChange()"></textarea>
+            </div>
+            <div class="editor-pane">
+                <div class="pane-header">
+                    <div class="tab-row">
+                        <button class="tab-btn active" id="tabFormatted" onclick="switchTab('formatted')">整形済み</button>
+                        <button class="tab-btn" id="tabTree" onclick="switchTab('tree')">ツリー</button>
+                    </div>
+                    <span class="pane-info" id="outputInfo">0 文字</span>
+                </div>
+                <div class="output-pre" id="jsonOutput"><span style="color:var(--text-muted)">結果がここに表示されます</span></div>
+                <div class="error-msg" id="errorMsg" style="display:none"></div>
+            </div>
+        </div>
+
+        <div class="stats-row" id="statsRow" style="display:none">
+            <div class="stat-chip">キー数: <span id="statKeys">0</span></div>
+            <div class="stat-chip">深さ: <span id="statDepth">0</span></div>
+            <div class="stat-chip">配列要素: <span id="statArrays">0</span></div>
+            <div class="stat-chip">サイズ: <span id="statSize">0 B</span></div>
+        </div>
+
+        <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+
+        <div class="seo-content">
+            <h2>JSON整形ツールの使い方</h2>
+            <p>左側のテキストエリアにJSONデータを貼り付け、「整形」ボタンを押すだけで、見やすくインデントされたJSONが右側に表示されます。構文エラーがある場合は、エラー箇所と内容が表示されます。</p>
+            <h3>機能一覧</h3>
+            <p>整形（フォーマット）：インデント付きの見やすいJSONに変換します。ミニファイ：改行やスペースを除去し、1行の最小JSONに圧縮します。検証（バリデーション）：JSON構文の正しさをチェックします。ツリー表示：JSONの階層構造をツリー形式で表示します。</p>
+            <h3>セキュリティについて</h3>
+            <p>入力されたJSONデータはサーバーに送信されません。すべての処理はブラウザ内で完結するため、機密性の高いデータも安全に処理できます。</p>
+        </div>
+
+        <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+
+        <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+    </div>
+
+    <div class="copied-toast" id="toast">コピーしました</div>
+
+    <script>
+        let currentParsed = null;
+        let currentTab = 'formatted';
+
+        function onInputChange() {
+            const input = document.getElementById('jsonInput');
+            document.getElementById('inputInfo').textContent = input.value.length.toLocaleString() + ' 文字';
+            if (input.value.trim()) {
+                try {
+                    JSON.parse(input.value);
+                    setStatus('valid');
+                } catch {
+                    setStatus('invalid');
+                }
+            } else {
+                setStatus('empty');
+            }
+        }
+
+        function setStatus(type) {
+            const badge = document.getElementById('statusBadge');
+            badge.className = 'status-badge';
+            if (type === 'valid') { badge.classList.add('status-valid'); badge.textContent = '有効なJSON'; }
+            else if (type === 'invalid') { badge.classList.add('status-invalid'); badge.textContent = '構文エラー'; }
+            else { badge.classList.add('status-empty'); badge.textContent = '入力待ち'; }
+        }
+
+        function formatJSON() {
+            const input = document.getElementById('jsonInput').value.trim();
+            const output = document.getElementById('jsonOutput');
+            const error = document.getElementById('errorMsg');
+            error.style.display = 'none';
+            if (!input) return;
+            try {
+                const parsed = JSON.parse(input);
+                currentParsed = parsed;
+                const formatted = JSON.stringify(parsed, null, 2);
+                if (currentTab === 'formatted') {
+                    output.innerHTML = syntaxHighlight(formatted);
+                } else {
+                    output.innerHTML = renderTree(parsed);
+                }
+                document.getElementById('outputInfo').textContent = formatted.length.toLocaleString() + ' 文字';
+                setStatus('valid');
+                updateStats(parsed, formatted);
+            } catch (e) {
+                error.textContent = 'エラー: ' + e.message;
+                error.style.display = 'block';
+                output.innerHTML = '<span style="color:var(--accent-red)">JSONの解析に失敗しました</span>';
+                setStatus('invalid');
+                document.getElementById('statsRow').style.display = 'none';
+            }
+        }
+
+        function minifyJSON() {
+            const input = document.getElementById('jsonInput').value.trim();
+            const output = document.getElementById('jsonOutput');
+            const error = document.getElementById('errorMsg');
+            error.style.display = 'none';
+            if (!input) return;
+            try {
+                const parsed = JSON.parse(input);
+                const mini = JSON.stringify(parsed);
+                output.textContent = mini;
+                document.getElementById('outputInfo').textContent = mini.length.toLocaleString() + ' 文字';
+                setStatus('valid');
+            } catch (e) {
+                error.textContent = 'エラー: ' + e.message;
+                error.style.display = 'block';
+                setStatus('invalid');
+            }
+        }
+
+        function validateJSON() {
+            const input = document.getElementById('jsonInput').value.trim();
+            const error = document.getElementById('errorMsg');
+            if (!input) return;
+            try {
+                JSON.parse(input);
+                error.style.display = 'none';
+                setStatus('valid');
+                document.getElementById('jsonOutput').innerHTML = '<span style="color:var(--accent-green);font-size:1.2rem">有効なJSONです</span>';
+            } catch (e) {
+                error.textContent = 'エラー: ' + e.message;
+                error.style.display = 'block';
+                setStatus('invalid');
+            }
+        }
+
+        function syntaxHighlight(json) {
+            return json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                .replace(/("(\\u[\da-fA-F]{4}|\\[^u]|[^\\"])*"(\s*:)?)/g, function(match) {
+                    if (/:$/.test(match)) return '<span style="color:var(--json-key)">' + match.slice(0,-1) + '</span>:';
+                    return '<span style="color:var(--json-string)">' + match + '</span>';
+                })
+                .replace(/\b(true|false)\b/g, '<span style="color:var(--json-bool)">$1</span>')
+                .replace(/\bnull\b/g, '<span style="color:var(--json-null)">null</span>')
+                .replace(/\b(-?\d+\.?\d*([eE][+-]?\d+)?)\b/g, '<span style="color:var(--json-number)">$1</span>');
+        }
+
+        function renderTree(obj, indent = 0) {
+            const pad = '  '.repeat(indent);
+            let html = '';
+            if (Array.isArray(obj)) {
+                html += '<span style="color:var(--text-muted)">[</span>\n';
+                obj.forEach((item, i) => {
+                    html += pad + '  ' + renderTree(item, indent + 1);
+                    if (i < obj.length - 1) html += '<span style="color:var(--text-muted)">,</span>';
+                    html += '\n';
+                });
+                html += pad + '<span style="color:var(--text-muted)">]</span>';
+            } else if (obj !== null && typeof obj === 'object') {
+                html += '<span style="color:var(--text-muted)">{</span>\n';
+                const keys = Object.keys(obj);
+                keys.forEach((key, i) => {
+                    html += pad + '  <span style="color:var(--json-key)">"' + key + '"</span>: ' + renderTree(obj[key], indent + 1);
+                    if (i < keys.length - 1) html += '<span style="color:var(--text-muted)">,</span>';
+                    html += '\n';
+                });
+                html += pad + '<span style="color:var(--text-muted)">}</span>';
+            } else if (typeof obj === 'string') {
+                html += '<span style="color:var(--json-string)">"' + obj.replace(/</g,'&lt;') + '"</span>';
+            } else if (typeof obj === 'number') {
+                html += '<span style="color:var(--json-number)">' + obj + '</span>';
+            } else if (typeof obj === 'boolean') {
+                html += '<span style="color:var(--json-bool)">' + obj + '</span>';
+            } else {
+                html += '<span style="color:var(--json-null)">null</span>';
+            }
+            return html;
+        }
+
+        function switchTab(tab) {
+            currentTab = tab;
+            document.getElementById('tabFormatted').classList.toggle('active', tab === 'formatted');
+            document.getElementById('tabTree').classList.toggle('active', tab === 'tree');
+            if (currentParsed !== null) {
+                const output = document.getElementById('jsonOutput');
+                if (tab === 'formatted') {
+                    output.innerHTML = syntaxHighlight(JSON.stringify(currentParsed, null, 2));
+                } else {
+                    output.innerHTML = renderTree(currentParsed);
+                }
+            }
+        }
+
+        function updateStats(parsed, formatted) {
+            const stats = document.getElementById('statsRow');
+            stats.style.display = 'flex';
+            document.getElementById('statKeys').textContent = countKeys(parsed);
+            document.getElementById('statDepth').textContent = getDepth(parsed);
+            document.getElementById('statArrays').textContent = countArrayItems(parsed);
+            const bytes = new Blob([formatted]).size;
+            document.getElementById('statSize').textContent = bytes > 1024 ? (bytes/1024).toFixed(1)+' KB' : bytes+' B';
+        }
+
+        function countKeys(obj) {
+            let count = 0;
+            if (obj && typeof obj === 'object') {
+                if (!Array.isArray(obj)) count += Object.keys(obj).length;
+                Object.values(obj).forEach(v => count += countKeys(v));
+            }
+            return count;
+        }
+
+        function getDepth(obj) {
+            if (!obj || typeof obj !== 'object') return 0;
+            const depths = Object.values(obj).map(v => getDepth(v));
+            return 1 + (depths.length ? Math.max(...depths) : 0);
+        }
+
+        function countArrayItems(obj) {
+            let count = 0;
+            if (Array.isArray(obj)) count += obj.length;
+            if (obj && typeof obj === 'object') {
+                Object.values(obj).forEach(v => count += countArrayItems(v));
+            }
+            return count;
+        }
+
+        function copyOutput() {
+            const output = document.getElementById('jsonOutput');
+            navigator.clipboard.writeText(output.textContent);
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 1500);
+        }
+
+        function clearAll() {
+            document.getElementById('jsonInput').value = '';
+            document.getElementById('jsonOutput').innerHTML = '<span style="color:var(--text-muted)">結果がここに表示されます</span>';
+            document.getElementById('errorMsg').style.display = 'none';
+            document.getElementById('statsRow').style.display = 'none';
+            document.getElementById('inputInfo').textContent = '0 文字';
+            document.getElementById('outputInfo').textContent = '0 文字';
+            currentParsed = null;
+            setStatus('empty');
+        }
+
+        function loadSample() {
+            const sample = {
+                "会社名": "DevTools Japan",
+                "設立年": 2026,
+                "サービス": ["JSON整形", "文字数カウント", "パスワード生成"],
+                "運営者": { "名前": "開発太郎", "経験年数": 5 },
+                "公開中": true,
+                "備考": null
+            };
+            document.getElementById('jsonInput').value = JSON.stringify(sample);
+            onInputChange();
+            formatJSON();
+        }
+    </script>
+</body>
+</html>

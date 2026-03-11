@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPアドレス確認ツール | あなたのグローバルIP表示</title>
+    <meta name="description" content="あなたのグローバルIPアドレスを瞬時に表示。IPv4/IPv6対応。IPアドレスの基本情報も確認可能。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#060810;--bg-card:#0e1220;--border:#1a2238;--text:#d0daf0;--text2:#5878b8;--text3:#2c4070;--accent:#6366f1;--accent-dim:rgba(99,102,241,0.1);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:700px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#080c16;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .ip-display{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:40px 24px;text-align:center;margin-bottom:24px}
+        .ip-display .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px}
+        .ip-display .ip{font-family:'JetBrains Mono',monospace;font-size:2.4rem;font-weight:700;color:var(--accent);cursor:pointer;transition:opacity 0.2s;word-break:break-all}
+        .ip-display .ip:hover{opacity:0.8}
+        .ip-display .hint{font-size:0.75rem;color:var(--text3);margin-top:8px}
+        .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+        @media(max-width:500px){.info-grid{grid-template-columns:1fr}}
+        .info-item{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px}
+        .info-item .label{font-size:0.65rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .info-item .value{font-family:'JetBrains Mono',monospace;font-size:0.9rem;color:var(--text)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>IPアドレス確認</h1><p>あなたのグローバルIPアドレスを表示</p></header>
+    <div class="ip-display">
+        <div class="label">あなたのIPアドレス</div>
+        <div class="ip" id="ipAddr" onclick="navigator.clipboard.writeText(this.textContent);showToast()">取得中...</div>
+        <div class="hint">クリックでコピー</div>
+    </div>
+    <div class="info-grid">
+        <div class="info-item"><div class="label">プロトコル</div><div class="value" id="proto">—</div></div>
+        <div class="info-item"><div class="label">ユーザーエージェント</div><div class="value" id="ua" style="font-size:0.7rem;word-break:break-all">—</div></div>
+        <div class="info-item"><div class="label">画面解像度</div><div class="value" id="screen">—</div></div>
+        <div class="info-item"><div class="label">言語</div><div class="value" id="lang">—</div></div>
+        <div class="info-item"><div class="label">タイムゾーン</div><div class="value" id="tz">—</div></div>
+        <div class="info-item"><div class="label">オンライン状態</div><div class="value" id="online">—</div></div>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content">
+        <h2>IPアドレスとは</h2>
+        <p>IPアドレスは、インターネットに接続された機器に割り当てられる一意の番号です。Webサイトへのアクセス時、サーバーはあなたのIPアドレスを認識してデータを送り返します。</p>
+        <p>このツールでは、外部APIを使用してグローバルIPアドレスを取得・表示しています。プライベートIPアドレス（ローカルIP）とは異なり、インターネット上で一意に識別されるアドレスです。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+fetch('https://api.ipify.org?format=json').then(r=>r.json()).then(d=>{
+    document.getElementById('ipAddr').textContent=d.ip;
+    document.getElementById('proto').textContent=d.ip.includes(':')?'IPv6':'IPv4';
+}).catch(()=>{document.getElementById('ipAddr').textContent='取得に失敗しました';});
+document.getElementById('ua').textContent=navigator.userAgent;
+document.getElementById('screen').textContent=screen.width+'×'+screen.height+' (DPR: '+devicePixelRatio+')';
+document.getElementById('lang').textContent=navigator.language;
+document.getElementById('tz').textContent=Intl.DateTimeFormat().resolvedOptions().timeZone;
+document.getElementById('online').textContent=navigator.onLine?'オンライン':'オフライン';
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+</script>
+</body>
+</html>

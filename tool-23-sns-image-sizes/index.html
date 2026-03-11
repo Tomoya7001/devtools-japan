@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNS画像サイズ一覧 | Twitter・Instagram・YouTube推奨サイズ</title>
+    <meta name="description" content="X(Twitter)、Instagram、YouTube、LINE、Facebookの推奨画像サイズ一覧。各SNSに最適なサイズが一目でわかる早見表。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#080810;--bg-card:#101020;--border:#202040;--text:#e0e0f8;--text2:#7880b0;--text3:#404068;--accent:#3b82f6;--accent-dim:rgba(59,130,246,0.1);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:900px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0a0a14;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;justify-content:center}
+        .filter-btn{padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;font-size:0.8rem;color:var(--text2);cursor:pointer;transition:all 0.2s;font-family:'Noto Sans JP',sans-serif}
+        .filter-btn.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
+        .filter-btn:hover{border-color:var(--accent)}
+        .size-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:24px}
+        .size-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;transition:all 0.2s;cursor:pointer}
+        .size-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+        .size-card .platform{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .size-card .name{font-size:0.9rem;color:var(--text);font-weight:500;margin-bottom:8px}
+        .size-card .dims{font-family:'JetBrains Mono',monospace;font-size:1.1rem;color:var(--accent);margin-bottom:6px}
+        .size-card .ratio{font-size:0.75rem;color:var(--text3)}
+        .size-card .preview{margin-top:10px;background:#08081a;border:1px solid var(--border);border-radius:4px;position:relative}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;font-weight:500;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>SNS画像サイズ一覧</h1><p>各SNSの推奨画像サイズ早見表（2026年最新）</p></header>
+    <div class="filter" id="filterRow"></div>
+    <div class="size-grid" id="grid"></div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content">
+        <h2>SNS画像サイズについて</h2>
+        <p>SNSに画像を投稿する際、推奨サイズに合わせることで、画質の劣化やトリミングを防ぎ、最適な表示が可能になります。各プラットフォームによって推奨サイズが異なるため、用途に合ったサイズを確認しましょう。</p>
+        <p>サイズカードをクリックすると、サイズ情報をクリップボードにコピーできます。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+const DATA=[
+    {p:'X (Twitter)',n:'投稿画像（1枚）',w:1200,h:675,r:'16:9'},
+    {p:'X (Twitter)',n:'投稿画像（2枚）',w:700,h:800,r:'7:8'},
+    {p:'X (Twitter)',n:'ヘッダー画像',w:1500,h:500,r:'3:1'},
+    {p:'X (Twitter)',n:'プロフィール画像',w:400,h:400,r:'1:1'},
+    {p:'Instagram',n:'フィード投稿（正方形）',w:1080,h:1080,r:'1:1'},
+    {p:'Instagram',n:'フィード投稿（縦長）',w:1080,h:1350,r:'4:5'},
+    {p:'Instagram',n:'ストーリーズ / リール',w:1080,h:1920,r:'9:16'},
+    {p:'Instagram',n:'プロフィール画像',w:320,h:320,r:'1:1'},
+    {p:'YouTube',n:'サムネイル',w:1280,h:720,r:'16:9'},
+    {p:'YouTube',n:'チャンネルアート',w:2560,h:1440,r:'16:9'},
+    {p:'YouTube',n:'プロフィール画像',w:800,h:800,r:'1:1'},
+    {p:'LINE',n:'リッチメッセージ',w:1040,h:1040,r:'1:1'},
+    {p:'LINE',n:'リッチメニュー（大）',w:2500,h:1686,r:'約3:2'},
+    {p:'LINE',n:'プロフィール画像',w:480,h:480,r:'1:1'},
+    {p:'Facebook',n:'投稿画像',w:1200,h:630,r:'約1.9:1'},
+    {p:'Facebook',n:'カバー画像',w:851,h:315,r:'約2.7:1'},
+    {p:'Facebook',n:'プロフィール画像',w:170,h:170,r:'1:1'},
+    {p:'TikTok',n:'動画サムネイル',w:1080,h:1920,r:'9:16'},
+    {p:'OGP',n:'OGP画像（推奨）',w:1200,h:630,r:'約1.9:1'},
+    {p:'OGP',n:'Twitterカード',w:1200,h:628,r:'約1.9:1'},
+    {p:'note',n:'見出し画像',w:1280,h:670,r:'約1.9:1'},
+];
+const platforms=[...new Set(DATA.map(d=>d.p))];
+let activeFilter='all';
+const filterRow=document.getElementById('filterRow');
+filterRow.innerHTML='<button class="filter-btn active" onclick="filter(\'all\',this)">すべて</button>'+platforms.map(p=>`<button class="filter-btn" onclick="filter('${p}',this)">${p}</button>`).join('');
+function filter(p,btn){
+    activeFilter=p;
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    render();
+}
+function render(){
+    const items=activeFilter==='all'?DATA:DATA.filter(d=>d.p===activeFilter);
+    const grid=document.getElementById('grid');
+    const maxW=120;
+    grid.innerHTML=items.map(d=>{
+        const scale=maxW/Math.max(d.w,d.h);
+        const pw=Math.round(d.w*scale);const ph=Math.round(d.h*scale);
+        return`<div class="size-card" onclick="navigator.clipboard.writeText('${d.w}×${d.h}');showToast()">
+            <div class="platform">${d.p}</div>
+            <div class="name">${d.n}</div>
+            <div class="dims">${d.w} × ${d.h}</div>
+            <div class="ratio">アスペクト比: ${d.r}</div>
+            <div class="preview"><div style="width:${pw}px;height:${ph}px;background:var(--accent-dim);border:1px solid var(--accent);border-radius:2px;margin:8px auto;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:var(--accent)">${d.w}×${d.h}</div></div>
+        </div>`}).join('');
+}
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+render();
+</script>
+</body>
+</html>

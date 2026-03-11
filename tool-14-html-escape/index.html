@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML特殊文字変換ツール | エスケープ・アンエスケープ</title>
+    <meta name="description" content="HTMLの特殊文字（&lt; &gt; &amp;等）をエスケープ・アンエスケープ変換。HTML実体参照一覧付き。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#0a0c08;--bg-card:#141810;--border:#243018;--text:#e4f0d8;--text2:#80a860;--text3:#405828;--accent:#84cc16;--accent-dim:rgba(132,204,22,0.1);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:900px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0c0e08;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .toggle{display:flex;justify-content:center;gap:0;margin-bottom:20px;background:var(--bg-card);border-radius:8px;overflow:hidden;border:1px solid var(--border);max-width:400px;margin-left:auto;margin-right:auto}
+        .toggle button{flex:1;padding:12px;text-align:center;font-size:0.85rem;color:var(--text3);cursor:pointer;border:none;background:transparent;font-family:'Noto Sans JP',sans-serif;transition:all 0.2s}
+        .toggle button.active{background:var(--accent-dim);color:var(--accent)}
+        .pane{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:16px;overflow:hidden}
+        .pane-header{padding:10px 16px;background:#0e1208;border-bottom:1px solid var(--border);font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em}
+        textarea{width:100%;min-height:180px;background:transparent;border:none;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;padding:16px;resize:vertical;outline:none}
+        .btn-row{display:flex;gap:10px;margin-bottom:24px;justify-content:center;flex-wrap:wrap}
+        .btn{padding:10px 20px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text2);font-size:0.8rem;cursor:pointer;transition:all 0.2s;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{border-color:var(--accent);color:var(--text)}.btn-primary{background:var(--accent);color:#000;border-color:var(--accent);font-weight:500}
+        .ref-table{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:24px}
+        .ref-table h3{padding:12px 16px;font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;border-bottom:1px solid var(--border)}
+        .ref-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0}
+        .ref-item{display:flex;justify-content:space-between;padding:8px 16px;border-bottom:1px solid rgba(36,48,24,0.3);font-family:'JetBrains Mono',monospace;font-size:0.8rem;cursor:pointer;transition:background 0.15s}
+        .ref-item:hover{background:var(--accent-dim)}
+        .ref-item .char{color:var(--accent)}.ref-item .entity{color:var(--text2)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#000;padding:12px 24px;border-radius:8px;font-size:0.85rem;font-weight:500;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>lt;/&gt; HTML特殊文字変換</h1><p>HTMLの特殊文字をエスケープ・アンエスケープ変換</p></header>
+    <div class="toggle"><button class="active" id="bEsc" onclick="setDir('esc')">エスケープ（→実体参照）</button><button id="bUn" onclick="setDir('un')">アンエスケープ（→文字）</button></div>
+    <div class="pane"><div class="pane-header" id="inLbl">入力（HTML）</div><textarea id="input" placeholder='<div class="test">&amp; 文字</div>' oninput="conv()"><div class="hello">こんにちは & 世界</div></textarea></div>
+    <div class="pane"><div class="pane-header" id="outLbl">出力（エスケープ済み）</div><textarea id="output" readonly></textarea></div>
+    <div class="btn-row">
+        <button class="btn btn-primary" onclick="conv()">変換</button>
+        <button class="btn" onclick="navigator.clipboard.writeText(document.getElementById('output').value);showToast()">コピー</button>
+        <button class="btn" onclick="document.getElementById('input').value='';document.getElementById('output').value=''">クリア</button>
+    </div>
+    <div class="ref-table"><h3>よく使うHTML実体参照</h3><div class="ref-grid" id="refGrid"></div></div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content">
+        <h2>HTML特殊文字変換ツールについて</h2>
+        <p>HTMLで特別な意味を持つ文字（&lt; &gt; &amp; &quot;等）を実体参照に変換するツールです。ブログにコードを掲載する際や、XSS対策としてユーザー入力をサニタイズする際に活用できます。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+let dir='esc';
+const refs=[['<','&lt;'],['>','&gt;'],['&','&amp;'],['"','&quot;'],["'",'&#39;'],['©','&copy;'],['®','&reg;'],['™','&trade;'],['¥','&yen;'],['€','&euro;'],['£','&pound;'],['×','&times;'],['÷','&divide;'],['±','&plusmn;'],['≤','&le;'],['≥','&ge;'],['≠','&ne;'],['∞','&infin;'],['←','&larr;'],['→','&rarr;'],['↑','&uarr;'],['↓','&darr;'],['♠','&spades;'],['♥','&hearts;'],['　','&emsp;'],[' ','&nbsp;']];
+const grid=document.getElementById('refGrid');
+refs.forEach(([c,e])=>{grid.innerHTML+=`<div class="ref-item" onclick="navigator.clipboard.writeText('${e}');showToast()"><span class="char">${c==='<'?'&lt;':c==='>'?'&gt;':c==='&'?'&amp;':c}</span><span class="entity">${e.replace(/&/g,'&amp;')}</span></div>`});
+function setDir(d){dir=d;document.getElementById('bEsc').classList.toggle('active',d==='esc');document.getElementById('bUn').classList.toggle('active',d==='un');conv()}
+function conv(){
+    const i=document.getElementById('input').value;
+    if(dir==='esc'){document.getElementById('output').value=i.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
+    else{const ta=document.createElement('textarea');ta.innerHTML=i;document.getElementById('output').value=ta.value}
+}
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+conv();
+</script>
+</body>
+</html>

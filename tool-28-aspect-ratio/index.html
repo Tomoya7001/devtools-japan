@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アスペクト比計算ツール | 画像・動画のサイズ比率計算</title>
+    <meta name="description" content="画像や動画のアスペクト比を自動計算。幅・高さから比率を求め、リサイズ後のサイズも算出。Web制作・動画編集に。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#0a080e;--bg-card:#14101c;--border:#261e38;--text:#e4dcf8;--text2:#8870c0;--text3:#504080;--accent:#a855f7;--accent-dim:rgba(168,85,247,0.1);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0c0a10;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .input-row{display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+        .input-row input{width:120px;padding:10px 14px;background:#100c18;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:1rem;outline:none;text-align:center}
+        .input-row input:focus{border-color:var(--accent)}
+        .input-row .sep{font-size:1.2rem;color:var(--text3)}
+        .result-big{text-align:center;padding:20px;background:#100c18;border:1px solid var(--border);border-radius:var(--radius);margin-bottom:16px}
+        .result-big .ratio{font-family:'JetBrains Mono',monospace;font-size:2.5rem;font-weight:700;color:var(--accent)}
+        .result-big .sub{font-size:0.85rem;color:var(--text2);margin-top:8px}
+        .presets{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+        .preset{padding:8px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;font-size:0.75rem;color:var(--text2);cursor:pointer;transition:all 0.2s;font-family:'JetBrains Mono',monospace}
+        .preset:hover{border-color:var(--accent);color:var(--text)}
+        .preset.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
+        .preview-box{display:flex;justify-content:center;margin-bottom:16px}
+        .preview-rect{border:2px solid var(--accent);border-radius:4px;transition:all 0.3s;max-width:100%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--accent)}
+        .resize-card .input-row{margin-bottom:8px}
+        .resize-result{font-family:'JetBrains Mono',monospace;font-size:1.1rem;color:var(--accent);text-align:center;padding:8px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>アスペクト比計算</h1><p>画像・動画の幅と高さからアスペクト比を自動計算</p></header>
+    <div class="card"><h3>サイズ入力</h3>
+        <div class="input-row"><span style="font-size:0.8rem;color:var(--text2)">幅</span><input type="number" id="w" value="1920" oninput="calc()"><span class="sep">×</span><span style="font-size:0.8rem;color:var(--text2)">高さ</span><input type="number" id="h" value="1080" oninput="calc()"><span style="font-size:0.8rem;color:var(--text3)">px</span></div>
+    </div>
+    <div class="result-big"><div class="ratio" id="ratioText">16 : 9</div><div class="sub" id="ratioSub">1920 × 1080 pixels</div></div>
+    <div class="preview-box"><div class="preview-rect" id="preview" style="width:240px;height:135px">16:9</div></div>
+    <p style="font-size:0.75rem;color:var(--text3);margin-bottom:8px">よく使うアスペクト比（クリックで適用）</p>
+    <div class="presets">
+        <span class="preset" onclick="setRatio(16,9)">16:9</span>
+        <span class="preset" onclick="setRatio(4,3)">4:3</span>
+        <span class="preset" onclick="setRatio(1,1)">1:1</span>
+        <span class="preset" onclick="setRatio(9,16)">9:16</span>
+        <span class="preset" onclick="setRatio(21,9)">21:9</span>
+        <span class="preset" onclick="setRatio(3,2)">3:2</span>
+        <span class="preset" onclick="setRatio(4,5)">4:5</span>
+    </div>
+    <div class="card resize-card"><h3>リサイズ計算（比率を維持）</h3>
+        <div class="input-row"><span style="font-size:0.8rem;color:var(--text2)">新しい幅</span><input type="number" id="newW" value="1280" oninput="resize('w')"><span style="font-size:0.8rem;color:var(--text3)">px →</span><span class="resize-result" id="resW">高さ: 720px</span></div>
+        <div class="input-row"><span style="font-size:0.8rem;color:var(--text2)">新しい高さ</span><input type="number" id="newH" value="720" oninput="resize('h')"><span style="font-size:0.8rem;color:var(--text3)">px →</span><span class="resize-result" id="resH">幅: 1280px</span></div>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content">
+        <h2>アスペクト比計算ツールについて</h2>
+        <p>画像や動画の幅と高さからアスペクト比を自動計算するツールです。リサイズ時の比率維持計算にも対応。Web制作、動画編集、SNS画像の作成時に正しいアスペクト比を確認できます。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b]}return a}
+function calc(){
+    const w=parseInt(document.getElementById('w').value)||1;
+    const h=parseInt(document.getElementById('h').value)||1;
+    const g=gcd(w,h);
+    const rw=w/g,rh=h/g;
+    document.getElementById('ratioText').textContent=`${rw} : ${rh}`;
+    document.getElementById('ratioSub').textContent=`${w} × ${h} pixels (${(w/h).toFixed(4)})`;
+    const maxPx=240;const scale=maxPx/Math.max(w,h);
+    const pw=Math.max(40,Math.round(w*scale)),ph=Math.max(30,Math.round(h*scale));
+    const prev=document.getElementById('preview');
+    prev.style.width=pw+'px';prev.style.height=ph+'px';prev.textContent=`${rw}:${rh}`;
+    resize('w');resize('h');
+}
+function setRatio(rw,rh){const base=1920;document.getElementById('w').value=rw>rh?base:Math.round(base*rw/rh);document.getElementById('h').value=rh>rw?base:Math.round(base*rh/rw);calc()}
+function resize(dir){
+    const w=parseInt(document.getElementById('w').value)||1;
+    const h=parseInt(document.getElementById('h').value)||1;
+    if(dir==='w'){const nw=parseInt(document.getElementById('newW').value)||0;document.getElementById('resW').textContent=`高さ: ${Math.round(nw*h/w)}px`}
+    else{const nh=parseInt(document.getElementById('newH').value)||0;document.getElementById('resH').textContent=`幅: ${Math.round(nh*w/h)}px`}
+}
+calc();
+</script>
+</body>
+</html>

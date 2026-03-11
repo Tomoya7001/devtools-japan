@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>絵文字検索ツール | DevTools Japan</title>
+    <meta name="description" content="絵文字をキーワードで検索・コピー">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#080810;--bg-card:#101018;--border:#1e1e30;--text:#e0e0f0;--text2:#7878a8;--text3:#404060;--accent:#f59e0b;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0a0a14;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .emoji-item{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:12px 8px;text-align:center;cursor:pointer;transition:all 0.2s}
+.emoji-item:hover{border-color:var(--accent);transform:translateY(-2px)}
+.emoji-item .em{font-size:1.6rem;display:block;margin-bottom:4px}
+.emoji-item .kw{font-size:0.6rem;color:var(--text3);display:block}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>絵文字検索ツール</h1><p>絵文字をキーワードで検索・コピー</p></header>
+    <div style="margin-bottom:16px"><input id="searchInput" placeholder="キーワードで検索（例: 笑顔、ハート、食べ物）" style="width:100%;padding:14px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:0.95rem;outline:none"><span id="count" style="font-size:0.75rem;color:var(--text3);float:right;margin-top:4px"></span></div>
+<div id="grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px;margin-bottom:24px"></div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content"><h2>絵文字検索ツールについて</h2>
+<p>キーワードで絵文字を検索。クリックでコピー。Slack・メール・SNS投稿に。</p></div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">✓ コピーしました</div>
+<script>
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+const EMOJIS=[
+['😀','笑顔 嬉しい スマイル'],['😂','笑い 涙 爆笑'],['🥹','感動 泣き笑い'],['😍','好き 愛 ハート目'],['🤔','考える 疑問 思考'],
+['👍','いいね 賛成 OK'],['👎','ダメ 反対'],['👏','拍手 おめでとう'],['🙏','お願い ありがとう 感謝'],['💪','頑張る 筋肉 力'],
+['❤️','ハート 愛 好き'],['🔥','炎 熱い 人気'],['⭐','星 お気に入り'],['✅','チェック 完了 OK'],['❌','バツ ダメ 禁止'],
+['⚠️','警告 注意'],['💡','ひらめき アイデア'],['📌','ピン 固定'],['📝','メモ 書く'],['📊','グラフ 統計'],
+['💻','パソコン PC'],['📱','スマホ 携帯'],['🎯','的 目標 ゴール'],['🚀','ロケット 打ち上げ 開始'],['🎉','お祝い パーティ'],
+['☀️','太陽 晴れ'],['🌙','月 夜'],['🌈','虹 レインボー'],['☔','傘 雨'],['❄️','雪 冬'],
+['🍎','りんご 果物'],['🍕','ピザ 食べ物'],['☕','コーヒー カフェ'],['🍺','ビール 乾杯'],['🎂','ケーキ 誕生日'],
+['🐱','猫 ねこ'],['🐶','犬 いぬ'],['🐻','熊 くま'],['🐼','パンダ'],['🦊','きつね 狐'],
+['🏠','家 ホーム'],['🏢','ビル オフィス'],['🚗','車 ドライブ'],['✈️','飛行機 旅行'],['🚃','電車'],
+['📅','カレンダー 日付'],['⏰','時計 アラーム'],['🔑','鍵 キー'],['🔒','ロック 鍵'],['📎','クリップ 添付'],
+['💰','お金 金'],['💳','クレジットカード 支払い'],['📈','上昇 グラフ'],['📉','下降 グラフ'],['🏆','トロフィー 優勝'],
+['🎮','ゲーム コントローラー'],['🎵','音楽 音符'],['📷','カメラ 写真'],['🎬','映画 動画'],['📚','本 読書'],
+['💎','ダイヤ 宝石'],['🌍','地球 世界'],['🔔','ベル 通知'],['📢','メガホン アナウンス'],['💬','吹き出し コメント'],
+['✨','キラキラ 輝き'],['🎊','クラッカー 祝い'],['🤝','握手 契約'],['💯','100点 満点 パーフェクト'],['🆕','新しい NEW']
+];
+const grid=document.getElementById('grid');
+const input=document.getElementById('searchInput');
+function render(){
+    const q=input.value.toLowerCase();
+    const filtered=q?EMOJIS.filter(([e,k])=>k.includes(q)):EMOJIS;
+    document.getElementById('count').textContent=filtered.length+'件';
+    grid.innerHTML=filtered.map(([e,k])=>'<div class="emoji-item" onclick="navigator.clipboard.writeText(\''+e+'\');showToast()"><span class="em">'+e+'</span><span class="kw">'+k.split(' ').slice(0,2).join(' ')+'</span></div>').join('');
+}
+input.addEventListener('input',render);render();
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+</script>
+</body>
+</html>

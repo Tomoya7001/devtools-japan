@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URLエンコード・デコードツール | パーセントエンコーディング変換</title>
+    <meta name="description" content="URLの日本語やパラメータをエンコード・デコード。パーセントエンコーディング対応。API開発やSEO対策に便利な無料ツール。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#0a0810;--bg-card:#14121e;--border:#28243a;--text:#e0ddf0;--text2:#7870a0;--text3:#443e60;--accent:#e879f9;--accent-dim:rgba(232,121,249,0.1);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:900px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0e0c16;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .mode-toggle{display:flex;justify-content:center;gap:0;margin-bottom:24px;background:var(--bg-card);border-radius:8px;overflow:hidden;border:1px solid var(--border);max-width:500px;margin-left:auto;margin-right:auto}
+        .mode-btn{flex:1;padding:12px;text-align:center;font-size:0.85rem;color:var(--text3);cursor:pointer;border:none;background:transparent;font-family:'Noto Sans JP',sans-serif;transition:all 0.2s}
+        .mode-btn.active{background:var(--accent-dim);color:var(--accent)}
+        .pane{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:16px;overflow:hidden}
+        .pane-header{padding:10px 16px;background:#100e1a;border-bottom:1px solid var(--border);font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;display:flex;justify-content:space-between}
+        textarea{width:100%;min-height:160px;background:transparent;border:none;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;padding:16px;resize:vertical;outline:none}
+        textarea::placeholder{color:var(--text3)}
+        .btn-row{display:flex;gap:10px;margin-bottom:24px;justify-content:center;flex-wrap:wrap}
+        .btn{padding:12px 24px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text2);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;cursor:pointer;transition:all 0.2s}
+        .btn:hover{border-color:var(--accent);color:var(--text)}
+        .btn-primary{background:var(--accent);color:#000;border-color:var(--accent);font-weight:500}
+        .example-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;justify-content:center}
+        .chip{padding:8px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;font-size:0.75rem;color:var(--text2);cursor:pointer;transition:all 0.2s}
+        .chip:hover{border-color:var(--accent);color:var(--text)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#000;padding:12px 24px;border-radius:8px;font-size:0.85rem;font-weight:500;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>URLエンコード・デコード</h1><p>URLのパーセントエンコーディングを変換。日本語URL対応。</p></header>
+
+    <div class="mode-toggle">
+        <button class="mode-btn active" id="mEnc" onclick="setMode('enc')">エンコード</button>
+        <button class="mode-btn" id="mDec" onclick="setMode('dec')">デコード</button>
+        <button class="mode-btn" id="mComp" onclick="setMode('comp')">encodeURIComponent</button>
+    </div>
+
+    <p style="font-size:0.75rem;color:var(--text3);margin-bottom:8px;text-align:center">サンプルを選択:</p>
+    <div class="example-chips">
+        <span class="chip" onclick="setExample('https://example.com/検索?q=東京タワー&lang=ja')">日本語URL</span>
+        <span class="chip" onclick="setExample('key=value&name=太郎&city=大阪')">クエリパラメータ</span>
+        <span class="chip" onclick="setExample('Hello World! こんにちは')">絵文字テキスト</span>
+    </div>
+
+    <div class="pane"><div class="pane-header"><span id="inLabel">入力（テキスト/URL）</span><span id="inSize">0文字</span></div><textarea id="inputArea" placeholder="URLまたはテキストを入力..." oninput="convert()"></textarea></div>
+    <div class="pane"><div class="pane-header"><span id="outLabel">出力（エンコード済み）</span><span id="outSize">0文字</span></div><textarea id="outputArea" readonly placeholder="変換結果"></textarea></div>
+
+    <div class="btn-row">
+        <button class="btn btn-primary" onclick="convert()">変換</button>
+        <button class="btn" onclick="navigator.clipboard.writeText(document.getElementById('outputArea').value);showToast()">コピー</button>
+        <button class="btn" onclick="document.getElementById('inputArea').value=document.getElementById('outputArea').value;document.getElementById('outputArea').value='';convert()">入れ替え</button>
+        <button class="btn" onclick="document.getElementById('inputArea').value='';document.getElementById('outputArea').value=''">クリア</button>
+    </div>
+
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content">
+        <h2>URLエンコードとは</h2>
+        <p>URLエンコード（パーセントエンコーディング）は、URLに含められない文字（日本語、スペース、特殊記号など）を%XXの形式に変換する方式です。Web開発、API連携、SEO対策で頻繁に使われます。</p>
+        <p>encodeURI()はURL全体をエンコードし、encodeURIComponent()はパラメータ値など部分的なエンコードに使います。このツールでは両方の方式に対応しています。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+let mode='enc';
+function setMode(m){mode=m;document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));document.getElementById({enc:'mEnc',dec:'mDec',comp:'mComp'}[m]).classList.add('active');convert()}
+function setExample(t){document.getElementById('inputArea').value=t;convert()}
+function convert(){
+    const i=document.getElementById('inputArea').value,o=document.getElementById('outputArea');
+    try{if(mode==='enc')o.value=encodeURI(i);else if(mode==='dec')o.value=decodeURIComponent(i);else o.value=encodeURIComponent(i)}catch(e){o.value='変換エラー: '+e.message}
+    document.getElementById('inSize').textContent=[...i].length+'文字';document.getElementById('outSize').textContent=[...o.value].length+'文字';
+}
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+</script>
+</body>
+</html>

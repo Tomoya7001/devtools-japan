@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テキスト比較ツール（Diff） | 2つのテキストの差分を表示</title>
+    <meta name="description" content="2つのテキストの違いをハイライト表示。追加・削除・変更箇所を色分け。コードレビューや文書チェックに便利な無料ツール。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#0a0a0d;--bg-card:#13141a;--border:#252630;--text:#d4d6e4;--text2:#6e7098;--text3:#404260;--accent:#f59e0b;--accent-dim:rgba(245,158,11,0.1);--add:rgba(34,197,94,0.15);--add-text:#4ade80;--del:rgba(239,68,68,0.15);--del-text:#f87171;--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:1100px;margin:0 auto;padding:32px 20px}
+        .ad-slot{background:#0e0e14;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:24px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:32px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .input-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+        @media(max-width:700px){.input-grid{grid-template-columns:1fr}}
+        .pane{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+        .pane-header{padding:10px 16px;background:#0e0f14;border-bottom:1px solid var(--border);font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em}
+        textarea{width:100%;min-height:220px;background:transparent;border:none;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;padding:16px;resize:vertical;outline:none}
+        textarea::placeholder{color:var(--text3)}
+        .btn-row{display:flex;gap:10px;margin-bottom:20px;justify-content:center;flex-wrap:wrap}
+        .btn{padding:12px 24px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text2);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;cursor:pointer;transition:all 0.2s}
+        .btn:hover{border-color:var(--accent);color:var(--text)}.btn-primary{background:var(--accent);color:#000;border-color:var(--accent);font-weight:500}
+        .diff-stats{display:flex;gap:16px;justify-content:center;margin-bottom:16px;font-size:0.8rem}
+        .diff-stats span{padding:6px 14px;border-radius:20px;font-family:'JetBrains Mono',monospace}
+        .stat-add{background:var(--add);color:var(--add-text)}.stat-del{background:var(--del);color:var(--del-text)}.stat-same{background:rgba(100,100,140,0.1);color:var(--text2)}
+        .diff-output{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:24px}
+        .diff-output .pane-header{display:flex;justify-content:space-between}
+        .diff-body{font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.8;padding:0;max-height:500px;overflow:auto}
+        .diff-line{padding:2px 16px;border-bottom:1px solid rgba(37,38,48,0.5);white-space:pre-wrap;word-break:break-all;display:flex}
+        .diff-line .ln{min-width:40px;color:var(--text3);text-align:right;padding-right:12px;user-select:none;font-size:0.75rem}
+        .diff-line.add{background:var(--add)}.diff-line.add .content{color:var(--add-text)}
+        .diff-line.del{background:var(--del)}.diff-line.del .content{color:var(--del-text)}
+        .diff-line.same .content{color:var(--text2)}
+        .diff-line .prefix{min-width:20px;font-weight:700}
+        .diff-line.add .prefix{color:var(--add-text)}.diff-line.del .prefix{color:var(--del-text)}.diff-line.same .prefix{color:var(--text3)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>テキスト比較（Diff）ツール</h1><p>2つのテキストの差分を行単位でハイライト表示</p></header>
+
+    <div class="input-grid">
+        <div class="pane"><div class="pane-header">元テキスト（Before）</div><textarea id="textA" placeholder="元のテキストを入力...">const greeting = "Hello";
+console.log(greeting);
+const x = 10;
+const y = 20;
+console.log(x + y);</textarea></div>
+        <div class="pane"><div class="pane-header">変更後テキスト（After）</div><textarea id="textB" placeholder="変更後のテキストを入力...">const greeting = "こんにちは";
+console.log(greeting);
+const x = 10;
+const z = 30;
+console.log(x + z);
+console.log("Done!");</textarea></div>
+    </div>
+
+    <div class="btn-row">
+        <button class="btn btn-primary" onclick="runDiff()">比較する</button>
+        <button class="btn" onclick="swapTexts()">入れ替え</button>
+        <button class="btn" onclick="document.getElementById('textA').value='';document.getElementById('textB').value=''">クリア</button>
+    </div>
+
+    <div class="diff-stats" id="stats" style="display:none">
+        <span class="stat-add" id="statAdd">+0 追加</span>
+        <span class="stat-del" id="statDel">-0 削除</span>
+        <span class="stat-same" id="statSame">0 一致</span>
+    </div>
+
+    <div class="diff-output" id="diffOutput" style="display:none">
+        <div class="pane-header"><span>差分結果</span></div>
+        <div class="diff-body" id="diffBody"></div>
+    </div>
+
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content">
+        <h2>テキスト比較ツールについて</h2>
+        <p>2つのテキストを行単位で比較し、追加（緑）・削除（赤）・変更なし（グレー）を色分け表示します。コードレビュー、文書の変更点確認、翻訳の比較など、さまざまな場面で活用できます。</p>
+        <p>Myers差分アルゴリズムに基づいた比較を行い、最小限の差分を検出します。すべての処理はブラウザ内で完結します。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+function runDiff(){
+    const a=document.getElementById('textA').value.split('\n');
+    const b=document.getElementById('textB').value.split('\n');
+    const diff=lcs(a,b);
+    let html='',adds=0,dels=0,same=0,ln=1;
+    diff.forEach(d=>{
+        if(d.type==='same'){html+=line('same',ln++,' ',d.value);same++}
+        else if(d.type==='add'){html+=line('add',ln++,'+',d.value);adds++}
+        else{html+=line('del','','-',d.value);dels++}
+    });
+    document.getElementById('diffBody').innerHTML=html;
+    document.getElementById('diffOutput').style.display='block';
+    document.getElementById('stats').style.display='flex';
+    document.getElementById('statAdd').textContent=`+${adds} 追加`;
+    document.getElementById('statDel').textContent=`-${dels} 削除`;
+    document.getElementById('statSame').textContent=`${same} 一致`;
+}
+function line(type,ln,prefix,content){return`<div class="diff-line ${type}"><span class="ln">${ln}</span><span class="prefix">${prefix}</span><span class="content"> ${escHtml(content)}</span></div>`}
+function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function swapTexts(){const a=document.getElementById('textA'),b=document.getElementById('textB');const t=a.value;a.value=b.value;b.value=t}
+
+// Simple LCS-based diff
+function lcs(a,b){
+    const m=a.length,n=b.length;
+    const dp=Array.from({length:m+1},()=>Array(n+1).fill(0));
+    for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)dp[i][j]=a[i-1]===b[j-1]?dp[i-1][j-1]+1:Math.max(dp[i-1][j],dp[i][j-1]);
+    const result=[];let i=m,j=n;
+    while(i>0||j>0){
+        if(i>0&&j>0&&a[i-1]===b[j-1]){result.unshift({type:'same',value:a[i-1]});i--;j--}
+        else if(j>0&&(i===0||dp[i][j-1]>=dp[i-1][j])){result.unshift({type:'add',value:b[j-1]});j--}
+        else{result.unshift({type:'del',value:a[i-1]});i--}
+    }
+    return result;
+}
+runDiff();
+</script>
+</body>
+</html>

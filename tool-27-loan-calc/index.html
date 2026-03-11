@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ローン返済シミュレーター | 住宅ローン・借入返済額計算</title>
+    <meta name="description" content="住宅ローン・自動車ローン・借入の月々返済額と総返済額を自動計算。元利均等・元金均等に対応。繰上返済の効果も。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#06080a;--bg-card:#0e1418;--border:#1a2830;--text:#d4e8f0;--text2:#5898b0;--text3:#305868;--accent:#06b6d4;--accent-dim:rgba(6,182,212,0.1);--green:#22c55e;--red:#ef4444;--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#080c10;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(26,40,48,0.5);flex-wrap:wrap;gap:8px}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1;min-width:140px}
+        .row input{width:160px;padding:10px 14px;background:#0a1014;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);min-width:40px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr} .row input{width:100%}}
+        .result-item{background:#0a1014;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent)}
+        .result-item .value.red{color:var(--red)}.result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .bar-chart{margin-top:12px}
+        .bar-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:0.75rem}
+        .bar-label{min-width:60px;color:var(--text3);text-align:right}
+        .bar-track{flex:1;height:20px;background:#0a1014;border-radius:4px;overflow:hidden;display:flex}
+        .bar-principal{background:var(--accent);height:100%}.bar-interest{background:var(--red);height:100%}
+        .bar-value{min-width:80px;font-family:'JetBrains Mono',monospace;color:var(--text2);font-size:0.7rem}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>ローン返済シミュレーター</h1><p>住宅ローン・借入の月額返済・総返済額を自動計算</p></header>
+    <div class="card"><h3>借入条件</h3>
+        <div class="row"><label>借入金額</label><input type="number" id="principal" value="30000000" step="1000000" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>年利</label><input type="number" id="rate" value="1.5" step="0.1" oninput="calc()"><span class="unit">%</span></div>
+        <div class="row"><label>返済期間</label><input type="number" id="years" value="35" step="1" oninput="calc()"><span class="unit">年</span></div>
+    </div>
+    <div class="card"><h3>計算結果（元利均等返済）</h3>
+        <div class="result-grid">
+            <div class="result-item"><div class="label">月々の返済額</div><div class="value" id="rMonthly">—</div></div>
+            <div class="result-item"><div class="label">総返済額</div><div class="value" id="rTotal">—</div></div>
+            <div class="result-item"><div class="label">利息総額</div><div class="value value red" id="rInterest">—</div><div class="sub" id="rRatio"></div></div>
+        </div>
+        <div class="bar-chart" id="barChart"></div>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content">
+        <h2>ローン返済シミュレーターについて</h2>
+        <p>住宅ローンや自動車ローンなど、借入金額・年利・返済期間を入力するだけで、月々の返済額と総返済額を自動計算するツールです。元利均等返済方式に基づいて計算します。</p>
+        <p>5年ごとの元金・利息の内訳も視覚的に確認でき、返済計画の検討に役立ちます。</p>
+    </div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+function fmt(n){return'¥'+Math.round(n).toLocaleString()}
+function calc(){
+    const P=parseInt(document.getElementById('principal').value)||0;
+    const rAnnual=parseFloat(document.getElementById('rate').value)||0;
+    const Y=parseInt(document.getElementById('years').value)||1;
+    const r=rAnnual/100/12;
+    const n=Y*12;
+    let monthly,total,interest;
+    if(r===0){monthly=P/n;total=P;interest=0}
+    else{monthly=P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);total=monthly*n;interest=total-P}
+    document.getElementById('rMonthly').textContent=fmt(monthly);
+    document.getElementById('rTotal').textContent=fmt(total);
+    document.getElementById('rInterest').textContent=fmt(interest);
+    document.getElementById('rRatio').textContent=`借入額の${P>0?((interest/P)*100).toFixed(1):0}%`;
+    // Bar chart by 5-year periods
+    let html='';let remaining=P;
+    for(let y=0;y<Y;y+=5){
+        let periodP=0,periodI=0;
+        for(let m=0;m<60&&(y*12+m)<n;m++){
+            const iPart=remaining*r;const pPart=monthly-iPart;
+            periodI+=iPart;periodP+=pPart;remaining-=pPart;
+        }
+        const periodTotal=periodP+periodI;
+        const pPct=periodTotal>0?(periodP/periodTotal*100):0;
+        html+=`<div class="bar-row"><span class="bar-label">${y+1}〜${Math.min(y+5,Y)}年</span><div class="bar-track"><div class="bar-principal" style="width:${pPct}%"></div><div class="bar-interest" style="width:${100-pPct}%"></div></div><span class="bar-value">${fmt(periodTotal)}</span></div>`;
+    }
+    html+='<div style="display:flex;gap:16px;justify-content:center;margin-top:8px;font-size:0.7rem"><span><span style="color:var(--accent)">■</span> 元金</span><span><span style="color:var(--red)">■</span> 利息</span></div>';
+    document.getElementById('barChart').innerHTML=html;
+}
+calc();
+</script>
+</body>
+</html>

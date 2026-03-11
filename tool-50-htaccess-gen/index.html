@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.htaccess生成ツール | DevTools Japan</title>
+    <meta name="description" content="リダイレクト・HTTPS強制・キャッシュ設定を簡単生成">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#080810;--bg-card:#101018;--border:#1e1e30;--text:#e0e0f0;--text2:#7878a8;--text3:#404060;--accent:#ef4444;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#0a0a14;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <header><h1>.htaccess生成ツール</h1><p>リダイレクト・HTTPS強制・キャッシュ設定を簡単生成</p></header>
+    <div class="card"><h3>設定を選択</h3>
+<div id="options" style="display:flex;flex-direction:column;gap:8px"></div></div>
+<div class="card"><h3>生成された .htaccess</h3><pre id="output" style="font-family:JetBrains Mono;font-size:0.8rem;color:var(--accent);white-space:pre-wrap;min-height:100px;line-height:1.8;cursor:pointer" onclick="navigator.clipboard.writeText(this.textContent);showToast()"></pre></div>
+    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="seo-content"><h2>.htaccess生成ツールについて</h2><p>リダイレクト・HTTPS強制・キャッシュ設定を簡単生成。ブラウザ上で動作し、データがサーバーに送信されることはありません。</p></div>
+    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+const RULES=[
+{id:'https',label:'HTTPS強制（HTTP→HTTPSリダイレクト）',code:'RewriteEngine On\nRewriteCond %{HTTPS} off\nRewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]'},
+{id:'www',label:'www付きに統一',code:'RewriteEngine On\nRewriteCond %{HTTP_HOST} !^www\\. [NC]\nRewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]'},
+{id:'nowww',label:'wwwなしに統一',code:'RewriteEngine On\nRewriteCond %{HTTP_HOST} ^www\\.(.*) [NC]\nRewriteRule ^(.*)$ https://%1/$1 [R=301,L]'},
+{id:'cache',label:'ブラウザキャッシュ設定',code:'<IfModule mod_expires.c>\nExpiresActive On\nExpiresByType image/jpeg "access plus 1 month"\nExpiresByType image/png "access plus 1 month"\nExpiresByType text/css "access plus 1 week"\nExpiresByType application/javascript "access plus 1 week"\n</IfModule>'},
+{id:'gzip',label:'Gzip圧縮',code:'<IfModule mod_deflate.c>\nAddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json\n</IfModule>'},
+{id:'index',label:'ディレクトリリスト表示を禁止',code:'Options -Indexes'},
+{id:'hotlink',label:'画像の直リンク防止',code:'RewriteEngine On\nRewriteCond %{HTTP_REFERER} !^$\nRewriteCond %{HTTP_REFERER} !^https://(www\\.)?yourdomain\\.com [NC]\nRewriteRule \\.(jpg|jpeg|png|gif|svg)$ - [F]'},
+];
+const el=document.getElementById('options');
+el.innerHTML=RULES.map(r=>'<label style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:#0a0a14;border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:0.8rem;color:var(--text2);transition:all 0.15s" onmouseover="this.style.borderColor=\'var(--accent)\'" onmouseout="this.style.borderColor=\'var(--border)\'"><input type="checkbox" id="opt_'+r.id+'" onchange="gen()"> '+r.label+'</label>').join('');
+function gen(){let code='# Generated by DevTools Japan\n# https://devtools-japan.com\n\n';
+RULES.forEach(r=>{if(document.getElementById('opt_'+r.id).checked){code+='# '+r.label+'\n'+r.code+'\n\n'}});
+document.getElementById('output').textContent=code}
+gen()
+</script>
+</body>
+</html>
