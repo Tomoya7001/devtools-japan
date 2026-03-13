@@ -14,10 +14,10 @@
     <meta name="description" content="Linuxファイルパーミッションの数値⇔記号変換">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        :root{--bg:#080810;--bg-card:#101018;--border:#1e1e30;--text:#e0e0f0;--text2:#7878a8;--text3:#404060;--accent:#ef4444;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
-        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#ef4444;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
+        ::selection{background:rgba(99,102,241,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
         .container{max-width:800px;margin:0 auto;padding:40px 20px}
-        .ad-slot{background:#0a0a14;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
         header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
         .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
         .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
@@ -44,7 +44,7 @@
 <div class="container">
     <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
     <header><h1>chmod計算ツール</h1><p>Linuxファイルパーミッションの数値⇔記号変換</p></header>
-    <div class="card"><h3>数値入力</h3><input id="numInput" value="755" maxlength="3" style="width:100%;padding:16px;background:#0a0a14;border:1px solid var(--border);border-radius:8px;color:var(--accent);font-family:JetBrains Mono;font-size:2rem;text-align:center;outline:none" oninput="fromNum()"></div>
+    <div class="card"><h3>数値入力</h3><input id="numInput" value="755" maxlength="3" style="width:100%;padding:16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--accent);font-family:JetBrains Mono;font-size:2rem;text-align:center;outline:none" oninput="fromNum()"></div>
 <div class="card"><h3>記号表示</h3><div id="symDisplay" style="font-family:JetBrains Mono;font-size:1.6rem;color:var(--accent);text-align:center;padding:12px">rwxr-xr-x</div></div>
 <div class="card"><h3>チェックボックス</h3><div id="checkboxes" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px"></div></div>
 <div class="card" style="text-align:center"><div style="font-family:JetBrains Mono;font-size:0.9rem;color:var(--text2)" id="cmdDisplay">chmod 755 filename</div></div>
@@ -67,7 +67,7 @@
 <script>
 function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
 const roles=['Owner','Group','Others'];const perms=['r','w','x'];const vals=[4,2,1];
-function buildCheckboxes(){const el=document.getElementById('checkboxes');el.innerHTML=roles.map((role,ri)=>'<div style="background:#0a0a14;border:1px solid var(--border);border-radius:8px;padding:12px"><div style="font-size:0.7rem;color:var(--text3);margin-bottom:8px">'+role+'</div>'+perms.map((p,pi)=>'<label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:0.85rem;color:var(--text2);margin-bottom:4px"><input type="checkbox" id="cb'+ri+''+pi+'" onchange="fromCb()"> '+p+'</label>').join('')+'</div>').join('')}
+function buildCheckboxes(){const el=document.getElementById('checkboxes');el.innerHTML=roles.map((role,ri)=>'<div style="background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:12px"><div style="font-size:0.7rem;color:var(--text3);margin-bottom:8px">'+role+'</div>'+perms.map((p,pi)=>'<label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:0.85rem;color:var(--text2);margin-bottom:4px"><input type="checkbox" id="cb'+ri+''+pi+'" onchange="fromCb()"> '+p+'</label>').join('')+'</div>').join('')}
 function fromNum(){const v=document.getElementById('numInput').value;const digits=v.split('').map(Number);if(digits.length!==3)return;let sym='';
 digits.forEach((d,ri)=>{perms.forEach((p,pi)=>{const on=d&vals[pi];sym+=on?p:'-';const cb=document.getElementById('cb'+ri+pi);if(cb)cb.checked=!!on})});
 document.getElementById('symDisplay').textContent=sym;document.getElementById('cmdDisplay').textContent='chmod '+v+' filename'}

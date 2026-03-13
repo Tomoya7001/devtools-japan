@@ -14,10 +14,10 @@
     <meta name="description" content="文章の詳細統計（ひらがな・カタカナ・漢字比率等）">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        :root{--bg:#080810;--bg-card:#101018;--border:#1e1e30;--text:#e0e0f0;--text2:#7878a8;--text3:#404060;--accent:#10b981;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
-        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#10b981;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
+        ::selection{background:rgba(99,102,241,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
         .container{max-width:800px;margin:0 auto;padding:40px 20px}
-        .ad-slot{background:#0a0a14;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
         header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
         
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
@@ -42,7 +42,7 @@
 <div class="container">
     <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
     <header><h1>テキスト統計ツール</h1><p>文章の詳細統計（ひらがな・カタカナ・漢字比率等）</p></header>
-    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;margin-bottom:16px;overflow:hidden"><div style="padding:8px 16px;background:#0c0c14;border-bottom:1px solid var(--border);font-size:0.7rem;color:var(--text3)">テキスト入力</div><textarea id="input" style="width:100%;min-height:160px;background:transparent;border:none;color:var(--text);font-family:Noto Sans JP;font-size:14px;line-height:1.8;padding:16px;resize:vertical;outline:none">日本語テキストの統計情報を分析します。ひらがな、カタカナ、漢字、英数字の比率を可視化。文章の構成を把握するのに便利です。This tool also counts English characters!</textarea></div>
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;margin-bottom:16px;overflow:hidden"><div style="padding:8px 16px;background:#f7f8fb;border-bottom:1px solid var(--border);font-size:0.7rem;color:var(--text3)">テキスト入力</div><textarea id="input" style="width:100%;min-height:160px;background:transparent;border:none;color:var(--text);font-family:Noto Sans JP;font-size:14px;line-height:1.8;padding:16px;resize:vertical;outline:none">日本語テキストの統計情報を分析します。ひらがな、カタカナ、漢字、英数字の比率を可視化。文章の構成を把握するのに便利です。This tool also counts English characters!</textarea></div>
 <div id="results" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px"></div>
     <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
     <div class="seo-content"><h2>テキスト統計ツールについて</h2><p>文章の詳細統計（ひらがな・カタカナ・漢字比率等）。ブラウザ上で動作し、データがサーバーに送信されることはありません。</p></div>
@@ -76,7 +76,7 @@ function analyze(){
     const sentences=(t.match(/[。！？\.!?]+/g)||[]).length||1;
     const avgLen=Math.round((len-space)/sentences);
     const pct=(n)=>(len?((n/len)*100).toFixed(1):'0')+'%';
-    const bar=(n,color)=>'<div style="height:6px;background:#1a1a24;border-radius:3px;overflow:hidden;flex:1"><div style="height:100%;width:'+pct(n)+';background:'+color+';border-radius:3px"></div></div>';
+    const bar=(n,color)=>'<div style="height:6px;background:#ffffff;border-radius:3px;overflow:hidden;flex:1"><div style="height:100%;width:'+pct(n)+';background:'+color+';border-radius:3px"></div></div>';
     document.getElementById('results').innerHTML=[
         ['ひらがな',hira,pct(hira),'#34d399',bar(hira,'#34d399')],
         ['カタカナ',kata,pct(kata),'#22d3ee',bar(kata,'#22d3ee')],

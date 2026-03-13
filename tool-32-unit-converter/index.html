@@ -14,19 +14,19 @@
     <meta name="description" content="長さ、重さ、温度、面積、速度の単位を瞬時に変換。メートル法・ヤードポンド法対応。日常計算に便利。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        :root{--bg:#0a0806;--bg-card:#181410;--border:#2c2418;--text:#f0e8d8;--text2:#a89068;--text3:#685030;--accent:#f97316;--accent-dim:rgba(249,115,22,0.1);--radius:12px}
-        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#f97316;--accent-dim:rgba(249,115,22,0.1);--radius:12px}
+        ::selection{background:rgba(99,102,241,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
         .container{max-width:700px;margin:0 auto;padding:40px 20px}
-        .ad-slot{background:#0c0a06;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
         header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
         .cat-tabs{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:20px}
         .cat-tab{padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;font-size:0.8rem;color:var(--text2);cursor:pointer;transition:all 0.2s;font-family:'Noto Sans JP',sans-serif}
         .cat-tab.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
         .converter{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px}
         .conv-row{display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
-        .conv-row input{flex:1;min-width:120px;padding:14px;background:#120e08;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:1.1rem;outline:none;text-align:right}
+        .conv-row input{flex:1;min-width:120px;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:1.1rem;outline:none;text-align:right}
         .conv-row input:focus{border-color:var(--accent)}
-        .conv-row select{padding:14px;background:#120e08;border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:0.85rem;outline:none;min-width:100px;font-family:'Noto Sans JP',sans-serif}
+        .conv-row select{padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:0.85rem;outline:none;min-width:100px;font-family:'Noto Sans JP',sans-serif}
         .swap-btn{width:40px;height:40px;background:var(--bg-card);border:1px solid var(--border);border-radius:50%;color:var(--accent);font-size:1.2rem;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center}
         .swap-btn:hover{background:var(--accent-dim);border-color:var(--accent)}
         .result-all{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:24px}

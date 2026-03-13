@@ -15,16 +15,16 @@
     <meta name="description" content="URLの日本語やパラメータをエンコード・デコード。パーセントエンコーディング対応。API開発やSEO対策に便利な無料ツール。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        :root{--bg:#0a0810;--bg-card:#14121e;--border:#28243a;--text:#e0ddf0;--text2:#7870a0;--text3:#443e60;--accent:#e879f9;--accent-dim:rgba(232,121,249,0.1);--radius:12px}
-        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#e879f9;--accent-dim:rgba(232,121,249,0.1);--radius:12px}
+        ::selection{background:rgba(99,102,241,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
         .container{max-width:900px;margin:0 auto;padding:40px 20px}
-        .ad-slot{background:#0e0c16;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
         header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
         .mode-toggle{display:flex;justify-content:center;gap:0;margin-bottom:24px;background:var(--bg-card);border-radius:8px;overflow:hidden;border:1px solid var(--border);max-width:500px;margin-left:auto;margin-right:auto}
         .mode-btn{flex:1;padding:12px;text-align:center;font-size:0.85rem;color:var(--text3);cursor:pointer;border:none;background:transparent;font-family:'Noto Sans JP',sans-serif;transition:all 0.2s}
         .mode-btn.active{background:var(--accent-dim);color:var(--accent)}
         .pane{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:16px;overflow:hidden}
-        .pane-header{padding:10px 16px;background:#100e1a;border-bottom:1px solid var(--border);font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;display:flex;justify-content:space-between}
+        .pane-header{padding:10px 16px;background:#f7f8fb;border-bottom:1px solid var(--border);font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;display:flex;justify-content:space-between}
         textarea{width:100%;min-height:160px;background:transparent;border:none;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;padding:16px;resize:vertical;outline:none}
         textarea::placeholder{color:var(--text3)}
         .btn-row{display:flex;gap:10px;margin-bottom:24px;justify-content:center;flex-wrap:wrap}

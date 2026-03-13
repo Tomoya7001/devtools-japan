@@ -15,10 +15,10 @@
     <meta name="description" content="画像をブラウザ上で圧縮。サーバーへのアップロード不要でプライバシー安全。JPEG・PNGに対応。品質調整・リサイズも可能。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        :root{--bg:#0a0608;--bg-card:#161218;--border:#2e2430;--text:#f0e4e8;--text2:#a07888;--text3:#604858;--accent:#f43f5e;--accent-dim:rgba(244,63,94,0.1);--green:#22c55e;--radius:12px}
-        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#f43f5e;--accent-dim:rgba(244,63,94,0.1);--green:#22c55e;--radius:12px}
+        ::selection{background:rgba(99,102,241,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
         .container{max-width:800px;margin:0 auto;padding:40px 20px}
-        .ad-slot{background:#0e0a0c;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
         header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
 
         .dropzone{border:2px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:all 0.3s;margin-bottom:24px;background:var(--bg-card)}
@@ -35,16 +35,16 @@
         .setting-label{font-size:0.85rem;color:var(--text2)}
         .slider-group{display:flex;align-items:center;gap:12px}
         .slider-val{font-family:'JetBrains Mono',monospace;font-size:0.9rem;color:var(--accent);min-width:44px;text-align:right}
-        input[type="range"]{-webkit-appearance:none;width:160px;height:6px;background:#1a1218;border-radius:3px;outline:none}
+        input[type="range"]{-webkit-appearance:none;width:160px;height:6px;background:#f7f8fb;border-radius:3px;outline:none}
         input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;background:var(--accent);border-radius:50%;cursor:pointer}
-        select{padding:8px 12px;background:#1a1218;border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Noto Sans JP',sans-serif;outline:none}
+        select{padding:8px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Noto Sans JP',sans-serif;outline:none}
 
         .result{display:none;margin-bottom:24px}
         .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
         @media(max-width:640px){.result-grid{grid-template-columns:1fr}}
         .result-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-        .result-card .label{padding:8px 16px;background:#100c10;border-bottom:1px solid var(--border);font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;display:flex;justify-content:space-between}
-        .result-card img{width:100%;height:200px;object-fit:contain;background:#0a060a}
+        .result-card .label{padding:8px 16px;background:#f7f8fb;border-bottom:1px solid var(--border);font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;display:flex;justify-content:space-between}
+        .result-card img{width:100%;height:200px;object-fit:contain;background:#f7f8fb}
         .savings{text-align:center;padding:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:16px}
         .savings .pct{font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:700;color:var(--green)}
         .savings .detail{font-size:0.8rem;color:var(--text2);margin-top:4px}

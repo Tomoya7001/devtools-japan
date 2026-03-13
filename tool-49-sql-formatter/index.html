@@ -14,10 +14,10 @@
     <meta name="description" content="SQL文を見やすく整形・インデント">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        :root{--bg:#080810;--bg-card:#101018;--border:#1e1e30;--text:#e0e0f0;--text2:#7878a8;--text3:#404060;--accent:#0ea5e9;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
-        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#0ea5e9;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
+        ::selection{background:rgba(99,102,241,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
         .container{max-width:800px;margin:0 auto;padding:40px 20px}
-        .ad-slot{background:#0a0a14;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
         header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
         .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
         .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
@@ -44,7 +44,7 @@
 <div class="container">
     <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
     <header><h1>SQLフォーマッター</h1><p>SQL文を見やすく整形・インデント</p></header>
-    <div class="card"><h3>SQL入力</h3><textarea id="input" style="width:100%;min-height:140px;background:#0a0a14;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:JetBrains Mono;font-size:13px;padding:14px;outline:none;resize:vertical" placeholder="SELECT * FROM users WHERE id = 1">SELECT u.id, u.name, u.email, o.total FROM users u INNER JOIN orders o ON u.id = o.user_id WHERE u.active = 1 AND o.created_at > '2024-01-01' ORDER BY o.total DESC LIMIT 10</textarea></div>
+    <div class="card"><h3>SQL入力</h3><textarea id="input" style="width:100%;min-height:140px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:JetBrains Mono;font-size:13px;padding:14px;outline:none;resize:vertical" placeholder="SELECT * FROM users WHERE id = 1">SELECT u.id, u.name, u.email, o.total FROM users u INNER JOIN orders o ON u.id = o.user_id WHERE u.active = 1 AND o.created_at > '2024-01-01' ORDER BY o.total DESC LIMIT 10</textarea></div>
 <div style="display:flex;gap:10px;margin-bottom:16px;justify-content:center"><button onclick="format()" style="padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:Noto Sans JP;font-size:0.85rem">整形</button><button onclick="navigator.clipboard.writeText(document.getElementById('output').textContent);showToast()" style="padding:10px 24px;background:var(--bg-card);border:1px solid var(--border);color:var(--text2);border-radius:8px;cursor:pointer;font-family:Noto Sans JP;font-size:0.85rem">コピー</button></div>
 <div class="card"><h3>整形結果</h3><pre id="output" style="font-family:JetBrains Mono;font-size:13px;color:var(--accent);white-space:pre-wrap;min-height:100px;line-height:1.8"></pre></div>
     <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>

@@ -22,15 +22,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #06060b;
-            --bg-elevated: #0c0c14;
-            --bg-card: #111118;
-            --bg-card-hover: #18182a;
-            --border: #1e1e30;
-            --border-hover: #2e2e4a;
-            --text: #e4e4f0;
-            --text-secondary: #8888a8;
-            --text-muted: #4a4a68;
+            --bg:#f7f8fb;
+            --bg-elevated:#ffffff;
+            --bg-card:#ffffff;
+            --bg-card-hover:#f0f1f7;
+            --border:#e0e2ed;
+            --border-hover:#c8cbdb;
+            --text:#1e1e35;
+            --text-secondary:#5a5f78;
+            --text-muted:#9498b0;
             --accent-primary: #6366f1;
             --accent-primary-dim: rgba(99,102,241,0.08);
             --accent-cyan: #22d3ee;
@@ -45,6 +45,7 @@
             --radius-sm: 10px;
         }
 
+        ::selection{background:rgba(99,102,241,0.15);color:#1e1e35}
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -59,10 +60,10 @@
         .bg-grid {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-image:
-                radial-gradient(circle at 20% 20%, rgba(99,102,241,0.04) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(34,211,238,0.03) 0%, transparent 50%),
-                linear-gradient(rgba(99,102,241,0.015) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(99,102,241,0.015) 1px, transparent 1px);
+                radial-gradient(circle at 20% 20%, rgba(99,102,241,0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(34,211,238,0.04) 0%, transparent 50%),
+                linear-gradient(rgba(99,102,241,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99,102,241,0.03) 1px, transparent 1px);
             background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
             pointer-events: none; z-index: 0;
         }
@@ -291,7 +292,7 @@
             border-color: var(--border-hover);
             background: var(--bg-card-hover);
             transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(99,102,241,0.06);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.03), 0 0 0 1px rgba(99,102,241,0.06);
         }
 
         .tool-card:hover::before { opacity: 1; }

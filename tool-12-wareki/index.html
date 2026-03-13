@@ -15,24 +15,24 @@
     <meta name="description" content="令和・平成・昭和・大正・明治の和暦と西暦をワンクリックで相互変換。年齢計算付き。早見表も掲載。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        :root{--bg:#0c0808;--bg-card:#181210;--border:#302820;--text:#f0e8e0;--text2:#a09080;--text3:#605040;--accent:#d97706;--accent-dim:rgba(217,119,6,0.1);--radius:12px}
-        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#d97706;--accent-dim:rgba(217,119,6,0.1);--radius:12px}
+        ::selection{background:rgba(99,102,241,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
         .container{max-width:800px;margin:0 auto;padding:40px 20px}
-        .ad-slot{background:#100c08;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
         header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
         .converter-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px}
         .converter-card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
         .input-row{display:flex;gap:12px;margin-bottom:16px;align-items:end;flex-wrap:wrap}
         .field{display:flex;flex-direction:column;gap:4px}
         .field label{font-size:0.75rem;color:var(--text3)}
-        .field select,.field input{padding:12px 14px;background:#120e0a;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .field select,.field input{padding:12px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
         .field input{width:100px}
         .field select{min-width:100px}
-        .result-box{background:#120e0a;border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center}
+        .result-box{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center}
         .result-box .main{font-size:1.8rem;font-weight:700;color:var(--accent);font-family:'JetBrains Mono',monospace}
         .result-box .sub{font-size:0.85rem;color:var(--text2);margin-top:8px}
         .era-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:0.85rem}
-        .era-table th{background:#120e0a;padding:10px;text-align:left;color:var(--text2);font-weight:500;border-bottom:1px solid var(--border)}
+        .era-table th{background:#f7f8fb;padding:10px;text-align:left;color:var(--text2);font-weight:500;border-bottom:1px solid var(--border)}
         .era-table td{padding:10px;border-bottom:1px solid rgba(48,40,32,0.5);color:var(--text2)}
         .era-table tr:hover td{background:var(--accent-dim);color:var(--text)}
         .era-table .era-name{color:var(--accent);font-weight:500}

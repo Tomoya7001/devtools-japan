@@ -14,17 +14,17 @@
     <meta name="description" content="バイト(B)、キロバイト(KB)、メガバイト(MB)、ギガバイト(GB)、テラバイト(TB)を相互変換。ファイルサイズ・通信量の換算に。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        :root{--bg:#080808;--bg-card:#141414;--border:#242424;--text:#e8e8e8;--text2:#888888;--text3:#505050;--accent:#ec4899;--accent-dim:rgba(236,72,153,0.1);--radius:12px}
-        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#ec4899;--accent-dim:rgba(236,72,153,0.1);--radius:12px}
+        ::selection{background:rgba(99,102,241,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
         .container{max-width:700px;margin:0 auto;padding:40px 20px}
-        .ad-slot{background:#0c0c0c;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
         header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
         .input-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:20px;display:flex;gap:12px;align-items:end;flex-wrap:wrap}
         .input-card .field{flex:1;min-width:150px}
         .input-card label{display:block;font-size:0.75rem;color:var(--text3);margin-bottom:6px}
-        .input-card input{width:100%;padding:12px 14px;background:#0c0c0c;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:1rem;outline:none}
+        .input-card input{width:100%;padding:12px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:1rem;outline:none}
         .input-card input:focus{border-color:var(--accent)}
-        .input-card select{padding:12px 14px;background:#0c0c0c;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;min-width:100px}
+        .input-card select{padding:12px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;min-width:100px}
         .results{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
         .result-row{display:flex;align-items:center;justify-content:space-between;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;transition:all 0.2s}
         .result-row:hover{border-color:var(--accent);background:var(--accent-dim)}

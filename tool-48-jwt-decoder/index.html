@@ -14,10 +14,10 @@
     <meta name="description" content="JSON Web Tokenのペイロードをデコード表示">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        :root{--bg:#080810;--bg-card:#101018;--border:#1e1e30;--text:#e0e0f0;--text2:#7878a8;--text3:#404060;--accent:#6366f1;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
-        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#6366f1;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
+        ::selection{background:rgba(99,102,241,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
         .container{max-width:800px;margin:0 auto;padding:40px 20px}
-        .ad-slot{background:#0a0a14;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
         header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
         .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
         .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
@@ -44,7 +44,7 @@
 <div class="container">
     <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
     <header><h1>JWTデコーダー</h1><p>JSON Web Tokenのペイロードをデコード表示</p></header>
-    <div class="card"><h3>JWT入力</h3><textarea id="input" style="width:100%;min-height:100px;background:#0a0a14;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:JetBrains Mono;font-size:0.8rem;padding:14px;outline:none;resize:vertical;word-break:break-all" oninput="decode()" placeholder="eyJhbGciOiJIUzI1NiIs...">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkRldlRvb2xzIEphcGFuIiwiaWF0IjoxNzEwMTE1MjAwfQ.signature</textarea></div>
+    <div class="card"><h3>JWT入力</h3><textarea id="input" style="width:100%;min-height:100px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:JetBrains Mono;font-size:0.8rem;padding:14px;outline:none;resize:vertical;word-break:break-all" oninput="decode()" placeholder="eyJhbGciOiJIUzI1NiIs...">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkRldlRvb2xzIEphcGFuIiwiaWF0IjoxNzEwMTE1MjAwfQ.signature</textarea></div>
 <div class="card"><h3>ヘッダー</h3><pre id="header" style="font-family:JetBrains Mono;font-size:0.8rem;color:var(--accent);white-space:pre-wrap;word-break:break-all"></pre></div>
 <div class="card"><h3>ペイロード</h3><pre id="payload" style="font-family:JetBrains Mono;font-size:0.8rem;color:#22c55e;white-space:pre-wrap;word-break:break-all"></pre></div>
 <div class="card" id="expCard" style="display:none"><h3>有効期限</h3><div id="expInfo" style="font-size:0.9rem;color:var(--text2)"></div></div>

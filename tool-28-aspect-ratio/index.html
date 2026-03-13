@@ -14,18 +14,18 @@
     <meta name="description" content="画像や動画のアスペクト比を自動計算。幅・高さから比率を求め、リサイズ後のサイズも算出。Web制作・動画編集に。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        :root{--bg:#0a080e;--bg-card:#14101c;--border:#261e38;--text:#e4dcf8;--text2:#8870c0;--text3:#504080;--accent:#a855f7;--accent-dim:rgba(168,85,247,0.1);--radius:12px}
-        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#a855f7;--accent-dim:rgba(168,85,247,0.1);--radius:12px}
+        ::selection{background:rgba(99,102,241,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
         .container{max-width:800px;margin:0 auto;padding:40px 20px}
-        .ad-slot{background:#0c0a10;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
         header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
         .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
         .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
         .input-row{display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
-        .input-row input{width:120px;padding:10px 14px;background:#100c18;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:1rem;outline:none;text-align:center}
+        .input-row input{width:120px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:1rem;outline:none;text-align:center}
         .input-row input:focus{border-color:var(--accent)}
         .input-row .sep{font-size:1.2rem;color:var(--text3)}
-        .result-big{text-align:center;padding:20px;background:#100c18;border:1px solid var(--border);border-radius:var(--radius);margin-bottom:16px}
+        .result-big{text-align:center;padding:20px;background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);margin-bottom:16px}
         .result-big .ratio{font-family:'JetBrains Mono',monospace;font-size:2.5rem;font-weight:700;color:var(--accent)}
         .result-big .sub{font-size:0.85rem;color:var(--text2);margin-top:8px}
         .presets{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
