@@ -77,16 +77,16 @@
         .copied-toast { position:fixed; bottom:40px; left:50%; transform:translateX(-50%) translateY(20px); background:var(--accent); color:#000; padding:12px 24px; border-radius:8px; font-size:0.85rem; font-weight:500; opacity:0; transition:all 0.3s; pointer-events:none; z-index:100; }
         .copied-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
     </style>
-    <link rel="canonical" href="https://devtools-japan.com/tool-04-qr-generator/">
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-04-qr-generator/">
     <meta property="og:title" content="QRコード生成ツール | DevTools Japan">
     <meta property="og:description" content="URL・テキスト・Wi-FiからQRコードを無料で作成">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://devtools-japan.com/tool-04-qr-generator/">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-04-qr-generator/">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="QRコード生成ツール | DevTools Japan">
     <meta name="twitter:description" content="URL・テキスト・Wi-FiからQRコードを無料で作成">
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebApplication","name":"QRコード生成ツール","description":"URL・テキスト・Wi-FiからQRコードを無料で作成","url":"https://devtools-japan.com/tool-04-qr-generator/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://devtools-japan.com"}}
+    {"@context":"https://schema.org","@type":"WebApplication","name":"QRコード生成ツール","description":"URL・テキスト・Wi-FiからQRコードを無料で作成","url":"https://www.devtools-japan.com/tool-04-qr-generator/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
     </script>
 </head>
 <body>
@@ -243,7 +243,7 @@ function switchMode(mode) {
 }
 
 function getContent() {
-    if (currentMode==='text') return document.getElementById('qrText').value || 'https://devtools-japan.com';
+    if (currentMode==='text') return document.getElementById('qrText').value || 'https://www.devtools-japan.com';
     if (currentMode==='wifi') {
         const s=document.getElementById('wifiSsid').value, p=document.getElementById('wifiPass').value, e=document.getElementById('wifiEnc').value;
         return `WIFI:T:${e};S:${s};P:${p};;`;
