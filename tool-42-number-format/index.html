@@ -11,7 +11,7 @@
 </script>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>数値フォーマッター | DevTools Japan</title>
-    <meta name="description" content="数値に桁区切り・通貨表示を自動付与">
+    <meta name="description" content="数値を3桁カンマ区切り・通貨形式・パーセント表示などに変換。日本円・ドル表記にも対応する無料フォーマッター。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#eab308;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
@@ -47,7 +47,19 @@
     <div class="card"><input id="input" value="1234567890" style="width:100%;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:JetBrains Mono;font-size:1.2rem;outline:none;text-align:center" oninput="fmt()"></div>
 <div id="results" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:24px"></div>
     <div class="ad-slot" style="display:none"></div>
-    <div class="seo-content"><h2>数値フォーマッターについて</h2><p>数値に桁区切り・通貨表示を自動付与。ブラウザ上で動作し、データがサーバーに送信されることはありません。</p></div>
+    <div class="seo-content">
+            <h2>数値フォーマッターの使い方</h2>
+            <p>数値を入力するだけで、3桁カンマ区切り、日本円表示（¥）、ドル表示（$）、漢数字風表記、万円・億円表示など、さまざまなフォーマットに自動変換する無料ツールです。変換結果はクリックでコピーできます。</p>
+
+            <h3>対応するフォーマット</h3>
+            <p>桁区切り（1,234,567,890）、日本円表示（¥1,234,567,890）、USドル表示（$1,234,567,890.00）、漢数字風表記（12.3億）、万円表示（123456.8万円）、億円表示（12.35億円）の6種類に対応しています。</p>
+
+            <h3>ビジネスでの活用場面</h3>
+            <p>プレゼン資料で「1234567890円」を「12.3億円」と表示したい場合や、経理資料で桁区切りを統一したい場合、海外向け資料でドル表示に変換したい場合など、数値の表現形式を素早く切り替えたいビジネスシーンで活躍します。</p>
+
+            <h3>開発での活用場面</h3>
+            <p>フロントエンド開発でのUI表示確認、バックエンドでの数値フォーマット仕様の参考、テストデータの生成など、開発作業中に「この数値をこの形式で表示したらどうなるか」を素早く確認できます。すべてブラウザ上で動作し、データがサーバーに送信されることはありません。</p>
+        </div>
     <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
