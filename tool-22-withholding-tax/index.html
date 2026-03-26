@@ -54,7 +54,7 @@
 <body>
 <div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
-    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <div class="ad-slot" style="display:none"></div>
     <header><h1>源泉徴収税計算ツール</h1><p>フリーランス報酬の源泉徴収税額・手取り額を自動計算</p></header>
     <div class="card"><h3>入力</h3>
         <div class="row"><label>報酬額（税抜）</label><input type="number" id="amount" value="100000" oninput="calc()"> 円</div>
@@ -72,13 +72,13 @@
     <div class="card"><h3>請求書記載例</h3>
         <div class="formula" id="invoice"></div>
     </div>
-    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="ad-slot" style="display:none"></div>
     <div class="seo-content">
         <h2>源泉徴収税の計算方法</h2>
         <p>フリーランスが受け取る報酬（原稿料、デザイン料、コンサルティング料等）からは、支払者が源泉徴収税を差し引いて支払います。税率は報酬額が100万円以下の場合は10.21%、100万円超の部分は20.42%です。</p>
         <p>消費税が明確に区分されている場合は、税抜金額に対して源泉徴収税を計算します。請求書で消費税を区分記載することで、源泉徴収税額を抑えることができます。</p>
     </div>
-    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
       <h3 style="font-size:0.75rem;color:var(--text-muted,#4a4a68);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>

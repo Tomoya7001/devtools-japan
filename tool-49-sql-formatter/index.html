@@ -42,14 +42,14 @@
 <body>
 <div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
-    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <div class="ad-slot" style="display:none"></div>
     <header><h1>SQLフォーマッター</h1><p>SQL文を見やすく整形・インデント</p></header>
     <div class="card"><h3>SQL入力</h3><textarea id="input" style="width:100%;min-height:140px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:JetBrains Mono;font-size:13px;padding:14px;outline:none;resize:vertical" placeholder="SELECT * FROM users WHERE id = 1">SELECT u.id, u.name, u.email, o.total FROM users u INNER JOIN orders o ON u.id = o.user_id WHERE u.active = 1 AND o.created_at > '2024-01-01' ORDER BY o.total DESC LIMIT 10</textarea></div>
 <div style="display:flex;gap:10px;margin-bottom:16px;justify-content:center"><button onclick="format()" style="padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:Noto Sans JP;font-size:0.85rem">整形</button><button onclick="navigator.clipboard.writeText(document.getElementById('output').textContent);showToast()" style="padding:10px 24px;background:var(--bg-card);border:1px solid var(--border);color:var(--text2);border-radius:8px;cursor:pointer;font-family:Noto Sans JP;font-size:0.85rem">コピー</button></div>
 <div class="card"><h3>整形結果</h3><pre id="output" style="font-family:JetBrains Mono;font-size:13px;color:var(--accent);white-space:pre-wrap;min-height:100px;line-height:1.8"></pre></div>
-    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="ad-slot" style="display:none"></div>
     <div class="seo-content"><h2>SQLフォーマッターについて</h2><p>SQL文を見やすく整形・インデント。ブラウザ上で動作し、データがサーバーに送信されることはありません。</p></div>
-    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
       <h3 style="font-size:0.75rem;color:var(--text-muted,#4a4a68);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>

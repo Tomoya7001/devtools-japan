@@ -62,7 +62,7 @@
 <body>
 <div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
-    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <div class="ad-slot" style="display:none"></div>
     <header><h1>Cron式ジェネレーター</h1><p>crontabのスケジュール式を簡単作成・解読</p></header>
     <div class="cron-display"><div class="expr" id="cronExpr" onclick="navigator.clipboard.writeText(this.textContent);showToast()">0 9 * * *</div><div class="human" id="humanText">毎日 9:00 に実行</div><div class="next" id="nextRun"></div></div>
     <div class="fields">
@@ -94,13 +94,13 @@
             <tr><td>n-m</td><td>範囲</td><td>1-5 = 月〜金</td></tr>
         </tbody></table>
     </div>
-    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="ad-slot" style="display:none"></div>
     <div class="seo-content">
         <h2>Cron式とは</h2>
         <p>Cron式（crontab）は、Linux/Unixシステムで定期実行タスクのスケジュールを指定するための書式です。5つのフィールド（分・時・日・月・曜日）で構成され、サーバーの自動バックアップやバッチ処理のスケジューリングに使用されます。</p>
         <p>このツールでは、Cron式の生成と日本語での意味解説、次回実行時刻の計算を行います。</p>
     </div>
-    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
       <h3 style="font-size:0.75rem;color:var(--text-muted,#4a4a68);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>

@@ -54,7 +54,7 @@
 <body>
 <div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
-    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <div class="ad-slot" style="display:none"></div>
     <header><h1>lt;/&gt; HTML特殊文字変換</h1><p>HTMLの特殊文字をエスケープ・アンエスケープ変換</p></header>
     <div class="toggle"><button class="active" id="bEsc" onclick="setDir('esc')">エスケープ（→実体参照）</button><button id="bUn" onclick="setDir('un')">アンエスケープ（→文字）</button></div>
     <div class="pane"><div class="pane-header" id="inLbl">入力（HTML）</div><textarea id="input" placeholder='<div class="test">&amp; 文字</div>' oninput="conv()"><div class="hello">こんにちは & 世界</div></textarea></div>
@@ -65,12 +65,12 @@
         <button class="btn" onclick="document.getElementById('input').value='';document.getElementById('output').value=''">クリア</button>
     </div>
     <div class="ref-table"><h3>よく使うHTML実体参照</h3><div class="ref-grid" id="refGrid"></div></div>
-    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="ad-slot" style="display:none"></div>
     <div class="seo-content">
         <h2>HTML特殊文字変換ツールについて</h2>
         <p>HTMLで特別な意味を持つ文字（&lt; &gt; &amp; &quot;等）を実体参照に変換するツールです。ブログにコードを掲載する際や、XSS対策としてユーザー入力をサニタイズする際に活用できます。</p>
     </div>
-    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
       <h3 style="font-size:0.75rem;color:var(--text-muted,#4a4a68);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>

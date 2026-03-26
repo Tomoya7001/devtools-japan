@@ -49,7 +49,7 @@
 <body>
 <div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
-    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <div class="ad-slot" style="display:none"></div>
     <header><h1>全角半角変換ツール</h1><p>英数字・カタカナ・記号の全角⇔半角を一括変換</p></header>
     <div class="options">
         <span class="chip active" id="cAlpha" onclick="this.classList.toggle('active');conv()">英字</span>
@@ -65,12 +65,12 @@
         <button class="btn" onclick="navigator.clipboard.writeText(document.getElementById('output').value);showToast()">コピー</button>
     </div>
     <div class="pane"><div class="pane-header"><span>出力</span><span id="outCount">0文字</span></div><textarea id="output" readonly></textarea></div>
-    <div class="ad-slot">広告スペース（Google AdSense レスポンシブ）</div>
+    <div class="ad-slot" style="display:none"></div>
     <div class="seo-content">
         <h2>全角半角変換ツールについて</h2>
         <p>テキスト内の全角文字を半角に、または半角文字を全角に一括変換するツールです。英数字、カタカナ、記号、スペースの変換対象を個別に選択可能。データベースへの登録前のクレンジング、帳票の表記統一、CSVファイルの正規化などに便利です。</p>
     </div>
-    <div class="ad-slot">広告スペース（Google AdSense 728×90）</div>
+    <div class="ad-slot" style="display:none"></div>
     
     
     <div style="background:var(--bg-card,#111118);border:1px solid rgba(99,102,241,0.2);border-radius:12px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
