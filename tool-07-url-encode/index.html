@@ -84,10 +84,13 @@
 
     <div class="ad-slot" style="display:none"></div>
     <div class="seo-content">
-        <h2>URLエンコードとは</h2>
-        <p>URLエンコード（パーセントエンコーディング）は、URLに含められない文字（日本語、スペース、特殊記号など）を%XXの形式に変換する方式です。Web開発、API連携、SEO対策で頻繁に使われます。</p>
-        <p>encodeURI()はURL全体をエンコードし、encodeURIComponent()はパラメータ値など部分的なエンコードに使います。このツールでは両方の方式に対応しています。</p>
-    </div>
+        <h2>URLエンコード・デコードツールの使い方</h2>
+        <p>URLに含められない文字（日本語、スペース、特殊記号等）をパーセントエンコーディングに変換する無料ツールです。検索パラメータの生成、API呼び出しのURL構築、リダイレクトURLの作成などに使います。</p>
+        <h3>URLエンコードとは</h3>
+        <p>URLにはASCII文字の一部しか使用できないため、日本語やスペース、一部の記号はパーセントエンコーディング（%XX形式）に変換する必要があります。例えば「東京」は「%E6%9D%B1%E4%BA%AC」になります。このツールでは、エンコードとデコードの両方向に対応しています。</p>
+        <h3>開発での活用</h3>
+        <p>APIのクエリパラメータに日本語を含める場合や、リダイレクトURLをパラメータとして渡す場合に必須の処理です。すべてブラウザ内で処理されます。</p>
+        </div>
     <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">

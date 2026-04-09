@@ -50,7 +50,14 @@
 <div style="display:flex;gap:10px;margin-bottom:16px;justify-content:center"><button onclick="format()" style="padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:Noto Sans JP;font-size:0.85rem">整形</button><button onclick="navigator.clipboard.writeText(document.getElementById('output').textContent);showToast()" style="padding:10px 24px;background:var(--bg-card);border:1px solid var(--border);color:var(--text2);border-radius:8px;cursor:pointer;font-family:Noto Sans JP;font-size:0.85rem">コピー</button></div>
 <div class="card"><h3>整形結果</h3><pre id="output" style="font-family:JetBrains Mono;font-size:13px;color:var(--accent);white-space:pre-wrap;min-height:100px;line-height:1.8"></pre></div>
     <div class="ad-slot" style="display:none"></div>
-    <div class="seo-content"><h2>SQLフォーマッターについて</h2><p>SQL文を見やすく整形・インデント。ブラウザ上で動作し、データがサーバーに送信されることはありません。</p></div>
+    <div class="seo-content">
+        <h2>SQLフォーマッターの使い方</h2>
+        <p>SQL文を見やすくインデント整形する無料ツールです。SELECT・JOIN・WHERE・GROUP BY・ORDER BY等のキーワードを適切に改行・インデントし、複雑なクエリの可読性を大幅に向上させます。</p>
+        <h3>なぜSQLの整形が必要か</h3>
+        <p>複数テーブルのJOINやサブクエリを含むSQLは、1行で書くと構造を把握するのが困難です。このツールで整形することで、テーブル間の関係、フィルタ条件、集計方法が一目でわかるようになります。コードレビュー時のミス発見にも役立ちます。</p>
+        <h3>対応するSQL方言</h3>
+        <p>標準SQL（ANSI SQL）に対応しています。MySQL、PostgreSQL、SQLite、SQL Serverなど、主要なRDBMSのSQLを整形できます。</p>
+        </div>
     <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">

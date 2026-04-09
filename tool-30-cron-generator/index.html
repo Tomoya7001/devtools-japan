@@ -98,10 +98,13 @@
     </div>
     <div class="ad-slot" style="display:none"></div>
     <div class="seo-content">
-        <h2>Cron式とは</h2>
-        <p>Cron式（crontab）は、Linux/Unixシステムで定期実行タスクのスケジュールを指定するための書式です。5つのフィールド（分・時・日・月・曜日）で構成され、サーバーの自動バックアップやバッチ処理のスケジューリングに使用されます。</p>
-        <p>このツールでは、Cron式の生成と日本語での意味解説、次回実行時刻の計算を行います。</p>
-    </div>
+        <h2>Cron式ジェネレーターの使い方</h2>
+        <p>LinuxのCronジョブで使うスケジュール式（Cron式）をGUIで簡単に生成する無料ツールです。バックアップの定期実行、レポートの自動送信、データベースのメンテナンスなど、定期タスクの設定に活用できます。</p>
+        <h3>Cron式の構造</h3>
+        <p>Cron式は「分 時 日 月 曜日」の5つのフィールドで構成されます。例えば「0 9 * * 1-5」は「平日の午前9時に実行」を意味します。このツールではフィールドごとにドロップダウンやチェックボックスで指定できるので、Cron式の文法を覚えていなくても正確なスケジュールを設定できます。</p>
+        <h3>よく使われるCron式の例</h3>
+        <p>「0 0 * * *」は毎日深夜0時、「0 */6 * * *」は6時間ごと、「0 9 * * 1」は毎週月曜9時です。生成されたCron式はクリップボードにコピーして、crontabにそのまま貼り付けられます。</p>
+        </div>
     <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">

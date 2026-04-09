@@ -63,10 +63,13 @@
     <div class="conv-card"><h3>日時 → タイムスタンプ</h3><input type="datetime-local" id="dateInput" onchange="dateToTs()"><div class="result" id="dateResult" onclick="navigator.clipboard.writeText(this.textContent);showToast()">結果がここに表示されます</div></div>
     <div class="ad-slot" style="display:none"></div>
     <div class="seo-content">
-        <h2>タイムスタンプ変換ツールについて</h2>
-        <p>Unixタイムスタンプ（エポック秒）と人間が読める日時形式を相互変換するツールです。API開発、ログ解析、データベース管理で頻繁に必要になる変換をブラウザ上で即座に行えます。</p>
-        <p>秒・ミリ秒の両方に対応。ISO 8601、日本時間、UTC等の複数フォーマットで結果を表示します。</p>
-    </div>
+        <h2>タイムスタンプ変換ツールの使い方</h2>
+        <p>Unixタイムスタンプと人間が読める日時形式を相互変換する無料ツールです。サーバーログの解析、APIレスポンスの日時確認、データベースのタイムスタンプ検証など、開発者がタイムスタンプを扱う場面で即座に変換できます。</p>
+        <h3>Unixタイムスタンプとは</h3>
+        <p>Unixタイムスタンプは、1970年1月1日00:00:00 UTC（Unixエポック）からの経過秒数で日時を表現する形式です。タイムゾーンに依存しないため、国際的なシステム間での日時データのやり取りに広く使われています。10桁（秒）と13桁（ミリ秒）の両方に対応しています。</p>
+        <h3>JST（日本標準時）表示</h3>
+        <p>変換結果にはUTCとJST（UTC+9）の両方を表示します。日本のサービス開発で使いやすいよう、JSTでの表示を標準で提供しています。</p>
+        </div>
     <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">

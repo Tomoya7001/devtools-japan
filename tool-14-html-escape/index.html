@@ -69,9 +69,13 @@
     <div class="ref-table"><h3>よく使うHTML実体参照</h3><div class="ref-grid" id="refGrid"></div></div>
     <div class="ad-slot" style="display:none"></div>
     <div class="seo-content">
-        <h2>HTML特殊文字変換ツールについて</h2>
-        <p>HTMLで特別な意味を持つ文字（&lt; &gt; &amp; &quot;等）を実体参照に変換するツールです。ブログにコードを掲載する際や、XSS対策としてユーザー入力をサニタイズする際に活用できます。</p>
-    </div>
+        <h2>HTML特殊文字変換ツールの使い方</h2>
+        <p>HTMLの特殊文字（<, >, &, " 等）をHTMLエンティティ（&lt; &gt; &amp; 等）に変換する無料ツールです。XSS（クロスサイトスクリプティング）対策、HTMLテンプレートへのデータ埋め込み、技術ブログでのコード表示などに使います。</p>
+        <h3>エスケープが必要な理由</h3>
+        <p>ユーザーが入力したテキストをそのままHTMLに埋め込むと、悪意のあるスクリプトが実行されるXSS脆弱性が発生します。特に &lt;script&gt; タグを含む入力は必ずエスケープする必要があります。このツールで変換結果を確認しながら、安全なHTML出力を構築できます。</p>
+        <h3>逆変換（アンエスケープ）にも対応</h3>
+        <p>HTMLエンティティを元の文字に戻すアンエスケープ機能も搭載しています。すべてブラウザ内で処理されます。</p>
+        </div>
     <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">

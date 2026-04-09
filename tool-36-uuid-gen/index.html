@@ -54,7 +54,14 @@
 </div></div>
 <div class="card" id="batchCard" style="display:none"><h3>一括生成結果（クリックでコピー）</h3><div class="uuid-list" id="batchList"></div></div>
     <div class="ad-slot" style="display:none"></div>
-    <div class="seo-content"><h2>UUID生成ツールについて</h2><p>UUID（Universally Unique Identifier）はデータベースのプライマリキーやAPIのトークンとして広く使われる一意識別子です。このツールはcrypto.randomUUID()を使用した安全なUUID v4を生成します。</p></div>
+    <div class="seo-content">
+        <h2>UUID生成ツールの使い方</h2>
+        <p>UUID（Universally Unique Identifier）v4を生成する無料ツールです。データベースの主キー、セッションID、一時ファイル名など、グローバルに一意な識別子が必要な場面で使います。</p>
+        <h3>UUIDとは</h3>
+        <p>UUIDは128ビットの識別子で、「550e8400-e29b-41d4-a716-446655440000」のような形式です。v4 UUIDは暗号学的に安全な乱数に基づいて生成されるため、重複する確率は天文学的に低く（2^122の組み合わせ）、事実上一意とみなせます。</p>
+        <h3>一括生成対応</h3>
+        <p>1個から100個まで一括生成に対応しています。生成されたUUIDはハイフンあり・なしの両形式でコピーできます。テストデータの作成や、マイグレーションスクリプトでの大量ID生成に便利です。</p>
+        </div>
     <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
