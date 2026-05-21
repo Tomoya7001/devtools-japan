@@ -1,0 +1,81 @@
+# DevTools Japan
+
+> 日本の開発者・デザイナー・フリーランス・士業向けの無料オンラインツール集。61種類以上のツールをブラウザだけで利用可能。会員登録不要・サーバー送信なし。
+
+## サイト情報
+- URL: https://www.devtools-japan.com
+- API: https://api.devtools-japan.com
+- 運営: DevTools Japan
+- 言語: 日本語
+- 料金: 全ツール無料
+
+## ツールカテゴリ
+
+### 開発者向けツール
+- JSON整形ツール: https://www.devtools-japan.com/tool-03-json-formatter/
+- 正規表現テスター: https://www.devtools-japan.com/tool-08-regex-tester/
+- テキスト比較（Diff）: https://www.devtools-japan.com/tool-09-diff/
+- Base64変換: https://www.devtools-japan.com/tool-06-base64/
+- URLエンコード・デコード: https://www.devtools-japan.com/tool-07-url-encode/
+- HTML特殊文字変換: https://www.devtools-japan.com/tool-14-html-escape/
+- ハッシュ生成（MD5/SHA-256）: https://www.devtools-japan.com/tool-17-hash/
+- UUID生成: https://www.devtools-japan.com/tool-36-uuid-gen/
+- Unixタイムスタンプ変換: https://www.devtools-japan.com/tool-16-timestamp/
+- Cron式ジェネレーター: https://www.devtools-japan.com/tool-30-cron-generator/
+- chmod計算: https://www.devtools-japan.com/tool-45-chmod-calc/
+- JWTデコーダー: https://www.devtools-japan.com/tool-48-jwt-decoder/
+- SQLフォーマッター: https://www.devtools-japan.com/tool-49-sql-formatter/
+- .htaccess生成: https://www.devtools-japan.com/tool-50-htaccess-gen/
+- CSV⇔JSON変換: https://www.devtools-japan.com/tool-13-csv-json/
+- パスワード生成: https://www.devtools-japan.com/tool-02-password-gen/
+- IPアドレス確認: https://www.devtools-japan.com/tool-31-ip-checker/
+
+### デザイナー向けツール
+- カラーコード変換: https://www.devtools-japan.com/tool-05-color-converter/
+- カラーパレット生成: https://www.devtools-japan.com/tool-46-color-palette/
+- CSSグラデーション生成: https://www.devtools-japan.com/tool-38-gradient-gen/
+- CSSボックスシャドウ生成: https://www.devtools-japan.com/tool-39-shadow-gen/
+- SNS画像サイズ一覧: https://www.devtools-japan.com/tool-23-sns-image-sizes/
+- OGPプレビュー: https://www.devtools-japan.com/tool-24-ogp-preview/
+- アスペクト比計算: https://www.devtools-japan.com/tool-28-aspect-ratio/
+- 画像圧縮: https://www.devtools-japan.com/tool-10-image-compress/
+- Favicon生成: https://www.devtools-japan.com/tool-20-favicon/
+- プレースホルダー画像: https://www.devtools-japan.com/tool-40-placeholder-img/
+
+### 日本語・日本特化ツール
+- 文字数カウンター: https://www.devtools-japan.com/tool-01-moji-counter/
+- 和暦西暦変換: https://www.devtools-japan.com/tool-12-wareki/
+- 全角半角変換: https://www.devtools-japan.com/tool-19-zenkaku-hankaku/
+- 文章校正チェッカー: https://www.devtools-japan.com/tool-26-proofreader/
+- 読み上げ時間計算: https://www.devtools-japan.com/tool-25-speech-time/
+
+### フリーランス・副業向けツール
+- 確定申告シミュレーター: https://www.devtools-japan.com/tool-21-tax-simulator/
+- 源泉徴収税計算: https://www.devtools-japan.com/tool-22-withholding-tax/
+- フリーランス年収シミュレーター: https://www.devtools-japan.com/tool-58-freelance-income/
+- 請求書金額計算: https://www.devtools-japan.com/tool-52-invoice-calc/
+- 国民健康保険料計算: https://www.devtools-japan.com/tool-60-nhi-calc/
+- 個人事業税計算: https://www.devtools-japan.com/tool-61-business-tax/
+- 減価償却計算: https://www.devtools-japan.com/tool-59-depreciation/
+
+### ビジネス・士業向けツール
+- 営業日計算: https://www.devtools-japan.com/tool-51-business-day-calc/
+- 年齢・勤続年数計算: https://www.devtools-japan.com/tool-53-age-calc/
+- 残業代・割増賃金計算: https://www.devtools-japan.com/tool-54-working-hours/
+- 遅延損害金計算: https://www.devtools-japan.com/tool-55-late-fee-calc/
+- 相続税シミュレーター: https://www.devtools-japan.com/tool-56-inheritance-tax/
+- 印紙税額検索: https://www.devtools-japan.com/tool-57-stamp-duty/
+- ローン返済シミュレーター: https://www.devtools-japan.com/tool-27-loan-calc/
+
+## API
+DevTools Japan APIとして30本以上の無料REST APIも提供。認証不要で即利用可能。
+- ポータル: https://api.devtools-japan.com
+- ドキュメント: https://api.devtools-japan.com/docs
+- 和暦変換、祝日判定、郵便番号検索、全角半角変換、ハッシュ生成、UUID生成等
+
+## ブログ
+- フリーランスの確定申告ガイド: https://www.devtools-japan.com/blog/freelance-tax-guide/
+- SNS画像サイズガイド: https://www.devtools-japan.com/blog/sns-image-size-guide/
+- フリーランスの経費一覧: https://www.devtools-japan.com/blog/freelance-expenses/
+- 副業の20万円ルール: https://www.devtools-japan.com/blog/side-job-tax-rule/
+- 源泉徴収の計算方法: https://www.devtools-japan.com/blog/withholding-tax-guide/
