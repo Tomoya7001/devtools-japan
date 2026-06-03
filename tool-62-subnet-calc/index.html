@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E27Q8YTG7L');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サブネット計算ツール（CIDR計算） | IPアドレス範囲・ネットマスク・ホスト数を自動計算【無料】</title>
+    <meta name="description" content="CIDR表記からネットワークアドレス・ブロードキャストアドレス・使用可能IP範囲・ホスト数・サブネットマスクを自動計算する無料ツール。ネットワーク設計、サーバー構築、インフラ設定に。SE・インフラエンジニア必携。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#2563eb;--accent-dim:rgba(37,99,235,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(99,102,241,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}.row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:240px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent);word-break:break-all}
+        .result-item .value.tax{color:var(--red)}.result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .mono-out{font-family:'JetBrains Mono',monospace;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.95rem;color:var(--accent);word-break:break-all;cursor:pointer}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.06);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:8px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-62-subnet-calc/">
+    <meta property="og:title" content="サブネット計算ツール（CIDR） | IP範囲・ホスト数を自動計算【無料】">
+    <meta property="og:description" content="CIDRからネットワークアドレス・IP範囲・ホスト数・サブネットマスクを計算">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-62-subnet-calc/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="サブネット計算ツール（CIDR）【無料】">
+    <meta name="twitter:description" content="CIDRからIP範囲・ホスト数・サブネットマスクを自動計算">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"サブネット計算ツール（CIDR計算）","description":"CIDRからネットワークアドレス・IP範囲・ホスト数を計算","url":"https://www.devtools-japan.com/tool-62-subnet-calc/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>サブネット計算（CIDR）</h1><p>IPアドレス範囲・ネットマスク・ホスト数を自動計算</p></header>
+
+    <div class="card"><h3>入力</h3>
+        <div class="row"><label>IPアドレス</label><input type="text" id="ip" value="192.168.1.0" oninput="calc()"></div>
+        <div class="row"><label>プレフィックス（CIDR）</label><select id="cidr" onchange="calc()">
+        </select><span class="unit"></span></div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">ネットワークアドレス</div><div class="value" id="rNetwork">-</div></div>
+        <div class="result-item"><div class="label">ブロードキャストアドレス</div><div class="value" id="rBroadcast">-</div></div>
+        <div class="result-item"><div class="label">サブネットマスク</div><div class="value" id="rMask">-</div></div>
+        <div class="result-item"><div class="label">ワイルドカードマスク</div><div class="value" id="rWildcard">-</div></div>
+        <div class="result-item"><div class="label">使用可能IP範囲</div><div class="value" id="rRange" style="font-size:1rem">-</div></div>
+        <div class="result-item"><div class="label">使用可能ホスト数</div><div class="value take" id="rHosts">-</div></div>
+    </div>
+
+    <div class="note">使用可能ホスト数は、ネットワークアドレスとブロードキャストアドレスを除いた数です（/31, /32 は特殊扱い）。</div>
+
+    <div class="card"><h3>よく使うCIDRとホスト数</h3>
+        <table class="ref">
+            <tr><th>CIDR</th><th>サブネットマスク</th><th>使用可能ホスト数</th></tr>
+            <tr><td>/24</td><td>255.255.255.0</td><td>254</td></tr>
+            <tr><td>/25</td><td>255.255.255.128</td><td>126</td></tr>
+            <tr><td>/26</td><td>255.255.255.192</td><td>62</td></tr>
+            <tr><td>/27</td><td>255.255.255.224</td><td>30</td></tr>
+            <tr><td>/28</td><td>255.255.255.240</td><td>14</td></tr>
+            <tr><td>/29</td><td>255.255.255.248</td><td>6</td></tr>
+            <tr><td>/30</td><td>255.255.255.252</td><td>2</td></tr>
+        </table>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>サブネット計算ツール（CIDR計算）の使い方</h2>
+        <p>IPアドレスとCIDRプレフィックス（/24など）を入力するだけで、ネットワークアドレス、ブロードキャストアドレス、サブネットマスク、使用可能なIPアドレスの範囲、ホスト数を自動計算する無料ツールです。ネットワーク設計、サーバー構築、ファイアウォール設定で必須の計算を瞬時に行えます。</p>
+        <h3>CIDR表記とは</h3>
+        <p>CIDR（Classless Inter-Domain Routing）は、IPアドレスとサブネットマスクを「192.168.1.0/24」のように表記する方法です。/24はサブネットマスクの先頭24ビットが1であることを意味し、255.255.255.0と同じです。プレフィックスが大きいほどネットワークが小さく（ホスト数が少なく）なります。</p>
+        <h3>SE・インフラエンジニアの実務で</h3>
+        <p>VPCのサブネット設計、ロードバランサーの設定、ファイアウォールのIP許可範囲の指定、ルーティングテーブルの設定など、ネットワークを扱うあらゆる場面で使います。「/26だと何台のサーバーを収容できる？」「このIPはどのネットワークに属する？」を即座に確認できます。</p>
+        <h3>プライバシー</h3>
+        <p>すべての計算はブラウザ内で完結します。入力したIPアドレスがサーバーに送信されることはありません。</p>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="/tool-31-ip-checker/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">IPアドレス確認</a><a href="/tool-63-mac-address/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">MACアドレス整形</a><a href="/tool-37-number-base/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">進数変換</a></div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+    <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+const cidrSel = document.getElementById('cidr');
+for (let i = 8; i <= 32; i++) {
+    const opt = document.createElement('option');
+    opt.value = i; opt.textContent = '/' + i;
+    if (i === 24) opt.selected = true;
+    cidrSel.appendChild(opt);
+}
+
+function ipToInt(ip) {
+    const parts = ip.split('.').map(Number);
+    if (parts.length !== 4 || parts.some(p => isNaN(p) || p < 0 || p > 255)) return null;
+    return ((parts[0] << 24) >>> 0) + (parts[1] << 16) + (parts[2] << 8) + parts[3];
+}
+function intToIp(int) {
+    return [(int >>> 24) & 255, (int >>> 16) & 255, (int >>> 8) & 255, int & 255].join('.');
+}
+
+function calc() {
+    const ip = document.getElementById('ip').value.trim();
+    const cidr = parseInt(document.getElementById('cidr').value);
+    const ipInt = ipToInt(ip);
+    if (ipInt === null) {
+        document.getElementById('rNetwork').textContent = '不正なIP';
+        return;
+    }
+    const mask = cidr === 0 ? 0 : (0xFFFFFFFF << (32 - cidr)) >>> 0;
+    const network = (ipInt & mask) >>> 0;
+    const broadcast = (network | (~mask >>> 0)) >>> 0;
+    const wildcard = (~mask) >>> 0;
+
+    let hosts, firstIp, lastIp;
+    if (cidr === 32) {
+        hosts = 1; firstIp = lastIp = intToIp(network);
+    } else if (cidr === 31) {
+        hosts = 2; firstIp = intToIp(network); lastIp = intToIp(broadcast);
+    } else {
+        hosts = broadcast - network - 1;
+        firstIp = intToIp(network + 1);
+        lastIp = intToIp(broadcast - 1);
+    }
+
+    document.getElementById('rNetwork').textContent = intToIp(network);
+    document.getElementById('rBroadcast').textContent = intToIp(broadcast);
+    document.getElementById('rMask').textContent = intToIp(mask);
+    document.getElementById('rWildcard').textContent = intToIp(wildcard);
+    document.getElementById('rRange').textContent = firstIp + ' 〜 ' + lastIp;
+    document.getElementById('rHosts').textContent = hosts.toLocaleString() + '台';
+}
+calc();
+</script>
+</body>
+</html>

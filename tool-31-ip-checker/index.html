@@ -48,7 +48,13 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"WebApplication","name":"IPアドレス確認ツール","description":"あなたのグローバルIPアドレスを瞬時に表示","url":"https://www.devtools-japan.com/tool-31-ip-checker/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
     </script>
-</head>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"IPアドレス確認ツール","item":"https://www.devtools-japan.com/tool-31-ip-checker/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"表示されるIPアドレスはグローバルIPですか？","acceptedAnswer":{"@type":"Answer","text":"はい。インターネット側から見えるグローバルIPアドレスを表示します。IPv4とIPv6の両方に対応しており、VPNやプロキシ経由の場合はその出口側のアドレスが表示されます。"}},{"@type":"Question","name":"自分のIPアドレスを調べると個人情報は特定されますか？","acceptedAnswer":{"@type":"Answer","text":"IPアドレスからおおまかな接続事業者や地域はわかりますが、氏名などの個人情報が直接特定されることはありません。本ツールはIPの確認のみを行い、登録不要・無料で利用できます。"}}]}
+    </script>
+    </head>
 <body>
 <div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
@@ -84,7 +90,9 @@
         <a href="/tool-07-url-encode/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">URLエンコード・デコードツール</a>
         <a href="/tool-50-htaccess-gen/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">.htaccess生成ツール</a>
         <a href="/tool-29-byte-converter/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">バイト変換ツール</a>
-      </div>
+      <a href="/tool-62-subnet-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem">サブネット計算</a>
+<a href="/tool-63-mac-address/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem">MACアドレス整形</a>
+</div>
     </div>
     <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
             <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>

@@ -41,6 +41,12 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"WebApplication","name":"JWTデコーダー","description":"JSON Web Tokenのペイロードをデコード表示","url":"https://www.devtools-japan.com/tool-48-jwt-decoder/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"JWTデコーダー","item":"https://www.devtools-japan.com/tool-48-jwt-decoder/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"入力したJWTトークンがサーバーに送信されることはありますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。デコード処理はすべてお使いのブラウザ上で完結し、入力したJWTがサーバーに送信されることはありません。とはいえトークンには機密情報が含まれる場合があるため、本番環境の有効なトークンの取り扱いには十分ご注意ください。"}},{"@type":"Question","name":"このツールはJWTの署名検証もできますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。本ツールはヘッダーとペイロードをBase64URLデコードして中身を表示し、exp（有効期限）の状態を確認する用途です。署名（signature）の正当性検証には秘密鍵や公開鍵が必要なため対応していません。中身の確認や認証デバッグにご利用ください。"}}]}
+    </script>
 </head>
 <body>
 <div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
