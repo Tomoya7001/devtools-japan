@@ -14,8 +14,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>和暦・西暦変換ツール | 年号変換・早見表</title>
-    <meta name="description" content="令和・平成・昭和・大正・明治の和暦と西暦をワンクリックで相互変換。年齢計算付き。早見表も掲載。">
+    <title>和暦・西暦変換ツール | 令和7年は西暦何年・対応表</title>
+    <meta name="description" content="令和・平成・昭和・大正・明治の和暦と西暦をワンクリックで相互変換。令和7年=2025年、令和8年=2026年など対応表・年齢計算付き。改元年の数え方も解説。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#d97706;--accent-dim:rgba(217,119,6,0.1);--radius:12px}
@@ -41,6 +41,13 @@
         .era-table .era-name{color:var(--accent);font-weight:500}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:center;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}.lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-12-wareki/">
@@ -58,7 +65,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"和暦・西暦変換ツール","item":"https://www.devtools-japan.com/tool-12-wareki/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"令和は西暦何年から始まりましたか？","acceptedAnswer":{"@type":"Answer","text":"令和は2019年（平成31年）5月1日から始まりました。令和元年は2019年にあたり、本ツールでは令和の年から西暦、西暦から令和への相互変換に対応しています。"}},{"@type":"Question","name":"和暦から年齢も計算できますか？","acceptedAnswer":{"@type":"Answer","text":"はい、本ツールは生年の和暦・西暦を入力すると現在の年齢も自動で計算します。すべてブラウザ内で処理され、登録不要・無料で利用できます。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"令和7年は西暦何年ですか？","acceptedAnswer":{"@type":"Answer","text":"令和7年は西暦2025年です。令和の年に2018を足すと西暦になるため、7＋2018＝2025年と計算できます。"}},{"@type":"Question","name":"令和8年は西暦何年ですか？","acceptedAnswer":{"@type":"Answer","text":"令和8年は西暦2026年です。8＋2018＝2026年で求められ、本ツールの初期表示も令和8年＝2026年になっています。"}},{"@type":"Question","name":"平成は西暦何年から何年までですか？","acceptedAnswer":{"@type":"Answer","text":"平成は1989年（平成元年）から2019年（平成31年）までです。正確には1989年1月8日から2019年4月30日までで、2019年5月1日からは令和に切り替わりました。"}},{"@type":"Question","name":"昭和64年は西暦何年ですか？","acceptedAnswer":{"@type":"Answer","text":"昭和64年は西暦1989年です。昭和の年に1925を足すと西暦になるため、64＋1925＝1989年となります。ただし昭和64年は1989年1月7日までで、1月8日からは平成元年（同じく1989年）です。"}},{"@type":"Question","name":"西暦から和暦への変換方法は？","acceptedAnswer":{"@type":"Answer","text":"西暦が2019年以降なら「西暦−2018」で令和の年、1989〜2018年なら「西暦−1988」で平成の年、1926〜1988年なら「西暦−1925」で昭和の年が求められます。本ツールの「西暦→和暦」欄に西暦を入力すれば自動で判定・換算します。"}}]}
     </script>
 </head>
 <body>
@@ -106,6 +113,34 @@
         <h3>よく使われる変換例</h3>
         <p>「令和8年 → 2026年」「平成元年 → 1989年」「昭和64年 → 1989年」など。昭和64年と平成元年が同じ1989年であるような、元号をまたぐ変換も正しく処理します。すべてブラウザ上で動作します。</p>
         </div>
+    <div class="seo-content">
+        <h2>和暦・西暦 対応表</h2>
+        <p>和暦から西暦への換算は、各元号の開始年を基準に計算します。具体的には、令和は「西暦＝令和の年＋2018」、平成は「西暦＝平成の年＋1988」、昭和は「西暦＝昭和の年＋1925」という関係で求められます。逆に西暦から和暦に直す場合は、令和なら「西暦−2018」、平成なら「西暦−1988」、昭和なら「西暦−1925」で年数を算出します。下表に令和・平成・昭和の代表的な対応をまとめました。元年（1年）はそれぞれ「令和元年」「平成元年」「昭和元年」とも表記します。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>令和</th><th>西暦</th><th>平成</th><th>西暦</th><th>昭和</th><th>西暦</th></tr></thead>
+            <tbody>
+                <tr><td class="acc">令和元年（1年）</td><td>2019年</td><td class="acc">平成元年（1年）</td><td>1989年</td><td class="acc">昭和元年（1年）</td><td>1926年</td></tr>
+                <tr><td class="acc">令和2年</td><td>2020年</td><td class="acc">平成10年</td><td>1998年</td><td class="acc">昭和20年</td><td>1945年</td></tr>
+                <tr><td class="acc">令和3年</td><td>2021年</td><td class="acc">平成20年</td><td>2008年</td><td class="acc">昭和30年</td><td>1955年</td></tr>
+                <tr><td class="acc">令和4年</td><td>2022年</td><td class="acc">平成30年</td><td>2018年</td><td class="acc">昭和40年</td><td>1965年</td></tr>
+                <tr><td class="acc">令和5年</td><td>2023年</td><td class="acc">平成31年</td><td>2019年</td><td class="acc">昭和50年</td><td>1975年</td></tr>
+                <tr><td class="acc">令和6年</td><td>2024年</td><td>—</td><td>—</td><td class="acc">昭和63年</td><td>1988年</td></tr>
+                <tr><td class="acc">令和7年</td><td>2025年</td><td>—</td><td>—</td><td class="acc">昭和64年</td><td>1989年</td></tr>
+                <tr><td class="acc">令和8年</td><td>2026年</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>令和は2019年5月1日に始まったため、令和元年は2019年にあたります。同じ2019年は4月30日まで平成31年でもあり、1つの西暦年に2つの元号が併存しました。同様に昭和から平成への改元があった1989年は、1月7日までが昭和64年、1月8日からが平成元年です。このように改元のあった年は、月日によって対応する元号が変わる点に注意が必要です。</p>
+        <h3>改元年の数え方</h3>
+        <p>改元（元号が切り替わること）のあった年は、その年の途中で元号が変わるため、1つの西暦年に2つの和暦が存在します。1989年は昭和64年（1月1日〜1月7日）と平成元年（1月8日〜12月31日）の両方が割り当てられ、2019年は平成31年（1月1日〜4月30日）と令和元年（5月1日〜12月31日）の両方が割り当てられます。書類や履歴書で日付を扱う際は、改元日を境にどちらの元号を用いるかが決まるため、月日まで含めて確認することが大切です。なお新元号が始まった最初の年は「○年」ではなく「元年」と書くのが正式な表記で、令和元年・平成元年・昭和元年がこれにあたります。</p>
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">令和7年は西暦何年ですか？</div><div class="a">令和7年は西暦2025年です。令和の年に2018を足すと西暦になるため、7＋2018＝2025年と計算できます。</div></div>
+        <div class="faq-item"><div class="q">令和8年は西暦何年ですか？</div><div class="a">令和8年は西暦2026年です。8＋2018＝2026年で求められ、本ツールの初期表示も令和8年＝2026年になっています。</div></div>
+        <div class="faq-item"><div class="q">平成は西暦何年から何年までですか？</div><div class="a">平成は1989年（平成元年）から2019年（平成31年）までです。正確には1989年1月8日から2019年4月30日までで、2019年5月1日からは令和に切り替わりました。</div></div>
+        <div class="faq-item"><div class="q">昭和64年は西暦何年ですか？</div><div class="a">昭和64年は西暦1989年です。昭和の年に1925を足すと西暦になるため、64＋1925＝1989年となります。ただし昭和64年は1989年1月7日までで、1月8日からは平成元年（同じく1989年）です。</div></div>
+        <div class="faq-item"><div class="q">西暦から和暦への変換方法は？</div><div class="a">西暦が2019年以降なら「西暦−2018」で令和の年、1989〜2018年なら「西暦−1988」で平成の年、1926〜1988年なら「西暦−1925」で昭和の年が求められます。本ツールの「西暦→和暦」欄に西暦を入力すれば自動で判定・換算します。</div></div>
+    </div>
     <div class="ad-slot" style="display:none"></div>
     
     
