@@ -14,8 +14,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文字数カウンター | リアルタイム文字数・単語数・行数カウント</title>
-    <meta name="description" content="テキストの文字数・単語数・行数・バイト数をリアルタイムでカウント。スペース除外、改行除外にも対応。ブログ記事、レポート、SNS投稿の文字数管理に。">
+    <title>文字数カウンター | 文字数・単語数・行数をリアルタイム計測（原稿用紙・Twitter対応）</title>
+    <meta name="description" content="テキストの文字数・単語数・行数・バイト数をリアルタイムでカウント。スペース除外、改行除外にも対応。Twitter140字・原稿用紙400字など媒体別の文字数目安や数え方の解説、よくある質問も掲載。">
     <meta name="keywords" content="文字数カウント,文字数カウンター,単語数,行数,バイト数,Twitter文字数">
     <meta property="og:title" content="文字数カウンター | 無料オンラインツール">
     <meta property="og:description" content="リアルタイムで文字数・単語数・行数をカウント。SNS投稿やレポート作成に。">
@@ -389,6 +389,13 @@
 
         .seo-content p { margin-bottom: 12px; }
 
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text-secondary);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text-primary)}.lookup-table td.acc{color:var(--accent-cyan);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text-primary);margin-bottom:4px}.faq-item .a{color:var(--text-secondary)}
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
@@ -414,7 +421,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"文字数カウンター","item":"https://www.devtools-japan.com/tool-01-moji-counter/"}]}
     </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"文字数カウントでスペースや改行を除いた文字数も数えられますか？","acceptedAnswer":{"@type":"Answer","text":"はい。本ツールはスペースを除外した文字数や、改行を除外した文字数も同時に表示します。原稿用紙の字数管理など、空白を含めたくない場合に活用できます。"}},{"@type":"Question","name":"入力したテキストはサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。カウント処理はすべてお使いのブラウザ内で完結し、入力テキストが外部サーバーへ送信されることはありません。登録不要・無料で安心してご利用いただけます。"}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"スペースや改行は文字数に含まれますか？","acceptedAnswer":{"@type":"Answer","text":"「文字数」にはスペースと改行を含めてカウントします。空白を除いた数を知りたい場合は「文字数（空白除外）」をご覧ください。こちらは半角・全角スペース、タブ、改行を取り除いた値です。さらに「改行を除外」オプションをONにすると、改行を除いた文字数を「文字数」にも反映できます。"}},{"@type":"Question","name":"全角と半角はどう数えられますか？","acceptedAnswer":{"@type":"Answer","text":"標準では全角・半角を区別せず、どちらも1文字として数えます。「半角を0.5文字で計算」をONにすると、半角英数字と半角カナを0.5文字としてカウントし、原稿用紙の換算に近い値になります。"}},{"@type":"Question","name":"原稿用紙で何枚分か分かりますか？","acceptedAnswer":{"@type":"Answer","text":"原稿用紙は1枚400字（20字×20行）が標準です。「文字数」を400で割るとおおよその枚数が分かります。例えば1,200字なら約3枚分です。読了時間も日本語400文字/分を基準に算出しています。"}},{"@type":"Question","name":"X（旧Twitter）の文字数制限は何文字ですか？","acceptedAnswer":{"@type":"Answer","text":"Xの1投稿あたりの上限は全角140字です。半角・全角を問わず1文字として数えられます。本ツールではX（Twitter）の制限バーで140字に対する進捗を確認できます。"}},{"@type":"Question","name":"入力したテキストは外部に送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。カウント処理はすべてお使いのブラウザ内で完結し、入力したテキストが外部サーバーへ送信されることはありません。登録不要・無料で安心してご利用いただけます。"}}]}
 </script>
 </head>
 <body>
@@ -524,6 +531,55 @@
 
             <h3>オプション機能</h3>
             <p>「半角を0.5文字で計算」をONにすると、半角英数字を0.5文字としてカウントします。原稿用紙（400字詰め）の換算に便利です。「改行を除外」をONにすると、改行コードを文字数から除外してカウントします。</p>
+        </div>
+
+        <div class="seo-content">
+            <h2>媒体別の文字数制限・目安</h2>
+            <p>提出物やSNS投稿には、それぞれ推奨される文字数や上限があります。代表的な媒体の文字数の目安を一覧にまとめました。執筆中にこのツールでカウントしながら、下表の数値と照らし合わせてご活用ください。</p>
+            <div class="table-wrap">
+                <table class="lookup-table">
+                    <thead>
+                        <tr><th>媒体・用途</th><th>文字数の目安</th><th>補足</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>X（旧Twitter）</td><td class="acc">全角140字</td><td>半角・全角を問わず1投稿あたりの上限。URLは短縮されて計算</td></tr>
+                        <tr><td>Instagram キャプション</td><td class="acc">2,200字</td><td>ハッシュタグを含む。表示は冒頭のみで「続きを読む」</td></tr>
+                        <tr><td>原稿用紙 1枚</td><td class="acc">400字</td><td>20字×20行の400字詰めが標準</td></tr>
+                        <tr><td>メタディスクリプション</td><td class="acc">120字前後</td><td>検索結果の説明文。PCで全文表示される目安</td></tr>
+                        <tr><td>LINE 1メッセージ</td><td>10,000字</td><td>1回の送信で送れる上限の目安</td></tr>
+                        <tr><td>エントリーシート設問</td><td>200〜400字</td><td>企業ごとに「○○字以内」と指定されることが多い</td></tr>
+                        <tr><td>大学レポート</td><td>2,000〜4,000字</td><td>課題により異なる。A4・1枚はおよそ1,200〜1,600字</td></tr>
+                        <tr><td>YouTube 概要欄</td><td>5,000字</td><td>説明文の上限。冒頭の数行が検索・表示で重要</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>※上記はいずれも一般に知られている目安です。提出先の最新の規定や各サービスの仕様変更により変わる場合があるため、正式な値は提出先・公式情報をご確認ください。</p>
+
+            <h3>文字数の数え方（全角・半角・空白）</h3>
+            <p>本ツールの「文字数」は、全角文字（漢字・ひらがな・カタカナ）も半角文字（英数字・記号）も区別なく、それぞれ1文字としてカウントします。これは原稿用紙やエントリーシートなど、日本語の文字数管理で最も一般的な数え方です。一方で「半角を0.5文字で計算」をONにすると、半角英数字と半角カナを0.5文字として数えるため、原稿用紙の換算に近い値になります。</p>
+            <p>また、文字数はスペース（空白）や改行を含めるか除くかによって数値が変わります。本ツールでは「文字数」が空白・改行を含めた値、「文字数（空白除外）」が半角スペース・全角スペース・タブ・改行などの空白文字を取り除いた値です。「○○字以内」の指定がある場合、空白を含めるかどうかは提出先の規定に従ってください。</p>
+
+            <h2>よくある質問</h2>
+            <div class="faq-item">
+                <div class="q">スペースや改行は文字数に含まれますか？</div>
+                <div class="a">「文字数」にはスペースと改行を含めてカウントします。空白を除いた数を知りたい場合は「文字数（空白除外）」をご覧ください。こちらは半角・全角スペース、タブ、改行を取り除いた値です。さらに「改行を除外」オプションをONにすると、改行を除いた文字数を「文字数」にも反映できます。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">全角と半角はどう数えられますか？</div>
+                <div class="a">標準では全角・半角を区別せず、どちらも1文字として数えます。「半角を0.5文字で計算」をONにすると、半角英数字と半角カナを0.5文字としてカウントし、原稿用紙の換算に近い値になります。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">原稿用紙で何枚分か分かりますか？</div>
+                <div class="a">原稿用紙は1枚400字（20字×20行）が標準です。「文字数」を400で割るとおおよその枚数が分かります。例えば1,200字なら約3枚分です。読了時間も日本語400文字/分を基準に算出しています。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">X（旧Twitter）の文字数制限は何文字ですか？</div>
+                <div class="a">Xの1投稿あたりの上限は全角140字です。半角・全角を問わず1文字として数えられます。本ツールではX（Twitter）の制限バーで140字に対する進捗を確認できます。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">入力したテキストは外部に送信されますか？</div>
+                <div class="a">いいえ。カウント処理はすべてお使いのブラウザ内で完結し、入力したテキストが外部サーバーへ送信されることはありません。登録不要・無料で安心してご利用いただけます。</div>
+            </div>
         </div>
 
         <!-- Bottom Ad Slot -->
