@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>時給・月給・年収 換算ツール | 給与の相互変換を自動計算【無料】</title>
-    <meta name="description" content="時給・月給・年収を相互に換算する無料ツール。「時給1,500円は年収いくら？」「年収500万は時給換算でいくら？」を即計算。労働時間を指定して正確に変換。転職・副業・パート勤務の比較に。">
+    <title>時給・月給・年収 換算ツール | 給与の相互変換を自動計算・換算表付き【無料】</title>
+    <meta name="description" content="時給・月給・年収を相互に換算する無料ツール。「時給1,500円は年収いくら？」「年収500万は時給換算でいくら？」を即計算。時給1000〜2000円の換算早見表付き。労働時間を指定して正確に変換。転職・副業・パート勤務の比較に。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#7c3aed;--accent-dim:rgba(124,58,237,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
@@ -38,6 +38,13 @@
         table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
         table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
         table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:center;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{font-family:'JetBrains Mono',monospace;color:var(--text)}.lookup-table td:first-child{font-family:'Noto Sans JP',sans-serif;text-align:left}.lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-67-wage-converter/">
     <meta property="og:title" content="時給・月給・年収 換算ツール | 給与の相互変換【無料】">
@@ -51,7 +58,7 @@
     {"@context":"https://schema.org","@type":"WebApplication","name":"時給・月給・年収 換算ツール","description":"時給・月給・年収を相互に換算","url":"https://www.devtools-japan.com/tool-67-wage-converter/","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"時給1500円は年収いくら？","acceptedAnswer":{"@type":"Answer","text":"1日8時間・月20日勤務の場合、時給1,500円は月給24万円、年収288万円に相当します。労働時間によって変わります。"}},{"@type":"Question","name":"年収を時給に換算するには？","acceptedAnswer":{"@type":"Answer","text":"年収÷12でひと月の給与を出し、それを月の労働時間（1日の時間×日数）で割ると時給になります。年収400万円・月160時間なら時給約2,080円です。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"時給1,500円は年収いくら？","acceptedAnswer":{"@type":"Answer","text":"1日8時間・月20日勤務（月160時間・年1,920時間）を前提とすると、時給1,500円は月給240,000円、年収2,880,000円に相当します。これは額面（税引き前）の金額で、労働時間や日数が変わると金額も変わります。"}},{"@type":"Question","name":"月給25万円は時給換算でいくら？","acceptedAnswer":{"@type":"Answer","text":"月160時間（1日8時間・月20日）勤務の場合、250,000円 ÷ 160時間 で時給はおよそ1,563円です。月の労働時間が多いほど時給換算は下がり、少ないほど上がります。"}},{"@type":"Question","name":"この換算は手取り？それとも額面？","acceptedAnswer":{"@type":"Answer","text":"すべて額面（税引き前）での換算です。実際の手取りは、所得税・住民税・社会保険料が差し引かれるため額面より少なくなります。手取り額を知りたい場合は手取り計算ツールをご利用ください。"}},{"@type":"Question","name":"パート・アルバイトの年収の壁（103万円・130万円）との関係は？","acceptedAnswer":{"@type":"Answer","text":"本ツールで算出した年収（額面）が、扶養や社会保険の判定に使われる年収の壁の目安になります。たとえば時給1,000円・月160時間だと年収192万円となり、103万円・130万円の壁を超えます。壁を意識する場合は労働時間や日数を調整して年収を確認してください。"}},{"@type":"Question","name":"残業代は含まれる？","acceptedAnswer":{"@type":"Answer","text":"含まれません。本ツールは入力した時給・労働時間にもとづく単純換算で、割増となる残業代や深夜・休日手当は計算に含めていません。残業代を加味したい場合は、残業代計算ツールを別途ご利用ください。"}}]}
     </script>
 </head>
 <body>
@@ -91,6 +98,33 @@
         <p>正社員（年収提示）とパート・アルバイト（時給提示）の収入を比較したいとき、フリーランスの単価を時給換算したいとき、副業の時給が割に合うか確認したいときなどに便利です。異なる給与体系を同じ土俵で比較できます。</p>
         <h3>額面と手取りの違い</h3>
         <p>このツールは額面（税引き前）の単純換算です。実際に受け取る手取り額は、ここから所得税・住民税・社会保険料が引かれます。手取り額を知りたい場合は、手取り計算ツールをあわせてご利用ください。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>時給・月給・年収の換算表</h2>
+        <p>代表的な時給ごとに、月給・年収へ換算した早見表です。下表はこのツールの初期設定と同じ「1日8時間・月20日勤務（月160時間・年1,920時間）」を前提に計算しています。労働条件を変えると金額も変わるため、正確な値はツール本体に自分の勤務時間・日数を入力して確認してください。いずれも額面（税引き前）の金額です。</p>
+        <div class="table-wrap">
+            <table class="lookup-table">
+                <thead><tr><th>時給</th><th>日給<br>（8時間）</th><th>月給<br>（月160時間）</th><th>年収<br>（年1,920時間）</th></tr></thead>
+                <tbody>
+                    <tr><td>1,000円</td><td>8,000円</td><td>160,000円</td><td class="acc">1,920,000円</td></tr>
+                    <tr><td>1,200円</td><td>9,600円</td><td>192,000円</td><td class="acc">2,304,000円</td></tr>
+                    <tr><td>1,500円</td><td>12,000円</td><td>240,000円</td><td class="acc">2,880,000円</td></tr>
+                    <tr><td>2,000円</td><td>16,000円</td><td>320,000円</td><td class="acc">3,840,000円</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>注記: 上表は1日8時間・月20日（＝月160時間）、年間1,920時間で算出しています。日給は「時給×8時間」、月給は「時給×160時間」、年収は「月給×12か月」です。シフト制やパート勤務など労働時間が異なる場合は値も変わります。</p>
+
+        <h3>換算の考え方</h3>
+        <p>給与の相互換算は、3つの単純な式で成り立っています。第一に「時給 × 1日の労働時間 = 日給」、第二に「時給 × 月の労働時間（1日の時間 × 月の日数）= 月給」、第三に「月給 × 12か月 = 年収」です。逆向きに年収から時給を求めるときは、年収を12で割って月給を出し、それを月の労働時間で割ります。このツールの初期値である1日8時間・月20日では、月の労働時間は160時間、年間の労働時間は1,920時間となり、時給を1,920倍すれば年収が求められます。なお、ここで算出されるのはすべて額面（税引き前）の金額です。実際に手元に残る手取り額は、ここから所得税・住民税・健康保険・厚生年金などの社会保険料が差し引かれるため、額面のおおよそ75〜85%程度になるのが一般的です。賞与（ボーナス）の有無や扶養家族の人数によっても手取り率は変動します。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">時給1,500円は年収いくら？</div><div class="a">1日8時間・月20日勤務（月160時間・年1,920時間）を前提とすると、時給1,500円は月給240,000円、年収2,880,000円に相当します。これは額面（税引き前）の金額で、労働時間や日数が変わると金額も変わります。</div></div>
+        <div class="faq-item"><div class="q">月給25万円は時給換算でいくら？</div><div class="a">月160時間（1日8時間・月20日）勤務の場合、250,000円 ÷ 160時間 で時給はおよそ1,563円です。月の労働時間が多いほど時給換算は下がり、少ないほど上がります。</div></div>
+        <div class="faq-item"><div class="q">この換算は手取り？それとも額面？</div><div class="a">すべて額面（税引き前）での換算です。実際の手取りは、所得税・住民税・社会保険料が差し引かれるため額面より少なくなります。手取り額を知りたい場合は手取り計算ツールをご利用ください。</div></div>
+        <div class="faq-item"><div class="q">パート・アルバイトの年収の壁（103万円・130万円）との関係は？</div><div class="a">本ツールで算出した年収（額面）が、扶養や社会保険の判定に使われる年収の壁の目安になります。たとえば時給1,000円・月160時間だと年収192万円となり、103万円・130万円の壁を超えます。壁を意識する場合は労働時間や日数を調整して年収を確認してください。</div></div>
+        <div class="faq-item"><div class="q">残業代は含まれる？</div><div class="a">含まれません。本ツールは入力した時給・労働時間にもとづく単純換算で、割増となる残業代や深夜・休日手当は計算に含めていません。残業代を加味したい場合は、残業代計算ツールを別途ご利用ください。</div></div>
     </div>
 
         <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
