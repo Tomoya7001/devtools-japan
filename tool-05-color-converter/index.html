@@ -14,8 +14,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>カラーコード変換ツール | HEX・RGB・HSL相互変換</title>
-    <meta name="description" content="HEX、RGB、HSLのカラーコードを相互変換。カラーピッカー付き。CSSカラーコードのコピーもワンクリック。Web制作・デザインに。">
+    <title>カラーコード変換ツール | HEX・RGB・HSL相互変換 早見表付き</title>
+    <meta name="description" content="HEX、RGB、HSLのカラーコードを相互変換。#FF0000=rgb(255,0,0)=hsl(0,100%,50%)など代表色の対応表付き。カラーピッカー・CSSコピー対応で無料。Web制作・デザインに。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root { --bg-primary:#f7f8fb; --bg-card:#ffffff; --border:#e0e2ed; --text-primary:#1e1e35; --text-secondary:#5a5f78; --text-muted:#9498b0; --radius:12px; }
@@ -49,6 +49,14 @@
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text-secondary);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text-primary);font-size:1.05rem;margin-bottom:12px}
         .seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text-primary);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text-secondary);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text-primary);font-family:'JetBrains Mono',monospace}
+        .lookup-table td.acc{color:#a78bfa;font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text-primary);margin-bottom:4px}.faq-item .a{color:var(--text-secondary)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text-muted);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:#a78bfa;color:#000;padding:12px 24px;border-radius:8px;font-size:0.85rem;font-weight:500;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}
         .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -68,7 +76,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"カラーコード変換ツール","item":"https://www.devtools-japan.com/tool-05-color-converter/"}]}
     </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"HEXとRGBとHSLは相互に変換できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。HEX・RGB・HSLのカラーコードを相互に変換できます。カラーピッカーで色を選ぶと各形式の値が自動で表示され、ワンクリックでコピーできます。"}},{"@type":"Question","name":"変換したカラーコードはCSSにそのまま使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。出力されるHEXやrgb・hslの値はそのままCSSに貼り付けて使えます。Web制作やデザインでの色指定に便利で、無料・登録不要です。"}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"HEXとRGBとHSLは相互に変換できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。このツールはHEX・RGB・HSLのどの形式に入力しても、残り2形式へ自動で双方向に変換します。カラーピッカーで色を選んでも各形式の値が同時に表示され、ワンクリックでコピーできます。"}},{"@type":"Question","name":"変換したカラーコードはCSSにそのまま使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。出力される #FF0000・rgb(255, 0, 0)・hsl(0, 100%, 50%) といった値は、そのままCSSのcolorやbackgroundに貼り付けて使えます。CSSコード欄ではcolorプロパティ付きの形でコピーすることもできます。"}},{"@type":"Question","name":"HEXの#FF0000は何色ですか？","acceptedAnswer":{"@type":"Answer","text":"純粋な赤です。赤成分が最大のFF（255）、緑と青が00（0）で、rgb(255, 0, 0)・hsl(0, 100%, 50%) と同じ色を表します。"}},{"@type":"Question","name":"RGBとHSLの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"RGBは赤・緑・青の光の強さで色を組み立てる方式、HSLは色相・彩度・明度で色を表す方式です。両者は同じ色を別の座標で表しているだけで相互変換でき、HSLは色味だけ・明るさだけを変えるといった調整が直感的に行えます。"}},{"@type":"Question","name":"透明度（アルファ）にも対応していますか？","acceptedAnswer":{"@type":"Answer","text":"CSSコード欄に rgba(255, 0, 0, 1.0) 形式のアルファ付きコードを出力します（既定の不透明度は1.0）。透明度の数値は、コピーした後にCSS側で0〜1の任意の値へ調整してご利用ください。8桁HEX（#RRGGBBAA）には対応していません。"}}]}
 </script>
 </head>
 <body>
@@ -110,6 +118,47 @@
         <p>HEX（#FF5733）、RGB（rgb(255, 87, 51)）、HSL（hsl(11, 100%, 60%)）の3形式に対応しています。いずれかの値を入力すると、他の2形式にリアルタイムで変換されます。CSSにそのままコピペできる形式で出力します。</p>
         <h3>カラーピッカー機能</h3>
         <p>カラーピッカーで視覚的に色を選択することもできます。選択した色のHEX/RGB/HSL値が即座に表示されるので、デザインの微調整に便利です。すべてブラウザ上で動作し、データがサーバーに送信されることはありません。</p>
+        </div>
+
+    <div class="seo-content">
+        <h2>カラーコードの種類（HEX・RGB・HSL）</h2>
+        <p>Webやデザインで色を指定する方法はいくつかありますが、もっともよく使われるのがHEX・RGB・HSLの3つです。いずれも同じ1色を表す異なる「書き方」にすぎず、相互に変換できます。このツールではどの形式で入力しても、残り2形式の値が自動で計算されます。</p>
+
+        <h3>HEX（16進数カラーコード）</h3>
+        <p>HEXは「#RRGGBB」という形式で、赤・緑・青の各成分を2桁の16進数（00〜FF＝10進数の0〜255）で並べたものです。たとえば #FF0000 は赤が最大（FF＝255）、緑と青が0で、純粋な赤を表します。3桁の省略表記（#F00 など、各桁を2回繰り返して #FF0000 とみなす）にも対応しています。CSSやHTMLでもっとも一般的な指定方法です。</p>
+
+        <h3>RGB（光の三原色）</h3>
+        <p>RGBは赤（Red）・緑（Green）・青（Blue）の3つの光の強さを、それぞれ0〜255の数値で表します。CSSでは rgb(255, 0, 0) のように書きます。HEXの #FF0000 とRGBの rgb(255,0,0) はまったく同じ色で、表記が16進数か10進数かが違うだけです。各値をスライダーや数値で直感的に調整したいときに向いています。</p>
+
+        <h3>HSL（色相・彩度・明度）</h3>
+        <p>HSLは色相（Hue：0〜360°の色味）、彩度（Saturation：0〜100%の鮮やかさ）、明度（Lightness：0〜100%の明るさ）で色を表します。CSSでは hsl(0, 100%, 50%) のように書きます。色相を回すだけで色味を変えられるため、配色の調整や「同じ明るさで色だけ変える」といった操作が直感的に行えます。RGB・HSLは数学的に相互変換でき、このツールでも内部で換算しています。</p>
+
+        <h3>代表色のHEX・RGB・HSL対応表</h3>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>色</th><th>HEX</th><th>RGB</th><th>HSL</th></tr></thead>
+            <tbody>
+                <tr><td>赤</td><td class="acc">#FF0000</td><td>rgb(255, 0, 0)</td><td>hsl(0, 100%, 50%)</td></tr>
+                <tr><td>オレンジ</td><td class="acc">#FFA500</td><td>rgb(255, 165, 0)</td><td>hsl(39, 100%, 50%)</td></tr>
+                <tr><td>黄</td><td class="acc">#FFFF00</td><td>rgb(255, 255, 0)</td><td>hsl(60, 100%, 50%)</td></tr>
+                <tr><td>緑</td><td class="acc">#008000</td><td>rgb(0, 128, 0)</td><td>hsl(120, 100%, 25%)</td></tr>
+                <tr><td>シアン</td><td class="acc">#00FFFF</td><td>rgb(0, 255, 255)</td><td>hsl(180, 100%, 50%)</td></tr>
+                <tr><td>青</td><td class="acc">#0000FF</td><td>rgb(0, 0, 255)</td><td>hsl(240, 100%, 50%)</td></tr>
+                <tr><td>紫</td><td class="acc">#800080</td><td>rgb(128, 0, 128)</td><td>hsl(300, 100%, 25%)</td></tr>
+                <tr><td>白</td><td class="acc">#FFFFFF</td><td>rgb(255, 255, 255)</td><td>hsl(0, 0%, 100%)</td></tr>
+                <tr><td>灰</td><td class="acc">#808080</td><td>rgb(128, 128, 128)</td><td>hsl(0, 0%, 50%)</td></tr>
+                <tr><td>黒</td><td class="acc">#000000</td><td>rgb(0, 0, 0)</td><td>hsl(0, 0%, 0%)</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>上記のHSL値はこのツールと同じ変換ロジックで算出した値です。緑（#008000）や紫（#800080）のように明度（最後の値）が50%より小さい色は、純色（明度50%）より暗い色であることを示します。白・黒・灰のような無彩色は彩度（真ん中の値）が0%になり、色相は意味を持たないため0°と表記されます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">HEXとRGBとHSLは相互に変換できますか？</div><div class="a">はい。このツールはHEX・RGB・HSLのどの形式に入力しても、残り2形式へ自動で双方向に変換します。カラーピッカーで色を選んでも各形式の値が同時に表示され、ワンクリックでコピーできます。</div></div>
+        <div class="faq-item"><div class="q">変換したカラーコードはCSSにそのまま使えますか？</div><div class="a">はい。出力される #FF0000・rgb(255, 0, 0)・hsl(0, 100%, 50%) といった値は、そのままCSSのcolorやbackgroundに貼り付けて使えます。CSSコード欄ではcolorプロパティ付きの形でコピーすることもできます。</div></div>
+        <div class="faq-item"><div class="q">HEXの#FF0000は何色ですか？</div><div class="a">純粋な赤です。赤成分が最大のFF（255）、緑と青が00（0）で、rgb(255, 0, 0)・hsl(0, 100%, 50%) と同じ色を表します。</div></div>
+        <div class="faq-item"><div class="q">RGBとHSLの違いは何ですか？</div><div class="a">RGBは赤・緑・青の光の強さで色を組み立てる方式、HSLは色相・彩度・明度で色を表す方式です。両者は同じ色を別の座標で表しているだけで相互変換でき、HSLは色味だけ・明るさだけを変えるといった調整が直感的に行えます。</div></div>
+        <div class="faq-item"><div class="q">透明度（アルファ）にも対応していますか？</div><div class="a">CSSコード欄に rgba(255, 0, 0, 1.0) 形式のアルファ付きコードを出力します（既定の不透明度は1.0）。透明度の数値は、コピーした後にCSS側で0〜1の任意の値へ調整してご利用ください。8桁HEX（#RRGGBBAA）には対応していません。</div></div>
         </div>
     <div class="ad-slot" style="display:none"></div>
     
