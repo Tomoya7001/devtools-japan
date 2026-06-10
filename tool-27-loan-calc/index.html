@@ -13,8 +13,8 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ローン返済シミュレーター | 住宅ローン・借入返済額計算</title>
-    <meta name="description" content="住宅ローン・自動車ローン・借入の月々返済額と総返済額を自動計算。元利均等・元金均等に対応。繰上返済の効果も。">
+    <title>ローン返済シミュレーター | 住宅ローン・借入返済額計算・毎月返済額の早見表</title>
+    <meta name="description" content="住宅ローン・自動車ローン・借入の月々返済額と総返済額を自動計算。3000万円35年など借入額・金利別の毎月返済額早見表付き。元利均等・元金均等に対応し、繰上返済の効果も確認できます。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#06b6d4;--accent-dim:rgba(6,182,212,0.1);--green:#22c55e;--red:#ef4444;--radius:12px}
@@ -44,6 +44,13 @@
         .bar-value{min-width:80px;font-family:'JetBrains Mono',monospace;color:var(--text2);font-size:0.7rem}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:center;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{font-family:'JetBrains Mono',monospace;color:var(--text)}.lookup-table td:first-child{font-family:'Noto Sans JP',sans-serif;text-align:left}.lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-27-loan-calc/">
@@ -61,7 +68,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"ローン返済シミュレーター","item":"https://www.devtools-japan.com/tool-27-loan-calc/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"元利均等と元金均等の違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"元利均等は毎月の返済額が一定で家計の見通しが立てやすい方式、元金均等は元金を均等に返すため当初の返済額が大きい代わりに総利息を抑えやすい方式です。本ツールは両方に対応し、総返済額を比較できます。"}},{"@type":"Question","name":"計算結果は正式な審査額として使えますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。借入額・金利・期間から月々返済額と総返済額の目安を試算するツールで、参考用です。実際の融資条件や審査結果は金融機関により異なるため、最終的な判断は各社の正式な見積もりをご確認ください。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"3,000万円・35年・金利1%の毎月返済はいくらですか？","acceptedAnswer":{"@type":"Answer","text":"元利均等返済・ボーナス返済なしの場合、毎月の返済額は約¥84,686です。総返済額は約¥35,567,998、利息総額は約¥5,567,998となり、借入額の約18.6%が利息になります。本ツールに同じ条件を入力すると同額が表示されます。"}},{"@type":"Question","name":"元利均等と元金均等の違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"元利均等は毎月の返済額（元金＋利息）が一定で家計の見通しが立てやすい方式、元金均等は毎月返す元金を一定にするため当初の返済額が大きい代わりに利息総額を抑えやすい方式です。同じ条件なら元金均等のほうが総返済額は少なくなりますが、初期負担が重くなります。"}},{"@type":"Question","name":"金利が0.5%上がると返済額はどれくらい増えますか？","acceptedAnswer":{"@type":"Answer","text":"借入3,000万円・35年で金利が1.0%から1.5%に上がると、毎月返済額は¥84,686から¥91,855へ約¥7,169増えます。35年間の総返済額では約¥3,011,241も増える計算で、わずかな金利差でも長期では大きな差になります。"}},{"@type":"Question","name":"繰り上げ返済の効果はありますか？","acceptedAnswer":{"@type":"Answer","text":"あります。繰り上げ返済した元金には以後の利息がかからなくなるため、特に返済初期ほど利息軽減効果が大きくなります。返済期間を短くする「期間短縮型」は利息削減効果が高く、毎月の負担を軽くする「返済額軽減型」は家計に余裕を生みます。早い時期にまとまった額を返すほど効果的です。"}},{"@type":"Question","name":"ボーナス返済は使うべきですか？","acceptedAnswer":{"@type":"Answer","text":"ボーナス返済は毎月の返済額を抑えられる一方、賞与の減額や支給停止があると返済が苦しくなるリスクがあります。安定したボーナスが見込める場合は活用の余地がありますが、無理のない範囲にとどめ、毎月返済だけで完済できる計画を基本にするのが安全です。本ツールは毎月均等返済を前提に総返済額の目安を試算します。"}}]}
     </script>
     </head>
 <body>
@@ -90,6 +97,36 @@
         <p>元利均等返済は毎月の返済額が一定で計画を立てやすい反面、利息の総額は多くなります。元金均等返済は毎月の返済額が徐々に減少し、利息の総額は少なくなりますが、初期の返済額が大きくなります。このツールでは両方の返済方式をシミュレーションできます。</p>
         <h3>繰り上げ返済のシミュレーション</h3>
         <p>繰り上げ返済を行った場合の利息軽減効果も確認できます。返済開始後何年目に繰り上げ返済するかによって、節約できる利息額が変わります。</p>
+        </div>
+    <div class="seo-content">
+        <h2>ローン返済の早見表</h2>
+        <p>元利均等返済での毎月の返済額・総返済額・利息総額の目安を、借入額と金利の組み合わせ別にまとめました。いずれも返済期間35年、ボーナス返済なしで計算しています。各数値は本ツールと同一の計算式（毎月返済額＝借入額×月利×(1+月利)^返済月数÷((1+月利)^返済月数−1)、月利＝年利÷12÷100、返済月数＝年数×12）で算出し、円未満は四捨五入しています。ツールに同じ条件を入力すると、表とまったく同じ金額が表示されます。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>借入額</th><th>金利</th><th>毎月返済額</th><th>総返済額</th><th>利息総額</th></tr></thead>
+            <tbody>
+                <tr><td>1,000万円</td><td>0.5%</td><td class="acc">¥25,959</td><td>¥10,902,586</td><td>¥902,586</td></tr>
+                <tr><td>1,000万円</td><td>1.0%</td><td class="acc">¥28,229</td><td>¥11,855,999</td><td>¥1,855,999</td></tr>
+                <tr><td>1,000万円</td><td>1.5%</td><td class="acc">¥30,618</td><td>¥12,859,746</td><td>¥2,859,746</td></tr>
+                <tr><td>2,000万円</td><td>0.5%</td><td class="acc">¥51,917</td><td>¥21,805,171</td><td>¥1,805,171</td></tr>
+                <tr><td>2,000万円</td><td>1.0%</td><td class="acc">¥56,457</td><td>¥23,711,999</td><td>¥3,711,999</td></tr>
+                <tr><td>2,000万円</td><td>1.5%</td><td class="acc">¥61,237</td><td>¥25,719,493</td><td>¥5,719,493</td></tr>
+                <tr><td>3,000万円</td><td>0.5%</td><td class="acc">¥77,876</td><td>¥32,707,757</td><td>¥2,707,757</td></tr>
+                <tr><td>3,000万円</td><td>1.0%</td><td class="acc">¥84,686</td><td>¥35,567,998</td><td>¥5,567,998</td></tr>
+                <tr><td>3,000万円</td><td>1.5%</td><td class="acc">¥91,855</td><td>¥38,579,239</td><td>¥8,579,239</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>表からわかるように、借入額が2倍・3倍になると毎月の返済額もほぼ比例して増えます。一方、金利が0.5%上がるごとに毎月の返済額は数千円ずつ増え、35年という長期で積み重なると総返済額の差は数百万円規模になります。住宅ローンを検討する際は、わずかな金利差でも総返済額に大きく響く点を意識すると良いでしょう。</p>
+        <h3>元利均等返済の仕組み</h3>
+        <p>元利均等返済は、毎月支払う「元金＋利息」の合計額が返済期間を通じて一定になる方式です。返済の初期は利息の割合が大きく、元金がなかなか減りませんが、返済が進むにつれて利息が減り元金の割合が増えていきます。毎月の支払額が変わらないため家計の見通しが立てやすく、日本の住宅ローンで最も広く採用されています。本ツールの計算結果も元利均等返済を採用しています。</p>
+        <p>これに対して元金均等返済は、毎月返す元金を一定にし、それに残高に応じた利息を上乗せする方式です。返済当初の支払額が最も大きく、元金が減るにつれて利息も減るため毎月の負担は徐々に軽くなります。同じ借入額・金利・期間で比べると、元金均等返済のほうが利息総額は少なく済みますが、初期の返済負担が重いため、借入時の収入に余裕が必要です。総返済額を比較する際は、毎月返済額だけでなく利息総額（総返済額−借入額）に注目すると、どちらの方式が自分に合うか判断しやすくなります。</p>
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">3,000万円・35年・金利1%の毎月返済はいくらですか？</div><div class="a">元利均等返済・ボーナス返済なしの場合、毎月の返済額は約¥84,686です。総返済額は約¥35,567,998、利息総額は約¥5,567,998となり、借入額の約18.6%が利息になります。本ツールに同じ条件を入力すると同額が表示されます。</div></div>
+        <div class="faq-item"><div class="q">元利均等と元金均等の違いは何ですか？</div><div class="a">元利均等は毎月の返済額（元金＋利息）が一定で家計の見通しが立てやすい方式、元金均等は毎月返す元金を一定にするため当初の返済額が大きい代わりに利息総額を抑えやすい方式です。同じ条件なら元金均等のほうが総返済額は少なくなりますが、初期負担が重くなります。</div></div>
+        <div class="faq-item"><div class="q">金利が0.5%上がると返済額はどれくらい増えますか？</div><div class="a">借入3,000万円・35年で金利が1.0%から1.5%に上がると、毎月返済額は¥84,686から¥91,855へ約¥7,169増えます。35年間の総返済額では約¥3,011,241も増える計算で、わずかな金利差でも長期では大きな差になります。</div></div>
+        <div class="faq-item"><div class="q">繰り上げ返済の効果はありますか？</div><div class="a">あります。繰り上げ返済した元金には以後の利息がかからなくなるため、特に返済初期ほど利息軽減効果が大きくなります。返済期間を短くする「期間短縮型」は利息削減効果が高く、毎月の負担を軽くする「返済額軽減型」は家計に余裕を生みます。早い時期にまとまった額を返すほど効果的です。</div></div>
+        <div class="faq-item"><div class="q">ボーナス返済は使うべきですか？</div><div class="a">ボーナス返済は毎月の返済額を抑えられる一方、賞与の減額や支給停止があると返済が苦しくなるリスクがあります。安定したボーナスが見込める場合は活用の余地がありますが、無理のない範囲にとどめ、毎月返済だけで完済できる計画を基本にするのが安全です。本ツールは毎月均等返済を前提に総返済額の目安を試算します。</div></div>
         </div>
     <div class="ad-slot" style="display:none"></div>
     
