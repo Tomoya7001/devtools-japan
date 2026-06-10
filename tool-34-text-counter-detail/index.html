@@ -25,6 +25,13 @@
         
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -43,7 +50,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"テキスト統計ツール","item":"https://www.devtools-japan.com/tool-34-text-counter-detail/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ひらがな・カタカナ・漢字の比率まで分かりますか？","acceptedAnswer":{"@type":"Answer","text":"はい。ひらがな・カタカナ・漢字・英字・数字といった文字種別ごとのカウントと比率を可視化します。出現頻度や語彙密度も確認でき、文章の構成バランスを把握するのに役立ちます。"}},{"@type":"Question","name":"入力したテキストはどこかに保存されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。統計の分析はすべてブラウザ上で行われ、入力したテキストがサーバーに送信されることはありません。登録不要・無料なので、未公開の原稿でも安心して貼り付けられます。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ひらがな・カタカナ・漢字を分けてカウントできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。本ツールはひらがな・カタカナ・漢字をそれぞれ別々に判定し、文字数と全体に占める比率を表示します。あわせて英字・数字・スペース・その他（記号など）も区分して集計するため、文章の文字種バランスを詳しく確認できます。"}},{"@type":"Question","name":"原稿用紙何枚分か分かりますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールは原稿用紙の枚数を直接表示する機能は備えていません。ただし総文字数は表示される各種別の合計から確認でき、400字詰めを基準にすれば、総文字数を400で割っておおよその枚数を見積もることができます。"}},{"@type":"Question","name":"入力したテキストは送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。文字種別の集計や文数・漢字率の計算はすべてお使いのブラウザ内で行われ、入力したテキストが外部のサーバーへ送信されることはありません。登録も不要のため、未公開の原稿でも安心してご利用いただけます。"}},{"@type":"Question","name":"スペースや改行は文字数に含まれますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールでは半角スペース・改行・全角スペースをまとめて「スペース」として別区分でカウントします。総文字数にはこれらも含まれますが、平均文長を求める際にはスペース分を差し引いて計算しています。"}},{"@type":"Question","name":"Wordの文字カウントと数え方は違いますか？","acceptedAnswer":{"@type":"Answer","text":"数え方の前提が異なる場合があります。本ツールはひらがな・カタカナ・漢字・英字・数字・スペース・その他という文字種別ごとに集計するのに対し、Wordはスペースを含む・含まないの切り替えや単語数の集計など独自の基準を持ちます。そのため合計が一致しないことがあります。"}}]}
     </script>
     </head>
 <body>
@@ -55,6 +62,34 @@
 <div id="results" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px"></div>
     <div class="ad-slot" style="display:none"></div>
     <div class="seo-content"><h2>テキスト統計ツールについて</h2><p>文章の詳細統計（ひらがな・カタカナ・漢字比率等）。ブラウザ上で動作し、データがサーバーに送信されることはありません。</p></div>
+    <div class="seo-content">
+      <h2>テキスト統計でわかること</h2>
+      <p>このツールは、入力した文章を一文字ずつ判定して、文字種別ごとの内訳を集計します。日本語の文章は「ひらがな」「カタカナ」「漢字」が混在し、そこに「英字（a〜z・A〜Z）」「数字（0〜9）」「スペース（半角空白・改行・全角スペースを含む）」、そしてそのいずれにも当てはまらない「その他（句読点や記号など）」が加わります。本ツールはこの7つの区分それぞれについて、文字数と全体に占める比率（パーセント）を計算し、横棒グラフで可視化します。</p>
+      <p>さらに、文章全体の総文字数のほか、句点・感嘆符・疑問符（。！？や半角のピリオド・感嘆符・疑問符）の出現箇所から「文数」を数え、スペースを除いた文字数を文数で割った「平均文長」を算出します。漢字の比率（漢字率）も合わせて表示するため、文章がどれだけ硬い印象か、ひらがなとのバランスが取れているかといった構成の傾向を一目で把握できます。読みやすい文章は一般に漢字率が3割前後とされており、可視化された数値は推敲の手がかりになります。</p>
+      <p>注意点として、本ツールは文字種別の内訳・文数・平均文長・漢字率を表示するものであり、行数や原稿用紙の枚数を直接出力する機能は備えていません。総文字数は表示される各種別の合計として確認できます。すべての計算はお使いのブラウザ内で完結し、入力内容が外部のサーバーへ送られることはありません。</p>
+      <h3>文字数カウントの活用シーン</h3>
+      <p>文字数には用途ごとにおおよその目安があります。代表的なものを下表にまとめました。実際の規定は提出先によって異なるため、最終的には各案内の指示を確認してください。</p>
+      <div class="table-wrap">
+      <table class="lookup-table">
+        <thead><tr><th>用途</th><th>文字数の目安</th></tr></thead>
+        <tbody>
+          <tr><td>原稿用紙1枚（400字詰め）</td><td>400字</td></tr>
+          <tr><td>X（旧Twitter）の投稿</td><td>全角140字</td></tr>
+          <tr><td>メタディスクリプション</td><td>120字前後</td></tr>
+          <tr><td>ページタイトル（titleタグ）</td><td>全角30字前後</td></tr>
+          <tr><td>エントリーシートの設問</td><td>200〜400字が多い</td></tr>
+          <tr><td>大学レポート（A4・1枚）</td><td>1,200字前後</td></tr>
+          <tr><td>ブログ記事1本</td><td>2,000〜5,000字</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h2>よくある質問</h2>
+      <div class="faq-item"><div class="q">ひらがな・カタカナ・漢字を分けてカウントできますか？</div><div class="a">はい。本ツールはひらがな・カタカナ・漢字をそれぞれ別々に判定し、文字数と全体に占める比率を表示します。あわせて英字・数字・スペース・その他（記号など）も区分して集計するため、文章の文字種バランスを詳しく確認できます。</div></div>
+      <div class="faq-item"><div class="q">原稿用紙何枚分か分かりますか？</div><div class="a">本ツールは原稿用紙の枚数を直接表示する機能は備えていません。ただし総文字数は表示される各種別の合計から確認でき、400字詰めを基準にすれば、総文字数を400で割っておおよその枚数を見積もることができます。</div></div>
+      <div class="faq-item"><div class="q">入力したテキストは送信されますか？</div><div class="a">いいえ。文字種別の集計や文数・漢字率の計算はすべてお使いのブラウザ内で行われ、入力したテキストが外部のサーバーへ送信されることはありません。登録も不要のため、未公開の原稿でも安心してご利用いただけます。</div></div>
+      <div class="faq-item"><div class="q">スペースや改行は文字数に含まれますか？</div><div class="a">本ツールでは半角スペース・改行・全角スペースをまとめて「スペース」として別区分でカウントします。総文字数にはこれらも含まれますが、平均文長を求める際にはスペース分を差し引いて計算しています。</div></div>
+      <div class="faq-item"><div class="q">Wordの文字カウントと数え方は違いますか？</div><div class="a">数え方の前提が異なる場合があります。本ツールはひらがな・カタカナ・漢字・英字・数字・スペース・その他という文字種別ごとに集計するのに対し、Wordはスペースを含む・含まないの切り替えや単語数の集計など独自の基準を持ちます。そのため合計が一致しないことがあります。</div></div>
+    </div>
     <div class="ad-slot" style="display:none"></div>
     
     
