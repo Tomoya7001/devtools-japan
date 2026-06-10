@@ -13,8 +13,8 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文章校正チェッカー | 日本語テキストの表記ゆれ・誤字検出</title>
-    <meta name="description" content="日本語テキストの表記ゆれ、二重助詞、ら抜き言葉、冗長表現を自動検出。ブログ・ビジネス文書の品質向上に。">
+    <title>文章校正チェッカー | 日本語の表記ゆれ・ら抜き・冗長表現を無料検出</title>
+    <meta name="description" content="日本語テキストの表記ゆれ・助詞の連続・ら抜き言葉・冗長表現・句読点の重複をルールベースで自動検出。ブラウザ完結で送信なし、登録不要。ブログ・ビジネス文書の推敲前チェックに。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#10b981;--accent-dim:rgba(16,185,129,0.1);--warn:#f59e0b;--warn-dim:rgba(245,158,11,0.1);--err:#ef4444;--err-dim:rgba(239,68,68,0.1);--radius:12px}
@@ -40,6 +40,13 @@
         .no-issues{text-align:center;padding:40px;color:var(--accent);font-size:1.1rem}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-26-proofreader/">
@@ -57,7 +64,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"文章校正チェッカー","item":"https://www.devtools-japan.com/tool-26-proofreader/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"この校正チェッカーはどんな項目を検出しますか？","acceptedAnswer":{"@type":"Answer","text":"日本語テキストの表記ゆれ、二重助詞、ら抜き言葉、冗長表現などを自動で検出し、改善の目安となるスコアと指摘箇所を表示します。ブログやビジネス文書の推敲前チェックに役立ちます。"}},{"@type":"Question","name":"校正した文章は外部に保存されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。チェックはすべてブラウザ内で行われ、入力した文章がサーバーへ送信・保存されることはありません。登録不要・無料なので、社外秘の文書でも安心して貼り付けて確認できます。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"どんな間違いを検出できますか？","acceptedAnswer":{"@type":"Answer","text":"語の重複、助詞の連続、ら抜き言葉、冗長表現（することができる等）、強調の重複、表記ゆれ（出来る・その為など）、同じ文字の過剰な繰り返し、句読点の重複といった、日本語の頻出する書きぐせを検出します。あらかじめ定めたルールに一致した箇所を指摘するため、決まったパターンの誤りに強いのが特徴です。"}},{"@type":"Question","name":"入力した文章は送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。チェックはすべてお使いのブラウザ内だけで完結し、入力した文章がサーバーへ送信・保存されることはありません。登録も不要で、社外秘の文書や下書きでも安心して貼り付けて確認できます。"}},{"@type":"Question","name":"ビジネス文書のチェックに使えますか？","acceptedAnswer":{"@type":"Answer","text":"メールや報告書を送る前の一次チェックとして役立ちます。冗長表現や「出来る→できる」「その為→そのため」のような公用文で推奨される表記の確認に向いています。ただし敬語の適切さや文章全体の構成までは判定できないため、最終確認は人の目で行ってください。"}},{"@type":"Question","name":"AIによる校正ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。このツールはAIや機械学習ではなく、あらかじめ用意した日本語のルール（正規表現パターン）に文章を照らし合わせるルールベースの方式です。そのため動作が速く、入力内容が外部に送られない反面、文脈を踏まえた高度な判断は行いません。"}},{"@type":"Question","name":"他の校正ツールとの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"本ツールは登録不要・無料で、ブラウザ内だけで動くため手軽に使える点が特徴です。検出対象を頻出の書きぐせに絞り、指摘箇所とスコアを即座に表示します。辞書解析やAIを用いる高機能な校正サービスとは方向性が異なり、推敲前のセルフチェックや一次フィルターとしての用途に向いています。"}}]}
     </script>
     </head>
 <body>
@@ -78,6 +85,39 @@
         <p>ら抜き言葉（「食べれる」→「食べられる」）、い抜き言葉（「してる」→「している」）、二重否定、冗長表現（「〜することができる」→「〜できる」）、表記ゆれ（「サーバー」と「サーバ」の混在）、敬語の誤用などを検出します。</p>
         <h3>注意事項</h3>
         <p>このツールは一般的な日本語文法規則に基づくチェックです。文脈によっては意図的な表現もあるため、検出された問題はあくまで参考としてご利用ください。</p>
+        </div>
+    <div class="seo-content">
+        <h2>文章校正でチェックできること</h2>
+        <p>この文章校正チェッカーは、あらかじめ定義した日本語のルール（パターン）に文章を照らし合わせ、よくある書き間違いや読みにくい表現を機械的に検出します。AIや辞書解析を使うのではなく、ブラウザ上で動くシンプルなルールベースの仕組みのため、入力した文章はどこにも送信されず、その場ですぐに結果が表示されます。検出した指摘の数と重み（エラー・警告・提案）から100点満点のスコアを算出し、推敲の出発点として活用できます。</p>
+        <p>具体的に検出するのは、同じ語の重複（「〜について〜について」のような連続）、助詞の連続（「私はは」のような「が・の・を・に・へ・と・で・や・か・も」の重なり）、ら抜き言葉（「食べれる」「見れる」など）、冗長表現（「することができる」「ことが出来る」）、副詞「すごい」と「すごく」の使い分け、「とても」と「すごく」の強調の重なり、「全然」を肯定文で使った場合の用法確認、漢字・平仮名の表記ゆれ（「出来る→できる」「その為→そのため」）、同じ文字の過剰な繰り返し、句読点の重複（「。。」「、、」「！！」「？？」）です。いずれも頻出する書きぐせで、機械的に拾うことで見落としを減らせます。</p>
+        <h3>チェック観点の例</h3>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>チェック項目</th><th>該当例</th><th>修正の方向</th><th>区分</th></tr></thead>
+            <tbody>
+                <tr><td>語の重複</td><td>問題についてについて</td><td>重複を削除する</td><td>エラー</td></tr>
+                <tr><td>助詞の連続</td><td>私はは／本をを</td><td>連続した助詞を1つに</td><td>エラー</td></tr>
+                <tr><td>ら抜き言葉</td><td>食べれる／見れる</td><td>食べられる／見られる</td><td>警告</td></tr>
+                <tr><td>冗長表現</td><td>することができる</td><td>〜できる に簡略化</td><td>警告</td></tr>
+                <tr><td>強調の重複</td><td>とても…すごく…</td><td>どちらか一方に統一</td><td>警告</td></tr>
+                <tr><td>文字の繰り返し</td><td>ねえええええ</td><td>繰り返しを減らす</td><td>警告</td></tr>
+                <tr><td>句読点の重複</td><td>そうだ。。／待って！！</td><td>句読点は1つに</td><td>警告</td></tr>
+                <tr><td>すごい／すごく</td><td>すごい重要だ</td><td>副詞は「すごく」</td><td>提案</td></tr>
+                <tr><td>表記ゆれ</td><td>出来る／その為</td><td>できる／そのため</td><td>提案</td></tr>
+                <tr><td>「全然」の用法</td><td>全然大丈夫だ</td><td>本来は「全然〜ない」</td><td>提案</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>区分は指摘の重みを表し、エラーは明らかな書き間違い、警告は読みやすさを損なう表現、提案は表記の好みや用法の確認です。スコアはエラーを大きめ、提案を小さめに減点して算出されます。</p>
+        <h3>使いどころと限界</h3>
+        <p>ルールベースのチェックは、書き手が無意識に繰り返してしまう「書きぐせ」を漏れなく機械的に拾えるのが利点です。ブログ記事やビジネスメールを公開・送信する前のセルフチェック、長文を一気に見直したいときの一次フィルターとして役立ちます。判定はすべて同じ基準で行われるため、人によるチェックのムラもありません。</p>
+        <p>一方で、このツールは文章の意味を理解しているわけではありません。固有名詞や方言、会話文、意図的なくだけた表現は誤検出することがあり、逆に文脈に依存する誤り（主語と述語のねじれ、事実誤認、敬語の過不足、文章全体の論理構成など）は検出できません。検出された指摘はあくまで推敲のきっかけとして扱い、最終的な判断は人の目で行うことをおすすめします。重要な文書では、機械チェックで土台を整えたうえで読み返す二段構えが効果的です。</p>
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">どんな間違いを検出できますか？</div><div class="a">語の重複、助詞の連続、ら抜き言葉、冗長表現（することができる等）、強調の重複、表記ゆれ（出来る・その為など）、同じ文字の過剰な繰り返し、句読点の重複といった、日本語の頻出する書きぐせを検出します。あらかじめ定めたルールに一致した箇所を指摘するため、決まったパターンの誤りに強いのが特徴です。</div></div>
+        <div class="faq-item"><div class="q">入力した文章は送信されますか？</div><div class="a">いいえ。チェックはすべてお使いのブラウザ内だけで完結し、入力した文章がサーバーへ送信・保存されることはありません。登録も不要で、社外秘の文書や下書きでも安心して貼り付けて確認できます。</div></div>
+        <div class="faq-item"><div class="q">ビジネス文書のチェックに使えますか？</div><div class="a">メールや報告書を送る前の一次チェックとして役立ちます。冗長表現や「出来る→できる」「その為→そのため」のような公用文で推奨される表記の確認に向いています。ただし敬語の適切さや文章全体の構成までは判定できないため、最終確認は人の目で行ってください。</div></div>
+        <div class="faq-item"><div class="q">AIによる校正ですか？</div><div class="a">いいえ。このツールはAIや機械学習ではなく、あらかじめ用意した日本語のルール（正規表現パターン）に文章を照らし合わせるルールベースの方式です。そのため動作が速く、入力内容が外部に送られない反面、文脈を踏まえた高度な判断は行いません。</div></div>
+        <div class="faq-item"><div class="q">他の校正ツールとの違いは何ですか？</div><div class="a">本ツールは登録不要・無料で、ブラウザ内だけで動くため手軽に使える点が特徴です。検出対象を頻出の書きぐせに絞り、指摘箇所とスコアを即座に表示します。辞書解析やAIを用いる高機能な校正サービスとは方向性が異なり、推敲前のセルフチェックや一次フィルターとしての用途に向いています。</div></div>
         </div>
     <div class="ad-slot" style="display:none"></div>
     
