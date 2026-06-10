@@ -13,8 +13,8 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ダミーテキスト生成ツール | 日本語Lorem Ipsum</title>
-    <meta name="description" content="日本語のダミーテキスト（Lorem Ipsum）を自動生成。段落数・文字数を指定可能。Webデザインのモックアップ作成に。">
+    <title>ダミーテキスト生成ツール | 日本語Lorem Ipsum・ダミーコピー</title>
+    <meta name="description" content="日本語のダミーテキスト（Lorem Ipsum・ダミーコピー）を自動生成。段落数・文数を指定可能。Webデザインのワイヤーフレームや紙面レイアウト、フォント確認、文字数テストに。商用利用OK。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#eab308;--accent-dim:rgba(234,179,8,0.1);--radius:12px}
@@ -34,6 +34,14 @@
         .btn-row{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#000;padding:12px 24px;border-radius:8px;font-size:0.85rem;font-weight:500;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -52,7 +60,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"ダミーテキスト生成ツール","item":"https://www.devtools-japan.com/tool-18-dummy-text/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"生成する段落数や文字数は指定できますか？","acceptedAnswer":{"@type":"Answer","text":"はい、段落数や文字数を指定して日本語のダミーテキストを生成できます。Webデザインのモックアップやレイアウト確認に必要な分量を手軽に用意できます。"}},{"@type":"Question","name":"生成したダミーテキストは商用利用できますか？","acceptedAnswer":{"@type":"Answer","text":"生成されるのは意味を持たない仮の文章のため、レイアウト確認用の差し込みテキストとして商用のデザイン制作にも利用できます。最終的な公開物では本番の文章に差し替えてください。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"生成する段落数や文字数は指定できますか？","acceptedAnswer":{"@type":"Answer","text":"段落数（1〜20）と1段落あたりの文数（1〜10）を指定できます。総文字数を直接入力する欄はありませんが、段落数と文数を増減することで分量を調整でき、生成後は出力欄の右下に総文字数が表示されます。"}},{"@type":"Question","name":"Lorem Ipsumとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"Lorem Ipsum（ロレムイプサム）は、印刷・デザイン業界で古くから使われる意味を持たない仮の文章です。ラテン語をもとにした文字列で、内容に気を取られずレイアウトや書体の見た目を確認できます。言語で「English（Lorem Ipsum）」を選ぶと生成されます。"}},{"@type":"Question","name":"日本語のダミーテキストも作れますか？","acceptedAnswer":{"@type":"Answer","text":"はい、言語で「日本語」を選ぶと日本語のダミーテキストを生成できます。本ツールはビジネス文書調の自然な日本語の文を組み合わせて段落を作るため、和文の行間や文字詰まりの確認に向いています。"}},{"@type":"Question","name":"生成したダミーテキストは商用デザインで使っていいですか？","acceptedAnswer":{"@type":"Answer","text":"生成されるのは意味を持たない仮の文章のため、レイアウト確認用の差し込みテキストとして商用のデザイン制作にも利用できます。最終的な公開物では本番の文章に差し替えてください。"}},{"@type":"Question","name":"ダミーテキストをそのまま公開しても大丈夫ですか？","acceptedAnswer":{"@type":"Answer","text":"おすすめしません。ダミーテキストは内容に意味がなく、そのまま公開すると読者の誤解を招いたり、検索エンジンに低品質と判断されたりする恐れがあります。本番公開前に必ず正式な原稿へ差し替えてください。"}}]}
     </script>
 </head>
 <body>
@@ -80,6 +88,33 @@
         <p>Webサイトやアプリのデザイン段階では、実際のコンテンツがまだ用意できていないことが多くあります。ダミーテキストを使うことで、レイアウトの確認、フォントサイズの調整、テキスト量による見た目の変化を事前に検証できます。</p>
         <h3>文字数指定・段落数指定</h3>
         <p>生成するテキストの文字数や段落数を指定できます。デザインの要件に合わせた長さのダミーテキストを即座に生成できます。</p>
+        </div>
+    <div class="seo-content">
+        <h2>ダミーテキスト（ダミーコピー）とは</h2>
+        <p>ダミーテキスト（ダミーコピー）とは、デザインやレイアウトの確認用に、本番の原稿が用意できる前に流し込んでおく「仮の文章」のことです。文章の内容そのものには意味を持たせず、文字の量・行の長さ・段落のまとまりといった「見た目」を再現することだけを目的とします。読み手が文意に気を取られないよう、あえて意味の通らない文字列や定型文を使うのが特徴です。印刷・出版・Web制作の現場で古くから使われてきました。</p>
+        <p>代表的なのが「Lorem Ipsum（ロレムイプサム）」です。これはラテン語をもとにした意味を持たない英文（欧文）で、書体やカラム幅、文字組みの見た目を確認するための業界標準として広く使われています。一方、和文のデザインでは、ひらがな・カタカナ・漢字が混ざった日本語のダミーテキストが必要になります。日本語は文字の密度や行間の見え方が欧文と大きく異なるため、和文レイアウトの確認には日本語のダミーテキストを使うのが適切です。</p>
+        <p>本ツールが生成できるのは次の2種類です。言語で「日本語」を選ぶと、ビジネス文書調の自然な日本語の文を組み合わせた和文ダミーテキストを生成します（「吾輩は猫である」のような特定の文学作品ではなく、汎用的な文を組み合わせています）。言語で「English（Lorem Ipsum）」を選ぶと、ラテン語ベースのロレムイプサムを生成します。いずれも段落数（1〜20）と1段落あたりの文数（1〜10）を指定でき、生成後は出力欄の右下に総文字数と段落数が表示されます。文章はランダムに組み合わされるため、「再生成」を押すたびに異なる組み合わせが得られます。生成・コピーはすべてブラウザ内で完結し、入力内容がサーバーに送信されることはありません。</p>
+        <h3>用途と適した生成設定</h3>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>用途</th><th>言語</th><th>段落数の目安</th><th>1段落あたりの文数</th></tr></thead>
+            <tbody>
+                <tr><td>ワイヤーフレーム</td><td class="acc">日本語</td><td>1〜2</td><td>2〜3</td></tr>
+                <tr><td>紙面・誌面レイアウト</td><td class="acc">日本語</td><td>3〜6</td><td>4〜6</td></tr>
+                <tr><td>欧文フォント・書体確認</td><td class="acc">English</td><td>1〜2</td><td>3〜4</td></tr>
+                <tr><td>和文フォント・行間確認</td><td class="acc">日本語</td><td>2〜3</td><td>4〜5</td></tr>
+                <tr><td>文字数・あふれテスト</td><td class="acc">日本語</td><td>5〜20</td><td>6〜10</td></tr>
+                <tr><td>ボタン・見出しの短文確認</td><td class="acc">日本語</td><td>1</td><td>1</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>長文を流し込んで要素がはみ出さないか（オーバーフロー）を確認したいときは段落数と文数を多めに、逆に短い見出しやボタンの収まりを見たいときは段落数1・文数1で生成すると効率的です。</p>
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">生成する段落数や文字数は指定できる？</div><div class="a">段落数（1〜20）と1段落あたりの文数（1〜10）を指定できます。総文字数を直接入力する欄はありませんが、段落数と文数を増減することで分量を調整でき、生成後は出力欄の右下に総文字数が表示されます。</div></div>
+        <div class="faq-item"><div class="q">Lorem Ipsumとは何？</div><div class="a">Lorem Ipsum（ロレムイプサム）は、印刷・デザイン業界で古くから使われる意味を持たない仮の文章です。ラテン語をもとにした文字列で、内容に気を取られずレイアウトや書体の見た目を確認できます。言語で「English（Lorem Ipsum）」を選ぶと生成されます。</div></div>
+        <div class="faq-item"><div class="q">日本語のダミーテキストも作れる？</div><div class="a">はい、言語で「日本語」を選ぶと日本語のダミーテキストを生成できます。本ツールはビジネス文書調の自然な日本語の文を組み合わせて段落を作るため、和文の行間や文字詰まりの確認に向いています。</div></div>
+        <div class="faq-item"><div class="q">商用デザインで使っていい？</div><div class="a">生成されるのは意味を持たない仮の文章のため、レイアウト確認用の差し込みテキストとして商用のデザイン制作にも利用できます。最終的な公開物では本番の文章に差し替えてください。</div></div>
+        <div class="faq-item"><div class="q">ダミーテキストをそのまま公開して大丈夫？</div><div class="a">おすすめしません。ダミーテキストは内容に意味がなく、そのまま公開すると読者の誤解を招いたり、検索エンジンに低品質と判断されたりする恐れがあります。本番公開前に必ず正式な原稿へ差し替えてください。</div></div>
         </div>
     <div class="ad-slot" style="display:none"></div>
     
