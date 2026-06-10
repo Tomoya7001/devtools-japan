@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>国民健康保険料計算ツール | フリーランスの国保料を概算シミュレーション【無料】</title>
-    <meta name="description" content="フリーランス・個人事業主の国民健康保険料を概算計算する無料ツール。年間所得を入力するだけで保険料の目安がわかる。独立前の社会保険料シミュレーションに。">
+    <title>国民健康保険料計算ツール | フリーランスの国保料を所得別に概算シミュレーション【無料】</title>
+    <meta name="description" content="フリーランス・個人事業主の国民健康保険料を概算計算する無料ツール。年間所得を入力するだけで医療分・後期高齢者支援分・介護分の目安がわかる。所得別の保険料早見表とよくある質問も掲載。独立前の社会保険料シミュレーションに。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#e11d48;--accent-dim:rgba(225,29,72,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
@@ -38,6 +38,13 @@
         table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
         table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
         table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:center;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{font-family:'JetBrains Mono',monospace;color:var(--text)}.lookup-table td:first-child{font-family:'Noto Sans JP',sans-serif;text-align:left}.lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-60-nhi-calc/">
     <meta property="og:title" content="国民健康保険料計算 | フリーランスの国保料を概算【無料】">
@@ -54,7 +61,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"国民健康保険料計算ツール","item":"https://www.devtools-japan.com/tool-60-nhi-calc/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"国民健康保険料は住んでいる自治体によって違いますか？","acceptedAnswer":{"@type":"Answer","text":"はい。国民健康保険料の料率や均等割額は市区町村ごとに異なります。本ツールは全国平均的な料率を用いた概算シミュレーションのため、実際の金額とは差が出ることがあります。正確な保険料はお住まいの市区町村の窓口やサイトでご確認ください。"}},{"@type":"Question","name":"40歳以上だと国保料が高くなるのはなぜですか？","acceptedAnswer":{"@type":"Answer","text":"40〜64歳の方は医療分・後期高齢者支援分に加えて介護分（介護保険料）が上乗せされるため、保険料が高くなります。本ツールでは年齢区分を選ぶと介護分を含めた年額を概算表示します。あくまで目安で、正確な額は自治体にご確認ください。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"国民健康保険料は何で決まりますか？","acceptedAnswer":{"@type":"Answer","text":"国保料は前年の所得を基準に計算され、「所得割（所得に応じた額）」と「均等割（加入者1人あたりの定額）」の合計で決まります。さらに「医療分」「後期高齢者支援金分」「40〜64歳が対象の介護分」の3区分に分かれ、それぞれに上限額があります。本ツールは前年所得・年齢・加入者数から全国平均的な料率で概算します。"}},{"@type":"Question","name":"自治体によって国保料が違うのはなぜですか？","acceptedAnswer":{"@type":"Answer","text":"国保は市区町村が運営しており、所得割の料率・均等割額・平等割や資産割の有無が自治体ごとに異なるためです。同じ所得でも住む地域で年数万円以上の差が出ることがあります。本ツールは全国平均的な料率を用いた概算のため、正確な額は必ずお住まいの市区町村でご確認ください。"}},{"@type":"Question","name":"40歳になると国保料が上がるのはなぜですか？","acceptedAnswer":{"@type":"Answer","text":"40〜64歳の方は医療分・後期高齢者支援金分に加えて介護保険料にあたる「介護分」が上乗せされるためです。65歳以上になると介護保険料は国保とは別建てで徴収されるため、国保料からは介護分が外れます。本ツールでは年齢区分を選ぶと介護分を含めた年額を概算表示します。"}},{"@type":"Question","name":"会社の健康保険と国保はどちらが安いですか？","acceptedAnswer":{"@type":"Answer","text":"一般に会社員の健康保険は保険料の半分を会社が負担するため、同じ所得なら国保より本人負担が軽くなることが多いです。国保は全額自己負担で扶養という概念もないため、家族が多いほど均等割が積み上がります。どちらが安いかは所得・家族構成・自治体の料率で変わるため、本ツールの概算で目安を比較してください。"}},{"@type":"Question","name":"退職後は国保と任意継続どちらが得ですか？","acceptedAnswer":{"@type":"Answer","text":"任意継続は退職前の健康保険を最長2年継続でき、保険料は退職時の標準報酬月額が基準（上限あり）で会社負担分も自己負担になります。一方、国保は前年所得に応じて決まります。前年所得が高い場合は任意継続が、所得が下がる場合は国保が有利になりやすい傾向です。本ツールで国保の概算を出し、任意継続の試算額と比較するのがおすすめです。"}}]}
     </script>
 </head>
 <body>
@@ -101,6 +108,37 @@
         <p>会社員は社会保険料の半分を会社が負担しますが、フリーランスは全額自己負担です。年間所得500万円のフリーランスの国保料は年間約50〜60万円（月4〜5万円）になることが多く、会社員時代より負担が大きくなるケースがほとんどです。</p>
         <h3>保険料を抑えるには</h3>
         <p>経費を漏れなく計上して所得を下げる、青色申告65万円控除を使う、法人化して社会保険に切り替える（所得が高い場合）などの方法があります。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>国民健康保険料の仕組み</h2>
+        <p>国民健康保険料は、医療給付の財源となる「医療分」、後期高齢者医療制度を支える「後期高齢者支援金分」、そして40〜64歳の方が負担する「介護分（介護保険料）」の3つの区分を合計して算出されます。65歳未満で介護保険の対象外（40歳未満）の方は医療分と後期高齢者支援金分の2区分、40〜64歳の方はこれに介護分が加わり3区分、65歳以上の方は介護保険料が国保とは別建てになるため国保料からは介護分が外れます。</p>
+        <p>各区分はさらに、所得に応じて変動する「所得割」と、加入者1人あたりに定額でかかる「均等割」の組み合わせで計算されます。自治体によっては、これに世帯ごとの定額である「平等割」や、固定資産に応じた「資産割」を加える方式（4方式・3方式）を採用しているところもあります。いずれの区分にも賦課限度額（上限）が設けられており、所得が高くても保険料が際限なく上がることはありません。</p>
+        <p>計算の基礎となるのは前年（1〜12月）の所得です。会社を退職して独立した1年目は、前年の給与所得を基準に国保料が決まるため、収入が下がっても保険料が高く感じられることがあります。本ツールでは、前年所得から基礎控除43万円を差し引いた額に各区分の所得割料率を掛け、均等割（加入者数分）を加えて年額を概算します。</p>
+
+        <h3>保険料の目安（概算）</h3>
+        <p>下表は、加入者1人・各区分の上限と基礎控除43万円を考慮し、本ツールと同一の計算式・同一の料率（医療分7.9%＋均等割28,000円、後期高齢者支援金分2.6%＋均等割9,500円、介護分2.3%＋均等割12,000円）で算出した年間保険料の目安です。所得は「売上−経費」を指します。自治体によって料率・均等割額が異なるため、実際の金額とは差が出ます。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>年間所得</th><th>40歳未満<br>年額</th><th>40歳未満<br>月額</th><th>40〜64歳<br>年額</th><th>40〜64歳<br>月額</th></tr></thead>
+            <tbody>
+                <tr><td>100万円</td><td>¥97,350</td><td>¥8,113</td><td class="acc">¥122,460</td><td>¥10,205</td></tr>
+                <tr><td>200万円</td><td>¥202,350</td><td>¥16,863</td><td class="acc">¥250,460</td><td>¥20,872</td></tr>
+                <tr><td>300万円</td><td>¥307,350</td><td>¥25,613</td><td class="acc">¥378,460</td><td>¥31,538</td></tr>
+                <tr><td>500万円</td><td>¥517,350</td><td>¥43,113</td><td class="acc">¥634,460</td><td>¥52,872</td></tr>
+                <tr><td>700万円</td><td>¥727,350</td><td>¥60,613</td><td class="acc">¥890,460</td><td>¥74,205</td></tr>
+                <tr><td>1,000万円</td><td>¥890,000</td><td>¥74,167</td><td class="acc">¥1,060,000</td><td>¥88,333</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>所得1,000万円の行は各区分が賦課限度額（医療分65万円・後期高齢者支援金分24万円・介護分17万円、合計106万円）に達しているため、それ以上所得が増えても保険料は頭打ちになります。上表はあくまで全国平均的な料率による概算であり、お住まいの自治体の正確な保険料を保証するものではありません。実際の金額は市区町村の窓口や公式サイトでご確認ください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">国民健康保険料は何で決まりますか？</div><div class="a">国保料は前年の所得を基準に計算され、「所得割（所得に応じた額）」と「均等割（加入者1人あたりの定額）」の合計で決まります。さらに「医療分」「後期高齢者支援金分」「40〜64歳が対象の介護分」の3区分に分かれ、それぞれに上限額があります。本ツールは前年所得・年齢・加入者数から全国平均的な料率で概算します。</div></div>
+        <div class="faq-item"><div class="q">自治体によって国保料が違うのはなぜですか？</div><div class="a">国保は市区町村が運営しており、所得割の料率・均等割額・平等割や資産割の有無が自治体ごとに異なるためです。同じ所得でも住む地域で年数万円以上の差が出ることがあります。本ツールは全国平均的な料率を用いた概算のため、正確な額は必ずお住まいの市区町村でご確認ください。</div></div>
+        <div class="faq-item"><div class="q">40歳になると国保料が上がるのはなぜですか？</div><div class="a">40〜64歳の方は医療分・後期高齢者支援金分に加えて介護保険料にあたる「介護分」が上乗せされるためです。65歳以上になると介護保険料は国保とは別建てで徴収されるため、国保料からは介護分が外れます。本ツールでは年齢区分を選ぶと介護分を含めた年額を概算表示します。</div></div>
+        <div class="faq-item"><div class="q">会社の健康保険と国保はどちらが安いですか？</div><div class="a">一般に会社員の健康保険は保険料の半分を会社が負担するため、同じ所得なら国保より本人負担が軽くなることが多いです。国保は全額自己負担で扶養という概念もないため、家族が多いほど均等割が積み上がります。どちらが安いかは所得・家族構成・自治体の料率で変わるため、本ツールの概算で目安を比較してください。</div></div>
+        <div class="faq-item"><div class="q">退職後は国保と任意継続どちらが得ですか？</div><div class="a">任意継続は退職前の健康保険を最長2年継続でき、保険料は退職時の標準報酬月額が基準（上限あり）で会社負担分も自己負担になります。一方、国保は前年所得に応じて決まります。前年所得が高い場合は任意継続が、所得が下がる場合は国保が有利になりやすい傾向です。本ツールで国保の概算を出し、任意継続の試算額と比較するのがおすすめです。</div></div>
     </div>
 
         <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
