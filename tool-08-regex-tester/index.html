@@ -14,8 +14,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>正規表現テスター | リアルタイム正規表現チェック・マッチング</title>
-    <meta name="description" content="正規表現をリアルタイムでテスト。マッチ結果のハイライト表示、グループキャプチャ、フラグ設定に対応。JavaScript正規表現の学習にも。">
+    <title>正規表現テスター | リアルタイム正規表現チェック・マッチング・メタ文字早見表</title>
+    <meta name="description" content="正規表現をリアルタイムでテスト。マッチ結果のハイライト表示、グループキャプチャ、g/i/mフラグ設定に対応。JavaScript正規表現の構文・メタ文字早見表（\d \w \s . * +）も掲載し、メールアドレスや電話番号のパターン作成・学習に。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#34d399;--accent-dim:rgba(52,211,153,0.1);--match1:rgba(52,211,153,0.25);--match2:rgba(96,165,250,0.25);--radius:12px}
@@ -52,6 +52,14 @@
         .error-bar{padding:10px 16px;background:rgba(239,68,68,0.08);color:#ef4444;font-size:0.8rem;font-family:'JetBrains Mono',monospace;border-radius:8px;margin-bottom:16px;display:none}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700;font-family:'JetBrains Mono',monospace}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-08-regex-tester/">
@@ -69,7 +77,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"正規表現テスター","item":"https://www.devtools-japan.com/tool-08-regex-tester/"}]}
     </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"この正規表現テスターはどの言語の構文に対応していますか？","acceptedAnswer":{"@type":"Answer","text":"JavaScriptの正規表現エンジンを使用しています。マッチ結果のハイライト表示やグループキャプチャ、各種フラグの設定に対応し、リアルタイムで結果を確認できます。"}},{"@type":"Question","name":"gやiなどのフラグも設定できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。グローバル検索のgや大文字小文字を無視するiなどのフラグを設定できます。入力と同時にマッチ箇所がハイライトされ、無料・登録不要で使えます。"}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"この正規表現テスターはどの言語の正規表現に対応？","acceptedAnswer":{"@type":"Answer","text":"JavaScriptの正規表現エンジンに対応しています。ブラウザ標準のRegExpオブジェクトでパターンを評価するため、JavaScriptの正規表現の構文・挙動でテストできます。Pythonなど他言語とは一部の記法が異なる点にご注意ください。"}},{"@type":"Question","name":"gやiなどのフラグとは？","acceptedAnswer":{"@type":"Answer","text":"フラグは正規表現の動作を変えるオプションです。gは文字列全体からすべてのマッチを探すグローバル検索、iは大文字小文字を区別しないマッチ、mは複数行モードで行頭・行末の記号を各行に対応させます。このツールではg・i・mのボタンで切り替えられます。"}},{"@type":"Question","name":"\\dは何にマッチする？","acceptedAnswer":{"@type":"Answer","text":"半角数字の0から9の1文字にマッチします。たとえば3桁の数字なら数字メタ文字を3回並べる書き方で表せます。逆に数字以外にマッチさせたい場合は大文字版のメタ文字を使います。"}},{"@type":"Question","name":"メールアドレスの正規表現は？","acceptedAnswer":{"@type":"Answer","text":"簡単な例として、単語文字・ドット・ハイフンの繰り返しに続けてアットマーク、さらにドメイン部分とトップレベルドメインを書く形があります。このツールのクイックリファレンスのemailチップを押すと例が入力欄に挿入され、すぐに試せます。"}},{"@type":"Question","name":"マッチした箇所はハイライトされる？","acceptedAnswer":{"@type":"Answer","text":"はい。テスト文字列の中でマッチした部分がハイライト表示され、マッチ件数とindexやキャプチャグループの内容も一覧で確認できます。すべての処理はブラウザ内で完結し、入力した内容がサーバーに送信されることはありません。"}}]}
 </script>
 </head>
 <body>
@@ -127,6 +135,39 @@ https://www.devtools-japan.com/tools</textarea></div>
         <h3>フラグ対応</h3>
         <p>グローバルマッチ（g）、大文字小文字無視（i）、複数行モード（m）のフラグに対応しています。キャプチャグループの内容も表示されるので、複雑なパターンのデバッグに便利です。</p>
         </div>
+    <div class="seo-content">
+        <h2>正規表現（regex）とは</h2>
+        <p>正規表現（regular expression、略してregex）とは、文字列のパターンを表現するための記法です。特定の文字そのものだけでなく「数字が3桁続く」「行頭から英字が並ぶ」「アットマークを挟んだメールアドレスの形」といった抽象的な並びを、短い記号の組み合わせで表現できます。この記法はテキストの中から条件に合う部分を見つけ出すマッチングや検索、見つけた部分を別の文字列に入れ替える置換に広く使われ、プログラミング、テキストエディタ、ログ解析、入力値のバリデーションなど多くの場面で活躍します。</p>
+        <p>正規表現の構文は言語やツールによって細かな違いがあります。本ツールはブラウザ標準のJavaScript正規表現エンジン（RegExpオブジェクト）を使って入力したパターンを評価します。したがって、ここでテストした結果はJavaScript環境での挙動と一致します。PythonやPHP、Perlなど他の言語では一部の記法や対応するフラグが異なる場合があるため、利用先の言語に合わせて確認してください。入力したパターンとテスト文字列はすべてブラウザ内で処理され、サーバーに送信されることはありません。</p>
+        <h3>主要メタ文字の早見表</h3>
+        <p>正規表現で特別な意味を持つ記号を「メタ文字」と呼びます。よく使うメタ文字とその意味は次のとおりです。意味を正確に覚えておくと、パターンの読み書きが格段に速くなります。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>メタ文字</th><th>意味</th><th>例</th></tr></thead>
+            <tbody>
+                <tr><td class="acc">.</td><td>改行を除く任意の1文字</td><td>a.c は abc, a1c などにマッチ</td></tr>
+                <tr><td class="acc">*</td><td>直前の要素の0回以上の繰り返し</td><td>ab* は a, ab, abb にマッチ</td></tr>
+                <tr><td class="acc">+</td><td>直前の要素の1回以上の繰り返し</td><td>ab+ は ab, abb にマッチ</td></tr>
+                <tr><td class="acc">?</td><td>直前の要素の0回または1回</td><td>colou?r は color, colour</td></tr>
+                <tr><td class="acc">\d</td><td>数字1文字（0〜9）</td><td>\d\d は 42 などにマッチ</td></tr>
+                <tr><td class="acc">\w</td><td>単語文字1文字（英数字とアンダースコア）</td><td>\w+ は word_1 にマッチ</td></tr>
+                <tr><td class="acc">\s</td><td>空白文字1文字（スペース・タブ・改行など）</td><td>a\sb は a b にマッチ</td></tr>
+                <tr><td class="acc">^</td><td>行頭（先頭）に一致する位置</td><td>^abc は行頭の abc</td></tr>
+                <tr><td class="acc">$</td><td>行末（末尾）に一致する位置</td><td>abc$ は行末の abc</td></tr>
+                <tr><td class="acc">[abc]</td><td>角括弧内のいずれか1文字</td><td>[abc] は a か b か c</td></tr>
+                <tr><td class="acc">()</td><td>グループ化とキャプチャ</td><td>(ab)+ は ab の繰り返し</td></tr>
+                <tr><td class="acc">|</td><td>左右のどちらか（または）</td><td>cat|dog は cat か dog</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>これらを組み合わせることで、より複雑なパターンを表現できます。たとえば数字メタ文字と繰り返し、ハイフンを組み合わせれば電話番号や郵便番号の形を、角括弧やアットマークを組み合わせればメールアドレスの形を表せます。本ツールのクイックリファレンスのチップを押すと、数字・英字・ひらがな・カタカナ・漢字・メール・URL・電話番号といった代表的なパターンが入力欄に挿入されるので、早見表と見比べながら学べます。</p>
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">この正規表現テスターはどの言語の正規表現に対応？</div><div class="a">JavaScriptの正規表現エンジンに対応しています。ブラウザ標準のRegExpオブジェクトでパターンを評価するため、JavaScriptの正規表現の構文・挙動でテストできます。Pythonなど他言語とは一部の記法が異なる点にご注意ください。</div></div>
+        <div class="faq-item"><div class="q">gやiなどのフラグとは？</div><div class="a">フラグは正規表現の動作を変えるオプションです。gは文字列全体からすべてのマッチを探すグローバル検索、iは大文字小文字を区別しないマッチ、mは複数行モードで行頭・行末の記号を各行に対応させます。このツールではg・i・mのボタンで切り替えられます。</div></div>
+        <div class="faq-item"><div class="q">\dは何にマッチする？</div><div class="a">半角数字の0から9の1文字にマッチします。たとえば3桁の数字なら数字メタ文字を3回並べる書き方で表せます。逆に数字以外にマッチさせたい場合は大文字版のメタ文字を使います。</div></div>
+        <div class="faq-item"><div class="q">メールアドレスの正規表現は？</div><div class="a">簡単な例として、単語文字・ドット・ハイフンの繰り返しに続けてアットマーク、さらにドメイン部分とトップレベルドメインを書く形があります。このツールのクイックリファレンスのemailチップを押すと例が入力欄に挿入され、すぐに試せます。</div></div>
+        <div class="faq-item"><div class="q">マッチした箇所はハイライトされる？</div><div class="a">はい。テスト文字列の中でマッチした部分がハイライト表示され、マッチ件数とindexやキャプチャグループの内容も一覧で確認できます。すべての処理はブラウザ内で完結し、入力した内容がサーバーに送信されることはありません。</div></div>
+    </div>
     <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
