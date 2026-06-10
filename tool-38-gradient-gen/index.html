@@ -13,8 +13,8 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSSグラデーション生成 | DevTools Japan</title>
-    <meta name="description" content="CSSグラデーションを視覚的に作成。コードをワンクリックコピー。">
+    <title>CSSグラデーション生成 | linear-gradient コード作成・コピー | DevTools Japan</title>
+    <meta name="description" content="CSSグラデーション（linear-gradient）を視覚的に作成し、background用コードをワンクリックコピー。3色・角度（deg）指定に対応。方向の指定方法やカラーストップの仕組みも解説。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#ec4899;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
@@ -27,6 +27,15 @@
         .preview{height:200px;border-radius:12px;margin-bottom:20px;border:1px solid var(--border);transition:background 0.3s}.controls{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px}.code-box{font-family:"JetBrains Mono",monospace;font-size:0.8rem;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:14px;color:var(--text2);cursor:pointer;margin-bottom:24px;word-break:break-all;transition:all 0.2s}.code-box:hover{border-color:var(--accent);color:var(--text)}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.code{font-family:'JetBrains Mono',monospace}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -45,7 +54,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"CSSグラデーション生成ツール","item":"https://www.devtools-japan.com/tool-38-gradient-gen/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"生成したCSSグラデーションのコードはどうやって使いますか？","acceptedAnswer":{"@type":"Answer","text":"色と角度を調整するとlinear-gradientのCSSが自動生成されます。コードボックスをクリックするとbackgroundプロパティごとコピーできるので、要素のCSSにそのまま貼り付けるだけで適用できます。"}},{"@type":"Question","name":"3色以上のグラデーションやプリセットは使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。色1から色3までの3色とグラデーションの角度を指定でき、人気の配色プリセットもワンクリックで適用できます。すべてブラウザ内で処理され、無料・登録不要でご利用いただけます。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"CSSグラデーションのコードはどう使う？","acceptedAnswer":{"@type":"Answer","text":"このツールはbackground: linear-gradient(...);という形式でコードを生成します。コードボックスをクリックするとbackgroundプロパティごとコピーできるので、対象要素のCSSにそのまま貼り付けるだけで背景にグラデーションが適用されます。"}},{"@type":"Question","name":"複数の色を使える？","acceptedAnswer":{"@type":"Answer","text":"はい。このツールでは色1・色2・色3の3色を指定でき、3色を順番に変化させるグラデーションを生成します。カラーストップを増やせば理論上は何色でも指定できますが、本ツールの出力は3色までです。"}},{"@type":"Question","name":"斜めのグラデーションは？","acceptedAnswer":{"@type":"Answer","text":"角度スライダーで0度から360度まで指定できます。45度や135度のように斜めの角度を指定すると、左下から右上などへ斜めに色が変化するグラデーションになります。初期値は135度です。"}},{"@type":"Question","name":"グラデーションの方向の指定方法は？","acceptedAnswer":{"@type":"Answer","text":"linear-gradientでは角度（deg）か、to rightのようなキーワードで方向を指定します。0degは下から上、90degは左から右、180degは上から下へ進みます。本ツールは角度（deg）方式で出力します。"}},{"@type":"Question","name":"生成したコードはどのブラウザで動く？","acceptedAnswer":{"@type":"Answer","text":"linear-gradientとradial-gradientはChrome・Edge・Firefox・Safariなど主要なモダンブラウザで標準サポートされており、ベンダープレフィックスなしで動作します。生成はすべてブラウザ内で完結し、サーバーには送信されません。"}}]}
     </script>
 </head>
 <body>
@@ -78,6 +87,35 @@
         <p>2色以上の色を直線的に変化させるグラデーションです。角度を指定して斜めや水平方向のグラデーションを作成できます。ボタンの背景、ヘッダーのデザイン、テキストのグラデーションなどに使われます。</p>
         <h3>ラジアルグラデーション</h3>
         <p>中心から外側に向かって色が変化するグラデーションです。円形や楕円形のグラデーションを作成できます。背景デザインやアイコンの光沢表現に効果的です。</p>
+        </div>
+    <div class="seo-content">
+        <h2>CSSグラデーションの仕組み</h2>
+        <p>CSSのグラデーションは「色が連続的に変化する画像」を生成する関数で、background や background-image プロパティに指定して使います。代表的なものに linear-gradient（線形）と radial-gradient（円形）があり、いずれも複数の「カラーストップ」（色と位置の組）を並べて色の移り変わりを定義します。</p>
+        <h3>linear-gradient（線形）と radial-gradient（円形）の違い</h3>
+        <p>linear-gradient は、指定した一直線の方向に沿って色が変化するグラデーションです。ヘッダーやボタンの背景など、面全体を一定の向きで塗り分けたい場面に向きます。radial-gradient は中心点から外側へ放射状に色が広がるグラデーションで、円形（circle）や楕円形（ellipse）の光沢やスポットライトのような表現に使われます。このツールが生成するのは linear-gradient 形式のコードで、3色のカラーストップと角度を指定できます。</p>
+        <h3>角度（deg）の指定</h3>
+        <p>linear-gradient では、グラデーションが進む向きを角度（deg）で指定します。0deg は下から上、90deg は左から右、180deg は上から下、270deg は右から左です。45deg や 135deg のように斜めの角度を指定すると、対角線方向に色が変化します。to right・to bottom などのキーワードでも方向を表せますが、本ツールの角度スライダーは deg 形式で 0〜360 度の値を出力します。</p>
+        <h3>カラーストップ（色と位置%）</h3>
+        <p>カラーストップは「どの色を」「どの位置で」表示するかを表すものです。<code>linear-gradient(90deg, #ff0000 0%, #0000ff 100%)</code> のように色のあとへ位置%を書くと、その位置でぴったりその色になります。位置を省略すると、指定した順に色が等間隔で配置されます。本ツールは色1・色2・色3を等間隔に並べた linear-gradient を生成します。</p>
+        <h3>代表的なグラデーション指定の例</h3>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>指定例</th><th>意味</th></tr></thead>
+            <tbody>
+            <tr><td class="code">linear-gradient(90deg, #ff0000, #0000ff)</td><td>左から右へ赤→青の横方向グラデーション</td></tr>
+            <tr><td class="code">linear-gradient(180deg, #fff, #000)</td><td>上から下へ白→黒の縦方向グラデーション</td></tr>
+            <tr><td class="code">linear-gradient(135deg, #6366f1, #ec4899, #f97316)</td><td>左上から右下へ3色を変化させる斜めグラデーション（本ツール初期値に近い形）</td></tr>
+            <tr><td class="code">linear-gradient(to right, #11998e, #38ef7d)</td><td>キーワード指定で左から右へ変化（90degと同じ向き）</td></tr>
+            <tr><td class="code">radial-gradient(circle, #fff, #000)</td><td>中心から外側へ白→黒の円形グラデーション</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">CSSグラデーションのコードはどう使う？</div><div class="a">このツールはbackground: linear-gradient(...);という形式でコードを生成します。コードボックスをクリックするとbackgroundプロパティごとコピーできるので、対象要素のCSSにそのまま貼り付けるだけで背景にグラデーションが適用されます。</div></div>
+        <div class="faq-item"><div class="q">複数の色を使える？</div><div class="a">はい。このツールでは色1・色2・色3の3色を指定でき、3色を順番に変化させるグラデーションを生成します。カラーストップを増やせば理論上は何色でも指定できますが、本ツールの出力は3色までです。</div></div>
+        <div class="faq-item"><div class="q">斜めのグラデーションは？</div><div class="a">角度スライダーで0度から360度まで指定できます。45度や135度のように斜めの角度を指定すると、左下から右上などへ斜めに色が変化するグラデーションになります。初期値は135度です。</div></div>
+        <div class="faq-item"><div class="q">グラデーションの方向の指定方法は？</div><div class="a">linear-gradientでは角度（deg）か、to rightのようなキーワードで方向を指定します。0degは下から上、90degは左から右、180degは上から下へ進みます。本ツールは角度（deg）方式で出力します。</div></div>
+        <div class="faq-item"><div class="q">生成したコードはどのブラウザで動く？</div><div class="a">linear-gradientとradial-gradientはChrome・Edge・Firefox・Safariなど主要なモダンブラウザで標準サポートされており、ベンダープレフィックスなしで動作します。生成はすべてブラウザ内で完結し、サーバーには送信されません。</div></div>
         </div>
     <div class="ad-slot" style="display:none"></div>
     
