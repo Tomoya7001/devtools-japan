@@ -27,6 +27,13 @@
         .preview-img{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;margin-bottom:16px;min-height:200px;display:flex;align-items:center;justify-content:center}.preview-img img{max-width:100%;border-radius:8px}.url-box{font-family:"JetBrains Mono",monospace;font-size:0.75rem;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:12px;color:var(--text2);cursor:pointer;word-break:break-all;margin-bottom:8px;transition:all 0.15s}.url-box:hover{border-color:var(--accent);color:var(--text)}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -45,7 +52,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"プレースホルダー画像生成ツール","item":"https://www.devtools-japan.com/tool-40-placeholder-img/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"生成したプレースホルダー画像の形式は何ですか？ダウンロードできますか？","acceptedAnswer":{"@type":"Answer","text":"画像はブラウザのcanvasでPNG形式として描画され、ダウンロードボタンでそのまま保存できます。外部の画像サービスに依存せず、サイズ・背景色・文字色・テキストを指定して即座に生成できます。"}},{"@type":"Question","name":"幅と高さや色は自由に指定できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。幅・高さをピクセル単位で入力でき、背景色・文字色・表示テキストも自由に設定できます。テキスト未入力の場合は指定サイズが自動表示され、モックアップやレスポンシブ確認のダミー画像に便利です。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"生成した画像はダウンロードできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。プレビュー下の「ダウンロード」ボタンを押すと、その場で生成された画像を画像ファイルとして保存できます。ブラウザのcanvas上で描画した内容をそのままファイル化するため、会員登録やログインは不要です。"}},{"@type":"Question","name":"画像の形式は何ですか？","acceptedAnswer":{"@type":"Answer","text":"画像はブラウザのcanvasでPNG形式として描画され、ダウンロード時もPNGファイルとして保存されます。PNGは背景色や文字をくっきり描画でき、Webでも一般的に利用される扱いやすい形式です。"}},{"@type":"Question","name":"幅・高さや色は自由に指定できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。幅と高さをピクセル単位で入力でき、背景色・文字色・表示テキストもそれぞれ自由に設定できます。テキストを空欄にした場合は「幅×高さ」のサイズ表記が自動で表示され、モックアップやレスポンシブ確認用のダミー画像にそのまま使えます。"}},{"@type":"Question","name":"商用利用できますか？","acceptedAnswer":{"@type":"Answer","text":"生成される画像は単色背景にサイズやテキストを描いただけのシンプルなもので、利用に制限はありません。社内資料やクライアント向けのモックアップ、商用サイトの開発中のダミー画像など、用途を問わずご利用いただけます。"}},{"@type":"Question","name":"外部サービス（placeholder.comなど）と何が違いますか？","acceptedAnswer":{"@type":"Answer","text":"このツールはすべての描画処理をブラウザ内で完結させるため、外部の画像サービスへのリクエストが一切発生しません。URL経由で外部から画像を読み込む方式と異なり、オフラインでも動作し、サービス停止や通信の影響を受けず、入力した内容が外部に送信される心配もありません。"}}]}
     </script>
 </head>
 <body>
@@ -74,6 +81,33 @@
         <p>画像サイズ（幅×高さ）、背景色、テキスト色、表示するテキスト（デフォルトはサイズ表示）をカスタマイズできます。生成された画像はPNG形式でダウンロードできます。</p>
         <h3>開発での活用</h3>
         <p>フロントエンド開発中に、サーバーから配信される画像の代わりにプレースホルダー画像を使うことで、レイアウトの確認やレスポンシブデザインのテストができます。</p>
+        </div>
+    <div class="seo-content">
+        <h2>プレースホルダー画像とは</h2>
+        <p>プレースホルダー画像とは、Webサイトやアプリ、デザインのモックアップを作る段階で、まだ本番用の写真やイラストが用意できていないときに、その場所に仮置きしておく画像のことです。「ここに画像が入る」という枠だけを先に確保しておくことで、レイアウト全体の見た目やバランスを早い段階から確認できます。本番素材の準備とデザイン作業を並行して進められるため、制作のスピードと効率が大きく向上します。</p>
+        <p>主な用途としては、ワイヤーフレームでの画像枠の表現、ページ全体のレイアウト確認、CMSやテンプレートに差し込むダミー画像などがあります。とくにレスポンシブデザインでは、画面幅に応じて画像がどのように伸縮・トリミングされるかを検証する際に、指定サイズのプレースホルダー画像が役立ちます。このツールでは幅・高さ・背景色・文字色・表示テキストを自由に設定でき、入力に応じてその場で画像が描画されます。テキストを空欄にすると「幅×高さ」のサイズ表記が自動で表示されるため、どの枠がどのサイズなのかひと目で把握できます。</p>
+        <h3>よく使うサイズの例</h3>
+        <p>用途ごとに一般的によく使われる代表的なサイズをまとめました。プレースホルダー画像を作る際の目安としてご利用ください。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>用途</th><th>代表サイズ（px）</th><th>アスペクト比</th></tr></thead>
+            <tbody>
+                <tr><td>YouTubeサムネイル</td><td>1280×720</td><td>16:9</td></tr>
+                <tr><td>OGP画像（SNSシェア）</td><td>1200×630</td><td>1.91:1</td></tr>
+                <tr><td>ヒーロー画像（横長バナー）</td><td>1920×1080</td><td>16:9</td></tr>
+                <tr><td>正方形アイコン</td><td>512×512</td><td>1:1</td></tr>
+                <tr><td>Instagram正方形投稿</td><td>1080×1080</td><td>1:1</td></tr>
+                <tr><td>ブログ記事サムネイル</td><td>800×450</td><td>16:9</td></tr>
+                <tr><td>バナー広告（レクタングル）</td><td>300×250</td><td>6:5</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">生成した画像はダウンロードできますか？</div><div class="a">はい。プレビュー下の「ダウンロード」ボタンを押すと、その場で生成された画像を画像ファイルとして保存できます。ブラウザのcanvas上で描画した内容をそのままファイル化するため、会員登録やログインは不要です。</div></div>
+        <div class="faq-item"><div class="q">画像の形式は何ですか？</div><div class="a">画像はブラウザのcanvasでPNG形式として描画され、ダウンロード時もPNGファイルとして保存されます。PNGは背景色や文字をくっきり描画でき、Webでも一般的に利用される扱いやすい形式です。</div></div>
+        <div class="faq-item"><div class="q">幅・高さや色は自由に指定できますか？</div><div class="a">はい。幅と高さをピクセル単位で入力でき、背景色・文字色・表示テキストもそれぞれ自由に設定できます。テキストを空欄にした場合は「幅×高さ」のサイズ表記が自動で表示され、モックアップやレスポンシブ確認用のダミー画像にそのまま使えます。</div></div>
+        <div class="faq-item"><div class="q">商用利用できますか？</div><div class="a">生成される画像は単色背景にサイズやテキストを描いただけのシンプルなもので、利用に制限はありません。社内資料やクライアント向けのモックアップ、商用サイトの開発中のダミー画像など、用途を問わずご利用いただけます。</div></div>
+        <div class="faq-item"><div class="q">外部サービス（placeholder.comなど）と何が違いますか？</div><div class="a">このツールはすべての描画処理をブラウザ内で完結させるため、外部の画像サービスへのリクエストが一切発生しません。URL経由で外部から画像を読み込む方式と異なり、オフラインでも動作し、サービス停止や通信の影響を受けず、入力した内容が外部に送信される心配もありません。</div></div>
         </div>
     <div class="ad-slot" style="display:none"></div>
     
