@@ -39,6 +39,14 @@
         .rrow .unit{color:var(--text2)}.rrow .val{font-family:'JetBrains Mono',monospace;color:var(--text)}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -57,7 +65,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"単位変換ツール","item":"https://www.devtools-japan.com/tool-32-unit-converter/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"どんな種類の単位を変換できますか？","acceptedAnswer":{"@type":"Answer","text":"長さ、重さ、温度、面積、速度のカテゴリに対応しています。メートル法とヤードポンド法の単位を相互に変換でき、入力すると関連する単位の換算結果が一覧で表示されます。"}},{"@type":"Question","name":"摂氏と華氏の温度変換にも対応していますか？","acceptedAnswer":{"@type":"Answer","text":"はい。温度カテゴリで摂氏・華氏などを相互変換できます。計算はブラウザ内で完結し、登録不要・無料で日常の単位計算に手軽に使えます。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"1インチは何センチ？","acceptedAnswer":{"@type":"Answer","text":"1インチは正確に2.54センチメートルです。これは国際的な定義値で、テレビやスマートフォンの画面サイズ、ネジの規格などで広く使われます。たとえば40インチは約101.6センチメートルになります。"}},{"@type":"Question","name":"1マイルは何キロメートル？","acceptedAnswer":{"@type":"Answer","text":"1マイルは1.609344キロメートルです。約1.6キロメートルと覚えておくとおおよその距離をすぐに把握できます。アメリカやイギリスの速度表示や距離表示でよく登場します。"}},{"@type":"Question","name":"1坪は何平方メートル？","acceptedAnswer":{"@type":"Answer","text":"1坪は約3.30579平方メートルです。不動産の間取りや土地の広さを表すときに使われ、6尺四方（おおよそ畳2枚分）に相当します。逆に1平方メートルは約0.3025坪です。"}},{"@type":"Question","name":"摂氏と華氏の変換式は？","acceptedAnswer":{"@type":"Answer","text":"華氏は「華氏＝摂氏×9/5＋32」で求められます。逆に摂氏は「摂氏＝（華氏－32）×5/9」です。たとえば摂氏25度は華氏77度、摂氏0度は華氏32度になります。"}},{"@type":"Question","name":"1ポンドは何グラム？","acceptedAnswer":{"@type":"Answer","text":"1ポンドは453.592グラムです。約454グラム、おおよそ0.45キログラムと覚えておくと体重や食材の量をすぐに見当づけられます。1オンスは28.3495グラムで、16オンスが1ポンドにあたります。"}}]}
     </script>
     </head>
 <body>
@@ -86,6 +94,50 @@
         <p>長さ（mm/cm/m/km/inch/ft/yard/mile）、重さ（mg/g/kg/ton/oz/lb）、温度（摂氏/華氏/ケルビン）に対応しています。値を入力するとリアルタイムで変換結果が表示されます。</p>
         <h3>海外とのやり取りに</h3>
         <p>アメリカとの取引ではインチ・ポンド・華氏が使われるため、メートル法との変換が頻繁に必要になります。レシピの単位変換（カップ⇔ml等）にも便利です。</p>
+        </div>
+    <div class="seo-content">
+        <h2>単位換算 早見表</h2>
+        <p>海外規格との変換やレシピ・図面の読み替えで、よく使う単位の換算定数をまとめました。下記の数値は国際的に定められた正確な定義値に基づいています。インチやフィートなどヤードポンド法の長さ、ポンド・オンスといった重さ、さらに日本の伝統的な単位である坪や合まで、覚えておくと便利な換算をひと目で確認できます。端数まで正確に知りたいときは、上部の変換ツールに数値を入力すれば瞬時に結果が表示されます。</p>
+        <h3>長さの換算</h3>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>単位</th><th>メートル法での値</th><th>用途の例</th></tr></thead>
+            <tbody>
+                <tr><td>1インチ（inch）</td><td class="acc">2.54 cm</td><td>画面サイズ・ネジ規格</td></tr>
+                <tr><td>1フィート（foot）</td><td class="acc">30.48 cm</td><td>身長・建築</td></tr>
+                <tr><td>1ヤード（yard）</td><td class="acc">0.9144 m</td><td>ゴルフ・生地</td></tr>
+                <tr><td>1マイル（mile）</td><td class="acc">1.609344 km</td><td>距離・速度</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <h3>重さの換算</h3>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>単位</th><th>メートル法での値</th><th>用途の例</th></tr></thead>
+            <tbody>
+                <tr><td>1ポンド（pound）</td><td class="acc">453.592 g</td><td>体重・食材</td></tr>
+                <tr><td>1オンス（ounce）</td><td class="acc">28.3495 g</td><td>料理・郵便</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <h3>面積・体積など</h3>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>単位</th><th>メートル法での値</th><th>用途の例</th></tr></thead>
+            <tbody>
+                <tr><td>1坪（つぼ）</td><td class="acc">3.30579 ㎡</td><td>不動産・間取り</td></tr>
+                <tr><td>1合（ごう）</td><td class="acc">180.39 ml</td><td>米・日本酒</td></tr>
+                <tr><td>1ガロン（米）</td><td class="acc">3.78541 L</td><td>燃料・飲料</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>これらの換算定数は固定値なので、まとめて覚えておくと買い物や海外通販、図面の確認などさまざまな場面で役立ちます。とくにインチとセンチメートル、ポンドとグラムの関係は登場頻度が高いため、概算でも頭に入れておくと便利です。温度のように足し算を伴う変換は計算式を間違えやすいので、下のよくある質問もあわせて確認してください。</p>
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">1インチは何センチ？</div><div class="a">1インチは正確に2.54センチメートルです。これは国際的な定義値で、テレビやスマートフォンの画面サイズ、ネジの規格などで広く使われます。たとえば40インチは約101.6センチメートルになります。</div></div>
+        <div class="faq-item"><div class="q">1マイルは何キロメートル？</div><div class="a">1マイルは1.609344キロメートルです。約1.6キロメートルと覚えておくとおおよその距離をすぐに把握できます。アメリカやイギリスの速度表示や距離表示でよく登場します。</div></div>
+        <div class="faq-item"><div class="q">1坪は何平方メートル？</div><div class="a">1坪は約3.30579平方メートルです。不動産の間取りや土地の広さを表すときに使われ、6尺四方（おおよそ畳2枚分）に相当します。逆に1平方メートルは約0.3025坪です。</div></div>
+        <div class="faq-item"><div class="q">摂氏と華氏の変換式は？</div><div class="a">華氏は「華氏＝摂氏×9/5＋32」で求められます。逆に摂氏は「摂氏＝（華氏－32）×5/9」です。たとえば摂氏25度は華氏77度、摂氏0度は華氏32度になります。</div></div>
+        <div class="faq-item"><div class="q">1ポンドは何グラム？</div><div class="a">1ポンドは453.592グラムです。約454グラム、おおよそ0.45キログラムと覚えておくと体重や食材の量をすぐに見当づけられます。1オンスは28.3495グラムで、16オンスが1ポンドにあたります。</div></div>
         </div>
     <div class="ad-slot" style="display:none"></div>
     
