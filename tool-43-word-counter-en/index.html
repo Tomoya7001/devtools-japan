@@ -27,6 +27,13 @@
         
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:center;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}.lookup-table td:first-child{text-align:left}.lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -45,7 +52,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"英文ワードカウンター","item":"https://www.devtools-japan.com/tool-43-word-counter-en/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"単語数や文数はどのようにカウントされますか？","acceptedAnswer":{"@type":"Answer","text":"単語数は空白で区切られたまとまりを数え、文数はピリオド・感嘆符・疑問符を区切りとして数えます。あわせて文字数・段落数も表示され、英語レポートや論文の文字数管理に役立ちます。"}},{"@type":"Question","name":"読了時間やスピーチ時間はどう計算していますか？","acceptedAnswer":{"@type":"Answer","text":"読了時間は1分あたり約200語、スピーチ時間は1分あたり約130語を目安に単語数から概算しています。あくまで目安ですが、プレゼンや発表の所要時間の見積もりに便利です。計算はすべてブラウザ内で行われます。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"英単語数はどう数えますか？","acceptedAnswer":{"@type":"Answer","text":"入力された英文を空白（スペース・改行・タブ）で区切り、そのまとまりの数を単語数としてカウントしています。一般的な英文のワードカウントと同じ考え方で、ハイフンでつながれた語は1語として扱われます。あわせて文字数・文数・段落数も表示します。"}},{"@type":"Question","name":"500語の英文の読了時間は？","acceptedAnswer":{"@type":"Answer","text":"当ツールは1分あたり200語（200wpm）を基準としているため、500語の英文の読了時間はおよそ2.5分です。声に出して読むスピーチの場合は130wpmで計算し、約3.8分が目安になります。いずれも概算で、実際の速度には個人差があります。"}},{"@type":"Question","name":"エッセイの語数制限の確認に使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。入力するとリアルタイムで単語数が更新されるため、語数制限のあるエッセイやレポートの執筆中に上限・下限を超えていないかを随時確認できます。提出前の最終チェックにもご利用いただけます。"}},{"@type":"Question","name":"入力したテキストは送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。すべての計算はお使いのブラウザ内（JavaScript）で完結し、入力したテキストがサーバーに送信されることはありません。未公開の原稿や個人的な文章も安心してカウントできます。"}},{"@type":"Question","name":"TOEFLやIELTSのライティング語数確認に使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。TOEFLやIELTSのライティングでは推奨語数の目安があるため、解答の単語数を素早く確認するのに役立ちます。本番では手書きやテスト画面での入力になりますが、練習段階で語数感覚をつかむツールとして活用できます。"}}]}
     </script>
 </head>
 <body>
@@ -57,6 +64,31 @@
 <div id="stats" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px"></div>
     <div class="ad-slot" style="display:none"></div>
     <div class="seo-content"><h2>英文ワードカウンターについて</h2><p>英文の単語数・文数・読了時間を計算。ブラウザ上で動作し、データがサーバーに送信されることはありません。</p></div>
+    <div class="seo-content">
+      <h2>単語数と読了時間の目安</h2>
+      <p>英語の文章を黙読する場合、一般的な読了速度は1分あたり200〜250語程度とされています。当ツールでは読み手の負担を見積もりやすいよう、1分あたり200語（200wpm）を基準に読了時間を概算しています。たとえば500語の英文であれば、200wpmで割るとおよそ2.5分が読了時間の目安となります。読書に慣れた人であれば250wpm以上で読めることもありますが、内容理解を伴うレポートや論文では200wpm前後を見込んでおくと安全です。</p>
+      <p>一方、原稿を声に出して読み上げるスピーチやプレゼンテーションの場合、聞き手が内容を追えるテンポは黙読よりも遅くなります。英語のスピーチでは1分あたり約130語（130wpm）が聞き取りやすい目安とされ、当ツールもこの130wpmでスピーチ時間を算出しています。たとえば500語の原稿なら、130wpmでおよそ3.8分の発話時間が見込まれます。発表の持ち時間に合わせて原稿の語数を調整する際の参考にしてください。読了時間とスピーチ時間はいずれもあくまで概算であり、実際の所要時間は文章の難易度・専門用語の多さ・話す速度によって前後します。</p>
+      <h3>単語数ごとの読了時間・スピーチ時間早見表</h3>
+      <div class="table-wrap">
+        <table class="lookup-table">
+          <thead><tr><th>単語数</th><th>読了時間（200wpm）</th><th>スピーチ時間（130wpm）</th></tr></thead>
+          <tbody>
+            <tr><td>100語</td><td class="acc">約0.5分</td><td>約0.8分</td></tr>
+            <tr><td>250語</td><td class="acc">約1.3分</td><td>約1.9分</td></tr>
+            <tr><td>500語</td><td class="acc">約2.5分</td><td>約3.8分</td></tr>
+            <tr><td>1000語</td><td class="acc">約5.0分</td><td>約7.7分</td></tr>
+            <tr><td>2000語</td><td class="acc">約10.0分</td><td>約15.4分</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>なお当ツールの表示では、読了時間・スピーチ時間とも分単位で切り上げて表示しているため、上記の小数表記とは丸め方が異なる場合があります。早見表は計算の目安としてご利用ください。</p>
+      <h2>よくある質問</h2>
+      <div class="faq-item"><div class="q">英単語数はどう数えますか？</div><div class="a">入力された英文を空白（スペース・改行・タブ）で区切り、そのまとまりの数を単語数としてカウントしています。一般的な英文のワードカウントと同じ考え方で、ハイフンでつながれた語は1語として扱われます。あわせて文字数・文数・段落数も表示します。</div></div>
+      <div class="faq-item"><div class="q">500語の英文の読了時間は？</div><div class="a">当ツールは1分あたり200語（200wpm）を基準としているため、500語の英文の読了時間はおよそ2.5分です。声に出して読むスピーチの場合は130wpmで計算し、約3.8分が目安になります。いずれも概算で、実際の速度には個人差があります。</div></div>
+      <div class="faq-item"><div class="q">エッセイの語数制限の確認に使えますか？</div><div class="a">はい。入力するとリアルタイムで単語数が更新されるため、語数制限のあるエッセイやレポートの執筆中に上限・下限を超えていないかを随時確認できます。提出前の最終チェックにもご利用いただけます。</div></div>
+      <div class="faq-item"><div class="q">入力したテキストは送信されますか？</div><div class="a">いいえ。すべての計算はお使いのブラウザ内（JavaScript）で完結し、入力したテキストがサーバーに送信されることはありません。未公開の原稿や個人的な文章も安心してカウントできます。</div></div>
+      <div class="faq-item"><div class="q">TOEFLやIELTSのライティング語数確認に使えますか？</div><div class="a">はい。TOEFLやIELTSのライティングでは推奨語数の目安があるため、解答の単語数を素早く確認するのに役立ちます。本番では手書きやテスト画面での入力になりますが、練習段階で語数感覚をつかむツールとして活用できます。</div></div>
+    </div>
     <div class="ad-slot" style="display:none"></div>
     
     
