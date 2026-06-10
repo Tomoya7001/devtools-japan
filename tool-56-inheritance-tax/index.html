@@ -14,8 +14,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>相続税シミュレーター | 基礎控除額・税額を概算計算【無料】</title>
-    <meta name="description" content="相続税の基礎控除額と概算税額を計算する無料ツール。遺産総額と法定相続人の数を入力するだけで、相続税がかかるかどうか、かかる場合はいくらかを即計算。税理士・FPの概算シミュレーションに。">
+    <title>相続税シミュレーター | 基礎控除額・速算表で税額を概算計算【無料】</title>
+    <meta name="description" content="相続税の基礎控除額と概算税額を計算する無料ツール。遺産総額と法定相続人の数を入力するだけで即計算。国税庁準拠の速算表・法定相続人別の基礎控除額一覧・計算例・よくある質問も掲載。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#7c3aed;--accent-dim:rgba(124,58,237,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
@@ -48,6 +48,12 @@
         table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
         .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
         .btn:hover{opacity:0.9}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:center;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{font-family:'JetBrains Mono',monospace;color:var(--text)}.lookup-table td:first-child{font-family:'Noto Sans JP',sans-serif;text-align:left}.lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-56-inheritance-tax/">
     <meta property="og:title" content="相続税シミュレーター | 基礎控除・税額を概算計算【無料】">
@@ -61,7 +67,7 @@
     {"@context":"https://schema.org","@type":"WebApplication","name":"相続税シミュレーター","description":"相続税の基礎控除と概算税額を計算","url":"https://www.devtools-japan.com/tool-56-inheritance-tax/","applicationCategory":"BusinessApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"相続税の基礎控除額はいくら？","acceptedAnswer":{"@type":"Answer","text":"3,000万円＋600万円×法定相続人の数です。例えば配偶者と子供2人（計3人）なら基礎控除は4,800万円で、遺産総額がこれ以下なら相続税はかかりません。"}},{"@type":"Question","name":"相続税の税率は？","acceptedAnswer":{"@type":"Answer","text":"累進課税で、1,000万円以下は10%、3,000万円以下は15%、5,000万円以下は20%、1億円以下は30%と段階的に上がります。最高税率は6億円超の55%です。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"相続税の基礎控除はいくらですか？","acceptedAnswer":{"@type":"Answer","text":"基礎控除額は「3,000万円 ＋ 600万円 × 法定相続人の数」で計算します。遺産総額がこの金額以下であれば相続税はかからず、申告も原則として不要です。"}},{"@type":"Question","name":"相続人が3人の場合の基礎控除はいくらですか？","acceptedAnswer":{"@type":"Answer","text":"法定相続人が3人の場合、基礎控除額は3,000万円 ＋ 600万円 × 3 ＝ 4,800万円です。遺産総額が4,800万円以下なら相続税はかかりません。"}},{"@type":"Question","name":"相続税はいくらからかかりますか？","acceptedAnswer":{"@type":"Answer","text":"遺産総額が基礎控除額を超えた場合にかかります。基礎控除額は法定相続人の数によって変わり、最低でも法定相続人1人の3,600万円です。これを超えた部分にのみ課税されます。"}},{"@type":"Question","name":"配偶者の税額軽減とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"配偶者が相続した財産のうち、1億6,000万円までか、配偶者の法定相続分相当額までのいずれか多い金額には相続税がかからない制度です。適用を受けるには相続税の申告が必要です。"}},{"@type":"Question","name":"相続税の申告期限はいつまでですか？","acceptedAnswer":{"@type":"Answer","text":"相続の開始（被相続人の死亡）を知った日の翌日から10ヶ月以内に、被相続人の住所地を管轄する税務署へ申告・納税する必要があります。"}}]}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"相続税シミュレーター","item":"https://www.devtools-japan.com/tool-56-inheritance-tax/"}]}
@@ -114,6 +120,48 @@
         <p>2015年1月の税制改正で基礎控除額が40%縮小されました。改正前は「5,000万円 + 1,000万円 x 法定相続人の数」でしたが、現在は「3,000万円 + 600万円 x 法定相続人の数」に引き下げられ、課税対象者が大幅に増加しました。</p>
         <h3>税理士・FPの方へ</h3>
         <p>このツールは初回面談時の概算シミュレーションにお使いいただけます。配偶者控除や小規模宅地の特例を適用する前の概算税額を素早く計算して、お客様に「相続税がかかるかどうか」をその場でお伝えする際に便利です。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>相続税の基礎控除</h2>
+        <p>相続税には「基礎控除」があり、遺産総額がこの金額以下であれば相続税はかからず、申告も原則不要です。基礎控除額は「3,000万円 ＋ 600万円 × 法定相続人の数」という計算式で求めます。法定相続人が多いほど基礎控除額は大きくなり、相続税の負担は軽くなります。下表は法定相続人の数ごとの基礎控除額を、この計算式に基づいて算出したものです。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <tr><th>法定相続人の数</th><th>計算式</th><th>基礎控除額</th></tr>
+            <tr><td>1人</td><td>3,000万 + 600万 × 1</td><td class="acc">3,600万円</td></tr>
+            <tr><td>2人</td><td>3,000万 + 600万 × 2</td><td class="acc">4,200万円</td></tr>
+            <tr><td>3人</td><td>3,000万 + 600万 × 3</td><td class="acc">4,800万円</td></tr>
+            <tr><td>4人</td><td>3,000万 + 600万 × 4</td><td class="acc">5,400万円</td></tr>
+            <tr><td>5人</td><td>3,000万 + 600万 × 5</td><td class="acc">6,000万円</td></tr>
+        </table>
+        </div>
+        <p>例えば法定相続人が3人（配偶者と子供2人など）の場合、基礎控除額は4,800万円です。遺産総額が4,800万円以下なら相続税はかからず、超えた部分に対してのみ課税されます。</p>
+
+        <h3>相続税の速算表</h3>
+        <p>課税遺産総額を法定相続分で按分した「法定相続分に応ずる取得金額」ごとに、以下の税率と控除額を適用して各人の税額を計算します（国税庁の相続税の速算表に準拠）。各人の税額を合算したものが相続税の総額となります。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <tr><th>法定相続分に応ずる取得金額</th><th>税率</th><th>控除額</th></tr>
+            <tr><td>1,000万円以下</td><td>10%</td><td>0円</td></tr>
+            <tr><td>3,000万円以下</td><td>15%</td><td>50万円</td></tr>
+            <tr><td>5,000万円以下</td><td>20%</td><td>200万円</td></tr>
+            <tr><td>1億円以下</td><td>30%</td><td>700万円</td></tr>
+            <tr><td>2億円以下</td><td>40%</td><td>1,700万円</td></tr>
+            <tr><td>3億円以下</td><td>45%</td><td>2,700万円</td></tr>
+            <tr><td>6億円以下</td><td>50%</td><td>4,200万円</td></tr>
+            <tr><td>6億円超</td><td>55%</td><td>7,200万円</td></tr>
+        </table>
+        </div>
+
+        <h3>計算例</h3>
+        <p>遺産総額1億円、法定相続人が配偶者と子供2人の計3人のケースを考えます。基礎控除額は4,800万円なので、課税遺産総額は1億円 − 4,800万円 ＝ 5,200万円です。これを法定相続分で按分すると、配偶者2分の1で2,600万円、子供は各4分の1で1,300万円ずつとなります。配偶者分の税額は2,600万円 × 15% − 50万円 ＝ 340万円、子供1人分は1,300万円 × 15% − 50万円 ＝ 145万円です。合計すると相続税の総額は340万 ＋ 145万 ＋ 145万 ＝ 630万円となります（配偶者の税額軽減や各種特例を適用する前の概算）。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">相続税の基礎控除はいくらですか？</div><div class="a">基礎控除額は「3,000万円 ＋ 600万円 × 法定相続人の数」で計算します。遺産総額がこの金額以下であれば相続税はかからず、申告も原則として不要です。</div></div>
+        <div class="faq-item"><div class="q">相続人が3人の場合の基礎控除はいくらですか？</div><div class="a">法定相続人が3人の場合、基礎控除額は3,000万円 ＋ 600万円 × 3 ＝ 4,800万円です。遺産総額が4,800万円以下なら相続税はかかりません。</div></div>
+        <div class="faq-item"><div class="q">相続税はいくらからかかりますか？</div><div class="a">遺産総額が基礎控除額を超えた場合にかかります。基礎控除額は法定相続人の数によって変わり、最低でも法定相続人1人の3,600万円です。これを超えた部分にのみ課税されます。</div></div>
+        <div class="faq-item"><div class="q">配偶者の税額軽減とは何ですか？</div><div class="a">配偶者が相続した財産のうち、1億6,000万円までか、配偶者の法定相続分相当額までのいずれか多い金額には相続税がかからない制度です。適用を受けるには相続税の申告が必要です。</div></div>
+        <div class="faq-item"><div class="q">相続税の申告期限はいつまでですか？</div><div class="a">相続の開始（被相続人の死亡）を知った日の翌日から10ヶ月以内に、被相続人の住所地を管轄する税務署へ申告・納税する必要があります。</div></div>
     </div>
 
         <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
