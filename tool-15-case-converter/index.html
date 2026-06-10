@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>文字列変換ツール | camelCase・snake_case・UPPER等を相互変換</title>
-    <meta name="description" content="camelCase, snake_case, kebab-case, PascalCase, UPPER_CASE等の文字列ケースを一括相互変換。プログラミングの命名規則変換に。">
+    <meta name="description" content="camelCase, snake_case, kebab-case, PascalCase, CONSTANT_CASE等の文字列ケースを一括相互変換。命名規則の違いやcamelCaseとsnake_caseの変換、言語ごとの慣習も解説。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#c084fc;--accent-dim:rgba(192,132,252,0.1);--radius:12px}
@@ -34,6 +34,14 @@
         .result-item .case-value{font-family:'JetBrains Mono',monospace;font-size:0.9rem;color:var(--text);word-break:break-all}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text);font-family:'JetBrains Mono',monospace}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#000;padding:12px 24px;border-radius:8px;font-size:0.85rem;font-weight:500;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -52,7 +60,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"文字列ケース変換ツール","item":"https://www.devtools-japan.com/tool-15-case-converter/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"camelCaseとsnake_caseはどう違いますか？","acceptedAnswer":{"@type":"Answer","text":"camelCaseは「helloWorld」のように2語目以降の頭文字を大文字にする記法、snake_caseは「hello_world」のように単語をアンダースコアでつなぐ記法です。本ツールは両者を含む複数の命名規則を一括で相互変換できます。"}},{"@type":"Question","name":"どんなケース（命名規則）に変換できますか？","acceptedAnswer":{"@type":"Answer","text":"camelCase・snake_case・kebab-case・PascalCase・UPPER_CASEなど主要な命名規則にまとめて変換でき、結果をクリックでコピーできます。プログラミングの変数名や定数名の変換に便利です。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"camelCaseとsnake_caseの違いは？","acceptedAnswer":{"@type":"Answer","text":"camelCaseは「helloWorld」のように先頭を小文字にし2語目以降の頭文字を大文字でつなぐ記法、snake_caseは「hello_world」のようにすべて小文字で単語をアンダースコアでつなぐ記法です。前者はJavaScriptやJavaの変数名、後者はPythonやデータベースのカラム名で多く使われます。本ツールは両者を含む命名規則を一括で相互変換できます。"}},{"@type":"Question","name":"どんなケースに変換できますか？","acceptedAnswer":{"@type":"Answer","text":"camelCase・PascalCase・snake_case・UPPER_SNAKE_CASE・kebab-case・UPPER-KEBAB-CASE・dot.case・path/case・Title Case・Sentence case・UPPER CASE・lower caseの12種類に同時変換できます。入力すると全パターンが一覧表示され、各結果をクリックするとクリップボードにコピーできます。"}},{"@type":"Question","name":"kebab-caseはどこで使いますか？","acceptedAnswer":{"@type":"Answer","text":"kebab-caseは「user-name」のように単語をハイフンでつなぐ記法で、CSSのクラス名やプロパティ名、URLのパス、HTMLのdata属性などで広く使われます。多くの言語で変数名にハイフンは使えないため、主にマークアップやURLの表記で用いられます。"}},{"@type":"Question","name":"定数はどのケースで書きますか？","acceptedAnswer":{"@type":"Answer","text":"定数は慣習的にCONSTANT_CASE（UPPER_SNAKE_CASE）で書きます。「MAX_COUNT」「API_BASE_URL」のようにすべて大文字でアンダースコアでつなぎ、変更されない値であることを視覚的に示します。本ツールではUPPER_SNAKE_CASEとして変換結果に表示されます。"}},{"@type":"Question","name":"言語ごとの命名規則の慣習は？","acceptedAnswer":{"@type":"Answer","text":"Pythonは変数・関数にsnake_case、クラスにPascalCaseを使います。JavaScriptやJava、Swiftは変数・関数にcamelCase、クラス・型にPascalCaseが基本です。CSSのクラス名はkebab-case、定数はどの言語でもCONSTANT_CASEが一般的です。チームの規約に合わせて統一することが重要です。"}}]}
     </script>
 </head>
 <body>
@@ -71,6 +79,41 @@
         <h3>開発での活用</h3>
         <p>変数名・関数名・クラス名の命名規則をチーム内で統一する際に便利です。データベースのカラム名（snake_case）をフロントエンドの変数名（camelCase）に変換するなど、異なる命名規則間の変換にも使えます。</p>
         </div>
+    <div class="seo-content">
+        <h2>命名規則（ケース）とは</h2>
+        <p>命名規則（ネーミングケース）とは、プログラミングで変数・関数・クラス・定数などに名前を付ける際の、複数語のつなぎ方の取り決めです。多くの言語では識別子にスペースを使えないため、複数の単語を一定のルールでつなげて1つの名前にします。代表的なものに camelCase、snake_case、PascalCase、kebab-case、CONSTANT_CASE があり、それぞれ用途と慣習が異なります。</p>
+        <p>camelCase（キャメルケース）は「userName」のように先頭の単語を小文字にし、2語目以降の頭文字だけを大文字にする記法です。ラクダのコブのように大文字が現れることが名前の由来で、JavaScript や Java、Swift などで変数名・関数名に使われます。</p>
+        <p>snake_case（スネークケース）は「user_name」のようにすべて小文字にし、単語をアンダースコア（_）でつなぐ記法です。Python の変数・関数名や、データベースのテーブル名・カラム名で標準的に使われます。蛇が地を這うように下線でつながる見た目が名前の由来です。</p>
+        <p>PascalCase（パスカルケース）は「UserName」のように各単語の頭文字をすべて大文字にする記法で、アッパーキャメルケースとも呼ばれます。多くの言語でクラス名・型名・コンストラクタの命名に使われます。</p>
+        <p>kebab-case（ケバブケース）は「user-name」のようにすべて小文字にし、単語をハイフン（-）でつなぐ記法です。串に刺さった料理（ケバブ）が名前の由来で、CSS のクラス名や URL のパスなど、ハイフンが許される箇所で使われます。</p>
+        <p>CONSTANT_CASE（コンスタントケース、UPPER_SNAKE_CASE とも）は「USER_NAME」のようにすべて大文字にし、単語をアンダースコアでつなぐ記法です。変更されない定数や環境変数の名前に使われ、ひと目で定数だと分かるようにする役割があります。</p>
+
+        <h3>同じ語を各ケースで表記した変換例</h3>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>ケース</th><th>user name</th><th>hello world</th></tr></thead>
+            <tbody>
+                <tr><td>camelCase</td><td class="acc">userName</td><td class="acc">helloWorld</td></tr>
+                <tr><td>snake_case</td><td class="acc">user_name</td><td class="acc">hello_world</td></tr>
+                <tr><td>PascalCase</td><td class="acc">UserName</td><td class="acc">HelloWorld</td></tr>
+                <tr><td>kebab-case</td><td class="acc">user-name</td><td class="acc">hello-world</td></tr>
+                <tr><td>UPPER_SNAKE_CASE</td><td class="acc">USER_NAME</td><td class="acc">HELLO_WORLD</td></tr>
+                <tr><td>UPPER-KEBAB-CASE</td><td class="acc">USER-NAME</td><td class="acc">HELLO-WORLD</td></tr>
+                <tr><td>dot.case</td><td class="acc">user.name</td><td class="acc">hello.world</td></tr>
+                <tr><td>path/case</td><td class="acc">user/name</td><td class="acc">hello/world</td></tr>
+                <tr><td>Title Case</td><td class="acc">User Name</td><td class="acc">Hello World</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>本ツールは上記に加えて Sentence case・UPPER CASE・lower case を含む12種類のケースに、入力と同時にまとめて変換します。変換結果の各カードをクリックするとクリップボードにコピーできます。すべての処理はブラウザ内で完結し、入力したテキストがサーバーへ送信されることはありません。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">camelCaseとsnake_caseの違いは？</div><div class="a">camelCaseは「helloWorld」のように先頭を小文字にし2語目以降の頭文字を大文字でつなぐ記法、snake_caseは「hello_world」のようにすべて小文字で単語をアンダースコアでつなぐ記法です。前者はJavaScriptやJavaの変数名、後者はPythonやデータベースのカラム名で多く使われます。本ツールは両者を含む命名規則を一括で相互変換できます。</div></div>
+        <div class="faq-item"><div class="q">どんなケースに変換できますか？</div><div class="a">camelCase・PascalCase・snake_case・UPPER_SNAKE_CASE・kebab-case・UPPER-KEBAB-CASE・dot.case・path/case・Title Case・Sentence case・UPPER CASE・lower caseの12種類に同時変換できます。入力すると全パターンが一覧表示され、各結果をクリックするとクリップボードにコピーできます。</div></div>
+        <div class="faq-item"><div class="q">kebab-caseはどこで使いますか？</div><div class="a">kebab-caseは「user-name」のように単語をハイフンでつなぐ記法で、CSSのクラス名やプロパティ名、URLのパス、HTMLのdata属性などで広く使われます。多くの言語で変数名にハイフンは使えないため、主にマークアップやURLの表記で用いられます。</div></div>
+        <div class="faq-item"><div class="q">定数はどのケースで書きますか？</div><div class="a">定数は慣習的にCONSTANT_CASE（UPPER_SNAKE_CASE）で書きます。「MAX_COUNT」「API_BASE_URL」のようにすべて大文字でアンダースコアでつなぎ、変更されない値であることを視覚的に示します。本ツールではUPPER_SNAKE_CASEとして変換結果に表示されます。</div></div>
+        <div class="faq-item"><div class="q">言語ごとの命名規則の慣習は？</div><div class="a">Pythonは変数・関数にsnake_case、クラスにPascalCaseを使います。JavaScriptやJava、Swiftは変数・関数にcamelCase、クラス・型にPascalCaseが基本です。CSSのクラス名はkebab-case、定数はどの言語でもCONSTANT_CASEが一般的です。チームの規約に合わせて統一することが重要です。</div></div>
+    </div>
     <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
