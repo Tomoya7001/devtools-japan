@@ -14,8 +14,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markdownプレビュー | リアルタイムMarkdown→HTML変換</title>
-    <meta name="description" content="Markdownをリアルタイムでプレビュー表示。HTML出力のコピーも可能。ブログ執筆やREADME作成に便利な無料オンラインツール。">
+    <title>Markdownプレビュー | リアルタイムMarkdown→HTML変換・記法早見表</title>
+    <meta name="description" content="Markdownをリアルタイムでプレビュー表示。HTML出力のコピーも可能。見出し・太字・リスト・リンク・テーブル・コードブロックなどMarkdown記法に対応。ブログ執筆やREADME作成に便利な無料オンラインツール。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#818cf8;--accent-dim:rgba(129,140,248,0.1);--radius:12px}
@@ -56,6 +56,14 @@
         .html-output textarea{min-height:200px}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700;font-family:'JetBrains Mono',monospace}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#000;padding:12px 24px;border-radius:8px;font-size:0.85rem;font-weight:500;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -74,7 +82,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"Markdownプレビュー","item":"https://www.devtools-japan.com/tool-11-markdown-preview/"}]}
     </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Markdownを書きながらリアルタイムでプレビューできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。入力したMarkdownがその場でHTMLに変換され、リアルタイムで表示結果を確認できます。ブログ執筆やREADMEの作成時に便利です。"}},{"@type":"Question","name":"変換したHTMLをコピーして使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。Markdownから変換されたHTMLソースをコピーして、ブログやサイトに貼り付けて利用できます。処理はブラウザ内で完結し、無料・登録不要です。"}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Markdownをリアルタイムでプレビューできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。左側の入力欄にMarkdownを書くと、入力するたびにその場でHTMLへ変換され、右側のプレビューに表示結果がリアルタイムで反映されます。ブログ執筆やREADME作成時に、仕上がりを確認しながら編集できます。"}},{"@type":"Question","name":"変換したHTMLをコピーして使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。ツールバーの「HTML表示」で変換後のHTMLソースを確認でき、「HTMLコピー」ボタンでクリップボードにコピーできます。コピーしたHTMLはブログやWebサイトの本文として貼り付けて利用できます。"}},{"@type":"Question","name":"対応している記法は？","acceptedAnswer":{"@type":"Answer","text":"見出し（# / ## / ###）、太字（**）、斜体（*）、箇条書きリスト（-）、番号付きリスト（1.）、リンク、画像、インラインコード（`）、コードブロック（```）、引用（＞）、水平線（---）、テーブルに対応しています。GitHub Flavored Markdownの基本的な記法をカバーしています。"}},{"@type":"Question","name":"テーブルやコードブロックも書けますか？","acceptedAnswer":{"@type":"Answer","text":"はい。「| 見出し | 見出し |」のあとに区切り行「|---|---|」を続けるとテーブルになり、3つのバッククォート（```）で囲んだ範囲はコードブロックとして整形されます。どちらもプレビューに反映され、HTMLとして出力できます。"}},{"@type":"Question","name":"入力したテキストは送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。Markdownの変換処理はすべてお使いのブラウザ内（JavaScript）で完結し、入力した内容がサーバーへ送信・保存されることはありません。登録不要・無料で安心してご利用いただけます。"}}]}
 </script>
 </head>
 <body>
@@ -143,6 +151,44 @@ console.log(hello);
         <p>見出し（#）、太字・斜体、リスト（箇条書き・番号付き）、リンク、画像、コードブロック（シンタックスハイライト対応）、引用、テーブル、水平線、タスクリストに対応しています。GitHub Flavored Markdown（GFM）に準拠しています。</p>
         <h3>活用場面</h3>
         <p>GitHubのREADME.mdの作成、Qiita/Zennの技術記事の下書き、社内ドキュメントの執筆、プレゼン資料の原稿作成などに使われています。左側にMarkdownを入力すると、右側にリアルタイムでプレビューが表示されます。</p>
+        </div>
+    <div class="seo-content">
+        <h2>Markdownとは</h2>
+        <p>Markdown（マークダウン）は、テキストに記号を加えるだけで文書を装飾できる軽量マークアップ言語です。「#」や「*」といった少数の記号で見出し・太字・リスト・リンクなどを表現し、それを解析することでHTMLに変換します。プレーンテキストのまま読みやすく、書きやすいことが特徴で、HTMLタグを直接書くよりもはるかに少ない手間で構造化された文書を作成できます。</p>
+        <p>2004年にJohn Gruberによって考案され、その後GitHubが拡張した「GitHub Flavored Markdown（GFM）」が事実上の標準として広く普及しました。現在ではGitHubやGitLabのREADME、技術ブログ（Qiita・Zenn・noteなど）、各種ドキュメント、チャットツール、静的サイトジェネレーターまで、ソフトウェア開発から日常の文書作成まで幅広い場面で使われています。学習コストが低く、一度覚えればさまざまなサービスで同じ記法が通用するため、エンジニアにとって基本的なスキルとされています。</p>
+        <p>このツールでは、入力したMarkdownをブラウザ内でその場でHTMLへ変換し、左右のペインで原文とプレビューを見比べられます。変換結果のHTMLソースも取得でき、ブログの本文やサイトのコンテンツとして貼り付けて利用できます。入力内容はサーバーに送信されず、すべてお使いのブラウザ内だけで処理されます。</p>
+
+        <h2>Markdown記法の早見表</h2>
+        <p>このツールが対応している主なMarkdown記法と、その意味・HTML出力の対応を示します。記号の左右にスペースが必要なもの（見出し・リスト・引用など）に注意してください。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>記法</th><th>意味</th><th>変換されるHTML</th></tr></thead>
+            <tbody>
+                <tr><td class="acc"># 見出し</td><td>大見出し（レベル1）</td><td>&lt;h1&gt;見出し&lt;/h1&gt;</td></tr>
+                <tr><td class="acc">## 見出し</td><td>中見出し（レベル2）</td><td>&lt;h2&gt;見出し&lt;/h2&gt;</td></tr>
+                <tr><td class="acc">### 見出し</td><td>小見出し（レベル3）</td><td>&lt;h3&gt;見出し&lt;/h3&gt;</td></tr>
+                <tr><td class="acc">**太字**</td><td>太字（強調）</td><td>&lt;strong&gt;太字&lt;/strong&gt;</td></tr>
+                <tr><td class="acc">*斜体*</td><td>斜体（イタリック）</td><td>&lt;em&gt;斜体&lt;/em&gt;</td></tr>
+                <tr><td class="acc">- 項目</td><td>箇条書きリスト</td><td>&lt;ul&gt;&lt;li&gt;項目&lt;/li&gt;&lt;/ul&gt;</td></tr>
+                <tr><td class="acc">1. 項目</td><td>番号付きリスト</td><td>&lt;li&gt;項目&lt;/li&gt;</td></tr>
+                <tr><td class="acc">[リンク](url)</td><td>ハイパーリンク</td><td>&lt;a href="url"&gt;リンク&lt;/a&gt;</td></tr>
+                <tr><td class="acc">![alt](url)</td><td>画像の埋め込み</td><td>&lt;img src="url" alt="alt"&gt;</td></tr>
+                <tr><td class="acc">`コード`</td><td>インラインコード</td><td>&lt;code&gt;コード&lt;/code&gt;</td></tr>
+                <tr><td class="acc">```コード```</td><td>コードブロック</td><td>&lt;pre&gt;&lt;code&gt;…&lt;/code&gt;&lt;/pre&gt;</td></tr>
+                <tr><td class="acc">&gt; 引用</td><td>引用ブロック</td><td>&lt;blockquote&gt;引用&lt;/blockquote&gt;</td></tr>
+                <tr><td class="acc">---</td><td>水平線（区切り線）</td><td>&lt;hr&gt;</td></tr>
+                <tr><td class="acc">| A | B |</td><td>テーブル（表）</td><td>&lt;table&gt;…&lt;/table&gt;</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>ツールバーのボタンを使えば、選択した文字を太字・斜体・コードで囲んだり、行頭に見出し・リスト・引用・区切り線を挿入したりでき、記法を覚えていなくても手早く書けます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">Markdownをリアルタイムでプレビューできますか？</div><div class="a">はい。左側の入力欄にMarkdownを書くと、入力するたびにその場でHTMLへ変換され、右側のプレビューに表示結果がリアルタイムで反映されます。ブログ執筆やREADME作成時に、仕上がりを確認しながら編集できます。</div></div>
+        <div class="faq-item"><div class="q">変換したHTMLをコピーして使えますか？</div><div class="a">はい。ツールバーの「HTML表示」で変換後のHTMLソースを確認でき、「HTMLコピー」ボタンでクリップボードにコピーできます。コピーしたHTMLはブログやWebサイトの本文として貼り付けて利用できます。</div></div>
+        <div class="faq-item"><div class="q">対応している記法は？</div><div class="a">見出し（# / ## / ###）、太字（**）、斜体（*）、箇条書きリスト（-）、番号付きリスト（1.）、リンク、画像、インラインコード（`）、コードブロック（```）、引用（&gt;）、水平線（---）、テーブルに対応しています。GitHub Flavored Markdownの基本的な記法をカバーしています。</div></div>
+        <div class="faq-item"><div class="q">テーブルやコードブロックも書けますか？</div><div class="a">はい。「| 見出し | 見出し |」のあとに区切り行「|---|---|」を続けるとテーブルになり、3つのバッククォート（```）で囲んだ範囲はコードブロックとして整形されます。どちらもプレビューに反映され、HTMLとして出力できます。</div></div>
+        <div class="faq-item"><div class="q">入力したテキストは送信されますか？</div><div class="a">いいえ。Markdownの変換処理はすべてお使いのブラウザ内（JavaScript）で完結し、入力した内容がサーバーへ送信・保存されることはありません。登録不要・無料で安心してご利用いただけます。</div></div>
         </div>
     <div class="ad-slot" style="display:none"></div>
     
