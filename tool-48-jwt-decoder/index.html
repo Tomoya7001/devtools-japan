@@ -27,6 +27,13 @@
         
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}.lookup-table td.acc{color:var(--accent);font-weight:700;font-family:'JetBrains Mono',monospace}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -45,7 +52,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"JWTデコーダー","item":"https://www.devtools-japan.com/tool-48-jwt-decoder/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"入力したJWTトークンがサーバーに送信されることはありますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。デコード処理はすべてお使いのブラウザ上で完結し、入力したJWTがサーバーに送信されることはありません。とはいえトークンには機密情報が含まれる場合があるため、本番環境の有効なトークンの取り扱いには十分ご注意ください。"}},{"@type":"Question","name":"このツールはJWTの署名検証もできますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。本ツールはヘッダーとペイロードをBase64URLデコードして中身を表示し、exp（有効期限）の状態を確認する用途です。署名（signature）の正当性検証には秘密鍵や公開鍵が必要なため対応していません。中身の確認や認証デバッグにご利用ください。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"入力したJWTトークンがサーバーに送信されることはありますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。デコード処理はすべてお使いのブラウザ上のJavaScriptで完結し、入力したJWTがサーバーに送信されることはありません。とはいえトークンには機密情報が含まれる場合があるため、本番環境の有効なトークンの取り扱いには十分ご注意ください。"}},{"@type":"Question","name":"JWTは暗号化されていますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。一般的なJWT（JWS形式）は暗号化ではなく署名で改ざんを防いでいるだけで、HeaderとPayloadは単にBase64URLでエンコードされているだけです。そのため鍵がなくても誰でもデコードして中身を読めます。パスワードやクレジットカード番号などの機密情報はPayloadに入れないでください。"}},{"@type":"Question","name":"このツールは署名検証もしますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。本ツールはHeaderとPayloadをBase64URLデコードして中身を表示し、exp（有効期限）の状態を確認する用途です。3つ目の署名（Signature）の正当性検証には秘密鍵や公開鍵が必要なため行っていません。中身の確認や認証デバッグにご利用ください。"}},{"@type":"Question","name":"exp（有効期限）はどう読みますか？","acceptedAnswer":{"@type":"Answer","text":"expはUnix時間（エポック秒、1970年1月1日UTCからの経過秒数）で記録されています。ミリ秒ではなく秒である点に注意してください。本ツールでは自動で日本時間に変換し、現在時刻と比較して「有効」か「期限切れ」かを表示します。"}},{"@type":"Question","name":"JWTとセッションの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"従来のセッション方式は、サーバー側でセッション情報を保持し、クライアントには識別子（セッションID）だけを渡します。一方JWTは、必要な情報をトークン自体に含めて署名するため、サーバーが状態を保持しなくても検証できる（ステートレス）のが特徴です。スケールしやすい反面、発行済みトークンの即時無効化が難しいなどのトレードオフがあります。"}}]}
     </script>
 </head>
 <body>
@@ -59,6 +66,50 @@
 <div class="card" id="expCard" style="display:none"><h3>有効期限</h3><div id="expInfo" style="font-size:0.9rem;color:var(--text2)"></div></div>
     <div class="ad-slot" style="display:none"></div>
     <div class="seo-content"><h2>JWTデコーダーについて</h2><p>JSON Web Tokenのペイロードをデコード表示。ブラウザ上で動作し、データがサーバーに送信されることはありません。</p></div>
+    <div class="seo-content">
+      <h2>JWTの構造</h2>
+      <p>JWT（JSON Web Token）は、認証や認可の情報をやり取りするためのコンパクトなトークン形式です。1つのJWTは <strong>Header（ヘッダー）</strong>・<strong>Payload（ペイロード）</strong>・<strong>Signature（署名）</strong> という3つのパートを、ドット（<code>.</code>）で繋いだ <code>xxxxx.yyyyy.zzzzz</code> という構造をしています。</p>
+      <p>このうちHeaderとPayloadはそれぞれ JSON を <strong>Base64URLエンコード</strong>したものです。Base64URLは通常のBase64に似ていますが、URLで扱いやすいよう <code>+</code> を <code>-</code> に、<code>/</code> を <code>_</code> に置き換え、末尾のパディング（<code>=</code>）を省略した方式です。Headerにはトークンの種類（typ）と署名アルゴリズム（alg）が、Payloadには実際の主張（クレーム）が格納されます。3つ目のSignatureは、HeaderとPayloadを連結した文字列に対して、指定アルゴリズムと秘密鍵（または公開鍵ペア）で生成された署名値で、トークンが改ざんされていないことを保証します。本ツールはHeaderとPayloadをBase64URLデコードして中身をそのまま表示し、Payloadに <code>exp</code> が含まれる場合は有効期限の状態（有効／期限切れ）も判定します。</p>
+
+      <h3>主要なクレーム（Payload）</h3>
+      <div class="table-wrap">
+        <table class="lookup-table">
+          <thead><tr><th>クレーム</th><th>意味</th></tr></thead>
+          <tbody>
+            <tr><td class="acc">iss</td><td>発行者（Issuer）。トークンを発行した主体を表す</td></tr>
+            <tr><td class="acc">sub</td><td>主体（Subject）。トークンの対象となるユーザーIDなど</td></tr>
+            <tr><td class="acc">aud</td><td>対象者（Audience）。このトークンの想定利用先</td></tr>
+            <tr><td class="acc">exp</td><td>有効期限（Expiration Time）。これを過ぎると無効。Unix時間（秒）</td></tr>
+            <tr><td class="acc">iat</td><td>発行時刻（Issued At）。トークンが発行された時刻。Unix時間（秒）</td></tr>
+            <tr><td class="acc">nbf</td><td>有効開始時刻（Not Before）。この時刻より前は無効。Unix時間（秒）</td></tr>
+            <tr><td class="acc">jti</td><td>JWT ID。トークンを一意に識別するための識別子</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>これらは RFC 7519 で定義された標準クレーム（Registered Claim Names）です。いずれも省略可能ですが、相互運用性のために用途を統一する目的で予約されています。これら以外に、アプリケーションが独自に定義するプライベートクレーム（例: <code>name</code> や <code>role</code> など）を自由に含めることもできます。</p>
+
+      <h2>よくある質問</h2>
+      <div class="faq-item">
+        <div class="q">入力したJWTトークンがサーバーに送信されることはありますか？</div>
+        <div class="a">いいえ。デコード処理はすべてお使いのブラウザ上のJavaScriptで完結し、入力したJWTがサーバーに送信されることはありません。とはいえトークンには機密情報が含まれる場合があるため、本番環境の有効なトークンの取り扱いには十分ご注意ください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">JWTは暗号化されていますか？</div>
+        <div class="a">いいえ。一般的なJWT（JWS形式）は暗号化ではなく署名で改ざんを防いでいるだけで、HeaderとPayloadは単にBase64URLでエンコードされているだけです。そのため鍵がなくても誰でもデコードして中身を読めます。パスワードやクレジットカード番号などの機密情報はPayloadに入れないでください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">このツールは署名検証もしますか？</div>
+        <div class="a">いいえ。本ツールはHeaderとPayloadをBase64URLデコードして中身を表示し、exp（有効期限）の状態を確認する用途です。3つ目の署名（Signature）の正当性検証には秘密鍵や公開鍵が必要なため行っていません。中身の確認や認証デバッグにご利用ください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">exp（有効期限）はどう読みますか？</div>
+        <div class="a">expはUnix時間（エポック秒、1970年1月1日UTCからの経過秒数）で記録されています。ミリ秒ではなく秒である点に注意してください。本ツールでは自動で日本時間に変換し、現在時刻と比較して「有効」か「期限切れ」かを表示します。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">JWTとセッションの違いは何ですか？</div>
+        <div class="a">従来のセッション方式は、サーバー側でセッション情報を保持し、クライアントには識別子（セッションID）だけを渡します。一方JWTは、必要な情報をトークン自体に含めて署名するため、サーバーが状態を保持しなくても検証できる（ステートレス）のが特徴です。スケールしやすい反面、発行済みトークンの即時無効化が難しいなどのトレードオフがあります。</div>
+      </div>
+    </div>
     <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
