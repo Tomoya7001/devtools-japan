@@ -13,8 +13,8 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>進数変換ツール | DevTools Japan</title>
-    <meta name="description" content="2進数・8進数・10進数・16進数を相互変換。プログラミング・ネットワーク設計に。">
+    <title>進数変換ツール｜2進数・8進数・16進数・10進数の相互変換 | DevTools Japan</title>
+    <meta name="description" content="2進数・8進数・10進数・16進数を相互変換。10進255は16進FF、16進FFは10進255。進数（基数）の意味やコンピュータが2進数を使う理由、進数対応表も掲載。プログラミング・ネットワーク設計に。ブラウザ完結・無料。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#14b8a6;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
@@ -27,6 +27,14 @@
         .field{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:10px;display:flex;align-items:center;gap:12px}.field label{min-width:50px;font-size:0.75rem;color:var(--text3)}.field input{flex:1;padding:10px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:"JetBrains Mono",monospace;font-size:0.95rem;outline:none}.field input:focus{border-color:var(--accent)}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text);font-family:'JetBrains Mono',monospace}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -45,7 +53,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"進数変換ツール","item":"https://www.devtools-japan.com/tool-37-number-base/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"2進数・8進数・16進数の入力に接頭辞（0x や 0b）は必要ですか？","acceptedAnswer":{"@type":"Answer","text":"不要です。各欄には接頭辞なしの数字部分だけを入力してください。たとえば16進はFF、2進は11111111のように入力すると、他の基数の欄が自動でリアルタイム変換されます。"}},{"@type":"Question","name":"入力した数値はサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。変換処理はすべてブラウザ内で完結し、入力値がサーバーに送信されることはありません。登録不要・無料で、ネットワーク設計やプログラミングの計算を安全に確認できます。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"2進数・8進数・16進数の入力に接頭辞（0xや0b）は必要？","acceptedAnswer":{"@type":"Answer","text":"不要です。各欄には接頭辞なしの数字部分だけを入力してください。たとえば16進はFF、2進は11111111のように入力すると、他の基数の欄が自動でリアルタイム変換されます。0xや0bを付けても変換自体は行われますが、表示は接頭辞なしの形に統一されます。"}},{"@type":"Question","name":"10進数の255は16進数で何？","acceptedAnswer":{"@type":"Answer","text":"255は16進数でFFです。FはFが15を表すため、15×16＋15＝255となります。255は1バイト（8ビット）で表せる最大値で、2進数では11111111、8進数では377にあたります。RGBカラーの各色成分の最大値としてもおなじみの数です。"}},{"@type":"Question","name":"16進数のFFは10進数で何？","acceptedAnswer":{"@type":"Answer","text":"FFは10進数で255です。1桁目のFが15、2桁目のFが15×16＝240を表し、合計で255になります。16進数の2桁はちょうど1バイトに対応し、00からFF（0から255）までの256通りを表現できます。"}},{"@type":"Question","name":"なぜコンピュータは2進数を使う？","acceptedAnswer":{"@type":"Answer","text":"コンピュータの内部は電圧の高い・低い、スイッチのオン・オフといった2つの状態で動いており、この2状態をそのまま0と1に対応させられる2進数が最も扱いやすいためです。3状態以上を安定して区別するより、2状態の方が回路が単純で誤りにくく、高速・高信頼に動作します。"}},{"@type":"Question","name":"入力した数値はサーバーに送信される？","acceptedAnswer":{"@type":"Answer","text":"いいえ。変換処理はすべてブラウザ内のJavaScriptで完結し、入力値がサーバーに送信されることはありません。登録不要・無料で、ネットワーク設計やプログラミングの計算を安全に確認できます。"}}]}
     </script>
 </head>
 <body>
@@ -74,6 +82,41 @@
             <h3>よく使われる値の例</h3>
             <p>255（16進: FF, 2進: 11111111）はRGBカラーの最大値、65535（16進: FFFF）は16ビットの最大値、127（16進: 7F）はASCIIの最大値です。これらの値を覚えておくと、開発作業がスムーズになります。</p>
         </div>
+    <div class="seo-content">
+        <h2>進数（基数）とは</h2>
+        <p>進数（基数 = radix）とは、数を表すときに「いくつの記号でひと桁を表し、いくつ集まったら桁が上がるか」を決めるルールのことです。普段使う10進数（デシマル）は0〜9の10種類の記号を使い、10集まると桁が上がります。これに対して2進数（バイナリ）は0と1の2種類、8進数（オクタル）は0〜7の8種類、16進数（ヘキサデシマル）は0〜9とA〜Fの16種類の記号を使います。同じ数でも基数が違えば見た目はまったく変わり、たとえば10進数の10は2進数で1010、8進数で12、16進数でAと表されます。値そのものは同じで、表記方法だけが異なる点が進数変換を理解する出発点です。</p>
+        <p>各桁の重みは基数のべき乗で決まります。10進数の「255」が2×10²＋5×10¹＋5×10⁰であるのと同じように、16進数の「FF」はF×16¹＋F×16⁰＝15×16＋15＝255、2進数の「11111111」は1×2⁷＋…＋1×2⁰＝255となり、いずれも同じ大きさを別の基数で書き表したものです。</p>
+        <h3>コンピュータが2進数を使う理由</h3>
+        <p>コンピュータが2進数を基礎に動くのは、内部の電子回路が「電圧が高いか低いか」「スイッチがオンかオフか」という2つの状態しか安定して区別できないためです。この2状態をそのまま0と1に対応させれば、数も文字も命令もすべて電気信号として表現できます。3状態以上を使う方式も理論上は考えられますが、状態が増えるほど回路は複雑になり誤動作も起きやすくなるため、2状態（2進数）が最も単純で高速・高信頼という大きな利点を持ちます。これが、あらゆるデジタル機器の根底に2進数がある理由です。</p>
+        <h3>16進数がよく使われる場面</h3>
+        <p>16進数は、長くなりがちな2進数を人間が読みやすくまとめるために使われます。2進数の4桁がちょうど16進数の1桁（0000〜1111が0〜F）に対応するため、8ビット＝1バイトを16進数2桁できれいに表せます。具体的には、Webのカラーコード（例: #FF5733 は赤FF・緑57・青33）、メモリアドレスやポインタの表示（0x7FFE…）、文字コード（U+3042 など）、MACアドレスやバイナリダンプなど、低レイヤの開発やデザインの現場で広く使われています。一方、8進数はUNIXのファイルパーミッション（chmod 755 など）で今も使われます。</p>
+        <h3>進数対応表（10進数 0〜16・代表値）</h3>
+        <p>下表は代表的な10進数の値を各基数で表したものです。値はコードで検証しています。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>10進数</th><th>2進数</th><th>8進数</th><th>16進数</th><th>備考</th></tr></thead>
+            <tbody>
+                <tr><td class="acc">0</td><td>0</td><td>0</td><td>0</td><td>ゼロ</td></tr>
+                <tr><td class="acc">1</td><td>1</td><td>1</td><td>1</td><td>最小の桁</td></tr>
+                <tr><td class="acc">2</td><td>10</td><td>2</td><td>2</td><td>2進で桁上がり</td></tr>
+                <tr><td class="acc">4</td><td>100</td><td>4</td><td>4</td><td>2の2乗</td></tr>
+                <tr><td class="acc">8</td><td>1000</td><td>10</td><td>8</td><td>8進で桁上がり</td></tr>
+                <tr><td class="acc">10</td><td>1010</td><td>12</td><td>A</td><td>16進でA</td></tr>
+                <tr><td class="acc">15</td><td>1111</td><td>17</td><td>F</td><td>16進1桁の最大</td></tr>
+                <tr><td class="acc">16</td><td>10000</td><td>20</td><td>10</td><td>16進で桁上がり</td></tr>
+                <tr><td class="acc">255</td><td>11111111</td><td>377</td><td>FF</td><td>1バイトの最大</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>10進数0〜16の区間では、2進数は1桁から5桁へ、16進数は0からF（15）までの1桁で済み、16でようやく10（＝16進の桁上がり）になる関係が見て取れます。255は8ビットすべてが1になる値で、2進11111111・16進FFという開発現場で頻出のパターンです。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">2進数・8進数・16進数の入力に接頭辞（0xや0b）は必要？</div><div class="a">不要です。各欄には接頭辞なしの数字部分だけを入力してください。たとえば16進はFF、2進は11111111のように入力すると、他の基数の欄が自動でリアルタイム変換されます。0xや0bを付けても変換自体は行われますが、表示は接頭辞なしの形に統一されます。</div></div>
+        <div class="faq-item"><div class="q">10進数の255は16進数で何？</div><div class="a">255は16進数でFFです。FはFが15を表すため、15×16＋15＝255となります。255は1バイト（8ビット）で表せる最大値で、2進数では11111111、8進数では377にあたります。RGBカラーの各色成分の最大値としてもおなじみの数です。</div></div>
+        <div class="faq-item"><div class="q">16進数のFFは10進数で何？</div><div class="a">FFは10進数で255です。1桁目のFが15、2桁目のFが15×16＝240を表し、合計で255になります。16進数の2桁はちょうど1バイトに対応し、00からFF（0から255）までの256通りを表現できます。</div></div>
+        <div class="faq-item"><div class="q">なぜコンピュータは2進数を使う？</div><div class="a">コンピュータの内部は電圧の高い・低い、スイッチのオン・オフといった2つの状態で動いており、この2状態をそのまま0と1に対応させられる2進数が最も扱いやすいためです。3状態以上を安定して区別するより、2状態の方が回路が単純で誤りにくく、高速・高信頼に動作します。</div></div>
+        <div class="faq-item"><div class="q">入力した数値はサーバーに送信される？</div><div class="a">いいえ。変換処理はすべてブラウザ内のJavaScriptで完結し、入力値がサーバーに送信されることはありません。登録不要・無料で、ネットワーク設計やプログラミングの計算を安全に確認できます。</div></div>
+    </div>
     <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
