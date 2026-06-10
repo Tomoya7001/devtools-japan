@@ -13,8 +13,8 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSSボックスシャドウ生成 | DevTools Japan</title>
-    <meta name="description" content="CSSのbox-shadowをビジュアルに作成。プレビュー付きでコードをコピー。">
+    <title>CSSボックスシャドウ生成 | box-shadowジェネレーター | DevTools Japan</title>
+    <meta name="description" content="CSSのbox-shadowをスライダーでビジュアルに作成。オフセット・ぼかし・広がり・色・透明度を調整し、rgba対応のコードをプレビュー付きでコピー。inset（内側の影）や複数シャドウの書き方も解説。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#a855f7;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
@@ -27,6 +27,14 @@
         .preview-area{display:flex;align-items:center;justify-content:center;min-height:250px;background:#f7f8fb;border:1px solid var(--border);border-radius:12px;margin-bottom:20px}.preview-box{width:150px;height:150px;background:var(--bg-card);border-radius:16px;transition:box-shadow 0.3s}.slider-row{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid rgba(30,30,48,0.3)}.slider-row label{min-width:80px;font-size:0.8rem;color:var(--text2)}.slider-row input[type=range]{flex:1;-webkit-appearance:none;height:6px;background:#ffffff;border-radius:3px;outline:none}.slider-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;background:var(--accent);border-radius:50%;cursor:pointer}.slider-row .val{min-width:50px;font-family:"JetBrains Mono",monospace;font-size:0.75rem;color:var(--accent);text-align:right}.code-box{font-family:"JetBrains Mono",monospace;font-size:0.8rem;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:14px;color:var(--text2);cursor:pointer;margin-bottom:24px}.code-box:hover{border-color:var(--accent);color:var(--text)}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -45,7 +53,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"CSSボックスシャドウ生成ツール","item":"https://www.devtools-japan.com/tool-39-shadow-gen/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"box-shadowのオフセット・ぼかし・広がりの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"X/Yオフセットは影をずらす方向と距離、ぼかしは影のにじみ具合、広がりは影のサイズを拡大縮小する値です。本ツールはこれらをスライダーで操作し、プレビューを見ながらリアルタイムに調整できます。"}},{"@type":"Question","name":"影の色や透明度も自由に変えられますか？","acceptedAnswer":{"@type":"Answer","text":"はい。影の色をカラーピッカーで選び、透明度をスライダーで調整できます。値はrgba形式のbox-shadowコードに変換され、クリックでコピー可能です。処理はすべてブラウザ内で完結します。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"box-shadowのオフセット・ぼかし・広がりの違いは？","acceptedAnswer":{"@type":"Answer","text":"Xオフセットは影の左右位置、Yオフセットは上下位置をずらす値です。ぼかし半径は影のにじみ具合で、大きいほど輪郭がぼやけます。広がり半径は影のサイズそのものを拡大縮小する値で、プラスで影が大きく、マイナスで小さくなります。本ツールではこの4つをそれぞれスライダーで動かし、プレビューを見ながら調整できます。"}},{"@type":"Question","name":"影の色や透明度も変えられますか？","acceptedAnswer":{"@type":"Answer","text":"はい。色はカラーピッカーで選択し、透明度は0〜100％のスライダーで指定します。選んだ色は内部でrgba形式に変換され、box-shadow: Xpx Ypx ぼかしpx 広がりpx rgba(r,g,b,a) という形のコードとして出力されます。透明度を下げると影が薄く自然になじみます。"}},{"@type":"Question","name":"内側の影（inset）は作れますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールが生成するのは外側に落ちる通常の影（ドロップシャドウ）です。内側の影にしたい場合は、生成されたコードの値の先頭にinsetを付けて box-shadow: inset 0px 5px 20px 0px rgba(...) のように手動で書き換えてください。insetを付けると影が要素の内側にくぼんで表示されます。"}},{"@type":"Question","name":"複数の影を重ねられますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールは一度に1つの影のコードを生成します。複数の影を重ねたい場合は、生成したコードをいくつかコピーし、box-shadowプロパティ内でカンマ区切りで並べてください。例えば box-shadow: 5px 5px 20px rgba(...), -5px -5px 20px rgba(...); のように書くと、複数の影が同時に適用されます。"}},{"@type":"Question","name":"生成したコードはどう使いますか？","acceptedAnswer":{"@type":"Answer","text":"画面下部のコードボックスをクリックすると box-shadow: ...; の一行がクリップボードにコピーされます。これをCSSファイルや要素のstyle属性に貼り付けるだけで、その要素に影が適用されます。box-shadowプロパティに指定する値なので、対象のセレクタの中に貼り付けて使ってください。"}}]}
     </script>
 </head>
 <body>
@@ -71,6 +79,32 @@
         <p>外側シャドウ（ドロップシャドウ）と内側シャドウ（インセットシャドウ）の両方に対応しています。複数のシャドウを重ねることで、より立体的な表現が可能です。</p>
         <h3>デザイントレンド</h3>
         <p>フラットデザインでは影をほとんど使いませんが、ニューモーフィズム（Neumorphism）デザインでは内側と外側の影を組み合わせて柔らかな立体感を表現します。このツールで各種デザインスタイルの影を試すことができます。</p>
+        </div>
+    <div class="seo-content">
+        <h2>box-shadowの仕組み</h2>
+        <p>CSSのbox-shadowプロパティは、要素の周囲に影（シャドウ）を描画するためのプロパティです。基本の構文は「box-shadow: 水平方向のオフセット 垂直方向のオフセット ぼかし半径 広がり半径 色;」という順番で、値を半角スペースで区切って指定します。たとえば <strong>box-shadow: 5px 5px 20px 0px rgba(99,102,241,0.4);</strong> と書くと、右へ5px・下へ5pxずれた位置に、ぼかし20px・広がり0pxの半透明な紫色の影が落ちます。</p>
+        <p>先頭の2つの値（オフセット）は省略できず必須です。3つ目のぼかし半径と4つ目の広がり半径は省略可能で、省略した場合は0として扱われます。色を省略すると、多くのブラウザでは文字色（currentColor）が使われます。値の先頭に <strong>inset</strong> キーワードを付けると、影が要素の外側ではなく内側に描画される「内側の影」になります。このツールは外側の影を生成しますが、出力コードにinsetを付け足せば内側の影にも応用できます。</p>
+        <p>本ツールは、Xオフセット・Yオフセット・ぼかし・広がりの4つの値をスライダーで、色をカラーピッカーで、透明度をスライダーで操作します。指定した色と透明度は内部でrgba形式に変換され、box-shadowの一行コードとしてリアルタイムにプレビュー・出力されます。すべての処理はブラウザ内で完結し、入力した値がサーバーへ送信されることはありません。</p>
+        <h3>box-shadowの各パラメータ対応表</h3>
+        <div class="table-wrap">
+        <table class="lookup-table">
+        <thead><tr><th>パラメータ</th><th>CSSでの位置</th><th>意味</th><th>本ツールの操作</th></tr></thead>
+        <tbody>
+        <tr><td class="acc">offset-x</td><td>1番目（必須）</td><td>水平方向のオフセット。プラスで右、マイナスで左に影がずれる</td><td>Xオフセット（-50〜50px）</td></tr>
+        <tr><td class="acc">offset-y</td><td>2番目（必須）</td><td>垂直方向のオフセット。プラスで下、マイナスで上に影がずれる</td><td>Yオフセット（-50〜50px）</td></tr>
+        <tr><td class="acc">blur-radius</td><td>3番目（省略可）</td><td>ぼかし半径。大きいほど影の輪郭がぼやける。0で輪郭がくっきり</td><td>ぼかし（0〜100px）</td></tr>
+        <tr><td class="acc">spread-radius</td><td>4番目（省略可）</td><td>広がり半径。プラスで影が拡大、マイナスで縮小する</td><td>広がり（-50〜50px）</td></tr>
+        <tr><td class="acc">color</td><td>任意の位置</td><td>影の色。rgba指定で透明度も持たせられる</td><td>色＋透明度（rgbaに変換）</td></tr>
+        <tr><td class="acc">inset</td><td>先頭に記述</td><td>付けると外側でなく内側の影になる</td><td>出力コードに手動で追記</td></tr>
+        </tbody>
+        </table>
+        </div>
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">box-shadowのオフセット・ぼかし・広がりの違いは？</div><div class="a">Xオフセットは影の左右位置、Yオフセットは上下位置をずらす値です。ぼかし半径は影のにじみ具合で、大きいほど輪郭がぼやけます。広がり半径は影のサイズそのものを拡大縮小する値で、プラスで影が大きく、マイナスで小さくなります。本ツールではこの4つをそれぞれスライダーで動かし、プレビューを見ながら調整できます。</div></div>
+        <div class="faq-item"><div class="q">影の色や透明度も変えられますか？</div><div class="a">はい。色はカラーピッカーで選択し、透明度は0〜100％のスライダーで指定します。選んだ色は内部でrgba形式に変換され、box-shadow: Xpx Ypx ぼかしpx 広がりpx rgba(r,g,b,a) という形のコードとして出力されます。透明度を下げると影が薄く自然になじみます。</div></div>
+        <div class="faq-item"><div class="q">内側の影（inset）は作れますか？</div><div class="a">本ツールが生成するのは外側に落ちる通常の影（ドロップシャドウ）です。内側の影にしたい場合は、生成されたコードの値の先頭にinsetを付けて box-shadow: inset 0px 5px 20px 0px rgba(...) のように手動で書き換えてください。insetを付けると影が要素の内側にくぼんで表示されます。</div></div>
+        <div class="faq-item"><div class="q">複数の影を重ねられますか？</div><div class="a">本ツールは一度に1つの影のコードを生成します。複数の影を重ねたい場合は、生成したコードをいくつかコピーし、box-shadowプロパティ内でカンマ区切りで並べてください。例えば box-shadow: 5px 5px 20px rgba(...), -5px -5px 20px rgba(...); のように書くと、複数の影が同時に適用されます。</div></div>
+        <div class="faq-item"><div class="q">生成したコードはどう使いますか？</div><div class="a">画面下部のコードボックスをクリックすると box-shadow: ...; の一行がクリップボードにコピーされます。これをCSSファイルや要素のstyle属性に貼り付けるだけで、その要素に影が適用されます。box-shadowプロパティに指定する値なので、対象のセレクタの中に貼り付けて使ってください。</div></div>
         </div>
     <div class="ad-slot" style="display:none"></div>
     
