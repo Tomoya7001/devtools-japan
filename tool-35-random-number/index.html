@@ -13,8 +13,8 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>乱数生成ツール | DevTools Japan</title>
-    <meta name="description" content="指定した範囲でランダムな数値を生成。抽選・くじ引き・テストデータ作成に便利。複数個の同時生成にも対応する無料ツール。">
+    <title>乱数生成ツール｜範囲指定・重複なし・くじ引き対応 | DevTools Japan</title>
+    <meta name="description" content="指定した範囲でランダムな数値を生成。重複なしの複数同時生成、抽選・くじ引き・サイコロ・テストデータ作成に対応。Math.random使用でブラウザ完結の無料ツール。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
@@ -25,6 +25,14 @@
         
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -43,7 +51,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"乱数生成ツール","item":"https://www.devtools-japan.com/tool-35-random-number/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"重複しない乱数をまとめて生成できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。最小値・最大値・個数を指定し「重複なし」を有効にすると、範囲内で値が重ならない乱数を複数同時に生成できます。抽選やくじ引き、テストデータ作成に便利です。"}},{"@type":"Question","name":"生成された数値はサーバー側で作られますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。乱数はすべてお使いのブラウザ内で生成され、サーバーへ送信されることはありません。登録不要・無料で利用でき、生成結果はクリックでコピーできます。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"重複しない乱数をまとめて生成できる？","acceptedAnswer":{"@type":"Answer","text":"はい。最小値・最大値・個数を指定し「重複なし」を有効にすると、範囲内で値が重ならない乱数を複数同時に生成できます。個数は最大100個まで指定でき、抽選やくじ引き、テストデータ作成に便利です。なお重複なしで個数が範囲の数より多い場合は「範囲が足りません」と表示されます。"}},{"@type":"Question","name":"乱数の範囲を指定できる？","acceptedAnswer":{"@type":"Answer","text":"はい。最小値と最大値を入力することで任意の範囲を指定できます。初期値は1〜100ですが、1〜6（サイコロ）、1〜1000など自由に変更でき、最小値・最大値も乱数の対象に含まれます。"}},{"@type":"Question","name":"生成された数値はサーバー側で作られる？","acceptedAnswer":{"@type":"Answer","text":"いいえ。乱数はすべてお使いのブラウザ内（JavaScript）で生成され、入力値や生成結果がサーバーへ送信されることはありません。登録不要・無料で利用でき、生成結果はクリックでコピーできます。"}},{"@type":"Question","name":"抽選やくじ引きに使える？","acceptedAnswer":{"@type":"Answer","text":"はい。名前やアイテムを1行に1つずつ入力して「ランダム選択」を押すと、リストから1つをランダムに選びます。当番決めや席替え、プレゼント抽選などに使えます。番号で抽選したい場合は重複なしの数値生成も利用できます。"}},{"@type":"Question","name":"乱数の生成方法は？","acceptedAnswer":{"@type":"Answer","text":"JavaScriptのMath.random()を用いて生成しています。抽選・ゲーム・テストデータなど一般的な用途には十分ですが、暗号学的乱数ではないため、パスワードやセキュリティトークンなど暗号用途には推奨しません。その場合は専用ツールをご利用ください。"}}]}
     </script>
     </head>
 <body>
@@ -89,6 +97,35 @@
 
             <h3>こんな場面で使えます</h3>
             <p>オンライン抽選・くじ引き、テストデータの自動生成、統計学の乱数シミュレーション、ゲーム開発での確率テスト、席替え・グループ分けなど。すべてブラウザ上で完結し、データがサーバーに送信されることはありません。</p>
+        </div>
+    <div class="seo-content">
+            <h2>乱数生成ツールの使い方と仕組み</h2>
+            <p>乱数生成とは、あらかじめ決められた範囲の中から予測のつかない数値をランダムに選び出す処理です。本ツールでは「最小値」「最大値」「個数」の3つを指定し、その範囲に含まれる整数（最小値・最大値も対象）から指定した数だけランダムな整数を取り出します。たとえば最小値1・最大値100・個数1なら、1から100までのいずれかの整数が1つ表示されます。生成された結果はクリックするとそのままコピーでき、メモやスプレッドシートに貼り付けてすぐ使えます。</p>
+            <p>用途は幅広く、抽選・くじ引きで当選番号を決める、アンケート対象を無作為に選ぶサンプリング、テスト用のダミー値を量産するテストデータ作成、発表やゲームの順番決めなどに使えます。「重複なし」を有効にすると、生成した値どうしが重ならないようになり、座席番号や当選番号のように同じ数字が二度出てはいけない場面に向いています。個数は最大100個まで指定でき、複数の乱数を一度にまとめて取得できます。</p>
+
+            <h3>用途別のおすすめ設定</h3>
+            <p>下表は、よくある用途と本ツールでの適した設定の対応です。設定値は最小値・最大値・個数・重複なしの有無で表しています。</p>
+            <div class="table-wrap">
+            <table class="lookup-table">
+            <thead><tr><th>用途</th><th>最小値〜最大値</th><th>個数</th><th>重複なし</th></tr></thead>
+            <tbody>
+            <tr><td>抽選・当選番号決め</td><td>1〜参加人数</td><td class="acc">当選数</td><td>あり</td></tr>
+            <tr><td>サイコロを振る</td><td>1〜6</td><td>1</td><td>なし</td></tr>
+            <tr><td>コイントス（表裏）</td><td>1〜2</td><td>1</td><td>なし</td></tr>
+            <tr><td>テストデータ作成</td><td>任意の範囲を指定</td><td class="acc">必要件数</td><td>なし</td></tr>
+            <tr><td>席替え・順番決め</td><td>1〜人数</td><td class="acc">人数分</td><td>あり</td></tr>
+            <tr><td>くじ引き（名前で選ぶ）</td><td>リスト入力欄を使用</td><td>1</td><td>—</td></tr>
+            </tbody>
+            </table>
+            </div>
+            <p>抽選や席替えのように「同じ番号が出てはいけない」用途では重複なしを有効にします。このとき個数が範囲内の数（最大値−最小値＋1）を超えると、出せる値が足りないため「範囲が足りません」と表示されます。名前そのものでくじ引きをしたい場合は、リスト入力欄に1行ずつ入力して「ランダム選択」を使うと、番号を介さず直接1つを選べます。</p>
+
+            <h2>よくある質問</h2>
+            <div class="faq-item"><div class="q">重複しない乱数をまとめて生成できる？</div><div class="a">はい。最小値・最大値・個数を指定し「重複なし」を有効にすると、範囲内で値が重ならない乱数を複数同時に生成できます。個数は最大100個まで指定でき、抽選やくじ引き、テストデータ作成に便利です。なお重複なしで個数が範囲の数より多い場合は「範囲が足りません」と表示されます。</div></div>
+            <div class="faq-item"><div class="q">乱数の範囲を指定できる？</div><div class="a">はい。最小値と最大値を入力することで任意の範囲を指定できます。初期値は1〜100ですが、1〜6（サイコロ）、1〜1000など自由に変更でき、最小値・最大値も乱数の対象に含まれます。</div></div>
+            <div class="faq-item"><div class="q">生成された数値はサーバー側で作られる？</div><div class="a">いいえ。乱数はすべてお使いのブラウザ内（JavaScript）で生成され、入力値や生成結果がサーバーへ送信されることはありません。登録不要・無料で利用でき、生成結果はクリックでコピーできます。</div></div>
+            <div class="faq-item"><div class="q">抽選やくじ引きに使える？</div><div class="a">はい。名前やアイテムを1行に1つずつ入力して「ランダム選択」を押すと、リストから1つをランダムに選びます。当番決めや席替え、プレゼント抽選などに使えます。番号で抽選したい場合は重複なしの数値生成も利用できます。</div></div>
+            <div class="faq-item"><div class="q">乱数の生成方法は？</div><div class="a">JavaScriptのMath.random()を用いて生成しています。抽選・ゲーム・テストデータなど一般的な用途には十分ですが、暗号学的乱数ではないため、パスワードやセキュリティトークンなど暗号用途には推奨しません。その場合は専用ツールをご利用ください。</div></div>
         </div>
     <div class="ad-slot" style="display:none"></div>
     
