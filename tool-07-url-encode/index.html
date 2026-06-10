@@ -14,8 +14,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URLエンコード・デコードツール | パーセントエンコーディング変換</title>
-    <meta name="description" content="URLの日本語やパラメータをエンコード・デコード。パーセントエンコーディング対応。API開発やSEO対策に便利な無料ツール。">
+    <title>URLエンコード・デコードツール | パーセントエンコーディング変換（%20・日本語対応）</title>
+    <meta name="description" content="URLの日本語やパラメータをエンコード・デコード。スペースは%20、encodeURIとencodeURIComponentの違いにも対応したパーセントエンコーディング変換。API開発やSEO対策に便利な無料ツール。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#e879f9;--accent-dim:rgba(232,121,249,0.1);--radius:12px}
@@ -39,6 +39,14 @@
         .chip:hover{border-color:var(--accent);color:var(--text)}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text);font-family:'JetBrains Mono',monospace}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#000;padding:12px 24px;border-radius:8px;font-size:0.85rem;font-weight:500;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -57,7 +65,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"URLエンコード・デコードツール","item":"https://www.devtools-japan.com/tool-07-url-encode/"}]}
     </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"URLの日本語をパーセントエンコーディングに変換できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。日本語やスペースを含む文字列をパーセントエンコーディング形式に変換できます。逆にエンコード済みのURLを元の文字列へデコードすることも可能です。"}},{"@type":"Question","name":"URLパラメータのエンコードとデコードはどちらも対応していますか？","acceptedAnswer":{"@type":"Answer","text":"はい。エンコードとデコードの両方に対応し、API開発やクエリパラメータの確認に役立ちます。処理はブラウザ内で完結し、無料・登録不要です。"}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"URLエンコードとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"URLで安全に使えない文字（日本語・スペース・一部の記号など）を、UTF-8のバイト列に基づいて「%XX」という形式に変換する仕組みです。パーセントエンコーディングとも呼ばれ、検索フォームの送信やURLパラメータの組み立てに使われます。"}},{"@type":"Question","name":"スペースは何にエンコードされますか？","acceptedAnswer":{"@type":"Answer","text":"パーセントエンコーディングでは半角スペースは「%20」になります。本ツールのエンコードも%20を出力します。ただしHTMLフォームのapplication/x-www-form-urlencoded形式では、スペースが「+」で表現される場合があり、デコード時はこの違いに注意が必要です。"}},{"@type":"Question","name":"日本語をパーセントエンコーディングできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。日本語はUTF-8のバイト列に変換されてから%XX形式になります。たとえば「あ」は「%E3%81%82」、「東京」は「%E6%9D%B1%E4%BA%AC」になります。本ツールに日本語を入力すれば正しく変換できます。"}},{"@type":"Question","name":"エンコードとデコードの両方ができますか？","acceptedAnswer":{"@type":"Answer","text":"はい。本ツールはエンコードとデコードの両方向に対応しています。上部のモード切替で「エンコード」「デコード」「encodeURIComponent」を選べ、すべてブラウザ内で処理されサーバーには送信されません。"}},{"@type":"Question","name":"encodeURIとencodeURIComponentの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"どちらも日本語などはエンコードしますが、対象とする記号の範囲が異なります。encodeURIComponentは「&」「?」「/」「=」などURLの区切り記号も変換するため、パラメータの値をエンコードするのに向きます。encodeURIはこれらの区切り記号を残すため、URL全体を一括変換する用途に向きます。"}}]}
 </script>
 </head>
 <body>
@@ -97,6 +105,37 @@
         <p>URLにはASCII文字の一部しか使用できないため、日本語やスペース、一部の記号はパーセントエンコーディング（%XX形式）に変換する必要があります。例えば「東京」は「%E6%9D%B1%E4%BA%AC」になります。このツールでは、エンコードとデコードの両方向に対応しています。</p>
         <h3>開発での活用</h3>
         <p>APIのクエリパラメータに日本語を含める場合や、リダイレクトURLをパラメータとして渡す場合に必須の処理です。すべてブラウザ内で処理されます。</p>
+        </div>
+    <div class="seo-content">
+        <h2>URLエンコードとは（パーセントエンコーディング）</h2>
+        <p>URL（Webアドレス）で安全に使える文字は、英数字（A〜Z、a〜z、0〜9）と一部の記号（- _ . ~）に限られています。それ以外の文字、たとえば日本語・スペース・記号などをURLにそのまま含めると、ブラウザやサーバーが正しく解釈できなかったり、別の意味に取られてしまったりします。そこで使われるのがパーセントエンコーディング（URLエンコード）です。</p>
+        <p>パーセントエンコーディングでは、対象の文字を一度UTF-8のバイト列に変換し、各バイトを「%」＋16進数2桁（%XX）の形式で表現します。たとえばひらがなの「あ」はUTF-8で3バイトになるため、「%E3%81%82」という3つの%XXに変換されます。半角スペースは「%20」に置き換えられます。こうして変換しておくことで、どんな文字を含むURLでも壊れずに送受信できるようになります。</p>
+        <p>URLエンコードが必要になる代表的な場面は、検索フォームの送信やAPIのクエリパラメータの組み立てです。「?q=東京タワー」のように日本語を含む検索条件をURLに載せる場合、日本語部分をエンコードしないとリンクが正しく機能しません。逆に、ログやリダイレクトURLに含まれる「%E6%9D%B1%E4%BA%AC」のような文字列を人が読めるようにするには、デコード（復号）して元の文字に戻します。本ツールはエンコードとデコードの両方向に対応しており、用途に応じてモードを切り替えられます。</p>
+
+        <h3>主要文字の変換例（UTF-8基準）</h3>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>文字</th><th>説明</th><th>encodeURIComponent</th><th>encodeURI</th></tr></thead>
+            <tbody>
+                <tr><td>（半角スペース）</td><td>スペース</td><td class="acc">%20</td><td>%20</td></tr>
+                <tr><td>あ</td><td>ひらがな（3バイト）</td><td class="acc">%E3%81%82</td><td>%E3%81%82</td></tr>
+                <tr><td>東</td><td>漢字（3バイト）</td><td class="acc">%E6%9D%B1</td><td>%E6%9D%B1</td></tr>
+                <tr><td>京</td><td>漢字（3バイト）</td><td class="acc">%E4%BA%AC</td><td>%E4%BA%AC</td></tr>
+                <tr><td>&amp;</td><td>アンパサンド</td><td class="acc">%26</td><td>&amp;</td></tr>
+                <tr><td>?</td><td>クエスチョン</td><td class="acc">%3F</td><td>?</td></tr>
+                <tr><td>/</td><td>スラッシュ</td><td class="acc">%2F</td><td>/</td></tr>
+                <tr><td>=</td><td>イコール</td><td class="acc">%3D</td><td>=</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>日本語などの非ASCII文字は、encodeURIComponentでもencodeURIでも同じ%XX列に変換されます。違いが出るのは「&」「?」「/」「=」のようなURLの区切りに使う記号で、encodeURIComponentはこれらも変換するのに対し、encodeURIはURL全体の構造を壊さないようそのまま残します。値（パラメータの中身）だけをエンコードしたいときはencodeURIComponent、URL全体を一括でエンコードしたいときはencodeURIを使うのが基本です。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">URLエンコードとは何ですか？</div><div class="a">URLで安全に使えない文字（日本語・スペース・一部の記号など）を、UTF-8のバイト列に基づいて「%XX」という形式に変換する仕組みです。パーセントエンコーディングとも呼ばれ、検索フォームの送信やURLパラメータの組み立てに使われます。</div></div>
+        <div class="faq-item"><div class="q">スペースは何にエンコードされますか？</div><div class="a">パーセントエンコーディングでは半角スペースは「%20」になります。本ツールのエンコードも%20を出力します。ただしHTMLフォームのapplication/x-www-form-urlencoded形式では、スペースが「+」で表現される場合があり、デコード時はこの違いに注意が必要です。</div></div>
+        <div class="faq-item"><div class="q">日本語をパーセントエンコーディングできますか？</div><div class="a">はい。日本語はUTF-8のバイト列に変換されてから%XX形式になります。たとえば「あ」は「%E3%81%82」、「東京」は「%E6%9D%B1%E4%BA%AC」になります。本ツールに日本語を入力すれば正しく変換できます。</div></div>
+        <div class="faq-item"><div class="q">エンコードとデコードの両方ができますか？</div><div class="a">はい。本ツールはエンコードとデコードの両方向に対応しています。上部のモード切替で「エンコード」「デコード」「encodeURIComponent」を選べ、すべてブラウザ内で処理されサーバーには送信されません。</div></div>
+        <div class="faq-item"><div class="q">encodeURIとencodeURIComponentの違いは何ですか？</div><div class="a">どちらも日本語などはエンコードしますが、対象とする記号の範囲が異なります。encodeURIComponentは「&」「?」「/」「=」などURLの区切り記号も変換するため、パラメータの値をエンコードするのに向きます。encodeURIはこれらの区切り記号を残すため、URL全体を一括変換する用途に向きます。</div></div>
         </div>
     <div class="ad-slot" style="display:none"></div>
     
