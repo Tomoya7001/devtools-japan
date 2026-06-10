@@ -13,8 +13,8 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OGPプレビューチェッカー | SNSシェア表示確認ツール</title>
-    <meta name="description" content="OGP画像・タイトル・説明文を入力して、Twitter・Facebook・LINEでの表示をプレビュー。SNSシェア前の確認に。">
+    <title>OGPプレビューチェッカー | SNSシェア表示確認・og:image推奨サイズ確認ツール</title>
+    <meta name="description" content="OGP画像・タイトル・説明文を入力して、X(Twitter)・Facebook・LINEでの表示をプレビュー。og:imageの推奨サイズ1200×630pxやTwitterカードとOGPの違いも解説。SNSシェア前の確認に。">
     <meta property="og:title" content="OGPプレビューチェッカー | DevTools Japan">
     <meta property="og:description" content="OGP画像・タイトル・説明文を入力して、Twitter・Facebook・LINEでの表示をプレビュー確認">
     <meta property="og:url" content="https://www.devtools-japan.com/tool-24-ogp-preview/">
@@ -61,6 +61,14 @@
         .meta-output pre{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text2);line-height:1.6;overflow-x:auto;background:#f7f8fb;padding:12px;border-radius:8px;cursor:pointer}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -72,7 +80,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"OGPプレビューチェッカー","item":"https://www.devtools-japan.com/tool-24-ogp-preview/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"OGPとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"OGP（Open Graph Protocol）は、WebページをSNSでシェアした際に表示されるタイトル・説明文・画像を指定する仕組みです。本ツールでは入力した内容をもとに各SNSでの見え方をプレビューできます。"}},{"@type":"Question","name":"Twitter・Facebook・LINEの表示を確認できますか？","acceptedAnswer":{"@type":"Answer","text":"はい、タイトル・説明文・画像URLを入力すると、Twitter・Facebook・LINEそれぞれのシェア時の表示イメージをプレビューできます。投稿前にトリミングや文字切れを確認するのに便利です。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"OGPとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"OGP（Open Graph Protocol）は、WebページをSNSでシェアした際に表示されるタイトル・説明文・画像をmetaタグで制御する仕組みです。og:title・og:description・og:image・og:url・og:typeといったタグをページの「head」内に記述します。正しく設定するとSNS上で意図したカード表示になり、クリック率の向上につながります。"}},{"@type":"Question","name":"og:imageの推奨サイズは？","acceptedAnswer":{"@type":"Answer","text":"OGP画像（og:image）の推奨サイズは1200×630px（おおよそ1.91対1の比率）です。これはFacebookやLINE、Xのsummary_large_imageカードで横長画像として表示される際の標準サイズです。小さすぎる画像は引き伸ばされてぼやけ、比率が合わないと意図しない位置でトリミングされるため、推奨サイズに合わせて作成するのが安全です。"}},{"@type":"Question","name":"TwitterカードとOGPの違いは？","acceptedAnswer":{"@type":"Answer","text":"OGPはFacebook由来の共通仕様で、X（旧Twitter）を含む多くのSNSが参照します。X固有の表示はtwitter:cardなどのTwitter Cardタグで制御し、twitter:cardにsummaryやsummary_large_imageを指定するとカードの形が変わります。Twitter Cardタグが無い場合、Xはog:titleやog:imageなどOGPタグを代わりに利用します。"}},{"@type":"Question","name":"OGPが正しく表示されないときの原因は？","acceptedAnswer":{"@type":"Answer","text":"多くはSNS側のキャッシュが原因で、metaタグを修正しても古い情報が表示され続けることがあります。各SNSのデバッガー（Facebookシェアデバッガー等）でキャッシュを更新すると解消する場合があります。そのほか、og:imageのURLが相対パスや非公開URL、HTTP混在になっている、画像サイズが小さすぎる、metaタグがhead外にある、といった原因も考えられます。"}},{"@type":"Question","name":"このツールで何を確認できますか？","acceptedAnswer":{"@type":"Answer","text":"URL・og:title・og:description・og:image URLを入力すると、X（Twitter）・Facebook・LINEそれぞれのシェア時の表示イメージをブラウザ上でプレビューできます。入力内容から生成されるOGPメタタグのコードも表示され、クリックでコピーできます。投稿前にタイトルや説明文の文字切れ、画像のトリミングを確認するのに役立ちます。"}}]}
     </script>
 </head>
 <body>
@@ -97,6 +105,35 @@
         <h2>OGP（Open Graph Protocol）とは</h2>
         <p>OGPは、SNSでWebページがシェアされた際の表示内容（タイトル、説明文、画像）を指定するためのメタタグ仕様です。適切に設定することで、SNSでのクリック率を大幅に向上させることができます。</p>
         <p>推奨画像サイズはTwitterカードが1200×628px、Facebook/LINEが1200×630pxです。</p>
+    </div>
+    <div class="seo-content">
+        <h2>OGP（Open Graph Protocol）とは</h2>
+        <p>OGPはOpen Graph Protocolの略で、WebページがSNSでシェアされたときに表示されるタイトル・説明文・画像・URLなどを制御するためのmetaタグの仕様です。FacebookによってSNS間で情報を統一的に扱うために策定され、現在ではX（旧Twitter）やLINE、Slackなど多くのサービスがこの仕様を参照しています。OGPを正しく設定すると、リンクを貼っただけで内容が伝わる「カード型」のリッチな表示になり、シェアされたときのクリック率を高めることができます。</p>
+        <p>OGPタグはHTMLの「head」内に記述します。中心となるのはog:title（タイトル）、og:description（説明文）、og:image（サムネイル画像のURL）、og:url（正規のページURL）、og:type（ページの種類。記事ならarticle、トップページならwebsiteなど）の5つです。さらにX固有の表示を整えたい場合は、twitter:card（カードの種類。summaryまたはsummary_large_image）をはじめとするTwitter Cardタグを併用します。Twitter Cardタグが無くても、XはOGPタグを代わりに読み取って表示します。</p>
+        <p>OGP画像の推奨サイズは1200×630px（おおよそ1.91対1の比率）です。この比率を守らないと、SNS側で自動的にトリミングされ、画像の重要な部分が切れてしまうことがあります。</p>
+
+        <h3>主要なOGP・Twitter Cardタグの役割</h3>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>metaタグ</th><th>役割</th><th>記述例・推奨値</th></tr></thead>
+            <tbody>
+                <tr><td class="acc">og:title</td><td>シェア時に表示されるタイトル</td><td>ページの見出し（簡潔に）</td></tr>
+                <tr><td class="acc">og:description</td><td>タイトル下に表示される説明文</td><td>内容の要約（100字前後）</td></tr>
+                <tr><td class="acc">og:image</td><td>サムネイルとして表示される画像URL</td><td>1200×630px（約1.91:1）</td></tr>
+                <tr><td class="acc">og:url</td><td>シェア対象となる正規のページURL</td><td>絶対URL（https〜）</td></tr>
+                <tr><td class="acc">og:type</td><td>ページの種類</td><td>article / website</td></tr>
+                <tr><td class="acc">twitter:card</td><td>X固有のカード形式</td><td>summary / summary_large_image</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>本ツールでは、これらのタグに対応する値（URL・og:title・og:description・og:image URL）を入力すると、X（Twitter）・Facebook・LINEそれぞれのシェア時の表示をその場でプレビューでき、対応するOGPメタタグのコードも自動生成します。生成コードはクリックでコピーできます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">OGPとは何ですか？</div><div class="a">OGP（Open Graph Protocol）は、WebページをSNSでシェアした際に表示されるタイトル・説明文・画像をmetaタグで制御する仕組みです。og:title・og:description・og:image・og:url・og:typeといったタグをページの「head」内に記述します。正しく設定するとSNS上で意図したカード表示になり、クリック率の向上につながります。</div></div>
+        <div class="faq-item"><div class="q">og:imageの推奨サイズは？</div><div class="a">OGP画像（og:image）の推奨サイズは1200×630px（おおよそ1.91対1の比率）です。これはFacebookやLINE、Xのsummary_large_imageカードで横長画像として表示される際の標準サイズです。小さすぎる画像は引き伸ばされてぼやけ、比率が合わないと意図しない位置でトリミングされるため、推奨サイズに合わせて作成するのが安全です。</div></div>
+        <div class="faq-item"><div class="q">TwitterカードとOGPの違いは？</div><div class="a">OGPはFacebook由来の共通仕様で、X（旧Twitter）を含む多くのSNSが参照します。X固有の表示はtwitter:cardなどのTwitter Cardタグで制御し、twitter:cardにsummaryやsummary_large_imageを指定するとカードの形が変わります。Twitter Cardタグが無い場合、Xはog:titleやog:imageなどOGPタグを代わりに利用します。</div></div>
+        <div class="faq-item"><div class="q">OGPが正しく表示されないときの原因は？</div><div class="a">多くはSNS側のキャッシュが原因で、metaタグを修正しても古い情報が表示され続けることがあります。各SNSのデバッガー（Facebookシェアデバッガー等）でキャッシュを更新すると解消する場合があります。そのほか、og:imageのURLが相対パスや非公開URL、HTTP混在になっている、画像サイズが小さすぎる、metaタグがhead外にある、といった原因も考えられます。</div></div>
+        <div class="faq-item"><div class="q">このツールで何を確認できますか？</div><div class="a">URL・og:title・og:description・og:image URLを入力すると、X（Twitter）・Facebook・LINEそれぞれのシェア時の表示イメージをブラウザ上でプレビューできます。入力内容から生成されるOGPメタタグのコードも表示され、クリックでコピーできます。投稿前にタイトルや説明文の文字切れ、画像のトリミングを確認するのに役立ちます。</div></div>
     </div>
     <div class="ad-slot" style="display:none"></div>
     
