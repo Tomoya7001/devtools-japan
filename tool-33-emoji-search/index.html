@@ -28,6 +28,13 @@
 .emoji-item .kw{font-size:0.6rem;color:var(--text3);display:block}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -46,7 +53,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"絵文字検索ツール","item":"https://www.devtools-japan.com/tool-33-emoji-search/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"日本語のキーワードで絵文字を検索できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。「笑顔」「ハート」「食べ物」などの日本語キーワードで絵文字を検索でき、目当ての絵文字を素早く見つけられます。見つけた絵文字はクリックでコピーできます。"}},{"@type":"Question","name":"コピーした絵文字はSlackやLINEでも使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。標準のUnicode絵文字をコピーするため、Slack・Discord・X（旧Twitter）・LINE・メールなど絵文字に対応した多くのサービスでそのまま貼り付けて使えます。登録不要・無料で利用できます。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"日本語で絵文字を検索できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。検索ボックスに「笑顔」「ハート」「食べ物」「天気」などの日本語キーワードを入力すると、関連する絵文字が絞り込まれて表示されます。各絵文字には日本語のキーワードが登録されているため、英語名がわからなくても目当ての絵文字を素早く見つけられます。"}},{"@type":"Question","name":"コピーした絵文字はLINEやSlackでも使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。このツールがコピーするのは標準のUnicode絵文字なので、LINE・Slack・Discord・X（旧Twitter）・メールなど、絵文字に対応した多くのサービスでそのまま貼り付けて使えます。絵文字をクリックするとクリップボードにコピーされるので、使いたい場所でペーストするだけです。"}},{"@type":"Question","name":"絵文字が□や豆腐（tofu）で表示されるのはなぜ？","acceptedAnswer":{"@type":"Answer","text":"お使いの環境に、その絵文字を表示するための対応フォントが入っていない場合に起こります。新しいUnicodeで追加されたばかりの絵文字は、古いOSやブラウザだと□（豆腐・tofuと呼ばれます）に見えることがあります。OSやブラウザを最新の状態に更新すると、正しく表示されるようになることが多いです。"}},{"@type":"Question","name":"絵文字の色や肌の色は変えられますか？","acceptedAnswer":{"@type":"Answer","text":"このツールは、よく使われる標準的な絵文字を一覧から選んでコピーする仕組みのため、肌の色を変えるスキントーン修飾には対応していません。手の絵文字などで肌の色を変えたい場合は、お使いの端末の絵文字キーボードで該当の絵文字を長押しすると、スキントーンのバリエーションを選べます。"}},{"@type":"Question","name":"機種によって絵文字の見た目が違うのはなぜ？","acceptedAnswer":{"@type":"Answer","text":"絵文字のデザインはWindows・Mac・iPhone・Androidなど、各社がそれぞれ独自に用意しているためです。意味（Unicodeのコードポイント）は共通なので、別の機種に送っても伝えたい意味は正しく届きますが、表情や色合いといった見た目は環境ごとに異なります。これは仕様であり、不具合ではありません。"}}]}
     </script>
     </head>
 <body>
@@ -64,6 +71,32 @@
         <p>「笑顔」「犬」「天気」「食べ物」など、日本語のキーワードで絵文字を検索できます。カテゴリ別（顔・動物・食べ物・旅行・物・記号等）のフィルタリングにも対応しています。</p>
         <h3>絵文字のバージョン</h3>
         <p>最新のUnicode絵文字に対応しています。ただし、表示される絵文字のデザインはOS・ブラウザによって異なります。絵文字をクリックするとクリップボードにコピーされるので、そのまま貼り付けて使えます。</p>
+        </div>
+    <div class="seo-content">
+        <h2>絵文字の使い方と基礎知識</h2>
+        <p>絵文字は、文字や記号と同じようにUnicodeという国際的な文字コードの規格で一つ一つ定義されています。そのため絵文字は単なる画像ではなく「文字」として扱われ、コピーしてSNSの投稿・チャット・メール・各種ドキュメントなど、テキストを入力できる場所であればどこにでも貼り付けて使えます。このツールで絵文字をクリックするとクリップボードにコピーされるので、貼り付けたい場所でそのままペーストするだけです。</p>
+        <p>注意したいのは、同じ絵文字でもWindows・Mac・iPhone（iOS）・Androidといった環境ごとに見た目（デザイン）が異なるという点です。これは各社が独自に絵文字のデザインを用意しているためで、たとえば「笑顔」の絵文字はプラットフォームによって表情や色合いが少しずつ変わります。ただしUnicodeで意味（コードポイント）は共通に決められているため、別の環境に送っても「笑顔」という意味そのものは正しく伝わります。デザインの違いはあっても、伝えたい意図がずれることは基本的にありません。</p>
+        <h3>シーン別のよく使われる絵文字</h3>
+        <p>用途やシーンに合わせて絵文字を選ぶと、文章のニュアンスや感情が伝わりやすくなります。下の表は、よく使われる代表的なカテゴリと絵文字の例です。検索ボックスに「感謝」「お祝い」「天気」などのキーワードを入力すると、関連する絵文字をすぐに絞り込めます。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>用途・シーン</th><th>絵文字の例</th><th>使われる場面</th></tr></thead>
+            <tbody>
+                <tr><td>感謝・お礼</td><td>🙏 👏 🤝 💯</td><td>お礼のメッセージ、依頼への返信</td></tr>
+                <tr><td>お祝い・成功</td><td>🎉 🎊 🏆 ✨</td><td>誕生日、達成報告、おめでとうの連絡</td></tr>
+                <tr><td>注意・警告</td><td>⚠️ ❌ 🔒 ❗</td><td>注意喚起、エラー表示、重要な連絡</td></tr>
+                <tr><td>ビジネス・連絡</td><td>📌 📝 📅 📢</td><td>議事録、お知らせ、スケジュール共有</td></tr>
+                <tr><td>天気・季節</td><td>☀️ 🌙 ☔ ❄️</td><td>天気の話題、季節のあいさつ</td></tr>
+                <tr><td>賛同・反応</td><td>👍 ❤️ 🔥 ⭐</td><td>SNSの反応、チャットでのリアクション</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">日本語で絵文字を検索できますか？</div><div class="a">はい。検索ボックスに「笑顔」「ハート」「食べ物」「天気」などの日本語キーワードを入力すると、関連する絵文字が絞り込まれて表示されます。各絵文字には日本語のキーワードが登録されているため、英語名がわからなくても目当ての絵文字を素早く見つけられます。</div></div>
+        <div class="faq-item"><div class="q">コピーした絵文字はLINEやSlackでも使えますか？</div><div class="a">はい。このツールがコピーするのは標準のUnicode絵文字なので、LINE・Slack・Discord・X（旧Twitter）・メールなど、絵文字に対応した多くのサービスでそのまま貼り付けて使えます。絵文字をクリックするとクリップボードにコピーされるので、使いたい場所でペーストするだけです。</div></div>
+        <div class="faq-item"><div class="q">絵文字が□や豆腐（tofu）で表示されるのはなぜ？</div><div class="a">お使いの環境に、その絵文字を表示するための対応フォントが入っていない場合に起こります。新しいUnicodeで追加されたばかりの絵文字は、古いOSやブラウザだと□（豆腐・tofuと呼ばれます）に見えることがあります。OSやブラウザを最新の状態に更新すると、正しく表示されるようになることが多いです。</div></div>
+        <div class="faq-item"><div class="q">絵文字の色や肌の色は変えられますか？</div><div class="a">このツールは、よく使われる標準的な絵文字を一覧から選んでコピーする仕組みのため、肌の色を変えるスキントーン修飾には対応していません。手の絵文字などで肌の色を変えたい場合は、お使いの端末の絵文字キーボードで該当の絵文字を長押しすると、スキントーンのバリエーションを選べます。</div></div>
+        <div class="faq-item"><div class="q">機種によって絵文字の見た目が違うのはなぜ？</div><div class="a">絵文字のデザインはWindows・Mac・iPhone・Androidなど、各社がそれぞれ独自に用意しているためです。意味（Unicodeのコードポイント）は共通なので、別の機種に送っても伝えたい意味は正しく届きますが、表情や色合いといった見た目は環境ごとに異なります。これは仕様であり、不具合ではありません。</div></div>
         </div>
     <div class="ad-slot" style="display:none"></div>
     
