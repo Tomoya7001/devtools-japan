@@ -43,6 +43,14 @@
         .btn:hover{border-color:var(--accent);color:var(--text)}.btn-primary{background:var(--accent);color:#000;border-color:var(--accent);font-weight:500}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-20-favicon/">
@@ -60,7 +68,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"Favicon生成ツール","item":"https://www.devtools-japan.com/tool-20-favicon/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"絵文字からもファビコンを作れますか？","acceptedAnswer":{"@type":"Answer","text":"はい、テキストだけでなく絵文字を選んでファビコンを生成できます。背景色や文字色、サイズもカスタマイズでき、画像素材を用意せずにオリジナルのファビコンを作成できます。"}},{"@type":"Question","name":"生成したファビコンのファイル形式は何ですか？","acceptedAnswer":{"@type":"Answer","text":"PNG形式やfavicon.ico形式でダウンロードでき、Webサイトのfaviconとしてそのまま利用できます。生成処理はブラウザ内で完結し、登録不要・無料です。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ファビコン（favicon）とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"ファビコンとは、ブラウザのタブやブックマーク、履歴一覧、スマホのホーム画面などに表示されるサイトのアイコンです。サイトの目印となり、複数タブを開いたときに見分けやすくします。HTMLの「link rel=icon」でページに設置します。"}},{"@type":"Question","name":"ファビコンの推奨サイズは何pxですか？","acceptedAnswer":{"@type":"Answer","text":"タブ表示用は16×16px、高解像度ディスプレイ向けに32×32pxを用意します。iPhoneのホーム画面用（apple-touch-icon）は180×180px、AndroidやPWA向けには192×192pxと512×512pxが推奨です。複数サイズを揃えるとあらゆる環境で綺麗に表示されます。"}},{"@type":"Question","name":"絵文字や文字からファビコンを作れますか？","acceptedAnswer":{"@type":"Answer","text":"はい。このツールは入力欄に文字（1〜2文字）または絵文字を入れるだけでファビコンを生成します。クイック絵文字から選ぶこともでき、背景色・文字色・形状（角丸・丸・四角）・フォントサイズを自由にカスタマイズできます。画像素材は不要です。"}},{"@type":"Question","name":"生成したファビコンのファイル形式は何ですか？","acceptedAnswer":{"@type":"Answer","text":"このツールはPNG形式で出力します。128px・32px・16pxのPNGをそれぞれダウンロードできます。PNGは透過に対応しファイルサイズも小さく、現在の主要ブラウザがファビコンとしてサポートしているため、そのままサイトに設置できます。"}},{"@type":"Question","name":"作成したファビコンのHTMLへの設置方法は？","acceptedAnswer":{"@type":"Answer","text":"ダウンロードしたPNGをサイトに置き、headタグ内に「link rel=icon type=image/png href=/favicon-32.png」のように記述します。Appleのホーム画面用は「link rel=apple-touch-icon href=...」を追加します。生成処理はすべてブラウザ内で完結し、サーバーへは送信されません。"}}]}
     </script>
 </head>
 <body>
@@ -97,6 +105,32 @@
         <h3>ICO形式とPNG形式</h3>
         <p>従来のICO形式に加え、現在はPNG形式のFaviconも広くサポートされています。PNG形式の方がファイルサイズが小さく、透過にも対応しています。</p>
         </div>
+    <div class="seo-content">
+        <h2>ファビコンとは</h2>
+        <p>ファビコン（favicon＝favorite icon）とは、ブラウザのタブやブックマーク、閲覧履歴、検索結果、スマートフォンのホーム画面などに表示される、サイトを象徴する小さなアイコンです。複数のタブを開いているときにサイトを一目で見分けられるようにしたり、ブランドの印象を高めたりする役割を持ちます。設置されていないサイトは地球儀や白紙のアイコンで表示されるため、サイトの信頼感やクリック率にも影響します。</p>
+        <p>ファビコンはHTMLの&lt;head&gt;内に&lt;link rel="icon"&gt;を記述して設置します。たとえば32pxのPNGを使う場合は&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"&gt;のように書きます。iPhoneやiPadのホーム画面に追加した際のアイコンには&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;を、AndroidやPWA向けにはmanifest（manifest.json）でiconsを指定します。1つだけ用意するなら32×32pxが無難ですが、環境ごとに最適なサイズを複数揃えるとどの端末でも鮮明に表示されます。</p>
+        <h3>ファビコンの推奨サイズ・形式と用途</h3>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>サイズ</th><th>主な用途</th><th>設置タグ・指定方法</th><th>形式の目安</th></tr></thead>
+            <tbody>
+                <tr><td class="acc">16×16</td><td>ブラウザタブ・アドレスバー</td><td>link rel="icon"</td><td>PNG / ICO</td></tr>
+                <tr><td class="acc">32×32</td><td>タスクバー・高解像度タブ</td><td>link rel="icon"</td><td>PNG / ICO</td></tr>
+                <tr><td class="acc">48×48</td><td>Windowsサイトアイコン</td><td>link rel="icon"</td><td>PNG / ICO</td></tr>
+                <tr><td class="acc">180×180</td><td>iPhone/iPadホーム画面</td><td>link rel="apple-touch-icon"</td><td>PNG</td></tr>
+                <tr><td class="acc">192×192</td><td>Androidホーム画面・PWA</td><td>manifest.json icons</td><td>PNG</td></tr>
+                <tr><td class="acc">512×512</td><td>PWAスプラッシュ・ストア</td><td>manifest.json icons</td><td>PNG</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>本ツールが出力するのはPNG形式です。プレビュー下のボタンから128px・32px・16pxのPNGをそれぞれダウンロードできます。Apple Touch Icon（180px）やPWA用（192px・512px）が必要な場合も、文字色・背景色・形状を同じ設定にしたまま大きめサイズで書き出せば、用途に合わせたアイコンを揃えられます。SVG形式のファビコンを使いたい場合は別途SVGを用意して&lt;link rel="icon" type="image/svg+xml" href="/favicon.svg"&gt;と指定します。</p>
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">ファビコン（favicon）とは何ですか？</div><div class="a">ファビコンとは、ブラウザのタブやブックマーク、履歴一覧、スマホのホーム画面などに表示されるサイトのアイコンです。サイトの目印となり、複数タブを開いたときに見分けやすくします。HTMLの「link rel=icon」でページに設置します。</div></div>
+        <div class="faq-item"><div class="q">ファビコンの推奨サイズは何pxですか？</div><div class="a">タブ表示用は16×16px、高解像度ディスプレイ向けに32×32pxを用意します。iPhoneのホーム画面用（apple-touch-icon）は180×180px、AndroidやPWA向けには192×192pxと512×512pxが推奨です。複数サイズを揃えるとあらゆる環境で綺麗に表示されます。</div></div>
+        <div class="faq-item"><div class="q">絵文字や文字からファビコンを作れますか？</div><div class="a">はい。このツールは入力欄に文字（1〜2文字）または絵文字を入れるだけでファビコンを生成します。クイック絵文字から選ぶこともでき、背景色・文字色・形状（角丸・丸・四角）・フォントサイズを自由にカスタマイズできます。画像素材は不要です。</div></div>
+        <div class="faq-item"><div class="q">生成したファビコンのファイル形式は何ですか？</div><div class="a">このツールはPNG形式で出力します。128px・32px・16pxのPNGをそれぞれダウンロードできます。PNGは透過に対応しファイルサイズも小さく、現在の主要ブラウザがファビコンとしてサポートしているため、そのままサイトに設置できます。</div></div>
+        <div class="faq-item"><div class="q">作成したファビコンのHTMLへの設置方法は？</div><div class="a">ダウンロードしたPNGをサイトに置き、headタグ内に「link rel=icon type=image/png href=/favicon-32.png」のように記述します。Appleのホーム画面用は「link rel=apple-touch-icon href=...」を追加します。生成処理はすべてブラウザ内で完結し、サーバーへは送信されません。</div></div>
+    </div>
     <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
