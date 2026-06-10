@@ -41,6 +41,10 @@
         .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
         table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
@@ -64,7 +68,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"印紙税額検索ツール","item":"https://www.devtools-japan.com/tool-57-stamp-duty/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"電子契約やPDFの契約書にも収入印紙は必要ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。クラウドサインやDocuSignなどの電子契約で締結し、紙の文書を作成しない場合は印紙税の課税対象外で収入印紙は不要です。例えば5,000万円の請負契約書は紙なら2万円の印紙が必要ですが、電子契約なら0円です。詳細は国税庁の見解をご確認ください。"}},{"@type":"Question","name":"領収書には何円から収入印紙が必要ですか？","acceptedAnswer":{"@type":"Answer","text":"領収書（第17号文書）は記載金額が5万円未満なら非課税で、5万円以上から印紙税がかかります。本ツールは文書の種類と記載金額を選ぶだけで必要な印紙税額を概算判定します。最新の税額や個別の判断は国税庁の資料や税務署でご確認ください。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"領収書には何円から収入印紙が必要ですか？","acceptedAnswer":{"@type":"Answer","text":"領収書（第17号文書）は記載金額が5万円未満なら非課税で、5万円以上から印紙税がかかります。5万円〜100万円は200円、100万円超〜200万円は400円と、金額が上がるほど印紙税額も上がります。"}},{"@type":"Question","name":"5万円未満の領収書に印紙は必要ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。受取金額が5万円未満の領収書は非課税で、収入印紙は不要です。2014年4月の改正で、それまでの3万円未満から5万円未満に引き上げられました。"}},{"@type":"Question","name":"クレジットカード払いの領収書に収入印紙は必要ですか？","acceptedAnswer":{"@type":"Answer","text":"クレジットカード利用であることを領収書に明記していれば、金銭の受領に当たらないため収入印紙は不要です。一方、クレジット払いと記載がない場合は現金受領とみなされ、課税対象になることがあります。"}},{"@type":"Question","name":"電子契約やPDFの契約書にも収入印紙は必要ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。クラウドサインやDocuSignなどの電子契約で締結し、紙の文書を作成しない場合は印紙税の課税対象外で収入印紙は不要です。例えば5,000万円の請負契約書は紙なら2万円の印紙が必要ですが、電子契約なら0円です。"}},{"@type":"Question","name":"収入印紙を貼り忘れるとどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"収入印紙の貼り忘れは印紙税の納付漏れとなり、原則として本来の印紙税額の3倍（自主的に申し出た場合は1.1倍）の過怠税が課されます。契約自体が無効になるわけではありませんが、税務上のペナルティに注意が必要です。"}}]}
     </script>
 </head>
 <body>
@@ -118,6 +122,40 @@
         <p>電子契約（クラウドサイン、DocuSign等）で締結した契約書には印紙税がかかりません。高額な契約では電子契約に切り替えることで大幅なコスト削減が可能です。例えば5,000万円の請負契約書の場合、紙の契約書なら2万円の印紙が必要ですが、電子契約なら0円です。</p>
         <h3>行政書士・経理の方へ</h3>
         <p>契約書の作成・チェック業務で「この金額ならいくらの印紙？」を即座に確認できます。すべてブラウザ上で動作し、データがサーバーに送信されることはありません。</p>
+    </div>
+
+    <!-- TODO要確認: 第1号(不動産譲渡)・第2号(建設工事請負)契約書は租税特別措置法による軽減税率の対象期間が延長されている可能性あり。本表・本ツールは本則税率を掲載。最新の税額・軽減措置は国税庁「No.7140 印紙税額の一覧表」 https://www.nta.go.jp/taxes/shiraberu/taxanswer/inshi/7140.htm で要確認 -->
+    <div class="seo-content">
+        <h2>領収書（第17号文書）の印紙税額 早見表</h2>
+        <p>「領収書はいくらから収入印紙が必要？」を一目で確認できる早見表です。売上代金の受取書（領収書）は記載金額が5万円未満なら非課税で、5万円以上から印紙税がかかります。下表は本ツールと同じ判定基準（国税庁の本則税率）です。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>受取金額</th><th>印紙税額</th></tr>
+            <tr><td>5万円未満</td><td>非課税</td></tr>
+            <tr><td>5万円〜100万円</td><td>200円</td></tr>
+            <tr><td>100万円超〜200万円</td><td>400円</td></tr>
+            <tr><td>200万円超〜300万円</td><td>600円</td></tr>
+            <tr><td>300万円超〜500万円</td><td>1,000円</td></tr>
+            <tr><td>500万円超〜1,000万円</td><td>2,000円</td></tr>
+            <tr><td>1,000万円超〜2,000万円</td><td>4,000円</td></tr>
+            <tr><td>2,000万円超〜3,000万円</td><td>6,000円</td></tr>
+            <tr><td>3,000万円超〜5,000万円</td><td>10,000円</td></tr>
+            <tr><td>5,000万円超〜1億円</td><td>20,000円</td></tr>
+            <tr><td>金額の記載なし</td><td>200円</td></tr>
+            <tr><td>営業に関しないもの</td><td>非課税</td></tr>
+        </table>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text3)">※ 国税庁「No.7140 印紙税額の一覧表」に基づく本則税率です。個人間の取引など営業に関しない受取書は非課税です。最新の税額・個別判断は国税庁または税務署でご確認ください。</p>
+
+        <h3>収入印紙が不要になるケース</h3>
+        <p>収入印紙が不要なのは、(1)領収書の金額が5万円未満のとき、(2)クレジットカード払いで「クレジット利用」と明記された領収書（金銭の受取に当たらないため）、(3)電子契約・電子領収書など紙の文書を作成しないとき、(4)営業に関しない個人間の受取書、などです。とくに電子契約は高額契約ほど印紙税の節約効果が大きくなります。</p>
+
+        <h2 style="margin-top:24px">よくある質問</h2>
+        <div class="faq-item"><div class="q">領収書には何円から収入印紙が必要ですか？</div><div class="a">領収書（第17号文書）は記載金額が5万円未満なら非課税で、5万円以上から印紙税がかかります。5万円〜100万円は200円、100万円超〜200万円は400円と、金額が上がるほど印紙税額も上がります。</div></div>
+        <div class="faq-item"><div class="q">5万円未満の領収書に印紙は必要ですか？</div><div class="a">いいえ。受取金額が5万円未満の領収書は非課税で、収入印紙は不要です。2014年4月の改正で、それまでの3万円未満から5万円未満に引き上げられました。</div></div>
+        <div class="faq-item"><div class="q">クレジットカード払いの領収書に収入印紙は必要ですか？</div><div class="a">クレジットカード利用であることを領収書に明記していれば、金銭の受領に当たらないため収入印紙は不要です。一方、クレジット払いと記載がない場合は現金受領とみなされ、課税対象になることがあります。</div></div>
+        <div class="faq-item"><div class="q">電子契約やPDFの契約書にも収入印紙は必要ですか？</div><div class="a">いいえ。クラウドサインやDocuSignなどの電子契約で締結し、紙の文書を作成しない場合は印紙税の課税対象外で収入印紙は不要です。例えば5,000万円の請負契約書は紙なら2万円の印紙が必要ですが、電子契約なら0円です。</div></div>
+        <div class="faq-item"><div class="q">収入印紙を貼り忘れるとどうなりますか？</div><div class="a">収入印紙の貼り忘れは印紙税の納付漏れとなり、原則として本来の印紙税額の3倍（自主的に申し出た場合は1.1倍）の過怠税が課されます。契約自体が無効になるわけではありませんが、税務上のペナルティに注意が必要です。</div></div>
     </div>
 
         <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
