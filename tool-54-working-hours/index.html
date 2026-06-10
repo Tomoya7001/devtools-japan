@@ -14,8 +14,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>残業代計算ツール | 時給・月給から残業代・割増賃金を自動計算【無料】</title>
-    <meta name="description" content="残業代・割増賃金を自動計算する無料ツール。時給・月給から残業代を計算。時間外（25%）、深夜（25%）、休日（35%）の割増率に対応。社労士の労務管理、総務の給与計算に。">
+    <title>残業代計算ツール | 時給・月給から割増賃金を自動計算【割増率早見表付き・無料】</title>
+    <meta name="description" content="残業代・割増賃金を自動計算する無料ツール。時給・月給から残業代を計算。時間外25%・深夜25%・休日35%・月60時間超50%の割増率に対応。割増率早見表と計算例、よくある質問も掲載。社労士の労務管理、総務の給与計算に。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#dc2626;--accent-dim:rgba(220,38,38,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
@@ -41,6 +41,12 @@
         .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:center;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{font-family:'JetBrains Mono',monospace;color:var(--text)}.lookup-table td:first-child{font-family:'Noto Sans JP',sans-serif;text-align:left}.lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
         table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
@@ -61,7 +67,7 @@
     {"@context":"https://schema.org","@type":"WebApplication","name":"残業代計算ツール","description":"残業代・割増賃金を自動計算","url":"https://www.devtools-japan.com/tool-54-working-hours/","applicationCategory":"BusinessApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"残業代の計算方法は？","acceptedAnswer":{"@type":"Answer","text":"月給制の場合、時間単価（月給÷月の所定労働時間）に割増率を掛けます。時間外労働は25%増（×1.25）、深夜労働は25%増、休日労働は35%増（×1.35）です。"}},{"@type":"Question","name":"月60時間超の残業代は？","acceptedAnswer":{"@type":"Answer","text":"2023年4月から全企業で月60時間を超える時間外労働は50%以上の割増賃金が必要です。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"残業代の割増率は？","acceptedAnswer":{"@type":"Answer","text":"労働基準法により、時間外労働（法定労働時間を超える残業）の割増率は25%以上と定められています。基礎時給に1.25を掛けた額が1時間あたりの残業代です。たとえば時給1500円なら1500×1.25＝1875円になります。"}},{"@type":"Question","name":"深夜残業の割増は？","acceptedAnswer":{"@type":"Answer","text":"深夜労働（22時〜5時）は25%以上の割増が必要です。さらにその時間が時間外労働にも該当する場合は、時間外25%と深夜25%が合算され、合計50%以上の割増になります。時給1500円なら1500×1.50＝2250円です。"}},{"@type":"Question","name":"法定休日の割増は？","acceptedAnswer":{"@type":"Answer","text":"法定休日労働の割増率は35%以上です。基礎時給に1.35を掛けます。時給1500円なら1500×1.35＝2025円。深夜（22時〜5時）と重なる場合は休日35%＋深夜25%で60%以上となり、1500×1.60＝2400円になります。"}},{"@type":"Question","name":"月60時間超の残業は？","acceptedAnswer":{"@type":"Answer","text":"2023年4月から中小企業を含む全ての企業で、月60時間を超える時間外労働は50%以上の割増賃金が必要です。60時間を超えた分は基礎時給に1.50を掛けます。時給1500円なら1500×1.50＝2250円です。"}},{"@type":"Question","name":"基礎時給はどう計算する？","acceptedAnswer":{"@type":"Answer","text":"月給制の場合、基礎時給＝月給÷月平均所定労働時間で求めます。たとえば月給24万円で月平均所定労働時間が160時間なら、240000÷160＝1500円が基礎時給です。割増賃金はこの基礎時給に各割増率を掛けて計算します。"}}]}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"残業代計算ツール","item":"https://www.devtools-japan.com/tool-54-working-hours/"}]}
@@ -118,6 +124,37 @@
         <p>2023年4月から、中小企業でも月60時間を超える時間外労働に対して50%以上の割増賃金が必要になりました。従来は大企業のみが対象でしたが、全ての企業に適用されています。</p>
         <h3>こんな場面で使えます</h3>
         <p>給与計算担当者の検算、社労士の労務管理、従業員の残業代確認、未払い残業代の概算計算など。すべてブラウザ上で計算され、データがサーバーに送信されることはありません。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>残業代（割増賃金）の計算方法</h2>
+        <p>残業代は労働基準法に基づく「割増賃金」として計算します。基本となるのが基礎時給で、月給制の場合は <strong>基礎時給 ＝ 月給 ÷ 月平均所定労働時間</strong> で求めます。この基礎時給に、労働の種類に応じた割増率を掛けたものが1時間あたりの残業代になります。</p>
+        <p>労働基準法で定められた最低限の割増率は、時間外労働（法定労働時間を超える残業）が25%以上、深夜労働（22時〜5時）が25%以上、法定休日労働が35%以上です。これらは重複して発生することがあり、たとえば深夜にかかる時間外労働は時間外25%＋深夜25%で50%以上、深夜にかかる休日労働は休日35%＋深夜25%で60%以上の割増になります。さらに2023年4月からは、中小企業を含む全企業で月60時間を超える時間外労働に50%以上の割増賃金が義務づけられました。</p>
+
+        <h3>割増率の早見表</h3>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>労働の種類</th><th>割増率</th><th>計算式（係数）</th></tr></thead>
+            <tbody>
+                <tr><td>時間外労働</td><td class="acc">25%以上</td><td>基礎時給 × 1.25</td></tr>
+                <tr><td>時間外＋深夜</td><td class="acc">50%以上</td><td>基礎時給 × 1.50</td></tr>
+                <tr><td>法定休日労働</td><td class="acc">35%以上</td><td>基礎時給 × 1.35</td></tr>
+                <tr><td>休日＋深夜</td><td class="acc">60%以上</td><td>基礎時給 × 1.60</td></tr>
+                <tr><td>月60時間超の時間外</td><td class="acc">50%以上</td><td>基礎時給 × 1.50</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3>計算例</h3>
+        <p>基礎時給が1,500円の場合、1時間あたりの残業代は次のようになります。時間外労働は 1500×1.25＝<strong>1,875円</strong>、時間外＋深夜は 1500×1.50＝<strong>2,250円</strong>、法定休日労働は 1500×1.35＝<strong>2,025円</strong>、休日＋深夜は 1500×1.60＝<strong>2,400円</strong>、月60時間を超える時間外は 1500×1.50＝<strong>2,250円</strong> です。たとえば時間外労働を20時間行った場合の残業代は 1875×20＝37,500円となります。</p>
+        <p>月給制で月給24万円・月平均所定労働時間160時間なら、基礎時給は 240000÷160＝1,500円となり、上記の各係数を掛けて残業代を計算できます。基礎時給には基本給のほか役職手当などが含まれますが、通勤手当・家族手当・住宅手当・賞与などは原則として基礎時給の計算から除外されます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">残業代の割増率は？</div><div class="a">労働基準法により、時間外労働（法定労働時間を超える残業）の割増率は25%以上と定められています。基礎時給に1.25を掛けた額が1時間あたりの残業代です。たとえば時給1500円なら1500×1.25＝1875円になります。</div></div>
+        <div class="faq-item"><div class="q">深夜残業の割増は？</div><div class="a">深夜労働（22時〜5時）は25%以上の割増が必要です。さらにその時間が時間外労働にも該当する場合は、時間外25%と深夜25%が合算され、合計50%以上の割増になります。時給1500円なら1500×1.50＝2250円です。</div></div>
+        <div class="faq-item"><div class="q">法定休日の割増は？</div><div class="a">法定休日労働の割増率は35%以上です。基礎時給に1.35を掛けます。時給1500円なら1500×1.35＝2025円。深夜（22時〜5時）と重なる場合は休日35%＋深夜25%で60%以上となり、1500×1.60＝2400円になります。</div></div>
+        <div class="faq-item"><div class="q">月60時間超の残業は？</div><div class="a">2023年4月から中小企業を含む全ての企業で、月60時間を超える時間外労働は50%以上の割増賃金が必要です。60時間を超えた分は基礎時給に1.50を掛けます。時給1500円なら1500×1.50＝2250円です。</div></div>
+        <div class="faq-item"><div class="q">基礎時給はどう計算する？</div><div class="a">月給制の場合、基礎時給＝月給÷月平均所定労働時間で求めます。たとえば月給24万円で月平均所定労働時間が160時間なら、240000÷160＝1500円が基礎時給です。割増賃金はこの基礎時給に各割増率を掛けて計算します。</div></div>
     </div>
 
         <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
