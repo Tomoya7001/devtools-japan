@@ -15,7 +15,7 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>営業日計算ツール | 土日祝を除いた営業日数・納期計算【無料】</title>
-    <meta name="description" content="営業日（土日祝を除いた平日）を自動計算する無料ツール。「3営業日後は何日？」「この期間は何営業日？」を即回答。納期計算、届出期限、振込予定日の確認に。日本の祝日対応。">
+    <meta name="description" content="営業日（土日祝を除いた平日）を自動計算する無料ツール。「5営業日後は何日？」「この期間は何営業日？」を即回答。営業日の数え方・起算日・○営業日以内の意味も解説。納期計算、届出期限、振込予定日の確認に。日本の祝日対応。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#3b82f6;--accent-dim:rgba(59,130,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
@@ -41,6 +41,12 @@
         .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
         table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
@@ -61,7 +67,7 @@
     {"@context":"https://schema.org","@type":"WebApplication","name":"営業日計算ツール","description":"土日祝を除いた営業日数を計算","url":"https://www.devtools-japan.com/tool-51-business-day-calc/","applicationCategory":"BusinessApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"営業日とは？","acceptedAnswer":{"@type":"Answer","text":"営業日とは土曜日、日曜日、祝日（振替休日・国民の休日含む）を除いた平日のことです。ビジネスでは支払期限や届出期限が営業日ベースで設定されることが多くあります。"}},{"@type":"Question","name":"3営業日後の計算方法は？","acceptedAnswer":{"@type":"Answer","text":"基準日の翌日から数えて、土日祝を除いた3日目が該当日です。例えば金曜が基準日なら、翌月曜・火曜・水曜の3営業日後は水曜日になります。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"5営業日後はいつになりますか？","acceptedAnswer":{"@type":"Answer","text":"基準日の翌日から土日祝を除いて5日目が該当します。たとえば月曜日が基準日なら、火・水・木・金と進み、週末を飛ばして翌週月曜日が5営業日後です。途中に祝日があればさらに後ろへずれます。本ツールに基準日と「5」を入力すると正確な日付が表示されます。"}},{"@type":"Question","name":"営業日に祝日は含まれますか？","acceptedAnswer":{"@type":"Answer","text":"含まれません。営業日は土曜・日曜に加えて、国民の祝日・振替休日・国民の休日をすべて除いた平日のみを数えます。本ツールは日本の祝日データを内蔵しているため、祝日を自動で除外して計算します。"}},{"@type":"Question","name":"土日祝以外の休業日（年末年始やお盆）は反映されますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールは土曜・日曜・国民の祝日を基準に計算します。年末年始やお盆、会社独自の創立記念日などは法定の祝日ではないため自動では除外されません。これらを反映したい場合は、その日数を差し引いて結果を確認してください。"}},{"@type":"Question","name":"当日は営業日に数えますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールでは基準日（当日）は数えず、翌日以降の営業日からカウントします。契約や案内で「当日起算」と指定されている場合は、当日を1日目として数える点にご注意ください。起算日のルールは取引ごとに異なるため、事前の確認をおすすめします。"}},{"@type":"Question","name":"「○営業日以内」とはどういう意味ですか？","acceptedAnswer":{"@type":"Answer","text":"土日祝を除いた平日で数えて、その日数の範囲内に対応するという意味です。たとえば「3営業日以内に発送」であれば、注文日の翌営業日から数えて3営業日目までに発送される、という運用が一般的です。暦日とは異なるため、実際のカレンダー上では数日長くなることがあります。"}}]}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"営業日計算ツール","item":"https://www.devtools-japan.com/tool-51-business-day-calc/"}]}
@@ -102,6 +108,32 @@
         <p>このツールは日本の祝日データ（2020年〜2030年）を内蔵しています。春分の日・秋分の日の天文計算、振替休日、国民の休日にも正確に対応しているため、市販のカレンダーアプリよりも信頼性の高い営業日計算ができます。</p>
         <h3>こんな場面で使えます</h3>
         <p>経理部門の支払日計算、法務部門の届出期限管理、営業部門の納期回答、人事部門の手続き期限確認、士業（弁護士・司法書士・社労士）の申立期限計算など。すべてブラウザ上で動作し、データがサーバーに送信されることはありません。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>営業日の数え方</h2>
+        <p>営業日とは、土曜日・日曜日・祝日・年末年始などの休業日を除いた、企業や官公庁が通常稼働する平日のことを指します。納品物の受け渡しや支払いの期日が「○営業日以内」と定められている契約・取引は多く、暦日（カレンダー上の日数）で数えると期限を誤ってしまうため、土日祝を正しく除外して数える必要があります。たとえば請求書に「お振込は5営業日以内」と書かれている場合、その5日は土日祝を飛ばしてカウントするため、実際のカレンダー上では1週間以上先になることも珍しくありません。</p>
+        <p>営業日を数えるうえで特に重要なのが「起算日」の考え方です。起算日とは数え始める基準の日のことで、実務では基準日（当日）を含めずに翌営業日から数える方式が一般的です。たとえば金曜日を基準に「3営業日後」を求める場合、当日は数えず、翌週の月曜・火曜・水曜と進んで水曜日が答えになります。一方で「当日起算」と明記されている場合や、当日が営業日であれば当日を1日目として数える運用もあるため、契約書や案内文に起算日のルールが書かれているかを必ず確認しましょう。本ツールは基準日の翌日から数える方式で、土日祝を自動的に除外して結果日を算出します。</p>
+        <h3>営業日計算の活用シーン</h3>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>用途</th><th>具体例</th><th>営業日が関わる理由</th></tr></thead>
+            <tbody>
+                <tr><td>銀行振込の着金</td><td>振込から2〜3営業日後に着金</td><td>金融機関は土日祝が休業のため</td></tr>
+                <tr><td>書類の提出期限</td><td>申請から7営業日以内に提出</td><td>役所・取引先が稼働する平日で計算</td></tr>
+                <tr><td>ECの発送・配送</td><td>注文から3営業日以内に発送</td><td>倉庫・物流が休業日に止まるため</td></tr>
+                <tr><td>有給休暇の申請</td><td>取得日の5営業日前までに申請</td><td>社内の承認フローが平日進行のため</td></tr>
+                <tr><td>官公庁の手続き</td><td>受付から10営業日で交付</td><td>役所窓口が土日祝休みのため</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>このように、営業日計算は経理・総務・物流・人事など幅広い業務で使われます。基準日と営業日数を入力するだけで結果日と曜日が表示されるため、納期回答や期限管理の確認に手早くご利用いただけます。</p>
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">5営業日後はいつになりますか？</div><div class="a">基準日の翌日から土日祝を除いて5日目が該当します。たとえば月曜日が基準日なら、火・水・木・金と進み、週末を飛ばして翌週月曜日が5営業日後です。途中に祝日があればさらに後ろへずれます。本ツールに基準日と「5」を入力すると正確な日付が表示されます。</div></div>
+        <div class="faq-item"><div class="q">営業日に祝日は含まれますか？</div><div class="a">含まれません。営業日は土曜・日曜に加えて、国民の祝日・振替休日・国民の休日をすべて除いた平日のみを数えます。本ツールは日本の祝日データを内蔵しているため、祝日を自動で除外して計算します。</div></div>
+        <div class="faq-item"><div class="q">土日祝以外の休業日（年末年始やお盆）は反映されますか？</div><div class="a">本ツールは土曜・日曜・国民の祝日を基準に計算します。年末年始やお盆、会社独自の創立記念日などは法定の祝日ではないため自動では除外されません。これらを反映したい場合は、その日数を差し引いて結果を確認してください。</div></div>
+        <div class="faq-item"><div class="q">当日は営業日に数えますか？</div><div class="a">本ツールでは基準日（当日）は数えず、翌日以降の営業日からカウントします。契約や案内で「当日起算」と指定されている場合は、当日を1日目として数える点にご注意ください。起算日のルールは取引ごとに異なるため、事前の確認をおすすめします。</div></div>
+        <div class="faq-item"><div class="q">「○営業日以内」とはどういう意味ですか？</div><div class="a">土日祝を除いた平日で数えて、その日数の範囲内に対応するという意味です。たとえば「3営業日以内に発送」であれば、注文日の翌営業日から数えて3営業日目までに発送される、という運用が一般的です。暦日とは異なるため、実際のカレンダー上では数日長くなることがあります。</div></div>
     </div>
 
     <div class="ad-slot"></div>
