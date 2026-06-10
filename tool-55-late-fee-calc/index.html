@@ -15,7 +15,7 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>遅延損害金計算ツール | 法定利率・約定利率での遅延損害金を自動計算【無料】</title>
-    <meta name="description" content="未払い金の遅延損害金を自動計算する無料ツール。法定利率（民法3%）、商事法定利率、約定利率に対応。弁護士・司法書士の訴状作成、債権回収、内容証明郵便の金額計算に。">
+    <meta name="description" content="未払い金の遅延損害金を自動計算する無料ツール。計算式（元金×年率×日数÷365）、利率別の計算例、起算日・上限などのよくある質問も掲載。法定利率（変動制）・賃金14.6%・約定利率に対応。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#b45309;--accent-dim:rgba(180,83,9,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
@@ -48,6 +48,13 @@
         table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
         .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
         .btn:hover{opacity:0.9}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:center;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{font-family:'JetBrains Mono',monospace;color:var(--text)}.lookup-table td:first-child{font-family:'Noto Sans JP',sans-serif;text-align:left}.lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-55-late-fee-calc/">
     <meta property="og:title" content="遅延損害金計算 | 法定利率・約定利率で自動計算【無料】">
@@ -64,7 +71,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"遅延損害金計算ツール","item":"https://www.devtools-japan.com/tool-55-late-fee-calc/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"遅延損害金の法定利率は何パーセントで計算されますか？","acceptedAnswer":{"@type":"Answer","text":"2020年4月の民法改正で法定利率は年3%に統一され、本ツールも民法の法定利率として年3%を採用しています（3年ごとに見直される変動制で、2023年4月〜2026年3月は3%）。退職後の未払賃金には年14.6%、契約で定めた約定利率は手動入力にも対応しています。"}},{"@type":"Question","name":"このツールの計算結果はそのまま訴状や請求に使えますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールは元金×年利率×遅延日数÷365で算出する概算計算です。閏年を含む期間は本来365日と366日を分けて計算する必要があり、端数処理も場面で異なります。実際の訴状作成や請求の際は、弁護士・司法書士に正確な金額をご確認ください。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"遅延損害金の計算式は？","acceptedAnswer":{"@type":"Answer","text":"遅延損害金 ＝ 元金 × 年利率 × 遅延日数 ÷ 365 で計算します。年率を1年365日で日割りし、遅延した日数分を掛け合わせる形です。閏年を含む期間は本来365日分と366日分を分けますが、簡易計算では365日で按分します。"}},{"@type":"Question","name":"法定利率は何パーセントですか？","acceptedAnswer":{"@type":"Answer","text":"民法上の法定利率は2020年4月の改正で変動制となり、3年ごとに見直されます。本稿執筆時点ではおおむね年3%とされていますが、適用時期により変わる可能性があるため、契約で定めた率、なければ法定利率（変動制）の最新値を法務省やe-Govの公的情報でご確認ください。"}},{"@type":"Question","name":"遅延損害金の起算日はいつからですか？","acceptedAnswer":{"@type":"Answer","text":"原則として支払期日の翌日からです。支払期日当日は含めず、その翌日を遅延1日目として数えます。契約や合意により起算日が別途定められている場合は、その定めが優先されます。"}},{"@type":"Question","name":"遅延損害金と利息の違いは？","acceptedAnswer":{"@type":"Answer","text":"利息は、お金を借りている期間に対して支払う約定の対価です。一方の遅延損害金は、支払期日を過ぎても弁済しなかったことに対する損害賠償としての性質を持ちます。発生する場面と法的な位置づけが異なります。"}},{"@type":"Question","name":"遅延損害金に上限はありますか？","acceptedAnswer":{"@type":"Answer","text":"約定利率を定める場合でも、利息制限法などの規制を超える部分は無効となる場合があります。元本額に応じた上限（例: 年15%〜20%）が定められているため、これを超える利率は制限を受ける可能性があります。具体的な適用は専門家にご確認ください。"}}]}
     </script>
 </head>
 <body>
@@ -109,6 +116,35 @@
         <p>退職後の未払い賃金に対する遅延損害金は、賃金の支払の確保等に関する法律により年14.6%が適用されます（在職中は法定利率）。</p>
         <h3>計算式</h3>
         <p>遅延損害金 = 元金 x 年利率 x 遅延日数 ÷ 365 で計算します。閏年を含む期間の場合、正確には365日と366日を分けて計算する必要がありますが、このツールでは簡易的に365日で計算しています。</p>
+    </div>
+
+    <!-- # TODO要確認: 現行の法定利率は法務省/e-Govで要確認（本稿執筆時点 年3%） -->
+    <div class="seo-content">
+        <h2>遅延損害金の計算方法</h2>
+        <p>遅延損害金とは、金銭債務の支払いが期日までに行われなかった場合に、債務者が債権者へ支払う損害賠償金のことです。基本となる計算式は次のとおりで、本ツールも同じ式で算出しています。</p>
+        <p><strong>遅延損害金 ＝ 元金 × 年利率 × 遅延日数 ÷ 365</strong></p>
+        <p>遅延日数の起算日は、原則として支払期日の「翌日」からとなります。たとえば支払期日が月末で、その日のうちに支払いがなされなかった場合、翌日が遅延1日目です。年利率には、当事者間の契約で定めた率（約定利率）があればそれが優先され、定めがなければ法定利率（変動制）が用いられます。年率を日割りにするため、1年を365日として日数で按分する点がポイントです。閏年を含む期間は、本来365日分と366日分を分けて計算する必要がありますが、簡易計算では365日で割って概算します。端数の扱い（円未満の切り捨て・四捨五入など）は場面により異なるため、最終的な請求額は専門家への確認をおすすめします。</p>
+
+        <h3>利率別の計算例</h3>
+        <p>元金100万円を例に、年率（民法の法定利率を想定した3%・改正前の商事利率6%・賃金確保法の14.6%）と遅延日数を組み合わせた遅延損害金の概算を示します。いずれも上記の式（元金 × 年率 × 日数 ÷ 365、円未満切り捨て）で計算した値です。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>年利率</th><th>30日</th><th>90日</th><th>180日</th></tr></thead>
+            <tbody>
+                <tr><td>3%</td><td class="acc">2,465円</td><td class="acc">7,397円</td><td class="acc">14,794円</td></tr>
+                <tr><td>6%</td><td class="acc">4,931円</td><td class="acc">14,794円</td><td class="acc">29,589円</td></tr>
+                <tr><td>14.6%</td><td class="acc">12,000円</td><td class="acc">36,000円</td><td class="acc">72,000円</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>たとえば元金100万円・年率3%・遅延90日であれば、1,000,000 × 0.03 × 90 ÷ 365 ＝ 7,397円（円未満切り捨て）となります。元金や利率が変われば金額も比例して変化するため、実際の数値は上部の計算機に入力してご確認ください。なお、民法上の法定利率は2020年4月施行の改正で変動制となり、3年ごとに見直されます。執筆時点では年3%とされていますが、適用時期によって異なる可能性があるため、契約で定めた率、なければ法定利率（変動制）の最新値を法務省やe-Govの公的情報でご確認ください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">遅延損害金の計算式は？</div><div class="a">遅延損害金 ＝ 元金 × 年利率 × 遅延日数 ÷ 365 で計算します。年率を1年365日で日割りし、遅延した日数分を掛け合わせる形です。閏年を含む期間は本来365日分と366日分を分けますが、簡易計算では365日で按分します。</div></div>
+        <div class="faq-item"><div class="q">法定利率は何パーセントですか？</div><div class="a">民法上の法定利率は2020年4月の改正で変動制となり、3年ごとに見直されます。本稿執筆時点ではおおむね年3%とされていますが、適用時期により変わる可能性があるため、契約で定めた率、なければ法定利率（変動制）の最新値を法務省やe-Govの公的情報でご確認ください。</div></div>
+        <div class="faq-item"><div class="q">遅延損害金の起算日はいつからですか？</div><div class="a">原則として支払期日の翌日からです。支払期日当日は含めず、その翌日を遅延1日目として数えます。契約や合意により起算日が別途定められている場合は、その定めが優先されます。</div></div>
+        <div class="faq-item"><div class="q">遅延損害金と利息の違いは？</div><div class="a">利息は、お金を借りている期間に対して支払う約定の対価です。一方の遅延損害金は、支払期日を過ぎても弁済しなかったことに対する損害賠償としての性質を持ちます。発生する場面と法的な位置づけが異なります。</div></div>
+        <div class="faq-item"><div class="q">遅延損害金に上限はありますか？</div><div class="a">約定利率を定める場合でも、利息制限法などの規制を超える部分は無効となる場合があります。元本額に応じた上限（例: 年15%〜20%）が定められているため、これを超える利率は制限を受ける可能性があります。具体的な適用は専門家にご確認ください。</div></div>
     </div>
 
         <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
