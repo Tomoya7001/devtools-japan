@@ -13,8 +13,8 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SQLフォーマッター | DevTools Japan</title>
-    <meta name="description" content="SQL文を見やすくインデント整形。SELECT・JOIN・WHERE句を自動フォーマット。複雑なクエリの可読性向上に。">
+    <title>SQLフォーマッター｜SQL整形・インデント・キーワード大文字化（無料・ブラウザ完結） | DevTools Japan</title>
+    <meta name="description" content="SQL文を見やすくインデント整形する無料ツール。SELECT・FROM・WHERE・JOIN・GROUP BY・ORDER BY句を自動で改行・インデントし、キーワードを大文字化。MySQL・PostgreSQL等のクエリに対応。整形結果はコピー可能。ブラウザ完結でサーバーに送信しません。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#0ea5e9;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
@@ -27,6 +27,14 @@
         
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700;font-family:'JetBrains Mono',monospace}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -45,7 +53,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"SQLフォーマッター","item":"https://www.devtools-japan.com/tool-49-sql-formatter/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"MySQLやPostgreSQLのSQLも整形できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。標準SQL（ANSI SQL）のキーワードを基準に整形するため、MySQL・PostgreSQL・SQLite・SQL Serverなど主要なRDBMSのSELECTやJOINを含むクエリを見やすくインデントできます。ブラウザ上で動作し、入力したSQLがサーバーに送信されることはありません。"}},{"@type":"Question","name":"整形したSQLをそのままコピーして使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。整形結果の下のコピーボタンで整形済みSQLをクリップボードにコピーでき、エディタやSQLクライアントにそのまま貼り付けられます。キーワードの改行とインデントを加えるだけで、クエリ自体の意味は変えません。登録不要・無料です。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"MySQLやPostgreSQLのSQLも整形できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。標準SQL（ANSI SQL）のキーワードを基準に整形するため、MySQL・PostgreSQL・SQLite・SQL Serverなど主要なRDBMSのSELECT・JOIN・WHERE・GROUP BY等を含むクエリを見やすくインデントできます。特定の方言専用の機能ではなく、共通キーワードに改行とインデントを加える仕組みです。"}},{"@type":"Question","name":"整形したSQLをそのままコピーできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。整形結果の上にあるコピーボタンを押すと、整形済みSQLがクリップボードにコピーされ「コピーしました」と表示されます。エディタやSQLクライアントにそのまま貼り付けられます。改行とインデントを加えるだけで、クエリの意味は変わりません。"}},{"@type":"Question","name":"大文字・小文字は変換されますか？","acceptedAnswer":{"@type":"Answer","text":"SELECTやFROM、JOINなどのSQLキーワードは、入力時に小文字や混在で書いても整形時にすべて大文字へ統一されます。一方でテーブル名・カラム名・文字列リテラルなどキーワード以外の部分は、入力した大文字・小文字がそのまま保持されます。"}},{"@type":"Question","name":"圧縮（1行化）もできますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。このツールはキーワードでの改行とインデントを加える整形（見やすくする方向）に特化しており、改行を取り除いて1行に圧縮するミニファイ機能はありません。1行化したい場合は別途エディタの置換機能などをご利用ください。"}},{"@type":"Question","name":"入力したSQLはサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。整形処理はすべてブラウザ内のJavaScriptで完結し、入力したSQLが外部サーバーへ送信・保存されることはありません。社内システムや本番データベースのクエリも安心して整形できます。登録不要・無料で利用できます。"}}]}
     </script>
 </head>
 <body>
@@ -65,6 +73,58 @@
         <h3>対応するSQL方言</h3>
         <p>標準SQL（ANSI SQL）に対応しています。MySQL、PostgreSQL、SQLite、SQL Serverなど、主要なRDBMSのSQLを整形できます。</p>
         </div>
+
+    <div class="seo-content">
+        <h2>SQLフォーマット（整形）とは</h2>
+        <p>SQLフォーマット（整形）とは、1行や不揃いに書かれたSQL文に対し、SELECT・FROM・WHERE・JOIN・GROUP BY・ORDER BYといった主要キーワードの前で改行を入れ、節（句）ごとにインデントを付けて構造を見やすくする処理です。SQLは改行や空白の有無に関係なく同じ結果を返すため、整形してもクエリの意味や実行結果は変わりません。あくまで「人間が読みやすい形」に整える、見た目だけの調整です。</p>
+        <p>整形が役立つ場面は主に3つあります。1つ目は<strong>可読性</strong>です。複数テーブルのJOINや長いWHERE条件、サブクエリを含むSQLは、1行のままだとどこからどこまでが1つの節なのか把握しづらく、整形によってクエリ全体の骨格が一目で追えるようになります。2つ目は<strong>コードレビュー</strong>です。節ごとに改行・インデントされていると、JOINの結合条件の抜けやWHERE句の論理ミス、不要なカラムの混入などを発見しやすくなり、レビューの質と速度が上がります。3つ目は<strong>デバッグ</strong>です。意図しない結果を返すクエリを調べる際、整形されたSQLは条件を1つずつコメントアウトして切り分けるといった作業がしやすく、原因の特定が容易になります。</p>
+        <p>このツールはブラウザ内のJavaScriptだけで整形を行うため、入力したSQLは外部に送信されません。整形結果はコピーボタンでそのまま取得でき、エディタやSQLクライアントに貼り付けて利用できます。</p>
+
+        <h3>主なキーワードの整形ルール</h3>
+        <p>本ツールは、あらかじめ登録された主要なSQLキーワードを検出し、その直前で改行します。検出したキーワードは入力時の大文字・小文字にかかわらずすべて大文字へ統一されます。また、カンマ区切りのカラムリストはカンマの後で改行し、インデントを付けて並べます。代表的なキーワードの扱いは次のとおりです。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>キーワード</th><th>整形時の扱い</th><th>役割</th></tr></thead>
+            <tbody>
+                <tr><td class="acc">SELECT</td><td>直前で改行・大文字化</td><td>取得するカラムの指定</td></tr>
+                <tr><td class="acc">FROM</td><td>直前で改行・大文字化</td><td>対象テーブルの指定</td></tr>
+                <tr><td class="acc">WHERE</td><td>直前で改行・大文字化</td><td>絞り込み条件</td></tr>
+                <tr><td class="acc">INNER / LEFT / RIGHT JOIN</td><td>直前で改行・大文字化</td><td>テーブルの結合</td></tr>
+                <tr><td class="acc">ON</td><td>直前で改行・大文字化</td><td>結合条件の指定</td></tr>
+                <tr><td class="acc">AND / OR</td><td>直前で改行・大文字化</td><td>条件の連結</td></tr>
+                <tr><td class="acc">GROUP BY</td><td>直前で改行・大文字化</td><td>集計のグループ化</td></tr>
+                <tr><td class="acc">HAVING</td><td>直前で改行・大文字化</td><td>集計後の絞り込み</td></tr>
+                <tr><td class="acc">ORDER BY</td><td>直前で改行・大文字化</td><td>並び順の指定</td></tr>
+                <tr><td class="acc">LIMIT</td><td>直前で改行・大文字化</td><td>取得件数の制限</td></tr>
+                <tr><td class="acc">, （カンマ）</td><td>直後で改行＋インデント</td><td>カラムリストの区切り</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>このほか INSERT INTO・VALUES・UPDATE・SET・DELETE FROM・CREATE TABLE・UNION・CASE / WHEN / THEN / ELSE / END・DISTINCT・IN・LIKE・BETWEEN・EXISTS などのキーワードも検出・大文字化の対象です。テーブル名・カラム名・文字列リテラルといったキーワード以外の部分は、入力した大文字・小文字がそのまま保持されます。</p>
+
+        <h3>対応するSQL方言の目安</h3>
+        <p>特定の方言専用ではなく、標準SQL（ANSI SQL）の共通キーワードを基準に整形するため、主要なRDBMSのクエリに利用できます。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>SQL方言 / RDBMS</th><th>整形の可否</th><th>備考</th></tr></thead>
+            <tbody>
+                <tr><td>MySQL / MariaDB</td><td class="acc">対応</td><td>SELECT・JOIN等の共通キーワードを整形</td></tr>
+                <tr><td>PostgreSQL</td><td class="acc">対応</td><td>標準SQLベースのクエリを整形</td></tr>
+                <tr><td>SQLite</td><td class="acc">対応</td><td>SELECT中心のクエリに有効</td></tr>
+                <tr><td>SQL Server (T-SQL)</td><td class="acc">対応</td><td>共通キーワードの範囲で整形</td></tr>
+                <tr><td>Oracle (PL/SQL)</td><td class="acc">対応</td><td>共通キーワードの範囲で整形</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>いずれも、各方言に固有の構文を解析するわけではなく、共通するキーワードへの改行・インデント・大文字化を行う点にご留意ください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">MySQLやPostgreSQLのSQLも整形できますか？</div><div class="a">はい。標準SQL（ANSI SQL）のキーワードを基準に整形するため、MySQL・PostgreSQL・SQLite・SQL ServerなどのSELECT・JOIN・WHERE・GROUP BY等を含むクエリを見やすくインデントできます。特定の方言専用の機能ではなく、共通キーワードに改行とインデントを加える仕組みです。</div></div>
+        <div class="faq-item"><div class="q">整形したSQLをコピーできますか？</div><div class="a">はい。整形結果の上にあるコピーボタンを押すと、整形済みSQLがクリップボードにコピーされ「コピーしました」と表示されます。エディタやSQLクライアントにそのまま貼り付けられます。改行とインデントを加えるだけで、クエリの意味は変わりません。</div></div>
+        <div class="faq-item"><div class="q">大文字・小文字は変換されますか？</div><div class="a">SELECTやFROM、JOINなどのSQLキーワードは、入力時に小文字や混在で書いても整形時にすべて大文字へ統一されます。一方でテーブル名・カラム名・文字列リテラルなどキーワード以外の部分は、入力した大文字・小文字がそのまま保持されます。</div></div>
+        <div class="faq-item"><div class="q">圧縮（1行化）もできますか？</div><div class="a">いいえ。このツールはキーワードでの改行とインデントを加える整形（見やすくする方向）に特化しており、改行を取り除いて1行に圧縮するミニファイ機能はありません。1行化したい場合は別途エディタの置換機能などをご利用ください。</div></div>
+        <div class="faq-item"><div class="q">入力したSQLは送信されますか？</div><div class="a">いいえ。整形処理はすべてブラウザ内のJavaScriptで完結し、入力したSQLが外部サーバーへ送信・保存されることはありません。社内システムや本番データベースのクエリも安心して整形できます。登録不要・無料で利用できます。</div></div>
+    </div>
     <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
