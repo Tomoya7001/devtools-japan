@@ -14,8 +14,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSV ⇔ JSON変換ツール | CSVとJSONを相互変換</title>
-    <meta name="description" content="CSVとJSONを相互変換するオンラインツール。ファイルアップロードにも対応。データ加工・API連携に便利。">
+    <title>CSV ⇔ JSON変換ツール | CSVとJSONを相互変換・ヘッダーがキーに</title>
+    <meta name="description" content="CSVとJSONを双方向で相互変換する無料オンラインツール。CSVのヘッダー行がJSONのキーになる仕組みや、ExcelのCSV変換、JSON→CSVの逆変換に対応。ブラウザ内で完結しサーバー送信なし。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#0ea5e9;--accent-dim:rgba(14,165,233,0.1);--radius:12px}
@@ -42,6 +42,14 @@
         .error-bar{padding:10px 16px;background:rgba(239,68,68,0.08);color:#ef4444;font-size:0.8rem;border-radius:8px;margin-bottom:16px;display:none}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text);font-family:'JetBrains Mono',monospace}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;font-weight:500;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -60,7 +68,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"CSV⇔JSON変換ツール","item":"https://www.devtools-japan.com/tool-13-csv-json/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"アップロードしたCSVファイルのデータは外部に送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ、変換はすべてブラウザ内で完結し、入力データやファイルがサーバーへ送信されることはありません。機密情報を含むデータも安全に変換できます。"}},{"@type":"Question","name":"CSVのヘッダー行はJSONのキーになりますか？","acceptedAnswer":{"@type":"Answer","text":"はい、CSVの1行目のヘッダーが各オブジェクトのキーに変換され、2行目以降が値となるオブジェクトの配列としてJSONを出力します。逆方向のJSONからCSVへの変換にも対応しています。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"CSVのヘッダー行はJSONのキーになりますか？","acceptedAnswer":{"@type":"Answer","text":"はい。CSV→JSON変換では、1行目（ヘッダー行）の各列名がそのままJSONオブジェクトのキーになります。2行目以降の各行が1つのオブジェクトとなり、それらをまとめたオブジェクトの配列としてJSONを出力します。"}},{"@type":"Question","name":"アップロードしたデータはサーバーに送られますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。変換処理はすべてお使いのブラウザ内のJavaScriptで実行され、入力したデータが外部のサーバーへ送信されることはありません。機密情報を含むデータでも安全に変換できます。"}},{"@type":"Question","name":"ExcelのCSVも変換できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。Excelや表計算ソフトから出力した一般的なカンマ区切りCSVをそのまま貼り付けて変換できます。タブ区切りではなくカンマ区切りで保存されていれば問題なく処理されます。"}},{"@type":"Question","name":"JSONからCSVへの逆変換もできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。本ツールは双方向に対応しています。上部の「JSON → CSV」に切り替えると、オブジェクトの配列形式のJSONをCSVに変換できます。各オブジェクトのキーがCSVのヘッダー行になります。"}},{"@type":"Question","name":"カンマを含むデータはどう扱われますか？","acceptedAnswer":{"@type":"Answer","text":"JSON→CSV変換では、値の文字列にカンマが含まれる場合、その値はダブルクォートで囲んで出力されます。一方CSV→JSON変換では値をカンマで区切って解釈するため、引用符で囲んだ中にカンマを含むデータは正しく分割されない場合があります。区切りと衝突しない形に整えてご利用ください。"}}]}
     </script>
 </head>
 <body>
@@ -95,6 +103,30 @@
         <p>CSVの1行目をヘッダー（キー名）として使用し、2行目以降をオブジェクトの配列に変換します。タブ区切り（TSV）にも対応しています。</p>
         <h3>JSON→CSV変換</h3>
         <p>JSON配列をCSV形式に変換します。ネストされたオブジェクトはフラットに展開されます。変換結果はコピーまたはダウンロードできます。すべてブラウザ内で処理されます。</p>
+        </div>
+    <div class="seo-content">
+        <h2>CSVとJSONの違いと相互変換</h2>
+        <p>CSV（Comma-Separated Values）は、値をカンマで区切って並べた表形式のテキストデータです。1行が1レコードに対応し、列はカンマで区切られます。Excelや表計算ソフトとの相性がよく、人間が一覧として読みやすいのが特徴です。一方JSON（JavaScript Object Notation）は、キーと値の組み合わせや配列を入れ子にできる階層構造を持つデータ形式で、Webアプリケーションやプログラム間のデータ交換で広く使われます。</p>
+        <p>CSVは平坦な表（行と列）しか表現できないのに対し、JSONはオブジェクトの中にオブジェクトや配列をネストでき、より複雑な構造を表現できます。両者を相互変換する必要が生じるのは、たとえばExcelで作成・編集したCSVをプログラムやAPIに取り込みたいとき、あるいはAPIから返ってきたJSONレスポンスをCSVに変換して表計算ソフトで集計・分析したいときです。本ツールはCSV→JSON、JSON→CSVの双方向に対応し、変換はすべてブラウザ内で完結します。</p>
+        <h3>CSVとJSONの変換例（ヘッダーがキーになる仕組み）</h3>
+        <p>CSVの1行目（ヘッダー行）の各列名が、JSONでは各オブジェクトのキーになります。2行目以降の各行が、1つのオブジェクトとして配列にまとめられます。下表は <code>name,age</code> の2列CSVと、それに対応するオブジェクト配列JSONの対応です。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>CSV（入力）</th><th>JSON（出力）</th><th>対応関係</th></tr></thead>
+            <tbody>
+                <tr><td class="acc">name,age</td><td>キー: name / age</td><td>1行目＝キー</td></tr>
+                <tr><td>Alice,30</td><td>{"name":"Alice","age":30}</td><td>2行目＝1件目</td></tr>
+                <tr><td>Bob,25</td><td>{"name":"Bob","age":25}</td><td>3行目＝2件目</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>上記CSV全体は、JSONでは <code>[{"name":"Alice","age":30},{"name":"Bob","age":25}]</code> というオブジェクトの配列になります。数値のように見える値（30, 25 など）は自動的に数値として扱われ、それ以外は文字列になります。</p>
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">CSVのヘッダー行はJSONのキーになりますか？</div><div class="a">はい。CSV→JSON変換では、1行目（ヘッダー行）の各列名がそのままJSONオブジェクトのキーになります。2行目以降の各行が1つのオブジェクトとなり、それらをまとめたオブジェクトの配列としてJSONを出力します。</div></div>
+        <div class="faq-item"><div class="q">アップロードしたデータはサーバーに送られますか？</div><div class="a">いいえ。変換処理はすべてお使いのブラウザ内のJavaScriptで実行され、入力したデータが外部のサーバーへ送信されることはありません。機密情報を含むデータでも安全に変換できます。</div></div>
+        <div class="faq-item"><div class="q">ExcelのCSVも変換できますか？</div><div class="a">はい。Excelや表計算ソフトから出力した一般的なカンマ区切りCSVをそのまま貼り付けて変換できます。タブ区切りではなくカンマ区切りで保存されていれば問題なく処理されます。</div></div>
+        <div class="faq-item"><div class="q">JSONからCSVへの逆変換もできますか？</div><div class="a">はい。本ツールは双方向に対応しています。上部の「JSON → CSV」に切り替えると、オブジェクトの配列形式のJSONをCSVに変換できます。各オブジェクトのキーがCSVのヘッダー行になります。</div></div>
+        <div class="faq-item"><div class="q">カンマを含むデータはどう扱われますか？</div><div class="a">JSON→CSV変換では、値の文字列にカンマが含まれる場合、その値はダブルクォートで囲んで出力されます。一方CSV→JSON変換では値をカンマで区切って解釈するため、引用符で囲んだ中にカンマを含むデータは正しく分割されない場合があります。区切りと衝突しない形に整えてご利用ください。</div></div>
         </div>
     <div class="ad-slot" style="display:none"></div>
     
