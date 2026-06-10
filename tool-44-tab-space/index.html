@@ -13,8 +13,8 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>タブ⇔スペース変換 | DevTools Japan</title>
-    <meta name="description" content="タブとスペースの相互変換ツール。インデント幅（2/4/8スペース）を指定して一括変換。コーディング規約の統一に便利。">
+    <title>タブ⇔スペース変換 | インデント一括変換 | DevTools Japan</title>
+    <meta name="description" content="タブとスペースの相互変換ツール。インデント幅（2/4/8スペース）を指定して一括変換。Python（スペース4）・Go（タブ）・JavaScript（スペース2）など言語の規約に合わせたインデント統一に。ブラウザ完結・無料。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#10b981;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
@@ -27,6 +27,14 @@
         
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -45,7 +53,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"タブ⇔スペース変換ツール","item":"https://www.devtools-japan.com/tool-44-tab-space/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"タブ何個分のスペースに変換できますか？","acceptedAnswer":{"@type":"Answer","text":"インデント幅を2・4・8スペースから選べます。Tab→Spaceでタブを指定数のスペースに、Space→Tabで指定数のスペースをタブに一括変換でき、コーディング規約に合わせてインデントを統一できます。"}},{"@type":"Question","name":"変換したコードはサーバーにアップロードされますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。変換はすべてブラウザ内のJavaScriptで処理され、入力したコードがサーバーに送信されることはありません。登録不要・無料で、機密性の高いソースコードのインデント変換も安心して行えます。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"タブ何個分のスペースに変換できますか？","acceptedAnswer":{"@type":"Answer","text":"インデント幅を2・4・8スペースから選べます。Tab→Spaceでタブ1つを指定したスペース数（2／4／8）に置き換え、Space→Tabで指定数ぶんのスペースをタブ1つに一括変換できます。コーディング規約に合わせてインデント幅を統一したいときに便利です。"}},{"@type":"Question","name":"タブとスペースのどちらを使うべきですか？","acceptedAnswer":{"@type":"Answer","text":"どちらが正しいという絶対的な答えはなく、使用する言語やチームの規約に従うのが基本です。たとえばGoはタブが標準、Pythonはスペース4、JavaScriptやRubyはスペース2が広く使われています。プロジェクトの既存コードや設定（.editorconfigなど）に合わせて統一することが最も重要です。"}},{"@type":"Question","name":"Pythonのインデントはタブとスペースどちらですか？","acceptedAnswer":{"@type":"Answer","text":"Pythonの公式スタイルガイドPEP8ではスペース4つによるインデントが推奨されています。タブとスペースを混在させるとエラーの原因になるため、このツールでTab→Spaceを選びスペース数4で変換すると、PEP8に沿ったインデントへ揃えられます。"}},{"@type":"Question","name":"変換したコードはサーバーにアップロードされますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。変換はすべてブラウザ内のJavaScriptで処理され、入力したコードがサーバーに送信されることはありません。登録不要・無料で、機密性の高いソースコードのインデント変換も安心して行えます。"}},{"@type":"Question","name":"既存コードのインデントを一括変換できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。入力欄にコード全体を貼り付けてTab→SpaceまたはSpace→Tabを押すと、テキスト内のすべてのタブまたは指定数のスペースをまとめて置き換えます。他の開発者から受け取ったコードを自分のエディタ設定に合わせる際にも一括で変換できます。"}}]}
     </script>
 </head>
 <body>
@@ -68,6 +76,34 @@
         <h3>一括変換</h3>
         <p>コード全体のインデントを一括で変換できるため、他の開発者から受け取ったコードのインデントを自分のエディタ設定に合わせる際に便利です。</p>
         </div>
+    <div class="seo-content">
+        <h2>タブとスペースのインデント</h2>
+        <p>ソースコードの行頭をどれだけ字下げするか（インデント）を表現する方法には、タブ文字（Tab）を使う流儀とスペース（空白文字）を使う流儀があります。タブは1文字でひとつの階層を表し、表示幅はエディタの設定で2・4・8文字などに変えられます。一方スペースは「半角空白を何個並べるか」で字下げを表すため、どの環境でも同じ見た目になりやすいのが特徴です。この違いはコードの動作には影響しませんが、見た目やファイルサイズ、差分（diff）の出方に関わるため、どちらかに統一するのが一般的です。</p>
+        <p>変換が必要になる場面は大きく2つあります。ひとつはチームでコーディング規約を統一するときです。ある人はタブ、ある人はスペースでコミットしてしまうと、見た目の階層がずれたりGitの差分が無意味に大きくなったりします。もうひとつは、Webサイトやドキュメントからコードを貼り付けたときのインデントのズレ修正です。コピー元がタブ、貼り付け先がスペース前提だと階層が崩れて見えるため、本ツールでまとめて変換すると整います。</p>
+        <p>このツールでは、Tab→Spaceでタブ文字を指定したスペース数（2・4・8から選択、初期値は4）に置き換え、Space→Tabで指定数ぶんの連続したスペースをタブ文字に戻します。コード全体を貼り付けて一括で変換でき、処理はすべてお使いのブラウザ内で完結します。入力したコードがサーバーへ送信されることはないため、社内コードなど機密性の高いソースのインデント変換も安心して行えます。</p>
+        <h3>言語別のインデント慣習</h3>
+        <p>インデントにタブとスペースのどちらを使い、幅をいくつにするかは、言語ごとに広く知られた慣習があります。代表的なものを下表にまとめました。プロジェクトに既存のコードがある場合は、まずそのスタイルやエディタ設定（.editorconfigなど）に合わせるのが基本です。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>言語</th><th>一般的なインデント</th><th>本ツールでの設定例</th></tr></thead>
+            <tbody>
+                <tr><td>Python</td><td class="acc">スペース4</td><td>Tab→Space／スペース数4（PEP8準拠）</td></tr>
+                <tr><td>JavaScript</td><td class="acc">スペース2が主流</td><td>Tab→Space／スペース数2</td></tr>
+                <tr><td>Go</td><td class="acc">タブ</td><td>Space→Tab（gofmtはタブ）</td></tr>
+                <tr><td>Ruby</td><td class="acc">スペース2</td><td>Tab→Space／スペース数2</td></tr>
+                <tr><td>HTML / CSS</td><td class="acc">スペース2</td><td>Tab→Space／スペース数2</td></tr>
+                <tr><td>Java</td><td class="acc">スペース4</td><td>Tab→Space／スペース数4</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>上記はあくまで広く使われている慣習であり、絶対のルールではありません。最終的にはチームの規約や各言語のフォーマッタ（PythonのBlack、Goのgofmt、JavaScriptのPrettierなど）の出力に合わせるのが、無用な差分や混在を避けるうえで確実です。</p>
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">タブ何個分のスペースに変換できますか？</div><div class="a">インデント幅を2・4・8スペースから選べます。Tab→Spaceでタブ1つを指定したスペース数（2／4／8）に置き換え、Space→Tabで指定数ぶんのスペースをタブ1つに一括変換できます。コーディング規約に合わせてインデント幅を統一したいときに便利です。</div></div>
+        <div class="faq-item"><div class="q">タブとスペースのどちらを使うべきですか？</div><div class="a">どちらが正しいという絶対的な答えはなく、使用する言語やチームの規約に従うのが基本です。たとえばGoはタブが標準、Pythonはスペース4、JavaScriptやRubyはスペース2が広く使われています。プロジェクトの既存コードや設定（.editorconfigなど）に合わせて統一することが最も重要です。</div></div>
+        <div class="faq-item"><div class="q">Pythonのインデントはタブとスペースどちらですか？</div><div class="a">Pythonの公式スタイルガイドPEP8ではスペース4つによるインデントが推奨されています。タブとスペースを混在させるとエラーの原因になるため、このツールでTab→Spaceを選びスペース数4で変換すると、PEP8に沿ったインデントへ揃えられます。</div></div>
+        <div class="faq-item"><div class="q">変換したコードはサーバーにアップロードされますか？</div><div class="a">いいえ。変換はすべてブラウザ内のJavaScriptで処理され、入力したコードがサーバーに送信されることはありません。登録不要・無料で、機密性の高いソースコードのインデント変換も安心して行えます。</div></div>
+        <div class="faq-item"><div class="q">既存コードのインデントを一括変換できますか？</div><div class="a">はい。入力欄にコード全体を貼り付けてTab→SpaceまたはSpace→Tabを押すと、テキスト内のすべてのタブまたは指定数のスペースをまとめて置き換えます。他の開発者から受け取ったコードを自分のエディタ設定に合わせる際にも一括で変換できます。</div></div>
+    </div>
     <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
