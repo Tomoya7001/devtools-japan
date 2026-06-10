@@ -13,8 +13,8 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ハッシュ生成ツール | MD5・SHA-256・SHA-512</title>
-    <meta name="description" content="テキストからMD5、SHA-1、SHA-256、SHA-512ハッシュ値を生成。ファイルのチェックサム確認にも対応。">
+    <title>ハッシュ生成ツール | MD5・SHA-1・SHA-256・SHA-512を無料計算</title>
+    <meta name="description" content="テキストからMD5・SHA-1・SHA-256・SHA-512のハッシュ値を無料生成。ハッシュ関数の仕組みやアルゴリズムの違い・安全性も解説。ブラウザ内で完結しデータは送信しません。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#f97316;--accent-dim:rgba(249,115,22,0.1);--radius:12px}
@@ -34,6 +34,14 @@
         .hash-item .val{font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--text);word-break:break-all;line-height:1.6}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;font-weight:500;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -52,7 +60,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"ハッシュ生成ツール","item":"https://www.devtools-japan.com/tool-17-hash/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"入力したテキストはサーバーに送られますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ、ハッシュ計算はすべてブラウザ内で実行され、入力テキストが外部へ送信されることはありません。パスワードなど機密性の高い文字列も安全に試せます。"}},{"@type":"Question","name":"MD5とSHA-256のどちらを使うべきですか？","acceptedAnswer":{"@type":"Answer","text":"MD5は衝突が見つかっており暗号用途には推奨されません。改ざん検知やセキュリティ用途にはSHA-256やSHA-512の利用が推奨されます。本ツールは4種類を同時に生成して比較できます。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ハッシュとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"入力データから固定長の値を生成する一方向の計算結果がハッシュ（ハッシュ値）です。同じ入力からは常に同じ値が得られ、わずかな違いでも全く異なる値になり、ハッシュ値から元データを復元することはできません。データの照合や改ざん検知に使われます。"}},{"@type":"Question","name":"MD5とSHA-256のどちらを使うべきですか？","acceptedAnswer":{"@type":"Answer","text":"セキュリティ用途ではSHA-256を推奨します。MD5は計算が高速ですが衝突が発見されており、暗号・署名・改ざん検知には適しません。SHA-256は現在広く使われる標準で、SSL証明書やブロックチェーンにも採用されています。"}},{"@type":"Question","name":"ハッシュから元のデータに戻せますか？","acceptedAnswer":{"@type":"Answer","text":"戻せません。ハッシュ関数は不可逆（一方向）で、ハッシュ値から元の入力を計算して復元することは設計上できません。元に戻したい場合は暗号化を使う必要があり、ハッシュ化とは目的が異なります。"}},{"@type":"Question","name":"入力したテキストはサーバーに送られますか？","acceptedAnswer":{"@type":"Answer","text":"送られません。ハッシュの計算はすべてお使いのブラウザ内で完結し、入力したテキストが外部のサーバーへ送信されることはありません。パスワードなど機密性の高い文字列も手元で安全に試せます。"}},{"@type":"Question","name":"ファイルのハッシュも取れますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールはテキスト入力欄に入力された文字列のハッシュを生成する仕様です。ファイルを直接アップロードしてハッシュ化する機能はありません。ファイルの内容を貼り付ければそのテキストのハッシュは計算できます。"}}]}
     </script>
 </head>
 <body>
@@ -70,6 +78,31 @@
         <p>MD5は高速ですが衝突耐性が低く、セキュリティ用途には推奨されません。SHA-256は現在最も広く使われており、ブロックチェーンやSSL証明書にも使用されています。SHA-512はより長いハッシュ値を生成し、高いセキュリティが求められる場面に適しています。</p>
         <h3>活用場面</h3>
         <p>ダウンロードしたファイルが改ざんされていないかをチェックサムで検証する、APIのリクエスト署名を生成する、パスワードをハッシュ化して保存する（※本番環境ではbcrypt等の専用ライブラリを推奨）などの場面で使われています。</p>
+        </div>
+    <div class="seo-content">
+        <h2>ハッシュ関数とは</h2>
+        <p>ハッシュ関数とは、任意の長さの入力データから、決まった長さの値（ハッシュ値）を生成する一方向の計算処理です。たとえば1文字のテキストでも、数百万文字の文書でも、SHA-256なら必ず256ビット（16進数64文字）の値に変換されます。この性質により、データの大小にかかわらず一定の形式で「指紋」のように扱えます。</p>
+        <p>ハッシュ関数には重要な性質が3つあります。第一に、同じ入力からは何度計算しても常に同じハッシュ値が得られる「決定性」です。第二に、入力がわずか1文字でも違えば、出力されるハッシュ値は規則性なく全く異なるものになる「雪崩効果」です。第三に、ハッシュ値から元の入力データを計算して復元することはできない「不可逆性（一方向性）」です。このため、暗号化のように元に戻すことを前提とした処理とは根本的に異なります。</p>
+        <p>この不可逆性こそがハッシュ関数の核心です。元データに戻せないからこそ、パスワードの保存や改ざん検知に利用されます。手元のデータと相手のデータのハッシュ値が一致すれば、両者が同一であると高い確度で判断でき、一致しなければどこかが書き換えられたと分かります。</p>
+        <h3>主なハッシュアルゴリズムの比較</h3>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>アルゴリズム</th><th>出力ビット長</th><th>16進文字数</th><th>主な用途</th><th>安全性</th></tr></thead>
+            <tbody>
+                <tr><td>MD5</td><td>128 bit</td><td>32文字</td><td>簡易チェックサム・旧来の照合</td><td>衝突が発見済み・暗号用途は非推奨</td></tr>
+                <tr><td>SHA-1</td><td>160 bit</td><td>40文字</td><td>旧来の署名・Git内部識別</td><td>衝突が実証済み・新規利用は非推奨</td></tr>
+                <tr><td class="acc">SHA-256</td><td>256 bit</td><td>64文字</td><td>SSL証明書・ブロックチェーン・改ざん検知</td><td class="acc">現在の標準として推奨</td></tr>
+                <tr><td>SHA-512</td><td>512 bit</td><td>128文字</td><td>高セキュリティ用途・長いダイジェスト</td><td>推奨（SHA-2系列）</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>本ツールでは、SHA-1・SHA-256・SHA-512はブラウザ標準のWeb Crypto API（crypto.subtle.digest）を用いて正確に計算しています。MD5・SHA-1は理論的・実証的に衝突（異なる入力が同じハッシュ値になる現象）が見つかっているため、署名や改ざん検知などのセキュリティ用途ではSHA-256以上の利用を推奨します。</p>
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">ハッシュとは何ですか？</div><div class="a">入力データから固定長の値を生成する一方向の計算結果がハッシュ（ハッシュ値）です。同じ入力からは常に同じ値が得られ、わずかな違いでも全く異なる値になり、ハッシュ値から元データを復元することはできません。データの照合や改ざん検知に使われます。</div></div>
+        <div class="faq-item"><div class="q">MD5とSHA-256のどちらを使うべきですか？</div><div class="a">セキュリティ用途ではSHA-256を推奨します。MD5は計算が高速ですが衝突が発見されており、暗号・署名・改ざん検知には適しません。SHA-256は現在広く使われる標準で、SSL証明書やブロックチェーンにも採用されています。</div></div>
+        <div class="faq-item"><div class="q">ハッシュから元のデータに戻せますか？</div><div class="a">戻せません。ハッシュ関数は不可逆（一方向）で、ハッシュ値から元の入力を計算して復元することは設計上できません。元に戻したい場合は暗号化を使う必要があり、ハッシュ化とは目的が異なります。</div></div>
+        <div class="faq-item"><div class="q">入力したテキストはサーバーに送られますか？</div><div class="a">送られません。ハッシュの計算はすべてお使いのブラウザ内で完結し、入力したテキストが外部のサーバーへ送信されることはありません。パスワードなど機密性の高い文字列も手元で安全に試せます。</div></div>
+        <div class="faq-item"><div class="q">ファイルのハッシュも取れますか？</div><div class="a">本ツールはテキスト入力欄に入力された文字列のハッシュを生成する仕様です。ファイルを直接アップロードしてハッシュ化する機能はありません。ファイルの内容を貼り付ければそのテキストのハッシュは計算できます。</div></div>
         </div>
     <div class="ad-slot" style="display:none"></div>
     
