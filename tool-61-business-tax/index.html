@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人事業税計算ツール | フリーランスの事業税を自動計算【無料】</title>
-    <meta name="description" content="フリーランス・個人事業主の個人事業税を自動計算する無料ツール。事業所得が290万円を超えると課税される個人事業税の概算額がわかる。業種ごとの税率（3%〜5%）に対応。">
+    <title>個人事業税計算ツール | 事業主控除290万・業種別税率を自動計算【無料】</title>
+    <meta name="description" content="フリーランス・個人事業主の個人事業税を自動計算する無料ツール。事業主控除290万円を超えると課税。業種別税率（第1種・第3種5%、第2種4%、医業類似3%）と計算式・計算例・よくある質問つき。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#6366f1;--accent-dim:rgba(99,102,241,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
@@ -38,6 +38,12 @@
         table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
         table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
         table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:center;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{font-family:'JetBrains Mono',monospace;color:var(--text)}.lookup-table td:first-child{font-family:'Noto Sans JP',sans-serif;text-align:left}.lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-61-business-tax/">
     <meta property="og:title" content="個人事業税計算 | フリーランスの事業税を自動計算【無料】">
@@ -54,7 +60,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"個人事業税計算ツール","item":"https://www.devtools-japan.com/tool-61-business-tax/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"事業所得が290万円以下なら個人事業税はかかりませんか？","acceptedAnswer":{"@type":"Answer","text":"はい。すべての個人事業主に一律290万円の事業主控除があるため、事業所得が290万円以下であれば個人事業税はかかりません。本ツールは控除後の課税所得に業種別税率を掛けて税額を概算します。なお青色申告特別控除は個人事業税の計算では適用されない点にご注意ください。"}},{"@type":"Question","name":"プログラマーやエンジニアは個人事業税の課税対象ですか？","acceptedAnswer":{"@type":"Answer","text":"業務の実態によって判断が分かれます。請負中心の場合は第一種事業（5%）に該当しうる一方、システムエンジニアとして届出している場合は法定業種に当たらず非課税と判断されることもあります。デザインやコンサルを含むと課税対象になりやすいため、税務署や税理士にご確認ください。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"個人事業税はいくらからかかりますか？","acceptedAnswer":{"@type":"Answer","text":"事業所得が290万円を超えると課税されます。すべての個人事業主に一律290万円の事業主控除があるため、事業所得が290万円以下であれば課税所得がゼロとなり個人事業税はかかりません。290万円を超えた部分にのみ業種別税率が課されます。"}},{"@type":"Question","name":"事業主控除とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"事業主控除とは、すべての個人事業主に一律で適用される290万円の控除です。事業所得からこの290万円を差し引いた金額が課税所得となり、ここに業種別税率を掛けて個人事業税を計算します。年の途中で開業・廃業した場合は月割りで減額されます。"}},{"@type":"Question","name":"エンジニア・プログラマーは課税対象ですか？","acceptedAnswer":{"@type":"Answer","text":"業務の実態によって判断が分かれます。請負中心の場合は第1種事業（請負業・5%）として課税される場合がある一方、システムエンジニアとして届出している場合は法定業種に該当せず非課税と判断されることもあります。デザインやコンサルティングを含むと課税対象になりやすいため、税務署や税理士にご確認ください。"}},{"@type":"Question","name":"税率は何パーセントですか？","acceptedAnswer":{"@type":"Answer","text":"法定業種により3%〜5%です。第1種事業と第3種事業の大半は5%、畜産業・水産業・薪炭製造業（第2種事業）は4%、あんま・マッサージ等の医業に類する事業は3%です。多くの業種は5%が適用されます。"}},{"@type":"Question","name":"個人事業税はいつ納付しますか？","acceptedAnswer":{"@type":"Answer","text":"原則として8月と11月の年2回に分けて納付します。確定申告を行えば都道府県側で自動的に税額が計算され、納付書が送付されます。納付した個人事業税は、翌年の確定申告で経費（租税公課）として計上できます。"}}]}
     </script>
 </head>
 <body>
@@ -101,6 +107,45 @@
         <p>全ての個人事業主に一律290万円の事業主控除が適用されます。そのため、事業所得が290万円以下であれば個人事業税はかかりません。なお、青色申告特別控除は個人事業税の計算では適用されない点に注意してください。</p>
         <h3>確定申告での扱い</h3>
         <p>納付した個人事業税は、翌年の確定申告で経費（租税公課）として計上できます。つまり、事業税を払った分だけ翌年の所得税・住民税が少なくなります。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>個人事業税の計算方法</h2>
+        <p>個人事業税の税額は、次の計算式で求めます。<strong>個人事業税 ＝（事業所得 − 事業主控除290万円）× 業種別税率</strong>。事業所得とは、年間の売上から必要経費を差し引いた金額です。ここからすべての個人事業主に一律で適用される事業主控除290万円を差し引き、残った課税所得に業種ごとに定められた税率（おおむね3%〜5%）を掛けて算出します。したがって、事業所得が290万円以下であれば課税所得がゼロとなり、個人事業税は非課税（0円）になります。なお、所得税や住民税の計算で使う青色申告特別控除（最大65万円）は、個人事業税の計算には適用されません。この点を見落とすと税額を過小に見積もってしまうため注意してください。事業を1年の途中で始めた・廃止した場合は、事業主控除290万円も月割りで減額されます（例：営業期間6か月なら控除は145万円）。</p>
+        <h3>業種別の税率</h3>
+        <p>個人事業税は、地方税法で定められた法定業種（いわゆる法定70業種）に該当する事業にのみ課税されます。法定業種は税率ごとに第1種・第2種・第3種に区分され、それぞれ税率が異なります。下表は地方税法の区分に準拠した代表的な税率です。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>区分</th><th>主な業種の例</th><th>税率</th></tr></thead>
+            <tbody>
+                <tr><td>第1種事業</td><td>物品販売業・飲食店業・運送業・請負業・コンサルタント業・デザイン業 等</td><td class="acc">5%</td></tr>
+                <tr><td>第2種事業</td><td>畜産業・水産業・薪炭製造業</td><td>4%</td></tr>
+                <tr><td>第3種事業（5%）</td><td>医業・弁護士業・税理士業・理容業・美容業・公証人業 等の大半</td><td class="acc">5%</td></tr>
+                <tr><td>第3種事業（3%）</td><td>あんま・マッサージ・指圧・はり・きゅう等の医業に類する事業、装蹄師業</td><td>3%</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <!-- # TODO要確認: 法定70業種の税率区分は各都道府県・地方税法で要確認 -->
+        <p>第1種事業と第3種事業の大半は税率5%、畜産業・水産業・薪炭製造業（第2種事業）は4%、あんま・マッサージ等の医業に類する事業は3%です。第3種事業の中でも区分により5%と3%が混在するため、自身の事業がどの区分に該当するかは、お住まいの都道府県税事務所の案内で必ず確認してください。</p>
+        <h3>計算例</h3>
+        <p>税率5%の業種（第1種事業）を例に、事業所得別の年間税額を示します。いずれも課税所得は「事業所得 − 290万円」で求めます。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>事業所得</th><th>課税所得（−290万）</th><th>税率</th><th>個人事業税（年額）</th></tr></thead>
+            <tbody>
+                <tr><td>300万円</td><td>10万円</td><td>5%</td><td class="acc">5,000円</td></tr>
+                <tr><td>500万円</td><td>210万円</td><td>5%</td><td class="acc">105,000円</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>事業所得300万円の場合、（300万 − 290万）× 5% ＝ 5,000円。事業所得500万円の場合、（500万 − 290万）× 5% ＝ 105,000円となります。算出された税額は8月と11月の年2回に分けて納付します。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">個人事業税はいくらからかかりますか？</div><div class="a">事業所得が290万円を超えると課税されます。すべての個人事業主に一律290万円の事業主控除があるため、事業所得が290万円以下であれば課税所得がゼロとなり個人事業税はかかりません。290万円を超えた部分にのみ業種別税率が課されます。</div></div>
+        <div class="faq-item"><div class="q">事業主控除とは何ですか？</div><div class="a">事業主控除とは、すべての個人事業主に一律で適用される290万円の控除です。事業所得からこの290万円を差し引いた金額が課税所得となり、ここに業種別税率を掛けて個人事業税を計算します。年の途中で開業・廃業した場合は月割りで減額されます。</div></div>
+        <div class="faq-item"><div class="q">エンジニア・プログラマーは課税対象ですか？</div><div class="a">業務の実態によって判断が分かれます。請負中心の場合は第1種事業（請負業・5%）として課税される場合がある一方、システムエンジニアとして届出している場合は法定業種に該当せず非課税と判断されることもあります。デザインやコンサルティングを含むと課税対象になりやすいため、税務署や税理士にご確認ください。</div></div>
+        <div class="faq-item"><div class="q">税率は何パーセントですか？</div><div class="a">法定業種により3%〜5%です。第1種事業と第3種事業の大半は5%、畜産業・水産業・薪炭製造業（第2種事業）は4%、あんま・マッサージ等の医業に類する事業は3%です。多くの業種は5%が適用されます。</div></div>
+        <div class="faq-item"><div class="q">個人事業税はいつ納付しますか？</div><div class="a">原則として8月と11月の年2回に分けて納付します。確定申告を行えば都道府県側で自動的に税額が計算され、納付書が送付されます。納付した個人事業税は、翌年の確定申告で経費（租税公課）として計上できます。</div></div>
     </div>
 
         <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
