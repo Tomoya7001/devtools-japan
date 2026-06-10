@@ -41,6 +41,10 @@
         .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
         table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
@@ -64,7 +68,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"年齢・勤続年数計算ツール","item":"https://www.devtools-japan.com/tool-53-age-calc/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"4月1日生まれの人の年齢は正しく計算されますか？","acceptedAnswer":{"@type":"Answer","text":"はい。日本の年齢計算ニ関スル法律では誕生日の前日に1歳加算されるため、4月1日生まれの人は3月31日に満年齢に達します。本ツールはこのルールも踏まえて基準日時点の満年齢を計算します。学年の早生まれの判定などにもお使いいただけます。"}},{"@type":"Question","name":"勤続年数から有給休暇の付与日数もわかりますか？","acceptedAnswer":{"@type":"Answer","text":"はい。入社日を入力すると勤続年数を計算し、労働基準法第39条に基づく年次有給休暇の法定付与日数（6ヶ月で10日、6年6ヶ月以上で上限20日）を表示します。これは法律上の最低基準で、会社の就業規則がこれを上回る場合があります。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"勤続年数は入社日から今日までですか？","acceptedAnswer":{"@type":"Answer","text":"はい。入社日を起点に基準日（通常は今日）までの経過年数で数えます。1年未満の端数は月数で表すのが一般的で、本ツールでは入社日を入力すると勤続年数と有給付与日数を自動計算します。"}},{"@type":"Question","name":"数え年と満年齢の違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"満年齢は生まれた日を0歳とし誕生日ごとに1歳加えます。数え年は生まれた時点を1歳とし、以後は元日ごとに1歳加えるため、満年齢より1～2歳大きくなります。賀寿（還暦など）は伝統的に数え年で祝われてきました。"}},{"@type":"Question","name":"還暦は何歳ですか？数え年ですか満年齢ですか？","acceptedAnswer":{"@type":"Answer","text":"還暦は満60歳です。干支（十干十二支）が60年で一巡して生まれ年の干支に戻ることに由来します。2026年に還暦を迎えるのは1966年（昭和41年）生まれの方です。"}},{"@type":"Question","name":"4月1日生まれの人の年齢は正しく計算されますか？","acceptedAnswer":{"@type":"Answer","text":"はい。日本の年齢計算ニ関スル法律では誕生日の前日に1歳加算されるため、4月1日生まれの人は3月31日に満年齢に達します。本ツールはこのルールも踏まえて基準日時点の満年齢を計算します。学年の早生まれの判定などにもお使いいただけます。"}},{"@type":"Question","name":"勤続年数から有給休暇の付与日数もわかりますか？","acceptedAnswer":{"@type":"Answer","text":"はい。入社日を入力すると勤続年数を計算し、労働基準法第39条に基づく年次有給休暇の法定付与日数（6ヶ月で10日、6年6ヶ月以上で上限20日）を表示します。これは法律上の最低基準で、会社の就業規則がこれを上回る場合があります。"}}]}
     </script>
 </head>
 <body>
@@ -116,6 +120,54 @@
         <p>労働基準法第39条に基づき、入社6ヶ月後に10日、以降1年ごとに日数が増え、6年6ヶ月以上で上限の20日が付与されます。このツールは勤続年数から自動的に法定の最低付与日数を表示します。</p>
         <h3>活用場面</h3>
         <p>人事部門での入社手続き、保険の年齢確認、定年退職日の計算、有給休暇の管理、履歴書の年齢確認など。社労士の方の労務管理業務にもお使いいただけます。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>生まれ年・和暦・年齢 早見表（2026年版）</h2>
+        <p>「昭和55年生まれは今何歳？」「自分の生まれ年は和暦で何年？」を一目で確認できる早見表です。年齢は2026年（令和8年）中に迎える満年齢を示しています（誕生日前は1歳引いてください）。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>生まれ年（西暦）</th><th>和暦</th><th>2026年に迎える年齢</th></tr>
+            <tr><td>1950年</td><td>昭和25年</td><td>76歳</td></tr>
+            <tr><td>1955年</td><td>昭和30年</td><td>71歳</td></tr>
+            <tr><td>1960年</td><td>昭和35年</td><td>66歳</td></tr>
+            <tr><td>1966年</td><td>昭和41年</td><td>60歳（還暦）</td></tr>
+            <tr><td>1970年</td><td>昭和45年</td><td>56歳</td></tr>
+            <tr><td>1980年</td><td>昭和55年</td><td>46歳</td></tr>
+            <tr><td>1990年</td><td>平成2年</td><td>36歳</td></tr>
+            <tr><td>2000年</td><td>平成12年</td><td>26歳</td></tr>
+            <tr><td>2008年</td><td>平成20年</td><td>18歳（成人）</td></tr>
+            <tr><td>2010年</td><td>平成22年</td><td>16歳</td></tr>
+        </table>
+        </div>
+
+        <h3>年齢の節目（賀寿）一覧</h3>
+        <p>長寿のお祝い「賀寿」は伝統的には数え年で祝いますが、近年は満年齢で祝うことも増えています。代表的な節目は次のとおりです。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>年齢</th><th>呼称</th><th>由来・意味</th></tr>
+            <tr><td>18歳</td><td>成人</td><td>2022年4月の民法改正で成年年齢が20歳から18歳に</td></tr>
+            <tr><td>20歳</td><td>二十歳（はたち）</td><td>飲酒・喫煙が可能になる年齢</td></tr>
+            <tr><td>60歳</td><td>還暦</td><td>干支が60年で一巡し生まれ年の干支に戻る</td></tr>
+            <tr><td>70歳</td><td>古希</td><td>杜甫の詩「人生七十古来稀なり」から</td></tr>
+            <tr><td>77歳</td><td>喜寿</td><td>「喜」の草書体が七十七に見えることから</td></tr>
+            <tr><td>80歳</td><td>傘寿</td><td>「傘」の略字が八十に見えることから</td></tr>
+            <tr><td>88歳</td><td>米寿</td><td>「米」の字を分解すると八十八になることから</td></tr>
+            <tr><td>90歳</td><td>卒寿</td><td>「卒」の略字「卆」が九十に見えることから</td></tr>
+            <tr><td>99歳</td><td>白寿</td><td>「百」から「一」を引くと「白」になることから</td></tr>
+            <tr><td>100歳</td><td>百寿（紀寿）</td><td>一世紀＝100年にちなむ</td></tr>
+        </table>
+        </div>
+
+        <h3>満年齢・数え年・勤続年数の数え方</h3>
+        <p>満年齢は生まれた日を0歳とし、誕生日ごとに1歳加える数え方で、日本の公的書類の標準です。一方、数え年は生まれた時点を1歳とし、以後は元日（1月1日）ごとに1歳加えるため、満年齢より1～2歳大きくなります。勤続年数は入社日を起点に基準日までの年数で数え、1年未満は月数で表すのが一般的です。</p>
+
+        <h2 style="margin-top:24px">よくある質問</h2>
+        <div class="faq-item"><div class="q">勤続年数は入社日から今日までですか？</div><div class="a">はい。入社日を起点に基準日（通常は今日）までの経過年数で数えます。1年未満の端数は月数で表すのが一般的で、本ツールでは入社日を入力すると勤続年数と有給付与日数を自動計算します。</div></div>
+        <div class="faq-item"><div class="q">数え年と満年齢の違いは何ですか？</div><div class="a">満年齢は生まれた日を0歳とし誕生日ごとに1歳加えます。数え年は生まれた時点を1歳とし、以後は元日ごとに1歳加えるため、満年齢より1～2歳大きくなります。賀寿（還暦など）は伝統的に数え年で祝われてきました。</div></div>
+        <div class="faq-item"><div class="q">還暦は何歳ですか？数え年ですか満年齢ですか？</div><div class="a">還暦は満60歳です。干支（十干十二支）が60年で一巡して生まれ年の干支に戻ることに由来します。2026年に還暦を迎えるのは1966年（昭和41年）生まれの方です。</div></div>
+        <div class="faq-item"><div class="q">4月1日生まれの人の年齢は正しく計算されますか？</div><div class="a">はい。日本の年齢計算ニ関スル法律では誕生日の前日に1歳加算されるため、4月1日生まれの人は3月31日に満年齢に達します。本ツールはこのルールも踏まえて基準日時点の満年齢を計算します。学年の早生まれの判定などにもお使いいただけます。</div></div>
+        <div class="faq-item"><div class="q">勤続年数から有給休暇の付与日数もわかりますか？</div><div class="a">はい。入社日を入力すると勤続年数を計算し、労働基準法第39条に基づく年次有給休暇の法定付与日数（6ヶ月で10日、6年6ヶ月以上で上限20日）を表示します。これは法律上の最低基準で、会社の就業規則がこれを上回る場合があります。</div></div>
     </div>
 
         <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
