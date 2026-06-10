@@ -27,6 +27,13 @@
         
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -45,7 +52,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"テキスト反転ツール","item":"https://www.devtools-japan.com/tool-41-text-reverse/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"文字反転・単語反転・行反転の違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"文字反転は1文字ずつ逆順に並べ替え、単語反転はスペース区切りの単語の順序を逆にし、行反転は複数行のテキストを行単位で上下逆にします。用途に応じてボタンで切り替えられます。"}},{"@type":"Question","name":"日本語や絵文字も正しく反転できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。ひらがな・漢字などの日本語にも対応し、文字反転はサロゲートペアを考慮した処理のため絵文字も崩れにくくなっています。処理はすべてブラウザ内で完結し、入力テキストはサーバーに送信されません。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"文字反転・単語反転・行反転の違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"文字反転は1文字ずつ逆順に並べ替え、単語反転はスペース区切りの単語の順序を逆にし、行反転は複数行のテキストを行単位で上下逆にします。用途に応じてボタンで切り替えられます。"}},{"@type":"Question","name":"日本語や絵文字も正しく反転できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。ひらがな・漢字などの日本語にも対応し、文字反転はサロゲートペアを考慮したコードポイント単位の処理のため、絵文字も崩れにくくなっています。ただし複数の符号を組み合わせた一部の特殊な絵文字は分解される場合があります。"}},{"@type":"Question","name":"回文かどうかのチェックに使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。文字反転した結果と元の文字列が完全に一致すれば、その文字列は前から読んでも後ろから読んでも同じ回文だと判断できます。回文を作る際の確認にも便利です。"}},{"@type":"Question","name":"入力したテキストは送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。すべての処理はお使いのブラウザ内だけで完結し、入力したテキストが外部のサーバーへ送信されることはありません。安心してご利用いただけます。"}},{"@type":"Question","name":"上下逆さま（鏡文字）にもできますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。このツールは文字の並び順を逆にするもので、文字そのものを上下逆さまや左右反転（鏡文字）にする機能はありません。あくまで順序の反転を行うツールとしてご利用ください。"}}]}
     </script>
 </head>
 <body>
@@ -58,6 +65,35 @@
 <div class="card"><div id="output" style="font-family:JetBrains Mono;font-size:1rem;color:var(--accent);min-height:40px;word-break:break-all"></div></div>
     <div class="ad-slot" style="display:none"></div>
     <div class="seo-content"><h2>テキスト反転ツールについて</h2><p>テキストの文字順を逆転・行順を反転。ブラウザ上で動作し、データがサーバーに送信されることはありません。</p></div>
+    <div class="seo-content">
+      <h2>テキスト反転ツールとは</h2>
+      <p>テキスト反転ツールは、入力した文字列の並びを逆順に変換するシンプルなオンラインツールです。たとえば「abcde」と入力すれば「edcba」のように、末尾から先頭に向かって順序を入れ替えた結果がその場で表示されます。会員登録やアプリのインストールは不要で、ブラウザを開いてテキストを貼り付けるだけで即座に逆順の文字列が得られます。日本語・英語・数字・記号が混ざった文章でもそのまま処理でき、入力欄を書き換えるたびにリアルタイムで反転結果が更新されます。</p>
+      <p>このツールでは、反転のしかたを3種類のボタンから選べます。1つ目は「文字反転」で、文章を1文字ずつ完全に逆の順序へ並べ替えます。2つ目は「単語反転」で、半角スペースで区切られた単語のかたまりはそのまま保ち、単語そのものの登場順だけを逆にします。3つ目は「行反転」で、改行で区切られた複数行のテキストを、各行の中身は変えずに行の上下の順番だけをひっくり返します。これら3つは目的に応じて使い分けることができ、同じ入力でも選んだモードによって結果が大きく変わります。</p>
+      <p>「文字反転」は内部でJavaScriptのスプレッド構文を使い、文字列を1文字ずつのまとまり（コードポイント単位）に分解してから逆順に並べ替えています。そのため、ひらがな・カタカナ・漢字といった日本語はもちろん、サロゲートペアで表現される一部の絵文字も1文字としてまとめて扱われ、不自然に分断されにくいのが特長です。処理はすべてお使いの端末のブラウザ内だけで完結し、入力したテキストが外部のサーバーへ送られることはありません。社外秘のメモや個人的な文章を扱う場合でも、内容が送信される心配なく安心して利用できます。</p>
+
+      <h3>テキスト反転の活用シーン</h3>
+      <div class="table-wrap">
+      <table class="lookup-table">
+        <thead><tr><th>活用シーン</th><th>使うモード</th><th>具体的な使い方</th></tr></thead>
+        <tbody>
+          <tr><td>回文のチェック</td><td>文字反転</td><td>前から読んでも後ろから読んでも同じか、反転結果と元の文字列を見比べて確認できます。</td></tr>
+          <tr><td>SNS・デザインの装飾</td><td>文字反転</td><td>あえて逆さに並べた文字列を、プロフィールや投稿のちょっとした遊び・装飾として使えます。</td></tr>
+          <tr><td>文字列処理の確認</td><td>文字反転 / 単語反転</td><td>プログラムで実装した反転処理が正しいか、答え合わせ用の手早いリファレンスになります。</td></tr>
+          <tr><td>箇条書きの並べ替え</td><td>行反転</td><td>新しい順・古い順など、行で並んだリストの上下を一気に逆転させたいときに便利です。</td></tr>
+          <tr><td>パスワードの簡易変換アイデア</td><td>文字反転</td><td>覚えやすい単語を逆順にして、自分だけがわかる変換ルールを考える発想のヒントになります。</td></tr>
+          <tr><td>プログラミング学習</td><td>全モード</td><td>文字・単語・行という粒度の違いを通して、文字列操作の考え方を体感的に理解できます。</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>このように、テキスト反転は単なる遊びだけでなく、回文づくりや文章のチェック、リストの並べ替え、プログラミングの学習や動作確認まで、幅広い場面で役立ちます。難しい設定は一切なく、入力してモードを選ぶだけで誰でもすぐに使えるのが魅力です。</p>
+
+      <h2>よくある質問</h2>
+      <div class="faq-item"><div class="q">文字反転・単語反転・行反転の違いは何ですか？</div><div class="a">文字反転は1文字ずつ逆順に並べ替え、単語反転はスペース区切りの単語の順序を逆にし、行反転は複数行のテキストを行単位で上下逆にします。用途に応じてボタンで切り替えられます。</div></div>
+      <div class="faq-item"><div class="q">日本語や絵文字も正しく反転できますか？</div><div class="a">はい。ひらがな・漢字などの日本語にも対応し、文字反転はサロゲートペアを考慮したコードポイント単位の処理のため、絵文字も崩れにくくなっています。ただし複数の符号を組み合わせた一部の特殊な絵文字は分解される場合があります。</div></div>
+      <div class="faq-item"><div class="q">回文かどうかのチェックに使えますか？</div><div class="a">はい。文字反転した結果と元の文字列が完全に一致すれば、その文字列は前から読んでも後ろから読んでも同じ回文だと判断できます。回文を作る際の確認にも便利です。</div></div>
+      <div class="faq-item"><div class="q">入力したテキストは送信されますか？</div><div class="a">いいえ。すべての処理はお使いのブラウザ内だけで完結し、入力したテキストが外部のサーバーへ送信されることはありません。安心してご利用いただけます。</div></div>
+      <div class="faq-item"><div class="q">上下逆さま（鏡文字）にもできますか？</div><div class="a">いいえ。このツールは文字の並び順を逆にするもので、文字そのものを上下逆さまや左右反転（鏡文字）にする機能はありません。あくまで順序の反転を行うツールとしてご利用ください。</div></div>
+    </div>
     <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
