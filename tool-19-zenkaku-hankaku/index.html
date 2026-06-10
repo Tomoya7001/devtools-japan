@@ -13,8 +13,8 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>全角半角変換ツール | 英数字・カタカナを一括変換</title>
-    <meta name="description" content="全角⇔半角を一括変換。英数字、カタカナ、記号に対応。データクレンジングや表記統一に便利な無料ツール。">
+    <title>全角半角変換ツール | 英数字・カタカナ・記号を一括変換</title>
+    <meta name="description" content="全角⇔半角を一括変換。英数字・記号・スペースの双方向変換、全角カタカナのひらがな化に対応。住所録の表記統一やフォーム入力の正規化、CSVのデータクレンジングに便利な無料ツール。ブラウザ内で完結し外部送信なし。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#a78bfa;--accent-dim:rgba(167,139,250,0.1);--radius:12px}
@@ -34,6 +34,14 @@
         .btn:hover{border-color:var(--accent);color:var(--text)}.btn-primary{background:var(--accent);color:#000;border-color:var(--accent);font-weight:500}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text);font-family:'JetBrains Mono',monospace}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#000;padding:12px 24px;border-radius:8px;font-size:0.85rem;font-weight:500;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -52,7 +60,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"全角半角変換ツール","item":"https://www.devtools-japan.com/tool-19-zenkaku-hankaku/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"カタカナの全角半角変換にも対応していますか？","acceptedAnswer":{"@type":"Answer","text":"はい、英数字や記号だけでなく、全角カタカナと半角カタカナの相互変換にも対応しています。変換対象を選んで一括で表記を統一できます。"}},{"@type":"Question","name":"住所録やデータの表記統一に使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい、全角と半角が混在したデータをまとめて統一でき、データクレンジングや名簿の整形に便利です。処理はすべてブラウザ内で完結し、データは外部に送信されません。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"全角と半角の違いは？","acceptedAnswer":{"@type":"Answer","text":"全角は2バイト幅で表示される文字（ＡＢＣ・１２３・！？＠など）、半角は1バイト幅で表示される文字（ABC・123・!?@など）です。見た目が似ていても文字コードは異なるため、システム上は別の文字として扱われます。"}},{"@type":"Question","name":"カタカナの全角半角変換に対応していますか？","acceptedAnswer":{"@type":"Answer","text":"カタカナはチップをオンにして「半角に変換」を押すと、全角カタカナ（アイウ）をひらがな（あいう）へ変換します。半角カタカナへの変換や、半角カタカナから全角への変換には対応していません。"}},{"@type":"Question","name":"英数字だけを半角にできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。上部のチップで「英字」「数字」だけをオンにし、ほかをオフにして「半角に変換」を押すと、英数字だけを半角へ揃えられます。変換対象は文字種ごとに個別指定できます。"}},{"@type":"Question","name":"住所録やデータの表記統一に使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。全角と半角が混在した住所録・氏名・電話番号などをまとめて統一でき、フォーム入力の正規化やCSVデータの整形といったデータクレンジングに役立ちます。"}},{"@type":"Question","name":"変換したテキストはサーバーに送られますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。変換処理はすべてお使いのブラウザ内で完結し、入力したテキストが外部サーバーに送信されることはありません。安心して機密情報を含むデータも処理できます。"}}]}
     </script>
 </head>
 <body>
@@ -82,6 +90,33 @@
         <p>英字（Ａ→A）、数字（１→1）、カタカナ（ア→ｱ）、記号（！→!）のそれぞれについて、変換するかどうかを個別に指定できます。「数字だけ半角にしたい」「カタカナは全角のまま」といった細かい要件にも対応します。</p>
         <h3>日本のWebフォームでよくある問題</h3>
         <p>日本語入力では全角数字が入力されることが多く、電話番号や郵便番号のフィールドで問題になります。このツールでバッチ変換すれば、データの統一が簡単にできます。</p>
+        </div>
+    <div class="seo-content">
+        <h2>全角と半角の違い</h2>
+        <p>全角文字は1文字あたり2バイト幅で表示される文字で、ひらがな・漢字・全角英数字（ＡＢＣ・１２３）・全角記号（！？＠）などが含まれます。一方、半角文字は1バイト幅で表示される文字で、ASCII英数字（ABC・123）・半角記号（!?@）・半角カタカナ（ｱｲｳ）などが該当します。同じ「A」でも全角の「Ａ」と半角の「A」は文字コード上は別の文字として扱われるため、見た目が似ていてもシステムでは一致しないことがあります。</p>
+        <p>変換が必要になる代表的な場面は次のとおりです。住所録や氏名の表記を統一したいとき（全角数字と半角数字が混在した番地を揃える）、Webフォームから受け取った入力データを正規化したいとき（電話番号や郵便番号を半角に統一してバリデーションを通す）、CSVデータを整形したいとき（取り込み前に英数字を半角へ寄せて検索・照合のずれを防ぐ）などです。表記がばらつくと名寄せや重複チェックが正しく動かなくなるため、事前の全角半角統一は実務で重要な前処理になります。</p>
+
+        <h3>全角⇔半角の変換例</h3>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>文字種</th><th>全角</th><th>半角</th><th>変換の方向</th></tr></thead>
+            <tbody>
+                <tr><td>英字</td><td class="acc">ＡＢＣ</td><td class="acc">ABC</td><td>全角⇔半角（双方向）</td></tr>
+                <tr><td>数字</td><td class="acc">１２３</td><td class="acc">123</td><td>全角⇔半角（双方向）</td></tr>
+                <tr><td>記号</td><td class="acc">！？＠</td><td class="acc">!?@</td><td>全角⇔半角（双方向）</td></tr>
+                <tr><td>スペース</td><td class="acc">全角空白「　」</td><td class="acc">半角空白「 」</td><td>全角⇔半角（双方向）</td></tr>
+                <tr><td>カタカナ</td><td class="acc">アイウ</td><td class="acc">あいう</td><td>「半角に変換」で全角カタカナ→ひらがな</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>英字・数字・記号・スペースは「半角に変換」「全角に変換」のどちらにも対応した双方向変換です。チップで変換対象を個別にオン・オフできるため、たとえば「英字は変換せず数字だけ半角に揃える」といった指定も可能です。カタカナは「半角に変換」を押したときに全角カタカナをひらがなへ変換する挙動になっており、「全角に変換」側ではカタカナは変換対象になりません。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">全角と半角の違いは？</div><div class="a">全角は2バイト幅で表示される文字（ＡＢＣ・１２３・！？＠など）、半角は1バイト幅で表示される文字（ABC・123・!?@など）です。見た目が似ていても文字コードは異なるため、システム上は別の文字として扱われます。</div></div>
+        <div class="faq-item"><div class="q">カタカナの全角半角変換に対応していますか？</div><div class="a">カタカナはチップをオンにして「半角に変換」を押すと、全角カタカナ（アイウ）をひらがな（あいう）へ変換します。半角カタカナへの変換や、半角カタカナから全角への変換には対応していません。</div></div>
+        <div class="faq-item"><div class="q">英数字だけを半角にできますか？</div><div class="a">はい。上部のチップで「英字」「数字」だけをオンにし、ほかをオフにして「半角に変換」を押すと、英数字だけを半角へ揃えられます。変換対象は文字種ごとに個別指定できます。</div></div>
+        <div class="faq-item"><div class="q">住所録やデータの表記統一に使えますか？</div><div class="a">はい。全角と半角が混在した住所録・氏名・電話番号などをまとめて統一でき、フォーム入力の正規化やCSVデータの整形といったデータクレンジングに役立ちます。</div></div>
+        <div class="faq-item"><div class="q">変換したテキストはサーバーに送られますか？</div><div class="a">いいえ。変換処理はすべてお使いのブラウザ内で完結し、入力したテキストが外部サーバーに送信されることはありません。安心して機密情報を含むデータも処理できます。</div></div>
         </div>
     <div class="ad-slot" style="display:none"></div>
     
