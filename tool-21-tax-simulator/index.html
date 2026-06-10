@@ -45,6 +45,17 @@
         .note{background:var(--accent-dim);border:1px solid rgba(245,158,11,0.2);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--accent);margin-bottom:24px}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:center;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem;line-height:1.4}
+        .lookup-table td{font-family:'JetBrains Mono',monospace;color:var(--text)}
+        .lookup-table td:first-child{font-family:'Noto Sans JP',sans-serif;color:var(--text2);background:#fcfcfe;text-align:left}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-21-tax-simulator/">
@@ -59,7 +70,7 @@
     {"@context":"https://schema.org","@type":"WebApplication","name":"確定申告シミュレーター","description":"フリーランス・副業の所得税・住民税・手取りを自動計算","url":"https://www.devtools-japan.com/tool-21-tax-simulator/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"副業の確定申告はいくらから必要？","acceptedAnswer":{"@type":"Answer","text":"副業の所得（売上−経費）が年間20万円を超える場合、確定申告が必要です。ただし住民税の申告は20万円以下でも必要です。"}},{"@type":"Question","name":"青色申告と白色申告の違いは？","acceptedAnswer":{"@type":"Answer","text":"青色申告は最大65万円の特別控除が受けられ、赤字の繰越や家族への給与の経費化が可能です。白色申告は簡単ですが特別控除がありません。"}},{"@type":"Question","name":"フリーランスの所得税率は？","acceptedAnswer":{"@type":"Answer","text":"所得税は累進課税で、課税所得195万円以下は5%、330万円以下は10%、695万円以下は20%、900万円以下は23%と段階的に上がります。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"副業の確定申告はいくらから必要ですか？","acceptedAnswer":{"@type":"Answer","text":"副業の所得（売上−経費）が年間20万円を超える場合、所得税の確定申告が必要です。ただし所得20万円以下でも、住民税の申告は別途必要になります。本ツールで副業収入を入力すれば税額の目安がわかります。"}},{"@type":"Question","name":"青色申告と白色申告の違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"青色申告は最大65万円の特別控除が受けられ、赤字の繰越や家族への給与の経費化も可能です。白色申告は記帳が簡単ですが特別控除はありません。65万円控除には複式簿記とe-Taxでの電子申告が必要です。"}},{"@type":"Question","name":"フリーランスの所得税率は何パーセントですか？","acceptedAnswer":{"@type":"Answer","text":"所得税は累進課税で、課税所得195万円以下は5%、330万円以下は10%、695万円以下は20%、900万円以下は23%と段階的に上がります。上の速算表で課税所得から税額を計算できます。"}},{"@type":"Question","name":"住民税や国民健康保険はどう扱われますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールの住民税は課税所得の約10%＋均等割5,000円の概算です。国民健康保険料は自治体ごとに料率が異なり本ツールには含まれないため、別途「国民健康保険料計算」ツールでご確認ください。"}},{"@type":"Question","name":"この税金シミュレーションはどこまで正確ですか？","acceptedAnswer":{"@type":"Answer","text":"あくまで概算シミュレーションです。扶養控除・医療費控除・ふるさと納税などの追加控除や、個人事業税（所得290万円超）は反映していません。シュミレーション結果はあくまで目安とし、正確な税額は税理士や税務署にご確認ください。"}}]}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"確定申告シミュレーター","item":"https://www.devtools-japan.com/tool-21-tax-simulator/"}]}
@@ -120,6 +131,31 @@
 
         <h3>注意事項</h3>
         <p>このツールは概算シミュレーションです。実際の税額は、扶養控除・医療費控除・ふるさと納税等の追加控除や、事業税（290万円超の場合）によって変動します。正確な税額については税理士にご相談ください。すべてブラウザ上で計算され、入力データがサーバーに送信されることはありません。</p>
+
+        <h2 style="margin-top:24px">所得税の税率早見表（所得税の速算表）</h2>
+        <p>確定申告の税金シミュレーション（シュミレーション）で使う、課税所得に対する所得税の税率早見表です。所得税は累進課税で、課税所得が増えるほど税率が高くなります。本ツールもこの速算表で所得税を計算しています（別途、復興特別所得税2.1%が加算されます）。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>課税所得金額</th><th>税率</th><th>控除額</th></tr></thead>
+            <tbody>
+            <tr><td>195万円以下</td><td class="acc">5%</td><td>0円</td></tr>
+            <tr><td>195万円超〜330万円</td><td class="acc">10%</td><td>97,500円</td></tr>
+            <tr><td>330万円超〜695万円</td><td class="acc">20%</td><td>427,500円</td></tr>
+            <tr><td>695万円超〜900万円</td><td class="acc">23%</td><td>636,000円</td></tr>
+            <tr><td>900万円超〜1,800万円</td><td class="acc">33%</td><td>1,536,000円</td></tr>
+            <tr><td>1,800万円超〜4,000万円</td><td class="acc">40%</td><td>2,796,000円</td></tr>
+            <tr><td>4,000万円超</td><td class="acc">45%</td><td>4,796,000円</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text3)">※ 所得税額＝課税所得×税率−控除額。例えば課税所得400万円なら、400万×20%−42.75万＝37.25万円が所得税額です（別途、復興特別所得税2.1%）。</p>
+
+        <h2 style="margin-top:24px">よくある質問</h2>
+        <div class="faq-item"><div class="q">副業の確定申告はいくらから必要ですか？</div><div class="a">副業の所得（売上−経費）が年間20万円を超える場合、所得税の確定申告が必要です。ただし所得20万円以下でも、住民税の申告は別途必要になります。本ツールで副業収入を入力すれば税額の目安がわかります。</div></div>
+        <div class="faq-item"><div class="q">青色申告と白色申告の違いは何ですか？</div><div class="a">青色申告は最大65万円の特別控除が受けられ、赤字の繰越や家族への給与の経費化も可能です。白色申告は記帳が簡単ですが特別控除はありません。65万円控除には複式簿記とe-Taxでの電子申告が必要です。</div></div>
+        <div class="faq-item"><div class="q">フリーランスの所得税率は何パーセントですか？</div><div class="a">所得税は累進課税で、課税所得195万円以下は5%、330万円以下は10%、695万円以下は20%、900万円以下は23%と段階的に上がります。上の速算表で課税所得から税額を計算できます。</div></div>
+        <div class="faq-item"><div class="q">住民税や国民健康保険はどう扱われますか？</div><div class="a">本ツールの住民税は課税所得の約10%＋均等割5,000円の概算です。国民健康保険料は自治体ごとに料率が異なり本ツールには含まれないため、別途「国民健康保険料計算」ツールでご確認ください。</div></div>
+        <div class="faq-item"><div class="q">この税金シミュレーションはどこまで正確ですか？</div><div class="a">あくまで概算シミュレーションです。扶養控除・医療費控除・ふるさと納税などの追加控除や、個人事業税（所得290万円超）は反映していません。「シュミレーション」結果はあくまで目安とし、正確な税額は税理士や税務署にご確認ください。</div></div>
     </div>
     <div class="ad-slot" style="display:none"></div>
     
