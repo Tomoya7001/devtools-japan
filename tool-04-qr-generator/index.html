@@ -14,8 +14,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QRコード生成ツール | 無料でQRコードを作成・ダウンロード</title>
-    <meta name="description" content="URL、テキスト、Wi-Fi情報からQRコードを無料で瞬時に作成。PNG/SVGでダウンロード可能。サイズ・色のカスタマイズにも対応。">
+    <title>QRコード生成ツール | 無料でURL・Wi-Fi・メールのQRコードを作成・ダウンロード</title>
+    <meta name="description" content="URL、テキスト、Wi-Fi、メール情報からQRコードを無料で瞬時に作成。PNG/SVGでダウンロード可能。サイズ・色のカスタマイズ対応、登録不要・ブラウザ完結で商用利用も可。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
@@ -76,6 +76,13 @@
         .seo-content h2 { color:var(--text-primary); font-size:1.05rem; margin-bottom:12px; }
         .seo-content h3 { color:var(--text-primary); font-size:0.9rem; margin-top:16px; margin-bottom:8px; }
         .seo-content p { margin-bottom:10px; }
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text-secondary);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text-primary)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text-primary);margin-bottom:4px}.faq-item .a{color:var(--text-secondary)}
         footer { text-align:center; margin-top:48px; padding-top:20px; border-top:1px solid var(--border); color:var(--text-muted); font-size:0.75rem; }
         .copied-toast { position:fixed; bottom:40px; left:50%; transform:translateX(-50%) translateY(20px); background:var(--accent); color:#000; padding:12px 24px; border-radius:8px; font-size:0.85rem; font-weight:500; opacity:0; transition:all 0.3s; pointer-events:none; z-index:100; }
         .copied-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
@@ -95,7 +102,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"QRコード生成ツール","item":"https://www.devtools-japan.com/tool-04-qr-generator/"}]}
     </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"作成したQRコードはどの形式でダウンロードできますか？","acceptedAnswer":{"@type":"Answer","text":"PNG形式とSVG形式でダウンロードできます。SVGは拡大しても劣化しないため、印刷物や大きなポスターへの利用に適しています。"}},{"@type":"Question","name":"URL以外にWi-Fi情報のQRコードも作れますか？","acceptedAnswer":{"@type":"Answer","text":"はい。URLやテキストのほか、Wi-Fi接続情報からQRコードを作成できます。サイズや色のカスタマイズにも対応し、登録不要・無料で利用できます。"}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"作成したQRコードはダウンロードできますか？形式は何ですか？","acceptedAnswer":{"@type":"Answer","text":"はい。生成したQRコードはPNG形式とSVG形式の2種類でダウンロードできます。PNGはWebやSNS、SVGは拡大しても劣化しないため印刷物や大きなポスターに向いています。いずれもブラウザ内で生成され、サーバーへ送信されません。"}},{"@type":"Question","name":"URL以外もQRコードにできますか？","acceptedAnswer":{"@type":"Answer","text":"できます。本ツールはテキストやURLのほか、SSID・パスワード・暗号化方式を指定するWi-Fi接続用QRコード、宛先・件名・本文を含むメール（mailto）用QRコードに対応しています。タブを切り替えて入力するだけで自動生成されます。"}},{"@type":"Question","name":"QRコードに有効期限はありますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールが作るのはデータそのものを画像化した静的QRコードのため、コード自体に有効期限はありません。URLを格納した場合は、そのリンク先のページが存在する限り読み取れます。リンク先を削除・変更すると当然そのURLは無効になります。"}},{"@type":"Question","name":"作ったQRコードが読み取れないときの原因は？","acceptedAnswer":{"@type":"Answer","text":"主な原因はサイズが小さすぎる、前景色と背景色のコントラストが不足している、背景が濃く前景が薄いなど明暗が逆転している、印刷時に周囲の余白が足りない、の4点です。サイズを大きくし、濃い前景色と明るい背景色で十分なコントラストを確保すると改善します。"}},{"@type":"Question","name":"作成したQRコードは商用利用できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。生成したQRコード画像はチラシ・名刺・商品パッケージ・店舗掲示など商用を含め自由にご利用いただけます。なお「QRコード」は株式会社デンソーウェーブの登録商標ですが、規格に沿ったコードの作成・利用自体は自由に行えます。"}}]}
 </script>
 </head>
 <body>
@@ -165,6 +172,48 @@
         <p>Wi-Fiタブでネットワーク名とパスワードを入力すると、スマートフォンのカメラで読み取るだけでWi-Fiに接続できるQRコードが生成されます。カフェや店舗でのゲストWi-Fi共有に便利です。</p>
         <h3>カスタマイズ</h3>
         <p>前景色と背景色を自由に設定でき、ブランドカラーに合わせたQRコードを作成できます。サイズも128px〜512pxまで調整可能です。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>QRコードとは／使い方</h2>
+        <p>QRコードは、URLやテキストなどの情報を白黒の格子状パターンに変換した2次元コードです。一般的なバーコード（1次元）が横方向にしか情報を持たないのに対し、QRコードは縦横の両方向に情報を格納できるため、同じ面積でより多くのデータを表現できます。スマートフォンのカメラを向けるだけで自動的に読み取られ、リンク先のページを開いたりWi-Fiに接続したりできます。</p>
+        <p>このツールでは、入力した内容をブラウザ内で即座にQRコードへ変換します。入力や生成はすべてお使いの端末内で完結し、サーバーへ送信されません。生成したコードはPNG（Web・SNS向け）またはSVG（拡大しても劣化しない印刷向け）でダウンロードでき、前景色・背景色・サイズ（128px〜512px）も自由に調整できます。用途としては、WebサイトやSNSへのURL共有、店舗やカフェでのWi-Fi接続案内、名刺やチラシへの連絡先掲載、キャッシュレス決済の受け取りコードなど、紙とデジタルをつなぐ場面で幅広く使われています。</p>
+
+        <h3>格納できるデータの種類と用途</h3>
+        <div class="table-wrap">
+            <table class="lookup-table">
+                <thead><tr><th>種類</th><th>入力タブ</th><th>主な用途</th></tr></thead>
+                <tbody>
+                    <tr><td class="acc">URL</td><td>テキスト / URL</td><td>Webサイト・SNS・キャンペーンページへの誘導</td></tr>
+                    <tr><td class="acc">テキスト</td><td>テキスト / URL</td><td>メッセージ・案内文・商品情報の表示</td></tr>
+                    <tr><td class="acc">Wi-Fi</td><td>Wi-Fi</td><td>SSID・パスワード・暗号化方式を読み取り自動接続</td></tr>
+                    <tr><td class="acc">メール</td><td>メール</td><td>宛先・件名・本文をセットしたメール作成（mailto）</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Wi-Fiは「WPA/WPA2」「WEP」「暗号化なし」から方式を選べます。メールは宛先のほか件名・本文も指定でき、読み取ると入力済みの状態でメール作成画面が開きます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item">
+            <div class="q">作成したQRコードはダウンロードできる？形式は？</div>
+            <div class="a">はい。生成したQRコードはPNG形式とSVG形式の2種類でダウンロードできます。PNGはWebやSNS、SVGは拡大しても劣化しないため印刷物や大きなポスターに向いています。いずれもブラウザ内で生成され、サーバーへ送信されません。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">URL以外もQRコードにできる？</div>
+            <div class="a">できます。本ツールはテキストやURLのほか、SSID・パスワード・暗号化方式を指定するWi-Fi接続用QRコード、宛先・件名・本文を含むメール（mailto）用QRコードに対応しています。タブを切り替えて入力するだけで自動生成されます。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">QRコードに有効期限はある？</div>
+            <div class="a">本ツールが作るのはデータそのものを画像化した静的QRコードのため、コード自体に有効期限はありません。URLを格納した場合は、そのリンク先のページが存在する限り読み取れます。リンク先を削除・変更すると当然そのURLは無効になります。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">読み取れないときの原因は？</div>
+            <div class="a">主な原因はサイズが小さすぎる、前景色と背景色のコントラストが不足している、背景が濃く前景が薄いなど明暗が逆転している、印刷時に周囲の余白が足りない、の4点です。サイズを大きくし、濃い前景色と明るい背景色で十分なコントラストを確保すると改善します。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">商用利用できる？</div>
+            <div class="a">はい。生成したQRコード画像はチラシ・名刺・商品パッケージ・店舗掲示など商用を含め自由にご利用いただけます。なお「QRコード」は株式会社デンソーウェーブの登録商標ですが、規格に沿ったコードの作成・利用自体は自由に行えます。</div>
+        </div>
     </div>
 
     <div class="ad-slot" style="display:none"></div>
