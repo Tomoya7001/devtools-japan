@@ -15,7 +15,7 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>請求書金額計算ツール | 税込・税抜・源泉徴収・振込額を一括計算【無料】</title>
-    <meta name="description" content="請求書に必要な金額を一括計算する無料ツール。税抜額から税込額、消費税額、源泉徴収税額、実際の振込額を自動計算。フリーランスの請求書作成、経理の検算に。">
+    <meta name="description" content="請求書に必要な金額を一括計算する無料ツール。税抜額から税込額、消費税額、源泉徴収税額、実際の振込額を自動計算。計算の流れ・計算例・源泉徴収やインボイスのよくある質問も解説。フリーランスの請求書作成、経理の検算に。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
@@ -48,6 +48,12 @@
         table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
         .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
         .btn:hover{opacity:0.9}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:center;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{font-family:'JetBrains Mono',monospace;color:var(--text)}.lookup-table td:first-child{font-family:'Noto Sans JP',sans-serif;text-align:left}.lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-52-invoice-calc/">
     <meta property="og:title" content="請求書金額計算 | 税込・源泉徴収・振込額を一括計算【無料】">
@@ -64,7 +70,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"請求書金額計算ツール","item":"https://www.devtools-japan.com/tool-52-invoice-calc/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"源泉徴収は税抜額と税込額のどちらに対して計算されますか？","acceptedAnswer":{"@type":"Answer","text":"請求書で報酬額と消費税額が明確に区分されている場合、源泉徴収税額は税抜の報酬額に対して計算できます。本ツールも税抜の報酬額を基準に源泉徴収税（100万円以下は10.21%、超過部分は20.42%）を概算します。最終的な処理は取引先や税理士にご確認ください。"}},{"@type":"Question","name":"インボイス制度の8%軽減税率にも対応していますか？","acceptedAnswer":{"@type":"Answer","text":"はい。消費税率は10%と8%（軽減税率）を選択できます。税抜額から消費税額・税込額・源泉徴収税額・振込額をまとめて概算表示します。あくまで概算ツールのため、実際の請求書発行時は記載要件や端数処理をご確認ください。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"請求書に源泉徴収はどう書く？","acceptedAnswer":{"@type":"Answer","text":"報酬額（税抜）、消費税額、小計（税込）を記載したうえで、その下に「源泉徴収税額」としてマイナスの金額を1行設けます。最終的に税込の小計から源泉徴収税額を差し引いた金額を「ご請求額」として明示すると、取引先が振込額をそのまま把握できます。税抜額と消費税額を別行で区分しておくことが、源泉を税抜額基準で計算するための前提になります。"}},{"@type":"Question","name":"消費税は税抜と税込どちらに源泉がかかる？","acceptedAnswer":{"@type":"Answer","text":"原則は報酬額（消費税込み）に対して源泉徴収しますが、請求書で報酬額と消費税額が明確に区分されている場合は、税抜の報酬額に対して源泉徴収税額を計算してよいとされています。税抜基準のほうが天引き額が少なく手取りが増えるため、消費税額を別行で区分記載するのが一般的です。本ツールも税抜の報酬額を基準に概算します。"}},{"@type":"Question","name":"振込手数料はどちらが負担？","acceptedAnswer":{"@type":"Answer","text":"法律上の原則では、振込手数料は支払う側（債務者）が負担するのが基本です。ただし実務では契約や取引慣行によって受取側が負担するケースもあり、その場合は請求額から手数料分が差し引かれて入金されます。トラブルを避けるため、見積書や契約書で手数料の負担をあらかじめ取り決めておくと安心です。"}},{"@type":"Question","name":"源泉徴収の対象になる報酬は？","acceptedAnswer":{"@type":"Answer","text":"原稿料・デザイン料・講演料・翻訳料・作曲料、弁護士や税理士など士業への報酬、外交員報酬などが源泉徴収の対象です。一方、物品の販売代金や通常の業務委託のうち対象に該当しないものは源泉徴収しません。支払う側が法人または常時2人以下の家事使用人のみを雇う個人以外であることなど、支払者側の条件もあるため、対象かどうかは取引先や税理士に確認するのが確実です。"}},{"@type":"Question","name":"インボイス番号は請求書に必要？","acceptedAnswer":{"@type":"Answer","text":"適格請求書（インボイス）として消費税の仕入税額控除に使ってもらうには、登録番号（Tから始まる13桁）、適用税率ごとに区分した消費税額、取引年月日、取引内容などの記載が必要です。免税事業者で登録していない場合は番号の記載はありませんが、その場合は取引先が控除を受けられない点に留意してください。本ツールは金額の概算用で、記載要件そのものは別途ご確認ください。"}}]}
     </script>
 </head>
 <body>
@@ -100,6 +106,50 @@
         <p>デザイン料・原稿料・コンサルティング料などは源泉徴収の対象です。報酬が100万円以下の場合は10.21%、100万円超の部分は20.42%が源泉徴収されます。請求書に消費税を明記している場合、税抜額に対して源泉徴収が計算されるため、手取りが増えます。</p>
         <h3>経理の検算にも</h3>
         <p>受け取った請求書の金額が正しいか検算する場面でも使えます。「税込金額から逆算して税抜額を出す」「源泉徴収額が正しいか確認する」などの用途に対応しています。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>請求書の金額計算の流れ</h2>
+        <p>フリーランスや個人事業主が請求書を作成するときの金額は、決まった順序で積み上げて計算します。本ツールも実務と同じ手順で計算しており、流れを理解しておくと検算や取引先への説明がスムーズになります。</p>
+        <p>第一に「小計（税抜の報酬額）」を確定します。これがすべての計算の基準となる金額で、デザイン料・原稿料・コンサルティング料などの本体価格です。第二に、この税抜の報酬額に消費税率を掛けて「消費税額」を求めます。標準税率は10%で、本ツールでは端数を切り捨てて計算します。報酬額に消費税額を足したものが「小計（税込）」です。</p>
+        <p>第三に「源泉徴収税額」を差し引きます。源泉徴収はあらかじめ所得税を天引きする仕組みで、デザイン料・原稿料・講演料・士業への報酬などが対象です。税率は報酬が100万円以下の部分が10.21%、100万円を超える部分が20.42%です。ここで重要なのは、請求書で税抜の報酬額と消費税額を明確に区分して記載している場合、源泉徴収税額は税抜の報酬額に対して計算してよいという点です。税込額にかけてしまうと天引き額が多くなり手取りが減るため、区分記載が手取りを守るうえで有利になります。本ツールも税抜の報酬額を基準に源泉徴収税額を概算します。</p>
+        <p>最後に、小計（税込）から源泉徴収税額を引いた金額が「差引請求額（実際の振込額）」です。これがクライアントから実際に振り込まれる金額になります。なお振込手数料は別途の論点で、契約や取引慣行によってどちらが負担するかが決まります。本ツールの計算順序は「小計（税抜）→消費税10%→源泉徴収10.21%→差引請求額」の順に固定されています。</p>
+
+        <h3>計算例</h3>
+        <p>税抜の報酬額ごとに、消費税（10%）・源泉徴収（10.21%、100万円以下）・差引請求額を計算した例です。いずれも本ツールと同一の計算式（端数切り捨て）で算出しており、ツール上で同じ値を入力すれば同じ結果が表示されます。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>税抜報酬額</th><th>消費税(10%)</th><th>小計(税込)</th><th>源泉徴収(10.21%)</th><th>差引請求額</th></tr></thead>
+            <tbody>
+                <tr><td>50,000円</td><td>5,000円</td><td>55,000円</td><td>-5,105円</td><td class="acc">49,895円</td></tr>
+                <tr><td>100,000円</td><td>10,000円</td><td>110,000円</td><td>-10,210円</td><td class="acc">99,790円</td></tr>
+                <tr><td>300,000円</td><td>30,000円</td><td>330,000円</td><td>-30,630円</td><td class="acc">299,370円</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>たとえば税抜30万円の場合、消費税3万円を足した税込33万円から、税抜30万円に対する源泉徴収3万630円を引いて、差引請求額は29万9,370円となります。報酬が100万円を超える案件では、超過部分に20.42%が適用される点に注意してください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item">
+            <div class="q">請求書に源泉徴収はどう書く？</div>
+            <div class="a">報酬額（税抜）、消費税額、小計（税込）を記載したうえで、その下に「源泉徴収税額」としてマイナスの金額を1行設けます。最終的に税込の小計から源泉徴収税額を差し引いた金額を「ご請求額」として明示すると、取引先が振込額をそのまま把握できます。税抜額と消費税額を別行で区分しておくことが、源泉を税抜額基準で計算するための前提になります。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">消費税は税抜と税込どちらに源泉がかかる？</div>
+            <div class="a">原則は報酬額（消費税込み）に対して源泉徴収しますが、請求書で報酬額と消費税額が明確に区分されている場合は、税抜の報酬額に対して源泉徴収税額を計算してよいとされています。税抜基準のほうが天引き額が少なく手取りが増えるため、消費税額を別行で区分記載するのが一般的です。本ツールも税抜の報酬額を基準に概算します。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">振込手数料はどちらが負担？</div>
+            <div class="a">法律上の原則では、振込手数料は支払う側（債務者）が負担するのが基本です。ただし実務では契約や取引慣行によって受取側が負担するケースもあり、その場合は請求額から手数料分が差し引かれて入金されます。トラブルを避けるため、見積書や契約書で手数料の負担をあらかじめ取り決めておくと安心です。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">源泉徴収の対象になる報酬は？</div>
+            <div class="a">原稿料・デザイン料・講演料・翻訳料・作曲料、弁護士や税理士など士業への報酬、外交員報酬などが源泉徴収の対象です。一方、物品の販売代金や通常の業務委託のうち対象に該当しないものは源泉徴収しません。支払う側が法人または常時2人以下の家事使用人のみを雇う個人以外であることなど、支払者側の条件もあるため、対象かどうかは取引先や税理士に確認するのが確実です。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">インボイス番号は請求書に必要？</div>
+            <div class="a">適格請求書（インボイス）として消費税の仕入税額控除に使ってもらうには、登録番号（Tから始まる13桁）、適用税率ごとに区分した消費税額、取引年月日、取引内容などの記載が必要です。免税事業者で登録していない場合は番号の記載はありませんが、その場合は取引先が控除を受けられない点に留意してください。本ツールは金額の概算用で、記載要件そのものは別途ご確認ください。</div>
+        </div>
     </div>
 
         <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
