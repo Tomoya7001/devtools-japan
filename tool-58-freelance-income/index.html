@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>フリーランス年収シミュレーター | 月単価から年収・手取りを自動計算【無料】</title>
-    <meta name="description" content="フリーランスエンジニアの年収・手取りを月単価と稼働率から自動計算。所得税・住民税・国民健康保険・国民年金を差し引いた実際の手取り額がわかる無料シミュレーター。独立前の収入シミュレーションに。">
+    <title>フリーランス年収シミュレーター | 月単価から年収・手取りを自動計算・売上別手取り目安【無料】</title>
+    <meta name="description" content="フリーランスの年収・手取りを月単価と稼働率から自動計算。所得税・住民税・国民健康保険・国民年金を差し引いた手取り額がわかる無料シミュレーター。売上300万〜1000万の手取り目安一覧とよくある質問も掲載。独立前の収入シミュレーションに。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#f59e0b;--accent-dim:rgba(245,158,11,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
@@ -38,6 +38,12 @@
         table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
         table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
         table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:center;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{font-family:'JetBrains Mono',monospace;color:var(--text)}.lookup-table td:first-child{font-family:'Noto Sans JP',sans-serif;text-align:left}.lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-58-freelance-income/">
     <meta property="og:title" content="フリーランス年収シミュレーター | 月単価から手取りを計算【無料】">
@@ -51,7 +57,7 @@
     {"@context":"https://schema.org","@type":"WebApplication","name":"フリーランス年収シミュレーター","description":"月単価から年収・手取りを自動計算","url":"https://www.devtools-japan.com/tool-58-freelance-income/","applicationCategory":"BusinessApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"フリーランスの手取りは月単価の何割？","acceptedAnswer":{"@type":"Answer","text":"一般的にフリーランスの手取りは売上の60〜70%程度です。所得税、住民税、国民健康保険、国民年金、個人事業税を差し引くと、会社員と同じ手取りを得るには1.3〜1.5倍の売上が必要です。"}},{"@type":"Question","name":"フリーランスが払う税金・社会保険は？","acceptedAnswer":{"@type":"Answer","text":"所得税、住民税、国民健康保険料、国民年金、個人事業税（所得290万超）の5つです。会社員と違い全額自己負担です。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"フリーランスの手取りは売上の何割？","acceptedAnswer":{"@type":"Answer","text":"概算では、売上の約55〜65%が手取りになるケースが多いです。当ツールの計算式で経費率20%・青色65万円控除の前提で試算すると、売上300万円で約62%、500万円で約60%、700万円で約58%、1000万円で約54%となり、売上が増えるほど累進課税で手取り率は下がります。あくまで概算であり、実際は自治体の国保料率や各種控除で変動します。"}},{"@type":"Question","name":"会社員と同じ手取りには売上いくら必要？","acceptedAnswer":{"@type":"Answer","text":"一般にフリーランスが会社員と同じ手取りを得るには、会社員時代の年収の約1.3〜1.5倍の売上が目安と言われます。社会保険料が全額自己負担になり、退職金や各種手当もないためです。例えば会社員で手取り400万円相当を狙うなら、概算で売上700万円前後が一つの目安になります。正確な金額は当ツールに自分の数字を入れて確認してください。"}},{"@type":"Question","name":"フリーランスの国民年金はいくら？","acceptedAnswer":{"@type":"Answer","text":"当ツールでは2026年度の国民年金保険料を月額16,980円として計算しており、年額では約20万3,760円になります。国民年金は所得にかかわらず定額で、会社員の厚生年金と違い全額自己負担です。将来の受給額を増やしたい場合は、国民年金基金やiDeCo、付加年金などの上乗せ制度を併用する方法があります。"}},{"@type":"Question","name":"経費を増やすと手取りはどうなる？","acceptedAnswer":{"@type":"Answer","text":"経費が増えると事業所得が下がり、所得税・住民税・国民健康保険料がいずれも軽くなるため、手取りの「率」は上がります。ただし経費はあくまで事業のために実際に支出したお金なので、無理に使えば手元の現金は減ります。節税のために必要な投資をする分には有効ですが、当ツールで経費額を変えて手取りへの影響を確認するのがおすすめです。"}},{"@type":"Question","name":"青色申告にすると何が変わる？","acceptedAnswer":{"@type":"Answer","text":"複式簿記とe-Taxによる申告で最大65万円の青色申告特別控除が受けられ、その分だけ課税所得が減って所得税・住民税・国保料が下がります。当ツールでは控除65万円・10万円・なし（白色）を選んで手取りの差を概算できます。ほかにも赤字の繰越や家族への給与（専従者給与）などのメリットがあります。表示額はあくまで概算です。"}}]}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"フリーランス年収シミュレーター","item":"https://www.devtools-japan.com/tool-58-freelance-income/"}]}
@@ -101,6 +107,35 @@
         <p>一般的に、フリーランスが会社員と同じ手取りを得るには、会社員時代の年収の1.3〜1.5倍の売上が必要と言われています。このツールで具体的な数字を出して、独立前に現実的な収入プランを立てましょう。</p>
         <h3>節税のポイント</h3>
         <p>青色申告65万円控除、小規模企業共済（最大月7万円、全額所得控除）、iDeCo、ふるさと納税を組み合わせることで、大幅な節税が可能です。このツールで控除額を変えてシミュレーションしてみてください。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>フリーランスの手取りの計算の流れ</h2>
+        <p>フリーランス（個人事業主）の手取りは、いくつかの段階を経て決まります。まず、年間の「売上」は月単価に年間の稼働月数を掛けて求めます。たとえば月単価70万円で年11ヶ月稼働なら、売上は770万円です。この売上から、業務に使った通信費・機材費・交通費・外注費などの「経費」を差し引いた金額が「事業所得」になります。手取りは売上そのものではなく、この事業所得をベースに税金と社会保険料を引いた残りである点が重要です。</p>
+        <p>次に、事業所得から各種の「所得控除」を差し引いて「課税所得」を計算します。控除には、青色申告特別控除（最大65万円）、基礎控除（48万円）、支払った国民健康保険料・国民年金などの社会保険料控除、小規模企業共済等掛金控除などがあります。これらを多く積み上げるほど課税所得が小さくなり、税負担が軽くなります。当ツールでは青色申告特別控除と小規模企業共済の掛金を選んで反映できます。</p>
+        <p>課税所得が決まると、そこに税率を掛けて税額を算出します。所得税は5%から45%まで段階的に上がる累進課税で、当ツールでは復興特別所得税（2.1%）も上乗せして計算します。住民税は課税所得のおおむね10%に均等割を加えた額です。これに加えて、所得に応じた国民健康保険料（自治体ごとに料率が異なるため当ツールでは所得の約10%・上限ありの概算）、定額の国民年金、そして事業所得が290万円を超える場合の個人事業税（原則5%）がかかります。最終的に、売上から経費・所得税・住民税・国民健康保険・国民年金・個人事業税・共済掛金を差し引いた金額が、その年の「手取り」になります。</p>
+
+        <h3>売上別の手取り目安（概算）</h3>
+        <p>下の表は、当シミュレーターと同じ計算式を使って、売上別のおおよその手取りを試算したものです。前提として、経費率は一律20%（売上の2割を経費とする）、青色申告特別控除65万円、小規模企業共済の掛金はなし（0円）として計算しています。国民健康保険料は自治体によって料率が異なり、各種控除も人それぞれのため、実際の金額はこの目安とずれます。あくまで概算としてご覧ください。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>年間売上</th><th>経費(20%)</th><th>事業所得</th><th>年間手取り(概算)</th><th>月平均</th><th>売上比</th></tr></thead>
+            <tbody>
+                <tr><td>300万円</td><td>60万円</td><td>240万円</td><td class="acc">約186万円</td><td>約15.5万円</td><td>約62%</td></tr>
+                <tr><td>500万円</td><td>100万円</td><td>400万円</td><td class="acc">約301万円</td><td>約25.1万円</td><td>約60%</td></tr>
+                <tr><td>700万円</td><td>140万円</td><td>560万円</td><td class="acc">約404万円</td><td>約33.6万円</td><td>約58%</td></tr>
+                <tr><td>1000万円</td><td>200万円</td><td>800万円</td><td class="acc">約542万円</td><td>約45.2万円</td><td>約54%</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>表からわかるとおり、売上が増えるほど累進課税の影響で手取りの「率」は下がっていきます。売上300万円台では手取りは売上の約6割ですが、1000万円規模になると約5割台前半まで下がります。自分の月単価・経費・控除を入れて、上のシミュレーターで正確な数字を確認してください。表の値は前提条件での概算であり、実際の税額・社会保険料を保証するものではありません。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">フリーランスの手取りは売上の何割？</div><div class="a">概算では、売上の約55〜65%が手取りになるケースが多いです。当ツールの計算式で経費率20%・青色65万円控除の前提で試算すると、売上300万円で約62%、500万円で約60%、700万円で約58%、1000万円で約54%となり、売上が増えるほど累進課税で手取り率は下がります。あくまで概算であり、実際は自治体の国保料率や各種控除で変動します。</div></div>
+        <div class="faq-item"><div class="q">会社員と同じ手取りには売上いくら必要？</div><div class="a">一般にフリーランスが会社員と同じ手取りを得るには、会社員時代の年収の約1.3〜1.5倍の売上が目安と言われます。社会保険料が全額自己負担になり、退職金や各種手当もないためです。例えば会社員で手取り400万円相当を狙うなら、概算で売上700万円前後が一つの目安になります。正確な金額は当ツールに自分の数字を入れて確認してください。</div></div>
+        <div class="faq-item"><div class="q">フリーランスの国民年金はいくら？</div><div class="a">当ツールでは2026年度の国民年金保険料を月額16,980円として計算しており、年額では約20万3,760円になります。国民年金は所得にかかわらず定額で、会社員の厚生年金と違い全額自己負担です。将来の受給額を増やしたい場合は、国民年金基金やiDeCo、付加年金などの上乗せ制度を併用する方法があります。</div></div>
+        <div class="faq-item"><div class="q">経費を増やすと手取りはどうなる？</div><div class="a">経費が増えると事業所得が下がり、所得税・住民税・国民健康保険料がいずれも軽くなるため、手取りの「率」は上がります。ただし経費はあくまで事業のために実際に支出したお金なので、無理に使えば手元の現金は減ります。節税のために必要な投資をする分には有効ですが、当ツールで経費額を変えて手取りへの影響を確認するのがおすすめです。</div></div>
+        <div class="faq-item"><div class="q">青色申告にすると何が変わる？</div><div class="a">複式簿記とe-Taxによる申告で最大65万円の青色申告特別控除が受けられ、その分だけ課税所得が減って所得税・住民税・国保料が下がります。当ツールでは控除65万円・10万円・なし（白色）を選んで手取りの差を概算できます。ほかにも赤字の繰越や家族への給与（専従者給与）などのメリットがあります。表示額はあくまで概算です。</div></div>
     </div>
 
         <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
