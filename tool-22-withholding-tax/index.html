@@ -13,8 +13,8 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>源泉徴収税計算ツール | 報酬の手取り額を即計算</title>
-    <meta name="description" content="フリーランス報酬の源泉徴収税額と手取り額を自動計算。税込・税抜の逆算にも対応。請求書作成の参考に。">
+    <title>源泉徴収税計算ツール | 報酬の手取り額を即計算【源泉・手取り早見表付き】</title>
+    <meta name="description" content="フリーランス報酬の源泉徴収税額と手取り額を自動計算。「10万円の報酬の源泉徴収は？」が早見表で一目でわかる。100万円以下10.21%／超20.42%、消費税の扱い・請求書の書き方も解説。税込・税抜の逆算にも対応。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.1);--green:#22c55e;--radius:12px}
@@ -40,6 +40,17 @@
         .formula{background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:14px;margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--text2);line-height:1.8}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:center;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem;line-height:1.4}
+        .lookup-table td{font-family:'JetBrains Mono',monospace;color:var(--text)}
+        .lookup-table td:first-child{font-family:'Noto Sans JP',sans-serif;color:var(--text2);background:#fcfcfe}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-22-withholding-tax/">
@@ -54,7 +65,7 @@
     {"@context":"https://schema.org","@type":"WebApplication","name":"源泉徴収税計算ツール","description":"フリーランス報酬の源泉徴収税額と手取り額を計算","url":"https://www.devtools-japan.com/tool-22-withholding-tax/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"源泉徴収税の計算方法は？","acceptedAnswer":{"@type":"Answer","text":"報酬が100万円以下の場合は報酬額×10.21%、100万円超の場合は超過分×20.42%＋102,100円です。"}},{"@type":"Question","name":"源泉徴収はどんな報酬にかかる？","acceptedAnswer":{"@type":"Answer","text":"原稿料、デザイン料、コンサルティング料、講演料、弁護士・税理士等の士業報酬が対象です。システム開発は原則対象外ですが、クライアントの判断で徴収される場合があります。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"10万円の報酬の源泉徴収はいくらですか？","acceptedAnswer":{"@type":"Answer","text":"税抜報酬10万円に対する源泉徴収額は10,210円（10万円×10.21%）です。報酬から源泉を引いた差引額は89,790円で、これに消費税（10%）を加えた額が実際の振込額になります。"}},{"@type":"Question","name":"消費税込みでも源泉徴収は引かれますか？","acceptedAnswer":{"@type":"Answer","text":"請求書で報酬（税抜）と消費税を明確に区分していれば、源泉徴収は税抜の報酬額に対してのみかかります。区分せず税込総額だけを記載した場合は、税込総額に対して計算されます。"}},{"@type":"Question","name":"源泉徴収税の計算方法は？","acceptedAnswer":{"@type":"Answer","text":"報酬が100万円以下の部分は10.21%、100万円を超える部分は20.42%で計算します。例えば報酬30万円なら30,630円が源泉徴収税額です。復興特別所得税2.1%が含まれています。"}},{"@type":"Question","name":"報酬が100万円を超えるとどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"100万円までは10.21%、超えた部分だけ20.42%が適用されます。例えば150万円なら、100万円×10.21%＝102,100円と50万円×20.42%＝102,100円の合計204,200円が源泉徴収額です。"}},{"@type":"Question","name":"源泉徴収はどんな報酬にかかりますか？","acceptedAnswer":{"@type":"Answer","text":"原稿料、デザイン料、コンサルティング料、講演料、弁護士・税理士などの士業報酬が対象です。システム開発は原則対象外ですが、クライアントの判断で徴収される場合があります。"}}]}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"源泉徴収税計算ツール","item":"https://www.devtools-japan.com/tool-22-withholding-tax/"}]}
@@ -89,6 +100,38 @@
         <p>報酬額が100万円以下の場合は報酬額×10.21%、100万円を超える場合は超過分×20.42%＋102,100円が源泉徴収税額です。復興特別所得税（0.21%分）も含まれています。</p>
         <h3>フリーランスの請求書作成に</h3>
         <p>クライアントに請求書を送る際、源泉徴収ありの場合は「報酬額−源泉徴収税額＝振込額」を記載する必要があります。このツールで正確な金額を計算してから請求書を作成しましょう。消費税の扱い（税込み・税抜き）による源泉徴収額の違いも確認できます。</p>
+        </div>
+    <div class="seo-content">
+        <h2>源泉徴収額 早見表（税抜報酬別）</h2>
+        <p>「報酬10万円の源泉徴収はいくら？」を一目で確認できる早見表です。源泉徴収は税抜の報酬額に対して、復興特別所得税を含む10.21%（100万円を超える部分は20.42%）で計算します。下表の「差引額」は税抜報酬から源泉徴収を引いた金額で、別途、消費税（10%）を上乗せした合計が実際の振込額になります。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>税抜報酬</th><th>源泉徴収額</th><th>差引額（報酬−源泉）</th></tr></thead>
+            <tbody>
+            <tr><td>1万円</td><td class="acc">1,021</td><td>8,979</td></tr>
+            <tr><td>2万円</td><td class="acc">2,042</td><td>17,958</td></tr>
+            <tr><td>3万円</td><td class="acc">3,063</td><td>26,937</td></tr>
+            <tr><td>5万円</td><td class="acc">5,105</td><td>44,895</td></tr>
+            <tr><td>10万円</td><td class="acc">10,210</td><td>89,790</td></tr>
+            <tr><td>20万円</td><td class="acc">20,420</td><td>179,580</td></tr>
+            <tr><td>30万円</td><td class="acc">30,630</td><td>269,370</td></tr>
+            <tr><td>50万円</td><td class="acc">51,050</td><td>448,950</td></tr>
+            <tr><td>100万円</td><td class="acc">102,100</td><td>897,900</td></tr>
+            <tr><td>150万円</td><td class="acc">204,200</td><td>1,295,800</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text3)">※ 1円未満切り捨て。100万円以下は10.21%、100万円を超える部分のみ20.42%。150万円の場合は100万円×10.21%＋50万円×20.42%＝204,200円となります。実際の振込額は、上の計算ツールで消費税を含めてご確認ください。</p>
+
+        <h3>請求書での書き方と消費税の扱い</h3>
+        <p>請求書に「報酬（税抜）」と「消費税」を分けて記載すると、源泉徴収は税抜の報酬額だけにかかります。一方、報酬と消費税を区分せず税込総額のみを記載した場合は、税込総額に対して源泉徴収が計算されるため、税抜区分のほうが源泉徴収額を抑えられます。請求書には「源泉徴収税額」と「差引請求額（振込額）」も明記しておくと、支払側との行き違いを防げます。</p>
+
+        <h2 style="margin-top:24px">よくある質問</h2>
+        <div class="faq-item"><div class="q">10万円の報酬の源泉徴収はいくらですか？</div><div class="a">税抜報酬10万円に対する源泉徴収額は10,210円（10万円×10.21%）です。報酬から源泉を引いた差引額は89,790円で、これに消費税（10%）を加えた額が実際の振込額になります。</div></div>
+        <div class="faq-item"><div class="q">消費税込みでも源泉徴収は引かれますか？</div><div class="a">請求書で報酬（税抜）と消費税を明確に区分していれば、源泉徴収は税抜の報酬額に対してのみかかります。区分せず税込総額だけを記載した場合は、税込総額に対して計算されます。</div></div>
+        <div class="faq-item"><div class="q">源泉徴収税の計算方法は？</div><div class="a">報酬が100万円以下の部分は10.21%、100万円を超える部分は20.42%で計算します。例えば報酬30万円なら30,630円が源泉徴収税額です。復興特別所得税2.1%が含まれています。</div></div>
+        <div class="faq-item"><div class="q">報酬が100万円を超えるとどうなりますか？</div><div class="a">100万円までは10.21%、超えた部分だけ20.42%が適用されます。例えば150万円なら、100万円×10.21%＝102,100円と50万円×20.42%＝102,100円の合計204,200円が源泉徴収額です。</div></div>
+        <div class="faq-item"><div class="q">源泉徴収はどんな報酬にかかりますか？</div><div class="a">原稿料、デザイン料、コンサルティング料、講演料、弁護士・税理士などの士業報酬が対象です。システム開発は原則対象外ですが、クライアントの判断で徴収される場合があります。</div></div>
         </div>
     <div class="ad-slot" style="display:none"></div>
     
