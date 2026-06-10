@@ -13,7 +13,7 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTMLカラーネーム一覧 | DevTools Japan</title>
+    <title>HTMLカラーネーム一覧 | CSS色名・HEXコード早見表（140色）【無料】 | DevTools Japan</title>
     <meta name="description" content="HTML/CSSで使える140色以上のカラーネーム一覧。色名・HEXコード・RGB値を一覧表示。コピペで即使える無料リファレンス。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
@@ -27,6 +27,17 @@
         
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:7px 8px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.hex{font-family:'JetBrains Mono',monospace}
+        .sw{display:inline-block;width:42px;height:16px;border:1px solid var(--border);border-radius:3px;vertical-align:middle}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -45,7 +56,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"HTMLカラーネーム一覧","item":"https://www.devtools-japan.com/tool-47-html-color-names/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"HTMLカラーネームはどのブラウザでも同じ色で表示されますか？","acceptedAnswer":{"@type":"Answer","text":"はい。redやskyblueなどの名前付きカラーはCSSの標準仕様（CSS Color Module）で各色のHEX値が定義されているため、主要なモダンブラウザでは同じ色で表示されます。本ツールではHEX値も併記しているので、より厳密に色を指定したい場合はHEXコードの利用もおすすめです。"}},{"@type":"Question","name":"色名一覧から検索した色をコピーできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。各色のカードをクリックするとHEXコードがクリップボードにコピーされ、そのままCSSに貼り付けられます。検索ボックスに色名やHEXを入力して絞り込みも可能です。すべてブラウザ上で動作し、登録不要・無料でお使いいただけます。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"CSSで使える色名はいくつありますか？","acceptedAnswer":{"@type":"Answer","text":"現在のCSS仕様では140色前後の名前付きカラーが定義されています（CSS Color Module Level 4では148色）。本ツールではその一覧を色見本付きで確認でき、クリックでHEXコードをコピーできます。"}},{"@type":"Question","name":"HTMLカラーネームはどのブラウザでも同じ色で表示されますか？","acceptedAnswer":{"@type":"Answer","text":"はい。redやskyblueなどの名前付きカラーはCSSの標準仕様で各色のHEX値が定義されているため、主要なモダンブラウザでは同じ色で表示されます。厳密に色を管理したい場合はHEXコードの併用がおすすめです。"}},{"@type":"Question","name":"grayとgrey、どちらの綴りでも使えますか？","acceptedAnswer":{"@type":"Answer","text":"どちらも有効です。CSSではアメリカ式のgrayとイギリス式のgreyの両方の綴りがサポートされており、DarkGray／DarkGreyなども同様に両方使えます。表示される色は同じです。"}},{"@type":"Question","name":"色名とHEXコードはどちらを使うべきですか？","acceptedAnswer":{"@type":"Answer","text":"可読性を重視するプロトタイプやサンプルでは色名が便利です。一方、デザインで微妙な色合いを正確に指定したい場合や、デザインシステムで色を統一したい場合はHEXコード（またはRGB）の利用が向いています。"}},{"@type":"Question","name":"redとcrimsonの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"redは純粋な赤（#FF0000）、crimsonはやや深く青みがかった赤（#DC143C）です。同じ赤でもHEX値が異なるため、デザインの雰囲気に合わせて使い分けられます。本ツールで色見本を見比べて選べます。"}}]}
     </script>
 </head>
 <body>
@@ -63,6 +74,58 @@
         <p>CSSでは「red」「blue」「skyblue」「coral」などの英語の色名でカラーを指定できます。HEXコードを覚えなくても直感的に色を指定できるため、プロトタイプの作成やデバッグ時に便利です。</p>
         <h3>検索・フィルター機能</h3>
         <p>色名やHEXコードで検索できるほか、赤系・青系・緑系などの色相でフィルタリングもできます。デザインの色選びの参考にも使えます。</p>
+
+        <h2>基本の16色（HTML標準カラー）早見表</h2>
+        <p>もっとも古くから使われている16色の基本カラーネームです。色名・色見本・HEXコードをまとめました。HEX値はCSSの標準仕様で定義されており、主要ブラウザで同じ色に表示されます。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>色名</th><th>色見本</th><th>HEX</th></tr></thead>
+            <tbody>
+            <tr><td>Black</td><td><span class="sw" style="background:#000000"></span></td><td class="hex">#000000</td></tr>
+            <tr><td>White</td><td><span class="sw" style="background:#FFFFFF"></span></td><td class="hex">#FFFFFF</td></tr>
+            <tr><td>Gray</td><td><span class="sw" style="background:#808080"></span></td><td class="hex">#808080</td></tr>
+            <tr><td>Silver</td><td><span class="sw" style="background:#C0C0C0"></span></td><td class="hex">#C0C0C0</td></tr>
+            <tr><td>Red</td><td><span class="sw" style="background:#FF0000"></span></td><td class="hex">#FF0000</td></tr>
+            <tr><td>Maroon</td><td><span class="sw" style="background:#800000"></span></td><td class="hex">#800000</td></tr>
+            <tr><td>Lime</td><td><span class="sw" style="background:#00FF00"></span></td><td class="hex">#00FF00</td></tr>
+            <tr><td>Green</td><td><span class="sw" style="background:#008000"></span></td><td class="hex">#008000</td></tr>
+            <tr><td>Blue</td><td><span class="sw" style="background:#0000FF"></span></td><td class="hex">#0000FF</td></tr>
+            <tr><td>Navy</td><td><span class="sw" style="background:#000080"></span></td><td class="hex">#000080</td></tr>
+            <tr><td>Yellow</td><td><span class="sw" style="background:#FFFF00"></span></td><td class="hex">#FFFF00</td></tr>
+            <tr><td>Olive</td><td><span class="sw" style="background:#808000"></span></td><td class="hex">#808000</td></tr>
+            <tr><td>Aqua</td><td><span class="sw" style="background:#00FFFF"></span></td><td class="hex">#00FFFF</td></tr>
+            <tr><td>Teal</td><td><span class="sw" style="background:#008080"></span></td><td class="hex">#008080</td></tr>
+            <tr><td>Fuchsia</td><td><span class="sw" style="background:#FF00FF"></span></td><td class="hex">#FF00FF</td></tr>
+            <tr><td>Purple</td><td><span class="sw" style="background:#800080"></span></td><td class="hex">#800080</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3>よく使われる人気のカラーネーム</h3>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>色名</th><th>色見本</th><th>HEX</th></tr></thead>
+            <tbody>
+            <tr><td>SkyBlue</td><td><span class="sw" style="background:#87CEEB"></span></td><td class="hex">#87CEEB</td></tr>
+            <tr><td>Coral</td><td><span class="sw" style="background:#FF7F50"></span></td><td class="hex">#FF7F50</td></tr>
+            <tr><td>Crimson</td><td><span class="sw" style="background:#DC143C"></span></td><td class="hex">#DC143C</td></tr>
+            <tr><td>Gold</td><td><span class="sw" style="background:#FFD700"></span></td><td class="hex">#FFD700</td></tr>
+            <tr><td>Indigo</td><td><span class="sw" style="background:#4B0082"></span></td><td class="hex">#4B0082</td></tr>
+            <tr><td>Orange</td><td><span class="sw" style="background:#FFA500"></span></td><td class="hex">#FFA500</td></tr>
+            <tr><td>Pink</td><td><span class="sw" style="background:#FFC0CB"></span></td><td class="hex">#FFC0CB</td></tr>
+            <tr><td>Tomato</td><td><span class="sw" style="background:#FF6347"></span></td><td class="hex">#FF6347</td></tr>
+            <tr><td>Turquoise</td><td><span class="sw" style="background:#40E0D0"></span></td><td class="hex">#40E0D0</td></tr>
+            <tr><td>SteelBlue</td><td><span class="sw" style="background:#4682B4"></span></td><td class="hex">#4682B4</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h2 style="margin-top:24px">よくある質問</h2>
+        <div class="faq-item"><div class="q">CSSで使える色名はいくつありますか？</div><div class="a">現在のCSS仕様では140色前後の名前付きカラーが定義されています（CSS Color Module Level 4では148色）。本ツールではその一覧を色見本付きで確認でき、クリックでHEXコードをコピーできます。</div></div>
+        <div class="faq-item"><div class="q">HTMLカラーネームはどのブラウザでも同じ色で表示されますか？</div><div class="a">はい。redやskyblueなどの名前付きカラーはCSSの標準仕様で各色のHEX値が定義されているため、主要なモダンブラウザでは同じ色で表示されます。厳密に色を管理したい場合はHEXコードの併用がおすすめです。</div></div>
+        <div class="faq-item"><div class="q">grayとgrey、どちらの綴りでも使えますか？</div><div class="a">どちらも有効です。CSSではアメリカ式のgrayとイギリス式のgreyの両方の綴りがサポートされており、DarkGray／DarkGreyなども同様に両方使えます。表示される色は同じです。</div></div>
+        <div class="faq-item"><div class="q">色名とHEXコードはどちらを使うべきですか？</div><div class="a">可読性を重視するプロトタイプやサンプルでは色名が便利です。一方、デザインで微妙な色合いを正確に指定したい場合や、デザインシステムで色を統一したい場合はHEXコード（またはRGB）の利用が向いています。</div></div>
+        <div class="faq-item"><div class="q">redとcrimsonの違いは何ですか？</div><div class="a">redは純粋な赤（#FF0000）、crimsonはやや深く青みがかった赤（#DC143C）です。同じ「赤」でもHEX値が異なるため、デザインの雰囲気に合わせて使い分けられます。本ツールで色見本を見比べて選べます。</div></div>
         </div>
     <div class="ad-slot" style="display:none"></div>
     
