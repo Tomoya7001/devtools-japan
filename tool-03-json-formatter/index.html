@@ -14,8 +14,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON整形ツール | JSONフォーマッター・バリデーター</title>
-    <meta name="description" content="JSONデータを見やすく整形・検証するオンラインツール。構文エラーの検出、ミニファイ、ツリー表示にも対応。開発者必須の無料ツール。">
+    <title>JSON整形ツール | JSONフォーマッター・バリデーター・ミニファイ</title>
+    <meta name="description" content="JSONデータを見やすく整形・検証するオンラインツール。構文エラーの検出、ミニファイ（圧縮）、ツリー表示に対応。末尾カンマなどのエラーチェックもブラウザ完結で実行。開発者必須の無料ツール。">
     <meta name="keywords" content="JSON整形,JSONフォーマッター,JSON検証,JSONバリデーター,JSON変換,JSONビューアー">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -148,6 +148,13 @@
         .seo-content h2 { color: var(--text-primary); font-size: 1.1rem; margin-bottom: 16px; }
         .seo-content h3 { color: var(--text-primary); font-size: 0.95rem; margin-top: 20px; margin-bottom: 8px; }
         .seo-content p { margin-bottom: 12px; }
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text-secondary);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text-primary)}
+        .lookup-table td.acc{color:var(--accent-orange);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text-primary);margin-bottom:4px}.faq-item .a{color:var(--text-secondary)}
 
         footer {
             text-align: center; margin-top: 48px; padding-top: 24px;
@@ -188,7 +195,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"JSON整形ツール","item":"https://www.devtools-japan.com/tool-03-json-formatter/"}]}
     </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"JSONの構文エラーは検出できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。整形時にJSONの構文を検証し、エラーがある場合はその内容を表示します。カンマ抜けや括弧の不整合などの誤りを見つけるのに役立ちます。"}},{"@type":"Question","name":"整形だけでなくミニファイ（圧縮）もできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。見やすく整形するだけでなく、改行や空白を削除して1行に圧縮するミニファイにも対応しています。処理はブラウザ内で完結し無料です。"}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"JSONの構文エラーは検出できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。「整形」「検証」ボタンを押すと内部でJSONを解析し、構文に誤りがある場合はエラーメッセージ（解析が止まった位置や原因）を表示します。末尾カンマ、括弧の不整合、キーの引用符忘れなどの誤りを見つけるのに役立ちます。入力欄の右上には有効なJSONか構文エラーかを示すバッジもリアルタイムで表示されます。"}},{"@type":"Question","name":"整形（フォーマット）とミニファイ（圧縮）の違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"整形は半角スペース2つのインデントと改行を付与し、階層が一目で分かる読みやすい形に変換します。ミニファイは改行や余分な空白をすべて取り除き1行のJSONに圧縮するもので、通信量やファイルサイズを減らしたいときに使います。どちらもデータの内容自体は変えず、見た目だけを変える処理です。"}},{"@type":"Question","name":"末尾カンマ（トレーリングカンマ）はJSONで使えますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。JSONの仕様では配列やオブジェクトの最後の要素のあとにカンマを置くことは許されていません。本ツールも標準のJSON解析を使っているため、末尾カンマがあると構文エラーになります。JavaScriptのオブジェクトリテラルでは許容されるため混同しやすい点に注意してください。"}},{"@type":"Question","name":"入力したJSONはサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。整形・ミニファイ・検証・ツリー表示のすべての処理はお使いのブラウザ内のJavaScriptだけで完結し、入力したJSONが外部サーバーへ送信されることはありません。APIキーや個人情報を含むデータでも安心してお試しいただけます。"}},{"@type":"Question","name":"大きなJSONも整形できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。処理はブラウザ上で行われるため、数千行規模のJSONでも整形できます。ただし極端に巨大なデータでは端末の性能により表示に時間がかかることがあります。整形後はキー数・深さ・配列要素数・データサイズも自動で表示されるため、構造の把握にも役立ちます。"}}]}
 </script>
 </head>
 <body>
@@ -248,6 +255,38 @@
             <p>整形（フォーマット）：インデント付きの見やすいJSONに変換します。ミニファイ：改行やスペースを除去し、1行の最小JSONに圧縮します。検証（バリデーション）：JSON構文の正しさをチェックします。ツリー表示：JSONの階層構造をツリー形式で表示します。</p>
             <h3>セキュリティについて</h3>
             <p>入力されたJSONデータはサーバーに送信されません。すべての処理はブラウザ内で完結するため、機密性の高いデータも安全に処理できます。</p>
+        </div>
+
+        <div class="seo-content">
+            <h2>JSONとは／整形（フォーマット）とは</h2>
+            <p>JSON（JavaScript Object Notation）は、プログラム間でデータをやり取りするための軽量なテキストフォーマットです。名前はJavaScript由来ですが、現在はPython・PHP・Java・Goなどほぼすべての言語で扱える事実上の標準として、Web APIのレスポンスや設定ファイル、ログの保存形式などに広く使われています。人間が読み書きでき、機械が解析しやすいバランスの良さが特徴です。</p>
+            <p>「整形（フォーマット）」とは、1行に詰め込まれたJSONや改行の崩れたJSONに対して、適切なインデント（本ツールでは半角スペース2つ）と改行を付与し、オブジェクトや配列の入れ子構造を一目で追えるようにする処理を指します。データそのものは変えず、見た目だけを読みやすく整えるのが目的です。</p>
+            <p>反対に「ミニファイ（圧縮）」は、改行や要素間の余分な空白をすべて取り除いてJSONを1行に圧縮する処理です。内容は同じまま文字数だけを減らせるため、API通信のデータ量削減やファイルサイズの最小化に向きます。そして「構文チェック（バリデーション）」は、そのテキストがJSONの文法に従っているかを検証する役割で、カンマ抜けや括弧の対応ミスなどを早期に発見できます。本ツールは整形・ミニファイ・検証・ツリー表示・各種統計（キー数・深さ・配列要素・サイズ）の表示に対応しています。</p>
+
+            <h3>JSON構文の要点とよくあるエラー</h3>
+            <div class="table-wrap">
+                <table class="lookup-table">
+                    <thead><tr><th>要素</th><th>書き方</th><th>例</th><th>注意点</th></tr></thead>
+                    <tbody>
+                        <tr><td>オブジェクト</td><td>波括弧 { }</td><td class="acc">{"name":"太郎"}</td><td>キーと値のペアの集合</td></tr>
+                        <tr><td>配列</td><td>角括弧 [ ]</td><td class="acc">[1, 2, 3]</td><td>値を順番に並べる</td></tr>
+                        <tr><td>文字列</td><td>二重引用符 " "</td><td class="acc">"hello"</td><td>シングルクォートは不可</td></tr>
+                        <tr><td>数値</td><td>引用符なし</td><td class="acc">25 / 3.14</td><td>先頭ゼロや+記号は不可</td></tr>
+                        <tr><td>真偽値</td><td>小文字のみ</td><td class="acc">true / false</td><td>True / FALSEは不可</td></tr>
+                        <tr><td>null</td><td>小文字のみ</td><td class="acc">null</td><td>値が無いことを表す</td></tr>
+                        <tr><td>末尾カンマ</td><td>禁止</td><td class="acc">[1, 2,]</td><td>最後の要素の後のカンマはエラー</td></tr>
+                        <tr><td>キーの引用符</td><td>必須</td><td class="acc">{name:1}</td><td>キーも必ず""で囲む</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>とくに頻出する構文エラーは「末尾カンマ」「文字列をシングルクォートで囲む」「オブジェクトのキーを引用符で囲み忘れる」の3つです。いずれもJavaScriptのコードでは許容されることがあるため、JSONとして貼り付けたときにエラーになりがちです。本ツールで検証すれば、これらの誤りを即座に確認できます。</p>
+
+            <h2>よくある質問</h2>
+            <div class="faq-item"><div class="q">JSONの構文エラーは検出できますか？</div><div class="a">はい。「整形」「検証」ボタンを押すと内部でJSONを解析し、構文に誤りがある場合はエラーメッセージ（解析が止まった位置や原因）を表示します。末尾カンマ、括弧の不整合、キーの引用符忘れなどの誤りを見つけるのに役立ちます。入力欄の右上には有効なJSONか構文エラーかを示すバッジもリアルタイムで表示されます。</div></div>
+            <div class="faq-item"><div class="q">整形（フォーマット）とミニファイ（圧縮）の違いは何ですか？</div><div class="a">整形は半角スペース2つのインデントと改行を付与し、階層が一目で分かる読みやすい形に変換します。ミニファイは改行や余分な空白をすべて取り除き1行のJSONに圧縮するもので、通信量やファイルサイズを減らしたいときに使います。どちらもデータの内容自体は変えず、見た目だけを変える処理です。</div></div>
+            <div class="faq-item"><div class="q">末尾カンマ（トレーリングカンマ）はJSONで使えますか？</div><div class="a">いいえ。JSONの仕様では配列やオブジェクトの最後の要素のあとにカンマを置くことは許されていません。本ツールも標準のJSON解析を使っているため、末尾カンマがあると構文エラーになります。JavaScriptのオブジェクトリテラルでは許容されるため混同しやすい点に注意してください。</div></div>
+            <div class="faq-item"><div class="q">入力したJSONはサーバーに送信されますか？</div><div class="a">いいえ。整形・ミニファイ・検証・ツリー表示のすべての処理はお使いのブラウザ内のJavaScriptだけで完結し、入力したJSONが外部サーバーへ送信されることはありません。APIキーや個人情報を含むデータでも安心してお試しいただけます。</div></div>
+            <div class="faq-item"><div class="q">大きなJSONも整形できますか？</div><div class="a">はい。処理はブラウザ上で行われるため、数千行規模のJSONでも整形できます。ただし極端に巨大なデータでは端末の性能により表示に時間がかかることがあります。整形後はキー数・深さ・配列要素数・データサイズも自動で表示されるため、構造の把握にも役立ちます。</div></div>
         </div>
 
         <div class="ad-slot" style="display:none"></div>
