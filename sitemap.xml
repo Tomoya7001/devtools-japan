@@ -146,19 +146,19 @@
   </url>
   <url>
     <loc>https://www.devtools-japan.com/tool-21-tax-simulator/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.devtools-japan.com/tool-22-withholding-tax/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.devtools-japan.com/tool-23-sns-image-sizes/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -188,13 +188,13 @@
   </url>
   <url>
     <loc>https://www.devtools-japan.com/tool-28-aspect-ratio/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.devtools-japan.com/tool-29-byte-converter/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -212,19 +212,19 @@
   </url>
   <url>
     <loc>https://www.devtools-japan.com/tool-32-unit-converter/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.devtools-japan.com/tool-33-emoji-search/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.devtools-japan.com/tool-34-text-counter-detail/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -260,13 +260,13 @@
   </url>
   <url>
     <loc>https://www.devtools-japan.com/tool-40-placeholder-img/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.devtools-japan.com/tool-41-text-reverse/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -278,7 +278,7 @@
   </url>
   <url>
     <loc>https://www.devtools-japan.com/tool-43-word-counter-en/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -290,25 +290,25 @@
   </url>
   <url>
     <loc>https://www.devtools-japan.com/tool-45-chmod-calc/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.devtools-japan.com/tool-46-color-palette/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.devtools-japan.com/tool-47-html-color-names/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.devtools-japan.com/tool-48-jwt-decoder/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -320,13 +320,13 @@
   </url>
   <url>
     <loc>https://www.devtools-japan.com/tool-50-htaccess-gen/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.devtools-japan.com/blog/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -374,7 +374,7 @@
   </url>
   <url>
     <loc>https://www.devtools-japan.com/tool-53-age-calc/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -398,7 +398,7 @@
   </url>
   <url>
     <loc>https://www.devtools-japan.com/tool-57-stamp-duty/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -438,6 +438,7 @@
   </url>
   <url>
     <loc>https://www.devtools-japan.com/tool-64-take-home-pay/</loc>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -470,5 +471,29 @@
     <loc>https://www.devtools-japan.com/tool-70-zip-password/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.devtools-japan.com/blog/take-home-pay-guide/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.devtools-japan.com/blog/invoice-tax-guide/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.devtools-japan.com/blog/stamp-duty-guide/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.devtools-japan.com/blog/speech-time-guide/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
