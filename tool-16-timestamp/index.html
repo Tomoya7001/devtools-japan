@@ -13,8 +13,8 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>タイムスタンプ変換ツール | Unix時間⇔日時変換</title>
-    <meta name="description" content="Unixタイムスタンプと日時を相互変換。現在時刻のタイムスタンプ、ミリ秒対応。API開発やログ解析に。">
+    <title>タイムスタンプ変換ツール | Unix時間⇔日時変換・秒/ミリ秒対応</title>
+    <meta name="description" content="Unixタイムスタンプと日時を相互変換。現在時刻のタイムスタンプ取得、秒(10桁)/ミリ秒(13桁)対応、UTC/JST表示。2038年問題や変換例も解説。API開発やログ解析に。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#06b6d4;--accent-dim:rgba(6,182,212,0.1);--radius:12px}
@@ -39,6 +39,13 @@
         .fmt .lbl{font-family:'Noto Sans JP',sans-serif;font-size:0.65rem;color:var(--text3);display:block;margin-bottom:2px}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text);font-family:'JetBrains Mono',monospace}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#000;padding:12px 24px;border-radius:8px;font-size:0.85rem;font-weight:500;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     </style>
@@ -57,7 +64,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"タイムスタンプ変換ツール","item":"https://www.devtools-japan.com/tool-16-timestamp/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Unixタイムスタンプとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"Unixタイムスタンプは1970年1月1日午前0時（UTC）からの経過秒数で時刻を表す数値です。本ツールでは秒・ミリ秒の両方に対応し、日時との相互変換が行えます。"}},{"@type":"Question","name":"ミリ秒のタイムスタンプにも対応していますか？","acceptedAnswer":{"@type":"Answer","text":"はい、秒単位だけでなくミリ秒単位のタイムスタンプにも対応しています。現在時刻のタイムスタンプ表示もあり、API開発やログ解析にそのまま利用できます。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Unixタイムスタンプとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"Unixタイムスタンプは、1970年1月1日0時0分0秒（UTC、Unixエポック）からの経過秒数で時刻を表す数値です。タイムゾーンに依存しない単一の整数で時刻を表現できるため、ログやAPI、データベースなど国際的なシステム間の日時データに広く使われます。"}},{"@type":"Question","name":"秒とミリ秒の見分け方は？","acceptedAnswer":{"@type":"Answer","text":"桁数で判断できます。10桁ならば秒単位、13桁ならばミリ秒単位です。たとえば1700000000は10桁で秒、1700000000000は13桁でミリ秒です。本ツールは13桁程度の大きな値を入力すると自動でミリ秒とみなして秒に換算してから日時へ変換します。"}},{"@type":"Question","name":"現在のタイムスタンプを取得できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。ページ上部の現在のUnixタイムスタンプ欄に、いまの時刻の秒単位タイムスタンプが毎秒更新で表示されます。数値をクリックするとクリップボードにコピーできます。"}},{"@type":"Question","name":"タイムゾーンはどう扱われますか？","acceptedAnswer":{"@type":"Answer","text":"Unixタイムスタンプ自体はUTC基準の単一の数値でタイムゾーンを持ちません。本ツールは変換結果をJST（日本標準時、UTC+9）で表示するほか、ISO 8601やUTC（GMT）の表記も同時に出力します。日時からタイムスタンプへの変換はブラウザのローカル時刻入力を基準にします。"}},{"@type":"Question","name":"2038年問題とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"符号付き32ビット整数でUnixタイムスタンプを扱うシステムは、2038年1月19日3時14分7秒（UTC）の2147483647で上限に達し、それ以降の時刻でオーバーフローします。これが2038年問題です。64ビット整数を使えば回避でき、本ツールはブラウザの64ビット浮動小数で計算するため通常の範囲で問題は起きません。"}}]}
     </script>
 </head>
 <body>
@@ -77,6 +84,36 @@
         <h3>JST（日本標準時）表示</h3>
         <p>変換結果にはUTCとJST（UTC+9）の両方を表示します。日本のサービス開発で使いやすいよう、JSTでの表示を標準で提供しています。</p>
         </div>
+    <div class="seo-content">
+        <h2>Unixタイムスタンプとは</h2>
+        <p>Unixタイムスタンプ（Unix時間、エポック秒、POSIX時間とも呼ばれます）とは、1970年1月1日0時0分0秒（UTC）を起点とし、そこからの経過秒数で時刻を表す方式です。この起点をUnixエポックと呼びます。年・月・日・時・分・秒に分けて表現する通常の日時とは異なり、たった一つの整数で時刻を表せるのが特徴です。タイムゾーンや表記の違いに左右されないため、サーバーログ、APIのレスポンス、データベースの保存値、ファイルの更新日時など、コンピュータが時刻を扱うあらゆる場面で標準的に使われています。</p>
+        <p>Unixタイムスタンプには大きく分けて2つの単位があります。1つは秒単位で、現在（2020年代）の値はおよそ10桁の整数になります。もう1つはミリ秒単位で、秒の値を1000倍した約13桁の整数です。JavaScriptの<code>Date.now()</code>やJavaの<code>System.currentTimeMillis()</code>はミリ秒を返す一方、PHPの<code>time()</code>やデータベースの多くは秒を返します。扱う際はどちらの単位かを必ず確認する必要があります。本ツールでは、入力された値が13桁相当（おおよそ1兆を超える値）の場合は自動的にミリ秒とみなし、秒に換算してから日時に変換します。</p>
+
+        <h3>代表的なUnixタイムスタンプと日時の対応例</h3>
+        <p>以下はUTC基準で正確に算出した変換例です。JSTはUTCに9時間（UTC+9）を加えた値です。秒の値を1000倍するとミリ秒になります。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>Unixタイムスタンプ（秒）</th><th>日時（UTC）</th><th>日時（JST／UTC+9）</th><th>桁数</th></tr></thead>
+            <tbody>
+                <tr><td class="acc">0</td><td>1970-01-01 00:00:00</td><td>1970-01-01 09:00:00</td><td>1桁</td></tr>
+                <tr><td class="acc">1000000000</td><td>2001-09-09 01:46:40</td><td>2001-09-09 10:46:40</td><td>10桁</td></tr>
+                <tr><td class="acc">1500000000</td><td>2017-07-14 02:40:00</td><td>2017-07-14 11:40:00</td><td>10桁</td></tr>
+                <tr><td class="acc">1600000000</td><td>2020-09-13 12:26:40</td><td>2020-09-13 21:26:40</td><td>10桁</td></tr>
+                <tr><td class="acc">1700000000</td><td>2023-11-14 22:13:20</td><td>2023-11-15 07:13:20</td><td>10桁</td></tr>
+                <tr><td class="acc">1735689600</td><td>2025-01-01 00:00:00</td><td>2025-01-01 09:00:00</td><td>10桁</td></tr>
+                <tr><td class="acc">2147483647</td><td>2038-01-19 03:14:07</td><td>2038-01-19 12:14:07</td><td>10桁</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>秒とミリ秒の見分け方は桁数を数えるのが簡単です。現在のおおよその基準として、10桁（例: 1700000000）なら秒単位、13桁（例: 1700000000000）ならミリ秒単位です。13桁の値はそのまま<code>new Date(ts)</code>に渡せますが、秒単位の10桁の値は1000倍してミリ秒に変換してから渡す必要があります。誤って単位を取り違えると、時刻が約1000倍ずれて遠い未来や過去になってしまうため注意してください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">Unixタイムスタンプとは何ですか？</div><div class="a">Unixタイムスタンプは、1970年1月1日0時0分0秒（UTC、Unixエポック）からの経過秒数で時刻を表す数値です。タイムゾーンに依存しない単一の整数で時刻を表現できるため、ログやAPI、データベースなど国際的なシステム間の日時データに広く使われます。</div></div>
+        <div class="faq-item"><div class="q">秒とミリ秒の見分け方は？</div><div class="a">桁数で判断できます。10桁ならば秒単位、13桁ならばミリ秒単位です。たとえば1700000000は10桁で秒、1700000000000は13桁でミリ秒です。本ツールは13桁程度の大きな値を入力すると自動でミリ秒とみなして秒に換算してから日時へ変換します。</div></div>
+        <div class="faq-item"><div class="q">現在のタイムスタンプを取得できますか？</div><div class="a">はい。ページ上部の現在のUnixタイムスタンプ欄に、いまの時刻の秒単位タイムスタンプが毎秒更新で表示されます。数値をクリックするとクリップボードにコピーできます。</div></div>
+        <div class="faq-item"><div class="q">タイムゾーンはどう扱われますか？</div><div class="a">Unixタイムスタンプ自体はUTC基準の単一の数値でタイムゾーンを持ちません。本ツールは変換結果をJST（日本標準時、UTC+9）で表示するほか、ISO 8601やUTC（GMT）の表記も同時に出力します。日時からタイムスタンプへの変換はブラウザのローカル時刻入力を基準にします。</div></div>
+        <div class="faq-item"><div class="q">2038年問題とは何ですか？</div><div class="a">符号付き32ビット整数でUnixタイムスタンプを扱うシステムは、2038年1月19日3時14分7秒（UTC）の2147483647で上限に達し、それ以降の時刻でオーバーフローします。これが2038年問題です。64ビット整数を使えば回避でき、本ツールはブラウザの64ビット浮動小数で計算するため通常の範囲で問題は起きません。</div></div>
+    </div>
     <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
