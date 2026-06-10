@@ -14,8 +14,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>画像圧縮ツール | JPEG・PNG画像を無料でオンライン圧縮</title>
-    <meta name="description" content="画像をブラウザ上で圧縮。サーバーへのアップロード不要でプライバシー安全。JPEG・PNGに対応。品質調整・リサイズも可能。">
+    <title>画像圧縮ツール | JPEG・PNG・WebP画像を無料でオンライン圧縮・容量削減</title>
+    <meta name="description" content="画像をブラウザ上で圧縮しファイルサイズを削減。サーバーへのアップロード不要でプライバシー安全。JPEG・PNG・WebPに対応し、品質（圧縮率）調整・リサイズも可能。可逆圧縮と非可逆圧縮の違いも解説。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#f43f5e;--accent-dim:rgba(244,63,94,0.1);--green:#22c55e;--radius:12px}
@@ -58,6 +58,14 @@
 
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-10-image-compress/">
@@ -75,7 +83,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"画像圧縮ツール","item":"https://www.devtools-japan.com/tool-10-image-compress/"}]}
     </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"圧縮する画像はサーバーにアップロードされますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。画像の圧縮処理はすべてお使いのブラウザ上で行われ、サーバーへのアップロードは不要です。プライバシーが守られ、無料・登録不要で利用できます。"}},{"@type":"Question","name":"対応している画像形式と調整できる項目を教えてください。","acceptedAnswer":{"@type":"Answer","text":"JPEGとPNG形式に対応しています。圧縮の品質を調整できるほか、画像サイズのリサイズも可能で、ファイル容量を抑えたい場面に役立ちます。"}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"圧縮する画像はサーバーにアップロードされますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。画像の読み込みから圧縮処理、ダウンロードまですべてお使いのブラウザ内（canvas）で完結し、サーバーへの送信は一切ありません。画像が外部に漏れる心配がなく、無料・登録不要で利用できます。"}},{"@type":"Question","name":"対応している画像形式は何ですか？","acceptedAnswer":{"@type":"Answer","text":"入力はJPEG・PNG・WebPに対応しています。出力形式はJPEG・PNG・WebPから選択でき、たとえばPNG写真をJPEGやWebPに変換して大幅に容量を減らすこともできます。1ファイルあたり最大10MBまで対応します。"}},{"@type":"Question","name":"圧縮すると画質はどのくらい下がりますか？","acceptedAnswer":{"@type":"Answer","text":"品質（圧縮率）スライダーで調整でき、出力をJPEGやWebPにした場合は値を下げるほど非可逆圧縮が強まり容量が減る一方で画質も低下します。品質75前後なら見た目の劣化は小さく、容量を50〜80パーセント削減できることが多いです。PNGは可逆圧縮のため品質値による画質低下はありません。"}},{"@type":"Question","name":"圧縮率（品質）は調整できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。品質スライダーを10から100の範囲で動かして圧縮率を調整できます。さらに最大幅（320〜4096px）を指定して画像をリサイズすれば、解像度を落として容量をさらに削減できます。圧縮後はプレビューと削減率を確認しながら再圧縮も可能です。"}},{"@type":"Question","name":"複数の画像をまとめて圧縮できますか？","acceptedAnswer":{"@type":"Answer","text":"このツールは1枚ずつ圧縮する仕様で、一括（バッチ）圧縮には対応していません。複数枚を処理したい場合は、1枚を圧縮・ダウンロードしてからリセットし、次の画像を選択する流れで繰り返してください。"}}]}
 </script>
 </head>
 <body>
@@ -141,6 +149,33 @@
         <p>Webサイトのページ読み込み時間の大部分は画像のダウンロードに費やされます。Googleのページスピード評価にも画像サイズが影響するため、SEO対策としても画像圧縮は重要です。このツールでは、視覚的な品質をほとんど損なわずにファイルサイズを50〜80%削減できます。</p>
         <h3>プライバシー</h3>
         <p>画像の圧縮処理はすべてブラウザ内で完結します。アップロードした画像がサーバーに送信されることはありません。</p>
+        </div>
+    <div class="seo-content">
+        <h2>画像圧縮の仕組み</h2>
+        <p>画像圧縮とは、画像データの中で人の目に気づかれにくい情報や重複した情報を取り除いたり、より効率的な符号化に置き換えたりして、見た目をできるだけ保ったままファイルサイズ（容量）を小さくする処理のことです。容量が小さくなれば、Webページの表示が速くなり、メール添付やアップロード制限のあるフォームでも扱いやすくなり、ストレージや通信量の節約にもつながります。</p>
+        <p>圧縮には大きく分けて「可逆圧縮」と「非可逆圧縮」の2種類があります。可逆圧縮は、圧縮しても元のピクセル情報を完全に復元できる方式で、PNGなどが該当します。情報を捨てないため画質の劣化はありませんが、削減できる容量には限界があります。一方の非可逆圧縮は、人間が知覚しにくい情報を意図的に間引くことで容量を大きく減らす方式で、JPEGやWebP（非可逆モード）が該当します。圧縮率を上げるほど容量は小さくなりますが、その分だけ画質は低下していきます。</p>
+        <p>つまり画像圧縮には「画質」と「容量」のトレードオフがあります。本ツールでは品質（圧縮率）スライダーでこのバランスを自由に調整でき、用途に応じて高画質寄りにも軽量寄りにも設定できます。さらに最大幅を指定して解像度自体を下げることで、容量をいっそう削減することも可能です。Web表示の高速化やアップロードサイズ制限への対策に特に有効です。</p>
+
+        <h3>対応形式と用途</h3>
+        <p>本ツールが入力・出力で対応する画像形式と、それぞれの特徴・向いている用途は次のとおりです。出力形式は圧縮設定の「出力形式」から選べます。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>形式</th><th>圧縮方式</th><th>透過</th><th>向いている用途</th></tr></thead>
+            <tbody>
+                <tr><td class="acc">JPEG</td><td>非可逆</td><td>非対応</td><td>写真や色数の多いグラデーション画像。容量を小さくしやすい</td></tr>
+                <tr><td class="acc">PNG</td><td>可逆</td><td>対応</td><td>ロゴ・図・スクリーンショットなど。透過が必要な画像、画質劣化を避けたい場合</td></tr>
+                <tr><td class="acc">WebP</td><td>可逆／非可逆</td><td>対応</td><td>Web全般。JPEGやPNGより高い圧縮率で同程度の画質を狙える</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>入力はJPEG・PNG・WebPを受け付け、出力もJPEG・PNG・WebPから選択できます。たとえば写真をPNGで保存して容量が大きくなってしまった場合、出力をJPEGやWebPに変えて圧縮するだけで大幅に軽量化できます。逆に透過が必要な画像はPNGまたはWebPで出力してください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">圧縮する画像はサーバーにアップロードされますか？</div><div class="a">いいえ。画像の読み込みから圧縮処理、ダウンロードまですべてお使いのブラウザ内（canvas）で完結し、サーバーへの送信は一切ありません。画像が外部に漏れる心配がなく、無料・登録不要で利用できます。</div></div>
+        <div class="faq-item"><div class="q">対応している画像形式は何ですか？</div><div class="a">入力はJPEG・PNG・WebPに対応しています。出力形式はJPEG・PNG・WebPから選択でき、たとえばPNG写真をJPEGやWebPに変換して大幅に容量を減らすこともできます。1ファイルあたり最大10MBまで対応します。</div></div>
+        <div class="faq-item"><div class="q">圧縮すると画質はどのくらい下がりますか？</div><div class="a">品質（圧縮率）スライダーで調整でき、出力をJPEGやWebPにした場合は値を下げるほど非可逆圧縮が強まり容量が減る一方で画質も低下します。品質75前後なら見た目の劣化は小さく、容量を50〜80パーセント削減できることが多いです。PNGは可逆圧縮のため品質値による画質低下はありません。</div></div>
+        <div class="faq-item"><div class="q">圧縮率（品質）は調整できますか？</div><div class="a">はい。品質スライダーを10から100の範囲で動かして圧縮率を調整できます。さらに最大幅（320〜4096px）を指定して画像をリサイズすれば、解像度を落として容量をさらに削減できます。圧縮後はプレビューと削減率を確認しながら再圧縮も可能です。</div></div>
+        <div class="faq-item"><div class="q">複数の画像をまとめて圧縮できますか？</div><div class="a">このツールは1枚ずつ圧縮する仕様で、一括（バッチ）圧縮には対応していません。複数枚を処理したい場合は、1枚を圧縮・ダウンロードしてからリセットし、次の画像を選択する流れで繰り返してください。</div></div>
         </div>
     <div class="ad-slot" style="display:none"></div>
     
