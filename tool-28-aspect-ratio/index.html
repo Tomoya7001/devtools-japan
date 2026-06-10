@@ -13,8 +13,8 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>アスペクト比計算ツール | 画像・動画のサイズ比率計算</title>
-    <meta name="description" content="画像や動画のアスペクト比を自動計算。幅・高さから比率を求め、リサイズ後のサイズも算出。Web制作・動画編集に。">
+    <title>アスペクト比計算ツール | 16:9・4:3など画像・動画の比率計算【用途別早見表付き】</title>
+    <meta name="description" content="画像や動画のアスペクト比を自動計算。幅・高さから比率を求め、リサイズ後のサイズも算出。16:9・4:3・1:1・9:16などの代表解像度や、YouTube・Instagramの推奨比率が用途別早見表で一目でわかる。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#a855f7;--accent-dim:rgba(168,85,247,0.1);--radius:12px}
@@ -41,6 +41,18 @@
         .resize-result{font-family:'JetBrains Mono',monospace;font-size:1.1rem;color:var(--accent);text-align:center;padding:8px}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:center;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem;line-height:1.4}
+        .lookup-table td{font-family:'JetBrains Mono',monospace;color:var(--text)}
+        .lookup-table td:first-child{font-family:'Noto Sans JP',sans-serif;color:var(--text2);background:#fcfcfe}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .lookup-table td.use{font-family:'Noto Sans JP',sans-serif;color:var(--text2);text-align:left;white-space:normal}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-28-aspect-ratio/">
@@ -58,7 +70,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"アスペクト比計算ツール","item":"https://www.devtools-japan.com/tool-28-aspect-ratio/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"16対9や4対3などの一般的な比率にも対応していますか？","acceptedAnswer":{"@type":"Answer","text":"はい。幅と高さを入力すると最も簡単な整数比へ自動換算し、16対9や4対3などの代表的な比率はプリセットからも選べます。Web制作や動画編集での画面サイズ確認に便利です。"}},{"@type":"Question","name":"リサイズ後のサイズも計算できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。元のアスペクト比を保ったまま、幅または高さの片方を指定すればもう一方のサイズを自動算出します。計算はブラウザ内で完結し、登録不要・無料で利用できます。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"16:9とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"横が16、縦が9の比率で、最も標準的なワイド画面の比率です。フルHD（1920×1080）、HD（1280×720）、4K（3840×2160）がいずれも16:9にあたり、YouTube動画やテレビ、PCモニターで広く使われます。"}},{"@type":"Question","name":"YouTubeのサムネイルの比率とサイズは？","acceptedAnswer":{"@type":"Answer","text":"YouTubeの推奨サムネイルは16:9で、サイズは1280×720pxが推奨されています。動画自体も16:9が標準なので、サムネイルも同じ比率にすると見切れずに表示されます。"}},{"@type":"Question","name":"Instagramの投稿は何対何ですか？","acceptedAnswer":{"@type":"Answer","text":"正方形は1:1（1080×1080）、縦長フィード投稿は4:5（1080×1350）、ストーリーやリールは9:16（1080×1920）が推奨です。縦長のほうが画面占有率が高く、表示面積を大きく使えます。"}},{"@type":"Question","name":"21:9のウルトラワイドの解像度は？","acceptedAnswer":{"@type":"Answer","text":"代表的なのは2560×1080や3440×1440です。なお「21:9」は通称で、厳密に約分するとそれぞれ64:27、43:18になります。映画のシネマスコープに近い横長比率です。"}},{"@type":"Question","name":"アスペクト比を保ったままリサイズするには？","acceptedAnswer":{"@type":"Answer","text":"新しい高さ＝新しい幅×（元の高さ÷元の幅）で求められます。例えば1920×1080の画像を幅1280にすると高さは720になります。本ツールのリサイズ計算に数値を入れると自動で算出されます。"}}]}
     </script>
     </head>
 <body>
@@ -93,6 +105,35 @@
         <p>16:9（ワイドスクリーン、YouTube動画）、4:3（旧テレビ、iPadの画面）、1:1（Instagram正方形投稿）、9:16（スマートフォン縦画面、TikTok/リール）、21:9（ウルトラワイドモニター）が代表的です。</p>
         <h3>レスポンシブデザインでの活用</h3>
         <p>CSSのaspect-ratioプロパティやpadding-topハックでアスペクト比を維持したレスポンシブ画像を実装する際に、正確な比率を計算するのに役立ちます。</p>
+        </div>
+    <div class="seo-content">
+        <h2>アスペクト比 早見表（用途別・代表解像度）</h2>
+        <p>「YouTubeは何対何？」「Instagramの投稿サイズは？」といった用途から逆引きできる早見表です。代表的な解像度はすべて、左の計算ツールと同じ最大公約数（GCD）で約分して比率を確認しています。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>比率</th><th>主な用途</th><th>代表的な解像度（px）</th></tr></thead>
+            <tbody>
+            <tr><td class="acc">16:9</td><td class="use">YouTube動画・テレビ・PCモニター</td><td>1920×1080 / 1280×720 / 3840×2160</td></tr>
+            <tr><td class="acc">4:3</td><td class="use">旧モニター・プレゼン資料・iPad</td><td>1024×768 / 1600×1200</td></tr>
+            <tr><td class="acc">1:1</td><td class="use">Instagram正方形投稿・プロフィール画像</td><td>1080×1080</td></tr>
+            <tr><td class="acc">9:16</td><td class="use">TikTok・リール・ストーリー（スマホ縦）</td><td>1080×1920</td></tr>
+            <tr><td class="acc">4:5</td><td class="use">Instagram縦長投稿</td><td>1080×1350</td></tr>
+            <tr><td class="acc">3:2</td><td class="use">デジタル一眼の写真・L判印刷</td><td>6000×4000 / 1620×1080</td></tr>
+            <tr><td class="acc">21:9</td><td class="use">ウルトラワイドモニター・シネスコ映画</td><td>2560×1080 / 3440×1440</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text3)">※「21:9」は通称です。2560×1080は厳密には64:27、3440×1440は43:18に約分されます。映画やウルトラワイドの世界で広く21:9と呼ばれています。</p>
+
+        <h3>用途別の選び方</h3>
+        <p>横長の動画やスライドは16:9が標準です。SNSは媒体ごとに最適比率が異なり、Instagramフィードは1:1または縦長4:5、ストーリーやTikTok・YouTubeショートは縦長の9:16が推奨されます。写真は一眼カメラの3:2が基本で、L判プリントもほぼ3:2です。比率が合っていないと、自動トリミングで意図しない部分が切れることがあるため、投稿先に合わせて作成しましょう。</p>
+
+        <h2 style="margin-top:24px">よくある質問</h2>
+        <div class="faq-item"><div class="q">16:9とは何ですか？</div><div class="a">横が16、縦が9の比率で、最も標準的なワイド画面の比率です。フルHD（1920×1080）、HD（1280×720）、4K（3840×2160）がいずれも16:9にあたり、YouTube動画やテレビ、PCモニターで広く使われます。</div></div>
+        <div class="faq-item"><div class="q">YouTubeのサムネイルの比率とサイズは？</div><div class="a">YouTubeの推奨サムネイルは16:9で、サイズは1280×720pxが推奨されています。動画自体も16:9が標準なので、サムネイルも同じ比率にすると見切れずに表示されます。</div></div>
+        <div class="faq-item"><div class="q">Instagramの投稿は何対何ですか？</div><div class="a">正方形は1:1（1080×1080）、縦長フィード投稿は4:5（1080×1350）、ストーリーやリールは9:16（1080×1920）が推奨です。縦長のほうが画面占有率が高く、表示面積を大きく使えます。</div></div>
+        <div class="faq-item"><div class="q">21:9のウルトラワイドの解像度は？</div><div class="a">代表的なのは2560×1080や3440×1440です。なお「21:9」は通称で、厳密に約分するとそれぞれ64:27、43:18になります。映画のシネマスコープに近い横長比率です。</div></div>
+        <div class="faq-item"><div class="q">アスペクト比を保ったままリサイズするには？</div><div class="a">新しい高さ＝新しい幅×（元の高さ÷元の幅）で求められます。例えば1920×1080の画像を幅1280にすると高さは720になります。本ツールの「リサイズ計算」に数値を入れると自動で算出されます。</div></div>
         </div>
     <div class="ad-slot" style="display:none"></div>
     
