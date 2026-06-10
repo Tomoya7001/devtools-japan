@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MACアドレス整形・変換ツール | 区切り文字変換・大文字小文字・形式統一【無料】</title>
-    <meta name="description" content="MACアドレスの区切り文字（コロン・ハイフン・ドット・なし）変換、大文字小文字の統一を一括で行う無料ツール。キッティング作業、資産管理台帳の整形、ネットワーク機器の設定に。複数行の一括変換対応。">
+    <title>MACアドレス整形・変換ツール | コロン・ハイフン・ドット区切り変換・大文字小文字統一【無料】</title>
+    <meta name="description" content="MACアドレスの区切り文字（コロン・ハイフン・ドット・なし）変換、大文字小文字の統一を一括で行う無料ツール。MACアドレスとは何か、48ビット・OUI（ベンダー識別子）の仕組みも解説。キッティング作業、資産管理台帳の整形、ネットワーク機器の設定に。複数行の一括変換対応・ブラウザ完結。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#0891b2;--accent-dim:rgba(8,145,178,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
@@ -40,6 +40,13 @@
         table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
         table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
         .btn{padding:8px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text);font-family:'JetBrains Mono',monospace}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-63-mac-address/">
     <meta property="og:title" content="MACアドレス整形・変換ツール | 区切り文字・大文字小文字を統一【無料】">
@@ -53,7 +60,7 @@
     {"@context":"https://schema.org","@type":"WebApplication","name":"MACアドレス整形・変換ツール","description":"MACアドレスの区切り文字・大文字小文字を変換","url":"https://www.devtools-japan.com/tool-63-mac-address/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"MACアドレスの区切り文字の違いは？","acceptedAnswer":{"@type":"Answer","text":"Windowsはハイフン区切り（AA-BB-CC-DD-EE-FF）、Linux/Macはコロン区切り（aa:bb:cc:dd:ee:ff）、Cisco機器はドット区切り（aabb.ccdd.eeff）が一般的です。"}},{"@type":"Question","name":"MACアドレスは何桁？","acceptedAnswer":{"@type":"Answer","text":"MACアドレスは16進数12桁（48ビット）で構成されます。前半6桁がベンダー識別子（OUI）、後半6桁が機器固有の番号です。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"MACアドレスとは？","acceptedAnswer":{"@type":"Answer","text":"ネットワーク機器に割り当てられた48ビット（16進数で12桁）の固有識別子です。前半24ビットがベンダー識別子（OUI）、後半24ビットが機器固有の番号で、同一ネットワーク内で通信相手を識別するために使われます。物理アドレスやハードウェアアドレスとも呼ばれます。"}},{"@type":"Question","name":"コロン・ハイフン・ドット区切りの違いは？","acceptedAnswer":{"@type":"Answer","text":"表す値は同じで、表記スタイルが違うだけです。コロン区切り（00:1A:2B:3C:4D:5E）はLinux/macOS、ハイフン区切り（00-1A-2B-3C-4D-5E）はWindows、ドット区切り（001A.2B3C.4D5E）はCisco機器で一般的です。このツールで相互に変換・統一できます。"}},{"@type":"Question","name":"MACアドレスとIPアドレスの違いは？","acceptedAnswer":{"@type":"Answer","text":"MACアドレスは機器そのものに紐づく物理アドレスで、原則として変わりません。一方IPアドレスはネットワーク上の論理的な位置を示す論理アドレスで、接続するネットワークによって変わります。MACアドレスはデータリンク層、IPアドレスはネットワーク層で使われます。"}},{"@type":"Question","name":"ローカル管理アドレスとは？","acceptedAnswer":{"@type":"Answer","text":"先頭バイトの下位2ビット目（U/Lビット）が1のMACアドレスを指し、メーカー割り当てではなく管理者や仮想化基盤・ランダム化機能などが独自に設定したアドレスです。スマートフォンのプライバシー保護でランダムなMACアドレスを使う場合などに該当し、IEEE管理のOUIとは無関係になります。"}},{"@type":"Question","name":"入力したMACアドレスは送信される？","acceptedAnswer":{"@type":"Answer","text":"いいえ。このツールは区切り文字・大文字小文字の変換をすべてブラウザ内のJavaScriptで処理します。入力したMACアドレスがサーバーへ送信・保存されることはなく、ベンダー検索などの外部通信も行いません。"}}]}
     </script>
 </head>
 <body>
@@ -98,6 +105,34 @@ a0-b1-c2-d3-e4-f5</textarea>
         <p>大量のPCやネットワーク機器をセットアップするキッティング作業では、各機器のMACアドレスを収集して管理台帳に記録します。収集したMACアドレスの区切り文字がバラバラだと管理しにくいため、このツールで一括統一できます。DHCP予約やMACアドレスフィルタリングの設定時にも便利です。</p>
         <h3>プライバシー</h3>
         <p>すべての変換はブラウザ内で完結します。入力したMACアドレスがサーバーに送信されることはありません。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>MACアドレスとは</h2>
+        <p>MACアドレス（Media Access Control address）は、ネットワーク機器のNIC（ネットワークインターフェースカード）に割り当てられた48ビット（16進数で12桁）の固有識別子です。物理アドレスやハードウェアアドレスとも呼ばれ、同じネットワーク（データリンク層）内で通信相手を一意に識別するために使われます。IPアドレスがネットワーク上の論理的な位置を表すのに対し、MACアドレスは機器そのものに紐づく物理的な識別子である点が異なります。</p>
+        <p>48ビットのうち前半24ビット（先頭6桁）はOUI（Organizationally Unique Identifier）と呼ばれるベンダー識別子で、IEEEが各製造メーカーに割り当てています。後半24ビット（残り6桁）は各メーカーが機器ごとに付与する固有の番号です。たとえば「00:1A:2B:3C:4D:5E」では「00:1A:2B」がベンダーを示すOUI、「3C:4D:5E」が機器固有の部分です。この構造により、世界中の機器に重複しないアドレスが割り当てられる仕組みになっています。</p>
+
+        <h3>区切り形式の対応表</h3>
+        <p>MACアドレスは機器やOSによって表記形式が異なります。下表は同一のMACアドレス（先頭6桁がOUI部分）を各形式で表したものです。このツールはこれらの形式を相互に変換できます。</p>
+        <div class="table-wrap">
+            <table class="lookup-table">
+                <thead><tr><th>表記形式</th><th>例（同じMACアドレス）</th><th>主な使用環境</th></tr></thead>
+                <tbody>
+                    <tr><td class="acc">コロン区切り</td><td>00:1A:2B:3C:4D:5E</td><td>Linux / macOS / 一般的な標準表記</td></tr>
+                    <tr><td class="acc">ハイフン区切り</td><td>00-1A-2B-3C-4D-5E</td><td>Windows（ipconfig 等）</td></tr>
+                    <tr><td class="acc">ドット区切り</td><td>001A.2B3C.4D5E</td><td>Cisco 機器（IOS）</td></tr>
+                    <tr><td class="acc">区切りなし</td><td>001A2B3C4D5E</td><td>台帳・CSV・スクリプト処理</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>コロン・ハイフン区切りは2桁ずつをコロン（:）またはハイフン（-）で区切り、合計6グループで表します。ドット区切り（Cisco形式）は4桁ずつをドット（.）で区切り3グループで表記します。区切りなしは12桁を連続して並べた形式です。区切り文字が違っても表す値は同一なので、このツールで形式と大文字・小文字を統一できます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">MACアドレスとは？</div><div class="a">ネットワーク機器に割り当てられた48ビット（16進数で12桁）の固有識別子です。前半24ビットがベンダー識別子（OUI）、後半24ビットが機器固有の番号で、同一ネットワーク内で通信相手を識別するために使われます。物理アドレスやハードウェアアドレスとも呼ばれます。</div></div>
+        <div class="faq-item"><div class="q">コロン・ハイフン・ドット区切りの違いは？</div><div class="a">表す値は同じで、表記スタイルが違うだけです。コロン区切り（00:1A:2B:3C:4D:5E）はLinux/macOS、ハイフン区切り（00-1A-2B-3C-4D-5E）はWindows、ドット区切り（001A.2B3C.4D5E）はCisco機器で一般的です。このツールで相互に変換・統一できます。</div></div>
+        <div class="faq-item"><div class="q">MACアドレスとIPアドレスの違いは？</div><div class="a">MACアドレスは機器そのものに紐づく物理アドレスで、原則として変わりません。一方IPアドレスはネットワーク上の論理的な位置を示す論理アドレスで、接続するネットワークによって変わります。MACアドレスはデータリンク層、IPアドレスはネットワーク層で使われます。</div></div>
+        <div class="faq-item"><div class="q">ローカル管理アドレスとは？</div><div class="a">先頭バイトの下位2ビット目（U/Lビット）が1のMACアドレスを指し、メーカー割り当てではなく管理者や仮想化基盤・ランダム化機能などが独自に設定したアドレスです。スマートフォンのプライバシー保護でランダムなMACアドレスを使う場合などに該当し、IEEE管理のOUIとは無関係になります。</div></div>
+        <div class="faq-item"><div class="q">入力したMACアドレスは送信される？</div><div class="a">いいえ。このツールは区切り文字・大文字小文字の変換をすべてブラウザ内のJavaScriptで処理します。入力したMACアドレスがサーバーへ送信・保存されることはなく、ベンダー検索などの外部通信も行いません。</div></div>
     </div>
 
         <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
