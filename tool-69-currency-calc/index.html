@@ -9,7 +9,7 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>為替計算ツール | レートを入力して外貨⇔円を換算【無料】</title>
-    <meta name="description" content="為替レートを入力して外貨と日本円を相互換算する無料ツール。ドル・ユーロ・ポンドなど任意の通貨に対応。海外通販、旅行予算、外貨建て請求書の計算に。手数料（スプレッド）込みの計算も可能。">
+    <meta name="description" content="為替レートを入力して外貨と日本円を相互換算する無料ツール。ドル・ユーロ・ポンドなど任意の通貨に対応。海外通販、旅行予算、外貨建て請求書の計算に。手数料（スプレッド）込みの計算や、TTS・TTBの違い、主要通貨記号の解説も。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#2563eb;--accent-dim:rgba(37,99,235,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
@@ -38,6 +38,12 @@
         table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
         table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
         table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:center;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}.lookup-table td:first-child{text-align:left}.lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-69-currency-calc/">
     <meta property="og:title" content="為替計算ツール | レートを入力して外貨⇔円を換算【無料】">
@@ -51,7 +57,7 @@
     {"@context":"https://schema.org","@type":"WebApplication","name":"為替計算ツール","description":"為替レートを入力して外貨と円を換算","url":"https://www.devtools-japan.com/tool-69-currency-calc/","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"為替の手数料（スプレッド）とは？","acceptedAnswer":{"@type":"Answer","text":"両替時に為替レートへ上乗せされる手数料です。例えば1ドル155円でも、外貨を買うと156円になることがあります。この差額が手数料です。"}},{"@type":"Question","name":"外貨を円に換算するには？","acceptedAnswer":{"@type":"Answer","text":"外貨金額×為替レートで円換算できます。実際の両替では手数料が加わるため、レートに手数料を上乗せした金額で計算するとより正確です。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"このツールはリアルタイムの為替レートですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。レートの自動取得には対応しておらず、レート欄はユーザーが手で入力する方式です。最新レートはGoogle検索の「ドル円」表示や金融機関のサイトなどで各自確認のうえ入力してください。"}},{"@type":"Question","name":"1ドル155円のとき100ドルは何円ですか？","acceptedAnswer":{"@type":"Answer","text":"「外貨額 × レート ＝ 円」で計算します。100 × 155 ＝ 15,500円です。逆に1万円を米ドルにする場合は「円 ÷ レート」で、10,000 ÷ 155 ≒ 64.52ドルとなります。"}},{"@type":"Question","name":"両替時のレートがニュースと違うのはなぜですか？","acceptedAnswer":{"@type":"Answer","text":"両替や外貨決済のレートには「スプレッド」と呼ばれる手数料が含まれているためです。外貨を買うときは市場レートより高く、売るときは安くなります。手数料欄に上乗せ額を入力すると実質負担額に近い金額を試算できます。"}},{"@type":"Question","name":"TTSとTTBの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"TTSは銀行が外貨を売る（顧客が外貨を買う）ときのレート、TTBは銀行が外貨を買う（顧客が外貨を売る）ときのレートです。両者の中間が仲値（TTM）で、TTSは仲値より高く、TTBは仲値より低く設定されます。"}},{"@type":"Question","name":"クレジットカードの海外利用のレートはどう決まりますか？","acceptedAnswer":{"@type":"Answer","text":"一般にVisaやMastercardなど国際ブランドが定める基準レートに、カード会社の事務処理手数料（おおむね1.6～3%程度）が上乗せされた金額で円換算されます。利用日ではなく売上データがブランドに到着した日のレートが使われる点にも注意してください。"}}]}
     </script>
 </head>
 <body>
@@ -94,6 +100,39 @@
         <p>海外ECサイト（Amazon.com、eBay等）での購入金額の円換算、海外旅行の予算管理、外貨預金の損益計算、海外取引先への請求書の円換算、クレジットカードの海外利用額の確認など。レートを自分で入力するため、任意のタイミング・任意のレートで計算できます。</p>
         <h3>最新レートの確認方法</h3>
         <p>このツールはリアルタイムレートの自動取得には対応していません。最新の為替レートは、Google検索で「ドル円」と入力するか、金融機関や為替情報サイトでご確認のうえ、レート欄に入力してください。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>通貨換算の考え方</h2>
+        <p>為替レートとは、ある通貨を別の通貨に交換するときの交換比率です。「1ドル＝155円」と表示されていれば、1米ドルを手に入れるのに日本円で155円が必要、という意味になります。レートの数値が大きくなるほど、その外貨1単位あたりの円換算額が増える（＝円安）ことを表します。</p>
+        <p>換算の基本式はとてもシンプルです。外貨を円に直すときは「外貨額 × レート ＝ 円」、円を外貨に直すときは「円 ÷ レート ＝ 外貨」で求められます。たとえば1ドル＝155円のとき、100ドルなら 100 × 155 ＝ 15,500円。逆に1万円を米ドルにするなら 10,000 ÷ 155 ≒ 64.52ドルです。このツールの計算ロジックも、この2つの式をそのまま使っています。</p>
+        <p>なお、このツールはリアルタイムの為替レートを自動取得する仕組みではありません。レート欄はユーザーが手で入力する方式です。実際に換算する際は、Google検索の「ドル円」表示や、銀行・証券会社・為替情報サイトなどで最新レートを各自で確認し、その数値を入力してください。手入力方式のため、過去のある時点のレートや、特定の金融機関が提示するレートなど、任意のレートで自由に試算できる点が特徴です。</p>
+
+        <h3>両替時の手数料・スプレッドの注意</h3>
+        <p>ニュースや検索結果で表示される為替レート（仲値・市場レート）と、実際に銀行や両替所・カード会社で適用されるレートは一致しないのが普通です。両替や外貨決済のレートには「スプレッド」と呼ばれる手数料があらかじめ含まれており、外貨を買うときは市場レートより不利な（高い）レートに、外貨を売るときは不利な（安い）レートになります。たとえば市場で1ドル＝155円でも、窓口で外貨を買うと1ドル＝156円や157円になる、といった具合です。このツールの「為替手数料（スプレッド片道）」欄に上乗せ額を入力すると、手数料込みの実質負担額に近い金額を試算できます。表示されたニュースのレートだけで予算を組むと、実際の支払いが想定より増えることがあるため注意してください。</p>
+
+        <h3>主要通貨の記号・呼称</h3>
+        <p>レート数値は日々変動するためここには載せていません。主要通貨の通貨記号と呼称・特徴の対応は次のとおりです。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>通貨コード</th><th>記号</th><th>呼称</th><th>特徴</th></tr></thead>
+            <tbody>
+                <tr><td class="acc">USD</td><td>$</td><td>米ドル</td><td>世界の基軸通貨。海外通販で最も使われる</td></tr>
+                <tr><td class="acc">EUR</td><td>€</td><td>ユーロ</td><td>ユーロ圏の共通通貨。欧州の取引で広く使用</td></tr>
+                <tr><td class="acc">GBP</td><td>£</td><td>英ポンド</td><td>イギリスの通貨。1単位あたりの価値が高め</td></tr>
+                <tr><td class="acc">CNY</td><td>元</td><td>人民元</td><td>中国の通貨。元・RMBとも表記</td></tr>
+                <tr><td class="acc">KRW</td><td>₩</td><td>韓国ウォン</td><td>桁が大きく、円換算額が小さくなりやすい</td></tr>
+                <tr><td class="acc">AUD</td><td>A$</td><td>豪ドル</td><td>オーストラリアの通貨。資源国通貨の代表</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">このツールはリアルタイムの為替レートですか？</div><div class="a">いいえ。レートの自動取得には対応しておらず、レート欄はユーザーが手で入力する方式です。最新レートはGoogle検索の「ドル円」表示や金融機関のサイトなどで各自確認のうえ入力してください。</div></div>
+        <div class="faq-item"><div class="q">1ドル155円のとき100ドルは何円ですか？</div><div class="a">「外貨額 × レート ＝ 円」で計算します。100 × 155 ＝ 15,500円です。逆に1万円を米ドルにする場合は「円 ÷ レート」で、10,000 ÷ 155 ≒ 64.52ドルとなります。</div></div>
+        <div class="faq-item"><div class="q">両替時のレートがニュースと違うのはなぜですか？</div><div class="a">両替や外貨決済のレートには「スプレッド」と呼ばれる手数料が含まれているためです。外貨を買うときは市場レートより高く、売るときは安くなります。手数料欄に上乗せ額を入力すると実質負担額に近い金額を試算できます。</div></div>
+        <div class="faq-item"><div class="q">TTSとTTBの違いは何ですか？</div><div class="a">TTSは銀行が外貨を売る（顧客が外貨を買う）ときのレート、TTBは銀行が外貨を買う（顧客が外貨を売る）ときのレートです。両者の中間が仲値（TTM）で、TTSは仲値より高く、TTBは仲値より低く設定されます。</div></div>
+        <div class="faq-item"><div class="q">クレジットカードの海外利用のレートはどう決まりますか？</div><div class="a">一般にVisaやMastercardなど国際ブランドが定める基準レートに、カード会社の事務処理手数料（おおむね1.6～3%程度）が上乗せされた金額で円換算されます。利用日ではなく売上データがブランドに到着した日のレートが使われる点にも注意してください。</div></div>
     </div>
 
         <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
