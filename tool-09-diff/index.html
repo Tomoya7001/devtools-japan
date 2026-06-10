@@ -14,8 +14,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>テキスト比較ツール（Diff） | 2つのテキストの差分を表示</title>
-    <meta name="description" content="2つのテキストの違いをハイライト表示。追加・削除・変更箇所を色分け。コードレビューや文書チェックに便利な無料ツール。">
+    <title>テキスト比較ツール（Diff） | 2つのテキストの差分を行単位で表示・色分け</title>
+    <meta name="description" content="2つのテキストの違いを行単位でハイライト表示。追加は緑・削除は赤で色分けし、変更箇所が一目で分かる。コードレビューや文書の校正、設定ファイルの差分確認に便利な無料ツール。ブラウザ完結でサーバー送信なし。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#f59e0b;--accent-dim:rgba(245,158,11,0.1);--add:rgba(34,197,94,0.15);--add-text:#4ade80;--del:rgba(239,68,68,0.15);--del-text:#f87171;--radius:12px}
@@ -47,6 +47,14 @@
         .diff-line.add .prefix{color:var(--add-text)}.diff-line.del .prefix{color:var(--del-text)}.diff-line.same .prefix{color:var(--text3)}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-09-diff/">
@@ -64,7 +72,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"テキスト比較ツール","item":"https://www.devtools-japan.com/tool-09-diff/"}]}
     </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"2つのテキストの差分はどのように表示されますか？","acceptedAnswer":{"@type":"Answer","text":"追加・削除・変更された箇所を色分けしてハイライト表示します。どこが変わったかが一目で分かり、コードレビューや文書の校正チェックに便利です。"}},{"@type":"Question","name":"比較するテキストはサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。差分の比較処理はすべてブラウザ内で行われ、入力したテキストが外部へ送信されることはありません。無料・登録不要で安心して使えます。"}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"2つのテキストの差分はどう表示される？","acceptedAnswer":{"@type":"Answer","text":"追加された行は緑色、削除された行は赤色でハイライトされ、行番号と先頭の記号（＋は追加、－は削除）が付きます。一致する行はそのまま表示されるため、どの行が変わったかが一目で分かります。"}},{"@type":"Question","name":"比較するテキストはサーバーに送られる？","acceptedAnswer":{"@type":"Answer","text":"いいえ。差分の比較処理はすべてお使いのブラウザ内（JavaScript）で完結し、入力したテキストが外部のサーバーへ送信されることはありません。無料・登録不要で安心して使えます。"}},{"@type":"Question","name":"行単位と文字単位どちらで比較する？","acceptedAnswer":{"@type":"Answer","text":"このツールは行単位で比較します。テキストを改行で分割し、LCS（最長共通部分列）アルゴリズムで行ごとに一致・追加・削除を判定します。1行内の一部の文字だけが変わった場合は、その行が削除行と追加行のペアとして表示されます。"}},{"@type":"Question","name":"コードの比較に使える？","acceptedAnswer":{"@type":"Answer","text":"はい。行単位の比較はソースコードや設定ファイルの変更確認に向いています。プルリクエストのレビュー前チェックや、本番環境とステージング環境の設定ファイルの差分確認などに活用できます。"}},{"@type":"Question","name":"大文字小文字や空白の違いも検出する？","acceptedAnswer":{"@type":"Answer","text":"はい。比較は完全一致で判定するため、大文字・小文字の違いや行末・行頭の空白、全角・半角の違いも差分として検出されます。大文字小文字や空白を無視するオプションはありません。"}}]}
 </script>
 </head>
 <body>
@@ -113,6 +121,32 @@ console.log("Done!");</textarea></div>
         <h3>活用場面</h3>
         <p>プルリクエストのレビュー前の事前確認、設定ファイルの本番環境とステージング環境の差分チェック、翻訳テキストの更新確認、契約書の改訂箇所の特定などに使われています。すべてブラウザ内で処理されます。</p>
         </div>
+    <div class="seo-content">
+        <h2>テキスト差分（Diff）とは</h2>
+        <p>テキスト差分（Diff）とは、2つのテキストを突き合わせて比較し、追加・削除・変更された箇所を見つけ出す仕組みのことです。元のテキスト（Before）と変更後のテキスト（After）を1行ずつ照らし合わせ、どこが同じで、どこが変わったのかを抽出します。このツールは入力テキストを改行で行に分割し、LCS（最長共通部分列）アルゴリズムを使って、両者に共通する行の並びを最大化する形で対応関係を求めています。共通しない行が、片方にだけ存在する「追加」または「削除」として表示されます。</p>
+        <p>差分を取る主な用途は、コードレビューでの変更点の把握、文書の校正による修正箇所の確認、設定ファイルの変更確認の3つです。コードレビューでは、プログラムのどの行が書き換えられたかを正確に追えるため、意図しない変更の混入を防げます。文書の校正では、原稿の修正前後を比較して赤字の入った箇所を漏れなく確認できます。設定ファイルの変更確認では、environment間や更新前後の設定値のずれを素早く見つけられます。いずれも「何が変わったか」を人の目だけで探すより、はるかに速く正確に把握できるのが差分表示の利点です。</p>
+
+        <h3>差分表示の見方</h3>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>表示</th><th>色</th><th>意味</th></tr></thead>
+            <tbody>
+                <tr><td class="acc">＋ 追加行</td><td>緑色</td><td>変更後（After）にのみ存在する行。新しく加わった行を示します。</td></tr>
+                <tr><td class="acc">－ 削除行</td><td>赤色</td><td>元テキスト（Before）にのみ存在する行。取り除かれた行を示します。</td></tr>
+                <tr><td>（記号なし）一致行</td><td>無色</td><td>両方のテキストに共通する変わっていない行です。</td></tr>
+                <tr><td>変更された行</td><td>赤＋緑</td><td>1行内の一部だけが変わった場合は、削除行（赤）と追加行（緑）のペアとして表示されます。</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>比較は行単位で行われ、文字単位の差分（行の中の特定の文字だけをハイライト）には対応していません。各行の先頭には行番号と記号（＋／－）が付き、画面上部には追加・削除・一致それぞれの行数が集計表示されます。「入れ替え」ボタンで元テキストと変更後テキストを入れ替えて、削除と追加を逆方向から確認することもできます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">2つのテキストの差分はどう表示される？</div><div class="a">追加された行は緑色、削除された行は赤色でハイライトされ、行番号と先頭の記号（＋は追加、－は削除）が付きます。一致する行はそのまま表示されるため、どの行が変わったかが一目で分かります。</div></div>
+        <div class="faq-item"><div class="q">比較するテキストはサーバーに送られる？</div><div class="a">いいえ。差分の比較処理はすべてお使いのブラウザ内（JavaScript）で完結し、入力したテキストが外部のサーバーへ送信されることはありません。無料・登録不要で安心して使えます。</div></div>
+        <div class="faq-item"><div class="q">行単位と文字単位どちらで比較する？</div><div class="a">このツールは行単位で比較します。テキストを改行で分割し、LCS（最長共通部分列）アルゴリズムで行ごとに一致・追加・削除を判定します。1行内の一部の文字だけが変わった場合は、その行が削除行と追加行のペアとして表示されます。</div></div>
+        <div class="faq-item"><div class="q">コードの比較に使える？</div><div class="a">はい。行単位の比較はソースコードや設定ファイルの変更確認に向いています。プルリクエストのレビュー前チェックや、本番環境とステージング環境の設定ファイルの差分確認などに活用できます。</div></div>
+        <div class="faq-item"><div class="q">大文字小文字や空白の違いも検出する？</div><div class="a">はい。比較は完全一致で判定するため、大文字・小文字の違いや行末・行頭の空白、全角・半角の違いも差分として検出されます。大文字小文字や空白を無視するオプションはありません。</div></div>
+    </div>
     <div class="ad-slot" style="display:none"></div>
     
     <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
