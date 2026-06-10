@@ -34,6 +34,10 @@
         .mono-out{font-family:'JetBrains Mono',monospace;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.95rem;color:var(--accent);word-break:break-all;cursor:pointer}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.06);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
         table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
@@ -53,7 +57,7 @@
     {"@context":"https://schema.org","@type":"WebApplication","name":"手取り計算ツール","description":"年収・月給の額面から手取り額を計算","url":"https://www.devtools-japan.com/tool-64-take-home-pay/","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"年収の手取りは何割？","acceptedAnswer":{"@type":"Answer","text":"会社員の手取りは額面年収の約75〜85%です。健康保険料・厚生年金・雇用保険・所得税・住民税が引かれます。年収が高いほど手取りの割合は下がります。"}},{"@type":"Question","name":"額面と手取りの違いは？","acceptedAnswer":{"@type":"Answer","text":"額面は税金や社会保険料が引かれる前の総支給額、手取りは実際に振り込まれる金額です。求人票の年収は通常、額面で表示されています。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"年収500万円の手取りはいくらですか？","acceptedAnswer":{"@type":"Answer","text":"本ツールの概算（40歳未満・扶養なし・協会けんぽ東京都）では、額面年収500万円の手取りは年間約388万円、月あたり約32万円です。手取り率は約77.6%で、扶養人数や地域により変動します。"}},{"@type":"Question","name":"額面と手取りの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"額面は税金や社会保険料が引かれる前の総支給額、手取りは実際に振り込まれる金額です。求人票や年収交渉で提示される年収は通常、額面で表示されています。"}},{"@type":"Question","name":"年収の手取りは何割になりますか？","acceptedAnswer":{"@type":"Answer","text":"会社員の手取りは額面年収のおおむね75〜85%です。健康保険・厚生年金・雇用保険・所得税・住民税が差し引かれ、累進課税のため年収が高いほど手取りの割合は下がります。"}},{"@type":"Question","name":"ボーナスの手取りはどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"賞与からも社会保険料と所得税が差し引かれ、手取りはおおむね額面の8割前後が目安です（住民税は賞与から直接は引かれません）。本ツールは賞与を含む年収全体から年間の手取りを概算します。"}},{"@type":"Question","name":"この計算結果は正確な金額ですか？","acceptedAnswer":{"@type":"Answer","text":"あくまで概算です。協会けんぽ東京都の料率・40歳未満・扶養なしを前提にしており、実際の手取りは扶養人数、お住まいの自治体、健康保険組合、会社独自の控除などで変わります。正確な金額は給与明細でご確認ください。"}}]}
     </script>
 </head>
 <body>
@@ -92,6 +96,34 @@
         <p>給与から引かれるのは、健康保険料（約5%）、厚生年金保険料（約9.15%）、雇用保険料（0.6%）、所得税（累進）、住民税（約10%）です。社会保険料は会社が半分を負担しているため、給与明細に記載される金額は本来の半額です。</p>
         <h3>転職・年収交渉に</h3>
         <p>転職時に提示される年収はほとんどが額面です。「額面600万円」が実際にどれくらいの手取りになるかを事前に把握しておくと、生活設計が立てやすくなります。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>年収別 手取り早見表（概算）</h2>
+        <p>「年収500万円の手取りはいくら？」を一目で確認できる早見表です。下の数値は、本ツールと同じ計算式（40歳未満・協会けんぽ東京都の料率・扶養なし・基礎控除や給与所得控除を反映）で算出した概算です。扶養人数・お住まいの地域・会社の制度により実際の手取りは変わります。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>額面年収</th><th>年間手取り</th><th>月の手取り（目安）</th><th>手取り率</th></tr>
+            <tr><td>300万円</td><td>約238万円</td><td>約198,000円</td><td>79.4%</td></tr>
+            <tr><td>400万円</td><td>約315万円</td><td>約262,000円</td><td>78.6%</td></tr>
+            <tr><td>500万円</td><td>約388万円</td><td>約323,000円</td><td>77.6%</td></tr>
+            <tr><td>600万円</td><td>約460万円</td><td>約383,000円</td><td>76.7%</td></tr>
+            <tr><td>700万円</td><td>約527万円</td><td>約439,000円</td><td>75.3%</td></tr>
+            <tr><td>800万円</td><td>約590万円</td><td>約491,000円</td><td>73.7%</td></tr>
+            <tr><td>1000万円</td><td>約710万円</td><td>約592,000円</td><td>71.0%</td></tr>
+        </table>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text3)">※ 40歳未満・扶養なし・賞与を含む年収を12分割した場合の概算です。40歳以上は介護保険料が加わり手取りはやや下がります。正確な金額は給与明細や上の計算ツールでご確認ください。</p>
+
+        <h3>年収が上がると手取り率が下がる理由</h3>
+        <p>所得税は課税所得が増えるほど税率が上がる累進課税のため、年収が高くなるほど手取りの割合は下がります。表のとおり、年収300万円では約79%が手取りになるのに対し、年収1000万円では約71%まで下がります。手取りを増やすには、iDeCo（個人型確定拠出年金）やふるさと納税、生命保険料控除などの所得控除を活用する方法があります。</p>
+
+        <h2 style="margin-top:24px">よくある質問</h2>
+        <div class="faq-item"><div class="q">年収500万円の手取りはいくらですか？</div><div class="a">本ツールの概算（40歳未満・扶養なし・協会けんぽ東京都）では、額面年収500万円の手取りは年間約388万円、月あたり約32万円です。手取り率は約77.6%で、扶養人数や地域により変動します。</div></div>
+        <div class="faq-item"><div class="q">額面と手取りの違いは何ですか？</div><div class="a">額面は税金や社会保険料が引かれる前の総支給額、手取りは実際に振り込まれる金額です。求人票や年収交渉で提示される年収は通常、額面で表示されています。</div></div>
+        <div class="faq-item"><div class="q">年収の手取りは何割になりますか？</div><div class="a">会社員の手取りは額面年収のおおむね75〜85%です。健康保険・厚生年金・雇用保険・所得税・住民税が差し引かれ、累進課税のため年収が高いほど手取りの割合は下がります。</div></div>
+        <div class="faq-item"><div class="q">ボーナスの手取りはどうなりますか？</div><div class="a">賞与からも社会保険料と所得税が差し引かれ、手取りはおおむね額面の8割前後が目安です（住民税は賞与から直接は引かれません）。本ツールは賞与を含む年収全体から年間の手取りを概算します。</div></div>
+        <div class="faq-item"><div class="q">この計算結果は正確な金額ですか？</div><div class="a">あくまで概算です。協会けんぽ東京都の料率・40歳未満・扶養なしを前提にしており、実際の手取りは扶養人数、お住まいの自治体、健康保険組合、会社独自の控除などで変わります。正確な金額は給与明細でご確認ください。</div></div>
     </div>
 
         <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
