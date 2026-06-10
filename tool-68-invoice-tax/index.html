@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>インボイス消費税計算ツール | 適格請求書の消費税額・端数処理を計算【無料】</title>
-    <meta name="description" content="インボイス制度（適格請求書）に対応した消費税計算ツール。税率ごと（10%・8%）に区分して消費税額を計算し、1請求書あたり税率ごとに1回の端数処理を行う。インボイスの記載要件に沿った正確な税額計算に。">
+    <title>インボイス消費税計算ツール | 適格請求書の消費税額・端数処理・記載要件【無料】</title>
+    <meta name="description" content="インボイス制度（適格請求書）に対応した消費税計算ツール。税率ごと（10%・8%）に区分して消費税額を計算し、1請求書あたり税率ごとに1回の端数処理を行う。登録番号やインボイスの記載要件、2割特例などのよくある質問も解説。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#0d9488;--accent-dim:rgba(13,148,136,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
@@ -38,6 +38,12 @@
         table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
         table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
         table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:center;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{font-family:'JetBrains Mono',monospace;color:var(--text)}.lookup-table td:first-child{font-family:'Noto Sans JP',sans-serif;text-align:left}.lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-68-invoice-tax/">
     <meta property="og:title" content="インボイス消費税計算ツール | 適格請求書の税額・端数処理【無料】">
@@ -51,7 +57,7 @@
     {"@context":"https://schema.org","@type":"WebApplication","name":"インボイス消費税計算ツール","description":"適格請求書の消費税額を税率ごとに計算","url":"https://www.devtools-japan.com/tool-68-invoice-tax/","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"インボイスの端数処理のルールは？","acceptedAnswer":{"@type":"Answer","text":"インボイス制度では、1つの適格請求書につき税率ごとに1回だけ端数処理を行います。商品ごとの端数処理はできず、税率ごとに合計してから処理します。"}},{"@type":"Question","name":"適格請求書に必要な記載は？","acceptedAnswer":{"@type":"Answer","text":"税率ごと（10%・8%）に区分した税抜金額または税込金額と、それぞれの消費税額、登録番号などの記載が必要です。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"インボイスの登録番号とは？","acceptedAnswer":{"@type":"Answer","text":"適格請求書発行事業者として税務署に登録した事業者に付与される番号です。法人の場合は「T」に続く13桁の数字（Tを除いた部分は法人番号と一致）で表され、個人事業者や人格のない社団等にも13桁の数字が割り当てられます。適格請求書には必ずこの登録番号を記載します。"}},{"@type":"Question","name":"端数処理は商品ごと？請求書ごと？","acceptedAnswer":{"@type":"Answer","text":"適格請求書では、端数処理は「一つの請求書につき、税率ごとに1回」が原則です。商品（明細行）ごとに端数処理を繰り返すことは認められません。8%対象と10%対象をそれぞれ合計してから、税率区分ごとに1回だけ端数処理を行います。"}},{"@type":"Question","name":"8%と10%が混在する場合は？","acceptedAnswer":{"@type":"Answer","text":"軽減税率8%の対象品目と標準税率10%の対象品目を税率ごとに区分して合計し、それぞれの税抜（または税込）合計額と消費税額を分けて記載します。本ツールも10%対象と8%対象を別々に入力し、税率ごとに消費税額を計算します。"}},{"@type":"Question","name":"免税事業者からの仕入れはどうなる？","acceptedAnswer":{"@type":"Answer","text":"適格請求書を発行できない免税事業者等からの課税仕入れについては、原則として仕入税額控除ができません。ただし制度開始から一定期間は仕入税額の一定割合を控除できる経過措置が設けられています。控除割合や適用期間は変更される可能性があるため、最新は国税庁で確認してください。"}},{"@type":"Question","name":"2割特例とは？","acceptedAnswer":{"@type":"Answer","text":"免税事業者からインボイス発行事業者になった人の負担を軽減するため、納付すべき消費税額を売上に係る消費税額の2割とできる特例です。対象となる課税期間や適用要件など、経過措置の内容や期限は変更されることがあるため、最新は国税庁で確認してください。"}}]}
     </script>
 </head>
 <body>
@@ -97,6 +103,41 @@
         <p>適格請求書には、10%対象と8%対象（軽減税率）を分けて記載し、それぞれの税抜金額（または税込金額）と消費税額を明記する必要があります。このツールは税率ごとに分けて計算するため、インボイスの記載内容の確認に使えます。</p>
         <h3>端数処理の方法</h3>
         <p>端数処理の方法（切り捨て・四捨五入・切り上げ）は事業者が任意に選択できますが、継続して同じ方法を使う必要があります。このツールでは3つの方法を切り替えて確認できます。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>適格請求書（インボイス）の記載要件</h2>
+        <p>適格請求書（インボイス）は、売り手が買い手に対して正確な適用税率や消費税額を伝えるための書類です。2023年10月1日に開始されたインボイス制度（適格請求書等保存方式）では、買い手が仕入税額控除を受けるために、原則として適格請求書発行事業者が交付する適格請求書の保存が必要になりました。適格請求書には、次の事項を記載しなければなりません。</p>
+        <p>第一に、適格請求書発行事業者の氏名または名称と「登録番号」です。登録番号は税務署への登録を受けた事業者に付与されるもので、法人の場合は「T」に続く13桁の数字（Tを除き法人番号と同じ）で構成されます。第二に、取引年月日と取引内容（軽減税率の対象品目である旨）です。第三に、「税率ごとに区分して合計した税抜または税込の対価の額」と「適用税率」、そして「税率ごとに区分した消費税額等」です。第四に、書類の交付を受ける事業者の氏名または名称です。これらのいずれかが欠けると、適格請求書として認められない場合があります。</p>
+
+        <h3>税率別の消費税計算と端数処理</h3>
+        <p>インボイス制度における消費税の端数処理は、「一つの適格請求書につき、税率ごとに1回」行うのが正確なルールです。商品やサービスの明細1行ごとに端数処理を繰り返すことは認められません。まず8%対象（軽減税率）の品目だけを合計し、別に10%対象（標準税率）の品目だけを合計します。そのうえで、税率区分ごとの税抜合計額に対してそれぞれ1回だけ消費税額を計算し、生じた1円未満の端数を処理します。下表は税抜額別の消費税額（標準税率10%・端数切り捨て）をコード計算で例示したものです。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>税抜額(10%対象)</th><th>消費税額(10%)</th><th>税込額</th></tr></thead>
+            <tbody>
+                <tr><td>1,080円</td><td class="acc">108円</td><td>1,188円</td></tr>
+                <tr><td>2,780円</td><td class="acc">278円</td><td>3,058円</td></tr>
+                <tr><td>5,480円</td><td class="acc">548円</td><td>6,028円</td></tr>
+                <tr><td>12,340円</td><td class="acc">1,234円</td><td>13,574円</td></tr>
+                <tr><td>33,333円</td><td class="acc">3,333円</td><td>36,666円</td></tr>
+                <tr><td>49,980円</td><td class="acc">4,998円</td><td>54,978円</td></tr>
+                <tr><td>98,765円</td><td class="acc">9,876円</td><td>108,641円</td></tr>
+                <tr><td>123,456円</td><td class="acc">12,345円</td><td>135,801円</td></tr>
+                <tr><td>500,000円</td><td class="acc">50,000円</td><td>550,000円</td></tr>
+                <tr><td>987,654円</td><td class="acc">98,765円</td><td>1,086,419円</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>例えば税抜98,765円の場合、98,765×0.10＝9,876.5となり、1円未満を切り捨てて消費税額は9,876円となります。このように端数は税率区分の合計額に対して1回だけ処理するため、明細ごとに処理する従来の方法とは消費税額が異なることがあります。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">インボイスの登録番号とは？</div><div class="a">適格請求書発行事業者として税務署に登録した事業者に付与される番号です。法人の場合は「T」に続く13桁の数字（Tを除いた部分は法人番号と一致）で表され、個人事業者や人格のない社団等にも13桁の数字が割り当てられます。適格請求書には必ずこの登録番号を記載します。</div></div>
+        <div class="faq-item"><div class="q">端数処理は商品ごと？請求書ごと？</div><div class="a">適格請求書では、端数処理は「一つの請求書につき、税率ごとに1回」が原則です。商品（明細行）ごとに端数処理を繰り返すことは認められません。8%対象と10%対象をそれぞれ合計してから、税率区分ごとに1回だけ端数処理を行います。</div></div>
+        <div class="faq-item"><div class="q">8%と10%が混在する場合は？</div><div class="a">軽減税率8%の対象品目と標準税率10%の対象品目を税率ごとに区分して合計し、それぞれの税抜（または税込）合計額と消費税額を分けて記載します。本ツールも10%対象と8%対象を別々に入力し、税率ごとに消費税額を計算します。</div></div>
+        <div class="faq-item"><div class="q">免税事業者からの仕入れはどうなる？</div><div class="a">適格請求書を発行できない免税事業者等からの課税仕入れについては、原則として仕入税額控除ができません。ただし制度開始から一定期間は仕入税額の一定割合を控除できる経過措置が設けられています。控除割合や適用期間は変更される可能性があるため、最新は国税庁で確認してください。</div></div>
+        <div class="faq-item"><div class="q">2割特例とは？</div><div class="a">免税事業者からインボイス発行事業者になった人の負担を軽減するため、納付すべき消費税額を売上に係る消費税額の2割とできる特例です。対象となる課税期間や適用要件など、経過措置の内容や期限は変更されることがあるため、最新は国税庁で確認してください。</div></div>
+        <!-- # TODO要確認: 2割特例等の経過措置の期限は国税庁 https://www.nta.go.jp/ で要確認 -->
     </div>
 
         <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
