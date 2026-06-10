@@ -14,8 +14,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>パスワード生成ツール | 安全なランダムパスワードを瞬時に作成</title>
-    <meta name="description" content="安全で強力なランダムパスワードを瞬時に生成。文字数・記号・数字のカスタマイズ可能。複数パスワードの一括生成にも対応。">
+    <title>パスワード生成ツール | 安全なランダムパスワードを瞬時に作成・強度の目安も解説</title>
+    <meta name="description" content="安全で強力なランダムパスワードを瞬時に生成。文字数・記号・数字のカスタマイズ可能。複数パスワードの一括生成にも対応。12文字以上推奨など安全なパスワードの作り方と文字数別の強度の目安も解説。">
     <meta name="keywords" content="パスワード生成,パスワードジェネレーター,ランダムパスワード,安全なパスワード,パスワード作成">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -185,6 +185,13 @@
         .seo-content h2 { color: var(--text-primary); font-size: 1.1rem; margin-bottom: 16px; }
         .seo-content h3 { color: var(--text-primary); font-size: 0.95rem; margin-top: 20px; margin-bottom: 8px; }
         .seo-content p { margin-bottom: 12px; }
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text-secondary);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text-primary)}
+        .lookup-table td.acc{color:var(--accent-green);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text-primary);margin-bottom:4px}.faq-item .a{color:var(--text-secondary)}
 
         footer {
             text-align: center; margin-top: 60px; padding-top: 24px;
@@ -222,7 +229,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"パスワード生成ツール","item":"https://www.devtools-japan.com/tool-02-password-gen/"}]}
     </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"生成したパスワードはどこかに保存・送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。パスワードはお使いのブラウザ内で生成され、サーバーへの送信や保存は一切行われません。登録不要・無料で安全にご利用いただけます。"}},{"@type":"Question","name":"記号や数字を含めて文字数を指定できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。大文字・小文字・数字・記号の使用有無や文字数を自由にカスタマイズできます。複数のパスワードを一括生成することも可能です。"}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"生成したパスワードはどこかに保存・送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。このツールはブラウザ内で完結しており、生成したパスワードがサーバーへ送信・保存されることは一切ありません。乱数生成にはブラウザ標準の暗号学的乱数（crypto.getRandomValues）を使用し、通信を伴わずにあなたの端末内だけで処理します。登録不要・無料でご利用いただけます。"}},{"@type":"Question","name":"安全なパスワードの長さは何文字以上が目安ですか？","acceptedAnswer":{"@type":"Answer","text":"12文字以上を推奨します。8文字以下は短時間で総当たり解読される恐れがあり、重要なアカウントには不向きです。文字種を増やしたうえで12〜16文字以上にすると、現実的な時間では解読が困難になります。このツールでは4〜64文字の範囲でスライダー指定でき、初期値は16文字です。"}},{"@type":"Question","name":"記号や数字を含めたパスワードを作れますか？","acceptedAnswer":{"@type":"Answer","text":"はい。大文字（A〜Z）・小文字（a〜z）・数字（0〜9）・記号（!@#$%^&*()_+-=[]{}|;:,.）のそれぞれについて、使う・使わないをトグルで切り替えられます。さらに0やO、l、1、I、|などの紛らわしい文字を除外するオプションもあり、すべてオフにはできない（最低1種類は有効）仕様です。"}},{"@type":"Question","name":"同じパスワードを複数のサービスで使い回しても大丈夫ですか？","acceptedAnswer":{"@type":"Answer","text":"使い回しは避けてください。1つのサービスからパスワードが漏れると、同じパスワードを使った他のサービスにも不正ログイン（パスワードリスト攻撃）される危険があります。サービスごとに異なるパスワードを生成して使い分けることが重要です。このツールの一括生成機能を使えば、一度に10個のパスワードをまとめて作成できます。"}},{"@type":"Question","name":"パスワードマネージャーは使うべきですか？","acceptedAnswer":{"@type":"Answer","text":"サービスごとに長く複雑なパスワードを使い分けるには、パスワードマネージャーの利用を推奨します。人間が多数の強固なパスワードを記憶するのは現実的でなく、無理に覚えようとすると使い回しや単純化につながりがちです。このツールで生成した強力なパスワードをマネージャーに保存すれば、安全性と利便性を両立できます。"}}]}
 </script>
 </head>
 <body>
@@ -307,6 +314,55 @@
             <p>暗号学的に安全な乱数生成器（crypto.getRandomValues）を使用しており、生成されたパスワードは予測不可能です。パスワードはサーバーに送信されず、すべてブラウザ内で処理されます。</p>
             <h3>パスワード強度の目安</h3>
             <p>8文字以下：非常に弱い（数秒で解読可能）。12文字：中程度（記号を含めれば数年）。16文字以上：強力（現実的に解読不可能）。当ツールでは最大64文字まで生成可能です。</p>
+        </div>
+
+        <div class="seo-content">
+            <h2>安全なパスワードの作り方</h2>
+            <p>強いパスワードを作るうえで大切なのは、長さ・文字種・使い回さないことの3点です。このツールはこの3つをすべてカバーできるよう設計されており、文字数のスライダー、4種類の文字種トグル、まとめて10個作る一括生成を備えています。順を追って解説します。</p>
+            <h3>1. 長さを十分に取る（12文字以上を推奨）</h3>
+            <p>パスワードの強さは、文字種を増やすことよりも長さを伸ばすことのほうが効果的です。総当たり攻撃で試す組み合わせは1文字増えるごとに何倍にもなるため、長いほど解読は急激に難しくなります。8文字以下は危険、12文字以上を推奨、重要なアカウントは16文字以上が安心です。このツールでは文字数を4〜64文字の範囲で指定でき、初期値は16文字に設定されています。</p>
+            <h3>2. 文字種を組み合わせる（大文字・小文字・数字・記号）</h3>
+            <p>大文字（A〜Z）・小文字（a〜z）・数字（0〜9）・記号（!@#$%^&amp;*()_+-=[]{}|;:,.）を混ぜると、1文字あたりに使える種類が増え、組み合わせの総数が大きくなります。このツールでは各文字種をトグルで個別にオン・オフでき、4種類すべてを有効にすると85種類の文字から各桁が選ばれます。なお最低1種類は必ず有効になる仕様で、すべてオフにすることはできません。ログインフォームの「0とO」「lと1」の見間違いを避けたい場合は、紛らわしい文字を除外するオプションも利用できます。</p>
+            <h3>3. パスワードを使い回さない</h3>
+            <p>どれだけ強いパスワードでも、複数のサービスで同じものを使い回すと、1か所からの漏えいが全アカウントの危険に直結します（パスワードリスト攻撃）。サービスごとに別々のパスワードを用意してください。このツールの一括生成ボタンを押すと一度に10個のパスワードを作れるため、複数アカウント分をまとめて準備するのに便利です。生成にはブラウザ標準の暗号学的乱数（crypto.getRandomValues）を用いており、予測されにくい値が得られます。処理はすべてブラウザ内で完結し、生成結果がサーバーへ送信・保存されることはありません。</p>
+
+            <h2>パスワード強度の目安（文字数・文字種別）</h2>
+            <p>同じ文字数でも、使う文字種が多いほど、また文字数が長いほど、総当たりで試す組み合わせの数が増え、解読されにくくなります。下表は文字種と文字数ごとの組み合わせ数（おおよその桁数）と強度の目安です。エントロピー（bit）は値が大きいほど強く、一般に80bit以上が安全圏の目安とされます。</p>
+            <div class="table-wrap">
+            <table class="lookup-table">
+                <thead><tr><th>文字種</th><th>文字数</th><th>使える文字数</th><th>組み合わせ数の目安</th><th>エントロピー</th><th>強度の目安</th></tr></thead>
+                <tbody>
+                    <tr><td>英数字</td><td>8文字</td><td>62種類</td><td>約10の14乗通り</td><td>約48bit</td><td>弱い</td></tr>
+                    <tr><td>英数字</td><td>12文字</td><td>62種類</td><td>約10の22乗通り</td><td>約71bit</td><td>普通</td></tr>
+                    <tr><td>英数記号</td><td>8文字</td><td>85種類</td><td>約10の15乗通り</td><td>約51bit</td><td>やや弱い</td></tr>
+                    <tr><td>英数記号</td><td>12文字</td><td>85種類</td><td>約10の23乗通り</td><td>約77bit</td><td>強い</td></tr>
+                    <tr><td class="acc">英数記号</td><td class="acc">16文字</td><td>85種類</td><td>約10の31乗通り</td><td class="acc">約103bit</td><td class="acc">非常に強い</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p>たとえば「8文字の英数字」は約10の14乗通りなのに対し、「12文字の英数記号」は約10の23乗通りと、桁違いに解読されにくくなります。さらに16文字まで伸ばすと約10の31乗通り・約103bitに達し、現実的な時間での総当たり解読はほぼ不可能になります。短い英数字だけのパスワードから、長めの英数記号パスワードへ切り替えるだけで、安全性は飛躍的に高まります。当ツールの強度バーは、文字数（8・12・16文字の各しきい値）と含まれる文字種の多さを点数化して、弱い〜非常に強いの5段階で目安を表示します。</p>
+
+            <h2>よくある質問</h2>
+            <div class="faq-item">
+                <div class="q">生成したパスワードはどこかに保存・送信されますか？</div>
+                <div class="a">いいえ。このツールはブラウザ内で完結しており、生成したパスワードがサーバーへ送信・保存されることは一切ありません。乱数生成にはブラウザ標準の暗号学的乱数（crypto.getRandomValues）を使用し、通信を伴わずにあなたの端末内だけで処理します。登録不要・無料でご利用いただけます。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">安全なパスワードの長さは何文字以上が目安ですか？</div>
+                <div class="a">12文字以上を推奨します。8文字以下は短時間で総当たり解読される恐れがあり、重要なアカウントには不向きです。文字種を増やしたうえで12〜16文字以上にすると、現実的な時間では解読が困難になります。このツールでは4〜64文字の範囲でスライダー指定でき、初期値は16文字です。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">記号や数字を含めたパスワードを作れますか？</div>
+                <div class="a">はい。大文字（A〜Z）・小文字（a〜z）・数字（0〜9）・記号（!@#$%^&amp;*()_+-=[]{}|;:,.）のそれぞれについて、使う・使わないをトグルで切り替えられます。さらに0やO、l、1、I、|などの紛らわしい文字を除外するオプションもあり、すべてオフにはできない（最低1種類は有効）仕様です。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">同じパスワードを複数のサービスで使い回しても大丈夫ですか？</div>
+                <div class="a">使い回しは避けてください。1つのサービスからパスワードが漏れると、同じパスワードを使った他のサービスにも不正ログイン（パスワードリスト攻撃）される危険があります。サービスごとに異なるパスワードを生成して使い分けることが重要です。このツールの一括生成機能を使えば、一度に10個のパスワードをまとめて作成できます。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">パスワードマネージャーは使うべきですか？</div>
+                <div class="a">サービスごとに長く複雑なパスワードを使い分けるには、パスワードマネージャーの利用を推奨します。人間が多数の強固なパスワードを記憶するのは現実的でなく、無理に覚えようとすると使い回しや単純化につながりがちです。このツールで生成した強力なパスワードをマネージャーに保存すれば、安全性と利便性を両立できます。</div>
+            </div>
         </div>
 
         <div class="ad-slot" style="display:none"></div>
