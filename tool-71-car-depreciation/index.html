@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E27Q8YTG7L');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>車の減価償却 計算ツール | 普通車・軽・中古車を定額法/定率法で自動計算【無料】</title>
+    <meta name="description" content="自動車（普通車・軽自動車・中古車）の減価償却費を定額法・定率法で自動計算する無料ツール。取得価額・車種・新車中古・事業利用割合を入れるだけで年間の経費がわかる。中古車の耐用年数（簡便法）も自動算出。フリーランス・個人事業主の確定申告に。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#f59e0b;--accent-dim:rgba(245,158,11,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(245,158,11,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}.row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.tax{color:var(--red)}.result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.06);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:center;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{font-family:'JetBrains Mono',monospace;color:var(--text)}.lookup-table td:first-child{font-family:'Noto Sans JP',sans-serif;text-align:left}.lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-71-car-depreciation/">
+    <meta property="og:title" content="車の減価償却 計算 | 普通車・軽・中古車を自動計算【無料】">
+    <meta property="og:description" content="取得価額・車種・新車中古・事業利用割合から車の減価償却費を定額法・定率法で計算">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-71-car-depreciation/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="車の減価償却 計算ツール【無料】">
+    <meta name="twitter:description" content="普通車・軽・中古車の減価償却費を自動計算">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"車の減価償却 計算ツール","description":"自動車の減価償却費を定額法・定率法で計算。中古車の耐用年数も自動算出。","url":"https://www.devtools-japan.com/tool-71-car-depreciation/","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"車の減価償却 計算ツール","item":"https://www.devtools-japan.com/tool-71-car-depreciation/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"車の耐用年数は何年？","acceptedAnswer":{"@type":"Answer","text":"新車の法定耐用年数は、普通自動車（自家用）が6年、軽自動車が4年です。これは国税庁の耐用年数表で定められた年数で、新車を事業用に購入した場合の償却年数になります。中古車の場合は経過年数に応じて短くなります。"}},{"@type":"Question","name":"中古車の耐用年数の計算方法は？","acceptedAnswer":{"@type":"Answer","text":"中古車は簡便法で計算します。法定耐用年数を全部経過していれば「法定耐用年数×20%」、一部だけ経過していれば「（法定耐用年数−経過年数）＋経過年数×20%」で求め、1年未満は切り捨て、2年未満になる場合は2年とします。普通車（法定6年）を3年落ちで購入すると耐用年数は3年です。"}},{"@type":"Question","name":"定額法と定率法どちらを選ぶ？","acceptedAnswer":{"@type":"Answer","text":"個人事業主が届出をしない場合の法定の償却方法は定額法で、毎年同じ額を経費にできます。早期に多く経費化したい場合は税務署へ「減価償却資産の償却方法の届出書」を提出して定率法を選べます。定率法は初年度の償却額が大きく、年々減っていきます。"}},{"@type":"Question","name":"事業とプライベート兼用の車はどう計算する？","acceptedAnswer":{"@type":"Answer","text":"事業とプライベートの両方で使う車は、事業利用割合で按分します。たとえば走行距離や使用日数から事業利用割合が70%と判断できる場合、計算した減価償却費の70%だけが事業の経費になります。割合は合理的な基準で説明できるようにしておきます。"}},{"@type":"Question","name":"30万円未満の車は一括で経費にできる？","acceptedAnswer":{"@type":"Answer","text":"青色申告をしている中小企業者等は、少額減価償却資産の特例により取得価額30万円未満の資産を取得した年に全額経費にできます。車両も対象になり得ますが、年間合計300万円までという上限や、事業利用割合での按分が必要など要件があるため、適用可否は概算とし税理士に確認してください。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>車の減価償却 計算</h1><p>普通車・軽・中古車の減価償却費を定額法／定率法で自動計算</p></header>
+
+    <div class="card"><h3>入力</h3>
+        <div class="row"><label>取得価額</label><input type="number" id="cost" value="3000000" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>車種</label><select id="cartype" onchange="calc()"><option value="6" selected>普通車（法定6年）</option><option value="4">軽自動車（法定4年）</option></select><span class="unit"></span></div>
+        <div class="row"><label>新車／中古</label><select id="cond" onchange="calc()"><option value="new" selected>新車</option><option value="used">中古</option></select><span class="unit"></span></div>
+        <div class="row" id="elapsedRow" style="display:none"><label>経過年数（中古）</label><input type="number" id="elapsed" value="3" min="0" oninput="calc()"><span class="unit">年</span></div>
+        <div class="row"><label>償却方法</label><select id="method" onchange="calc()"><option value="straight" selected>定額法</option><option value="declining">定率法（200%）</option></select><span class="unit"></span></div>
+        <div class="row"><label>事業利用割合</label><input type="number" id="bizRatio" value="100" min="1" max="100" oninput="calc()"><span class="unit">%</span></div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">適用する耐用年数</div><div class="value" id="rLife">-</div></div>
+        <div class="result-item"><div class="label" id="annualLabel">年間の減価償却費</div><div class="value take" id="rAnnual">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">月額（按分後）</div><div class="value" id="rMonthly">-</div></div>
+        <div class="result-item"><div class="label">適用償却率</div><div class="value" id="rRate">-</div></div>
+    </div>
+
+    <div class="card" id="schedule"></div>
+
+    <div class="note">本ツールの結果は概算です。償却の起算日（事業供用日）の月割り計算、定率法の償却保証額・改定償却率による調整、車両の用途区分などは反映していません。実際の申告にあたっては税理士または所轄税務署にご確認ください。</div>
+
+    <div class="card"><h3>車の法定耐用年数（新車）</h3>
+        <table class="ref">
+            <tr><th>車種</th><th>法定耐用年数</th></tr>
+            <tr><td>普通自動車（自家用）</td><td>6年</td></tr>
+            <tr><td>軽自動車（自家用）</td><td>4年</td></tr>
+            <tr><td>普通車を3年落ちで中古購入</td><td>3年</td></tr>
+            <tr><td>普通車を6年以上落ちで中古購入</td><td>2年</td></tr>
+        </table>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>車の減価償却の計算方法</h2>
+        <p>事業用に購入した自動車は、取得価額が10万円以上であれば一度に経費にできず、法定耐用年数に分けて少しずつ経費に計上する「減価償却」が必要です。このツールは取得価額・車種・新車か中古か・償却方法・事業利用割合を入力するだけで、適用する耐用年数と年間の減価償却費を自動計算します。</p>
+        <h3>法定耐用年数（新車）</h3>
+        <p>新車を事業用に購入した場合の法定耐用年数は、普通自動車（自家用）が6年、軽自動車が4年です。これは国税庁の耐用年数表で定められた年数で、車両のおおよその使用可能期間を示します。トラックなどの貨物自動車や特殊用途の車は別の年数が定められているため、用途区分には注意が必要です。</p>
+        <h3>新車と中古車の違い（簡便法）</h3>
+        <p>中古車は新車より使える期間が短いため、法定耐用年数ではなく簡便法で耐用年数を短く見積もります。法定耐用年数を全部経過している中古車は「法定耐用年数×20%」、一部だけ経過している中古車は「（法定耐用年数−経過年数）＋経過年数×20%」で計算します。計算結果は1年未満の端数を切り捨て、2年未満になる場合は2年とします。耐用年数が短くなるほど償却率が上がり、1年あたりの経費を大きく取れるのが中古車のメリットです。</p>
+        <h3>定額法と定率法</h3>
+        <p>定額法は毎年同じ額を償却する方法で「取得価額 × 定額法償却率」で求めます。個人事業主が届出をしない場合の法定の償却方法は定額法です。定率法（200%定率法）は初年度の償却額が大きく年々減っていく方法で、早期に費用化したい場合に有利です。個人事業主が定率法を採用するには税務署への届出が必要で、法人は届出をしない場合のデフォルトが定率法です。</p>
+        <h3>事業利用割合の按分</h3>
+        <p>事業とプライベートの両方で使う車は、事業利用割合で按分します。計算した減価償却費に事業利用割合を掛けた金額だけが事業の経費になります。たとえば取得価額300万円・普通車・新車・定額法（耐用6年・償却率0.167）で事業利用割合が60%なら、3,000,000×0.167×60%＝300,600円が年間の経費です。事業利用割合は走行距離や使用日数など合理的な基準で説明できるようにしておきます。</p>
+
+        <h2>車の法定耐用年数と償却率</h2>
+        <p>自動車の減価償却に使う耐用年数と償却率は次のとおりです。中古車は簡便法で算出した耐用年数に対応する償却率を使います。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <tr><th>車種・年数</th><th>耐用年数</th><th>定額法償却率</th><th>定率法償却率(200%)</th></tr>
+            <tr><td>普通車（新車）</td><td class="acc">6年</td><td>0.167</td><td>0.333</td></tr>
+            <tr><td>軽自動車（新車）</td><td class="acc">4年</td><td>0.250</td><td>0.500</td></tr>
+            <tr><td>中古（耐用5年）</td><td>5年</td><td>0.200</td><td>0.400</td></tr>
+            <tr><td>中古（耐用3年）</td><td>3年</td><td>0.334</td><td>0.667</td></tr>
+            <tr><td>中古（耐用2年・下限）</td><td>2年</td><td>0.500</td><td>1.000</td></tr>
+            <!-- TODO要確認: 貨物自動車・特殊用途車の耐用年数は国税庁の耐用年数表 https://www.keisan.nta.go.jp/ で要確認 -->
+        </table>
+        </div>
+        <p>中古車の耐用年数は簡便法で求めます。全部経過なら「法定耐用年数×20%」、一部経過なら「（法定耐用年数−経過年数）＋経過年数×20%」。いずれも1年未満切り捨て、最低2年です。</p>
+
+        <h2>中古車の耐用年数 早見表</h2>
+        <p>普通自動車（法定耐用年数6年）を中古で購入した場合の、経過年数ごとの耐用年数です（簡便法・最低2年）。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <tr><th>経過年数</th><th>耐用年数</th><th>定額法償却率</th></tr>
+            <tr><td>1年</td><td class="acc">5年</td><td>0.200</td></tr>
+            <tr><td>2年</td><td class="acc">4年</td><td>0.250</td></tr>
+            <tr><td>3年</td><td class="acc">3年</td><td>0.334</td></tr>
+            <tr><td>4年</td><td class="acc">2年</td><td>0.500</td></tr>
+            <tr><td>5年以上</td><td class="acc">2年</td><td>0.500</td></tr>
+        </table>
+        </div>
+        <p>たとえば300万円の3年落ち普通車を定額法で償却する場合、耐用年数は3年・償却率0.334となり、年間 3,000,000×0.334＝1,002,000円が経費になります（事業利用割合100%の場合）。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">車の耐用年数は何年？</div><div class="a">新車の法定耐用年数は、普通自動車（自家用）が6年、軽自動車が4年です。これは国税庁の耐用年数表で定められた年数で、新車を事業用に購入した場合の償却年数になります。中古車の場合は経過年数に応じて短くなります。</div></div>
+        <div class="faq-item"><div class="q">中古車の耐用年数の計算方法は？</div><div class="a">中古車は簡便法で計算します。法定耐用年数を全部経過していれば「法定耐用年数×20%」、一部だけ経過していれば「（法定耐用年数−経過年数）＋経過年数×20%」で求め、1年未満は切り捨て、2年未満になる場合は2年とします。普通車（法定6年）を3年落ちで購入すると耐用年数は3年です。</div></div>
+        <div class="faq-item"><div class="q">定額法と定率法どちらを選ぶ？</div><div class="a">個人事業主が届出をしない場合の法定の償却方法は定額法で、毎年同じ額を経費にできます。早期に多く経費化したい場合は税務署へ「減価償却資産の償却方法の届出書」を提出して定率法を選べます。定率法は初年度の償却額が大きく、年々減っていきます。</div></div>
+        <div class="faq-item"><div class="q">事業とプライベート兼用の車はどう計算する？</div><div class="a">事業とプライベートの両方で使う車は、事業利用割合で按分します。たとえば走行距離や使用日数から事業利用割合が70%と判断できる場合、計算した減価償却費の70%だけが事業の経費になります。割合は合理的な基準で説明できるようにしておきます。</div></div>
+        <div class="faq-item"><div class="q">30万円未満の車は一括で経費にできる？</div><div class="a">青色申告をしている中小企業者等は、少額減価償却資産の特例により取得価額30万円未満の資産を取得した年に全額経費にできます。車両も対象になり得ますが、年間合計300万円までという上限や、事業利用割合での按分が必要など要件があるため、適用可否は概算とし税理士に確認してください。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="/tool-59-depreciation/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">減価償却計算</a><a href="/tool-58-freelance-income/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">フリーランス年収シミュレーター</a><a href="/tool-21-tax-simulator/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">確定申告シミュレーター</a></div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+    <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// 確実な償却率表（年数→率）
+var STRAIGHT = {2:0.500, 3:0.334, 4:0.250, 5:0.200, 6:0.167};
+var DECLINING = {2:1.000, 3:0.667, 4:0.500, 5:0.400, 6:0.333};
+
+function usedLife(legal, elapsed) {
+    if (elapsed >= legal) return 2;
+    var n = Math.floor((legal - elapsed) + elapsed * 0.2);
+    return Math.max(2, n);
+}
+
+function calc() {
+    var cost = parseInt(document.getElementById('cost').value) || 0;
+    var legal = parseInt(document.getElementById('cartype').value) || 6;
+    var cond = document.getElementById('cond').value;
+    var method = document.getElementById('method').value;
+    var ratio = (parseInt(document.getElementById('bizRatio').value) || 100) / 100;
+    var elapsedRow = document.getElementById('elapsedRow');
+
+    var life;
+    if (cond === 'used') {
+        elapsedRow.style.display = '';
+        var elapsed = parseInt(document.getElementById('elapsed').value) || 0;
+        life = usedLife(legal, elapsed);
+    } else {
+        elapsedRow.style.display = 'none';
+        life = legal;
+    }
+
+    document.getElementById('rLife').textContent = life + '年';
+
+    var rate = (method === 'straight' ? STRAIGHT[life] : DECLINING[life]) || 0;
+    document.getElementById('rRate').textContent = rate.toFixed(3);
+
+    var html = '<h3>償却スケジュール</h3><table class="ref"><tr><th>年</th><th>償却額（按分後）</th><th>期末帳簿価額</th></tr>';
+    var remaining = cost;
+
+    if (method === 'straight') {
+        document.getElementById('annualLabel').textContent = '年間の減価償却費';
+        var annual = Math.floor(cost * rate);
+        var annualBiz = Math.floor(annual * ratio);
+        document.getElementById('rAnnual').textContent = '¥' + annualBiz.toLocaleString();
+        document.getElementById('rMonthly').textContent = '¥' + Math.round(annualBiz / 12).toLocaleString();
+        for (var y = 1; y <= life; y++) {
+            var dep = (y === life) ? remaining - 1 : annual;
+            remaining -= dep;
+            html += '<tr><td>' + y + '年目</td><td>' + Math.floor(dep * ratio).toLocaleString() + '円</td><td>' + Math.max(1, remaining).toLocaleString() + '円</td></tr>';
+        }
+    } else {
+        document.getElementById('annualLabel').textContent = '初年度の減価償却費';
+        var firstYear = Math.floor(cost * rate);
+        var firstYearBiz = Math.floor(firstYear * ratio);
+        document.getElementById('rAnnual').textContent = '¥' + firstYearBiz.toLocaleString();
+        document.getElementById('rMonthly').textContent = '¥' + Math.round(firstYearBiz / 12).toLocaleString() + '（初年度）';
+        for (var y2 = 1; y2 <= life; y2++) {
+            var dep2 = Math.floor(remaining * rate);
+            if (y2 === life || dep2 >= remaining) dep2 = remaining - 1;
+            if (dep2 < 0) dep2 = 0;
+            remaining -= dep2;
+            html += '<tr><td>' + y2 + '年目</td><td>' + Math.floor(dep2 * ratio).toLocaleString() + '円</td><td>' + Math.max(1, remaining).toLocaleString() + '円</td></tr>';
+            if (remaining <= 1) break;
+        }
+    }
+    html += '</table>';
+    document.getElementById('schedule').innerHTML = html;
+}
+calc();
+</script>
+</body>
+</html>

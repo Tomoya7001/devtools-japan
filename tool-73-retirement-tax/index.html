@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E27Q8YTG7L');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>退職金 手取り・税金計算ツール | 退職所得控除・所得税・住民税を自動計算【無料】</title>
+    <meta name="description" content="退職金額と勤続年数を入力するだけで、退職所得控除額・課税退職所得・所得税・住民税・手取り額を自動計算する無料ツール。国税庁の退職所得の計算式（1/2課税・分離課税）に準拠。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#0d9488;--accent-dim:rgba(13,148,136,0.08);--green:#0d9488;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(13,148,136,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}.row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:240px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .row .check{width:auto;text-align:left}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent);word-break:break-all}
+        .result-item .value.tax{color:var(--red)}.result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .mono-out{font-family:'JetBrains Mono',monospace;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.95rem;color:var(--accent);word-break:break-all;cursor:pointer}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.06);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:8px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-73-retirement-tax/">
+    <meta property="og:title" content="退職金 手取り・税金計算ツール | 退職所得控除・所得税・住民税を自動計算【無料】">
+    <meta property="og:description" content="退職金額と勤続年数から退職所得控除・所得税・住民税・手取り額を自動計算">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-73-retirement-tax/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="退職金 手取り・税金計算ツール【無料】">
+    <meta name="twitter:description" content="退職金額と勤続年数から手取り額を自動計算">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"退職金 手取り・税金計算ツール","description":"退職金額と勤続年数から退職所得控除・所得税・住民税・手取り額を計算","url":"https://www.devtools-japan.com/tool-73-retirement-tax/","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"DevTools Japan","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"退職金 手取り・税金計算","item":"https://www.devtools-japan.com/tool-73-retirement-tax/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"退職金にも税金がかかりますか？","acceptedAnswer":{"@type":"Answer","text":"はい、退職金にも所得税（復興特別所得税を含む）と住民税がかかります。ただし退職所得は給与など他の所得とは分けて課税される分離課税で、退職所得控除を差し引いたうえで残額の2分の1だけが課税対象になるため、税負担は大きく軽減されています。退職所得控除の範囲内であれば税金は0円です。"}},{"@type":"Question","name":"退職所得控除はいくらですか？","acceptedAnswer":{"@type":"Answer","text":"勤続年数によって決まります。勤続20年以下は「40万円 × 勤続年数」（最低80万円）、勤続20年超は「800万円 + 70万円 ×（勤続年数 − 20年）」です。勤続年数に1年未満の端数があるときは1年に切り上げて計算します。たとえば勤続10年なら400万円、勤続30年なら1500万円が控除額になります。"}},{"@type":"Question","name":"勤続30年で退職金1500万円の税金はいくらですか？","acceptedAnswer":{"@type":"Answer","text":"勤続30年の退職所得控除額は1500万円です。退職金1500万円から控除額1500万円を差し引くと残額が0円となり、課税退職所得も0円になります。したがって所得税・住民税ともに0円で、手取りは退職金1500万円がそのまま全額受け取れます。"}},{"@type":"Question","name":"退職金の住民税はどう計算しますか？","acceptedAnswer":{"@type":"Answer","text":"退職金の住民税は、課税退職所得金額に一律10%（道府県民税4%＋市町村民税6%）を掛けて計算します。給与の住民税と異なり均等割は加算されず、退職金の支払い時に源泉徴収（特別徴収）される仕組みです。課税退職所得が0円であれば住民税もかかりません。"}},{"@type":"Question","name":"退職金の確定申告は必要ですか？","acceptedAnswer":{"@type":"Answer","text":"勤務先に「退職所得の受給に関する申告書」を提出していれば、退職金から適正な税額が源泉徴収されるため原則として確定申告は不要です。提出していない場合は一律20.42%が源泉徴収されるため、確定申告で精算すると納めすぎた税金が還付されることがあります。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>退職金 手取り・税金計算</h1><p>退職金額と勤続年数から退職所得控除・所得税・住民税・手取りを自動計算</p></header>
+    <div class="note">国税庁の退職所得の計算式（退職所得控除・2分の1課税・分離課税）に基づく概算です。退職所得以外に所得がある場合や、勤続年数の調整がある場合などは結果が異なることがあります。正確な金額は勤務先や税理士にご確認ください。</div>
+
+    <div class="card"><h3>入力</h3>
+        <div class="row"><label>退職金額（額面）</label><input type="number" id="amount" value="10000000" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>勤続年数（1年未満は切り上げ）</label><input type="number" id="years" value="10" oninput="calc()"><span class="unit">年</span></div>
+        <div class="row"><label>勤続5年以下の役員等（2分の1課税の対象外）</label><input type="checkbox" id="exec5" class="check" onchange="calc()"><span class="unit"></span></div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">退職所得控除額</div><div class="value" id="rDeduction">-</div></div>
+        <div class="result-item"><div class="label">課税退職所得金額</div><div class="value" id="rTaxable">-</div></div>
+        <div class="result-item"><div class="label">所得税（復興特別税込）</div><div class="value tax" id="rIncomeTax">-</div></div>
+        <div class="result-item"><div class="label">住民税</div><div class="value tax" id="rResTax">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">税金合計</div><div class="value tax" id="rTaxTotal" style="font-size:1.8rem">-</div></div>
+        <div class="result-item"><div class="label">手取り額</div><div class="value take" id="rTakeHome" style="font-size:1.8rem">-</div></div>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>退職金の手取り計算の仕組み</h2>
+        <p>退職金（退職手当）にかかる税金は、給与やボーナスと比べて大幅に軽減される仕組みになっています。これは退職金が長年の勤労に対する報償的な性格を持ち、老後の生活を支える大切な資金であることから、税制上手厚く優遇されているためです。手取り額は「退職金額 − 所得税 − 住民税」で求められます。</p>
+        <h3>1. 退職所得控除を差し引く</h3>
+        <p>まず退職金から「退職所得控除額」を差し引きます。控除額は勤続年数が長いほど大きくなり、勤続20年以下は1年あたり40万円、20年を超えると1年あたり70万円が加算されます。勤続年数に1年未満の端数がある場合は、たとえ1日でも1年に切り上げて計算します。退職金が退職所得控除額の範囲内であれば、税金は一切かかりません。</p>
+        <h3>2. 残額の2分の1だけが課税対象になる</h3>
+        <p>退職金から退職所得控除額を差し引いた残額の「2分の1」だけが課税退職所得金額になります（1000円未満は切り捨て）。所得の半分しか課税されないため、同じ金額の給与に比べて税負担は大きく下がります。ただし、勤続年数5年以下の法人役員等が受け取る退職金については、この2分の1課税は適用されず全額が課税対象になります。</p>
+        <h3>3. 分離課税で所得税・住民税を計算する</h3>
+        <p>退職所得は他の所得と合算せず、単独で税額を計算する「分離課税」です。所得税は課税退職所得金額に超過累進税率を適用し、さらに復興特別所得税（2.1%）を上乗せします。住民税は課税退職所得金額に一律10%を掛けて計算します。これらを退職金額から引いた残りが、実際に受け取れる手取り額です。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>退職所得控除額の早見表</h2>
+        <p>勤続年数ごとの退職所得控除額の目安です。本ツールと同じ計算式（勤続20年以下＝40万円×勤続年数、20年超＝800万円＋70万円×（勤続年数−20年））で算出しています。退職金がこの控除額以内であれば、所得税・住民税はかかりません。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>勤続年数</th><th>退職所得控除額</th><th>計算式</th></tr>
+            <tr><td>10年</td><td>400万円</td><td>40万 × 10年</td></tr>
+            <tr><td>20年</td><td>800万円</td><td>40万 × 20年</td></tr>
+            <tr><td>25年</td><td>1150万円</td><td>800万 + 70万 × 5年</td></tr>
+            <tr><td>30年</td><td>1500万円</td><td>800万 + 70万 × 10年</td></tr>
+            <tr><td>35年</td><td>1850万円</td><td>800万 + 70万 × 15年</td></tr>
+            <tr><td>38年</td><td>2060万円</td><td>800万 + 70万 × 18年</td></tr>
+        </table>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text3)">※ 勤続年数に1年未満の端数があるときは1年に切り上げて計算します。たとえば20年1か月でも21年として控除額を求めます。</p>
+
+        <h3>勤続年数が長いほど有利になる理由</h3>
+        <p>退職所得控除は勤続20年を境に1年あたりの加算額が40万円から70万円へと増えます。長く勤めた人ほど控除額が大きくなり、退職金にかかる税金が抑えられる設計です。さらに控除を超えた部分も2分の1しか課税されないため、まとまった退職金であっても手取りが大きく目減りすることは少なくなっています。</p>
+
+        <h2 style="margin-top:24px">よくある質問</h2>
+        <div class="faq-item"><div class="q">退職金にも税金がかかりますか？</div><div class="a">はい、退職金にも所得税（復興特別所得税を含む）と住民税がかかります。ただし退職所得は給与など他の所得とは分けて課税される分離課税で、退職所得控除を差し引いたうえで残額の2分の1だけが課税対象になるため、税負担は大きく軽減されています。退職所得控除の範囲内であれば税金は0円です。</div></div>
+        <div class="faq-item"><div class="q">退職所得控除はいくらですか？</div><div class="a">勤続年数によって決まります。勤続20年以下は「40万円 × 勤続年数」（最低80万円）、勤続20年超は「800万円 + 70万円 ×（勤続年数 − 20年）」です。勤続年数に1年未満の端数があるときは1年に切り上げて計算します。たとえば勤続10年なら400万円、勤続30年なら1500万円が控除額になります。</div></div>
+        <div class="faq-item"><div class="q">勤続30年で退職金1500万円の税金はいくらですか？</div><div class="a">勤続30年の退職所得控除額は1500万円です。退職金1500万円から控除額1500万円を差し引くと残額が0円となり、課税退職所得も0円になります。したがって所得税・住民税ともに0円で、手取りは退職金1500万円がそのまま全額受け取れます。</div></div>
+        <div class="faq-item"><div class="q">退職金の住民税はどう計算しますか？</div><div class="a">退職金の住民税は、課税退職所得金額に一律10%（道府県民税4%＋市町村民税6%）を掛けて計算します。給与の住民税と異なり均等割は加算されず、退職金の支払い時に源泉徴収（特別徴収）される仕組みです。課税退職所得が0円であれば住民税もかかりません。</div></div>
+        <div class="faq-item"><div class="q">退職金の確定申告は必要ですか？</div><div class="a">勤務先に「退職所得の受給に関する申告書」を提出していれば、退職金から適正な税額が源泉徴収されるため原則として確定申告は不要です。提出していない場合は一律20.42%が源泉徴収されるため、確定申告で精算すると納めすぎた税金が還付されることがあります。</div></div>
+        <div class="note" style="margin-top:16px;margin-bottom:0">本ツールの計算結果はあくまで概算です。実際の退職金にかかる税金は、退職所得以外の所得の有無、勤続年数の取り扱い、特定役員退職手当等の判定などにより変わる場合があります。正確な金額は勤務先の担当者や税理士にご確認ください。</div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="/tool-64-take-home-pay/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">手取り計算</a><a href="/tool-21-tax-simulator/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">確定申告シミュレーター</a><a href="/tool-22-withholding-tax/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">源泉徴収税額計算</a></div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+    <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+function calc() {
+    const amount = parseInt(document.getElementById('amount').value) || 0;
+    let years = parseInt(document.getElementById('years').value) || 0;
+    const exec5 = document.getElementById('exec5').checked;
+
+    // 勤続年数は1年未満切り上げ
+    years = Math.ceil(years);
+    if (years < 1) years = 0;
+
+    // 退職所得控除額
+    let deduction;
+    if (years <= 20) deduction = Math.max(800000, 400000 * years);
+    else deduction = 8000000 + 700000 * (years - 20);
+    if (years === 0) deduction = 0;
+
+    // 課税退職所得金額（1000円未満切り捨て）。役員等5年以下は1/2しない
+    let base = Math.max(0, amount - deduction);
+    let taxable;
+    if (exec5) taxable = Math.floor(base / 1000) * 1000;
+    else taxable = Math.floor((base / 2) / 1000) * 1000;
+
+    // 所得税（分離課税・速算表 × 復興特別所得税1.021）
+    let it = 0;
+    const t = taxable;
+    if (t <= 1950000) it = t * 0.05;
+    else if (t <= 3300000) it = t * 0.10 - 97500;
+    else if (t <= 6950000) it = t * 0.20 - 427500;
+    else if (t <= 9000000) it = t * 0.23 - 636000;
+    else if (t <= 18000000) it = t * 0.33 - 1536000;
+    else if (t <= 40000000) it = t * 0.40 - 2796000;
+    else it = t * 0.45 - 4796000;
+    const incomeTax = Math.floor(Math.floor(it) * 1.021);
+
+    // 住民税（課税退職所得 × 10%）
+    const resTax = Math.floor(taxable * 0.10);
+
+    const taxTotal = incomeTax + resTax;
+    const takeHome = amount - taxTotal;
+
+    const f = n => '¥' + Math.max(0, Math.round(n)).toLocaleString();
+    document.getElementById('rDeduction').textContent = f(deduction);
+    document.getElementById('rTaxable').textContent = f(taxable);
+    document.getElementById('rIncomeTax').textContent = f(incomeTax);
+    document.getElementById('rResTax').textContent = f(resTax);
+    document.getElementById('rTaxTotal').textContent = f(taxTotal);
+    document.getElementById('rTakeHome').textContent = f(takeHome);
+}
+calc();
+</script>
+</body>
+</html>
