@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>読了時間計算（黙読） | ブログ記事・資料を読む所要時間＆文字数早見表【無料】</title>
+    <meta name="description" content="テキストの読了時間（黙読）を自動計算する無料ツール。ブログ記事・資料・レポートを読むのにかかる時間が一目でわかる。読書速度3段階（ゆっくり400・標準500・速い600字/分）対応。文字数→読了時間の早見表付き。音読(読み上げ)との違いも解説。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#6366f1;--accent-dim:rgba(99,102,241,0.1);--radius:12px}
+        ::selection{background:rgba(99,102,241,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .pane{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:20px;overflow:hidden}
+        .pane-header{padding:10px 16px;background:#f7f8fb;border-bottom:1px solid var(--border);font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;display:flex;justify-content:space-between}
+        textarea{width:100%;min-height:200px;background:transparent;border:none;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:14px;line-height:1.8;padding:16px;resize:vertical;outline:none}
+        textarea::placeholder{color:var(--text3)}
+        .input-row{display:flex;gap:8px;align-items:center;justify-content:center;margin-bottom:20px;flex-wrap:wrap}
+        .input-row label{font-size:0.8rem;color:var(--text2)}
+        .input-row input{width:140px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.9rem;padding:8px 12px;outline:none}
+        .input-row input:focus{border-color:var(--accent)}
+        .speed-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;justify-content:center}
+        .speed-chip{padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;font-size:0.8rem;color:var(--text2);cursor:pointer;transition:all 0.2s}
+        .speed-chip.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
+        .results{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+        @media(max-width:600px){.results{grid-template-columns:1fr}}
+        .result-item{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--accent)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .breakdown{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:24px}
+        .breakdown h3{font-size:0.75rem;color:var(--text3);margin-bottom:12px}
+        .brow{display:flex;justify-content:space-between;padding:6px 0;font-size:0.8rem;color:var(--text2);border-bottom:1px solid var(--border)}
+        .brow .val{font-family:'JetBrains Mono',monospace;color:var(--text)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.92rem;margin:16px 0 8px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .table-wrap{overflow-x:auto;margin:14px 0 6px}
+        .lookup-table{width:100%;border-collapse:collapse;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:center}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem;line-height:1.4}
+        .lookup-table td{font-family:'JetBrains Mono',monospace;color:var(--text)}
+        .lookup-table td:first-child{font-family:'Noto Sans JP',sans-serif;color:var(--text2);background:#fcfcfe}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-83-reading-time/">
+    <meta property="og:title" content="読了時間計算（黙読） | ブログ記事・資料を読む所要時間【無料】">
+    <meta property="og:description" content="テキストや文字数から黙読の読了時間を自動計算。読書速度3段階対応。文字数→読了時間 早見表付き。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-83-reading-time/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="読了時間計算（黙読） | ブログ記事・資料を読む所要時間【無料】">
+    <meta name="twitter:description" content="テキストや文字数から黙読の読了時間を自動計算。読書速度3段階対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"読了時間計算ツール（黙読）","description":"テキストや文字数から黙読の読了時間を自動計算","url":"https://www.devtools-japan.com/tool-83-reading-time/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"読了時間計算ツール（黙読）","item":"https://www.devtools-japan.com/tool-83-reading-time/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"日本語の黙読速度は？","acceptedAnswer":{"@type":"Answer","text":"日本語の黙読（声に出さずに読む）速度は、一般的に約400〜600字/分が目安とされています。本ツールではゆっくり400字/分・標準500字/分・速い600字/分の3段階から選べます。内容の難しさや慣れによって個人差があります。"}},{"@type":"Question","name":"2000字の記事の読了時間は？","acceptedAnswer":{"@type":"Answer","text":"標準速度（500字/分）で約4分です。ゆっくり読むなら約5分、速く読むなら約3分20秒が目安になります。ブログ記事1本分の文字量にあたります。"}},{"@type":"Question","name":"読み上げ(音読)時間との違いは？","acceptedAnswer":{"@type":"Answer","text":"黙読は声に出さずに読むため速く、日本語で約400〜600字/分が目安です。一方、音読(読み上げ)は約300〜350字/分と遅くなります。プレゼンやスピーチの所要時間は音読、ブログや資料を読む時間は黙読で見積もるのが適切です。"}},{"@type":"Question","name":"英語の読了時間は？","acceptedAnswer":{"@type":"Answer","text":"英語の黙読速度は一般的に約200〜250語/分（words per minute）とされています。本ツールは日本語の文字数を基準にしているため、英文の場合は語数ベースの目安と分けて考えてください。"}},{"@type":"Question","name":"速読だとどのくらい？","acceptedAnswer":{"@type":"Answer","text":"速読のトレーニングを積んだ場合、1000〜2000字/分以上で読む人もいますが、理解度を保てる範囲には個人差があります。本ツールの「速い600字/分」は速読ではなく、慣れた人が普通に速く読む程度の目安です。"}}]}
+    </script>
+    </head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#1e1e35'" onmouseout="this.style.color='#5a5f78'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot" style="display:none"></div>
+    <header><h1>読了時間計算（黙読）</h1><p>テキストや文字数から黙読の読了時間を自動計算</p></header>
+    <p style="font-size:0.75rem;color:var(--text3);margin-bottom:8px;text-align:center">読書速度を選択（黙読）</p>
+    <div class="speed-row">
+        <span class="speed-chip" data-speed="400" onclick="setSpeed(this)">ゆっくり（400字/分）</span>
+        <span class="speed-chip active" data-speed="500" onclick="setSpeed(this)">標準（500字/分）</span>
+        <span class="speed-chip" data-speed="600" onclick="setSpeed(this)">速い（600字/分）</span>
+    </div>
+    <div class="input-row">
+        <label for="charInput">文字数を直接入力</label>
+        <input type="number" id="charInput" min="0" placeholder="例: 2000" oninput="calcFromNumber()">
+    </div>
+    <div class="pane"><div class="pane-header"><span>テキスト入力（または上に文字数を入力）</span><span id="charCount">0文字</span></div><textarea id="input" placeholder="ブログ記事や資料のテキストを貼り付け..." oninput="calc()">近年、リモートワークの普及により、私たちの働き方は大きく変化しました。通勤時間がなくなった一方で、自宅での集中力をどう保つかが新たな課題となっています。
+
+集中力を高めるためには、まず作業環境を整えることが大切です。デスク周りを片付け、必要なものだけを手の届く範囲に置くことで、余計な情報に気を取られにくくなります。また、適度な明るさと静かな環境も重要な要素です。
+
+次に、時間の使い方を工夫しましょう。一定時間集中して短い休憩を挟む手法は、多くの人に効果があるとされています。タイマーを使って作業と休憩のリズムを作ることで、無理なく集中状態を維持できます。
+
+さらに、こまめに体を動かすことも忘れないようにしましょう。長時間同じ姿勢でいると、血流が悪くなり集中力が低下します。一時間に一度は席を立ち、軽くストレッチをするだけでも気分がリフレッシュされ、その後の作業効率が向上します。</textarea></div>
+    <div class="results">
+        <div class="result-item"><div class="label">読了時間（黙読）</div><div class="value" id="rTime">—</div><div class="sub" id="rTimeSec"></div></div>
+        <div class="result-item"><div class="label">文字数</div><div class="value" id="rChars">—</div><div class="sub">空白除外</div></div>
+        <div class="result-item"><div class="label">原稿用紙</div><div class="value" id="rPages">—</div><div class="sub">400字詰め</div></div>
+    </div>
+    <div class="breakdown"><h3>各読書速度での目安（黙読）</h3>
+        <div class="brow"><span>ゆっくり（400字/分）</span><span class="val" id="bSlow"></span></div>
+        <div class="brow"><span>標準（500字/分）</span><span class="val" id="bNormal"></span></div>
+        <div class="brow"><span>速い（600字/分）</span><span class="val" id="bFast"></span></div>
+    </div>
+    <div class="ad-slot" style="display:none"></div>
+    <div class="seo-content">
+        <h2>読了時間（黙読）の計算</h2>
+        <p>ブログ記事、ニュース、レポート、資料、マニュアルなど、テキストを声に出さずに目で読む「黙読」にかかるおおよその所要時間を自動計算する無料ツールです。テキストを貼り付けるか、文字数を直接入力するだけで、読了時間・文字数・原稿用紙換算が瞬時に表示されます。</p>
+        <p>日本語の黙読速度は、一般的に約400〜600字/分が目安とされています。文章の難しさ、専門用語の多さ、読む人の慣れによって個人差はありますが、本ツールではゆっくり（400字/分）・標準（500字/分）・速い（600字/分）の3段階から選んで見積もれます。ブログ記事を公開する前に「読了時間◯分」と表示したいときや、配布資料を読む時間を会議の進行に組み込みたいときなどに役立ちます。</p>
+        <h3>音読（読み上げ）との違い</h3>
+        <p>黙読は声に出さずに読むため速く進み、約400〜600字/分が目安です。これに対して、声に出して読む音読（読み上げ）は約300〜350字/分とゆっくりになります。プレゼンテーションやスピーチ、YouTube台本のように「声に出して話す」時間を見積もりたい場合は音読速度を、ブログや資料を「目で読む」時間を見積もりたい場合は黙読速度を使うのが適切です。話す時間を計算したいときは読み上げ時間計算ツールをご利用ください。</p>
+        <h2 style="margin-top:24px">文字数→読了時間 早見表</h2>
+        <p>「この文字数なら何分で読める？」が一目でわかる早見表です。基準は日本語の標準的な黙読速度（標準＝500字/分）。ゆっくり・速い速度も併記しています。値はすべてコード計算で正確に算出しています。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>文字数</th><th>ゆっくり<br>400字/分</th><th>標準<br>500字/分</th><th>速い<br>600字/分</th></tr></thead>
+            <tbody>
+            <tr><td>400字</td><td>1分</td><td class="acc">48秒</td><td>40秒</td></tr>
+            <tr><td>1,000字</td><td>2分30秒</td><td class="acc">2分</td><td>1分40秒</td></tr>
+            <tr><td>2,000字</td><td>5分</td><td class="acc">4分</td><td>3分20秒</td></tr>
+            <tr><td>5,000字</td><td>12分30秒</td><td class="acc">10分</td><td>8分20秒</td></tr>
+            <tr><td>10,000字</td><td>25分</td><td class="acc">20分</td><td>16分40秒</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text3)">※ 読了時間は目安です。文章の難易度や読む人の慣れで前後します。正確な見積りは上の計算ツールに実際のテキストを貼り付けてご確認ください。</p>
+        <h2 style="margin-top:24px">よくある質問</h2>
+        <div class="faq-item"><div class="q">日本語の黙読速度は？</div><div class="a">日本語の黙読（声に出さずに読む）速度は、一般的に約400〜600字/分が目安とされています。本ツールではゆっくり400字/分・標準500字/分・速い600字/分の3段階から選べます。内容の難しさや慣れによって個人差があります。</div></div>
+        <div class="faq-item"><div class="q">2000字の記事の読了時間は？</div><div class="a">標準速度（500字/分）で約4分です。ゆっくり読むなら約5分、速く読むなら約3分20秒が目安になります。ブログ記事1本分の文字量にあたります。</div></div>
+        <div class="faq-item"><div class="q">読み上げ(音読)時間との違いは？</div><div class="a">黙読は声に出さずに読むため速く、日本語で約400〜600字/分が目安です。一方、音読(読み上げ)は約300〜350字/分と遅くなります。プレゼンやスピーチの所要時間は音読、ブログや資料を読む時間は黙読で見積もるのが適切です。</div></div>
+        <div class="faq-item"><div class="q">英語の読了時間は？</div><div class="a">英語の黙読速度は一般的に約200〜250語/分（words per minute）とされています。本ツールは日本語の文字数を基準にしているため、英文の場合は語数ベースの目安と分けて考えてください。</div></div>
+        <div class="faq-item"><div class="q">速読だとどのくらい？</div><div class="a">速読のトレーニングを積んだ場合、1000〜2000字/分以上で読む人もいますが、理解度を保てる範囲には個人差があります。本ツールの「速い600字/分」は速読ではなく、慣れた人が普通に速く読む程度の目安です。</div></div>
+    </div>
+    <div class="ad-slot" style="display:none"></div>
+
+
+    <div style="background:var(--bg-card);border:1px solid rgba(99,102,241,0.2);border-radius:12px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <div>
+        <span style="font-size:0.75rem;color:#6366f1;font-weight:600">API</span>
+        <span style="font-size:0.8rem;color:var(--text2);margin-left:8px">この機能をアプリに組み込みませんか？</span>
+      </div>
+      <a href="https://api.devtools-japan.com" target="_blank" rel="noopener" style="padding:6px 16px;background:transparent;border:1px solid rgba(99,102,241,0.4);color:#6366f1;border-radius:6px;text-decoration:none;font-size:0.75rem;font-weight:500;transition:all 0.2s;white-space:nowrap" onmouseover="this.style.background='rgba(99,102,241,0.1)'" onmouseout="this.style.background='transparent'">APIを見る →</a>
+    </div>
+
+<div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-25-speech-time/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--text)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">読み上げ時間計算</a>
+        <a href="/tool-01-moji-counter/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--text)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">文字数カウンター</a>
+        <a href="/tool-76-manuscript-paper/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--text)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">原稿用紙カウンター</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+let speed=500;
+function setSpeed(el){speed=parseInt(el.dataset.speed);document.querySelectorAll('.speed-chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');calc()}
+function fmtTime(min){const m=Math.floor(min);const s=Math.round((min-m)*60);return m>0?`${m}分${s>0?s+'秒':''}`:s+'秒'}
+function render(chars){
+    const min=chars/speed;
+    document.getElementById('rTime').textContent=fmtTime(min);
+    document.getElementById('rTimeSec').textContent=Math.round(min*60)+'秒';
+    document.getElementById('charCount').textContent=chars+'文字';
+    document.getElementById('rChars').textContent=chars.toLocaleString();
+    document.getElementById('rPages').textContent=(chars/400).toFixed(1)+'枚';
+    document.getElementById('bSlow').textContent=fmtTime(chars/400);
+    document.getElementById('bNormal').textContent=fmtTime(chars/500);
+    document.getElementById('bFast').textContent=fmtTime(chars/600);
+}
+function calc(){
+    const text=document.getElementById('input').value;
+    const chars=[...text.replace(/[\s　]/g,'')].length;
+    document.getElementById('charInput').value='';
+    render(chars);
+}
+function calcFromNumber(){
+    const v=document.getElementById('charInput').value;
+    const chars=Math.max(0,parseInt(v)||0);
+    document.getElementById('input').value='';
+    render(chars);
+}
+calc();
+</script>
+</body>
+</html>
