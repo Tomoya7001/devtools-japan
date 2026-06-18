@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E27Q8YTG7L');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>住民税 計算（概算）| 課税所得から所得割・均等割を自動計算【無料】</title>
+    <meta name="description" content="課税所得から住民税（所得割10%＋均等割5,000円）を概算する無料ツール。所得割・調整控除・均等割の内訳を表示。前年所得に対し翌年度課税される仕組みも解説。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#e11d48;--accent-dim:rgba(225,29,72,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(225,29,72,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}.row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:240px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent);word-break:break-all}
+        .result-item .value.tax{color:var(--red)}.result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .mono-out{font-family:'JetBrains Mono',monospace;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.95rem;color:var(--accent);word-break:break-all;cursor:pointer}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.06);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:8px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+    </style>
+    <!-- TODO要確認: 住民税の基礎控除額・調整控除の正確な計算、2025年度税制改正の住民税への適用時期(住民税は翌年度反映)、均等割と森林環境税の内訳は総務省 https://www.soumu.go.jp/ ・各自治体で要確認。本ツールは所得割10%+均等割5000円+調整控除概算の簡易計算。 -->
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-75-residence-tax/">
+    <meta property="og:title" content="住民税 計算（概算）| 課税所得から所得割・均等割を計算【無料】">
+    <meta property="og:description" content="課税所得から住民税（所得割10%＋均等割5,000円）を概算。所得割・調整控除・均等割の内訳を表示">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-75-residence-tax/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="住民税 計算（概算）【無料】">
+    <meta name="twitter:description" content="課税所得から住民税の所得割・均等割を自動計算">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"住民税 計算（概算）","description":"課税所得から住民税（所得割10%＋均等割5,000円）を概算計算","url":"https://www.devtools-japan.com/tool-75-residence-tax/","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"住民税 計算ツール","item":"https://www.devtools-japan.com/tool-75-residence-tax/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"住民税はいくらからかかりますか？","acceptedAnswer":{"@type":"Answer","text":"住民税には均等割・所得割それぞれに非課税限度額があり、前年の所得が一定額以下の場合は非課税になります。目安として所得が低い方は非課税となりますが、限度額は扶養人数やお住まいの自治体（級地区分）によって異なるため、正確な基準はお住まいの市区町村でご確認ください。"}},{"@type":"Question","name":"住民税の所得割の税率は？","acceptedAnswer":{"@type":"Answer","text":"住民税の所得割は標準で一律10%です。内訳は市区町村民税6%＋道府県民税4%で、所得税のような累進ではなく一定率です。一部の自治体では超過課税により標準より高い税率を採用している場合があります。"}},{"@type":"Question","name":"住民税はいつ納めますか？","acceptedAnswer":{"@type":"Answer","text":"住民税は前年の所得に対して翌年度に課税されます。例えば2025年の所得に対する住民税は2026年度分として、原則として2026年6月以降に納付します。会社員は給与から毎月天引き（特別徴収）、自営業の方などは納付書で年4回納付（普通徴収）するのが一般的です。"}},{"@type":"Question","name":"均等割はいくらですか？","acceptedAnswer":{"@type":"Answer","text":"均等割は標準で年5,000円です。内訳は市区町村民税3,500円＋道府県民税1,500円で、2024年度からは国税である森林環境税1,000円が別途加算され、合計の負担は概ね5,000円相当となります。自治体によっては超過課税で標準より高い場合があります。"}},{"@type":"Question","name":"ふるさと納税で住民税は安くなりますか？","acceptedAnswer":{"@type":"Answer","text":"ふるさと納税は寄附金税額控除として、自己負担2,000円を除いた寄附額が翌年度の住民税（と所得税）から軽減されます。控除には年収や家族構成に応じた上限額があるため、上限内であれば実質2,000円の負担で返礼品を受け取れます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>住民税 計算（概算）</h1><p>課税所得から所得割・均等割を自動計算</p></header>
+    <div class="note">本ツールは「所得割10%＋均等割5,000円」の基本構造のみの簡易概算です。調整控除は簡易的に一律2,500円の固定としています。住民税は前年の所得に対して翌年度に課税されます（例: 2025年の所得→2026年度の住民税）。正確な額はお住まいの自治体から届く住民税の通知書や税理士でご確認ください。</div>
+
+    <div class="card"><h3>入力</h3>
+        <div class="row"><label>課税所得（住民税の課税標準額）</label><input type="number" id="taxable" value="3000000" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>均等割</label><input type="number" id="kintou" value="5000" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>調整控除（簡易・概算）</label><input type="number" id="adjust" value="2500" oninput="calc()"><span class="unit">円</span></div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">所得割（課税所得×10%）</div><div class="value tax" id="rIncome">-</div></div>
+        <div class="result-item"><div class="label">調整控除（概算）</div><div class="value tax" id="rAdjust">-</div></div>
+        <div class="result-item"><div class="label">均等割</div><div class="value tax" id="rKintou">-</div></div>
+        <div class="result-item"><div class="label">所得割（調整控除後）</div><div class="value tax" id="rIncomeNet">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">住民税 合計（概算）</div><div class="value take" id="rTotal" style="font-size:1.8rem">-</div></div>
+        <div class="result-item"><div class="label">月あたり（目安）</div><div class="value take" id="rMonthly" style="font-size:1.8rem">-</div></div>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>住民税の仕組み</h2>
+        <p>住民税（個人住民税）は、お住まいの都道府県と市区町村に納める地方税で、「所得割」と「均等割」の2本立てで構成されます。本ツールは課税所得（住民税の課税標準額）を入力すると、所得割・調整控除・均等割の内訳と合計の概算を自動計算します。</p>
+        <h3>所得割（課税所得×10%）</h3>
+        <p>所得割は課税所得に対して標準で一律10%が課されます。内訳は市区町村民税6%＋道府県民税4%です。所得税のように所得が増えるほど税率が上がる累進課税ではなく、課税所得に対して一定率である点が特徴です。本ツールでは「所得割＝課税所得×10%」で計算します。</p>
+        <h3>均等割（標準5,000円）</h3>
+        <p>均等割は所得の多少にかかわらず定額で課される部分で、標準額は年5,000円です。内訳は市区町村民税3,500円＋道府県民税1,500円で、2024年度からは国税である森林環境税1,000円が別途加算され、合計の負担は概ね5,000円相当となります。</p>
+        <h3>前年所得に対して翌年度に課税される</h3>
+        <p>住民税の大きな特徴は、前年の所得に対して翌年度に課税・納付する点です。例えば2025年（1月〜12月）の所得に対する住民税は、2026年度分として原則2026年6月以降に納付します。そのため、退職や転職、収入が大きく減った年の翌年度も、前年の所得に基づいた住民税の負担が続く点に注意が必要です。会社員は給与天引き（特別徴収）、自営業の方などは納付書での年4回納付（普通徴収）が一般的です。</p>
+        <h3>調整控除について（簡易概算）</h3>
+        <p>所得税と住民税では基礎控除などの人的控除額に差があるため、その差を埋める「調整控除」が所得割から差し引かれます。本ツールでは調整控除を簡易的に一律2,500円の固定として概算しています。実際の調整控除は課税所得が200万円以下とそれを超える場合で計算方法が異なるため、正確な額はお住まいの自治体の通知書でご確認ください。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>課税所得別の住民税の目安（概算）</h2>
+        <p>下の早見表は、本ツールと同じ前提（所得割＝課税所得×10%、調整控除2,500円、均等割5,000円）で算出した概算です。基礎控除・各種所得控除や調整控除の正確な計算、2025年度税制改正の住民税側への適用時期などは反映していない簡易計算である点にご注意ください。実際の額はお住まいの自治体の通知書でご確認ください。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>課税所得</th><th>所得割（×10%）</th><th>調整控除</th><th>均等割</th><th>住民税 合計（概算）</th></tr>
+            <tr><td>100万円</td><td>100,000円</td><td>-2,500円</td><td>5,000円</td><td>約102,500円</td></tr>
+            <tr><td>200万円</td><td>200,000円</td><td>-2,500円</td><td>5,000円</td><td>約202,500円</td></tr>
+            <tr><td>300万円</td><td>300,000円</td><td>-2,500円</td><td>5,000円</td><td>約302,500円</td></tr>
+            <tr><td>500万円</td><td>500,000円</td><td>-2,500円</td><td>5,000円</td><td>約502,500円</td></tr>
+        </table>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text3)">※ 上記は「所得割10%＋均等割5,000円−調整控除2,500円」のみの簡易概算です。自治体によっては超過課税により均等割・所得割の税率が標準より高い場合があり、各種控除や非課税限度額も反映していません。正確な金額は自治体の住民税通知書や税理士でご確認ください。</p>
+
+        <h3>自治体による差について</h3>
+        <p>所得割10%・均等割5,000円はあくまで標準税率です。一部の自治体では森林環境の保全や防災などを目的に、均等割や所得割に超過課税を上乗せしている場合があり、その分だけ負担が標準より高くなります。正確な税率はお住まいの市区町村の公式情報でご確認ください。</p>
+
+        <h2 style="margin-top:24px">よくある質問</h2>
+        <div class="faq-item"><div class="q">住民税はいくらからかかりますか？</div><div class="a">住民税には均等割・所得割それぞれに非課税限度額があり、前年の所得が一定額以下の場合は非課税になります。目安として所得が低い方は非課税となりますが、限度額は扶養人数やお住まいの自治体（級地区分）によって異なるため、正確な基準はお住まいの市区町村でご確認ください。</div></div>
+        <div class="faq-item"><div class="q">住民税の所得割の税率は？</div><div class="a">住民税の所得割は標準で一律10%です。内訳は市区町村民税6%＋道府県民税4%で、所得税のような累進ではなく一定率です。一部の自治体では超過課税により標準より高い税率を採用している場合があります。</div></div>
+        <div class="faq-item"><div class="q">住民税はいつ納めますか？</div><div class="a">住民税は前年の所得に対して翌年度に課税されます。例えば2025年の所得に対する住民税は2026年度分として、原則として2026年6月以降に納付します。会社員は給与から毎月天引き（特別徴収）、自営業の方などは納付書で年4回納付（普通徴収）するのが一般的です。</div></div>
+        <div class="faq-item"><div class="q">均等割はいくらですか？</div><div class="a">均等割は標準で年5,000円です。内訳は市区町村民税3,500円＋道府県民税1,500円で、2024年度からは国税である森林環境税1,000円が別途加算され、合計の負担は概ね5,000円相当となります。自治体によっては超過課税で標準より高い場合があります。</div></div>
+        <div class="faq-item"><div class="q">ふるさと納税で住民税は安くなりますか？</div><div class="a">ふるさと納税は寄附金税額控除として、自己負担2,000円を除いた寄附額が翌年度の住民税（と所得税）から軽減されます。控除には年収や家族構成に応じた上限額があるため、上限内であれば実質2,000円の負担で返礼品を受け取れます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="/tool-21-tax-simulator/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">確定申告シミュレーター</a><a href="/tool-64-take-home-pay/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">手取り計算</a><a href="/tool-66-furusato-tax/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ふるさと納税上限額</a></div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+    <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+function calc() {
+    const taxable = parseInt(document.getElementById('taxable').value) || 0;
+    const kintou = parseInt(document.getElementById('kintou').value) || 0;
+    const adjust = parseInt(document.getElementById('adjust').value) || 0;
+
+    // 所得割 = floor(課税所得 × 0.10)  市区町村民税6% + 道府県民税4% = 10%
+    const incomeWari = Math.floor(taxable * 0.10);
+    // 調整控除（簡易概算・固定）。所得割から控除し、0未満にはしない
+    const incomeNet = Math.max(0, incomeWari - adjust);
+    // 住民税合計 = max(0, 所得割 − 調整控除) + 均等割
+    const total = incomeNet + kintou;
+
+    const f = n => '¥' + Math.max(0, n).toLocaleString();
+    document.getElementById('rIncome').textContent = f(incomeWari);
+    document.getElementById('rAdjust').textContent = '-' + f(adjust);
+    document.getElementById('rKintou').textContent = f(kintou);
+    document.getElementById('rIncomeNet').textContent = f(incomeNet);
+    document.getElementById('rTotal').textContent = f(total);
+    document.getElementById('rMonthly').textContent = f(Math.floor(total / 12));
+}
+calc();
+</script>
+</body>
+</html>

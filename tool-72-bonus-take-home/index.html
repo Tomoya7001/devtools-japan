@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E27Q8YTG7L');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ボーナス（賞与）手取り計算ツール | 額面から社会保険料・源泉所得税を引いた手取り額【無料】</title>
+    <meta name="description" content="ボーナス（賞与）の額面から、健康保険・厚生年金・雇用保険・源泉所得税を差し引いた手取り額を自動計算する無料ツール。賞与の手取りは額面の約8割が目安。年齢区分と源泉税率を選んで概算できます。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}.row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:240px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent);word-break:break-all}
+        .result-item .value.tax{color:var(--red)}.result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .mono-out{font-family:'JetBrains Mono',monospace;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.95rem;color:var(--accent);word-break:break-all;cursor:pointer}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.06);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:8px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+    </style>
+    <!-- TODO要確認: 賞与の源泉徴収税率は国税庁『賞与に対する源泉徴収税額の算出率の表』 https://www.nta.go.jp/ で前月給与・扶養人数から確認。健保/介護/雇用料率は協会けんぽ概算(年度・都道府県で変動)、厚生年金18.3%は確実。 -->
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-72-bonus-take-home/">
+    <meta property="og:title" content="ボーナス（賞与）手取り計算ツール | 額面から手取りを計算【無料】">
+    <meta property="og:description" content="賞与の額面から社会保険料・源泉所得税を引いた手取り額を自動計算">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-72-bonus-take-home/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ボーナス手取り計算ツール【無料】">
+    <meta name="twitter:description" content="賞与の額面から手取り額を自動計算">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"ボーナス（賞与）手取り計算ツール","description":"賞与の額面から社会保険料・源泉所得税を引いた手取り額を計算","url":"https://www.devtools-japan.com/tool-72-bonus-take-home/","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"DevTools Japan","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"ボーナス（賞与）手取り計算","item":"https://www.devtools-japan.com/tool-72-bonus-take-home/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ボーナスの手取りは額面の何割ですか？","acceptedAnswer":{"@type":"Answer","text":"賞与の手取りはおおむね額面の8割前後が目安です。額面から健康保険・厚生年金・雇用保険の社会保険料（本人負担で合計約15%前後）と源泉所得税が差し引かれます。源泉税率や年齢区分により手取り率は変動します。"}},{"@type":"Question","name":"ボーナスから何が引かれますか？","acceptedAnswer":{"@type":"Answer","text":"賞与からは「健康保険料（40歳以上は介護保険料を含む）」「厚生年金保険料」「雇用保険料」の社会保険料（いずれも本人負担分）と、「源泉所得税」が差し引かれます。社会保険料を引いた後の金額に源泉徴収税率を掛けて所得税を計算します。"}},{"@type":"Question","name":"ボーナスから住民税は引かれますか？","acceptedAnswer":{"@type":"Answer","text":"原則として賞与から住民税は直接は差し引かれません。住民税は前年の所得に対して翌年度に課税され、毎月の給与から12分割で徴収されます。ただし賞与額はその年の所得に含まれるため、翌年度の住民税額に反映されます。"}},{"@type":"Question","name":"賞与の源泉所得税はどう決まりますか？","acceptedAnswer":{"@type":"Answer","text":"賞与の源泉所得税は「前月の社会保険料控除後の給与額」と「扶養親族等の数」をもとに、国税庁の『賞与に対する源泉徴収税額の算出率の表』で算出率（税率）が決まります。本ツールはこの率を選択式とし、正確な率は給与明細や国税庁の表でご確認ください。"}},{"@type":"Question","name":"社会保険料はボーナスにもかかりますか？","acceptedAnswer":{"@type":"Answer","text":"かかります。賞与には「標準賞与額（額面を1000円未満切り捨てした額）」をもとに健康保険・厚生年金・雇用保険の保険料が課されます。健康保険は年度累計573万円、厚生年金は1か月150万円の標準賞与額の上限があります。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>ボーナス（賞与）手取り計算</h1><p>賞与の額面から社会保険料・源泉所得税を引いた手取り額を自動計算</p></header>
+    <div class="note">会社員（給与所得者）向けの概算計算です。協会けんぽ・東京都の料率をベースにしています。源泉所得税率は前月給与と扶養人数で決まる「賞与に対する源泉徴収税額の算出率」を選択する方式で、正確な率は給与明細や国税庁の表でご確認ください。実際の手取りは扶養人数・地域・健康保険組合により異なります。</div>
+
+    <div class="card"><h3>入力</h3>
+        <div class="row"><label>賞与の額面（総支給）</label><input type="number" id="bonus" value="500000" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>年齢区分</label><select id="age" onchange="calc()"><option value="under40" selected>40歳未満</option><option value="40to64">40〜64歳（介護保険あり）</option></select><span class="unit"></span></div>
+        <div class="row"><label>源泉所得税率（賞与の算出率）</label><select id="rate" onchange="calc()"><option value="0">0%（前月給与・扶養数により）</option><option value="0.02042" selected>2.042%</option><option value="0.04084">4.084%</option><option value="0.06126">6.126%</option><option value="0.08168">8.168%</option><option value="0.1021">10.21%</option></select><span class="unit"></span></div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">健康保険料</div><div class="value tax" id="rHealth">-</div><div class="sub" id="rHealthNote">40歳未満</div></div>
+        <div class="result-item"><div class="label">厚生年金保険料</div><div class="value tax" id="rPension">-</div></div>
+        <div class="result-item"><div class="label">雇用保険料</div><div class="value tax" id="rEmployment">-</div></div>
+        <div class="result-item"><div class="label">社会保険料合計</div><div class="value tax" id="rSocial">-</div></div>
+        <div class="result-item"><div class="label">源泉所得税</div><div class="value tax" id="rIncomeTax">-</div></div>
+        <div class="result-item"><div class="label">標準賞与額</div><div class="value" id="rStandard" style="color:var(--text2)">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">手取り額</div><div class="value take" id="rTakeHome" style="font-size:1.8rem">-</div></div>
+        <div class="result-item"><div class="label">手取り率（目安）</div><div class="value take" id="rRate" style="font-size:1.8rem">-</div></div>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>ボーナスの手取り計算の仕組み</h2>
+        <p>ボーナス（賞与）の手取りは、額面（総支給額）から社会保険料と源泉所得税を差し引いた金額です。毎月の給与と同じく、賞与からも健康保険料・厚生年金保険料・雇用保険料の3つの社会保険料（いずれも本人負担分）が引かれ、さらに源泉所得税が天引きされます。</p>
+        <p>社会保険料は、額面を1000円未満で切り捨てた「標準賞与額」をもとに計算します。健康保険料は標準賞与額の約4.99%（40歳未満）、40〜64歳は介護保険料を含めて約5.82%、厚生年金保険料は約9.15%（いずれも本人負担・折半後）です。雇用保険料は額面に0.6%を掛けて計算します。</p>
+        <p>一方で、住民税は賞与から直接は引かれません。住民税は前年の所得に対して翌年6月から翌々年5月にかけて毎月の給与から徴収される仕組みのため、賞与の支給時に天引きされることはありません。ただし賞与額はその年の所得に含まれるため、翌年度の住民税額には反映されます。これが、賞与の手取り率が毎月の給与より高めに見える理由のひとつです。</p>
+        <p>こうした控除を差し引いた結果、ボーナスの手取りはおおむね額面の約8割が目安になります。源泉所得税率や年齢区分により手取り率は前後しますが、額面50万円なら手取りはおよそ40万円前後をイメージしておくとよいでしょう。</p>
+        <h3>源泉所得税の決まり方</h3>
+        <p>賞与の源泉所得税は、社会保険料を差し引いた後の金額に「算出率（税率）」を掛けて計算します。この算出率は、前月の社会保険料控除後の給与額と扶養親族等の数によって、国税庁の『賞与に対する源泉徴収税額の算出率の表』で決まります。前月給与が高いほど、また扶養が少ないほど率は高くなります。本ツールでは代表的な率を選択できるようにしていますが、正確な率は給与明細や国税庁の表で必ずご確認ください。</p>
+
+        <h2 style="margin-top:24px">賞与額面別の手取り目安</h2>
+        <p>下の表は、本ツールと同じ計算式で算出した社会保険料合計（検証済みの数値）と、源泉所得税率を概算2.042%とした場合の手取り例です。源泉税率は前月給与・扶養人数で変わるため、あくまで概算前提の参考値です。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>賞与額面</th><th>年齢区分</th><th>社会保険料合計</th><th>源泉所得税（概算2.042%）</th><th>手取り例</th></tr>
+            <tr><td>50万円</td><td>40歳未満</td><td>73,700円</td><td>約8,700円</td><td>約417,600円</td></tr>
+            <tr><td>80万円</td><td>40歳未満</td><td>117,920円</td><td>約13,920円</td><td>約668,160円</td></tr>
+            <tr><td>100万円</td><td>40〜64歳</td><td>155,700円</td><td>約17,240円</td><td>約827,060円</td></tr>
+        </table>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text3)">※ 社会保険料は協会けんぽ東京都の概算料率（健保4.99%／介護込み5.82%、厚年9.15%、雇用0.6%）で算出。源泉所得税は税率2.042%を一律に当てはめた概算で、実際の率は前月給与と扶養人数により異なります。正確な金額は給与明細や上の計算ツールでご確認ください。</p>
+
+        <h3>標準賞与額の上限について</h3>
+        <p>社会保険料の対象となる標準賞与額には上限があります。健康保険・介護保険は年度（4月〜翌3月）の累計で573万円、厚生年金保険は1か月あたり150万円が上限で、これを超える部分には保険料がかかりません。高額の賞与を受け取る場合は、この上限により保険料の伸びが頭打ちになることがあります。本ツールは上限処理を行わない簡易計算のため、上限を超える賞与では実際よりやや多めに保険料が表示される点にご注意ください。</p>
+
+        <h2 style="margin-top:24px">よくある質問</h2>
+        <div class="faq-item"><div class="q">ボーナスの手取りは額面の何割ですか？</div><div class="a">賞与の手取りはおおむね額面の8割前後が目安です。額面から健康保険・厚生年金・雇用保険の社会保険料（本人負担で合計約15%前後）と源泉所得税が差し引かれます。源泉税率や年齢区分により手取り率は変動します。</div></div>
+        <div class="faq-item"><div class="q">ボーナスから何が引かれますか？</div><div class="a">賞与からは「健康保険料（40歳以上は介護保険料を含む）」「厚生年金保険料」「雇用保険料」の社会保険料（いずれも本人負担分）と、「源泉所得税」が差し引かれます。社会保険料を引いた後の金額に源泉徴収税率を掛けて所得税を計算します。</div></div>
+        <div class="faq-item"><div class="q">ボーナスから住民税は引かれますか？</div><div class="a">原則として賞与から住民税は直接は差し引かれません。住民税は前年の所得に対して翌年度に課税され、毎月の給与から12分割で徴収されます。ただし賞与額はその年の所得に含まれるため、翌年度の住民税額に反映されます。</div></div>
+        <div class="faq-item"><div class="q">賞与の源泉所得税はどう決まりますか？</div><div class="a">賞与の源泉所得税は「前月の社会保険料控除後の給与額」と「扶養親族等の数」をもとに、国税庁の『賞与に対する源泉徴収税額の算出率の表』で算出率（税率）が決まります。本ツールはこの率を選択式とし、正確な率は給与明細や国税庁の表でご確認ください。</div></div>
+        <div class="faq-item"><div class="q">社会保険料はボーナスにもかかりますか？</div><div class="a">かかります。賞与には「標準賞与額（額面を1000円未満切り捨てした額）」をもとに健康保険・厚生年金・雇用保険の保険料が課されます。健康保険は年度累計573万円、厚生年金は1か月150万円の標準賞与額の上限があります。</div></div>
+
+        <div class="note" style="margin-top:20px">本ツールの社会保険料は協会けんぽ東京都の概算料率（年度・都道府県で変動）に基づき、源泉所得税は選択した算出率による概算です。厚生年金保険料率18.3%（本人負担9.15%）は全国一律ですが、健康保険・介護保険・雇用保険の料率は年度や地域で変わります。正確な手取りは給与明細や国税庁・協会けんぽの最新資料でご確認ください。</div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="/tool-64-take-home-pay/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">手取り計算</a><a href="/tool-74-social-insurance/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">社会保険料計算</a><a href="/tool-22-withholding-tax/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">源泉徴収税額計算</a></div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+    <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+function calc() {
+    const bonus = parseInt(document.getElementById('bonus').value) || 0;
+    const age = document.getElementById('age').value;
+    const rate = parseFloat(document.getElementById('rate').value) || 0;
+
+    // 標準賞与額（1000円未満切り捨て）
+    const standard = Math.floor(bonus / 1000) * 1000;
+
+    // 社会保険料（本人負担・協会けんぽ東京都の概算料率）
+    const healthRate = age === '40to64' ? 0.0582 : 0.0499; // 40〜64歳は介護保険込み
+    const health = Math.floor(standard * healthRate);
+    const pension = Math.floor(standard * 0.0915); // 厚生年金（本人負担・折半後）
+    const employment = Math.floor(bonus * 0.006);  // 雇用保険（額面ベース）
+    const social = health + pension + employment;
+
+    // 源泉所得税 = floor((額面 − 社会保険料合計) × 算出率)
+    const incomeTax = Math.floor(Math.max(0, bonus - social) * rate);
+
+    // 手取り
+    const takeHome = bonus - social - incomeTax;
+
+    const f = n => '¥' + Math.max(0, n).toLocaleString();
+    document.getElementById('rHealth').textContent = f(health);
+    document.getElementById('rHealthNote').textContent = age === '40to64' ? '40〜64歳（介護込み）' : '40歳未満';
+    document.getElementById('rPension').textContent = f(pension);
+    document.getElementById('rEmployment').textContent = f(employment);
+    document.getElementById('rSocial').textContent = f(social);
+    document.getElementById('rIncomeTax').textContent = f(incomeTax);
+    document.getElementById('rStandard').textContent = f(standard);
+    document.getElementById('rTakeHome').textContent = f(takeHome);
+    document.getElementById('rRate').textContent = bonus > 0 ? (takeHome / bonus * 100).toFixed(1) + '%' : '-';
+}
+calc();
+</script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E27Q8YTG7L');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社会保険料 計算ツール | 会社員の本人負担（月額）を自動計算【無料】</title>
+    <meta name="description" content="会社員の月給から、健康保険料・介護保険料・厚生年金・雇用保険料の本人負担額（月額）を自動計算する無料ツール。労使折半後の概算。40歳以上の介護保険にも対応。給与明細の確認に。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- TODO要確認: 健康保険料率(協会けんぽ都道府県別)・介護保険料率・雇用保険料率は最新年度の値を協会けんぽ https://www.kyoukaikenpo.or.jp/ ・厚労省で要確認。本ツールは概算(健保4.99%/介護込5.82%/雇用0.6%本人負担)。厚生年金18.3%は確実。 -->
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#0891b2;--accent-dim:rgba(8,145,178,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(8,145,178,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}.row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:240px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent);word-break:break-all}
+        .result-item .value.tax{color:var(--red)}.result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .mono-out{font-family:'JetBrains Mono',monospace;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.95rem;color:var(--accent);word-break:break-all;cursor:pointer}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.06);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:8px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-74-social-insurance/">
+    <meta property="og:title" content="社会保険料 計算ツール | 会社員の本人負担（月額）を計算【無料】">
+    <meta property="og:description" content="月給から健康保険・介護保険・厚生年金・雇用保険の本人負担額（月額）を自動計算">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-74-social-insurance/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="社会保険料 計算ツール【無料】">
+    <meta name="twitter:description" content="月給から社会保険料の本人負担額（月額）を自動計算">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"社会保険料 計算ツール","description":"会社員の月給から社会保険料の本人負担額（月額）を計算","url":"https://www.devtools-japan.com/tool-74-social-insurance/","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"社会保険料 計算ツール","item":"https://www.devtools-japan.com/tool-74-social-insurance/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"社会保険料は何で決まりますか？","acceptedAnswer":{"@type":"Answer","text":"健康保険・介護保険・厚生年金の保険料は「標準報酬月額」という等級に区分された金額をもとに、毎月の保険料率を掛けて計算されます。標準報酬月額は主に4〜6月の給与（残業代や手当を含む）の平均から決まり、9月分から1年間適用されます。本ツールは月給を標準報酬月額の代わりに用いた概算です。"}},{"@type":"Question","name":"40歳になると社会保険料が上がるのはなぜですか？","acceptedAnswer":{"@type":"Answer","text":"40歳から64歳までの方は、健康保険料に加えて「介護保険料」を負担するためです。介護保険は40歳以上が被保険者となり、健康保険料に上乗せして徴収されます。65歳以降は原則として年金からの天引きに切り替わります。"}},{"@type":"Question","name":"厚生年金の保険料率はいくらですか？","acceptedAnswer":{"@type":"Answer","text":"厚生年金保険料率は18.3%で固定されています。これを会社と本人で労使折半するため、本人負担は半分の9.15%です。本ツールでも厚生年金は月給に9.15%を掛けて算出しており、この料率は確実な値です。"}},{"@type":"Question","name":"会社も社会保険料を同額負担していますか？","acceptedAnswer":{"@type":"Answer","text":"健康保険料と厚生年金保険料は労使折半のため、会社も本人とほぼ同額を負担しています。雇用保険料は会社の負担割合の方が大きく、本人より高くなります。給与明細に記載されるのは本人負担分だけで、会社負担分は記載されません。"}},{"@type":"Question","name":"月給と標準報酬月額は同じですか？","acceptedAnswer":{"@type":"Answer","text":"同じではありません。標準報酬月額は給与を等級表（健康保険は50等級、厚生年金は32等級）に当てはめた区分値で、実際の月給とは一致しないことがあります。そのため本ツールの月給ベースの概算と、給与明細の実際の保険料には差が生じます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>社会保険料 計算</h1><p>会社員の月給から社会保険料の本人負担額（月額）を自動計算</p></header>
+    <div class="note">会社員（給与所得者）向けの概算計算です。協会けんぽ・東京都の料率をベースにしています。実際の保険料は標準報酬月額・都道府県・年度・加入する健康保険組合により異なります。本ツールは社会保険料（健康保険・介護保険・厚生年金・雇用保険）に特化したもので、所得税・住民税は含みません。</div>
+
+    <div class="card"><h3>入力</h3>
+        <div class="row"><label>月給（総支給）</label><input type="number" id="salary" value="300000" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>年齢区分</label><select id="age" onchange="calc()"><option value="under40" selected>40歳未満</option><option value="40over">40〜64歳（介護保険あり）</option></select><span class="unit"></span></div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">健康保険料（本人）</div><div class="value tax" id="rHealth">-</div></div>
+        <div class="result-item"><div class="label">介護保険料（本人）</div><div class="value tax" id="rCare">-</div></div>
+        <div class="result-item"><div class="label">厚生年金保険料（本人）</div><div class="value tax" id="rPension">-</div></div>
+        <div class="result-item"><div class="label">雇用保険料（本人）</div><div class="value tax" id="rEmployment">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">本人負担合計（月額）</div><div class="value tax" id="rTotal" style="font-size:1.8rem">-</div></div>
+        <div class="result-item"><div class="label">手取り目安（月給−社保）</div><div class="value take" id="rNet" style="font-size:1.8rem">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">会社負担（健保・厚年 概算）</div><div class="value" id="rCompany">-</div><div class="sub">健康保険＋厚生年金は労使折半のため会社も同額</div></div>
+        <div class="result-item"><div class="label">本人＋会社 合計（健保・厚年）</div><div class="value" id="rGross">-</div><div class="sub">雇用保険は会社負担割合が大きく別途</div></div>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>社会保険料の仕組み</h2>
+        <p>会社員（給与所得者）が毎月の給与から負担する「社会保険料」は、主に次の4つで構成されます。本ツールは、これらの本人負担額（月額）を月給から概算します。</p>
+        <h3>1. 健康保険</h3>
+        <p>病気やケガをしたときの医療費を一部負担で済ませるための保険です。協会けんぽや健康保険組合が運営し、保険料は標準報酬月額に保険料率を掛けて計算されます。保険料は会社と本人で半分ずつ負担する「労使折半」です。協会けんぽの料率は都道府県ごとに異なり、東京都の場合はおおむね10%前後（本人負担はその半分の約4.99%）です。</p>
+        <h3>2. 介護保険（40歳〜64歳）</h3>
+        <p>40歳になると介護保険の被保険者となり、健康保険料に介護保険料が上乗せされます。これにより40歳以上の社会保険料は40歳未満より高くなります。介護分を含む本人負担はおおむね5.82%程度です。65歳以降は原則として年金からの天引きに切り替わります。</p>
+        <h3>3. 厚生年金</h3>
+        <p>老後の年金（老齢厚生年金）や障害・遺族年金の財源となる公的年金です。厚生年金保険料率は18.3%で固定されており、労使折半のため本人負担は半分の9.15%です。この料率は法律で定められた確実な値で、本ツールでも月給に9.15%を掛けて算出しています。</p>
+        <h3>4. 雇用保険</h3>
+        <p>失業時の給付（基本手当）や育児休業給付などの財源となる保険です。本人負担率は一般の事業でおおむね0.6%（2024年度・概算）で、会社の負担割合の方が大きくなっています。健康保険・厚生年金とは異なり、雇用保険は標準報酬月額ではなく実際の賃金総額をもとに計算されます。</p>
+        <p>これらのうち健康保険・介護保険・厚生年金は「標準報酬月額」という等級区分された金額をベースに計算されるのが正確な仕組みです。標準報酬月額は主に4〜6月の給与の平均から決まり、その年の9月分から1年間適用されます。本ツールは標準報酬月額の代わりに月給を用いた概算である点にご注意ください。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>月給別の社会保険料の目安（本人負担・概算）</h2>
+        <p>「月給30万円の社会保険料はいくら？」を一目で確認できる早見表です。下の数値は、本ツールと同じ計算式（協会けんぽ東京都ベースの概算・労使折半後の本人負担）で算出しました。40歳以上は介護保険料が加わるため本人負担が高くなります。実際の保険料は標準報酬月額・都道府県・年度により変わります。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>月給</th><th>本人負担合計（40歳未満）</th><th>本人負担合計（40〜64歳）</th></tr>
+            <tr><td>20万円</td><td>29,480円</td><td>31,140円</td></tr>
+            <tr><td>25万円</td><td>36,850円</td><td>38,925円</td></tr>
+            <tr><td>30万円</td><td>44,220円</td><td>46,710円</td></tr>
+            <tr><td>40万円</td><td>58,960円</td><td>62,280円</td></tr>
+            <tr><td>50万円</td><td>73,700円</td><td>77,850円</td></tr>
+        </table>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text3)">※ 健保4.99%（介護込5.82%）・厚生年金9.15%・雇用保険0.6%の本人負担で計算した概算です。厚生年金18.3%（本人9.15%）は確実な値ですが、健康保険料率・介護保険料率・雇用保険料率は都道府県・年度で変動する概算値です。正確な金額は給与明細や上の計算ツールでご確認ください。</p>
+
+        <h3>40歳になると保険料が上がる理由</h3>
+        <p>40歳になると介護保険の被保険者となり、健康保険料に介護保険料が上乗せされるためです。表のとおり、月給30万円の場合は40歳未満の本人負担44,220円に対し、40〜64歳では46,710円となり、月あたり約2,500円増えます。年間では約3万円の差になります。</p>
+
+        <h2 style="margin-top:24px">よくある質問</h2>
+        <div class="faq-item"><div class="q">社会保険料は何で決まりますか？</div><div class="a">健康保険・介護保険・厚生年金の保険料は「標準報酬月額」という等級に区分された金額をもとに、毎月の保険料率を掛けて計算されます。標準報酬月額は主に4〜6月の給与（残業代や手当を含む）の平均から決まり、9月分から1年間適用されます。本ツールは月給を標準報酬月額の代わりに用いた概算です。</div></div>
+        <div class="faq-item"><div class="q">40歳になると社会保険料が上がるのはなぜですか？</div><div class="a">40歳から64歳までの方は、健康保険料に加えて「介護保険料」を負担するためです。介護保険は40歳以上が被保険者となり、健康保険料に上乗せして徴収されます。65歳以降は原則として年金からの天引きに切り替わります。</div></div>
+        <div class="faq-item"><div class="q">厚生年金の保険料率はいくらですか？</div><div class="a">厚生年金保険料率は18.3%で固定されています。これを会社と本人で労使折半するため、本人負担は半分の9.15%です。本ツールでも厚生年金は月給に9.15%を掛けて算出しており、この料率は確実な値です。</div></div>
+        <div class="faq-item"><div class="q">会社も社会保険料を同額負担していますか？</div><div class="a">健康保険料と厚生年金保険料は労使折半のため、会社も本人とほぼ同額を負担しています。雇用保険料は会社の負担割合の方が大きく、本人より高くなります。給与明細に記載されるのは本人負担分だけで、会社負担分は記載されません。</div></div>
+        <div class="faq-item"><div class="q">月給と標準報酬月額は同じですか？</div><div class="a">同じではありません。標準報酬月額は給与を等級表（健康保険は50等級、厚生年金は32等級）に当てはめた区分値で、実際の月給とは一致しないことがあります。そのため本ツールの月給ベースの概算と、給与明細の実際の保険料には差が生じます。</div></div>
+
+        <div class="note" style="margin-top:20px">本ツールの保険料率は概算です。健康保険料率・介護保険料率は協会けんぽの都道府県・年度で変動し、雇用保険料率も年度で変わります。最新の正確な料率は協会けんぽ・厚生労働省の公式情報でご確認ください。厚生年金18.3%（本人9.15%）は法律で定められた確実な値です。</div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="/tool-64-take-home-pay/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">手取り計算</a><a href="/tool-60-nhi-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">国民健康保険料計算</a><a href="/tool-22-withholding-tax/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">源泉徴収税額</a></div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+    <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+function calc() {
+    const salary = parseInt(document.getElementById('salary').value) || 0;
+    const age = document.getElementById('age').value;
+
+    // 社会保険料（協会けんぽ・東京都ベースの概算・労使折半後の本人負担）
+    // TODO要確認: 料率は概算。厚生年金9.15%（18.3%の折半）は確実。
+    let health, care;
+    if (age === '40over') {
+        // 介護分込み 5.82% を健保枠に表示し、うち介護分を分離表示
+        const combined = Math.floor(salary * 0.0582);
+        const healthOnly = Math.floor(salary * 0.0499);
+        health = healthOnly;
+        care = combined - healthOnly;
+    } else {
+        health = Math.floor(salary * 0.0499);
+        care = 0;
+    }
+    const pension = Math.floor(salary * 0.0915);   // 厚生年金（18.3%の折半・本人負担）
+    const employment = Math.floor(salary * 0.006); // 雇用保険（本人負担・概算）
+    const total = health + care + pension + employment;
+
+    const net = salary - total;
+
+    // 会社負担（健保・厚年は労使折半のため本人と同額の概算。介護も含む）
+    const companyHealth = age === '40over' ? Math.floor(salary * 0.0582) : Math.floor(salary * 0.0499);
+    const company = companyHealth + pension;
+    const grossHP = (health + care + pension) + company; // 本人＋会社（健保・介護・厚年）
+
+    const f = n => '¥' + Math.max(0, n).toLocaleString();
+    document.getElementById('rHealth').textContent = f(health);
+    document.getElementById('rCare').textContent = age === '40over' ? f(care) : '¥0';
+    document.getElementById('rPension').textContent = f(pension);
+    document.getElementById('rEmployment').textContent = f(employment);
+    document.getElementById('rTotal').textContent = f(total);
+    document.getElementById('rNet').textContent = f(net);
+    document.getElementById('rCompany').textContent = f(company);
+    document.getElementById('rGross').textContent = f(grossHP);
+}
+calc();
+</script>
+</body>
+</html>
