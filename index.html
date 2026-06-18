@@ -14,10 +14,10 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevTools Japan | 無料オンラインツール70選 | 開発者・フリーランス・士業向け</title>
-    <meta name="description" content="開発者・デザイナー・フリーランス・士業向けの無料オンラインツール集。JSON整形、確定申告シミュレーター、源泉徴収計算、営業日計算、残業代計算、相続税計算など70種類以上。すべてブラウザ完結・登録不要。">
+    <title>DevTools Japan | 無料オンラインツール76選 | 開発者・フリーランス・士業向け</title>
+    <meta name="description" content="開発者・デザイナー・フリーランス・士業向けの無料オンラインツール集。JSON整形、確定申告シミュレーター、源泉徴収計算、営業日計算、残業代計算、相続税計算など76種類以上。すべてブラウザ完結・登録不要。">
     <meta name="keywords" content="開発者ツール,無料ツール,オンラインツール,JSON整形,文字数カウント,パスワード生成,画像圧縮,正規表現,Base64,和暦変換">
-    <meta property="og:title" content="DevTools Japan | 無料オンラインツール70選 | 開発者・フリーランス・士業向け">
+    <meta property="og:title" content="DevTools Japan | 無料オンラインツール76選 | 開発者・フリーランス・士業向け">
     <meta property="og:description" content="開発者・デザイナー・フリーランス向けの完全無料オンラインツール集。すべてブラウザ完結。">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -445,11 +445,11 @@
 
         <!-- HERO -->
         <section class="hero">
-            <div class="hero-badge"><span class="dot"></span> 全70ツール無料・登録不要</div>
+            <div class="hero-badge"><span class="dot"></span> 全76ツール無料・登録不要</div>
             <h1><span class="gradient">DevTools Japan</span></h1>
             <p>開発者・デザイナー・フリーランスのための<br>無料オンラインツール集。すべてブラウザ完結、サーバー送信なし。</p>
             <div class="hero-stats">
-                <div class="hero-stat"><div class="num">70+</div><div class="label">ツール数</div></div>
+                <div class="hero-stat"><div class="num">76+</div><div class="label">ツール数</div></div>
                 <div class="hero-stat"><div class="num">0円</div><div class="label">完全無料</div></div>
                 <div class="hero-stat"><div class="num">0秒</div><div class="label">登録不要</div></div>
                 <div class="hero-stat"><div class="num">100%</div><div class="label">ブラウザ完結</div></div>
@@ -461,7 +461,7 @@
             <div class="search-wrapper">
                 <span class="icon"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
                 <input type="text" id="searchInput" placeholder="ツールを検索..." oninput="filterTools()">
-                <span class="count" id="toolCount">70 ツール</span>
+                <span class="count" id="toolCount">76 ツール</span>
             </div>
             <div class="category-filter" id="categoryFilter"></div>
         </section>
@@ -494,7 +494,7 @@
         <!-- SEO CONTENT -->
         <div class="seo-content">
             <h2>DevTools Japan について</h2>
-            <p>DevTools Japanは、日本の開発者・デザイナー・フリーランスに向けた無料オンラインツール集です。JSON整形、文字数カウント、パスワード生成、画像圧縮、正規表現テスト、Base64変換など、日常の開発・制作作業で必要になるツールを70種類以上ご用意しています。</p>
+            <p>DevTools Japanは、日本の開発者・デザイナー・フリーランスに向けた無料オンラインツール集です。JSON整形、文字数カウント、パスワード生成、画像圧縮、正規表現テスト、Base64変換など、日常の開発・制作作業で必要になるツールを76種類以上ご用意しています。</p>
 
             <h3>完全ブラウザ完結</h3>
             <p>すべてのツールがブラウザ内で動作し、入力されたデータがサーバーに送信されることは一切ありません。機密性の高いデータ（パスワード、ソースコード、個人情報等）も安心してご利用いただけます。</p>
@@ -590,7 +590,13 @@ const TOOLS = [
     { id: 'wage-converter', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 21H2V9h5.5v12zm7.25-18h-5.5v18h5.5V3zM22 11h-5.5v10H22V11z"/></svg>', name: '時給・月給・年収 換算', desc: '時給⇔月給⇔年収を相互に自動換算', cat: 'freelance', tags: ['時給','月給','年収','換算'], accent: '#7c3aed', url: 'tool-67-wage-converter/' },
     { id: 'invoice-tax', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>', name: 'インボイス消費税計算', desc: '適格請求書の税率ごとの消費税額・端数処理を計算', cat: 'utility', tags: ['インボイス','適格請求書','消費税','端数処理'], accent: '#0d9488', url: 'tool-68-invoice-tax/' },
     { id: 'currency-calc', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>', name: '為替計算', desc: 'レートを入力して外貨⇔円を相互換算（手数料対応）', cat: 'utility', tags: ['為替','ドル円','外貨','換算'], accent: '#2563eb', url: 'tool-69-currency-calc/' },
-    { id: 'zip-password', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>', name: 'パスワード付きZIP作成', desc: 'ファイルを選んで暗号化ZIPを作成。AES-256/ZipCrypto対応', cat: 'utility', tags: ['zip','パスワード','暗号化','圧縮'], accent: '#475569', url: 'tool-70-zip-password/' }
+    { id: 'zip-password', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>', name: 'パスワード付きZIP作成', desc: 'ファイルを選んで暗号化ZIPを作成。AES-256/ZipCrypto対応', cat: 'utility', tags: ['zip','パスワード','暗号化','圧縮'], accent: '#475569', url: 'tool-70-zip-password/' },
+    { id: 'car-depreciation', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>', name: '車の減価償却計算', desc: '自動車の減価償却費を計算。新車・中古、定額法/定率法、事業利用割合に対応', cat: 'business', tags: ['減価償却','車','自動車','耐用年数','中古車'], accent: '#f59e0b', url: 'tool-71-car-depreciation/' },
+    { id: 'bonus-take-home', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 00-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/></svg>', name: 'ボーナス手取り計算', desc: '賞与の額面から社会保険料・源泉所得税を引いた手取り額を計算', cat: 'freelance', tags: ['ボーナス','賞与','手取り','社会保険','源泉'], accent: '#8b5cf6', url: 'tool-72-bonus-take-home/' },
+    { id: 'retirement-tax', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 13v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>', name: '退職金手取り計算', desc: '退職金の税金（所得税・住民税）と手取り額を計算。退職所得控除に対応', cat: 'freelance', tags: ['退職金','手取り','税金','退職所得控除'], accent: '#0d9488', url: 'tool-73-retirement-tax/' },
+    { id: 'social-insurance', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>', name: '社会保険料計算', desc: '会社員の月給から健康保険・厚生年金・雇用保険の本人負担額を計算', cat: 'freelance', tags: ['社会保険料','健康保険','厚生年金','雇用保険'], accent: '#0891b2', url: 'tool-74-social-insurance/' },
+    { id: 'residence-tax', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 2.7l5 4.5V18h-2v-6H9v6H7v-7.8l5-4.5z"/></svg>', name: '住民税計算', desc: '課税所得から住民税（所得割10%＋均等割）を概算計算', cat: 'freelance', tags: ['住民税','所得割','均等割','地方税'], accent: '#e11d48', url: 'tool-75-residence-tax/' },
+    { id: 'manuscript-paper', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>', name: '原稿用紙換算', desc: '文字数を400字詰め原稿用紙の枚数に換算。レポート・作文の文字数管理に', cat: 'writing', tags: ['原稿用紙','文字数','枚数','作文','レポート'], accent: '#0ea5e9', url: 'tool-76-manuscript-paper/' }
 ];
 
 const CATEGORIES = [
