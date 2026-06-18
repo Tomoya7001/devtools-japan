@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E27Q8YTG7L');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- TODO要確認: 年収の壁の金額(103/123/160/178万等)と社会保険の加入要件は2025年度(令和7年度)税制改正および今後の改正で変動。最新の確定額・適用時期(所得税は2025年分以後、住民税は翌年度〜)は財務省 https://www.mof.go.jp/ ・国税庁 https://www.nta.go.jp/ ・日本年金機構で要確認。本ツールは壁の種類とおおよそのラインの解説が目的で精密な税額計算は行わない。 -->
+    <title>年収の壁シミュレーター | 103万・106万・130万・150万の壁を判定【無料】</title>
+    <meta name="description" content="年収を入力すると、住民税・所得税・社会保険・配偶者控除の各「年収の壁」を超えているか判定・解説する無料ツール。100万/103万/106万/123万/130万/150万/201万の壁の違いを整理。金額は2025年改正等で変動するため概要の理解が目的です。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#f59e0b;--accent-dim:rgba(245,158,11,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(245,158,11,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}.row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:240px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .summary{background:var(--accent-dim);border:1px solid rgba(245,158,11,0.2);border-radius:var(--radius);padding:18px 20px;margin-bottom:16px;font-size:0.95rem;color:var(--text);line-height:1.7}
+        .summary strong{color:var(--accent)}
+        .wall-list{list-style:none}
+        .wall-item{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--border)}.wall-item:last-child{border-bottom:none}
+        .wall-amount{font-family:'JetBrains Mono',monospace;font-size:1.05rem;font-weight:700;color:var(--text);min-width:78px}
+        .wall-body{flex:1;min-width:0}
+        .wall-name{font-size:0.85rem;font-weight:500;color:var(--text);margin-bottom:2px}
+        .wall-desc{font-size:0.75rem;color:var(--text3);line-height:1.5}
+        .badge{display:inline-block;font-size:0.65rem;font-weight:600;padding:2px 8px;border-radius:99px;margin-bottom:4px}
+        .badge.tax{background:rgba(239,68,68,0.1);color:#b91c1c}
+        .badge.res{background:rgba(99,102,241,0.1);color:#4338ca}
+        .badge.social{background:rgba(34,197,94,0.12);color:#15803d}
+        .badge.spouse{background:rgba(245,158,11,0.12);color:#b45309}
+        .status{font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:700;padding:4px 10px;border-radius:8px;white-space:nowrap}
+        .status.over{background:rgba(239,68,68,0.1);color:#b91c1c}
+        .status.under{background:rgba(34,197,94,0.12);color:#15803d}
+        @media(max-width:600px){.wall-item{flex-wrap:wrap}.wall-amount{min-width:60px;font-size:0.95rem}}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.06);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:8px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-77-income-wall/">
+    <meta property="og:title" content="年収の壁シミュレーター | 103万・106万・130万・150万の壁を判定【無料】">
+    <meta property="og:description" content="年収を入力すると、税・社会保険・配偶者控除の各「年収の壁」を超えているか判定・解説">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-77-income-wall/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="年収の壁シミュレーター【無料】">
+    <meta name="twitter:description" content="年収から各種「年収の壁」を判定・解説">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"年収の壁シミュレーター","description":"年収を入力して住民税・所得税・社会保険・配偶者控除の各種「年収の壁」を判定・解説するツール","url":"https://www.devtools-japan.com/tool-77-income-wall/","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"年収の壁シミュレーター","item":"https://www.devtools-japan.com/tool-77-income-wall/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"年収103万円の壁とは？","acceptedAnswer":{"@type":"Answer","text":"従来、給与所得者本人に所得税がかかり始める目安とされてきた年収のラインが「103万円の壁」です。給与所得控除と基礎控除の合計が103万円だったことに由来します。ただし2025年度（令和7年度）税制改正で基礎控除等が引き上げられ、課税が始まる年収の目安は変わったとされています。最新の確定額・適用時期は国税庁の案内などで要確認です。"}},{"@type":"Question","name":"106万円と130万円の壁の違いは？","acceptedAnswer":{"@type":"Answer","text":"どちらも社会保険（健康保険・厚生年金）に関する壁ですが意味が異なります。「106万円の壁」は、勤務先の規模など一定の要件を満たす短時間労働者が自分で社会保険に加入する目安です。「130万円の壁」は、配偶者などの扶養（被扶養者）から外れて自分で社会保険料を負担し始める目安です。加入要件は改正で変わるため要確認です。"}},{"@type":"Question","name":"配偶者控除の壁は何万円ですか？","acceptedAnswer":{"@type":"Answer","text":"配偶者の年収に関する控除の壁は主に2つあります。配偶者特別控除が満額になる配偶者年収の上限が「150万円」、配偶者特別控除が完全になくなる上限が「201万円」前後とされています。納税者本人の所得による制限もあるため、詳細は要確認です。"}},{"@type":"Question","name":"住民税はいくらから発生しますか？","acceptedAnswer":{"@type":"Answer","text":"住民税（所得割・均等割）が発生し始める年収はおおむね「100万円前後」が目安ですが、非課税となる基準は自治体によって異なります。お住まいの市区町村で基準が変わるため、正確なラインは各自治体の窓口やサイトで要確認です。"}},{"@type":"Question","name":"2025年の改正で年収の壁はどう変わった？","acceptedAnswer":{"@type":"Answer","text":"2025年度（令和7年度）税制改正で基礎控除などが引き上げられ、所得税がかかり始める年収の目安が従来の103万円から引き上げられたとされています。一方で社会保険の106万円・130万円の壁は税の壁とは別の制度で、金額や要件も流動的です。確定額・適用時期は財務省・国税庁・日本年金機構で要確認です。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>年収の壁シミュレーター</h1><p>年収から税・社会保険・配偶者控除の「壁」を判定・解説</p></header>
+    <div class="note">本ツールは「入力した年収が各種の壁を超えているか」を判定し、壁の種類とおおよそのラインを解説するものです。精密な税額計算は行いません。年収の壁の金額は2025年度（令和7年度）税制改正等で変動しており、ここに示すラインは2026年時点の概要です。所得税の壁・住民税の壁・社会保険の壁・配偶者控除の壁はそれぞれ別の制度で金額が異なります。正確な判定は税理士・勤務先・お住まいの自治体・年金事務所でご確認ください。</div>
+
+    <div class="card"><h3>入力</h3>
+        <div class="row"><label>あなたの年収（給与）</label><input type="number" id="income" value="120" oninput="calc()"><span class="unit">万円</span></div>
+    </div>
+
+    <div class="summary" id="summary">-</div>
+
+    <div class="card"><h3>各「壁」の判定</h3>
+        <ul class="wall-list" id="wallList"></ul>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>年収の壁とは</h2>
+        <p>「年収の壁」とは、年収がある金額を超えると税金や社会保険料の負担が発生したり、扶養から外れて手取りに影響が出たりする境界ラインの俗称です。一言で「壁」と言っても、実は性質の違う複数の制度が混在しており、金額もそれぞれ異なります。混同しやすいため、本ツールでは大きく次の3系統に整理しています。</p>
+        <p>1つ目は<strong>税の壁（所得税・住民税）</strong>です。住民税が発生し始める目安はおおむね年収100万円前後（自治体により非課税基準が異なる）、所得税が発生し始める目安は従来「103万円」とされてきました。ただし2025年度（令和7年度）税制改正で基礎控除などが引き上げられ、所得税がかかり始める年収の目安は従来より上がったとされています。確定した金額・適用時期は要確認です。</p>
+        <p>2つ目は<strong>社会保険の壁（106万円・130万円）</strong>です。106万円は、勤務先の規模など一定の要件を満たす短時間労働者が自分で社会保険（健康保険・厚生年金）に加入する目安、130万円は配偶者などの扶養（被扶養者）から外れて自分で保険料を負担し始める目安です。これらは税の壁とはまったく別の制度で、加入要件も改正で変動します。</p>
+        <p>3つ目は<strong>配偶者控除の壁（150万円・201万円）</strong>です。配偶者特別控除が満額になる配偶者年収の上限が150万円、控除が完全に消失する上限が201万円前後とされます。こちらは「世帯主（納税者本人）」側の控除に関わる壁であり、本人に税負担が生じる「103万円の壁」とは意味が異なります。これら3系統は金額も意味も別物であることが、年収の壁を理解する最大のポイントです。</p>
+
+        <h2>主な年収の壁 一覧</h2>
+        <p>主な年収の壁を種類別に整理した一覧です。金額は2025年度（令和7年度）税制改正などで動いており、特に課税最低限（所得税・住民税）と社会保険の加入要件は流動的です。下表は2026年時点のおおよその目安として参照し、正確な数字は財務省・国税庁・日本年金機構や勤務先で必ず確認してください。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>金額の目安</th><th>種類</th><th>意味</th></tr>
+            <tr><td>約100万円</td><td>住民税の壁</td><td>住民税が発生し始める目安。非課税基準は自治体により異なる。</td></tr>
+            <tr><td>約103万円</td><td>所得税の壁</td><td>本人に所得税がかかり始める従来の目安。2025年改正で引上げ・要確認。</td></tr>
+            <tr><td>約106万円</td><td>社会保険の壁</td><td>一定要件を満たす短時間労働者が自分で社会保険に加入する場合がある目安。要件は要確認。</td></tr>
+            <tr><td>約123万円</td><td>所得税の壁</td><td>2025年改正後の扶養親族等の所得要件に対応する給与年収の目安・要確認。</td></tr>
+            <tr><td>約130万円</td><td>社会保険の壁</td><td>配偶者などの社会保険の扶養（被扶養者）から外れる目安。</td></tr>
+            <tr><td>約150万円</td><td>配偶者控除の壁</td><td>配偶者特別控除が満額になる配偶者年収の上限。</td></tr>
+            <tr><td>約201万円</td><td>配偶者控除の壁</td><td>配偶者特別控除が完全に消失する上限の目安。</td></tr>
+        </table>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text3)">※ 上記は壁の「種類」と「おおよそのライン」を整理したものです。改正で動いた額や議論中の額（160万・178万など）は断定せず、最新の確定額・適用時期は公的機関でご確認ください。本ツールは精密な税額計算を行いません。手取り額の概算は手取り計算ツールをご利用ください。</p>
+
+        <h2 style="margin-top:24px">よくある質問</h2>
+        <div class="faq-item"><div class="q">年収103万円の壁とは？</div><div class="a">従来、給与所得者本人に所得税がかかり始める目安とされてきた年収のラインが「103万円の壁」です。給与所得控除と基礎控除の合計が103万円だったことに由来します。ただし2025年度（令和7年度）税制改正で基礎控除等が引き上げられ、課税が始まる年収の目安は変わったとされています。最新の確定額・適用時期は国税庁の案内などで要確認です。</div></div>
+        <div class="faq-item"><div class="q">106万円と130万円の壁の違いは？</div><div class="a">どちらも社会保険（健康保険・厚生年金）に関する壁ですが意味が異なります。「106万円の壁」は、勤務先の規模など一定の要件を満たす短時間労働者が自分で社会保険に加入する目安です。「130万円の壁」は、配偶者などの扶養（被扶養者）から外れて自分で社会保険料を負担し始める目安です。加入要件は改正で変わるため要確認です。</div></div>
+        <div class="faq-item"><div class="q">配偶者控除の壁は何万円ですか？</div><div class="a">配偶者の年収に関する控除の壁は主に2つあります。配偶者特別控除が満額になる配偶者年収の上限が「150万円」、配偶者特別控除が完全になくなる上限が「201万円」前後とされています。納税者本人の所得による制限もあるため、詳細は要確認です。</div></div>
+        <div class="faq-item"><div class="q">住民税はいくらから発生しますか？</div><div class="a">住民税（所得割・均等割）が発生し始める年収はおおむね「100万円前後」が目安ですが、非課税となる基準は自治体によって異なります。お住まいの市区町村で基準が変わるため、正確なラインは各自治体の窓口やサイトで要確認です。</div></div>
+        <div class="faq-item"><div class="q">2025年の改正で年収の壁はどう変わった？</div><div class="a">2025年度（令和7年度）税制改正で基礎控除などが引き上げられ、所得税がかかり始める年収の目安が従来の103万円から引き上げられたとされています。一方で社会保険の106万円・130万円の壁は税の壁とは別の制度で、金額や要件も流動的です。確定額・適用時期は財務省・国税庁・日本年金機構で要確認です。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="/tool-64-take-home-pay/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">手取り計算</a><a href="/tool-21-tax-simulator/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">確定申告シミュレーター</a><a href="/tool-75-residence-tax/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">住民税計算</a></div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+    <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+var WALLS = [
+    {amount:100, name:"住民税が発生し始める目安", type:"res", typeLabel:"住民税の壁", desc:"住民税がかかり始めるおおよそのライン。非課税基準は自治体により異なる。"},
+    {amount:103, name:"所得税の従来基準", type:"tax", typeLabel:"所得税の壁", desc:"本人に所得税がかかり始める従来の目安。2025年改正で引上げ・要確認。"},
+    {amount:106, name:"社会保険加入の目安（短時間労働者）", type:"social", typeLabel:"社会保険の壁", desc:"勤務先の規模など一定要件を満たすと自分で社会保険に加入する場合あり。要件は要確認。"},
+    {amount:123, name:"2025年改正後の扶養所得要件の給与目安", type:"tax", typeLabel:"所得税の壁", desc:"扶養親族等の所得要件に対応する給与年収の目安・要確認。"},
+    {amount:130, name:"社会保険の被扶養者を外れる目安", type:"social", typeLabel:"社会保険の壁", desc:"配偶者などの社会保険の扶養から外れ、自分で保険料を負担し始める目安。"},
+    {amount:150, name:"配偶者特別控除が満額の上限", type:"spouse", typeLabel:"配偶者控除の壁", desc:"配偶者特別控除が満額になる配偶者年収の上限。"},
+    {amount:201, name:"配偶者特別控除の消失", type:"spouse", typeLabel:"配偶者控除の壁", desc:"配偶者特別控除が完全になくなる上限の目安・要確認。"}
+];
+
+function calc() {
+    var income = parseFloat(document.getElementById('income').value) || 0;
+    var list = document.getElementById('wallList');
+    list.innerHTML = '';
+    var overCount = 0;
+    var overNames = [];
+
+    WALLS.forEach(function(w){
+        var isOver = income >= w.amount;
+        if (isOver) { overCount++; overNames.push(w.amount + '万円(' + w.typeLabel + ')'); }
+        var li = document.createElement('li');
+        li.className = 'wall-item';
+        li.innerHTML = '<div class="wall-amount">' + w.amount + '万</div>' +
+            '<div class="wall-body"><span class="badge ' + w.type + '">' + w.typeLabel + '</span>' +
+            '<div class="wall-name">' + w.name + '</div>' +
+            '<div class="wall-desc">' + w.desc + '</div></div>' +
+            '<div class="status ' + (isOver ? 'over' : 'under') + '">' + (isOver ? '超えている' : '未満') + '</div>';
+        list.appendChild(li);
+    });
+
+    var summary = document.getElementById('summary');
+    if (income <= 0) {
+        summary.innerHTML = '年収（万円）を入力すると、各「壁」を超えているか判定します。';
+    } else if (overCount === 0) {
+        summary.innerHTML = 'あなたの年収<strong>' + income + '万円</strong>は、表示中のいずれの壁も超えていません（約100万円の住民税の壁が最初の目安です）。';
+    } else {
+        summary.innerHTML = 'あなたの年収<strong>' + income + '万円</strong>は、<strong>' + overCount + '個</strong>の壁を超えています：' + overNames.join('、') + '。各壁の意味は下の一覧と解説をご確認ください（金額は2025年改正等で変動・要確認）。';
+    }
+}
+calc();
+</script>
+</body>
+</html>
