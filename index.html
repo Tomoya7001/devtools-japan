@@ -14,10 +14,10 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevTools Japan | 無料オンラインツール76選 | 開発者・フリーランス・士業向け</title>
-    <meta name="description" content="開発者・デザイナー・フリーランス・士業向けの無料オンラインツール集。JSON整形、確定申告シミュレーター、源泉徴収計算、営業日計算、残業代計算、相続税計算など76種類以上。すべてブラウザ完結・登録不要。">
+    <title>DevTools Japan | 無料オンラインツール84選 | 開発者・フリーランス・士業向け</title>
+    <meta name="description" content="開発者・デザイナー・フリーランス・士業向けの無料オンラインツール集。JSON整形、確定申告シミュレーター、源泉徴収計算、営業日計算、残業代計算、相続税計算など84種類以上。すべてブラウザ完結・登録不要。">
     <meta name="keywords" content="開発者ツール,無料ツール,オンラインツール,JSON整形,文字数カウント,パスワード生成,画像圧縮,正規表現,Base64,和暦変換">
-    <meta property="og:title" content="DevTools Japan | 無料オンラインツール76選 | 開発者・フリーランス・士業向け">
+    <meta property="og:title" content="DevTools Japan | 無料オンラインツール84選 | 開発者・フリーランス・士業向け">
     <meta property="og:description" content="開発者・デザイナー・フリーランス向けの完全無料オンラインツール集。すべてブラウザ完結。">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -445,11 +445,11 @@
 
         <!-- HERO -->
         <section class="hero">
-            <div class="hero-badge"><span class="dot"></span> 全76ツール無料・登録不要</div>
+            <div class="hero-badge"><span class="dot"></span> 全84ツール無料・登録不要</div>
             <h1><span class="gradient">DevTools Japan</span></h1>
             <p>開発者・デザイナー・フリーランスのための<br>無料オンラインツール集。すべてブラウザ完結、サーバー送信なし。</p>
             <div class="hero-stats">
-                <div class="hero-stat"><div class="num">76+</div><div class="label">ツール数</div></div>
+                <div class="hero-stat"><div class="num">84+</div><div class="label">ツール数</div></div>
                 <div class="hero-stat"><div class="num">0円</div><div class="label">完全無料</div></div>
                 <div class="hero-stat"><div class="num">0秒</div><div class="label">登録不要</div></div>
                 <div class="hero-stat"><div class="num">100%</div><div class="label">ブラウザ完結</div></div>
@@ -461,7 +461,7 @@
             <div class="search-wrapper">
                 <span class="icon"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
                 <input type="text" id="searchInput" placeholder="ツールを検索..." oninput="filterTools()">
-                <span class="count" id="toolCount">76 ツール</span>
+                <span class="count" id="toolCount">84 ツール</span>
             </div>
             <div class="category-filter" id="categoryFilter"></div>
         </section>
@@ -494,7 +494,7 @@
         <!-- SEO CONTENT -->
         <div class="seo-content">
             <h2>DevTools Japan について</h2>
-            <p>DevTools Japanは、日本の開発者・デザイナー・フリーランスに向けた無料オンラインツール集です。JSON整形、文字数カウント、パスワード生成、画像圧縮、正規表現テスト、Base64変換など、日常の開発・制作作業で必要になるツールを76種類以上ご用意しています。</p>
+            <p>DevTools Japanは、日本の開発者・デザイナー・フリーランスに向けた無料オンラインツール集です。JSON整形、文字数カウント、パスワード生成、画像圧縮、正規表現テスト、Base64変換など、日常の開発・制作作業で必要になるツールを84種類以上ご用意しています。</p>
 
             <h3>完全ブラウザ完結</h3>
             <p>すべてのツールがブラウザ内で動作し、入力されたデータがサーバーに送信されることは一切ありません。機密性の高いデータ（パスワード、ソースコード、個人情報等）も安心してご利用いただけます。</p>
@@ -596,7 +596,15 @@ const TOOLS = [
     { id: 'retirement-tax', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 13v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>', name: '退職金手取り計算', desc: '退職金の税金（所得税・住民税）と手取り額を計算。退職所得控除に対応', cat: 'freelance', tags: ['退職金','手取り','税金','退職所得控除'], accent: '#0d9488', url: 'tool-73-retirement-tax/' },
     { id: 'social-insurance', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>', name: '社会保険料計算', desc: '会社員の月給から健康保険・厚生年金・雇用保険の本人負担額を計算', cat: 'freelance', tags: ['社会保険料','健康保険','厚生年金','雇用保険'], accent: '#0891b2', url: 'tool-74-social-insurance/' },
     { id: 'residence-tax', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 2.7l5 4.5V18h-2v-6H9v6H7v-7.8l5-4.5z"/></svg>', name: '住民税計算', desc: '課税所得から住民税（所得割10%＋均等割）を概算計算', cat: 'freelance', tags: ['住民税','所得割','均等割','地方税'], accent: '#e11d48', url: 'tool-75-residence-tax/' },
-    { id: 'manuscript-paper', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>', name: '原稿用紙換算', desc: '文字数を400字詰め原稿用紙の枚数に換算。レポート・作文の文字数管理に', cat: 'writing', tags: ['原稿用紙','文字数','枚数','作文','レポート'], accent: '#0ea5e9', url: 'tool-76-manuscript-paper/' }
+    { id: 'manuscript-paper', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>', name: '原稿用紙換算', desc: '文字数を400字詰め原稿用紙の枚数に換算。レポート・作文の文字数管理に', cat: 'writing', tags: ['原稿用紙','文字数','枚数','作文','レポート'], accent: '#0ea5e9', url: 'tool-76-manuscript-paper/' },
+    { id: 'income-wall', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 21h18v-2H3v2zM5 10h2v7H5v-7zm4 0h2v7H9v-7zm4 0h2v7h-2v-7zm4 0h2v7h-2v-7zM12 2L3 7v2h18V7l-9-5z"/></svg>', name: '年収の壁シミュレーター', desc: '103万・106万・130万・150万など年収の壁を判定。税・社保・配偶者控除の壁を整理', cat: 'freelance', tags: ['年収の壁','103万','130万','扶養','配偶者控除'], accent: '#f59e0b', url: 'tool-77-income-wall/' },
+    { id: 'sns-char-limit', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12zM7 9h10v2H7zm0-3h10v2H7z"/></svg>', name: 'SNS文字数制限カウンター', desc: 'X・Instagram・note・Threadsなど各SNSの文字数上限に対して残り字数を表示', cat: 'writing', tags: ['SNS','文字数','Twitter','Instagram','文字数制限'], accent: '#3b82f6', url: 'tool-78-sns-char-limit/' },
+    { id: 'image-convert', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>', name: '画像形式変換', desc: 'PNG⇔JPG⇔WebPをブラウザ内で変換。アップロード不要・サーバー送信なし', cat: 'utility', tags: ['画像変換','png','jpg','webp','形式変換'], accent: '#f43f5e', url: 'tool-79-image-convert/' },
+    { id: 'image-to-pdf', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7.5 7h2v2h-2zm0 4h9v2h-9zm0 4h9v2h-9z"/></svg>', name: '画像→PDF変換', desc: '複数の画像を1つのPDFにまとめる。ブラウザ完結・アップロード不要', cat: 'utility', tags: ['画像','pdf','変換','まとめる','スキャン'], accent: '#dc2626', url: 'tool-80-image-to-pdf/' },
+    { id: 'pdf-merge', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 11h-3v3h-4v-3H7v-4h3V7h4v3h3v4z"/></svg>', name: 'PDF結合', desc: '複数のPDFを1つに結合。会員登録不要・ブラウザ完結・サーバー送信なし', cat: 'utility', tags: ['pdf','結合','まとめる','merge','無料'], accent: '#b91c1c', url: 'tool-81-pdf-merge/' },
+    { id: 'llm-token', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>', name: 'LLMトークン数カウンター', desc: 'ChatGPT・Claude・Geminiの概算トークン数を計算。API料金見積りに（概算）', cat: 'dev', tags: ['LLM','トークン','token','ChatGPT','AI'], accent: '#10b981', url: 'tool-82-llm-token/' },
+    { id: 'reading-time', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg>', name: '読了時間計算', desc: '記事を黙読で読むのにかかる時間を計算。ブログ・資料の読了目安に', cat: 'writing', tags: ['読了時間','黙読','読書','記事','文字数'], accent: '#6366f1', url: 'tool-83-reading-time/' },
+    { id: 'discount-calc', icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 7 15.59V9H5v10h10v-2H8.41L19 6.41z"/><circle cx="6.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="17.5" r="1.5"/></svg>', name: '割引・値引き計算', desc: '○%OFF・○割引の価格を計算。二重割引・税込にも対応', cat: 'business', tags: ['割引','値引き','%OFF','セール','計算'], accent: '#ec4899', url: 'tool-84-discount-calc/' }
 ];
 
 const CATEGORIES = [
