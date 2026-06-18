@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画像→PDF変換ツール | 複数のJPEG・PNG画像を1つのPDFに無料で結合</title>
+    <meta name="description" content="複数の画像（JPEG・PNG）をブラウザ上で1つのPDFにまとめる無料ツール。サーバーへのアップロード不要でプライバシー安全。用紙サイズ（A4等）・向き・余白を選択でき、各画像を1ページずつ配置してダウンロードできます。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#dc2626;--accent-dim:rgba(220,38,38,0.1);--green:#22c55e;--radius:12px}
+        ::selection{background:rgba(220,38,38,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+
+        .dropzone{border:2px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:all 0.3s;margin-bottom:24px;background:var(--bg-card)}
+        .dropzone:hover,.dropzone.dragover{border-color:var(--accent);background:var(--accent-dim)}
+        .dropzone .icon{font-size:3rem;margin-bottom:12px}
+        .dropzone p{color:var(--text2);font-size:0.9rem}
+        .dropzone small{color:var(--text3);font-size:0.75rem}
+        input[type="file"]{display:none}
+
+        .settings{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px;display:none}
+        .settings h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .setting-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .setting-row:last-child{border-bottom:none}
+        .setting-label{font-size:0.85rem;color:var(--text2)}
+        select{padding:8px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Noto Sans JP',sans-serif;outline:none}
+
+        .file-list{list-style:none;margin:0;padding:0}
+        .file-list li{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);font-size:0.8rem;color:var(--text2)}
+        .file-list li:last-child{border-bottom:none}
+        .file-list .thumb{width:44px;height:44px;object-fit:cover;border-radius:6px;background:#f7f8fb;flex-shrink:0}
+        .file-list .fname{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+        .file-list .fsize{font-family:'JetBrains Mono',monospace;color:var(--text3);font-size:0.72rem}
+
+        .btn{padding:12px 24px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text2);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+        .btn:hover{border-color:var(--accent);color:var(--text)}
+        .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:500}
+        .btn-primary:hover{color:#fff}
+        .btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+
+        .note{font-size:0.75rem;color:var(--text3);text-align:center;margin-bottom:24px;line-height:1.7}
+
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-80-image-to-pdf/">
+    <meta property="og:title" content="画像→PDF変換ツール | DevTools Japan">
+    <meta property="og:description" content="複数の画像を1つのPDFに。サーバー送信なし">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-80-image-to-pdf/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="画像→PDF変換ツール | DevTools Japan">
+    <meta name="twitter:description" content="複数の画像を1つのPDFに。サーバー送信なし">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"画像→PDF変換ツール","description":"複数の画像を1つのPDFに。サーバー送信なし","url":"https://www.devtools-japan.com/tool-80-image-to-pdf/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"画像→PDF変換ツール","item":"https://www.devtools-japan.com/tool-80-image-to-pdf/"}]}
+    </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"画像はサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。画像の読み込みからPDFの生成、ダウンロードまですべてお使いのブラウザ内で完結し、サーバーへの送信は一切ありません。画像はブラウザ内でPDF化され、サーバーにアップロードされませんので、機密書類やプライベートな写真でも安心して利用できます。無料・登録不要です。"}},{"@type":"Question","name":"複数の画像を1つのPDFにできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。複数の画像ファイルをまとめて選択すると、各画像を1ページずつ配置した1つのPDFファイルを生成します。書類のスキャン画像や写真、スクリーンショットなどを束ねて1つのPDFとして提出・保存・共有したい場合に便利です。並び順は選択したファイル名の順になります。"}},{"@type":"Question","name":"対応している画像形式は何ですか？","acceptedAnswer":{"@type":"Answer","text":"JPEG（.jpg / .jpeg）とPNG（.png）に対応しています。一般的なスマートフォンの写真やスクリーンショット、スキャンした画像のほとんどはこのいずれかの形式のため、そのまま読み込んでPDF化できます。透過PNGは白背景として扱われます。"}},{"@type":"Question","name":"PDFのページサイズは選べますか？","acceptedAnswer":{"@type":"Answer","text":"はい。用紙サイズはA4・レター・A3から選択でき、向きも縦（ポートレート）・横（ランドスケープ）を切り替えられます。さらに余白の有無も選べます。各画像は用紙サイズに合わせて縦横比を保ったままページ内にフィットして配置されます。"}},{"@type":"Question","name":"画像の枚数に制限はありますか？","acceptedAnswer":{"@type":"Answer","text":"枚数自体に固定の上限は設けていませんが、処理はすべてブラウザ内のメモリ上で行うため、枚数や1枚あたりの解像度が多すぎると動作が重くなったり失敗することがあります。数十枚を超える大量の画像をまとめる場合は、いくつかに分割してPDFを作成することをおすすめします。"}}]}
+</script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot" style="display:none"></div>
+    <header><h1>画像→PDF変換ツール</h1><p>複数の画像を1つのPDFにまとめてダウンロード。サーバー送信なし・プライバシー安全。</p></header>
+
+    <div class="dropzone" id="dropzone" onclick="document.getElementById('fileInput').click()">
+        <div class="icon"></div>
+        <p>クリックまたはドラッグ＆ドロップで画像を選択（複数可）</p>
+        <small>JPEG・PNG対応 / 複数選択で1つのPDFに結合</small>
+    </div>
+    <input type="file" id="fileInput" accept="image/jpeg,image/png" multiple onchange="addFiles(this.files)">
+
+    <div class="settings" id="settings">
+        <h3>PDF設定</h3>
+        <div class="setting-row">
+            <span class="setting-label">用紙サイズ</span>
+            <select id="paperSize"><option value="a4">A4</option><option value="letter">レター</option><option value="a3">A3</option></select>
+        </div>
+        <div class="setting-row">
+            <span class="setting-label">向き</span>
+            <select id="orientation"><option value="p">縦（ポートレート）</option><option value="l">横（ランドスケープ）</option></select>
+        </div>
+        <div class="setting-row">
+            <span class="setting-label">余白</span>
+            <select id="margin"><option value="10">あり（10mm）</option><option value="0">なし</option></select>
+        </div>
+    </div>
+
+    <ul class="file-list" id="fileList"></ul>
+
+    <div class="btn-row" id="actionRow" style="display:none">
+        <button class="btn btn-primary" onclick="generatePdf()">PDFを生成してダウンロード</button>
+        <button class="btn" onclick="reset()">リセット</button>
+    </div>
+
+    <p class="note" id="note" style="display:none">画像はブラウザ内でPDF化され、サーバーにアップロードされません。</p>
+
+    <div class="ad-slot" style="display:none"></div>
+    <div class="seo-content">
+        <h2>画像→PDF変換ツールの使い方</h2>
+        <p>複数の画像（JPEG・PNG）を、各画像を1ページずつ配置した1つのPDFファイルにまとめる無料ツールです。スマートフォンで撮影した書類の写真、スキャンした見積書や領収書、Webページのスクリーンショットなどをひとまとめにして、PDFとして提出・保存・共有したい場面で役立ちます。複数の画像をメールに何枚も添付する代わりに、1つのPDFにすればファイル管理がぐっと楽になり、受け取る側も順番どおりに閲覧できます。</p>
+        <p>使い方はとても簡単です。まず「クリックまたはドラッグ＆ドロップで画像を選択」から、PDFにまとめたい画像をまとめて選びます。次に用紙サイズ（A4など）・向き（縦／横）・余白の有無を必要に応じて設定し、「PDFを生成してダウンロード」を押すだけです。各画像は選択した用紙サイズに合わせて縦横比を保ったままページにフィットして配置され、ページ順はファイル名の順になります。</p>
+        <h3>プライバシーについて</h3>
+        <p>このツールの最大の特長は、すべての処理がお使いのブラウザの中だけで完結することです。画像はブラウザ内でPDF化され、サーバーにアップロードされません。アップロード型のオンライン変換サービスとは異なり、契約書・身分証・医療書類といった機密性の高い書類や、人に見られたくないプライベートな写真でも、外部にデータが渡る心配なく安全にPDF化できます。インターネット接続が一時的に切れていても、ページさえ開いていれば変換処理は実行できます。</p>
+        </div>
+    <div class="seo-content">
+        <h2>対応形式・使い方の流れ</h2>
+        <p>本ツールが対応する画像形式とPDF設定の項目、そして実際の操作手順は次のとおりです。読み込んだ画像は順番にPDFの各ページへ配置されます。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>項目</th><th>内容</th><th>補足</th></tr></thead>
+            <tbody>
+                <tr><td class="acc">対応画像形式</td><td>JPEG / PNG</td><td>写真・スクショ・スキャン画像の多くが該当</td></tr>
+                <tr><td class="acc">複数選択</td><td>可能</td><td>選択した全画像を1つのPDFに結合</td></tr>
+                <tr><td class="acc">ページ順</td><td>ファイル名順</td><td>並べたい順にファイル名を付けると整う</td></tr>
+                <tr><td class="acc">用紙サイズ</td><td>A4 / レター / A3</td><td>各画像を比率を保ってページにフィット</td></tr>
+                <tr><td class="acc">向き・余白</td><td>縦／横・あり／なし</td><td>用途に合わせて切り替え可能</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <h3>操作手順</h3>
+        <p>1. 画面上部のエリアをクリックするか、画像ファイルをドラッグ＆ドロップして、PDFにまとめたい画像を複数選択します。読み込んだ画像はサムネイル付きの一覧で確認できます。</p>
+        <p>2. PDF設定で用紙サイズ（A4・レター・A3）、向き（縦・横）、余白（あり・なし）を選びます。標準ではA4縦・余白ありで、各画像はページ幅に収まるように自動でフィットします。</p>
+        <p>3. 「PDFを生成してダウンロード」を押すと、各画像を1ページずつ配置したPDFがその場で生成され、images.pdfとしてダウンロードされます。並び順を変えたい場合は、いったんリセットしてからファイル名を整えて選び直してください。</p>
+        <p>画像をまとめる順番が重要な書類では、あらかじめ「01_表紙.png」「02_本文.png」のように連番でファイル名を付けておくと、意図したページ順でPDFを作成できます。スキャンアプリで分割保存された複数ページの書類を1つにまとめる用途にも最適です。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">画像はサーバーに送信されますか？</div><div class="a">いいえ。画像の読み込みからPDFの生成、ダウンロードまですべてお使いのブラウザ内で完結し、サーバーへの送信は一切ありません。画像はブラウザ内でPDF化され、サーバーにアップロードされませんので、機密書類やプライベートな写真でも安心して利用できます。無料・登録不要です。</div></div>
+        <div class="faq-item"><div class="q">複数の画像を1つのPDFにできますか？</div><div class="a">はい。複数の画像ファイルをまとめて選択すると、各画像を1ページずつ配置した1つのPDFファイルを生成します。書類のスキャン画像や写真、スクリーンショットなどを束ねて1つのPDFとして提出・保存・共有したい場合に便利です。並び順は選択したファイル名の順になります。</div></div>
+        <div class="faq-item"><div class="q">対応している画像形式は何ですか？</div><div class="a">JPEG（.jpg / .jpeg）とPNG（.png）に対応しています。一般的なスマートフォンの写真やスクリーンショット、スキャンした画像のほとんどはこのいずれかの形式のため、そのまま読み込んでPDF化できます。透過PNGは白背景として扱われます。</div></div>
+        <div class="faq-item"><div class="q">PDFのページサイズは選べますか？</div><div class="a">はい。用紙サイズはA4・レター・A3から選択でき、向きも縦（ポートレート）・横（ランドスケープ）を切り替えられます。さらに余白の有無も選べます。各画像は用紙サイズに合わせて縦横比を保ったままページ内にフィットして配置されます。</div></div>
+        <div class="faq-item"><div class="q">画像の枚数に制限はありますか？</div><div class="a">枚数自体に固定の上限は設けていませんが、処理はすべてブラウザ内のメモリ上で行うため、枚数や1枚あたりの解像度が多すぎると動作が重くなったり失敗することがあります。数十枚を超える大量の画像をまとめる場合は、いくつかに分割してPDFを作成することをおすすめします。</div></div>
+        </div>
+    <div class="ad-slot" style="display:none"></div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-79-image-convert/" style="padding:8px 16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--text)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">画像形式変換ツール</a>
+        <a href="/tool-81-pdf-merge/" style="padding:8px 16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--text)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">PDF結合ツール</a>
+        <a href="/tool-10-image-compress/" style="padding:8px 16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--text)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">画像圧縮ツール</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+let files=[];
+const dz=document.getElementById('dropzone');
+dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('dragover')});
+dz.addEventListener('dragleave',()=>dz.classList.remove('dragover'));
+dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('dragover');if(e.dataTransfer.files.length)addFiles(e.dataTransfer.files)});
+
+function addFiles(fileList){
+    for(const f of fileList){
+        if(f.type==='image/jpeg'||f.type==='image/png')files.push(f);
+    }
+    files.sort((a,b)=>a.name.localeCompare(b.name,'ja'));
+    renderList();
+}
+
+function renderList(){
+    const ul=document.getElementById('fileList');
+    ul.innerHTML='';
+    files.forEach((f,i)=>{
+        const li=document.createElement('li');
+        const img=document.createElement('img');img.className='thumb';img.src=URL.createObjectURL(f);
+        const name=document.createElement('span');name.className='fname';name.textContent=`${i+1}. ${f.name}`;
+        const size=document.createElement('span');size.className='fsize';size.textContent=formatSize(f.size);
+        const del=document.createElement('button');del.className='btn';del.textContent='削除';del.style.padding='4px 10px';del.style.fontSize='0.72rem';
+        del.onclick=()=>{files.splice(i,1);renderList()};
+        li.append(img,name,size,del);
+        ul.appendChild(li);
+    });
+    const has=files.length>0;
+    document.getElementById('settings').style.display=has?'block':'none';
+    document.getElementById('actionRow').style.display=has?'flex':'none';
+    document.getElementById('note').style.display=has?'block':'none';
+}
+
+function loadImage(file){
+    return new Promise((resolve,reject)=>{
+        const url=URL.createObjectURL(file);
+        const img=new Image();
+        img.onload=()=>resolve({img,url,type:file.type});
+        img.onerror=reject;
+        img.src=url;
+    });
+}
+
+async function generatePdf(){
+    if(!files.length)return;
+    const { jsPDF }=window.jspdf;
+    const size=document.getElementById('paperSize').value;
+    const orientation=document.getElementById('orientation').value;
+    const margin=parseInt(document.getElementById('margin').value,10);
+    const doc=new jsPDF({orientation,unit:'mm',format:size});
+    const pageW=doc.internal.pageSize.getWidth();
+    const pageH=doc.internal.pageSize.getHeight();
+
+    for(let i=0;i<files.length;i++){
+        const {img,url,type}=await loadImage(files[i]);
+        if(i>0)doc.addPage();
+        const availW=pageW-margin*2;
+        const availH=pageH-margin*2;
+        const ratio=Math.min(availW/img.width,availH/img.height);
+        const w=img.width*ratio;
+        const h=img.height*ratio;
+        const x=(pageW-w)/2;
+        const y=(pageH-h)/2;
+        const fmt=type==='image/png'?'PNG':'JPEG';
+        doc.addImage(img,fmt,x,y,w,h);
+        URL.revokeObjectURL(url);
+    }
+    doc.save('images.pdf');
+}
+
+function reset(){
+    files=[];
+    document.getElementById('fileInput').value='';
+    renderList();
+}
+
+function formatSize(b){return b>1024*1024?(b/1024/1024).toFixed(1)+' MB':(b/1024).toFixed(0)+' KB'}
+</script>
+</body>
+</html>

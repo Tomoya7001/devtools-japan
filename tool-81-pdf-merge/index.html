@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF結合ツール | 複数のPDFを1つに無料でオンライン結合・登録不要・送信なし</title>
+    <meta name="description" content="複数のPDFファイルを1つにまとめる無料ツール。ブラウザ上で結合処理が完結し、サーバーへのアップロード不要でプライバシー安全。請求書・資料・契約書の一括化に。並び替えにも対応し、登録不要・無料で使えます。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#b91c1c;--accent-dim:rgba(185,28,28,0.1);--green:#22c55e;--radius:12px}
+        ::selection{background:rgba(185,28,28,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+
+        .dropzone{border:2px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:all 0.3s;margin-bottom:24px;background:var(--bg-card)}
+        .dropzone:hover,.dropzone.dragover{border-color:var(--accent);background:var(--accent-dim)}
+        .dropzone .icon{font-size:3rem;margin-bottom:12px}
+        .dropzone p{color:var(--text2);font-size:0.9rem}
+        .dropzone small{color:var(--text3);font-size:0.75rem}
+        input[type="file"]{display:none}
+
+        .privacy-note{background:var(--accent-dim);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;margin-bottom:24px;font-size:0.8rem;color:var(--text2);text-align:center}
+
+        .file-list{list-style:none;margin-bottom:24px;display:none}
+        .file-list li{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;margin-bottom:10px;display:flex;align-items:center;gap:12px}
+        .file-list .num{font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--accent);font-weight:700;min-width:22px;text-align:center}
+        .file-list .name{flex:1;font-size:0.85rem;color:var(--text);word-break:break-all}
+        .file-list .size{font-size:0.75rem;color:var(--text3);font-family:'JetBrains Mono',monospace;white-space:nowrap}
+        .file-list .ctrl{display:flex;gap:4px}
+        .icon-btn{width:30px;height:30px;border:1px solid var(--border);border-radius:6px;background:#f7f8fb;color:var(--text2);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:all 0.2s}
+        .icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+        .icon-btn:disabled{opacity:0.35;cursor:default}
+        .icon-btn svg{width:15px;height:15px}
+
+        .btn{padding:12px 24px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text2);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+        .btn:hover{border-color:var(--accent);color:var(--text)}
+        .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:500}
+        .btn-primary:hover{color:#fff}
+        .btn:disabled{opacity:0.5;cursor:default}
+        .btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+
+        .status{text-align:center;font-size:0.85rem;color:var(--text2);margin-bottom:24px;min-height:20px}
+        .status.error{color:var(--accent)}
+        .status.ok{color:var(--green)}
+
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-81-pdf-merge/">
+    <meta property="og:title" content="PDF結合ツール | DevTools Japan">
+    <meta property="og:description" content="複数のPDFを1つに結合。ブラウザ完結・サーバー送信なし">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-81-pdf-merge/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="PDF結合ツール | DevTools Japan">
+    <meta name="twitter:description" content="複数のPDFを1つに結合。ブラウザ完結・サーバー送信なし">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"PDF結合ツール","description":"複数のPDFを1つに結合。ブラウザ完結・サーバー送信なし","url":"https://www.devtools-japan.com/tool-81-pdf-merge/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"PDF結合ツール","item":"https://www.devtools-japan.com/tool-81-pdf-merge/"}]}
+    </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"PDFはサーバーにアップロードされますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。PDFの読み込みから結合処理、ダウンロードまですべてお使いのブラウザ内で完結し、サーバーへの送信は一切ありません。請求書や契約書など機密性の高い書類でも、ファイルが外部に漏れる心配なく無料・登録不要で結合できます。"}},{"@type":"Question","name":"複数のPDFを1つにできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。2つ以上のPDFファイルを選択すると、リストに並んだ順番でページが連結され、1つのPDFファイルとして書き出してダウンロードできます。請求書や資料、契約書などを1ファイルにまとめる用途に便利です。"}},{"@type":"Question","name":"結合する順番は変えられますか？","acceptedAnswer":{"@type":"Answer","text":"はい。選択したファイルはリストに表示され、各行の上下ボタンで並び順を入れ替えられます。並び替えをしない場合は、選択した順番（リストの上から下）でそのまま結合されます。不要なファイルは削除ボタンでリストから外せます。"}},{"@type":"Question","name":"パスワード付きPDFは結合できますか？","acceptedAnswer":{"@type":"Answer","text":"暗号化（パスワード保護）されたPDFは読み込めず、結合できない場合があります。あらかじめPDF閲覧ソフトでパスワードを解除し、保護のかかっていない状態で保存し直してから読み込んでください。読み込みに失敗したファイルはエラーとして表示されます。"}},{"@type":"Question","name":"ファイルサイズの制限はありますか？","acceptedAnswer":{"@type":"Answer","text":"サーバーを使わずブラウザのメモリ上で処理するため、固定の上限は設けていませんが、扱える容量やファイル数はお使いの端末のメモリ性能に依存します。非常に大きなPDFを多数結合すると処理が重くなったり失敗することがあるため、その場合は分割して結合してください。"}}]}
+</script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot" style="display:none"></div>
+    <header><h1>PDF結合ツール</h1><p>複数のPDFをブラウザ上で1つに結合。サーバー送信なし・プライバシー安全。</p></header>
+
+    <div class="privacy-note">PDFはブラウザ内で結合され、サーバーにアップロードされません。</div>
+
+    <div class="dropzone" id="dropzone" onclick="document.getElementById('fileInput').click()">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></div>
+        <p>クリックまたはドラッグ＆ドロップでPDFを選択</p>
+        <small>複数選択可 / PDFファイルのみ</small>
+    </div>
+    <input type="file" id="fileInput" accept="application/pdf" multiple onchange="addFiles(this.files)">
+
+    <ul class="file-list" id="fileList"></ul>
+
+    <div class="btn-row" id="actionRow" style="display:none">
+        <button class="btn btn-primary" id="mergeBtn" onclick="mergePdfs()">PDFを結合してダウンロード</button>
+        <button class="btn" onclick="resetAll()">リセット</button>
+    </div>
+
+    <div class="status" id="status"></div>
+
+    <div class="ad-slot" style="display:none"></div>
+    <div class="seo-content">
+        <h2>PDF結合ツールの使い方</h2>
+        <p>複数のPDFファイルを1つのPDFにまとめる無料ツールです。請求書や見積書、会議資料、契約書、スキャンした書類などをバラバラのまま管理するのは手間がかかりますが、本ツールを使えばそれらを1つのファイルに結合でき、保存・共有・印刷・提出がぐっと楽になります。たとえば月ごとに分かれた請求書を年間分まとめてアーカイブしたり、複数ページに分けてスキャンした契約書を1冊の書類に統合したり、提案資料と補足資料を1ファイルにまとめてメールで送ったりといった用途に最適です。</p>
+        <p>PDF結合ができるサービスは数多くありますが、その多くは会員登録が必要だったり、無料では結合できる回数やファイル数に制限があったり、有料プランへの誘導が前提になっていたりします。さらにそうしたサービスの大半は、アップロードしたPDFを一度サーバーに送信して処理するため、機密性の高い書類を扱う際にはセキュリティ面の不安が残ります。本ツールはこれらの課題を解決するために、すべての処理をお使いのブラウザ内（クライアントサイド）で完結させています。PDFはサーバーにアップロードされず、登録も不要で、回数制限もなく完全無料で利用できます。</p>
+        <h3>プライバシー</h3>
+        <p>選択したPDFはJavaScriptによってブラウザ内で読み込まれ、結合処理もそのままブラウザ内で行われます。ファイルが外部のサーバーに送信されることは一切ありません。請求書・契約書・社内資料といった他人に見られたくない書類でも、安心して結合できます。</p>
+    </div>
+    <div class="seo-content">
+        <h2>使い方の流れ・注意点</h2>
+        <p>操作はとてもシンプルです。下の手順に沿って、複数のPDFを1つに結合してダウンロードできます。並び順を意識すれば、思いどおりのページ構成のPDFを作成できます。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>手順</th><th>操作</th><th>ポイント</th></tr></thead>
+            <tbody>
+                <tr><td class="acc">1. 選択</td><td>PDFを複数選択する</td><td>クリックまたはドラッグ＆ドロップ。複数まとめて、または追加で選択できる</td></tr>
+                <tr><td class="acc">2. 順番</td><td>並び順を確認・調整する</td><td>上下ボタンで入れ替え。リストの上から順に結合される</td></tr>
+                <tr><td class="acc">3. 結合</td><td>「結合してダウンロード」を押す</td><td>ブラウザ内で1つのPDFに連結される</td></tr>
+                <tr><td class="acc">4. 保存</td><td>生成されたPDFを保存する</td><td>merged.pdf として自動ダウンロードされる</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <h3>注意点</h3>
+        <p>結合は最低でも2つのPDFを選択した状態で行ってください。ページは必ずリストに表示された順番（上から下）で連結されるため、意図した順序になっているかを結合前に確認しましょう。パスワードで保護（暗号化）されたPDFは読み込めず結合できない場合があるため、その場合はあらかじめパスワードを解除してから読み込んでください。また、サーバーを使わずブラウザのメモリ上で処理する仕様のため、扱えるファイルサイズや枚数は端末のメモリ性能に依存します。非常に大きなPDFを大量に結合すると処理が重くなることがあるので、必要に応じて分割して結合してください。読み込みに失敗したファイルはエラーとして表示されます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">PDFはサーバーにアップロードされますか？</div><div class="a">いいえ。PDFの読み込みから結合処理、ダウンロードまですべてお使いのブラウザ内で完結し、サーバーへの送信は一切ありません。請求書や契約書など機密性の高い書類でも、ファイルが外部に漏れる心配なく無料・登録不要で結合できます。</div></div>
+        <div class="faq-item"><div class="q">複数のPDFを1つにできますか？</div><div class="a">はい。2つ以上のPDFファイルを選択すると、リストに並んだ順番でページが連結され、1つのPDFファイルとして書き出してダウンロードできます。請求書や資料、契約書などを1ファイルにまとめる用途に便利です。</div></div>
+        <div class="faq-item"><div class="q">結合する順番は変えられますか？</div><div class="a">はい。選択したファイルはリストに表示され、各行の上下ボタンで並び順を入れ替えられます。並び替えをしない場合は、選択した順番（リストの上から下）でそのまま結合されます。不要なファイルは削除ボタンでリストから外せます。</div></div>
+        <div class="faq-item"><div class="q">パスワード付きPDFは結合できますか？</div><div class="a">暗号化（パスワード保護）されたPDFは読み込めず、結合できない場合があります。あらかじめPDF閲覧ソフトでパスワードを解除し、保護のかかっていない状態で保存し直してから読み込んでください。読み込みに失敗したファイルはエラーとして表示されます。</div></div>
+        <div class="faq-item"><div class="q">ファイルサイズの制限はありますか？</div><div class="a">サーバーを使わずブラウザのメモリ上で処理するため、固定の上限は設けていませんが、扱える容量やファイル数はお使いの端末のメモリ性能に依存します。非常に大きなPDFを多数結合すると処理が重くなったり失敗することがあるため、その場合は分割して結合してください。</div></div>
+    </div>
+    <div class="ad-slot" style="display:none"></div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-80-image-to-pdf/" style="padding:8px 16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--text)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">画像をPDFに変換</a>
+        <a href="/tool-79-image-convert/" style="padding:8px 16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--text)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">画像形式変換ツール</a>
+        <a href="/tool-70-zip-password/" style="padding:8px 16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--text)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">パスワード付きZIP作成</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<script>
+let files=[];
+const dz=document.getElementById('dropzone');
+dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('dragover')});
+dz.addEventListener('dragleave',()=>dz.classList.remove('dragover'));
+dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('dragover');addFiles(e.dataTransfer.files)});
+
+function addFiles(fileList){
+    for(const f of fileList){
+        if(f.type==='application/pdf'||f.name.toLowerCase().endsWith('.pdf'))files.push(f);
+    }
+    document.getElementById('fileInput').value='';
+    setStatus('');
+    render();
+}
+
+function render(){
+    const ul=document.getElementById('fileList');
+    ul.innerHTML='';
+    files.forEach((f,i)=>{
+        const li=document.createElement('li');
+        li.innerHTML=`
+            <span class="num">${i+1}</span>
+            <span class="name"></span>
+            <span class="size">${formatSize(f.size)}</span>
+            <span class="ctrl">
+                <button class="icon-btn" title="上へ" ${i===0?'disabled':''} onclick="move(${i},-1)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 8l-6 6h12z"/></svg></button>
+                <button class="icon-btn" title="下へ" ${i===files.length-1?'disabled':''} onclick="move(${i},1)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 16l6-6H6z"/></svg></button>
+                <button class="icon-btn" title="削除" onclick="removeFile(${i})"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg></button>
+            </span>`;
+        li.querySelector('.name').textContent=f.name;
+        ul.appendChild(li);
+    });
+    const has=files.length>0;
+    ul.style.display=has?'block':'none';
+    document.getElementById('actionRow').style.display=has?'flex':'none';
+    document.getElementById('mergeBtn').disabled=files.length<2;
+}
+
+function move(i,dir){
+    const j=i+dir;
+    if(j<0||j>=files.length)return;
+    [files[i],files[j]]=[files[j],files[i]];
+    render();
+}
+
+function removeFile(i){
+    files.splice(i,1);
+    render();
+}
+
+async function mergePdfs(){
+    if(files.length<2){setStatus('結合するには2つ以上のPDFを選択してください。','error');return}
+    const btn=document.getElementById('mergeBtn');
+    btn.disabled=true;
+    setStatus('結合しています…');
+    try{
+        const { PDFDocument } = PDFLib;
+        const merged = await PDFDocument.create();
+        for(const f of files){
+            const bytes = await f.arrayBuffer();
+            const doc = await PDFDocument.load(bytes);
+            const pages = await merged.copyPages(doc, doc.getPageIndices());
+            pages.forEach(p=>merged.addPage(p));
+        }
+        const out = await merged.save();
+        const blob = new Blob([out], {type:'application/pdf'});
+        const a=document.createElement('a');
+        a.download='merged.pdf';
+        a.href=URL.createObjectURL(blob);
+        a.click();
+        setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+        setStatus(`${files.length}個のPDFを結合しました（merged.pdf）。`,'ok');
+    }catch(err){
+        setStatus('結合に失敗しました。パスワード保護された（暗号化）PDFや破損したファイルが含まれていないか確認してください。','error');
+    }finally{
+        btn.disabled=files.length<2;
+    }
+}
+
+function resetAll(){
+    files=[];
+    setStatus('');
+    render();
+}
+
+function setStatus(msg,cls){
+    const el=document.getElementById('status');
+    el.textContent=msg;
+    el.className='status'+(cls?' '+cls:'');
+}
+
+function formatSize(b){return b>1024*1024?(b/1024/1024).toFixed(1)+' MB':(b/1024).toFixed(0)+' KB'}
+</script>
+</body>
+</html>

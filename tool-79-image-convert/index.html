@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画像形式変換ツール | PNG・JPG・WebPを無料でオンライン変換（ブラウザ完結）</title>
+    <meta name="description" content="PNG・JPEG・WebPの画像形式をブラウザ上で相互変換。サーバーへのアップロード不要でプライバシー安全。JPEG・WebPは品質スライダーで調整可能。各形式の特徴と使い分けも解説します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#f43f5e;--accent-dim:rgba(244,63,94,0.1);--green:#22c55e;--radius:12px}
+        ::selection{background:rgba(244,63,94,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+
+        .dropzone{border:2px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:all 0.3s;margin-bottom:24px;background:var(--bg-card)}
+        .dropzone:hover,.dropzone.dragover{border-color:var(--accent);background:var(--accent-dim)}
+        .dropzone .icon{font-size:3rem;margin-bottom:12px;color:var(--accent)}
+        .dropzone p{color:var(--text2);font-size:0.9rem}
+        .dropzone small{color:var(--text3);font-size:0.75rem}
+        input[type="file"]{display:none}
+
+        .settings{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px;display:none}
+        .settings h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .setting-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .setting-row:last-child{border-bottom:none}
+        .setting-label{font-size:0.85rem;color:var(--text2)}
+        .slider-group{display:flex;align-items:center;gap:12px}
+        .slider-val{font-family:'JetBrains Mono',monospace;font-size:0.9rem;color:var(--accent);min-width:44px;text-align:right}
+        input[type="range"]{-webkit-appearance:none;width:160px;height:6px;background:#f7f8fb;border-radius:3px;outline:none}
+        input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;background:var(--accent);border-radius:50%;cursor:pointer}
+        select{padding:8px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Noto Sans JP',sans-serif;outline:none}
+
+        .result{display:none;margin-bottom:24px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+        @media(max-width:640px){.result-grid{grid-template-columns:1fr}}
+        .result-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+        .result-card .label{padding:8px 16px;background:#f7f8fb;border-bottom:1px solid var(--border);font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;display:flex;justify-content:space-between}
+        .result-card img{width:100%;height:200px;object-fit:contain;background:#f7f8fb}
+        .savings{text-align:center;padding:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:16px}
+        .savings .pct{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .savings .detail{font-size:0.8rem;color:var(--text2);margin-top:4px}
+        .btn{padding:12px 24px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text2);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+        .btn:hover{border-color:var(--accent);color:var(--text)}
+        .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:500}
+        .btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+        .note{font-size:0.78rem;color:var(--text3);text-align:center;margin-bottom:24px}
+
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
+        .related{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px}
+        .related h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
+        .related .links{display:flex;gap:8px;flex-wrap:wrap}
+        .related a{padding:8px 16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s}
+        .related a:hover{border-color:var(--accent);color:var(--text)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-79-image-convert/">
+    <meta property="og:title" content="画像形式変換ツール | DevTools Japan">
+    <meta property="og:description" content="PNG・JPEG・WebPをブラウザ上で相互変換。サーバー送信なし">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-79-image-convert/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="画像形式変換ツール | DevTools Japan">
+    <meta name="twitter:description" content="PNG・JPEG・WebPをブラウザ上で相互変換。サーバー送信なし">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"画像形式変換ツール","description":"PNG・JPEG・WebPをブラウザ上で相互変換。サーバー送信なし","url":"https://www.devtools-japan.com/tool-79-image-convert/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"画像形式変換ツール","item":"https://www.devtools-japan.com/tool-79-image-convert/"}]}
+    </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"画像はサーバーにアップロードされますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。画像の読み込みから形式変換、ダウンロードまですべてお使いのブラウザ内（canvas）で完結し、サーバーへの送信は一切ありません。画像が外部に漏れる心配がなく、無料・登録不要で利用できます。"}},{"@type":"Question","name":"PNGとJPEGはどちらがいいですか？","acceptedAnswer":{"@type":"Answer","text":"用途によって異なります。PNGは可逆圧縮で透過に対応するため、ロゴ・図・スクリーンショットなど輪郭がはっきりした画像や透明背景が必要な画像に向きます。JPEGは非可逆圧縮で写真や色数の多い画像を小さな容量で保存でき、透過は使えません。写真ならJPEG、透過や鮮明さが必要ならPNGが目安です。"}},{"@type":"Question","name":"WebPとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"WebPはGoogleが開発した比較的新しい画像形式で、可逆・非可逆の両方の圧縮に対応し透過も扱えます。同じ画質ならJPEGやPNGより高い圧縮率で容量を小さくできるため、Webページの表示高速化に有効です。主要なモダンブラウザで表示できます。"}},{"@type":"Question","name":"透過画像をJPEGにするとどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"JPEGは透過（アルファチャンネル）に対応していないため、透明部分は背景色で塗りつぶされます。本ツールではJPEG出力時に透明部分を白で塗りつぶします。透過を保持したい場合は、出力形式にPNGまたはWebPを選んでください。"}},{"@type":"Question","name":"画質は調整できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。出力形式にJPEGまたはWebPを選ぶと品質スライダー（0.1〜1.0）が表示され、値を下げるほど容量が小さくなる一方で画質が低下します。PNGは可逆圧縮のため品質指定はなく、画質は劣化しません。"}}]}
+</script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot" style="display:none"></div>
+    <header><h1>画像形式変換ツール</h1><p>PNG・JPEG・WebPをブラウザ上で相互変換。サーバー送信なし・プライバシー安全。</p></header>
+
+    <div class="dropzone" id="dropzone" onclick="document.getElementById('fileInput').click()">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><path d="M19 13v6H5v-6H3v8h18v-8h-2zM11 4.83 8.41 7.41 7 6l5-5 5 5-1.41 1.41L13 4.83V16h-2V4.83z"/></svg></div>
+        <p>クリックまたはドラッグ＆ドロップで画像を選択</p>
+        <small>PNG・JPEG・WebP対応 / 最大10MB</small>
+    </div>
+    <input type="file" id="fileInput" accept="image/*" onchange="handleFile(this.files[0])">
+
+    <div class="settings" id="settings">
+        <h3>変換設定</h3>
+        <div class="setting-row">
+            <span class="setting-label">出力形式</span>
+            <select id="outputFormat" onchange="toggleQuality()"><option value="image/png">PNG</option><option value="image/jpeg">JPEG</option><option value="image/webp">WebP</option></select>
+        </div>
+        <div class="setting-row" id="qualityRow" style="display:none">
+            <span class="setting-label">品質</span>
+            <div class="slider-group">
+                <input type="range" id="quality" min="0.1" max="1.0" value="0.85" step="0.05" oninput="document.getElementById('qualVal').textContent=parseFloat(this.value).toFixed(2)">
+                <span class="slider-val" id="qualVal">0.85</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-row" id="convertRow" style="display:none">
+        <button class="btn btn-primary" onclick="convert()">変換する</button>
+        <button class="btn" onclick="reset()">リセット</button>
+    </div>
+
+    <div class="result" id="result">
+        <div class="savings" id="savings">
+            <div class="pct" id="convInfo">PNG → JPEG</div>
+            <div class="detail" id="convDetail">0 KB → 0 KB</div>
+        </div>
+        <div class="result-grid">
+            <div class="result-card"><div class="label"><span id="origFmt">元画像</span><span id="origSize">0 KB</span></div><img id="origImg" alt="変換前の画像"></div>
+            <div class="result-card"><div class="label"><span id="compFmt">変換後</span><span id="compSize">0 KB</span></div><img id="compImg" alt="変換後の画像"></div>
+        </div>
+        <div class="btn-row">
+            <button class="btn btn-primary" onclick="download()">ダウンロード</button>
+            <button class="btn" onclick="convert()">再変換</button>
+        </div>
+    </div>
+
+    <p class="note">画像はお使いのブラウザ内で変換され、サーバーにアップロードされません。</p>
+
+    <div class="ad-slot" style="display:none"></div>
+    <div class="seo-content">
+        <h2>画像形式変換ツールの使い方</h2>
+        <p>PNG・JPEG・WebPの画像形式をブラウザ上で相互に変換できる無料ツールです。画像ファイルをドラッグ＆ドロップまたはクリックで選択し、出力形式を選んで「変換する」を押すだけで、変換後の画像をプレビューしてダウンロードできます。出力形式にJPEGまたはWebPを選んだ場合は品質スライダー（0.1〜1.0）で圧縮の強さを調整でき、用途に応じて高画質寄りにも軽量寄りにも設定できます。</p>
+        <p>変換処理はすべてお使いのブラウザ内（canvas）で完結します。選択した画像がサーバーへアップロードされたり外部に送信されたりすることは一切なく、プライバシーが保たれた状態で安全に利用できます。インターネット接続が不安定な環境でも、ページを開いてしまえばオフラインに近い形で動作します。</p>
+        <h3>PNG・JPEG・WebPの特徴と使い分け</h3>
+        <p>PNGは可逆圧縮の形式で、圧縮しても元のピクセル情報を完全に保持するため画質が劣化しません。さらに透過（アルファチャンネル）に対応しているため、背景が透明なロゴ・アイコン・図・スクリーンショットなど、輪郭がはっきりした画像に向いています。色数の多い写真では容量が大きくなりやすいという弱点があります。</p>
+        <p>JPEGは非可逆圧縮の形式で、人間が知覚しにくい情報を間引くことで写真や色数の多い画像を小さな容量で保存できます。圧縮率を上げるほど容量は減りますが画質も低下します。透過には対応していないため、透明部分は背景色（本ツールでは白）で塗りつぶされます。写真やグラデーションの多い画像に最適です。</p>
+        <p>WebPはGoogleが開発した比較的新しい高圧縮の形式で、可逆・非可逆の両方の圧縮に対応し透過も扱えます。同程度の画質であればJPEGやPNGよりも高い圧縮率で容量を小さくできるため、Webページの表示高速化に有効です。主要なモダンブラウザで表示でき、Web全般での利用に適しています。たとえば容量の大きいPNG写真をWebPやJPEGへ変換するだけで、見た目をほぼ保ったまま大幅に軽量化できます。</p>
+
+        <h2>画像形式の比較表</h2>
+        <p>本ツールが対応するPNG・JPEG・WebPの圧縮方式・透過対応・主な用途・対応ブラウザをまとめると次のとおりです。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>形式</th><th>圧縮</th><th>透過対応</th><th>主な用途</th><th>対応ブラウザ</th></tr></thead>
+            <tbody>
+                <tr><td class="acc">PNG</td><td>可逆</td><td>対応</td><td>ロゴ・図・スクリーンショット・透過画像</td><td>すべてのブラウザ</td></tr>
+                <tr><td class="acc">JPEG</td><td>非可逆</td><td>非対応</td><td>写真・色数の多い画像（軽量化向き）</td><td>すべてのブラウザ</td></tr>
+                <tr><td class="acc">WebP</td><td>可逆／非可逆</td><td>対応</td><td>Web全般（高圧縮・高速表示向き）</td><td>主要なモダンブラウザ</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>可逆圧縮（PNG）は画質を一切落とさずに保存できる代わりに容量が大きくなりがちで、非可逆圧縮（JPEG・WebP非可逆）は容量を大きく減らせる代わりに画質が少しずつ低下します。透過が必要な画像はPNGまたはWebPで、写真の軽量化重視ならJPEGまたはWebPで出力するとよいでしょう。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">画像はサーバーにアップロードされますか？</div><div class="a">いいえ。画像の読み込みから形式変換、ダウンロードまですべてお使いのブラウザ内（canvas）で完結し、サーバーへの送信は一切ありません。画像が外部に漏れる心配がなく、無料・登録不要で利用できます。</div></div>
+        <div class="faq-item"><div class="q">PNGとJPEGはどちらがいいですか？</div><div class="a">用途によって異なります。PNGは可逆圧縮で透過に対応するため、ロゴ・図・スクリーンショットなど輪郭がはっきりした画像や透明背景が必要な画像に向きます。JPEGは非可逆圧縮で写真や色数の多い画像を小さな容量で保存でき、透過は使えません。写真ならJPEG、透過や鮮明さが必要ならPNGが目安です。</div></div>
+        <div class="faq-item"><div class="q">WebPとは何ですか？</div><div class="a">WebPはGoogleが開発した比較的新しい画像形式で、可逆・非可逆の両方の圧縮に対応し透過も扱えます。同じ画質ならJPEGやPNGより高い圧縮率で容量を小さくできるため、Webページの表示高速化に有効です。主要なモダンブラウザで表示できます。</div></div>
+        <div class="faq-item"><div class="q">透過画像をJPEGにするとどうなりますか？</div><div class="a">JPEGは透過（アルファチャンネル）に対応していないため、透明部分は背景色で塗りつぶされます。本ツールではJPEG出力時に透明部分を白で塗りつぶします。透過を保持したい場合は、出力形式にPNGまたはWebPを選んでください。</div></div>
+        <div class="faq-item"><div class="q">画質は調整できますか？</div><div class="a">はい。出力形式にJPEGまたはWebPを選ぶと品質スライダー（0.1〜1.0）が表示され、値を下げるほど容量が小さくなる一方で画質が低下します。PNGは可逆圧縮のため品質指定はなく、画質は劣化しません。</div></div>
+        </div>
+    <div class="ad-slot" style="display:none"></div>
+
+    <div class="related">
+      <h3>関連ツール</h3>
+      <div class="links">
+        <a href="/tool-10-image-compress/">画像圧縮ツール</a>
+        <a href="/tool-04-qr-generator/">QRコード生成ツール</a>
+        <a href="/tool-40-placeholder-img/">プレースホルダー画像生成ツール</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+let originalFile=null,convertedBlob=null;
+const dz=document.getElementById('dropzone');
+dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('dragover')});
+dz.addEventListener('dragleave',()=>dz.classList.remove('dragover'));
+dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('dragover');if(e.dataTransfer.files[0])handleFile(e.dataTransfer.files[0])});
+
+function fmtName(mime){return ({'image/png':'PNG','image/jpeg':'JPEG','image/jpg':'JPEG','image/webp':'WebP','image/gif':'GIF','image/bmp':'BMP'})[mime]||(mime.split('/')[1]||'画像').toUpperCase()}
+
+function toggleQuality(){
+    const f=document.getElementById('outputFormat').value;
+    document.getElementById('qualityRow').style.display=(f==='image/jpeg'||f==='image/webp')?'flex':'none';
+}
+
+function handleFile(file){
+    if(!file||!file.type.startsWith('image/')){alert('画像ファイルを選択してください');return}
+    if(file.size>10*1024*1024){alert('10MB以下の画像を選択してください');return}
+    originalFile=file;
+    document.getElementById('origImg').src=URL.createObjectURL(file);
+    document.getElementById('settings').style.display='block';
+    document.getElementById('convertRow').style.display='flex';
+    document.getElementById('result').style.display='none';
+    toggleQuality();
+    dz.innerHTML=`<div class="icon">選択中</div><p>${file.name}</p><small>${fmtName(file.type)} / ${formatSize(file.size)}</small>`;
+}
+
+function convert(){
+    if(!originalFile)return;
+    const format=document.getElementById('outputFormat').value;
+    const quality=parseFloat(document.getElementById('quality').value);
+    const img=new Image();
+    img.onload=()=>{
+        const w=img.naturalWidth,h=img.naturalHeight;
+        const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;
+        const ctx=canvas.getContext('2d');
+        if(format==='image/jpeg'){ctx.fillStyle='#ffffff';ctx.fillRect(0,0,w,h);}
+        ctx.drawImage(img,0,0,w,h);
+        const useQuality=(format==='image/jpeg'||format==='image/webp');
+        canvas.toBlob(blob=>{
+            if(!blob){alert('この形式への変換に失敗しました。別の形式をお試しください。');return}
+            convertedBlob=blob;
+            document.getElementById('compImg').src=URL.createObjectURL(blob);
+            const origS=originalFile.size,compS=blob.size;
+            document.getElementById('convInfo').textContent=`${fmtName(originalFile.type)} → ${fmtName(format)}`;
+            document.getElementById('convDetail').textContent=`${formatSize(origS)} → ${formatSize(compS)}`;
+            document.getElementById('origFmt').textContent=fmtName(originalFile.type);
+            document.getElementById('compFmt').textContent=fmtName(format);
+            document.getElementById('origSize').textContent=formatSize(origS);
+            document.getElementById('compSize').textContent=formatSize(compS);
+            document.getElementById('result').style.display='block';
+        },format,useQuality?quality:undefined);
+    };
+    img.src=URL.createObjectURL(originalFile);
+}
+
+function download(){
+    if(!convertedBlob)return;
+    const format=document.getElementById('outputFormat').value;
+    const ext=format==='image/jpeg'?'jpg':format.split('/')[1];
+    const base=(originalFile.name||'image').replace(/\.[^.]+$/,'');
+    const a=document.createElement('a');a.download=`${base}.${ext}`;a.href=URL.createObjectURL(convertedBlob);a.click();
+}
+
+function reset(){
+    originalFile=null;convertedBlob=null;
+    document.getElementById('settings').style.display='none';
+    document.getElementById('convertRow').style.display='none';
+    document.getElementById('result').style.display='none';
+    document.getElementById('fileInput').value='';
+    dz.innerHTML='<div class="icon"><svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><path d="M19 13v6H5v-6H3v8h18v-8h-2zM11 4.83 8.41 7.41 7 6l5-5 5 5-1.41 1.41L13 4.83V16h-2V4.83z"/></svg></div><p>クリックまたはドラッグ＆ドロップで画像を選択</p><small>PNG・JPEG・WebP対応 / 最大10MB</small>';
+}
+
+function formatSize(b){return b>1024*1024?(b/1024/1024).toFixed(1)+' MB':(b/1024).toFixed(0)+' KB'}
+</script>
+</body>
+</html>
