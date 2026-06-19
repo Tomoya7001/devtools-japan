@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E27Q8YTG7L');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>確定申告 還付金・医療費控除 計算ツール | 医療費控除でいくら戻る【無料】</title>
+    <meta name="description" content="年間の医療費から医療費控除額と確定申告で戻る還付金の目安を自動計算する無料ツール。足切り額（10万円・総所得200万円未満は5%）を国税庁準拠で計算。住民税の軽減目安も表示。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- TODO要確認: 所得控除の各種要件・セルフメディケーション税制の対象や上限・令和8年分の改正は国税庁 https://www.nta.go.jp/ で要確認。本ツールは医療費控除と還付の概算。 -->
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#0ea5e9;--accent-dim:rgba(14,165,233,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(14,165,233,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}.row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:240px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent);word-break:break-all}
+        .result-item .value.tax{color:var(--red)}.result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .mono-out{font-family:'JetBrains Mono',monospace;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.95rem;color:var(--accent);word-break:break-all;cursor:pointer}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.06);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:8px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-86-tax-refund/">
+    <meta property="og:title" content="確定申告 還付金・医療費控除 計算ツール【無料】">
+    <meta property="og:description" content="年間の医療費から医療費控除額と還付金の目安を国税庁準拠で自動計算">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-86-tax-refund/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="確定申告 還付金・医療費控除 計算【無料】">
+    <meta name="twitter:description" content="医療費控除額と還付金の目安を自動計算">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"確定申告 還付金・医療費控除 計算ツール","description":"年間の医療費から医療費控除額と確定申告の還付金の目安を計算","url":"https://www.devtools-japan.com/tool-86-tax-refund/","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"DevTools Japan","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"確定申告 還付金・医療費控除 計算","item":"https://www.devtools-japan.com/tool-86-tax-refund/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"医療費控除はいくらから受けられますか？","acceptedAnswer":{"@type":"Answer","text":"原則として、年間に支払った医療費（保険金などで補填される額を除く）が10万円を超えた分が医療費控除の対象です。ただし総所得金額等が200万円未満の方は、10万円ではなく総所得金額等の5%を超えた分が対象になります。"}},{"@type":"Question","name":"医療費控除でいくら戻りますか？","acceptedAnswer":{"@type":"Answer","text":"戻る金額の目安は「医療費控除額×所得税率」です。たとえば控除額が20万円で所得税率20%の方なら約4万円が所得税の還付の目安になります。加えて翌年度の住民税が控除額の約10%軽減されます。実際の還付額は他の所得控除や定率の上乗せにより変動します。"}},{"@type":"Question","name":"家族の医療費も合算できますか？","acceptedAnswer":{"@type":"Answer","text":"生計を一にする配偶者やその他の親族のために支払った医療費は合算できます。共働きでも生計が一であれば合算でき、収入が多く所得税率の高い人がまとめて申告したほうが還付額は大きくなる傾向があります。"}},{"@type":"Question","name":"通院の交通費や市販薬は医療費控除の対象ですか？","acceptedAnswer":{"@type":"Answer","text":"通院のための公共交通機関の交通費は医療費控除の対象です。治療や療養に必要な市販薬の購入費も対象になりますが、予防や健康増進のためのビタミン剤などは対象外です。対象範囲は国税庁の案内でご確認ください。"}},{"@type":"Question","name":"セルフメディケーション税制との違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"セルフメディケーション税制は対象の市販薬（スイッチOTC医薬品など）の購入費が一定額を超えた場合の特例で、通常の医療費控除とは選択制です。どちらか一方しか使えないため、医療費が多い年は通常の医療費控除、市販薬中心の年はセルフメディケーション税制が有利になる場合があります。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>確定申告 還付金・医療費控除 計算</h1><p>年間の医療費から医療費控除額と還付金の目安を自動計算</p></header>
+    <div class="note">医療費控除額と所得税の還付金の概算を計算するツールです。足切り額（10万円・総所得金額等200万円未満は5%）と上限200万円は国税庁の式に準拠しています。還付額は限界税率による概算であり、正確な額はe-Tax・税務署・税理士でご確認ください。</div>
+
+    <div class="card"><h3>入力</h3>
+        <div class="row"><label>年間の支払医療費</label><input type="number" id="medical" value="300000" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>保険金などで補填される額</label><input type="number" id="comp" value="0" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>総所得金額等</label><input type="number" id="totalIncome" value="5000000" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>所得税率（限界税率）</label><select id="rate" onchange="calc()"><option value="0.05">5%（課税所得195万円以下）</option><option value="0.10">10%（195万〜330万円）</option><option value="0.20" selected>20%（330万〜695万円）</option><option value="0.23">23%（695万〜900万円）</option><option value="0.33">33%（900万〜1800万円）</option><option value="0.40">40%（1800万〜4000万円）</option><option value="0.45">45%（4000万円超）</option></select><span class="unit"></span></div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">足切り額</div><div class="value tax" id="rThreshold">-</div></div>
+        <div class="result-item"><div class="label">医療費控除額</div><div class="value" id="rDeduction">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">所得税の還付目安</div><div class="value take" id="rRefund" style="font-size:1.8rem">-</div></div>
+        <div class="result-item"><div class="label">（参考）住民税の軽減目安</div><div class="value" id="rResident" style="font-size:1.8rem">-</div></div>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>医療費控除と還付金の仕組み</h2>
+        <p>医療費控除は、1年間（1月1日〜12月31日）に支払った医療費が一定額を超えた場合に、その超えた分を所得から差し引ける所得控除です。会社の年末調整では受けられないため、医療費控除を使うには確定申告（還付申告）が必要です。払い過ぎた税金が戻ってくるため「還付金」として手元に戻ります。</p>
+        <h3>医療費控除額の計算式</h3>
+        <p>医療費控除額は次の式で求めます。<br>医療費控除額 ＝（年間に支払った医療費 − 保険金などで補填される金額）− 足切り額</p>
+        <p>ここでの足切り額は原則10万円ですが、その年の総所得金額等が200万円未満の方は「総所得金額等 × 5%」が足切り額になります。つまり足切り額は <strong>min(10万円, 総所得金額等 × 5%)</strong> です。さらに医療費控除額には上限200万円があり、計算結果は0円〜200万円の範囲に収まります。この計算式は国税庁の医療費控除の規定に準拠した確実なものです。</p>
+        <h3>還付される金額の目安</h3>
+        <p>戻ってくる所得税の目安は次のとおりです。<br>所得税の還付 ＝ 医療費控除額 × 所得税率（限界税率）</p>
+        <p>たとえば医療費控除額が20万円で所得税率が20%の方なら、20万円 × 20% ＝ 約4万円が所得税の還付の目安になります。所得税率は課税所得に応じて5%・10%・20%・23%・33%・40%・45%と段階的に上がるため、所得が高い人ほど同じ医療費でも還付額は大きくなります。加えて、翌年度の住民税も医療費控除額のおおむね10%が軽減されるため、所得税の還付と住民税の軽減を合わせた負担減はさらに大きくなります。本ツールはこの式に沿って、足切り額・医療費控除額・所得税の還付目安・住民税の軽減目安を一度に表示します。</p>
+        <h3>確定申告で取り戻せる</h3>
+        <p>医療費控除は、申告しなければ自動では戻ってきません。領収書や医療費通知（医療費のお知らせ）をもとに「医療費控除の明細書」を作成し、確定申告で申告することで還付金を受け取れます。過去にさかのぼって申告できる期間もあるため、申告し忘れた年がある場合も還付を受けられる可能性があります。詳しくは国税庁のサイトでご確認ください。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>医療費控除の早見表</h2>
+        <p>「医療費がいくらでどのくらい戻るのか」を一目で確認できる早見表です。下の数値は、本ツールと同じ計算式で算出した概算です（総所得金額等200万円以上＝足切り額10万円・補填額0円を前提）。所得税率10%・20%の場合の還付目安を示しています。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>支払医療費</th><th>医療費控除額</th><th>還付目安（税率10%）</th><th>還付目安（税率20%）</th></tr>
+            <tr><td>10万円</td><td>0円</td><td>0円</td><td>0円</td></tr>
+            <tr><td>15万円</td><td>5万円</td><td>5,000円</td><td>10,000円</td></tr>
+            <tr><td>20万円</td><td>10万円</td><td>10,000円</td><td>20,000円</td></tr>
+            <tr><td>30万円</td><td>20万円</td><td>20,000円</td><td>40,000円</td></tr>
+            <tr><td>50万円</td><td>40万円</td><td>40,000円</td><td>80,000円</td></tr>
+        </table>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text3)">※ 総所得金額等200万円以上（足切り額10万円）・補填額0円の概算です。総所得金額等200万円未満の方は足切り額が「総所得×5%」となり、控除額・還付額はやや大きくなります。住民税の軽減（控除額の約10%）は含んでいません。正確な金額は上の計算ツールやe-Tax・税務署でご確認ください。</p>
+
+        <h2 style="margin-top:24px">よくある質問</h2>
+        <div class="faq-item"><div class="q">医療費控除はいくらから受けられますか？</div><div class="a">原則として、年間に支払った医療費（保険金などで補填される額を除く）が10万円を超えた分が医療費控除の対象です。ただし総所得金額等が200万円未満の方は、10万円ではなく総所得金額等の5%を超えた分が対象になります。</div></div>
+        <div class="faq-item"><div class="q">医療費控除でいくら戻りますか？</div><div class="a">戻る金額の目安は「医療費控除額×所得税率」です。たとえば控除額が20万円で所得税率20%の方なら約4万円が所得税の還付の目安になります。加えて翌年度の住民税が控除額の約10%軽減されます。実際の還付額は他の所得控除や定率の上乗せにより変動します。</div></div>
+        <div class="faq-item"><div class="q">家族の医療費も合算できますか？</div><div class="a">生計を一にする配偶者やその他の親族のために支払った医療費は合算できます。共働きでも生計が一であれば合算でき、収入が多く所得税率の高い人がまとめて申告したほうが還付額は大きくなる傾向があります。</div></div>
+        <div class="faq-item"><div class="q">通院の交通費や市販薬は医療費控除の対象ですか？</div><div class="a">通院のための公共交通機関の交通費は医療費控除の対象です。治療や療養に必要な市販薬の購入費も対象になりますが、予防や健康増進のためのビタミン剤などは対象外です。対象範囲は国税庁の案内でご確認ください。</div></div>
+        <div class="faq-item"><div class="q">セルフメディケーション税制との違いは何ですか？</div><div class="a">セルフメディケーション税制は対象の市販薬（スイッチOTC医薬品など）の購入費が一定額を超えた場合の特例で、通常の医療費控除とは選択制です。どちらか一方しか使えないため、医療費が多い年は通常の医療費控除、市販薬中心の年はセルフメディケーション税制が有利になる場合があります。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="/tool-21-tax-simulator/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">確定申告シミュレーター</a><a href="/tool-64-take-home-pay/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">手取り計算</a><a href="/tool-75-residence-tax/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">住民税計算</a></div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+    <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+function calc() {
+    const medical = parseInt(document.getElementById('medical').value) || 0;
+    const comp = parseInt(document.getElementById('comp').value) || 0;
+    const totalIncome = parseInt(document.getElementById('totalIncome').value) || 0;
+    const rate = parseFloat(document.getElementById('rate').value) || 0;
+
+    // 足切り額 = min(10万円, floor(総所得金額等 × 5%))
+    const threshold = Math.min(100000, Math.floor(totalIncome * 0.05));
+
+    // 医療費控除額 = (支払医療費 − 補填額) − 足切り額、0〜200万円に収める
+    const deduction = Math.max(0, Math.min(2000000, (medical - comp) - threshold));
+
+    // 所得税の還付目安 = floor(医療費控除額 × 所得税率)
+    const refund = Math.floor(deduction * rate);
+
+    // （参考）住民税の軽減目安 = floor(医療費控除額 × 10%)
+    const resident = Math.floor(deduction * 0.10);
+
+    const f = n => '¥' + Math.max(0, n).toLocaleString();
+    document.getElementById('rThreshold').textContent = f(threshold);
+    document.getElementById('rDeduction').textContent = f(deduction);
+    document.getElementById('rRefund').textContent = f(refund);
+    document.getElementById('rResident').textContent = f(resident);
+}
+calc();
+</script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E27Q8YTG7L');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>割り勘計算ツール | 飲み会・旅行の1人あたりの金額を自動計算【無料】</title>
+    <meta name="description" content="合計金額と人数から1人あたりの割り勘額を自動計算する無料ツール。100円単位の切り上げ・切り捨て・四捨五入に対応し、端数（幹事の調整額）や幹事の傾斜配分も計算。飲み会・旅行・パーティに。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#14b8a6;--accent-dim:rgba(20,184,166,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(20,184,166,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}.row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:240px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent);word-break:break-all}
+        .result-item .value.adj{color:var(--red)}.result-item .value.main{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.06);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:8px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-89-warikan/">
+    <meta property="og:title" content="割り勘計算ツール | 飲み会・旅行の1人あたりの金額を計算【無料】">
+    <meta property="og:description" content="合計金額と人数から1人あたりの割り勘額・端数・幹事の傾斜配分を自動計算">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-89-warikan/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="割り勘計算ツール【無料】">
+    <meta name="twitter:description" content="合計金額と人数から1人あたりの割り勘額を自動計算">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"割り勘計算ツール","description":"合計金額と人数から1人あたりの割り勘額・端数・幹事の傾斜配分を計算","url":"https://www.devtools-japan.com/tool-89-warikan/","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"DevTools Japan","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"割り勘計算ツール","item":"https://www.devtools-japan.com/tool-89-warikan/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"3人で1万円の割り勘はいくらですか？","acceptedAnswer":{"@type":"Answer","text":"合計10000円を3人で割ると1人あたり3333.33円ですが、100円単位で切り上げると1人3400円になります。3人から3400円ずつ集めると合計10200円になり、余りの200円は幹事の調整分として残ります。"}},{"@type":"Question","name":"割り勘の端数はどうすればいいですか？","acceptedAnswer":{"@type":"Answer","text":"端数の扱いは主に2つです。1つ目は100円単位や1000円単位で切り上げ、はみ出した余りを幹事が受け取る（または次回に充てる）方法。2つ目は1円単位で正確に割り、端数の1円や2円を幹事が負担・調整する方法です。本ツールでは集めすぎ・不足の「余り（幹事の調整額）」が自動表示されます。"}},{"@type":"Question","name":"幹事を多めに（または少なめに）するには？","acceptedAnswer":{"@type":"Answer","text":"幹事傾斜配分のオプションを使います。一般メンバーの支払額を1としたとき、幹事の倍率を設定すると、幹事だけ多め（例: 1.5倍）または少なめ（例: 0.5倍）に支払えます。予約や立て替えで負担の大きい幹事を優遇したい場合に便利です。"}},{"@type":"Question","name":"割り勘は四捨五入と切り上げのどちらがいいですか？","acceptedAnswer":{"@type":"Answer","text":"集めたお金で不足が出ないようにしたいなら切り上げがおすすめです。切り上げると必ず合計以上が集まり、余りは幹事の手元に残ります。逆に1円単位の四捨五入は1人あたりの金額が実額に最も近くなりますが、わずかな不足が出ることがあり、その分は幹事が負担します。"}},{"@type":"Question","name":"飲み会の割り勘の相場はいくらですか？","acceptedAnswer":{"@type":"Answer","text":"飲み放題付きの居酒屋なら1人4000円から5000円前後が目安です。会費制では端数を避けるため3000円・4000円・5000円といったキリの良い金額に設定することが多く、足りない分や多めに集めた分は幹事が調整します。本ツールで人数と合計から1人あたりの目安をすぐ確認できます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>割り勘計算</h1><p>合計金額と人数から1人あたりの金額・端数・幹事の傾斜配分を自動計算</p></header>
+    <div class="note">合計金額と人数を入れるだけで1人あたりの割り勘額を計算します。端数処理（100円単位など）で集めすぎ・不足になった分は「幹事の調整額」として表示されます。すべてブラウザ内で計算され、サーバーには送信されません。</div>
+
+    <div class="card"><h3>入力</h3>
+        <div class="row"><label>合計金額</label><input type="number" id="total" value="10000" min="0" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>人数（合計）</label><input type="number" id="people" value="3" min="1" oninput="calc()"><span class="unit">人</span></div>
+        <div class="row"><label>端数の単位</label><select id="unit" onchange="calc()"><option value="100" selected>100円単位</option><option value="1000">1000円単位</option><option value="1">1円単位</option></select><span class="unit"></span></div>
+        <div class="row"><label>端数処理</label><select id="mode" onchange="calc()"><option value="up" selected>切り上げ</option><option value="down">切り捨て</option><option value="round">四捨五入</option></select><span class="unit"></span></div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">1人あたり</div><div class="value" id="rPer" style="font-size:1.8rem">-</div></div>
+        <div class="result-item"><div class="label">幹事の調整額（余り）</div><div class="value adj" id="rAdj" style="font-size:1.8rem">-</div><div class="sub" id="rAdjNote">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">集める合計</div><div class="value" id="rCollect">-</div></div>
+        <div class="result-item"><div class="label">支払う合計</div><div class="value" id="rTotal">-</div></div>
+    </div>
+
+    <div class="card"><h3>幹事の傾斜配分（オプション）</h3>
+        <div class="row"><label>傾斜配分を使う</label><select id="tiltOn" onchange="calc()"><option value="off" selected>使わない</option><option value="on">使う（幹事の倍率を指定）</option></select><span class="unit"></span></div>
+        <div class="row"><label>幹事の人数</label><input type="number" id="kanjiN" value="1" min="0" oninput="calc()"><span class="unit">人</span></div>
+        <div class="row"><label>幹事の倍率（一般を1とする）</label><input type="number" id="kanjiR" value="1.5" min="0" step="0.1" oninput="calc()"><span class="unit">倍</span></div>
+    </div>
+
+    <div class="result-grid" id="tiltResult" style="display:none">
+        <div class="result-item"><div class="label">一般メンバー（1人あたり）</div><div class="value" id="rGeneral" style="font-size:1.6rem">-</div></div>
+        <div class="result-item"><div class="label">幹事（1人あたり）</div><div class="value main" id="rKanji" style="font-size:1.6rem">-</div></div>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>割り勘計算の使い方</h2>
+        <p>飲み会・旅行・パーティの会計を、合計金額と人数から「1人あたりいくら」かを瞬時に計算する無料ツールです。合計金額と参加人数を入力するだけで、1人あたりの支払額と、幹事が調整する余りが自動で表示されます。端数の単位（100円・1000円・1円）と端数処理（切り上げ・切り捨て・四捨五入）を選べるので、その場の状況に合わせて使えます。</p>
+        <h3>端数処理の考え方</h3>
+        <p>合計金額を人数で割ると、たいてい1円単位の細かい端数が出ます。たとえば10000円を3人で割ると1人3333.33円になり、そのままでは集金が大変です。そこで「100円単位で切り上げ」を選ぶと1人3400円となり、財布から出しやすいキリの良い金額になります。切り上げると合計以上のお金が集まり、はみ出した分が余りとして残ります。逆に切り捨てると集めた額が合計より少なくなり、不足分が出ます。四捨五入は実際の金額に最も近くなりますが、わずかな過不足が生じることがあります。</p>
+        <h3>幹事の調整</h3>
+        <p>端数処理をすると、集めた金額と実際の合計に差が生まれます。本ツールでは、この差を「幹事の調整額（余り）」として表示します。切り上げで集めすぎた場合はプラス（幹事の手元に残る・次回に充当）、切り捨てで足りない場合はマイナス（幹事が立て替える）として確認できます。幹事は予約・手配・立て替えなどで負担が大きいため、余った分を幹事の負担に充てるのは自然な精算方法です。</p>
+        <h3>幹事の傾斜配分</h3>
+        <p>幹事の負担をはっきり反映したいときは「幹事の傾斜配分」を使います。一般メンバーの支払額を1としたとき、幹事の倍率を1.5倍にすれば幹事だけ多めに、0.5倍にすれば幹事だけ少なめに支払う配分になります。たとえば合計30000円を5人（うち幹事1人・倍率1.5倍）で分けると、一般メンバーは1人5500円、幹事は1人8200円という配分が得られます。幹事を立ててくれた人をねぎらいたいとき、あるいは幹事自身が幹事代を多めに出したいときに便利です。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>割り勘 早見表</h2>
+        <p>合計金額と人数から、1人あたりの割り勘額（100円単位・切り上げ）をまとめた早見表です。下の数値は本ツールと同じ計算式で算出しています。切り上げのため、表の金額を全員から集めると合計以上のお金が集まり、はみ出した分は幹事の調整分として残ります。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>合計金額</th><th>2人</th><th>3人</th><th>4人</th><th>5人</th></tr>
+            <tr><td>10,000円</td><td>5,000円</td><td>3,400円</td><td>2,500円</td><td>2,000円</td></tr>
+            <tr><td>15,000円</td><td>7,500円</td><td>5,000円</td><td>3,800円</td><td>3,000円</td></tr>
+            <tr><td>20,000円</td><td>10,000円</td><td>6,700円</td><td>5,000円</td><td>4,000円</td></tr>
+            <tr><td>30,000円</td><td>15,000円</td><td>10,000円</td><td>7,500円</td><td>6,000円</td></tr>
+        </table>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text3)">※ 100円単位で切り上げた1人あたりの金額です。端数の単位や処理方法を変えると金額は変わります。正確な金額は上の計算ツールでご確認ください。</p>
+
+        <h2 style="margin-top:24px">よくある質問</h2>
+        <div class="faq-item"><div class="q">3人で1万円の割り勘はいくらですか？</div><div class="a">合計10000円を3人で割ると1人あたり3333.33円ですが、100円単位で切り上げると1人3400円になります。3人から3400円ずつ集めると合計10200円になり、余りの200円は幹事の調整分として残ります。</div></div>
+        <div class="faq-item"><div class="q">割り勘の端数はどうすればいいですか？</div><div class="a">端数の扱いは主に2つです。1つ目は100円単位や1000円単位で切り上げ、はみ出した余りを幹事が受け取る（または次回に充てる）方法。2つ目は1円単位で正確に割り、端数の1円や2円を幹事が負担・調整する方法です。本ツールでは集めすぎ・不足の「余り（幹事の調整額）」が自動表示されます。</div></div>
+        <div class="faq-item"><div class="q">幹事を多めに（または少なめに）するには？</div><div class="a">幹事傾斜配分のオプションを使います。一般メンバーの支払額を1としたとき、幹事の倍率を設定すると、幹事だけ多め（例: 1.5倍）または少なめ（例: 0.5倍）に支払えます。予約や立て替えで負担の大きい幹事を優遇したい場合に便利です。</div></div>
+        <div class="faq-item"><div class="q">割り勘は四捨五入と切り上げのどちらがいいですか？</div><div class="a">集めたお金で不足が出ないようにしたいなら切り上げがおすすめです。切り上げると必ず合計以上が集まり、余りは幹事の手元に残ります。逆に1円単位の四捨五入は1人あたりの金額が実額に最も近くなりますが、わずかな不足が出ることがあり、その分は幹事が負担します。</div></div>
+        <div class="faq-item"><div class="q">飲み会の割り勘の相場はいくらですか？</div><div class="a">飲み放題付きの居酒屋なら1人4000円から5000円前後が目安です。会費制では端数を避けるため3000円・4000円・5000円といったキリの良い金額に設定することが多く、足りない分や多めに集めた分は幹事が調整します。本ツールで人数と合計から1人あたりの目安をすぐ確認できます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="/tool-84-discount-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">割引・値引き計算</a><a href="/tool-42-number-format/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">数値フォーマット変換</a><a href="/tool-65-consumption-tax/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">消費税計算</a></div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+    <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+function roundUnit(v, unit, mode){
+    if(unit <= 0) unit = 1;
+    if(mode === 'up') return Math.ceil(v / unit) * unit;
+    if(mode === 'down') return Math.floor(v / unit) * unit;
+    return Math.round(v / unit) * unit;
+}
+function f(n){ return '¥' + Math.round(n).toLocaleString(); }
+function calc(){
+    const total = parseFloat(document.getElementById('total').value) || 0;
+    const people = Math.max(1, parseInt(document.getElementById('people').value) || 1);
+    const unit = parseInt(document.getElementById('unit').value) || 1;
+    const mode = document.getElementById('mode').value;
+
+    // 1人あたり（均等割り）
+    const per = roundUnit(total / people, unit, mode);
+    const collected = per * people;
+    const adj = collected - total; // プラス=集めすぎ（幹事に残る）、マイナス=不足（幹事が負担）
+
+    document.getElementById('rPer').textContent = f(per);
+    document.getElementById('rAdj').textContent = (adj >= 0 ? '+' : '−') + f(Math.abs(adj));
+    document.getElementById('rAdjNote').textContent = adj > 0 ? '集めすぎ（幹事に残る）' : (adj < 0 ? '不足（幹事が負担）' : '過不足なし');
+    document.getElementById('rCollect').textContent = f(collected);
+    document.getElementById('rTotal').textContent = f(total);
+
+    // 幹事の傾斜配分
+    const tiltOn = document.getElementById('tiltOn').value === 'on';
+    const tiltBox = document.getElementById('tiltResult');
+    if(tiltOn){
+        const kanjiN = Math.max(0, parseInt(document.getElementById('kanjiN').value) || 0);
+        const kanjiR = Math.max(0, parseFloat(document.getElementById('kanjiR').value) || 0);
+        const generalN = Math.max(0, people - kanjiN);
+        // 一般x円・幹事 r*x円: total = generalN*x + kanjiN*(r*x) = x*(generalN + kanjiN*r)
+        const denom = generalN + kanjiN * kanjiR;
+        if(denom > 0){
+            const x = total / denom;
+            const general = roundUnit(x, unit, mode);
+            const kanji = roundUnit(x * kanjiR, unit, mode);
+            document.getElementById('rGeneral').textContent = f(general);
+            document.getElementById('rKanji').textContent = f(kanji);
+        } else {
+            document.getElementById('rGeneral').textContent = '-';
+            document.getElementById('rKanji').textContent = '-';
+        }
+        tiltBox.style.display = '';
+    } else {
+        tiltBox.style.display = 'none';
+    }
+}
+calc();
+</script>
+</body>
+</html>

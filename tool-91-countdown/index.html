@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カウントダウン（あと何日）計算ツール | 目標日までの残り日数を自動計算【無料】</title>
+    <meta name="description" content="目標の日付を入力するだけで、今日から「あと何日」かを自動計算する無料ツール。試験・締切・記念日・イベントまでの残り日数を週数・月数換算でも表示。過去の日付は経過日数を計算します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-91-countdown/">
+    <meta property="og:title" content="カウントダウン（あと何日）計算 | 目標日までの残り日数を自動計算【無料】">
+    <meta property="og:description" content="試験・締切・記念日・イベントまであと何日かを自動計算。週数・月数換算も表示。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-91-countdown/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="カウントダウン（あと何日）計算【無料】">
+    <meta name="twitter:description" content="目標日までの残り日数を自動計算。週数・月数換算も表示。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"カウントダウン（あと何日）計算ツール","description":"目標日までの残り日数を自動計算する無料ツール","url":"https://www.devtools-japan.com/tool-91-countdown/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"カウントダウン（あと何日）計算ツール","item":"https://www.devtools-japan.com/tool-91-countdown/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"あと何日か計算できる？","acceptedAnswer":{"@type":"Answer","text":"はい。目標の日付を入力すると、今日から目標日までの残り日数を「あと◯日」として自動計算します。今日の日付はお使いの端末のローカル時刻から取得し、時差の影響を避けるため年月日ベースで差分を計算します。週数・月数のおおよその換算も同時に表示します。"}},{"@type":"Question","name":"今日は残り日数に含まれる？","acceptedAnswer":{"@type":"Answer","text":"本ツールでは目標日が今日と同じ場合は「あと0日」（当日）として表示します。つまり今日そのものは残り日数に含めず、明日が目標日なら「あと1日」と数えます。試験やイベント当日を0日目と考える一般的な数え方に合わせています。"}},{"@type":"Question","name":"過去の日付も計算できる？","acceptedAnswer":{"@type":"Answer","text":"はい。目標日に今日より前の日付を入力すると、残り日数ではなく「◯日経過」として、その日から今日までに何日過ぎたかを表示します。記念日からの経過日数や、過ぎた締切からの日数を確認したい場合にお使いいただけます。"}},{"@type":"Question","name":"うるう年は考慮される？","acceptedAnswer":{"@type":"Answer","text":"はい。日数は実際のカレンダー上の日付の差分で計算するため、うるう年の2月29日も自動的に含まれます。期間内にうるう日があるかを気にせず、正確な残り日数・経過日数を求められます。"}},{"@type":"Question","name":"残り日数を週や月で見られる？","acceptedAnswer":{"@type":"Answer","text":"はい。残り日数に加えて、約何週間・約何ヶ月かのおおよその換算も表示します。週数は7日、月数は30日で割ったおおよその目安です。月の日数は実際には28〜31日と異なるため、月換算はあくまで概算としてご利用ください。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>カウントダウン（あと何日）</h1><p>目標日までの残り日数を自動計算</p></header>
+
+    <div class="card"><h3>目標日を入力</h3>
+        <div class="row"><label>目標の日付</label><input type="date" id="targetDate" style="text-align:left" oninput="calcCountdown()"></div>
+        <div class="row"><label>今日（基準日）</label><input type="date" id="todayDate" style="text-align:left" oninput="calcCountdown()"></div>
+        <div style="margin-top:14px">
+            <div style="font-size:0.75rem;color:var(--text3);margin-bottom:6px">イベント例</div>
+            <div class="preset-row" id="presetRow"></div>
+        </div>
+    </div>
+
+    <div class="big-result">
+        <div class="headline" id="headline">あと</div>
+        <div class="days"><span id="bigDays">-</span><span class="unit" id="bigUnit">日</span></div>
+        <div class="target" id="targetLabel">目標日を入力してください</div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">残り（または経過）日数</div><div class="value" id="diffDays">-</div></div>
+        <div class="result-item"><div class="label">週数換算（約）</div><div class="value" id="diffWeeks">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">月数換算（約）</div><div class="value" id="diffMonths">-</div></div>
+        <div class="result-item"><div class="label">状態</div><div class="value" id="statusLabel" style="font-size:1.1rem">-</div></div>
+    </div>
+
+    <div class="note">残り日数は今日（端末のローカル時刻）と目標日を年月日ベースで比較して算出します。当日は「あと0日」、過去の日付は「◯日経過」と表示します。週数は7日、月数は30日で割ったおおよその概算です。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>カウントダウンツールの使い方</h2>
+        <p>目標の日付を入力するだけで、今日から「あと何日」かを自動計算する無料ツールです。試験・受験、仕事の締切や納期、結婚記念日や誕生日などの記念日、旅行やコンサートといったイベントまでの残り日数を、ブラウザだけで瞬時に数えられます。インストールや会員登録は不要で、すべての計算はお使いの端末内で完結します。</p>
+        <p>使い方はかんたんです。「目標の日付」欄にカウントダウンしたい日を入力すると、画面上部に「あと◯日」と大きく表示されます。基準となる「今日」は端末のローカル時刻から自動で入りますが、必要に応じて別の基準日に変更することもできます。さらに残り日数を約何週間・約何ヶ月に換算した値も同時に表示するので、長期的な計画を立てるときの目安にもなります。</p>
+        <h3>こんな用途に</h3>
+        <p>大学受験・資格試験・検定までの残り日数を数えてモチベーション管理に、提出書類や納品の締切までの日数把握に、誕生日・記念日・イベント当日までのワクワクするカウントダウンに。逆に過去の日付を入力すれば、記念日からの経過日数や、過ぎた締切から何日経ったかも確認できます。イベント例のボタンを押すと、年末やクリスマスなど代表的な日付をすぐに入力できます。</p>
+
+        <h2>残り日数の数え方</h2>
+        <p>このツールでは、今日と目標日をどちらも「年月日」だけで比較し、その差をミリ秒単位ではなく日付ベースで丸めて求めています。これにより、時刻や時差（タイムゾーン）の影響で1日ずれてしまう問題を避けています。今日と目標日が同じ日であれば「あと0日（当日）」、明日が目標日なら「あと1日」となり、目標日当日そのものは残り日数に含めない数え方です。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>条件</th><th>表示</th><th>説明</th></tr>
+            <tr><td>目標日が未来</td><td>あと◯日</td><td>今日から目標日までの残り日数。明日が目標なら「あと1日」</td></tr>
+            <tr><td>目標日が今日</td><td>あと0日（当日）</td><td>今日そのものは残り日数に含めない</td></tr>
+            <tr><td>目標日が過去</td><td>◯日経過</td><td>目標日から今日までに過ぎた日数を表示</td></tr>
+        </table>
+        </div>
+        <h3>週数・月数への換算</h3>
+        <p>残り日数は、おおよその週数（7日で割った値）と月数（30日で割った値）にも換算して表示します。週数は曜日に関係なく7日を1週間とした概算、月数は1ヶ月を30日とした概算です。実際の1ヶ月は28〜31日と幅があるため、月換算はあくまで目安として、正確な日数は「あと◯日」の表示をご確認ください。なお日数はカレンダー上の実日付で計算するため、期間にうるう年の2月29日が含まれる場合も自動的に反映されます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">あと何日か計算できる？</div><div class="a">はい。目標の日付を入力すると、今日から目標日までの残り日数を「あと◯日」として自動計算します。今日の日付はお使いの端末のローカル時刻から取得し、時差の影響を避けるため年月日ベースで差分を計算します。週数・月数のおおよその換算も同時に表示します。</div></div>
+        <div class="faq-item"><div class="q">今日は残り日数に含まれる？</div><div class="a">本ツールでは目標日が今日と同じ場合は「あと0日」（当日）として表示します。つまり今日そのものは残り日数に含めず、明日が目標日なら「あと1日」と数えます。試験やイベント当日を0日目と考える一般的な数え方に合わせています。</div></div>
+        <div class="faq-item"><div class="q">過去の日付も計算できる？</div><div class="a">はい。目標日に今日より前の日付を入力すると、残り日数ではなく「◯日経過」として、その日から今日までに何日過ぎたかを表示します。記念日からの経過日数や、過ぎた締切からの日数を確認したい場合にお使いいただけます。</div></div>
+        <div class="faq-item"><div class="q">うるう年は考慮される？</div><div class="a">はい。日数は実際のカレンダー上の日付の差分で計算するため、うるう年の2月29日も自動的に含まれます。期間内にうるう日があるかを気にせず、正確な残り日数・経過日数を求められます。</div></div>
+        <div class="faq-item"><div class="q">残り日数を週や月で見られる？</div><div class="a">はい。残り日数に加えて、約何週間・約何ヶ月かのおおよその換算も表示します。週数は7日、月数は30日で割ったおおよその目安です。月の日数は実際には28〜31日と異なるため、月換算はあくまで概算としてご利用ください。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-51-business-day-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">営業日計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// 年月日ベースの日付（ローカル時刻）を YYYY-MM-DD で返す
+function ymd(d){
+    const y = d.getFullYear();
+    const m = String(d.getMonth()+1).padStart(2,'0');
+    const day = String(d.getDate()).padStart(2,'0');
+    return y+'-'+m+'-'+day;
+}
+const now = new Date();
+const todayStr = ymd(now);
+document.getElementById('todayDate').value = todayStr;
+
+// イベント例プリセット（固定日。年は基準日から動的に算出）
+function buildPresets(){
+    const row = document.getElementById('presetRow');
+    row.innerHTML = '';
+    const baseStr = document.getElementById('todayDate').value || todayStr;
+    const baseY = parseInt(baseStr.slice(0,4),10);
+    // 固定日のイベント（月日固定。基準日を過ぎていれば翌年）
+    const fixed = [
+        {name:'クリスマス', m:12, d:25},
+        {name:'年末（大晦日）', m:12, d:31},
+        {name:'元日', m:1, d:1},
+        {name:'バレンタイン', m:2, d:14},
+        {name:'ハロウィン', m:10, d:31}
+    ];
+    fixed.forEach(ev=>{
+        let y = baseY;
+        const cand = y+'-'+String(ev.m).padStart(2,'0')+'-'+String(ev.d).padStart(2,'0');
+        if (cand < baseStr) y = baseY + 1;
+        const dateStr = y+'-'+String(ev.m).padStart(2,'0')+'-'+String(ev.d).padStart(2,'0');
+        const btn = document.createElement('button');
+        btn.textContent = ev.name;
+        btn.onclick = ()=>{ document.getElementById('targetDate').value = dateStr; calcCountdown(); };
+        row.appendChild(btn);
+    });
+}
+
+function calcCountdown(){
+    const t = document.getElementById('targetDate').value;
+    const baseStr = document.getElementById('todayDate').value;
+    if (!t || !baseStr) return;
+    // 時差を避けるため UTC正午で生成し、日付差をミリ秒/86400000で丸める
+    const tp = t.split('-').map(Number);
+    const bp = baseStr.split('-').map(Number);
+    const target = Date.UTC(tp[0], tp[1]-1, tp[2]);
+    const base = Date.UTC(bp[0], bp[1]-1, bp[2]);
+    const diff = Math.round((target - base) / 86400000);
+
+    const bigDays = document.getElementById('bigDays');
+    const bigUnit = document.getElementById('bigUnit');
+    const headline = document.getElementById('headline');
+    const targetLabel = document.getElementById('targetLabel');
+    const diffDays = document.getElementById('diffDays');
+    const diffWeeks = document.getElementById('diffWeeks');
+    const diffMonths = document.getElementById('diffMonths');
+    const statusLabel = document.getElementById('statusLabel');
+
+    const abs = Math.abs(diff);
+    diffWeeks.textContent = '約' + Math.floor(abs/7) + '週間';
+    diffMonths.textContent = '約' + Math.floor(abs/30) + 'ヶ月';
+    targetLabel.textContent = '目標日: ' + t;
+
+    if (diff > 0){
+        headline.textContent = 'あと';
+        bigDays.textContent = diff;
+        bigUnit.textContent = '日';
+        diffDays.textContent = '残り ' + diff + '日';
+        statusLabel.textContent = 'これから';
+    } else if (diff === 0){
+        headline.textContent = '本日が目標日';
+        bigDays.textContent = '0';
+        bigUnit.textContent = '日（当日）';
+        diffDays.textContent = '当日（あと0日）';
+        statusLabel.textContent = '当日';
+    } else {
+        headline.textContent = '目標日から';
+        bigDays.textContent = abs;
+        bigUnit.textContent = '日経過';
+        diffDays.textContent = abs + '日経過';
+        statusLabel.textContent = '経過';
+    }
+}
+
+buildPresets();
+// 初期表示: 今年の年末をデフォルト目標に
+(function(){
+    const baseY = parseInt(todayStr.slice(0,4),10);
+    let y = baseY;
+    const cand = y+'-12-31';
+    if (cand < todayStr) y = baseY + 1;
+    document.getElementById('targetDate').value = y+'-12-31';
+    calcCountdown();
+})();
+</script>
+</body>
+</html>
