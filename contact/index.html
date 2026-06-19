@@ -50,12 +50,21 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"ContactPage","name":"お問い合わせ","description":"DevTools Japanへのお問い合わせ","url":"https://www.devtools-japan.com/contact/","provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com","logo":"https://www.devtools-japan.com/favicon.svg","description":"日本の開発者・ビジネスパーソン・フリーランス向けの無料オンラインツール集。全処理ブラウザ完結・登録不要。","contactPoint":{"@type":"ContactPoint","contactType":"customer support","url":"https://www.devtools-japan.com/contact/"}}
+    </script>
+    <!-- TODO要記入(Tom): OrganizationのsameAsにX/GitHub等の公式プロフィールURLを追加 -->
 </head>
 <body>
 <div class="container">
     <a href="/" class="back"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a>
     <h1>お問い合わせ</h1>
     <p class="sub">バグ報告、機能リクエスト、ご意見などお気軽にどうぞ</p>
+
+    <div class="form-card" style="padding:20px 24px">
+        <p style="font-size:0.85rem;color:var(--text2);margin:0 0 8px;line-height:1.9">下記のフォームから、<strong>ツールの不具合報告</strong>・<strong>計算結果や数値の誤りのご指摘</strong>・<strong>新しいツールや機能のご要望</strong>・ご感想をお寄せください。いただいたご指摘は内容を確認のうえ、必要に応じてツールや記事を修正します。返信が必要な場合は、2〜3営業日を目安にご返信します。</p>
+        <p style="font-size:0.78rem;color:var(--text3);margin:0;line-height:1.8">※ 個別の税務・法務に関する相談にはお答えできません。具体的な税額や手続きの判断は、税理士・お住まいの自治体等の専門窓口をご利用ください。<!-- TODO要記入(Tom): フォーム以外の公開用連絡手段（公開用メール等）を設ける場合はここに追記 --></p>
+    </div>
 
     <div class="form-card" id="formCard">
         <form action="https://formspree.io/f/mbdpjage" method="POST" id="contactForm">
