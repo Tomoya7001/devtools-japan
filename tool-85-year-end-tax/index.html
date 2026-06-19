@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E27Q8YTG7L');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>年末調整 還付金シミュレーター | 生命保険料控除・扶養でいくら戻る【無料】</title>
+    <meta name="description" content="年末調整で戻る還付金の目安を自動計算する無料ツール。生命保険料控除・地震保険料控除・iDeCo・扶養控除・配偶者控除などの追加控除額から、所得税の還付見込みを限界税率×1.021（復興特別所得税込み）で概算。令和8年（2026年）対応。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- TODO要確認: 各種所得控除の控除額・適用要件（生命保険料控除の上限、扶養控除・配偶者控除の区分別控除額、令和8年分の改正の有無）は国税庁 https://www.nta.go.jp/ で要確認。本ツールは年末調整で戻る所得税の概算であり、源泉徴収済み税額を超える還付は生じない点に注意。 -->
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#0ea5e9;--accent-dim:rgba(14,165,233,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(14,165,233,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}.row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:240px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent);word-break:break-all}
+        .result-item .value.tax{color:var(--red)}.result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.06);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:8px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-85-year-end-tax/">
+    <meta property="og:title" content="年末調整 還付金シミュレーター【無料】">
+    <meta property="og:description" content="生命保険料控除・扶養・iDeCoなどの追加控除から年末調整で戻る還付金の目安を自動計算">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-85-year-end-tax/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="年末調整 還付金シミュレーター【無料】">
+    <meta name="twitter:description" content="追加控除から年末調整の還付金の目安を自動計算">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"年末調整 還付金シミュレーター","description":"生命保険料控除・扶養控除などの追加控除額から年末調整で戻る所得税の還付金の目安を計算","url":"https://www.devtools-japan.com/tool-85-year-end-tax/","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"DevTools Japan","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"年末調整 還付金シミュレーター","item":"https://www.devtools-japan.com/tool-85-year-end-tax/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"年末調整で還付金はなぜ戻るのですか？","acceptedAnswer":{"@type":"Answer","text":"毎月の給与から天引きされる源泉所得税は、生命保険料控除や扶養の状況を反映しない概算で計算されています。年末調整でこれらの所得控除を反映して正しい年税額を計算し直すと、源泉徴収で多めに引かれていた分が戻ります。これが還付金です。逆に控除が減った場合などは追加徴収になることもあります。"}},{"@type":"Question","name":"年末調整の還付金はいくらくらいですか？","acceptedAnswer":{"@type":"Answer","text":"還付金の目安は「追加で反映される所得控除額 × 所得税の限界税率 × 1.021」です。たとえば生命保険料控除と扶養控除で追加の控除額が合計40万円、限界税率が10%の方なら、40万円×10%×1.021＝約4万円が還付の目安です。控除額が同じでも税率が高い人ほど還付額は大きくなります。"}},{"@type":"Question","name":"1.021を掛けるのはなぜですか？","acceptedAnswer":{"@type":"Answer","text":"2037年まで、所得税額に対して2.1%の復興特別所得税が上乗せされます。控除が増えると所得税本体だけでなく復興特別所得税も減るため、両方を反映するために1.021（＝1＋0.021）を掛けています。本ツールの還付目安にもこの上乗せ分が含まれています。"}},{"@type":"Question","name":"生命保険料控除はいくらまで申告できますか？","acceptedAnswer":{"@type":"Answer","text":"新制度では一般生命保険料・介護医療保険料・個人年金保険料の3区分があり、各区分の控除額の上限は所得税で4万円、合計で最高12万円です。実際の控除額は支払保険料に応じて段階計算されるため、保険会社から届く控除証明書の金額を確認して入力してください。控除上限や要件は国税庁の案内でご確認ください。"}},{"@type":"Question","name":"住民税も年末調整で戻りますか？","acceptedAnswer":{"@type":"Answer","text":"年末調整で精算されるのは所得税のみです。住民税は前年の所得をもとに翌年度に課税されるため、その場では還付されません。ただし年末調整で反映した所得控除は住民税の計算にも使われるため、翌年度の住民税が控除額のおおむね10%軽減される効果があります。本ツールの還付目安はこの住民税分を含まない所得税のみの概算です。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>年末調整 還付金シミュレーター</h1><p>生命保険料控除・扶養などの追加控除から戻る所得税の目安を自動計算</p></header>
+    <div class="note">年末調整で戻る所得税（還付金）の概算を計算するツールです。「追加で反映される所得控除額 × 限界税率 × 1.021（復興特別所得税込み）」で見積もります。実際の還付額はその年に源泉徴収された税額が上限となり、他の控除や端数処理で変動します。正確な額は勤務先（給与担当）・税務署・税理士でご確認ください。令和8年（2026年）時点の一般的な計算に基づく概算です。</div>
+
+    <div class="card"><h3>追加で反映する所得控除を入力</h3>
+        <div class="row"><label>生命保険料控除（証明書の控除額）</label><input type="number" id="life" value="100000" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>地震保険料控除</label><input type="number" id="quake" value="0" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>iDeCo・小規模企業共済等掛金（全額）</label><input type="number" id="ideco" value="240000" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>扶養親族の人数（一般扶養 38万円/人）</label><input type="number" id="dependents" value="1" oninput="calc()"><span class="unit">人</span></div>
+        <div class="row"><label>配偶者（特別）控除</label><input type="number" id="spouse" value="0" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>その他の追加控除（ひとり親・障害者控除など）</label><input type="number" id="other" value="0" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>所得税率（限界税率）</label><select id="rate" onchange="calc()"><option value="0.05">5%（課税所得195万円以下）</option><option value="0.10" selected>10%（195万〜330万円）</option><option value="0.20">20%（330万〜695万円）</option><option value="0.23">23%（695万〜900万円）</option><option value="0.33">33%（900万〜1800万円）</option><option value="0.40">40%（1800万〜4000万円）</option><option value="0.45">45%（4000万円超）</option></select><span class="unit"></span></div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">追加控除額の合計</div><div class="value" id="rDeduction">-</div></div>
+        <div class="result-item"><div class="label">扶養控除（自動計算）</div><div class="value" id="rDependents">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">所得税の還付目安</div><div class="value take" id="rRefund" style="font-size:1.8rem">-</div></div>
+        <div class="result-item"><div class="label">（参考）翌年度 住民税の軽減目安</div><div class="value" id="rResident" style="font-size:1.8rem">-</div></div>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>年末調整の還付金の仕組み</h2>
+        <p>年末調整は、会社員やパート・アルバイトの方の1年間の所得税を年末に精算する手続きです。毎月の給与から天引きされる源泉所得税は、生命保険料控除や扶養の状況などを反映していない「概算」で計算されています。そのため年末に正しい年税額を計算し直すと、多めに引かれていた分が戻ってきます。これが年末調整の「還付金」です。逆に、年の途中で扶養が減ったなどの場合は不足分が追加で徴収されることもあります。</p>
+        <h3>還付金のかんたんな計算式</h3>
+        <p>年末調整で「新たに反映される所得控除」によって戻る所得税は、次の式で概算できます。<br>還付金の目安 ＝ 追加で反映される所得控除額 × 所得税の限界税率 × 1.021</p>
+        <p>所得控除が増えると、その分だけ課税所得が下がり、税率を掛けた所得税が安くなります。給与天引きの段階でこれらの控除が反映されていなかった場合、年末調整でまとめて精算されて戻ってくるという仕組みです。末尾の <strong>1.021</strong> は、所得税に上乗せされる復興特別所得税（税額の2.1%・2037年まで）を含めるための係数です。本ツールはこの式に沿って、追加控除額の合計・所得税の還付目安・翌年度の住民税の軽減目安を一度に表示します。</p>
+        <h3>限界税率（適用される税率）とは</h3>
+        <p>所得税は課税所得に応じて5%・10%・20%・23%・33%・40%・45%と段階的に上がる累進課税です。「限界税率」とは、その人の課税所得に対して最後に適用されている税率のことで、控除が増えたときに減る税額はこの税率で決まります。たとえば課税所得が300万円の方は限界税率10%、課税所得が500万円の方は20%です。同じ10万円の控除でも、税率10%の人は約1万円、20%の人は約2万円の還付になり、所得が高い人ほど同じ控除での還付額は大きくなります。自分の限界税率がわからない場合は、源泉徴収票の「課税される所得金額」のおおよその水準から選んでください。</p>
+        <h3>主な追加控除の目安</h3>
+        <p>年末調整で反映できる代表的な所得控除には次のものがあります。<strong>生命保険料控除</strong>は新制度で一般・介護医療・個人年金の3区分があり合計で最高12万円、<strong>地震保険料控除</strong>は最高5万円です。<strong>iDeCo（個人型確定拠出年金）や小規模企業共済等掛金控除</strong>は支払額が全額控除されます。<strong>扶養控除</strong>は一般の扶養親族が1人あたり38万円（特定扶養親族は63万円）、<strong>配偶者控除・配偶者特別控除</strong>は本人と配偶者の所得に応じて最高38万円です。これらは控除証明書や扶養の状況をもとに入力してください。控除額や適用要件の詳細は国税庁のサイトでご確認ください。</p>
+        <h3>還付金はいつ・どうやって戻る？</h3>
+        <p>年末調整の還付金は、一般に12月または翌年1月の給与と一緒に支払われます（会社の処理時期により前後します）。生命保険料控除証明書や扶養控除等申告書を勤務先に提出することで反映されるため、提出を忘れると本来戻るはずの還付が受けられません。年末調整で控除し忘れた分（医療費控除やふるさと納税の一部など年末調整で扱えないものを含む）は、翌年の確定申告（還付申告）で取り戻すことができます。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>年末調整 還付金の早見表</h2>
+        <p>「追加控除額がいくらで、どのくらい還付されるのか」を一目で確認できる早見表です。下の数値は、本ツールと同じ計算式（追加控除額 × 限界税率 × 1.021）で算出した所得税の還付目安です。実際にはその年に源泉徴収された税額が還付の上限になります。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>追加控除額の合計</th><th>還付目安（税率5%）</th><th>還付目安（税率10%）</th><th>還付目安（税率20%）</th></tr>
+            <tr><td>5万円</td><td>2,552円</td><td>5,104円</td><td>10,209円</td></tr>
+            <tr><td>10万円</td><td>5,104円</td><td>10,209円</td><td>20,419円</td></tr>
+            <tr><td>20万円</td><td>10,209円</td><td>20,419円</td><td>40,839円</td></tr>
+            <tr><td>38万円（扶養1人）</td><td>19,399円</td><td>38,798円</td><td>77,596円</td></tr>
+            <tr><td>76万円（扶養2人）</td><td>38,798円</td><td>77,596円</td><td>155,192円</td></tr>
+        </table>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text3)">※ 復興特別所得税（2.1%）を含む所得税のみの概算です。翌年度の住民税の軽減（控除額の約10%）は含んでいません。実際の還付額はその年に源泉徴収された税額や他の控除・端数処理により変動します。正確な金額は上の計算ツールや勤務先・税務署でご確認ください。</p>
+
+        <h2 style="margin-top:24px">よくある質問</h2>
+        <div class="faq-item"><div class="q">年末調整で還付金はなぜ戻るのですか？</div><div class="a">毎月の給与から天引きされる源泉所得税は、生命保険料控除や扶養の状況を反映しない概算で計算されています。年末調整でこれらの所得控除を反映して正しい年税額を計算し直すと、源泉徴収で多めに引かれていた分が戻ります。これが還付金です。逆に控除が減った場合などは追加徴収になることもあります。</div></div>
+        <div class="faq-item"><div class="q">年末調整の還付金はいくらくらいですか？</div><div class="a">還付金の目安は「追加で反映される所得控除額 × 所得税の限界税率 × 1.021」です。たとえば生命保険料控除と扶養控除で追加の控除額が合計40万円、限界税率が10%の方なら、40万円×10%×1.021＝約4万円が還付の目安です。控除額が同じでも税率が高い人ほど還付額は大きくなります。</div></div>
+        <div class="faq-item"><div class="q">1.021を掛けるのはなぜですか？</div><div class="a">2037年まで、所得税額に対して2.1%の復興特別所得税が上乗せされます。控除が増えると所得税本体だけでなく復興特別所得税も減るため、両方を反映するために1.021（＝1＋0.021）を掛けています。本ツールの還付目安にもこの上乗せ分が含まれています。</div></div>
+        <div class="faq-item"><div class="q">生命保険料控除はいくらまで申告できますか？</div><div class="a">新制度では一般生命保険料・介護医療保険料・個人年金保険料の3区分があり、各区分の控除額の上限は所得税で4万円、合計で最高12万円です。実際の控除額は支払保険料に応じて段階計算されるため、保険会社から届く控除証明書の金額を確認して入力してください。控除上限や要件は国税庁の案内でご確認ください。</div></div>
+        <div class="faq-item"><div class="q">住民税も年末調整で戻りますか？</div><div class="a">年末調整で精算されるのは所得税のみです。住民税は前年の所得をもとに翌年度に課税されるため、その場では還付されません。ただし年末調整で反映した所得控除は住民税の計算にも使われるため、翌年度の住民税が控除額のおおむね10%軽減される効果があります。本ツールの還付目安はこの住民税分を含まない所得税のみの概算です。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="/tool-86-tax-refund/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">確定申告 還付金・医療費控除</a><a href="/tool-64-take-home-pay/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">手取り計算</a><a href="/tool-77-income-wall/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年収の壁シミュレーター</a><a href="/tool-75-residence-tax/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">住民税計算</a></div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+    <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+function calc() {
+    const life = parseInt(document.getElementById('life').value) || 0;
+    const quake = parseInt(document.getElementById('quake').value) || 0;
+    const ideco = parseInt(document.getElementById('ideco').value) || 0;
+    const dependents = parseInt(document.getElementById('dependents').value) || 0;
+    const spouse = parseInt(document.getElementById('spouse').value) || 0;
+    const other = parseInt(document.getElementById('other').value) || 0;
+    const rate = parseFloat(document.getElementById('rate').value) || 0;
+
+    // 扶養控除（自動計算）= 一般扶養親族 38万円/人
+    const depDeduction = Math.max(0, dependents) * 380000;
+
+    // 追加控除額の合計
+    const deduction = Math.max(0, life) + Math.max(0, quake) + Math.max(0, ideco)
+        + depDeduction + Math.max(0, spouse) + Math.max(0, other);
+
+    // 所得税の還付目安 = floor(追加控除額 × 限界税率 × 1.021)（復興特別所得税込み）
+    const refund = Math.floor(deduction * rate * 1.021);
+
+    // （参考）翌年度 住民税の軽減目安 = floor(追加控除額 × 10%)
+    const resident = Math.floor(deduction * 0.10);
+
+    const f = n => '¥' + Math.max(0, n).toLocaleString();
+    document.getElementById('rDeduction').textContent = f(deduction);
+    document.getElementById('rDependents').textContent = f(depDeduction);
+    document.getElementById('rRefund').textContent = f(refund);
+    document.getElementById('rResident').textContent = f(resident);
+}
+calc();
+</script>
+</body>
+</html>
