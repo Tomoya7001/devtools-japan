@@ -1,6 +1,6 @@
 # DevTools Japan
 
-> 日本の開発者・デザイナー・フリーランス・士業・事務職向けの無料オンラインツール集。70種類以上のツールをブラウザだけで利用可能。会員登録不要・サーバー送信なし・完全無料。
+> 日本の開発者・デザイナー・フリーランス・士業・事務職向けの無料オンラインツール集。91種類以上のツールをブラウザだけで利用可能。会員登録不要・サーバー送信なし・完全無料。
 
 ## サイト情報
 - URL: https://www.devtools-japan.com
@@ -32,6 +32,12 @@
 - OGPプレビュー: https://www.devtools-japan.com/tool-24-ogp-preview/
 - アスペクト比計算: https://www.devtools-japan.com/tool-28-aspect-ratio/
 - 画像圧縮: https://www.devtools-japan.com/tool-10-image-compress/
+- 画像形式変換（PNG/JPG/WebP）: https://www.devtools-japan.com/tool-79-image-convert/
+- 画像→PDF変換: https://www.devtools-japan.com/tool-80-image-to-pdf/
+- PDF結合: https://www.devtools-japan.com/tool-81-pdf-merge/
+- PDF分割: https://www.devtools-japan.com/tool-87-pdf-split/
+- 画像リサイズ: https://www.devtools-japan.com/tool-88-image-resize/
+- OGP画像生成: https://www.devtools-japan.com/tool-90-ogp-image/
 
 ## 日本語・日本特化ツール
 - 文字数カウンター: https://www.devtools-japan.com/tool-01-moji-counter/
@@ -39,6 +45,10 @@
 - 和暦西暦変換: https://www.devtools-japan.com/tool-12-wareki/
 - 全角半角変換: https://www.devtools-japan.com/tool-19-zenkaku-hankaku/
 - 文章校正チェッカー: https://www.devtools-japan.com/tool-26-proofreader/
+- 原稿用紙換算（文字数⇔枚数）: https://www.devtools-japan.com/tool-76-manuscript-paper/
+- SNS文字数制限カウンター: https://www.devtools-japan.com/tool-78-sns-char-limit/
+- LLMトークン数カウンター: https://www.devtools-japan.com/tool-82-llm-token/
+- 読了時間計算: https://www.devtools-japan.com/tool-83-reading-time/
 
 ## フリーランス・税金・お金ツール
 - 確定申告シミュレーター: https://www.devtools-japan.com/tool-21-tax-simulator/
@@ -54,6 +64,16 @@
 - ふるさと納税上限額シミュレーター: https://www.devtools-japan.com/tool-66-furusato-tax/
 - 時給月給年収換算: https://www.devtools-japan.com/tool-67-wage-converter/
 - 為替計算: https://www.devtools-japan.com/tool-69-currency-calc/
+- 年収の壁シミュレーター（2026改正対応）: https://www.devtools-japan.com/tool-77-income-wall/
+- 年末調整還付金シミュレーター: https://www.devtools-japan.com/tool-85-year-end-tax/
+- 確定申告還付・医療費控除計算: https://www.devtools-japan.com/tool-86-tax-refund/
+- 車の減価償却計算: https://www.devtools-japan.com/tool-71-car-depreciation/
+- ボーナス手取り計算: https://www.devtools-japan.com/tool-72-bonus-take-home/
+- 退職金手取り計算: https://www.devtools-japan.com/tool-73-retirement-tax/
+- 社会保険料計算: https://www.devtools-japan.com/tool-74-social-insurance/
+- 住民税計算: https://www.devtools-japan.com/tool-75-residence-tax/
+- 割引・値引き計算: https://www.devtools-japan.com/tool-84-discount-calc/
+- 割り勘計算: https://www.devtools-japan.com/tool-89-warikan/
 
 ## ビジネス・士業向けツール
 - 営業日計算: https://www.devtools-japan.com/tool-51-business-day-calc/
@@ -69,6 +89,7 @@
 - パスワード付きZIP作成: https://www.devtools-japan.com/tool-70-zip-password/
 - QRコード生成: https://www.devtools-japan.com/tool-04-qr-generator/
 - 単位変換: https://www.devtools-japan.com/tool-32-unit-converter/
+- 日付カウントダウン: https://www.devtools-japan.com/tool-91-countdown/
 
 ## API
 DevTools Japan APIとして30本以上の無料REST APIを提供。認証不要で即利用可能。
