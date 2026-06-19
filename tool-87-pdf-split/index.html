@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF分割・ページ抽出ツール | 無料でページを抜き出し・1ページずつ分割・登録不要・送信なし</title>
+    <meta name="description" content="PDFから必要なページだけを抜き出したり、1ページずつ個別PDFに分割できる無料ツール。ブラウザ上で処理が完結し、サーバーへのアップロード不要でプライバシー安全。「1-3」「2,4,6-8」のページ範囲指定に対応。登録不要・無料で使えます。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#b91c1c;--accent-dim:rgba(185,28,28,0.1);--green:#22c55e;--radius:12px}
+        ::selection{background:rgba(185,28,28,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+
+        .dropzone{border:2px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:all 0.3s;margin-bottom:24px;background:var(--bg-card)}
+        .dropzone:hover,.dropzone.dragover{border-color:var(--accent);background:var(--accent-dim)}
+        .dropzone .icon{font-size:3rem;margin-bottom:12px}
+        .dropzone p{color:var(--text2);font-size:0.9rem}
+        .dropzone small{color:var(--text3);font-size:0.75rem}
+        input[type="file"]{display:none}
+
+        .privacy-note{background:var(--accent-dim);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;margin-bottom:24px;font-size:0.8rem;color:var(--text2);text-align:center}
+
+        .file-info{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;margin-bottom:24px;display:none;align-items:center;gap:12px}
+        .file-info .name{flex:1;font-size:0.85rem;color:var(--text);word-break:break-all}
+        .file-info .meta{font-size:0.75rem;color:var(--text3);font-family:'JetBrains Mono',monospace;white-space:nowrap}
+        .file-info .pages{font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--accent);font-weight:700;white-space:nowrap}
+
+        .panel{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px;display:none}
+        .panel h2{font-size:0.95rem;color:var(--text);margin-bottom:6px}
+        .panel p.hint{font-size:0.78rem;color:var(--text3);margin-bottom:12px;line-height:1.7}
+        .field{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+        input[type="text"]{flex:1;min-width:180px;padding:11px 14px;border:1px solid var(--border);border-radius:8px;background:#f7f8fb;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.9rem}
+        input[type="text"]:focus{outline:none;border-color:var(--accent)}
+        .divider{height:1px;background:var(--border);margin:20px 0}
+
+        .btn{padding:12px 24px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text2);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+        .btn:hover{border-color:var(--accent);color:var(--text)}
+        .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:500}
+        .btn-primary:hover{color:#fff}
+        .btn:disabled{opacity:0.5;cursor:default}
+        .btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+
+        .status{text-align:center;font-size:0.85rem;color:var(--text2);margin-bottom:24px;min-height:20px}
+        .status.error{color:var(--accent)}
+        .status.ok{color:var(--green)}
+
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-87-pdf-split/">
+    <meta property="og:title" content="PDF分割・ページ抽出ツール | DevTools Japan">
+    <meta property="og:description" content="PDFから必要なページだけ抽出・1ページずつ分割。ブラウザ完結・サーバー送信なし">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-87-pdf-split/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="PDF分割・ページ抽出ツール | DevTools Japan">
+    <meta name="twitter:description" content="PDFから必要なページだけ抽出・1ページずつ分割。ブラウザ完結・サーバー送信なし">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"PDF分割・ページ抽出ツール","description":"PDFから必要なページだけ抽出・1ページずつ分割。ブラウザ完結・サーバー送信なし","url":"https://www.devtools-japan.com/tool-87-pdf-split/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"PDF分割・ページ抽出ツール","item":"https://www.devtools-japan.com/tool-87-pdf-split/"}]}
+    </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"PDFはサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。PDFの読み込みからページ抽出・分割処理、ダウンロードまですべてお使いのブラウザ内で完結し、サーバーへの送信は一切ありません。契約書や社内資料など機密性の高い書類でも、ファイルが外部に漏れる心配なく無料・登録不要で分割できます。"}},{"@type":"Question","name":"特定のページだけ取り出せますか？","acceptedAnswer":{"@type":"Answer","text":"はい。ページ範囲を指定して必要なページだけを抜き出せます。たとえば「1-3」と入力すれば1ページ目から3ページ目だけ、「2,4,6-8」のようにカンマと範囲を組み合わせれば飛び飛びのページもまとめて1つのPDFとして抽出できます。契約書の一部だけ提出したい場合などに便利です。"}},{"@type":"Question","name":"1ページずつ分割できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。「1ページずつ個別PDFに分割」を実行すると、PDFの各ページがそれぞれ独立した1ファイルのPDFに分割され、ページ番号付きのファイル名で順番にダウンロードされます。資料をページ単位でバラして配布・管理したい場合に役立ちます。"}},{"@type":"Question","name":"パスワード付きPDFは分割できますか？","acceptedAnswer":{"@type":"Answer","text":"暗号化（パスワード保護）されたPDFは読み込めず、分割できない場合があります。あらかじめPDF閲覧ソフトでパスワードを解除し、保護のかかっていない状態で保存し直してから読み込んでください。読み込みに失敗した場合はエラーとして表示されます。"}},{"@type":"Question","name":"ページ範囲はどう書きますか？","acceptedAnswer":{"@type":"Answer","text":"半角数字で指定します。連続したページは「1-3」のようにハイフンでつなぎ、離れたページはカンマで区切ります。「5」なら5ページ目だけ、「2,4,6-8」なら2・4・6・7・8ページ目が対象です。総ページ数を超える番号や順序が逆の指定は無効になるため、表示されている総ページ数の範囲内で入力してください。"}}]}
+</script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot" style="display:none"></div>
+    <header><h1>PDF分割・ページ抽出ツール</h1><p>PDFから必要なページだけ抽出、または1ページずつ分割。サーバー送信なし・プライバシー安全。</p></header>
+
+    <div class="privacy-note">PDFはブラウザ内で処理され、サーバーにアップロードされません。</div>
+
+    <div class="dropzone" id="dropzone" onclick="document.getElementById('fileInput').click()">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></div>
+        <p>クリックまたはドラッグ＆ドロップでPDFを選択</p>
+        <small>PDFファイルを1つ選択</small>
+    </div>
+    <input type="file" id="fileInput" accept="application/pdf" onchange="loadFile(this.files)">
+
+    <div class="file-info" id="fileInfo">
+        <span class="name" id="fileName"></span>
+        <span class="meta" id="fileSize"></span>
+        <span class="pages" id="filePages"></span>
+    </div>
+
+    <div class="panel" id="panel">
+        <h2>ページを抽出</h2>
+        <p class="hint">取り出したいページ範囲を入力します。例：「1-3」（1〜3ページ）／「5」（5ページのみ）／「2,4,6-8」（2・4・6〜8ページ）。指定したページだけを集めた新しいPDFをダウンロードします。</p>
+        <div class="field">
+            <input type="text" id="rangeInput" placeholder="例: 1-3  /  5  /  2,4,6-8" autocomplete="off">
+            <button class="btn btn-primary" id="extractBtn" onclick="extractPages()">抽出してダウンロード</button>
+        </div>
+        <div class="divider"></div>
+        <h2>1ページずつ分割</h2>
+        <p class="hint">PDFの全ページをそれぞれ独立した1ファイルのPDFに分割し、ページ番号付きのファイル名で順番にダウンロードします。</p>
+        <button class="btn" id="splitBtn" onclick="splitAll()">1ページずつ個別PDFに分割</button>
+    </div>
+
+    <div class="btn-row" id="resetRow" style="display:none">
+        <button class="btn" onclick="resetAll()">リセット</button>
+    </div>
+
+    <div class="status" id="status"></div>
+
+    <div class="ad-slot" style="display:none"></div>
+    <div class="seo-content">
+        <h2>PDF分割・ページ抽出ツールの使い方</h2>
+        <p>1つのPDFから必要なページだけを取り出したり、1つのPDFを複数のファイルに分けたりできる無料ツールです。契約書のうち提出が必要な数ページだけを抜き出して送る、分厚い会議資料を章ごとやページ単位に分割して関係者に配る、スキャンしてまとめてしまった書類から特定のページだけを切り出すなど、日常的な書類整理で頻繁に発生する作業を、ブラウザ上だけで完結させられます。ページ範囲を指定する「抽出」と、全ページをばらばらにする「1ページずつ分割」の2つのモードを用意しており、目的に合わせて使い分けられます。</p>
+        <p>PDFを分割できるサービスは数多くありますが、その多くは会員登録が必要だったり、無料では分割できる回数やページ数に制限があったり、有料プランへの誘導が前提になっていたりします。さらにそうしたサービスの大半は、アップロードしたPDFを一度サーバーに送信して処理するため、機密性の高い書類を扱う際にはセキュリティ面の不安が残ります。本ツールはこれらの課題を解決するために、すべての処理をお使いのブラウザ内（クライアントサイド）で完結させています。PDFはサーバーにアップロードされず、登録も不要で、回数制限もなく完全無料で利用できます。</p>
+        <h3>プライバシー</h3>
+        <p>選択したPDFはJavaScriptによってブラウザ内で読み込まれ、ページの抽出や分割処理もそのままブラウザ内で行われます。ファイルが外部のサーバーに送信されることは一切ありません。契約書・請求書・社内資料といった他人に見られたくない書類でも、安心して分割・抽出できます。生成されたPDFはお使いの端末にそのままダウンロードされます。</p>
+    </div>
+    <div class="seo-content">
+        <h2>ページ指定の書き方・使い方の流れ</h2>
+        <p>PDFを1つ選択すると総ページ数が表示され、抽出と分割の操作が行えるようになります。ページ範囲は半角数字で指定し、連続したページはハイフン、離れたページはカンマで区切ります。下の表に書き方の例と、それぞれの操作の違いをまとめました。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>入力例</th><th>対象ページ</th><th>意味</th></tr></thead>
+            <tbody>
+                <tr><td class="acc">1-3</td><td>1, 2, 3</td><td>ハイフンで連続した範囲を指定</td></tr>
+                <tr><td class="acc">5</td><td>5</td><td>単一のページだけを指定</td></tr>
+                <tr><td class="acc">2,4,6-8</td><td>2, 4, 6, 7, 8</td><td>カンマで離れたページ、範囲と組み合わせ可</td></tr>
+                <tr><td class="acc">1,3,5</td><td>1, 3, 5</td><td>奇数ページだけなど飛び飛びの指定</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <h3>抽出と分割の違い</h3>
+        <p>「抽出」は、入力したページ範囲に該当するページだけを集めて1つの新しいPDFを作成します。たとえば「2,4,6-8」と入力すれば、2・4・6・7・8ページ目だけをまとめたPDFが1ファイルとしてダウンロードされます。必要なページだけを取り出して提出・共有したいときに使います。一方「1ページずつ分割」は、PDFの全ページをそれぞれ独立した1ファイルのPDFに分け、ページ番号付きのファイル名で順番にダウンロードします。資料をページ単位でバラして個別に扱いたいときに便利です。総ページ数を超える番号や順序が逆の指定は無効として扱われるため、表示されている総ページ数の範囲内で入力してください。パスワードで保護（暗号化）されたPDFは読み込めず処理できない場合があるため、その場合はあらかじめパスワードを解除してから読み込んでください。読み込みに失敗したファイルはエラーとして表示されます。サーバーを使わずブラウザのメモリ上で処理する仕様のため、扱えるファイルサイズやページ数は端末のメモリ性能に依存します。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">PDFはサーバーに送信されますか？</div><div class="a">いいえ。PDFの読み込みからページ抽出・分割処理、ダウンロードまですべてお使いのブラウザ内で完結し、サーバーへの送信は一切ありません。契約書や社内資料など機密性の高い書類でも、ファイルが外部に漏れる心配なく無料・登録不要で分割できます。</div></div>
+        <div class="faq-item"><div class="q">特定のページだけ取り出せますか？</div><div class="a">はい。ページ範囲を指定して必要なページだけを抜き出せます。たとえば「1-3」と入力すれば1ページ目から3ページ目だけ、「2,4,6-8」のようにカンマと範囲を組み合わせれば飛び飛びのページもまとめて1つのPDFとして抽出できます。契約書の一部だけ提出したい場合などに便利です。</div></div>
+        <div class="faq-item"><div class="q">1ページずつ分割できますか？</div><div class="a">はい。「1ページずつ個別PDFに分割」を実行すると、PDFの各ページがそれぞれ独立した1ファイルのPDFに分割され、ページ番号付きのファイル名で順番にダウンロードされます。資料をページ単位でバラして配布・管理したい場合に役立ちます。</div></div>
+        <div class="faq-item"><div class="q">パスワード付きPDFは分割できますか？</div><div class="a">暗号化（パスワード保護）されたPDFは読み込めず、分割できない場合があります。あらかじめPDF閲覧ソフトでパスワードを解除し、保護のかかっていない状態で保存し直してから読み込んでください。読み込みに失敗した場合はエラーとして表示されます。</div></div>
+        <div class="faq-item"><div class="q">ページ範囲はどう書きますか？</div><div class="a">半角数字で指定します。連続したページは「1-3」のようにハイフンでつなぎ、離れたページはカンマで区切ります。「5」なら5ページ目だけ、「2,4,6-8」なら2・4・6・7・8ページ目が対象です。総ページ数を超える番号や順序が逆の指定は無効になるため、表示されている総ページ数の範囲内で入力してください。</div></div>
+    </div>
+    <div class="ad-slot" style="display:none"></div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-81-pdf-merge/" style="padding:8px 16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--text)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">PDF結合ツール</a>
+        <a href="/tool-80-image-to-pdf/" style="padding:8px 16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--text)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">画像をPDFに変換</a>
+        <a href="/tool-79-image-convert/" style="padding:8px 16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--text)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">画像形式変換ツール</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<script>
+let pdfFile=null;
+let pageCount=0;
+const dz=document.getElementById('dropzone');
+dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('dragover')});
+dz.addEventListener('dragleave',()=>dz.classList.remove('dragover'));
+dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('dragover');loadFile(e.dataTransfer.files)});
+
+async function loadFile(fileList){
+    const f=fileList[0];
+    document.getElementById('fileInput').value='';
+    if(!f)return;
+    if(!(f.type==='application/pdf'||f.name.toLowerCase().endsWith('.pdf'))){
+        setStatus('PDFファイルを選択してください。','error');return;
+    }
+    setStatus('読み込んでいます…');
+    try{
+        const { PDFDocument } = PDFLib;
+        const bytes = await f.arrayBuffer();
+        const doc = await PDFDocument.load(bytes);
+        pageCount = doc.getPageCount();
+        pdfFile = f;
+        document.getElementById('fileName').textContent = f.name;
+        document.getElementById('fileSize').textContent = formatSize(f.size);
+        document.getElementById('filePages').textContent = '全 '+pageCount+' ページ';
+        document.getElementById('fileInfo').style.display='flex';
+        document.getElementById('panel').style.display='block';
+        document.getElementById('resetRow').style.display='flex';
+        document.getElementById('rangeInput').placeholder='例: 1-'+Math.min(3,pageCount)+'  /  '+Math.min(2,pageCount)+'  /  1,3';
+        setStatus('読み込み完了。総ページ数は '+pageCount+' ページです。','ok');
+    }catch(err){
+        pdfFile=null;pageCount=0;
+        document.getElementById('fileInfo').style.display='none';
+        document.getElementById('panel').style.display='none';
+        document.getElementById('resetRow').style.display='none';
+        setStatus('読み込みに失敗しました。パスワード保護された（暗号化）PDFや破損したファイルでないか確認してください。','error');
+    }
+}
+
+// ページ範囲文字列をパースして1始まりのページ番号配列を返す（昇順・重複なし）
+function parseRange(str,max){
+    const set=new Set();
+    const parts=str.split(',');
+    for(let part of parts){
+        part=part.trim();
+        if(!part)continue;
+        if(part.includes('-')){
+            const m=part.split('-');
+            if(m.length!==2)return null;
+            const a=parseInt(m[0],10),b=parseInt(m[1],10);
+            if(!Number.isInteger(a)||!Number.isInteger(b))return null;
+            if(a<1||b<1||a>max||b>max||a>b)return null;
+            for(let n=a;n<=b;n++)set.add(n);
+        }else{
+            const n=parseInt(part,10);
+            if(!Number.isInteger(n)||n<1||n>max||String(n)!==part)return null;
+            set.add(n);
+        }
+    }
+    if(set.size===0)return null;
+    return Array.from(set).sort((x,y)=>x-y);
+}
+
+async function extractPages(){
+    if(!pdfFile)return;
+    const raw=document.getElementById('rangeInput').value.trim();
+    if(!raw){setStatus('抽出するページ範囲を入力してください（例: 1-3、2,4,6-8）。','error');return;}
+    const nums=parseRange(raw,pageCount);
+    if(!nums){setStatus('ページ範囲の指定が正しくありません。総ページ数（'+pageCount+'）の範囲内で「1-3」「2,4,6-8」のように入力してください。','error');return;}
+    const btn=document.getElementById('extractBtn');
+    btn.disabled=true;
+    setStatus('抽出しています…');
+    try{
+        const { PDFDocument } = PDFLib;
+        const bytes = await pdfFile.arrayBuffer();
+        const src = await PDFDocument.load(bytes);
+        const out = await PDFDocument.create();
+        const indices = nums.map(n=>n-1);
+        const pages = await out.copyPages(src, indices);
+        pages.forEach(p=>out.addPage(p));
+        const data = await out.save();
+        const base = pdfFile.name.replace(/\.pdf$/i,'');
+        downloadPdf(data, base+'_extracted.pdf');
+        setStatus(nums.length+'ページを抽出しました（'+base+'_extracted.pdf）。','ok');
+    }catch(err){
+        setStatus('抽出に失敗しました。パスワード保護された（暗号化）PDFや破損したファイルでないか確認してください。','error');
+    }finally{
+        btn.disabled=false;
+    }
+}
+
+async function splitAll(){
+    if(!pdfFile)return;
+    const btn=document.getElementById('splitBtn');
+    btn.disabled=true;
+    setStatus('分割しています…');
+    try{
+        const { PDFDocument } = PDFLib;
+        const bytes = await pdfFile.arrayBuffer();
+        const src = await PDFDocument.load(bytes);
+        const total = src.getPageCount();
+        const base = pdfFile.name.replace(/\.pdf$/i,'');
+        const pad = String(total).length;
+        for(let i=0;i<total;i++){
+            const out = await PDFDocument.create();
+            const [pg] = await out.copyPages(src, [i]);
+            out.addPage(pg);
+            const data = await out.save();
+            const num = String(i+1).padStart(pad,'0');
+            downloadPdf(data, base+'_p'+num+'.pdf');
+            await new Promise(r=>setTimeout(r,250));
+        }
+        setStatus(total+'ページを個別PDFに分割しました（'+base+'_p'+'…）。','ok');
+    }catch(err){
+        setStatus('分割に失敗しました。パスワード保護された（暗号化）PDFや破損したファイルでないか確認してください。','error');
+    }finally{
+        btn.disabled=false;
+    }
+}
+
+function downloadPdf(data,name){
+    const blob=new Blob([data],{type:'application/pdf'});
+    const a=document.createElement('a');
+    a.download=name;
+    a.href=URL.createObjectURL(blob);
+    a.click();
+    setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+
+function resetAll(){
+    pdfFile=null;pageCount=0;
+    document.getElementById('rangeInput').value='';
+    document.getElementById('fileInfo').style.display='none';
+    document.getElementById('panel').style.display='none';
+    document.getElementById('resetRow').style.display='none';
+    setStatus('');
+}
+
+function setStatus(msg,cls){
+    const el=document.getElementById('status');
+    el.textContent=msg;
+    el.className='status'+(cls?' '+cls:'');
+}
+
+function formatSize(b){return b>1024*1024?(b/1024/1024).toFixed(1)+' MB':(b/1024).toFixed(0)+' KB'}
+</script>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OGP画像ジェネレーター | テキストから1200×630のSNSアイキャッチを無料作成（ブラウザ完結）</title>
+    <meta name="description" content="タイトル・サブタイトル・サイト名を入力するだけで、SNSシェア時に表示される1200×630のOGP画像をブラウザ上で生成。背景色・文字色・配置・グラデーションを選べ、PNGでダウンロード可能。画像はサーバーに送信されません。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#6366f1;--accent-dim:rgba(99,102,241,0.1);--green:#22c55e;--radius:12px}
+        ::selection{background:rgba(99,102,241,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+
+        .panel{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px}
+        .panel h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .field{margin-bottom:16px}
+        .field:last-child{margin-bottom:0}
+        .field label{display:block;font-size:0.85rem;color:var(--text2);margin-bottom:6px}
+        .field label .req{color:var(--accent);font-size:0.72rem;margin-left:6px}
+        input[type="text"],textarea{width:100%;padding:10px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s}
+        input[type="text"]:focus,textarea:focus{border-color:var(--accent)}
+        textarea{resize:vertical;min-height:64px;line-height:1.6}
+
+        .row{display:flex;gap:14px;flex-wrap:wrap}
+        .row .field{flex:1;min-width:140px}
+        .color-row{display:flex;align-items:center;gap:10px}
+        input[type="color"]{-webkit-appearance:none;appearance:none;width:42px;height:38px;border:1px solid var(--border);border-radius:6px;background:none;cursor:pointer;padding:2px}
+        input[type="color"]::-webkit-color-swatch-wrapper{padding:0}
+        input[type="color"]::-webkit-color-swatch{border:none;border-radius:4px}
+        .color-hex{font-family:'JetBrains Mono',monospace;font-size:0.82rem;color:var(--text2)}
+        select{padding:9px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.88rem;outline:none;width:100%}
+
+        .preset-grid{display:flex;gap:8px;flex-wrap:wrap}
+        .preset{width:54px;height:34px;border-radius:6px;border:2px solid var(--border);cursor:pointer;transition:transform 0.15s,border-color 0.15s}
+        .preset:hover{transform:translateY(-2px)}
+        .preset.active{border-color:var(--accent)}
+        .seg{display:flex;gap:8px;flex-wrap:wrap}
+        .seg button{flex:1;min-width:90px;padding:9px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:6px;color:var(--text2);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;cursor:pointer;transition:all 0.2s}
+        .seg button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+        .preview-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:24px}
+        .preview-wrap .plabel{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
+        #previewCanvas{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--border)}
+
+        .btn{padding:12px 24px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text2);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+        .btn:hover{border-color:var(--accent);color:var(--text)}
+        .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:500}
+        .btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+        .note{font-size:0.78rem;color:var(--text3);text-align:center;margin-bottom:24px}
+
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
+        .related{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px}
+        .related h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
+        .related .links{display:flex;gap:8px;flex-wrap:wrap}
+        .related a{padding:8px 16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s}
+        .related a:hover{border-color:var(--accent);color:var(--text)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-90-ogp-image/">
+    <meta property="og:title" content="OGP画像ジェネレーター | DevTools Japan">
+    <meta property="og:description" content="テキストから1200×630のOGP画像をブラウザ上で生成。サーバー送信なし">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-90-ogp-image/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="OGP画像ジェネレーター | DevTools Japan">
+    <meta name="twitter:description" content="テキストから1200×630のOGP画像をブラウザ上で生成。サーバー送信なし">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"OGP画像ジェネレーター","description":"テキストから1200×630のOGP画像をブラウザ上で生成。サーバー送信なし","url":"https://www.devtools-japan.com/tool-90-ogp-image/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"OGP画像ジェネレーター","item":"https://www.devtools-japan.com/tool-90-ogp-image/"}]}
+    </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"OGP画像のサイズは？","acceptedAnswer":{"@type":"Answer","text":"OGP画像の推奨サイズは横1200×縦630ピクセル（比率およそ1.91:1）です。本ツールはこのサイズちょうどの画像を生成します。FacebookやX（旧Twitter）、LINEなど主要なSNSでシェアされたときに表示されるサムネイルとして、文字が切れずきれいに表示されます。"}},{"@type":"Question","name":"画像はサーバーに送信される？","acceptedAnswer":{"@type":"Answer","text":"いいえ。入力したテキストの描画から画像の生成、PNGダウンロードまで、すべてお使いのブラウザ内（canvas）で完結します。入力内容や生成した画像がサーバーへアップロードされたり外部に送信されたりすることは一切なく、無料・登録不要で安全に利用できます。"}},{"@type":"Question","name":"作った画像はどう使う？","acceptedAnswer":{"@type":"Answer","text":"ダウンロードしたPNGをサーバーやブログにアップロードし、HTMLのhead内でog:imageメタタグの画像URLとして指定します。<meta property=\"og:image\" content=\"画像のURL\">のように設定すると、SNSでシェアされた際にそのOGP画像がサムネイルとして表示されます。"}},{"@type":"Question","name":"日本語は使える？","acceptedAnswer":{"@type":"Answer","text":"はい。タイトル・サブタイトル・サイト名いずれも日本語を入力できます。長い日本語タイトルは自動で折り返して表示され、文字幅をcanvasで測定しながら改行するため、はみ出さずに収まります。英数字や記号と混在しても問題なく描画されます。"}},{"@type":"Question","name":"商用利用できる？","acceptedAnswer":{"@type":"Answer","text":"はい。生成されるのはご自身が入力したテキストを描いた画像なので、ブログ記事や商用サイト、企業のSNS投稿のアイキャッチなどに自由に利用できます。第三者の著作物やロゴを含めていない限り、用途の制限はなく、クレジット表記も不要です。"}}]}
+</script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot" style="display:none"></div>
+    <header><h1>OGP画像ジェネレーター</h1><p>テキストから1200×630のOGP画像（SNSアイキャッチ）をブラウザ上で生成。サーバー送信なし・プライバシー安全。</p></header>
+
+    <div class="panel">
+        <h3>テキスト入力</h3>
+        <div class="field">
+            <label>タイトル<span class="req">必須</span></label>
+            <textarea id="title" placeholder="記事のタイトルを入力" oninput="draw()">ブラウザだけで作るOGP画像</textarea>
+        </div>
+        <div class="field">
+            <label>サブタイトル</label>
+            <input type="text" id="subtitle" placeholder="補足やリード文（任意）" value="テキストを入力するだけ・サーバー送信なし" oninput="draw()">
+        </div>
+        <div class="field">
+            <label>サイト名</label>
+            <input type="text" id="sitename" placeholder="サイト名やドメイン（任意）" value="www.devtools-japan.com" oninput="draw()">
+        </div>
+    </div>
+
+    <div class="panel">
+        <h3>デザイン設定</h3>
+        <div class="field">
+            <label>背景プリセット（グラデーション）</label>
+            <div class="preset-grid" id="presetGrid"></div>
+        </div>
+        <div class="row">
+            <div class="field">
+                <label>背景色（単色）</label>
+                <div class="color-row">
+                    <input type="color" id="bgColor" value="#6366f1" oninput="usePreset(-1);draw()">
+                    <span class="color-hex" id="bgHex">#6366f1</span>
+                </div>
+            </div>
+            <div class="field">
+                <label>文字色</label>
+                <div class="color-row">
+                    <input type="color" id="textColor" value="#ffffff" oninput="draw()">
+                    <span class="color-hex" id="textHex">#ffffff</span>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <label>テキスト配置</label>
+            <div class="seg" id="alignSeg">
+                <button data-align="left">左寄せ</button>
+                <button data-align="center" class="active">中央</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="preview-wrap">
+        <div class="plabel">プレビュー（1200×630）</div>
+        <canvas id="previewCanvas" width="1200" height="630"></canvas>
+    </div>
+
+    <div class="btn-row">
+        <button class="btn btn-primary" onclick="downloadPng()">PNGダウンロード</button>
+        <button class="btn" onclick="resetAll()">リセット</button>
+    </div>
+
+    <p class="note">画像はお使いのブラウザ内で生成され、サーバーにアップロードされません。</p>
+
+    <div class="ad-slot" style="display:none"></div>
+    <div class="seo-content">
+        <h2>OGP画像ジェネレーターの使い方</h2>
+        <p>OGP画像ジェネレーターは、タイトル・サブタイトル・サイト名のテキストを入力するだけで、SNSでシェアされたときに表示される1200×630のOGP画像（アイキャッチ／サムネイル）を作成できる無料ツールです。OGPとはOpen Graph Protocolの略で、FacebookやX（旧Twitter）、LINE、Slackなどに記事URLが貼られたとき、リンク先のタイトルや説明文とともに表示されるあの大きな画像のことを指します。専用の画像編集ソフトやデザインの知識がなくても、テキストを打ち込んで色と配置を選ぶだけで、ブログ記事やSNS投稿のアイキャッチを手軽に量産できます。</p>
+        <p>使い方はとても簡単です。まず「タイトル」欄に記事の見出しを入力します。必要に応じてサブタイトルやサイト名（ドメイン）も入力すると、画像下部に小さく添えられます。次に背景プリセットのグラデーションを選ぶか、背景色・文字色を自由に指定し、テキストの配置を左寄せか中央から選びます。プレビューはリアルタイムで更新されるので、仕上がりを確認しながら調整でき、納得できたら「PNGダウンロード」を押すだけで画像が保存されます。長いタイトルはcanvas上で文字幅を測定しながら自動で折り返されるため、文字がはみ出す心配はありません。</p>
+        <p>この変換・生成処理はすべてお使いのブラウザ内（canvas）で完結します。入力したテキストや生成した画像がサーバーへアップロードされたり外部へ送信されたりすることは一切なく、プライバシーが保たれた状態で安全に利用できます。会員登録や課金も不要で、何枚作っても無料です。ページを一度開いてしまえば、通信が不安定な環境でもオフラインに近い形で動作します。ブログのアイキャッチを大量に作りたいときや、SNSキャンペーンのバナーを素早く用意したいときに便利です。</p>
+
+        <h2>OGP画像のサイズ・基礎知識</h2>
+        <p>OGP画像の推奨サイズは横1200×縦630ピクセルで、比率にするとおよそ1.91:1です。これはFacebookが推奨し、X（旧Twitter）の大きなサマリーカード（summary_large_image）でも採用されている標準的なサイズで、多くのSNSがこの比率を基準にサムネイルを切り出します。本ツールはこのサイズちょうどの画像を生成するため、各SNSで余白や見切れが起きにくく、きれいに表示されます。各SNSでの表示の目安は次のとおりです。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>項目</th><th>推奨値・内容</th></tr></thead>
+            <tbody>
+                <tr><td class="acc">推奨サイズ</td><td>1200 × 630 ピクセル</td></tr>
+                <tr><td class="acc">アスペクト比</td><td>約 1.91 : 1（横長）</td></tr>
+                <tr><td class="acc">ファイル形式</td><td>PNG（本ツール）／ JPEG も可</td></tr>
+                <tr><td class="acc">最小サイズの目安</td><td>600 × 315 ピクセル以上</td></tr>
+                <tr><td class="acc">安全マージン</td><td>端から60〜80px内側に文字を収める</td></tr>
+                <tr><td class="acc">Facebook / LINE</td><td>1.91:1 でほぼ全面表示</td></tr>
+                <tr><td class="acc">X（large image）</td><td>1.91:1、左右がわずかに切れる場合あり</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>注意したいのは「文字が切れない安全マージン」です。SNSによってはサムネイルの四隅が角丸にトリミングされたり、わずかに左右が見切れたりすることがあります。重要なタイトル文字は画像の端ギリギリではなく、上下左右の端から少し内側（おおむね60〜80ピクセル程度）に収めておくと、どのSNSでも文字が欠けずに読めます。本ツールはあらかじめ内側に余白を取ってテキストを配置し、長いタイトルも自動で折り返すため、安全マージンを意識せずとも読みやすいレイアウトに仕上がります。文字数が多すぎると一文字が小さくなり読みにくくなるため、タイトルは要点を絞って短めにまとめるのがおすすめです。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">OGP画像のサイズは？</div><div class="a">OGP画像の推奨サイズは横1200×縦630ピクセル（比率およそ1.91:1）です。本ツールはこのサイズちょうどの画像を生成します。FacebookやX（旧Twitter）、LINEなど主要なSNSでシェアされたときに表示されるサムネイルとして、文字が切れずきれいに表示されます。</div></div>
+        <div class="faq-item"><div class="q">画像はサーバーに送信される？</div><div class="a">いいえ。入力したテキストの描画から画像の生成、PNGダウンロードまで、すべてお使いのブラウザ内（canvas）で完結します。入力内容や生成した画像がサーバーへアップロードされたり外部に送信されたりすることは一切なく、無料・登録不要で安全に利用できます。</div></div>
+        <div class="faq-item"><div class="q">作った画像はどう使う？</div><div class="a">ダウンロードしたPNGをサーバーやブログにアップロードし、HTMLのhead内でog:imageメタタグの画像URLとして指定します。&lt;meta property="og:image" content="画像のURL"&gt;のように設定すると、SNSでシェアされた際にそのOGP画像がサムネイルとして表示されます。</div></div>
+        <div class="faq-item"><div class="q">日本語は使える？</div><div class="a">はい。タイトル・サブタイトル・サイト名いずれも日本語を入力できます。長い日本語タイトルは自動で折り返して表示され、文字幅をcanvasで測定しながら改行するため、はみ出さずに収まります。英数字や記号と混在しても問題なく描画されます。</div></div>
+        <div class="faq-item"><div class="q">商用利用できる？</div><div class="a">はい。生成されるのはご自身が入力したテキストを描いた画像なので、ブログ記事や商用サイト、企業のSNS投稿のアイキャッチなどに自由に利用できます。第三者の著作物やロゴを含めていない限り、用途の制限はなく、クレジット表記も不要です。</div></div>
+        </div>
+    <div class="ad-slot" style="display:none"></div>
+
+    <div class="related">
+      <h3>関連ツール</h3>
+      <div class="links">
+        <a href="/tool-24-ogp-preview/">OGPプレビューツール</a>
+        <a href="/tool-23-sns-image-sizes/">SNS画像サイズ早見表</a>
+        <a href="/tool-40-placeholder-img/">プレースホルダー画像生成ツール</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+const canvas=document.getElementById('previewCanvas');
+const ctx=canvas.getContext('2d');
+const W=1200,H=630,PAD=80;
+
+// グラデーションプリセット [from,to]、-1 は単色
+const PRESETS=[
+    ['#6366f1','#8b5cf6'],
+    ['#0ea5e9','#2563eb'],
+    ['#f43f5e','#ec4899'],
+    ['#f59e0b','#ef4444'],
+    ['#10b981','#0ea5e9'],
+    ['#1e293b','#0f172a'],
+    ['#6366f1','#06b6d4'],
+    ['#7c3aed','#db2777']
+];
+let activePreset=0;
+let align='center';
+let fontReady=false;
+
+function buildPresets(){
+    const grid=document.getElementById('presetGrid');
+    PRESETS.forEach((p,i)=>{
+        const el=document.createElement('div');
+        el.className='preset'+(i===0?' active':'');
+        el.style.background=`linear-gradient(135deg,${p[0]},${p[1]})`;
+        el.setAttribute('aria-label','背景プリセット'+(i+1));
+        el.onclick=()=>usePreset(i);
+        grid.appendChild(el);
+    });
+}
+function usePreset(i){
+    activePreset=i;
+    document.querySelectorAll('.preset').forEach((el,idx)=>el.classList.toggle('active',idx===i));
+    draw();
+}
+
+document.getElementById('alignSeg').addEventListener('click',e=>{
+    const b=e.target.closest('button');if(!b)return;
+    align=b.dataset.align;
+    document.querySelectorAll('#alignSeg button').forEach(x=>x.classList.toggle('active',x===b));
+    draw();
+});
+
+document.getElementById('bgColor').addEventListener('input',e=>{document.getElementById('bgHex').textContent=e.target.value;});
+document.getElementById('textColor').addEventListener('input',e=>{document.getElementById('textHex').textContent=e.target.value;draw();});
+
+// 文字幅を測定しながら折り返し。日本語は1文字単位、英単語は空白単位で詰める
+function wrapText(text,maxWidth){
+    const lines=[];
+    const paragraphs=text.split('\n');
+    for(const para of paragraphs){
+        if(para===''){lines.push('');continue;}
+        let line='';
+        for(const ch of para){
+            const test=line+ch;
+            if(ctx.measureText(test).width>maxWidth&&line!==''){
+                lines.push(line);
+                line=ch;
+            }else{
+                line=test;
+            }
+        }
+        if(line!=='')lines.push(line);
+    }
+    return lines;
+}
+
+function draw(){
+    const title=document.getElementById('title').value;
+    const subtitle=document.getElementById('subtitle').value;
+    const sitename=document.getElementById('sitename').value;
+    const textColor=document.getElementById('textColor').value;
+
+    // 背景
+    if(activePreset>=0){
+        const p=PRESETS[activePreset];
+        const g=ctx.createLinearGradient(0,0,W,H);
+        g.addColorStop(0,p[0]);g.addColorStop(1,p[1]);
+        ctx.fillStyle=g;
+    }else{
+        ctx.fillStyle=document.getElementById('bgColor').value;
+    }
+    ctx.fillRect(0,0,W,H);
+
+    const ff="'Noto Sans JP','Hiragino Kaku Gothic ProN',system-ui,sans-serif";
+    const maxW=W-PAD*2;
+    ctx.textBaseline='alphabetic';
+
+    // タイトルのフォントサイズを文字量に応じて調整
+    let titleSize=72;
+    ctx.font=`900 ${titleSize}px ${ff}`;
+    let titleLines=wrapText(title||' ',maxW);
+    while(titleLines.length>3&&titleSize>40){
+        titleSize-=6;
+        ctx.font=`900 ${titleSize}px ${ff}`;
+        titleLines=wrapText(title||' ',maxW);
+    }
+    const titleLH=titleSize*1.3;
+
+    // サブタイトル
+    const subSize=34;
+    let subLines=[];
+    if(subtitle.trim()!==''){
+        ctx.font=`400 ${subSize}px ${ff}`;
+        subLines=wrapText(subtitle,maxW);
+    }
+    const subLH=subSize*1.45;
+
+    // 全体ブロックの高さを計算して縦中央に配置
+    const titleBlock=titleLines.length*titleLH;
+    const subBlock=subLines.length>0?(28+subLines.length*subLH):0;
+    const totalH=titleBlock+subBlock;
+    let y=(H-totalH)/2+titleSize;
+    const x=align==='center'?W/2:PAD;
+    ctx.textAlign=align==='center'?'center':'left';
+
+    // タイトル描画
+    ctx.fillStyle=textColor;
+    ctx.font=`900 ${titleSize}px ${ff}`;
+    for(const l of titleLines){ctx.fillText(l,x,y);y+=titleLH;}
+
+    // サブタイトル描画
+    if(subLines.length>0){
+        y+=28;
+        ctx.font=`400 ${subSize}px ${ff}`;
+        ctx.globalAlpha=0.92;
+        for(const l of subLines){ctx.fillText(l,x,y);y+=subLH;}
+        ctx.globalAlpha=1;
+    }
+
+    // サイト名（左下固定）
+    if(sitename.trim()!==''){
+        ctx.font=`500 28px ${ff}`;
+        ctx.textAlign='left';
+        ctx.globalAlpha=0.85;
+        ctx.fillText(sitename,PAD,H-56);
+        ctx.globalAlpha=1;
+        // アクセントの下線バー
+        ctx.fillRect(PAD,H-44,Math.min(ctx.measureText(sitename).width,maxW),4);
+    }
+}
+
+function downloadPng(){
+    draw();
+    canvas.toBlob(blob=>{
+        if(!blob){alert('画像の生成に失敗しました。');return;}
+        const a=document.createElement('a');
+        a.download='ogp-image.png';
+        a.href=URL.createObjectURL(blob);
+        a.click();
+        setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+    },'image/png');
+}
+
+function resetAll(){
+    document.getElementById('title').value='';
+    document.getElementById('subtitle').value='';
+    document.getElementById('sitename').value='';
+    document.getElementById('bgColor').value='#6366f1';
+    document.getElementById('bgHex').textContent='#6366f1';
+    document.getElementById('textColor').value='#ffffff';
+    document.getElementById('textHex').textContent='#ffffff';
+    usePreset(0);
+    align='center';
+    document.querySelectorAll('#alignSeg button').forEach(x=>x.classList.toggle('active',x.dataset.align==='center'));
+    draw();
+}
+
+buildPresets();
+// Webフォント読込後に再描画（未対応環境はsystem-uiにフォールバック）
+if(document.fonts&&document.fonts.ready){
+    document.fonts.ready.then(()=>{fontReady=true;draw();});
+}
+draw();
+</script>
+</body>
+</html>

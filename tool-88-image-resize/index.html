@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画像リサイズツール | 幅・高さ指定とSNSサイズ書き出しを無料でオンライン（ブラウザ完結）</title>
+    <meta name="description" content="画像の幅・高さを指定してブラウザ上でリサイズ。X・Instagram・YouTube・OGPなどSNS推奨サイズをワンクリックで書き出し。アスペクト比固定、PNG/JPEG出力、品質調整に対応。サーバーへのアップロード不要でプライバシー安全。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#f43f5e;--accent-dim:rgba(244,63,94,0.1);--green:#22c55e;--radius:12px}
+        ::selection{background:rgba(244,63,94,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+
+        .dropzone{border:2px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:all 0.3s;margin-bottom:24px;background:var(--bg-card)}
+        .dropzone:hover,.dropzone.dragover{border-color:var(--accent);background:var(--accent-dim)}
+        .dropzone .icon{font-size:3rem;margin-bottom:12px;color:var(--accent)}
+        .dropzone p{color:var(--text2);font-size:0.9rem}
+        .dropzone small{color:var(--text3);font-size:0.75rem}
+        input[type="file"]{display:none}
+
+        .settings{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px;display:none}
+        .settings h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .setting-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:10px}
+        .setting-row:last-child{border-bottom:none}
+        .setting-label{font-size:0.85rem;color:var(--text2)}
+        .slider-group{display:flex;align-items:center;gap:12px}
+        .slider-val{font-family:'JetBrains Mono',monospace;font-size:0.9rem;color:var(--accent);min-width:44px;text-align:right}
+        input[type="range"]{-webkit-appearance:none;width:160px;height:6px;background:#f7f8fb;border-radius:3px;outline:none}
+        input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;background:var(--accent);border-radius:50%;cursor:pointer}
+        select,input[type="number"]{padding:8px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Noto Sans JP',sans-serif;outline:none}
+        input[type="number"]{width:96px;font-family:'JetBrains Mono',monospace;text-align:right}
+        input[type="number"]:focus{border-color:var(--accent)}
+        .dim-group{display:flex;align-items:center;gap:8px}
+        .dim-group span{color:var(--text3);font-size:0.85rem}
+        .check-group{display:flex;align-items:center;gap:8px}
+        .check-group input[type="checkbox"]{width:16px;height:16px;accent-color:var(--accent);cursor:pointer}
+
+        .presets{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px;display:none}
+        .presets h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
+        .preset-grid{display:flex;gap:8px;flex-wrap:wrap}
+        .preset-btn{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-family:'Noto Sans JP',sans-serif;font-size:0.8rem;cursor:pointer;transition:all 0.2s;line-height:1.4}
+        .preset-btn:hover{border-color:var(--accent);color:var(--text)}
+        .preset-btn small{display:block;font-family:'JetBrains Mono',monospace;color:var(--text3);font-size:0.68rem}
+
+        .result{display:none;margin-bottom:24px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+        @media(max-width:640px){.result-grid{grid-template-columns:1fr}}
+        .result-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+        .result-card .label{padding:8px 16px;background:#f7f8fb;border-bottom:1px solid var(--border);font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;display:flex;justify-content:space-between}
+        .result-card img{width:100%;height:200px;object-fit:contain;background:#f7f8fb}
+        .savings{text-align:center;padding:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:16px}
+        .savings .pct{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .savings .detail{font-size:0.8rem;color:var(--text2);margin-top:4px}
+        .btn{padding:12px 24px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text2);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+        .btn:hover{border-color:var(--accent);color:var(--text)}
+        .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:500}
+        .btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+        .note{font-size:0.78rem;color:var(--text3);text-align:center;margin-bottom:24px}
+
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
+        .related{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px}
+        .related h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
+        .related .links{display:flex;gap:8px;flex-wrap:wrap}
+        .related a{padding:8px 16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s}
+        .related a:hover{border-color:var(--accent);color:var(--text)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-88-image-resize/">
+    <meta property="og:title" content="画像リサイズツール | DevTools Japan">
+    <meta property="og:description" content="画像を指定サイズへリサイズ・SNSサイズへ書き出し。ブラウザ完結・サーバー送信なし">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-88-image-resize/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="画像リサイズツール | DevTools Japan">
+    <meta name="twitter:description" content="画像を指定サイズへリサイズ・SNSサイズへ書き出し。ブラウザ完結・サーバー送信なし">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"画像リサイズツール","description":"画像を指定サイズへリサイズ・SNSサイズへ書き出し。ブラウザ完結・サーバー送信なし","url":"https://www.devtools-japan.com/tool-88-image-resize/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"画像リサイズツール","item":"https://www.devtools-japan.com/tool-88-image-resize/"}]}
+    </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"画像はサーバーにアップロードされますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。画像の読み込みからリサイズ、ダウンロードまですべてお使いのブラウザ内（canvas）で完結し、サーバーへの送信は一切ありません。画像が外部に漏れる心配がなく、無料・登録不要で利用できます。"}},{"@type":"Question","name":"アスペクト比を保ったままリサイズできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。「アスペクト比を固定」をオンにすると、幅または高さの一方を入力した時点でもう一方が元画像の縦横比に合わせて自動計算されます。これにより、画像が縦や横に引き伸ばされて歪むことなく、自然な見た目を保ったままリサイズできます。"}},{"@type":"Question","name":"SNS用のサイズに書き出せますか？","acceptedAnswer":{"@type":"Answer","text":"はい。X（旧Twitter）投稿・Instagram正方形・Instagramストーリー・YouTubeサムネイル・OGP・Facebookカバーなど、よく使われるサイズのプリセットをワンクリックで幅・高さに適用できます。サイズは2025年時点の代表値のため、最新の推奨値は各SNSの公式ヘルプでご確認ください。"}},{"@type":"Question","name":"リサイズで画質は劣化しますか？","acceptedAnswer":{"@type":"Answer","text":"元画像より小さくする縮小では、ブラウザの補間処理により概ね良好な品質を保てます。一方、元画像より大きくする拡大では、存在しない情報を補うことになるため輪郭がぼやけるなど画質が劣化します。きれいに仕上げたい場合は、なるべく元画像以下のサイズへの縮小をおすすめします。"}},{"@type":"Question","name":"対応している画像形式は何ですか？","acceptedAnswer":{"@type":"Answer","text":"入力はブラウザが表示できる画像（PNG・JPEG・WebPなど）に対応し、出力はPNGまたはJPEGから選べます。JPEGを選ぶと品質スライダーで圧縮の強さを調整でき、透明部分は白で塗りつぶされます。透過を保持したい場合はPNGを選んでください。"}}]}
+</script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot" style="display:none"></div>
+    <header><h1>画像リサイズツール</h1><p>幅・高さを指定してリサイズ・SNSサイズへ書き出し。ブラウザ完結・サーバー送信なし。</p></header>
+
+    <div class="dropzone" id="dropzone" onclick="document.getElementById('fileInput').click()">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><path d="M3 5v14h18V5H3zm16 12H5V7h14v10zM7 9h6v2H7V9zm0 4h10v2H7v-2z"/></svg></div>
+        <p>クリックまたはドラッグ＆ドロップで画像を選択</p>
+        <small>PNG・JPEG・WebP対応 / 最大10MB</small>
+    </div>
+    <input type="file" id="fileInput" accept="image/*" onchange="handleFile(this.files[0])">
+
+    <div class="presets" id="presets">
+        <h3>SNSプリセット書き出し</h3>
+        <div class="preset-grid" id="presetGrid"></div>
+    </div>
+
+    <div class="settings" id="settings">
+        <h3>リサイズ設定</h3>
+        <div class="setting-row">
+            <span class="setting-label">幅 × 高さ（px）</span>
+            <div class="dim-group">
+                <input type="number" id="widthInput" min="1" max="20000" oninput="onDimInput('w')">
+                <span>×</span>
+                <input type="number" id="heightInput" min="1" max="20000" oninput="onDimInput('h')">
+            </div>
+        </div>
+        <div class="setting-row">
+            <span class="setting-label">アスペクト比を固定</span>
+            <label class="check-group"><input type="checkbox" id="lockRatio" checked> 元画像の縦横比を維持</label>
+        </div>
+        <div class="setting-row">
+            <span class="setting-label">出力形式</span>
+            <select id="outputFormat" onchange="toggleQuality()"><option value="image/png">PNG</option><option value="image/jpeg">JPEG</option></select>
+        </div>
+        <div class="setting-row" id="qualityRow" style="display:none">
+            <span class="setting-label">品質</span>
+            <div class="slider-group">
+                <input type="range" id="quality" min="0.1" max="1.0" value="0.85" step="0.05" oninput="document.getElementById('qualVal').textContent=parseFloat(this.value).toFixed(2)">
+                <span class="slider-val" id="qualVal">0.85</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-row" id="convertRow" style="display:none">
+        <button class="btn btn-primary" onclick="resize()">リサイズする</button>
+        <button class="btn" onclick="reset()">リセット</button>
+    </div>
+
+    <div class="result" id="result">
+        <div class="savings" id="savings">
+            <div class="pct" id="convInfo">リサイズ完了</div>
+            <div class="detail" id="convDetail">0×0 → 0×0</div>
+        </div>
+        <div class="result-grid">
+            <div class="result-card"><div class="label"><span id="origFmt">元画像</span><span id="origSize">0 KB</span></div><img id="origImg" alt="リサイズ前の画像"></div>
+            <div class="result-card"><div class="label"><span id="compFmt">リサイズ後</span><span id="compSize">0 KB</span></div><img id="compImg" alt="リサイズ後の画像"></div>
+        </div>
+        <div class="btn-row">
+            <button class="btn btn-primary" onclick="download()">ダウンロード</button>
+            <button class="btn" onclick="resize()">再リサイズ</button>
+        </div>
+    </div>
+
+    <p class="note">画像はお使いのブラウザ内でリサイズされ、サーバーにアップロードされません。</p>
+
+    <div class="ad-slot" style="display:none"></div>
+    <div class="seo-content">
+        <h2>画像リサイズツールの使い方</h2>
+        <p>画像の幅と高さを指定して、ブラウザ上で自由にリサイズできる無料ツールです。画像ファイルをドラッグ＆ドロップまたはクリックで選択し、希望する幅・高さ（ピクセル）を入力して「リサイズする」を押すだけで、リサイズ後の画像をプレビューしてダウンロードできます。出力形式はPNGとJPEGから選べ、JPEGを選んだ場合は品質スライダー（0.1〜1.0）で圧縮の強さを調整できます。</p>
+        <p>SNS投稿用のサイズへ書き出したいときは、画面上部の「SNSプリセット書き出し」から用途に合ったボタンをワンクリックするだけで、幅・高さが自動入力されます。X（旧Twitter）投稿やInstagramの正方形・ストーリー、YouTubeのサムネイル、OGP画像、Facebookのカバー写真など、よく使われるサイズをすぐに適用できるため、毎回数値を調べて入力する手間がかかりません。あとは「リサイズする」を押して書き出すだけです。</p>
+        <h3>アスペクト比を維持することの重要性</h3>
+        <p>画像をリサイズする際にとくに気をつけたいのが、縦横比（アスペクト比）です。元画像の縦横比を無視して幅と高さを別々に変えると、人物や被写体が縦に伸びたり横に潰れたりして不自然な見た目になってしまいます。本ツールでは「アスペクト比を固定」をオンにすると、幅または高さの一方を入力した時点でもう一方が自動的に計算されるため、歪みのない自然なリサイズが行えます。意図的に正方形などへ変形したい場合のみ、このオプションをオフにしてください。</p>
+        <p>なお、リサイズは元画像より小さくする「縮小」のほうがきれいに仕上がります。縮小ではブラウザの補間処理により概ね良好な品質を保てますが、元画像より大きくする「拡大」では存在しない情報を補うことになるため、輪郭がぼやけて画質が劣化します。SNSのサムネイルやアイコン作成のように小さくする用途では、元画像をできるだけ大きな状態で用意しておくと仕上がりがよくなります。</p>
+        <p>リサイズ処理はすべてお使いのブラウザ内（canvas）で完結します。選択した画像がサーバーへアップロードされたり外部に送信されたりすることは一切なく、プライバシーが保たれた状態で安全に利用できます。外部ライブラリも使わず標準のCanvas機能のみで動作するため、ページを開いてしまえばオフラインに近い形で軽快に動作します。</p>
+
+        <h2>SNS画像サイズ早見表</h2>
+        <p>本ツールのプリセットに対応する主要SNSの推奨画像サイズと用途・縦横比をまとめると次のとおりです。サイズはプラットフォームの仕様変更により変わることがあるため、実際に投稿する前に各SNSの公式ヘルプで最新の推奨値を確認することをおすすめします。</p>
+        <!-- TODO要確認: SNS推奨画像サイズは変更されるため各SNS公式で最新を確認 -->
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>用途</th><th>サイズ（px）</th><th>縦横比</th><th>主な使いどころ</th></tr></thead>
+            <tbody>
+                <tr><td class="acc">X（旧Twitter）投稿</td><td>1200 × 675</td><td>16:9</td><td>タイムラインに表示される横長の投稿画像</td></tr>
+                <tr><td class="acc">Instagram 正方形</td><td>1080 × 1080</td><td>1:1</td><td>フィード投稿の標準的な正方形画像</td></tr>
+                <tr><td class="acc">Instagram ストーリー</td><td>1080 × 1920</td><td>9:16</td><td>縦長フルスクリーンのストーリーズ・リール</td></tr>
+                <tr><td class="acc">YouTube サムネイル</td><td>1280 × 720</td><td>16:9</td><td>動画の一覧に表示されるサムネイル画像</td></tr>
+                <tr><td class="acc">OGP画像</td><td>1200 × 630</td><td>約1.91:1</td><td>SNSシェア時に表示されるカード画像</td></tr>
+                <tr><td class="acc">Facebook カバー</td><td>820 × 312</td><td>約2.63:1</td><td>プロフィール上部のカバー写真</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>上記はいずれも2025年時点で広く使われている代表値です。各SNSは推奨サイズやアスペクト比を随時更新するため、ここに掲載した数値はあくまで目安としてご利用ください。とくにOGP画像やストーリーは見切れ（端の切り取り）が起こりやすいので、重要な文字やロゴは中央寄りに配置すると安全です。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">画像はサーバーにアップロードされますか？</div><div class="a">いいえ。画像の読み込みからリサイズ、ダウンロードまですべてお使いのブラウザ内（canvas）で完結し、サーバーへの送信は一切ありません。画像が外部に漏れる心配がなく、無料・登録不要で利用できます。</div></div>
+        <div class="faq-item"><div class="q">アスペクト比を保ったままリサイズできますか？</div><div class="a">はい。「アスペクト比を固定」をオンにすると、幅または高さの一方を入力した時点でもう一方が元画像の縦横比に合わせて自動計算されます。これにより、画像が縦や横に引き伸ばされて歪むことなく、自然な見た目を保ったままリサイズできます。</div></div>
+        <div class="faq-item"><div class="q">SNS用のサイズに書き出せますか？</div><div class="a">はい。X（旧Twitter）投稿・Instagram正方形・Instagramストーリー・YouTubeサムネイル・OGP・Facebookカバーなど、よく使われるサイズのプリセットをワンクリックで幅・高さに適用できます。サイズは2025年時点の代表値のため、最新の推奨値は各SNSの公式ヘルプでご確認ください。</div></div>
+        <div class="faq-item"><div class="q">リサイズで画質は劣化しますか？</div><div class="a">元画像より小さくする縮小では、ブラウザの補間処理により概ね良好な品質を保てます。一方、元画像より大きくする拡大では、存在しない情報を補うことになるため輪郭がぼやけるなど画質が劣化します。きれいに仕上げたい場合は、なるべく元画像以下のサイズへの縮小をおすすめします。</div></div>
+        <div class="faq-item"><div class="q">対応している画像形式は何ですか？</div><div class="a">入力はブラウザが表示できる画像（PNG・JPEG・WebPなど）に対応し、出力はPNGまたはJPEGから選べます。JPEGを選ぶと品質スライダーで圧縮の強さを調整でき、透明部分は白で塗りつぶされます。透過を保持したい場合はPNGを選んでください。</div></div>
+        </div>
+    <div class="ad-slot" style="display:none"></div>
+
+    <div class="related">
+      <h3>関連ツール</h3>
+      <div class="links">
+        <a href="/tool-79-image-convert/">画像形式変換ツール</a>
+        <a href="/tool-10-image-compress/">画像圧縮ツール</a>
+        <a href="/tool-23-sns-image-sizes/">SNS画像サイズ早見表</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+let originalFile=null,resizedBlob=null,natW=0,natH=0;
+const PRESETS=[
+    {name:'X（旧Twitter）投稿',w:1200,h:675},
+    {name:'Instagram 正方形',w:1080,h:1080},
+    {name:'Instagram ストーリー',w:1080,h:1920},
+    {name:'YouTube サムネ',w:1280,h:720},
+    {name:'OGP',w:1200,h:630},
+    {name:'Facebook カバー',w:820,h:312}
+];
+const dz=document.getElementById('dropzone');
+dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('dragover')});
+dz.addEventListener('dragleave',()=>dz.classList.remove('dragover'));
+dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('dragover');if(e.dataTransfer.files[0])handleFile(e.dataTransfer.files[0])});
+
+(function buildPresets(){
+    const g=document.getElementById('presetGrid');
+    PRESETS.forEach((p,i)=>{
+        const b=document.createElement('button');
+        b.className='preset-btn';
+        b.innerHTML=`${p.name}<small>${p.w}×${p.h}</small>`;
+        b.onclick=()=>applyPreset(i);
+        g.appendChild(b);
+    });
+})();
+
+function fmtName(mime){return ({'image/png':'PNG','image/jpeg':'JPEG','image/jpg':'JPEG','image/webp':'WebP','image/gif':'GIF','image/bmp':'BMP'})[mime]||(mime.split('/')[1]||'画像').toUpperCase()}
+
+function toggleQuality(){
+    const f=document.getElementById('outputFormat').value;
+    document.getElementById('qualityRow').style.display=(f==='image/jpeg')?'flex':'none';
+}
+
+function onDimInput(changed){
+    if(!document.getElementById('lockRatio').checked||!natW||!natH)return;
+    const wEl=document.getElementById('widthInput'),hEl=document.getElementById('heightInput');
+    const ratio=natW/natH;
+    if(changed==='w'){
+        const w=parseInt(wEl.value,10);
+        if(w>0)hEl.value=Math.max(1,Math.round(w/ratio));
+    }else{
+        const h=parseInt(hEl.value,10);
+        if(h>0)wEl.value=Math.max(1,Math.round(h*ratio));
+    }
+}
+
+function applyPreset(i){
+    const p=PRESETS[i];
+    document.getElementById('lockRatio').checked=false;
+    document.getElementById('widthInput').value=p.w;
+    document.getElementById('heightInput').value=p.h;
+}
+
+function handleFile(file){
+    if(!file||!file.type.startsWith('image/')){alert('画像ファイルを選択してください');return}
+    if(file.size>10*1024*1024){alert('10MB以下の画像を選択してください');return}
+    originalFile=file;
+    const url=URL.createObjectURL(file);
+    document.getElementById('origImg').src=url;
+    const probe=new Image();
+    probe.onload=()=>{
+        natW=probe.naturalWidth;natH=probe.naturalHeight;
+        document.getElementById('widthInput').value=natW;
+        document.getElementById('heightInput').value=natH;
+        document.getElementById('presets').style.display='block';
+        document.getElementById('settings').style.display='block';
+        document.getElementById('convertRow').style.display='flex';
+        document.getElementById('result').style.display='none';
+        toggleQuality();
+        dz.innerHTML=`<div class="icon">選択中</div><p>${file.name}</p><small>${fmtName(file.type)} / ${natW}×${natH} / ${formatSize(file.size)}</small>`;
+    };
+    probe.src=url;
+}
+
+function resize(){
+    if(!originalFile)return;
+    const w=parseInt(document.getElementById('widthInput').value,10);
+    const h=parseInt(document.getElementById('heightInput').value,10);
+    if(!(w>0)||!(h>0)){alert('幅と高さに1以上の数値を入力してください');return}
+    const format=document.getElementById('outputFormat').value;
+    const quality=parseFloat(document.getElementById('quality').value);
+    const img=new Image();
+    img.onload=()=>{
+        const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;
+        const ctx=canvas.getContext('2d');
+        ctx.imageSmoothingEnabled=true;
+        ctx.imageSmoothingQuality='high';
+        if(format==='image/jpeg'){ctx.fillStyle='#ffffff';ctx.fillRect(0,0,w,h);}
+        ctx.drawImage(img,0,0,w,h);
+        const useQuality=(format==='image/jpeg');
+        canvas.toBlob(blob=>{
+            if(!blob){alert('リサイズに失敗しました。別の形式やサイズをお試しください。');return}
+            resizedBlob=blob;
+            document.getElementById('compImg').src=URL.createObjectURL(blob);
+            document.getElementById('convInfo').textContent=`${natW}×${natH} → ${w}×${h}`;
+            document.getElementById('convDetail').textContent=`${formatSize(originalFile.size)} → ${formatSize(blob.size)}（${fmtName(format)}）`;
+            document.getElementById('origFmt').textContent=`元 ${natW}×${natH}`;
+            document.getElementById('compFmt').textContent=`後 ${w}×${h}`;
+            document.getElementById('origSize').textContent=formatSize(originalFile.size);
+            document.getElementById('compSize').textContent=formatSize(blob.size);
+            document.getElementById('result').style.display='block';
+        },format,useQuality?quality:undefined);
+    };
+    img.src=URL.createObjectURL(originalFile);
+}
+
+function download(){
+    if(!resizedBlob)return;
+    const format=document.getElementById('outputFormat').value;
+    const ext=format==='image/jpeg'?'jpg':'png';
+    const w=document.getElementById('widthInput').value,h=document.getElementById('heightInput').value;
+    const base=(originalFile.name||'image').replace(/\.[^.]+$/,'');
+    const a=document.createElement('a');a.download=`${base}_${w}x${h}.${ext}`;a.href=URL.createObjectURL(resizedBlob);a.click();
+}
+
+function reset(){
+    originalFile=null;resizedBlob=null;natW=0;natH=0;
+    document.getElementById('presets').style.display='none';
+    document.getElementById('settings').style.display='none';
+    document.getElementById('convertRow').style.display='none';
+    document.getElementById('result').style.display='none';
+    document.getElementById('fileInput').value='';
+    document.getElementById('lockRatio').checked=true;
+    dz.innerHTML='<div class="icon"><svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><path d="M3 5v14h18V5H3zm16 12H5V7h14v10zM7 9h6v2H7V9zm0 4h10v2H7v-2z"/></svg></div><p>クリックまたはドラッグ＆ドロップで画像を選択</p><small>PNG・JPEG・WebP対応 / 最大10MB</small>';
+}
+
+function formatSize(b){return b>1024*1024?(b/1024/1024).toFixed(1)+' MB':(b/1024).toFixed(0)+' KB'}
+</script>
+</body>
+</html>
