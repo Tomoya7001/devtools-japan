@@ -87,15 +87,15 @@
 </script>
 </head>
 <body>
-<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='var(--text,#1e1e35)'" onmouseout="this.style.color='#5a5f78'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
     <div class="ad-slot" style="display:none"></div>
     <header><h1>画像圧縮ツール</h1><p>ブラウザ上で画像を圧縮。サーバー送信なし・プライバシー安全。</p></header>
 
     <div class="dropzone" id="dropzone" onclick="document.getElementById('fileInput').click()">
-        <div class="icon"></div>
+        <div class="icon"><svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="var(--text3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="m7 8 5-5 5 5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></div>
         <p>クリックまたはドラッグ＆ドロップで画像を選択</p>
-        <small>JPEG・PNG対応 / 最大10MB</small>
+        <small>JPEG・PNG・WebP対応 / 最大10MB</small>
     </div>
     <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" onchange="handleFile(this.files[0])">
 
@@ -179,12 +179,12 @@
         </div>
     <div class="ad-slot" style="display:none"></div>
     
-    <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
-      <h3 style="font-size:0.75rem;color:var(--text-muted,#4a4a68);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+    <div style="background:var(--bg-card,#ffffff);border:1px solid var(--border,#e0e2ed);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3,#9498b0);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a href="/tool-20-favicon/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">Favicon生成ツール</a>
-        <a href="/tool-28-aspect-ratio/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">アスペクト比計算ツール</a>
-        <a href="/tool-40-placeholder-img/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">プレースホルダー画像生成ツール</a>
+        <a href="/tool-20-favicon/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">Favicon生成ツール</a>
+        <a href="/tool-28-aspect-ratio/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">アスペクト比計算ツール</a>
+        <a href="/tool-40-placeholder-img/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">プレースホルダー画像生成ツール</a>
       </div>
     </div>
     <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
@@ -205,7 +205,7 @@ function handleFile(file){
     document.getElementById('settings').style.display='block';
     document.getElementById('compressRow').style.display='flex';
     document.getElementById('result').style.display='none';
-    dz.innerHTML=`<div class="icon">OK</div><p>${file.name}</p><small>${formatSize(file.size)}</small>`;
+    dz.innerHTML=`<div class="icon"><svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg></div><p>${file.name}</p><small>${formatSize(file.size)}</small>`;
 }
 
 function compress(){
@@ -220,12 +220,14 @@ function compress(){
         const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;
         const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0,w,h);
         canvas.toBlob(blob=>{
+            if(!blob){alert('この形式への変換に失敗しました。別の出力形式をお試しください');return}
             compressedBlob=blob;
             document.getElementById('compImg').src=URL.createObjectURL(blob);
             const origS=originalFile.size,compS=blob.size;
             const saving=Math.round((1-compS/origS)*100);
-            document.getElementById('savingPct').textContent=`-${saving}%`;
-            document.getElementById('savingPct').style.color=saving>0?'#22c55e':'#f43f5e';
+            const pctEl=document.getElementById('savingPct');
+            if(saving>=0){pctEl.textContent=`-${saving}%`;pctEl.style.color='#22c55e'}
+            else{pctEl.textContent=`+${Math.abs(saving)}%増`;pctEl.style.color='#f43f5e'}
             document.getElementById('savingDetail').textContent=`${formatSize(origS)} → ${formatSize(compS)}`;
             document.getElementById('origSize').textContent=formatSize(origS);
             document.getElementById('compSize').textContent=formatSize(compS);
@@ -246,7 +248,7 @@ function reset(){
     document.getElementById('settings').style.display='none';
     document.getElementById('compressRow').style.display='none';
     document.getElementById('result').style.display='none';
-    dz.innerHTML='<div class="icon"></div><p>クリックまたはドラッグ＆ドロップで画像を選択</p><small>JPEG・PNG対応 / 最大10MB</small>';
+    dz.innerHTML='<div class="icon"><svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="var(--text3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="m7 8 5-5 5 5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></div><p>クリックまたはドラッグ＆ドロップで画像を選択</p><small>JPEG・PNG・WebP対応 / 最大10MB</small>';
 }
 
 function formatSize(b){return b>1024*1024?(b/1024/1024).toFixed(1)+' MB':(b/1024).toFixed(0)+' KB'}

@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>車の減価償却 計算ツール | 普通車・軽・中古車を定額法/定率法で自動計算【無料】</title>
-    <meta name="description" content="自動車（普通車・軽自動車・中古車）の減価償却費を定額法・定率法で自動計算する無料ツール。取得価額・車種・新車中古・事業利用割合を入れるだけで年間の経費がわかる。中古車の耐用年数（簡便法）も自動算出。フリーランス・個人事業主の確定申告に。">
+    <title>車の減価償却費 自動計算シミュレーター | 普通車・軽・中古車対応【無料】</title>
+    <meta name="description" content="車の減価償却費を自動計算する無料シミュレーター。普通車・軽自動車・中古車に対応し、取得価額・車種・新車中古・事業利用割合を入れるだけで定額法・定率法の年間経費がわかる。中古車の耐用年数（簡便法）も自動算出。フリーランス・個人事業主の確定申告に。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#f59e0b;--accent-dim:rgba(245,158,11,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
@@ -47,7 +47,7 @@
         .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-71-car-depreciation/">
-    <meta property="og:title" content="車の減価償却 計算 | 普通車・軽・中古車を自動計算【無料】">
+    <meta property="og:title" content="車の減価償却費 自動計算シミュレーター | 普通車・軽・中古車対応【無料】">
     <meta property="og:description" content="取得価額・車種・新車中古・事業利用割合から車の減価償却費を定額法・定率法で計算">
     <meta property="og:url" content="https://www.devtools-japan.com/tool-71-car-depreciation/">
     <meta property="og:type" content="website">
@@ -126,7 +126,6 @@
             <tr><td>中古（耐用5年）</td><td>5年</td><td>0.200</td><td>0.400</td></tr>
             <tr><td>中古（耐用3年）</td><td>3年</td><td>0.334</td><td>0.667</td></tr>
             <tr><td>中古（耐用2年・下限）</td><td>2年</td><td>0.500</td><td>1.000</td></tr>
-            <!-- TODO要確認: 貨物自動車・特殊用途車の耐用年数は国税庁の耐用年数表 https://www.keisan.nta.go.jp/ で要確認 -->
         </table>
         </div>
         <p>中古車の耐用年数は簡便法で求めます。全部経過なら「法定耐用年数×20%」、一部経過なら「（法定耐用年数−経過年数）＋経過年数×20%」。いずれも1年未満切り捨て、最低2年です。</p>
@@ -176,7 +175,11 @@ function calc() {
     var legal = parseInt(document.getElementById('cartype').value) || 6;
     var cond = document.getElementById('cond').value;
     var method = document.getElementById('method').value;
-    var ratio = (parseInt(document.getElementById('bizRatio').value) || 100) / 100;
+    var ratioRaw = document.getElementById('bizRatio').value;
+    var ratioPct = ratioRaw === '' ? 100 : parseInt(ratioRaw);
+    if (isNaN(ratioPct)) ratioPct = 100;
+    ratioPct = Math.min(100, Math.max(1, ratioPct));
+    var ratio = ratioPct / 100;
     var elapsedRow = document.getElementById('elapsedRow');
 
     var life;

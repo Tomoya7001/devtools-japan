@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UUID生成ツール（v4・一括生成対応） | DevTools Japan</title>
-    <meta name="description" content="UUID v4をワンクリックで生成。10個一括生成にも対応。UUIDとは何か、バージョンの違いや構造も解説。ブラウザ完結でAPI開発やDB設計に。">
+    <meta name="description" content="UUID v4をワンクリックで生成。1〜100個の一括生成・ハイフンなし形式にも対応。UUIDとは何か、バージョンの違いや構造も解説。ブラウザ完結でAPI開発やDB設計に。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#6366f1;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
@@ -37,6 +37,8 @@
         .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
         footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
         .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.85rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+        #noHyphen{transition:all 0.2s}
+        #noHyphen.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent);font-weight:500}
     </style>
     <link rel="canonical" href="https://www.devtools-japan.com/tool-36-uuid-gen/">
     <meta property="og:title" content="UUID生成ツール | DevTools Japan">
@@ -57,15 +59,17 @@
     </script>
 </head>
 <body>
-<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='#5a5f78'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
     <div class="ad-slot" style="display:none"></div>
     <header><h1>UUID生成ツール</h1><p>UUID v4をワンクリックで生成。一括生成にも対応。API開発やDB設計に。</p></header>
     <div class="card" style="text-align:center">
 <div id="mainUuid" style="font-family:JetBrains Mono;font-size:1.6rem;color:var(--accent);padding:20px;cursor:pointer;word-break:break-all" onclick="navigator.clipboard.writeText(this.textContent);showToast()">生成中...</div>
-<div style="display:flex;gap:10px;justify-content:center;margin-top:12px">
+<div style="display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap;align-items:center">
 <button onclick="genOne()" style="padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:Noto Sans JP;font-size:0.85rem">新規生成</button>
-<button onclick="genBatch()" style="padding:10px 24px;background:var(--bg-card);color:var(--text2);border:1px solid var(--border);border-radius:8px;cursor:pointer;font-family:Noto Sans JP;font-size:0.85rem">10個一括生成</button>
+<label style="display:inline-flex;align-items:center;gap:6px;font-size:0.75rem;color:var(--text3)">個数<input id="batchCount" type="number" value="10" min="1" max="100" style="width:70px;padding:10px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:JetBrains Mono;outline:none;text-align:center"></label>
+<button onclick="genBatch()" style="padding:10px 24px;background:var(--bg-card);color:var(--text2);border:1px solid var(--border);border-radius:8px;cursor:pointer;font-family:Noto Sans JP;font-size:0.85rem">一括生成（1〜100個）</button>
+<span id="noHyphen" style="padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;font-size:0.75rem;color:var(--text3);cursor:pointer" onclick="toggleHyphen()">ハイフンなし</span>
 </div></div>
 <div class="card" id="batchCard" style="display:none"><h3>一括生成結果（クリックでコピー）</h3><div class="uuid-list" id="batchList"></div></div>
     <div class="ad-slot" style="display:none"></div>
@@ -108,12 +112,12 @@
     </div>
     <div class="ad-slot" style="display:none"></div>
     
-    <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
-      <h3 style="font-size:0.75rem;color:var(--text-muted,#4a4a68);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a href="/tool-02-password-gen/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">パスワード生成ツール</a>
-        <a href="/tool-35-random-number/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">乱数生成ツール</a>
-        <a href="/tool-17-hash/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">ハッシュ生成ツール</a>
+        <a href="/tool-02-password-gen/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">パスワード生成ツール</a>
+        <a href="/tool-35-random-number/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">乱数生成ツール</a>
+        <a href="/tool-17-hash/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ハッシュ生成ツール</a>
       </div>
     </div>
     <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
@@ -123,9 +127,13 @@
 <script>
 function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
 function genUuid(){return crypto.randomUUID?crypto.randomUUID():'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const r=Math.random()*16|0;return(c==='x'?r:(r&0x3|0x8)).toString(16)})}
-function genOne(){document.getElementById('mainUuid').textContent=genUuid()}
+function useNoHyphen(){return document.getElementById('noHyphen').classList.contains('active')}
+function fmtUuid(u){return useNoHyphen()?u.replace(/-/g,''):u}
+function genOne(){document.getElementById('mainUuid').textContent=fmtUuid(genUuid())}
 function genBatch(){const list=document.getElementById('batchList');const card=document.getElementById('batchCard');
-list.innerHTML=Array.from({length:10},()=>genUuid()).map(u=>'<div class="uuid-item" onclick="navigator.clipboard.writeText(this.textContent);showToast()">'+u+'</div>').join('');card.style.display='block'}
+const n=Math.min(100,Math.max(1,parseInt(document.getElementById('batchCount').value)||10));
+list.innerHTML=Array.from({length:n},()=>fmtUuid(genUuid())).map(u=>'<div class="uuid-item" onclick="navigator.clipboard.writeText(this.textContent);showToast()">'+u+'</div>').join('');card.style.display='block'}
+function toggleHyphen(){document.getElementById('noHyphen').classList.toggle('active');genOne();if(document.getElementById('batchCard').style.display==='block')genBatch()}
 genOne();
 </script>
 </body>

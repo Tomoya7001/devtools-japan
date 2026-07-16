@@ -87,14 +87,15 @@
         <div class="result-item" style="grid-column:1/-1"><div class="label">国民健康保険料（年額）</div><div class="value tax" id="rTotal" style="font-size:2rem">-</div><div class="sub" id="rMonthly"></div></div>
     </div>
 
-    <div class="card"><h3>国民健康保険料の賦課限度額（2024年度）</h3>
+    <div class="card"><h3>国民健康保険料の賦課限度額（2026年度・令和8年度）</h3>
         <table class="ref">
             <tr><th>区分</th><th>上限額</th></tr>
-            <tr><td>医療分</td><td>65万円</td></tr>
-            <tr><td>後期高齢者支援分</td><td>24万円</td></tr>
+            <tr><td>医療分</td><td>67万円</td></tr>
+            <tr><td>後期高齢者支援分</td><td>26万円</td></tr>
             <tr><td>介護分</td><td>17万円</td></tr>
-            <tr><td>合計上限</td><td>106万円</td></tr>
+            <tr><td>合計上限</td><td>110万円</td></tr>
         </table>
+        <p style="font-size:0.72rem;color:var(--text3)">※ 2025年度（令和7年度）は医療分66万円・支援金分26万円・介護分17万円（合計109万円）。2026年度に医療分が67万円へ引き上げられました。</p>
     </div>
 
     <div class="ad-slot"></div>
@@ -127,11 +128,11 @@
                 <tr><td>300万円</td><td>¥307,350</td><td>¥25,613</td><td class="acc">¥378,460</td><td>¥31,538</td></tr>
                 <tr><td>500万円</td><td>¥517,350</td><td>¥43,113</td><td class="acc">¥634,460</td><td>¥52,872</td></tr>
                 <tr><td>700万円</td><td>¥727,350</td><td>¥60,613</td><td class="acc">¥890,460</td><td>¥74,205</td></tr>
-                <tr><td>1,000万円</td><td>¥890,000</td><td>¥74,167</td><td class="acc">¥1,060,000</td><td>¥88,333</td></tr>
+                <tr><td>1,000万円</td><td>¥928,320</td><td>¥77,360</td><td class="acc">¥1,098,320</td><td>¥91,527</td></tr>
             </tbody>
         </table>
         </div>
-        <p>所得1,000万円の行は各区分が賦課限度額（医療分65万円・後期高齢者支援金分24万円・介護分17万円、合計106万円）に達しているため、それ以上所得が増えても保険料は頭打ちになります。上表はあくまで全国平均的な料率による概算であり、お住まいの自治体の正確な保険料を保証するものではありません。実際の金額は市区町村の窓口や公式サイトでご確認ください。</p>
+        <p>所得1,000万円の行は医療分と介護分が賦課限度額（2026年度・令和8年度: 医療分67万円・後期高齢者支援金分26万円・介護分17万円、合計110万円）に達しており、所得がさらに増えても各区分の上限で保険料は頭打ちになります。上表はあくまで全国平均的な料率による概算であり、お住まいの自治体の正確な保険料を保証するものではありません。実際の金額は市区町村の窓口や公式サイトでご確認ください。</p>
 
         <h2>よくある質問</h2>
         <div class="faq-item"><div class="q">国民健康保険料は何で決まりますか？</div><div class="a">国保料は前年の所得を基準に計算され、「所得割（所得に応じた額）」と「均等割（加入者1人あたりの定額）」の合計で決まります。さらに「医療分」「後期高齢者支援金分」「40〜64歳が対象の介護分」の3区分に分かれ、それぞれに上限額があります。本ツールは前年所得・年齢・加入者数から全国平均的な料率で概算します。</div></div>
@@ -156,9 +157,9 @@ function calc() {
 
     const base = Math.max(0, income - 430000); // 基礎控除43万
 
-    // 概算料率（全国平均的な値）
-    const medicalRate = 0.079, medicalFlat = 28000, medicalCap = 650000;
-    const elderlyRate = 0.026, elderlyFlat = 9500, elderlyCap = 240000;
+    // 概算料率（全国平均的な値）。賦課限度額は2026年度（令和8年度）: 医療67万・支援26万・介護17万
+    const medicalRate = 0.079, medicalFlat = 28000, medicalCap = 670000;
+    const elderlyRate = 0.026, elderlyFlat = 9500, elderlyCap = 260000;
     const careRate = 0.023, careFlat = 12000, careCap = 170000;
 
     let medical = Math.min(Math.floor(base * medicalRate) + medicalFlat * members, medicalCap);

@@ -11,7 +11,6 @@
     <title>社会保険料 計算ツール | 会社員の本人負担（月額）を自動計算【無料】</title>
     <meta name="description" content="会社員の月給から、健康保険料・介護保険料・厚生年金・雇用保険料の本人負担額（月額）を自動計算する無料ツール。労使折半後の概算。40歳以上の介護保険にも対応。給与明細の確認に。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <!-- TODO要確認: 健康保険料率(協会けんぽ都道府県別)・介護保険料率・雇用保険料率は最新年度の値を協会けんぽ https://www.kyoukaikenpo.or.jp/ ・厚労省で要確認。本ツールは概算(健保4.99%/介護込5.82%/雇用0.6%本人負担)。厚生年金18.3%は確実。 -->
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#0891b2;--accent-dim:rgba(8,145,178,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
         ::selection{background:rgba(8,145,178,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
@@ -148,7 +147,6 @@ function calc() {
     const age = document.getElementById('age').value;
 
     // 社会保険料（協会けんぽ・東京都ベースの概算・労使折半後の本人負担）
-    // TODO要確認: 料率は概算。厚生年金9.15%（18.3%の折半）は確実。
     let health, care;
     if (age === '40over') {
         // 介護分込み 5.82% を健保枠に表示し、うち介護分を分離表示

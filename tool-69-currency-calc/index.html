@@ -150,6 +150,7 @@ function calc() {
     document.getElementById('curLabel').textContent = cur;
     document.getElementById('fUnit').textContent = cur;
     fromForeign();
+    fromYen();
 }
 function fromForeign() {
     const f = parseFloat(document.getElementById('foreign').value) || 0;

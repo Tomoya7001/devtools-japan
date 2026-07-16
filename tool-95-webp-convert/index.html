@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebP変換 一括 | WebP⇔JPG・PNG 枚数無制限【無料・アップロード不要】</title>
+    <meta name="description" content="WebPをJPG・PNGへ、JPG・PNGをWebPへ一括変換できる無料ツール。枚数無制限、ドラッグ＆ドロップで何枚でもまとめて変換し、ZIPで一括ダウンロード。処理はブラウザ内で完結しサーバーへのアップロードは不要です。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#7c3aed;--accent-dim:rgba(124,58,237,0.1);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(124,58,237,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+
+        .dropzone{border:2px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:all 0.3s;margin-bottom:24px;background:var(--bg-card)}
+        .dropzone:hover,.dropzone.dragover{border-color:var(--accent);background:var(--accent-dim)}
+        .dropzone .icon{font-size:3rem;margin-bottom:12px;color:var(--accent)}
+        .dropzone p{color:var(--text2);font-size:0.9rem}
+        .dropzone small{color:var(--text3);font-size:0.75rem}
+        input[type="file"]{display:none}
+
+        .settings{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px}
+        .settings h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .setting-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .setting-row:last-child{border-bottom:none}
+        .setting-label{font-size:0.85rem;color:var(--text2)}
+        .slider-group{display:flex;align-items:center;gap:12px}
+        .slider-val{font-family:'JetBrains Mono',monospace;font-size:0.9rem;color:var(--accent);min-width:44px;text-align:right}
+        input[type="range"]{-webkit-appearance:none;width:160px;height:6px;background:#f7f8fb;border-radius:3px;outline:none}
+        input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;background:var(--accent);border-radius:50%;cursor:pointer}
+        select{padding:8px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Noto Sans JP',sans-serif;outline:none}
+
+        .warn-box{display:none;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:0.82rem;color:#b91c1c;line-height:1.7}
+        .file-panel{display:none;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:24px;overflow:hidden}
+        .file-panel .panel-head{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#f7f8fb;border-bottom:1px solid var(--border);font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em}
+        .file-panel .panel-head .count{font-family:'JetBrains Mono',monospace;color:var(--accent);text-transform:none}
+        .file-list{max-height:340px;overflow-y:auto}
+        .file-row{display:flex;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid var(--border);font-size:0.8rem}
+        .file-row:last-child{border-bottom:none}
+        .file-row .fname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text)}
+        .file-row .fsize{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--text2);white-space:nowrap}
+        .file-row .fstatus{font-size:0.7rem;padding:3px 10px;border-radius:999px;white-space:nowrap;background:#f7f8fb;color:var(--text3);border:1px solid var(--border)}
+        .file-row .fstatus.converting{background:var(--accent-dim);color:var(--accent);border-color:transparent}
+        .file-row .fstatus.done{background:rgba(34,197,94,0.12);color:#15803d;border-color:transparent}
+        .file-row .fstatus.error{background:rgba(239,68,68,0.1);color:#b91c1c;border-color:transparent}
+        .file-row .dl{padding:5px 12px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text2);font-family:'Noto Sans JP',sans-serif;font-size:0.72rem;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+        .file-row .dl:hover{border-color:var(--accent);color:var(--text)}
+        .file-row .dl:disabled{opacity:0.35;cursor:default}
+        .file-row .dl:disabled:hover{border-color:var(--border);color:var(--text2)}
+
+        .btn{padding:12px 24px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text2);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+        .btn:hover{border-color:var(--accent);color:var(--text)}
+        .btn:disabled{opacity:0.45;cursor:default}
+        .btn:disabled:hover{border-color:var(--border);color:var(--text2)}
+        .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:500}
+        .btn-primary:hover{color:#fff}
+        .btn-primary:disabled:hover{border-color:var(--accent);color:#fff}
+        .btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+        .note{font-size:0.78rem;color:var(--text3);text-align:center;margin-bottom:24px}
+        .privacy-note{background:var(--accent-dim);border:1px solid rgba(124,58,237,0.25);border-radius:var(--radius);padding:14px 18px;margin-bottom:24px;font-size:0.82rem;color:var(--text2);text-align:center;line-height:1.8}
+        .privacy-note strong{color:var(--accent)}
+
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .seo-content ol,.seo-content ul{margin:0 0 10px 22px}
+        .seo-content li{margin-bottom:4px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
+        .related{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px}
+        .related h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
+        .related .links{display:flex;gap:8px;flex-wrap:wrap}
+        .related a{padding:8px 16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s}
+        .related a:hover{border-color:var(--accent);color:var(--text)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        @media(max-width:600px){
+            header h1{font-size:1.4rem}
+            .container{padding:28px 14px}
+            .file-row{flex-wrap:wrap;gap:6px}
+            .file-row .fname{flex-basis:100%}
+            .setting-row{flex-wrap:wrap;gap:8px}
+        }
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-95-webp-convert/">
+    <meta property="og:title" content="WebP⇔JPG/PNG 一括変換 | DevTools Japan">
+    <meta property="og:description" content="WebPとJPG・PNGを枚数無制限で一括変換。ブラウザ完結・サーバー送信なし">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-95-webp-convert/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="WebP⇔JPG/PNG 一括変換 | DevTools Japan">
+    <meta name="twitter:description" content="WebPとJPG・PNGを枚数無制限で一括変換。ブラウザ完結・サーバー送信なし">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"WebP⇔JPG/PNG 一括変換ツール","description":"WebPをJPG・PNGへ、JPG・PNGをWebPへ枚数無制限で一括変換。ブラウザ完結・サーバー送信なし","url":"https://www.devtools-japan.com/tool-95-webp-convert/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"WebP⇔JPG/PNG 一括変換ツール","item":"https://www.devtools-japan.com/tool-95-webp-convert/"}]}
+    </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"変換すると画質は劣化しますか？","acceptedAnswer":{"@type":"Answer","text":"出力先がJPGまたはWebPの場合は非可逆圧縮のため、品質スライダーの値に応じてわずかに画質が低下します（0.85前後なら見た目はほとんど変わりません）。WebP→PNGは可逆圧縮での保存となるため、変換時に画質は劣化しません。"}},{"@type":"Question","name":"一度に何枚まで変換できますか？","acceptedAnswer":{"@type":"Answer","text":"枚数の上限は設けていません。処理はお使いのブラウザのメモリ内で1枚ずつ順番に行われるため、実際に扱える枚数は端末の性能とファイルサイズに依存します。数百枚程度なら一般的なPCで問題なく動作します。数千枚を超える大量変換は、数百枚ずつに分けて実行すると安定します。"}},{"@type":"Question","name":"透過PNGをWebPやJPGに変換するとどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"WebPは透過（アルファチャンネル）に対応しているため、PNG→WebPでは透過がそのまま保持されます。一方JPGは透過に対応していないため、WebP→JPGでは透明部分が白で塗りつぶされます。透過を保持したい場合はWebP→PNGを選んでください。"}},{"@type":"Question","name":"画像はサーバーにアップロードされますか？安全ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。ファイルの読み込みから変換、ZIP作成、ダウンロードまですべてお使いのブラウザ内で完結し、サーバーへの送信は一切ありません。機密性の高い画像でも安全に変換でき、無料・登録不要で利用できます。"}},{"@type":"Question","name":"JPGやPNGからWebPへの逆変換もできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。変換方向で「JPG・PNG→WebP」を選ぶと逆変換できます。ただしSafariはWebPの書き出し（エンコード）に対応していないため、この方向はChrome・Edge・Firefoxをご利用ください。WebP→JPG・PNGの方向はSafariを含む主要ブラウザで動作します。"}}]}
+</script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot" style="display:none"></div>
+    <header><h1>WebP⇔JPG/PNG 一括変換</h1><p>WebPをJPG・PNGへ、JPG・PNGをWebPへまとめて変換。枚数無制限・ブラウザ完結。</p></header>
+
+    <div class="settings" id="settings">
+        <h3>変換設定</h3>
+        <div class="setting-row">
+            <span class="setting-label">変換方向</span>
+            <select id="direction" onchange="changeDirection()">
+                <option value="webp-jpg">WebP → JPG</option>
+                <option value="webp-png">WebP → PNG</option>
+                <option value="to-webp">JPG・PNG → WebP</option>
+            </select>
+        </div>
+        <div class="setting-row" id="qualityRow">
+            <span class="setting-label">品質（JPG・WebP出力時）</span>
+            <div class="slider-group">
+                <input type="range" id="quality" min="0.1" max="1.0" value="0.85" step="0.05" oninput="document.getElementById('qualVal').textContent=parseFloat(this.value).toFixed(2)">
+                <span class="slider-val" id="qualVal">0.85</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="dropzone" id="dropzone" onclick="document.getElementById('fileInput').click()">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><path d="M19 13v6H5v-6H3v8h18v-8h-2zM11 4.83 8.41 7.41 7 6l5-5 5 5-1.41 1.41L13 4.83V16h-2V4.83z"/></svg></div>
+        <p>クリックまたはドラッグ＆ドロップで画像を選択（複数可）</p>
+        <small id="dzHint">WebP形式のファイルを何枚でもまとめてどうぞ（枚数無制限）</small>
+    </div>
+    <input type="file" id="fileInput" accept=".webp,image/webp" multiple onchange="addFiles(this.files);this.value=''">
+
+    <div class="warn-box" id="webpWarn"></div>
+
+    <div class="file-panel" id="filePanel">
+        <div class="panel-head"><span>ファイル一覧</span><span class="count" id="summary">0 / 0 完了</span></div>
+        <div class="file-list" id="fileList"></div>
+    </div>
+
+    <div class="btn-row" id="actionRow" style="display:none">
+        <button class="btn btn-primary" id="convertBtn" onclick="convertAll()">一括変換する</button>
+        <button class="btn" id="zipBtn" onclick="downloadZip()" style="display:none">まとめてZIPでダウンロード</button>
+        <button class="btn" onclick="resetAll()">リセット</button>
+    </div>
+
+    <div class="privacy-note"><strong>画像はサーバーに送信されません。枚数制限もありません。</strong><br>変換・ZIP作成まですべてお使いのブラウザ内で完結します。扱える枚数はブラウザのメモリに依存します。</div>
+
+    <div class="ad-slot" style="display:none"></div>
+    <div class="seo-content">
+        <h2>WebPとは？なぜWebP画像が増えているのか</h2>
+        <p>WebP（ウェッピー）はGoogleが開発した画像形式で、同じ画質のJPGやPNGと比べて25〜35%ほど容量を小さくできるのが特徴です。ページの表示速度が改善しSEOにも有利なため、近年は多くのWebサイトが画像をWebPで配信するようになりました。ブラウザで画像を右クリック保存すると拡張子が「.webp」になっていて驚いた、という経験がある方も多いはずです。</p>
+        <p>WebPは可逆・非可逆の両方の圧縮に対応し、PNGのような透過（アルファチャンネル）も扱えます。モダンブラウザでの表示にはまったく問題ありませんが、いまだにWebPを読み込めない環境も残っています。</p>
+        <h3>WebPが開けない・使えない時の対処法</h3>
+        <p>古い画像編集ソフト、社内の申請システム、一部のブログ・ECサイトの入稿フォーム、古いバージョンのオフィスソフトなどはWebPに対応していないことがあります。こうした場面では、WebPを従来のJPGまたはPNGに変換してしまうのが最も確実な対処法です。</p>
+        <p>本ツールを使えば、保存したWebP画像をドラッグ＆ドロップするだけで一括でJPGやPNGに変換できます。写真ならJPG、透過やくっきりした図・ロゴならPNGを選ぶのが目安です。逆に、手元のJPG・PNGをWebPへ変換してWebサイトを軽量化する使い方もできます。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>変換方向</th><th>透過の扱い</th><th>画質</th><th>対応ブラウザ</th></tr></thead>
+            <tbody>
+                <tr><td class="acc">WebP → JPG</td><td>白背景で塗りつぶし</td><td>非可逆（品質スライダーで調整）</td><td>ほぼすべてのブラウザ</td></tr>
+                <tr><td class="acc">WebP → PNG</td><td>そのまま保持</td><td>可逆（劣化なし）</td><td>ほぼすべてのブラウザ</td></tr>
+                <tr><td class="acc">JPG・PNG → WebP</td><td>そのまま保持</td><td>非可逆（品質スライダーで調整）</td><td>Chrome・Edge・Firefox（Safari非対応）</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>なお、WebP→JPG・PNGの読み込みはSafari 16以降を含む主要ブラウザで動作しますが、非常に古いSafari（macOS Big Sur以前など）はWebPの読み込み自体に対応していない場合があります。その場合はChromeやEdgeでお試しください。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>一括変換の使い方と大量変換の実用ガイド</h2>
+        <ol>
+            <li>変換方向（WebP→JPG / WebP→PNG / JPG・PNG→WebP）を選ぶ</li>
+            <li>ファイルをまとめてドラッグ＆ドロップ（またはクリックして複数選択）</li>
+            <li>「一括変換する」を押すと1枚ずつ順番に変換され、一覧に変換前後のサイズが表示される</li>
+            <li>1枚ずつ個別にダウンロードするか、「まとめてZIPでダウンロード」で一括保存</li>
+        </ol>
+        <p>JPGまたはWebPへ出力する場合は品質スライダー（0.1〜1.0）で圧縮の強さを調整できます。0.85前後なら見た目をほぼ保ったまま軽量化でき、0.6〜0.7まで下げるとさらに小さくなります。WebP→PNGは可逆圧縮のため品質指定はありません。</p>
+        <h3>何枚まで一括変換できる？</h3>
+        <p>本ツールに枚数制限はありません。多くのオンライン変換サービスは「1回20枚まで」「1日◯回まで」といった制限を設けていますが、本ツールはサーバーを経由せずブラウザ内で処理するため、そうした人為的な制限が不要です。理論上は1万枚でも変換できますが、実際の上限はお使いの端末のメモリに依存します。変換後のデータはダウンロードまでメモリ上に保持されるため、数千枚を超えるような大量変換では、数百枚ずつに分けて「変換→ZIPダウンロード→リセット」を繰り返すと安定して処理できます。</p>
+        <h3>大量変換を安定させるコツ</h3>
+        <ul>
+            <li>1枚あたりのファイルサイズが大きい（数十MB級の）画像は、まとめる枚数を減らす</li>
+            <li>変換中は他の重いタブやアプリを閉じておく</li>
+            <li>ZIPダウンロード後に「リセット」を押してメモリを解放してから次のバッチを読み込む</li>
+        </ul>
+        <p>読み込めないファイルが混ざっていても処理は止まりません。破損ファイルなどはエラーとして表示され、残りのファイルの変換はそのまま続行されます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">変換すると画質は劣化しますか？</div><div class="a">出力先がJPGまたはWebPの場合は非可逆圧縮のため、品質スライダーの値に応じてわずかに画質が低下します（0.85前後なら見た目はほとんど変わりません）。WebP→PNGは可逆圧縮での保存となるため、変換時に画質は劣化しません。</div></div>
+        <div class="faq-item"><div class="q">一度に何枚まで変換できますか？</div><div class="a">枚数の上限は設けていません。処理はお使いのブラウザのメモリ内で1枚ずつ順番に行われるため、実際に扱える枚数は端末の性能とファイルサイズに依存します。数百枚程度なら一般的なPCで問題なく動作します。数千枚を超える大量変換は、数百枚ずつに分けて実行すると安定します。</div></div>
+        <div class="faq-item"><div class="q">透過PNGをWebPやJPGに変換するとどうなりますか？</div><div class="a">WebPは透過（アルファチャンネル）に対応しているため、PNG→WebPでは透過がそのまま保持されます。一方JPGは透過に対応していないため、WebP→JPGでは透明部分が白で塗りつぶされます。透過を保持したい場合はWebP→PNGを選んでください。</div></div>
+        <div class="faq-item"><div class="q">画像はサーバーにアップロードされますか？安全ですか？</div><div class="a">いいえ。ファイルの読み込みから変換、ZIP作成、ダウンロードまですべてお使いのブラウザ内で完結し、サーバーへの送信は一切ありません。機密性の高い画像でも安全に変換でき、無料・登録不要で利用できます。</div></div>
+        <div class="faq-item"><div class="q">JPGやPNGからWebPへの逆変換もできますか？</div><div class="a">はい。変換方向で「JPG・PNG→WebP」を選ぶと逆変換できます。ただしSafariはWebPの書き出し（エンコード）に対応していないため、この方向はChrome・Edge・Firefoxをご利用ください。WebP→JPG・PNGの方向はSafariを含む主要ブラウザで動作します。</div></div>
+    </div>
+    <div class="ad-slot" style="display:none"></div>
+
+    <div class="related">
+      <h3>関連ツール</h3>
+      <div class="links">
+        <a href="/tool-79-image-convert/">画像形式変換ツール</a>
+        <a href="/tool-94-heic-to-jpg/">HEIC変換ツール</a>
+        <a href="/tool-88-image-resize/">画像リサイズツール</a>
+        <a href="/tool-10-image-compress/">画像圧縮ツール</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+const DIRECTIONS={
+    'webp-jpg':{outMime:'image/jpeg',outExt:'jpg',accept:'.webp,image/webp',hint:'WebP形式のファイルを何枚でもまとめてどうぞ（枚数無制限）',inputMimes:['image/webp'],inputExts:['webp'],lossy:true},
+    'webp-png':{outMime:'image/png',outExt:'png',accept:'.webp,image/webp',hint:'WebP形式のファイルを何枚でもまとめてどうぞ（枚数無制限）',inputMimes:['image/webp'],inputExts:['webp'],lossy:false},
+    'to-webp':{outMime:'image/webp',outExt:'webp',accept:'.jpg,.jpeg,.png,image/jpeg,image/png',hint:'JPG・PNG形式のファイルを何枚でもまとめてどうぞ（枚数無制限）',inputMimes:['image/jpeg','image/png'],inputExts:['jpg','jpeg','png'],lossy:true}
+};
+let items=[];
+let running=false;
+const dz=document.getElementById('dropzone');
+dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('dragover')});
+dz.addEventListener('dragleave',()=>dz.classList.remove('dragover'));
+dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('dragover');if(e.dataTransfer.files.length)addFiles(e.dataTransfer.files)});
+
+function currentDir(){return document.getElementById('direction').value}
+function cfg(){return DIRECTIONS[currentDir()]}
+function formatSize(b){return b>1024*1024?(b/1024/1024).toFixed(1)+' MB':(b/1024).toFixed(0)+' KB'}
+function fileExt(name){const m=/\.([^.]+)$/.exec(name||'');return m?m[1].toLowerCase():''}
+function matchesInput(file,c){
+    if(file.type)return c.inputMimes.indexOf(file.type)!==-1;
+    return c.inputExts.indexOf(fileExt(file.name))!==-1;
+}
+
+function changeDirection(){
+    if(running)return;
+    const c=cfg();
+    document.getElementById('fileInput').setAttribute('accept',c.accept);
+    document.getElementById('dzHint').textContent=c.hint;
+    document.getElementById('qualityRow').style.display=c.lossy?'flex':'none';
+    clearItems();
+    hideWebpWarn();
+}
+
+function clearItems(){
+    items=[];
+    document.getElementById('fileList').innerHTML='';
+    document.getElementById('filePanel').style.display='none';
+    document.getElementById('actionRow').style.display='none';
+    document.getElementById('zipBtn').style.display='none';
+    updateSummary();
+}
+
+function addFiles(fileList){
+    if(running)return;
+    const c=cfg();
+    const files=Array.prototype.slice.call(fileList);
+    let added=0,rejected=0;
+    files.forEach(f=>{
+        if(!matchesInput(f,c)){rejected++;return}
+        items.push({file:f,status:'pending',blob:null,message:''});
+        added++;
+    });
+    if(!added&&rejected){alert('選択したファイルはこの変換方向の対象形式ではありません。変換方向と拡張子をご確認ください。');return}
+    if(rejected)alert(rejected+'件のファイルは対象形式ではないため除外しました。');
+    renderList();
+    document.getElementById('filePanel').style.display='block';
+    document.getElementById('actionRow').style.display='flex';
+    document.getElementById('convertBtn').disabled=false;
+    updateSummary();
+}
+
+function statusLabel(it){
+    if(it.status==='pending')return '待機中';
+    if(it.status==='converting')return '変換中…';
+    if(it.status==='done')return '完了';
+    return it.message||'エラー';
+}
+
+function renderList(){
+    const list=document.getElementById('fileList');
+    list.innerHTML='';
+    items.forEach((it,i)=>{
+        const row=document.createElement('div');
+        row.className='file-row';
+        const name=document.createElement('span');name.className='fname';name.textContent=it.file.name;name.title=it.file.name;
+        const size=document.createElement('span');size.className='fsize';
+        const st=document.createElement('span');st.className='fstatus';
+        const dl=document.createElement('button');dl.className='dl';dl.type='button';dl.textContent='保存';dl.disabled=true;
+        dl.addEventListener('click',()=>downloadItem(i));
+        row.appendChild(name);row.appendChild(size);row.appendChild(st);row.appendChild(dl);
+        list.appendChild(row);
+        it.el={size:size,status:st,dl:dl};
+        updateRow(it);
+    });
+}
+
+function updateRow(it){
+    if(!it.el)return;
+    it.el.size.textContent=it.blob?formatSize(it.file.size)+' → '+formatSize(it.blob.size):formatSize(it.file.size);
+    it.el.status.textContent=statusLabel(it);
+    it.el.status.className='fstatus '+it.status;
+    it.el.dl.disabled=!(it.status==='done'&&it.blob);
+}
+
+function updateSummary(){
+    const done=items.filter(it=>it.status==='done').length;
+    const err=items.filter(it=>it.status==='error').length;
+    document.getElementById('summary').textContent=done+' / '+items.length+' 完了'+(err?'（エラー '+err+'）':'');
+}
+
+/* Queue state machine — DOM-free, testable.
+   Each item: {status:'pending'|'converting'|'done'|'error', blob, message}
+   convertOne(item) -> Promise<Blob>. Returns {stopped, reason}. */
+async function runBatch(batchItems,direction,convertOne,onProgress){
+    for(let i=0;i<batchItems.length;i++){
+        const it=batchItems[i];
+        if(it.status==='done')continue;
+        it.status='converting';it.message='';
+        if(onProgress)onProgress(it);
+        let blob;
+        try{
+            blob=await convertOne(it);
+        }catch(e){
+            it.status='error';it.message=(e&&e.message)?e.message:'変換に失敗しました';
+            if(onProgress)onProgress(it);
+            continue;
+        }
+        if(direction==='to-webp'&&(!blob||blob.type!=='image/webp')){
+            it.status='error';it.message='WebP出力非対応';
+            if(onProgress)onProgress(it);
+            return {stopped:true,reason:'webp-unsupported'};
+        }
+        if(!blob){
+            it.status='error';it.message='変換に失敗しました';
+            if(onProgress)onProgress(it);
+            continue;
+        }
+        it.blob=blob;it.status='done';
+        if(onProgress)onProgress(it);
+    }
+    return {stopped:false,reason:null};
+}
+
+function convertOneFile(it){
+    return new Promise((resolve,reject)=>{
+        const c=cfg();
+        const quality=parseFloat(document.getElementById('quality').value);
+        const url=URL.createObjectURL(it.file);
+        const img=new Image();
+        img.onload=()=>{
+            try{
+                const w=img.naturalWidth,h=img.naturalHeight;
+                const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;
+                const ctx=canvas.getContext('2d');
+                if(c.outMime==='image/jpeg'){ctx.fillStyle='#ffffff';ctx.fillRect(0,0,w,h);}
+                ctx.drawImage(img,0,0,w,h);
+                canvas.toBlob(blob=>{
+                    URL.revokeObjectURL(url);
+                    if(!blob){reject(new Error('変換に失敗しました'));return}
+                    resolve(blob);
+                },c.outMime,c.lossy?quality:undefined);
+            }catch(e){
+                URL.revokeObjectURL(url);
+                reject(new Error('変換処理でエラーが発生しました'));
+            }
+        };
+        img.onerror=()=>{
+            URL.revokeObjectURL(url);
+            reject(new Error('読み込み失敗'));
+        };
+        img.src=url;
+    });
+}
+
+function showWebpWarn(){
+    const el=document.getElementById('webpWarn');
+    el.innerHTML='<strong>お使いのブラウザはWebPの書き出し（エンコード）に対応していません。</strong><br>Safariは非対応のため、JPG・PNG→WebPの変換はChrome・Edge・Firefoxをご利用ください。変換を中断しました。なお、WebP→JPG・PNGの方向はこのブラウザでも利用できます。';
+    el.style.display='block';
+}
+function hideWebpWarn(){document.getElementById('webpWarn').style.display='none'}
+
+async function convertAll(){
+    if(running||!items.length)return;
+    running=true;
+    hideWebpWarn();
+    const dir=currentDir();
+    document.getElementById('convertBtn').disabled=true;
+    document.getElementById('direction').disabled=true;
+    const result=await runBatch(items,dir,convertOneFile,it=>{updateRow(it);updateSummary()});
+    if(result.stopped&&result.reason==='webp-unsupported')showWebpWarn();
+    running=false;
+    document.getElementById('direction').disabled=false;
+    document.getElementById('convertBtn').disabled=false;
+    const done=items.filter(it=>it.status==='done').length;
+    const zipBtn=document.getElementById('zipBtn');
+    if(done>=2){
+        zipBtn.style.display='inline-flex';
+        if(typeof JSZip==='undefined'){
+            zipBtn.disabled=true;
+            zipBtn.textContent='ZIPライブラリの読み込みに失敗（個別保存は可能）';
+        }else{
+            zipBtn.disabled=false;
+            zipBtn.textContent='まとめてZIPでダウンロード';
+        }
+    }else{
+        zipBtn.style.display='none';
+    }
+    updateSummary();
+}
+
+function extForBlob(blob){
+    const map={'image/jpeg':'jpg','image/png':'png','image/webp':'webp'};
+    return map[blob.type]||cfg().outExt;
+}
+function outName(it,used){
+    const base=(it.file.name||'image').replace(/\.[^.]+$/,'');
+    const ext=extForBlob(it.blob);
+    let name=base+'.'+ext,n=1;
+    while(used[name]){name=base+' ('+n+').'+ext;n++}
+    used[name]=true;
+    return name;
+}
+
+function downloadItem(i){
+    const it=items[i];
+    if(!it||!it.blob)return;
+    const used={};
+    const a=document.createElement('a');
+    a.download=outName(it,used);
+    const url=URL.createObjectURL(it.blob);
+    a.href=url;a.click();
+    setTimeout(()=>URL.revokeObjectURL(url),10000);
+}
+
+async function downloadZip(){
+    if(typeof JSZip==='undefined')return;
+    const done=items.filter(it=>it.status==='done'&&it.blob);
+    if(!done.length)return;
+    const zipBtn=document.getElementById('zipBtn');
+    zipBtn.disabled=true;zipBtn.textContent='ZIP作成中…';
+    try{
+        const zip=new JSZip();
+        const used={};
+        done.forEach(it=>{zip.file(outName(it,used),it.blob)});
+        const blob=await zip.generateAsync({type:'blob'});
+        const a=document.createElement('a');
+        a.download='webp-convert-'+currentDir()+'.zip';
+        const url=URL.createObjectURL(blob);
+        a.href=url;a.click();
+        setTimeout(()=>URL.revokeObjectURL(url),10000);
+    }catch(e){
+        alert('ZIPの作成に失敗しました。ファイル数を減らしてお試しください。');
+    }
+    zipBtn.disabled=false;zipBtn.textContent='まとめてZIPでダウンロード';
+}
+
+function resetAll(){
+    if(running)return;
+    clearItems();
+    hideWebpWarn();
+    document.getElementById('fileInput').value='';
+}
+</script>
+</body>
+</html>

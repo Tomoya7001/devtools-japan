@@ -24,7 +24,7 @@
         header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
         .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
         .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
-        .preview-area{display:flex;align-items:center;justify-content:center;min-height:250px;background:#f7f8fb;border:1px solid var(--border);border-radius:12px;margin-bottom:20px}.preview-box{width:150px;height:150px;background:var(--bg-card);border-radius:16px;transition:box-shadow 0.3s}.slider-row{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid rgba(30,30,48,0.3)}.slider-row label{min-width:80px;font-size:0.8rem;color:var(--text2)}.slider-row input[type=range]{flex:1;-webkit-appearance:none;height:6px;background:#ffffff;border-radius:3px;outline:none}.slider-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;background:var(--accent);border-radius:50%;cursor:pointer}.slider-row .val{min-width:50px;font-family:"JetBrains Mono",monospace;font-size:0.75rem;color:var(--accent);text-align:right}.code-box{font-family:"JetBrains Mono",monospace;font-size:0.8rem;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:14px;color:var(--text2);cursor:pointer;margin-bottom:24px}.code-box:hover{border-color:var(--accent);color:var(--text)}
+        .preview-area{display:flex;align-items:center;justify-content:center;min-height:250px;background:#f7f8fb;border:1px solid var(--border);border-radius:12px;margin-bottom:20px}.preview-box{width:150px;height:150px;background:var(--bg-card);border-radius:16px;transition:box-shadow 0.3s}.slider-row{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--border)}.slider-row label{min-width:80px;font-size:0.8rem;color:var(--text2)}.slider-row input[type=range]{flex:1;-webkit-appearance:none;height:6px;background:#e0e2ed;border-radius:3px;outline:none}.slider-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;background:var(--accent);border-radius:50%;cursor:pointer}.slider-row .val{min-width:50px;font-family:"JetBrains Mono",monospace;font-size:0.75rem;color:var(--accent);text-align:right}.code-box{font-family:"JetBrains Mono",monospace;font-size:0.8rem;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:14px;color:var(--text2);cursor:pointer;margin-bottom:24px}.code-box:hover{border-color:var(--accent);color:var(--text)}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
         .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
@@ -57,7 +57,7 @@
     </script>
 </head>
 <body>
-<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='#5a5f78'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
     <div class="ad-slot" style="display:none"></div>
     <header><h1>CSSボックスシャドウ生成</h1><p>CSSのbox-shadowをビジュアルに作成。プレビュー付きでコードをコピー。</p></header>
@@ -76,7 +76,7 @@
         <h2>CSSボックスシャドウ生成ツールの使い方</h2>
         <p>CSSのbox-shadowプロパティを視覚的に調整して生成する無料ツールです。X/Y方向のオフセット、ぼかし、広がり、色をスライダーで直感的に操作し、リアルタイムでプレビューしながらCSSコードを生成できます。</p>
         <h3>シャドウの種類</h3>
-        <p>外側シャドウ（ドロップシャドウ）と内側シャドウ（インセットシャドウ）の両方に対応しています。複数のシャドウを重ねることで、より立体的な表現が可能です。</p>
+        <p>本ツールが生成するのは外側シャドウ（ドロップシャドウ）のコードです。内側シャドウ（inset）にしたい場合は、生成したコードの値の先頭にinsetを付け足すだけで応用できます。また、生成したコードをカンマ区切りで並べれば複数のシャドウを重ねられ、より立体的な表現が可能です。</p>
         <h3>デザイントレンド</h3>
         <p>フラットデザインでは影をほとんど使いませんが、ニューモーフィズム（Neumorphism）デザインでは内側と外側の影を組み合わせて柔らかな立体感を表現します。このツールで各種デザインスタイルの影を試すことができます。</p>
         </div>
@@ -108,12 +108,12 @@
         </div>
     <div class="ad-slot" style="display:none"></div>
     
-    <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
-      <h3 style="font-size:0.75rem;color:var(--text-muted,#4a4a68);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a href="/tool-38-gradient-gen/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">CSSグラデーション生成ツール</a>
-        <a href="/tool-05-color-converter/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">カラーコード変換ツール</a>
-        <a href="/tool-46-color-palette/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">カラーパレット生成ツール</a>
+        <a href="/tool-38-gradient-gen/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">CSSグラデーション生成ツール</a>
+        <a href="/tool-05-color-converter/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カラーコード変換ツール</a>
+        <a href="/tool-46-color-palette/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カラーパレット生成ツール</a>
       </div>
     </div>
     <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>

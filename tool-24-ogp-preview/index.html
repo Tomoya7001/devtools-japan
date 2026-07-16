@@ -84,7 +84,7 @@
     </script>
 </head>
 <body>
-<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='#5a5f78'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
     <div class="ad-slot" style="display:none"></div>
     <header><h1>OGPプレビューチェッカー</h1><p>SNSでシェアした時の表示をプレビュー確認</p></header>
@@ -101,11 +101,6 @@
     </div>
     <div class="meta-output"><h3>OGPメタタグ（クリックでコピー）</h3><pre id="metaCode" onclick="navigator.clipboard.writeText(this.textContent);showToast()"></pre></div>
     <div class="ad-slot" style="display:none"></div>
-    <div class="seo-content">
-        <h2>OGP（Open Graph Protocol）とは</h2>
-        <p>OGPは、SNSでWebページがシェアされた際の表示内容（タイトル、説明文、画像）を指定するためのメタタグ仕様です。適切に設定することで、SNSでのクリック率を大幅に向上させることができます。</p>
-        <p>推奨画像サイズはTwitterカードが1200×628px、Facebook/LINEが1200×630pxです。</p>
-    </div>
     <div class="seo-content">
         <h2>OGP（Open Graph Protocol）とは</h2>
         <p>OGPはOpen Graph Protocolの略で、WebページがSNSでシェアされたときに表示されるタイトル・説明文・画像・URLなどを制御するためのmetaタグの仕様です。FacebookによってSNS間で情報を統一的に扱うために策定され、現在ではX（旧Twitter）やLINE、Slackなど多くのサービスがこの仕様を参照しています。OGPを正しく設定すると、リンクを貼っただけで内容が伝わる「カード型」のリッチな表示になり、シェアされたときのクリック率を高めることができます。</p>
@@ -137,12 +132,12 @@
     </div>
     <div class="ad-slot" style="display:none"></div>
     
-    <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
-      <h3 style="font-size:0.75rem;color:var(--text-muted,#4a4a68);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a href="/tool-23-sns-image-sizes/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">SNS画像サイズ一覧</a>
-        <a href="/tool-50-htaccess-gen/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">.htaccess生成ツール</a>
-        <a href="/tool-14-html-escape/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">HTML特殊文字変換ツール</a>
+        <a href="/tool-23-sns-image-sizes/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">SNS画像サイズ一覧</a>
+        <a href="/tool-50-htaccess-gen/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">.htaccess生成ツール</a>
+        <a href="/tool-14-html-escape/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">HTML特殊文字変換ツール</a>
       </div>
     </div>
     <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
@@ -165,12 +160,17 @@ function render(){
     document.getElementById('liTitle').textContent=title;
     document.getElementById('liDesc').textContent=desc;
     if(img){
-        ['twImg','fbImg','liImg'].forEach(id=>{const el=document.getElementById(id);el.style.backgroundImage=`url(${img})`;el.textContent=''});
+        const safeImg=img.replace(/\\/g,'\\\\').replace(/"/g,'\\"');
+        ['twImg','fbImg','liImg'].forEach(id=>{const el=document.getElementById(id);el.style.backgroundImage=`url("${safeImg}")`;el.textContent=''});
     }else{
         ['twImg','fbImg','liImg'].forEach(id=>{const el=document.getElementById(id);el.style.backgroundImage='';el.textContent='画像URL未設定'});
     }
     const esc=s=>s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-    document.getElementById('metaCode').textContent=`<meta property="og:title" content="${esc(title)}">\n<meta property="og:description" content="${esc(desc)}">\n<meta property="og:image" content="${esc(img)}">\n<meta property="og:url" content="${esc(url)}">\n<meta property="og:type" content="article">\n<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:title" content="${esc(title)}">\n<meta name="twitter:description" content="${esc(desc)}">\n<meta name="twitter:image" content="${esc(img)}">`;
+    const metaLines=[`<meta property="og:title" content="${esc(title)}">`,`<meta property="og:description" content="${esc(desc)}">`];
+    if(img)metaLines.push(`<meta property="og:image" content="${esc(img)}">`);
+    metaLines.push(`<meta property="og:url" content="${esc(url)}">`,`<meta property="og:type" content="article">`,`<meta name="twitter:card" content="summary_large_image">`,`<meta name="twitter:title" content="${esc(title)}">`,`<meta name="twitter:description" content="${esc(desc)}">`);
+    if(img)metaLines.push(`<meta name="twitter:image" content="${esc(img)}">`);
+    document.getElementById('metaCode').textContent=metaLines.join('\n');
 }
 function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
 render();

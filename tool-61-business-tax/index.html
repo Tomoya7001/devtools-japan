@@ -71,13 +71,13 @@
 
     <div class="card"><h3>入力</h3>
         <div class="row"><label>事業所得（売上−経費）</label><input type="number" id="income" value="5000000" oninput="calc()"><span class="unit">円</span></div>
-        <div class="row"><label>青色申告特別控除</label><select id="blue" onchange="calc()"><option value="650000" selected>65万円</option><option value="100000">10万円</option><option value="0">なし</option></select><span class="unit"></span></div>
         <div class="row"><label>業種</label><select id="biz" onchange="calc()">
             <option value="5" selected>第一種（5%）: コンサルタント、デザイン、ライター等</option>
             <option value="4">第二種（4%）: 畜産業、水産業等</option>
             <option value="3">第三種（3%）: 医師、弁護士、税理士等</option>
             <option value="0">非課税業種: プログラマー（※下記参照）</option>
         </select><span class="unit"></span></div>
+        <p style="font-size:0.72rem;color:var(--text3);padding:8px 0 0">※青色申告特別控除は事業税には適用されません</p>
     </div>
 
     <div class="result-grid">
@@ -125,7 +125,6 @@
             </tbody>
         </table>
         </div>
-        <!-- # TODO要確認: 法定70業種の税率区分は各都道府県・地方税法で要確認 -->
         <p>第1種事業と第3種事業の大半は税率5%、畜産業・水産業・薪炭製造業（第2種事業）は4%、あんま・マッサージ等の医業に類する事業は3%です。第3種事業の中でも区分により5%と3%が混在するため、自身の事業がどの区分に該当するかは、お住まいの都道府県税事務所の案内で必ず確認してください。</p>
         <h3>計算例</h3>
         <p>税率5%の業種（第1種事業）を例に、事業所得別の年間税額を示します。いずれも課税所得は「事業所得 − 290万円」で求めます。</p>
@@ -158,10 +157,9 @@
 <script>
 function calc() {
     const income = parseInt(document.getElementById('income').value) || 0;
-    const blue = parseInt(document.getElementById('blue').value) || 0;
     const rate = parseInt(document.getElementById('biz').value) || 0;
 
-    // 個人事業税では青色申告控除は適用されないが、所得計算には反映済みの前提
+    // 個人事業税では青色申告特別控除は適用されない
     const deduction = 2900000;
     const taxable = Math.max(0, income - deduction);
     const tax = Math.floor(taxable * rate / 100);

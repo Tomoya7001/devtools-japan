@@ -17,7 +17,7 @@
     <meta name="description" content="数値を3桁カンマ区切り・日本円・USドル・漢数字風・万円・億円表示の6形式に同時変換。カンマ付き入力もOK、ブラウザ完結で送信なしの無料数値フォーマッター。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#eab308;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#ca8a04;--accent-dim:rgba(99,102,241,0.08);--radius:12px}
         ::selection{background:rgba(99,102,241,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
         .container{max-width:800px;margin:0 auto;padding:40px 20px}
         .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
@@ -57,7 +57,7 @@
     </script>
 </head>
 <body>
-<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#1e1e35'" onmouseout="this.style.color='#5a5f78'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
     <div class="ad-slot" style="display:none"></div>
     <header><h1>数値フォーマッター</h1><p>数値に桁区切り・通貨表示を自動付与</p></header>
@@ -104,12 +104,12 @@
     </div>
     <div class="ad-slot" style="display:none"></div>
     
-    <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
-      <h3 style="font-size:0.75rem;color:var(--text-muted,#4a4a68);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a href="/tool-32-unit-converter/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">単位変換ツール</a>
-        <a href="/tool-29-byte-converter/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">バイト変換ツール</a>
-        <a href="/tool-21-tax-simulator/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">確定申告シミュレーター</a>
+        <a href="/tool-32-unit-converter/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">単位変換ツール</a>
+        <a href="/tool-29-byte-converter/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">バイト変換ツール</a>
+        <a href="/tool-21-tax-simulator/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">確定申告シミュレーター</a>
       </div>
     </div>
     <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
@@ -118,7 +118,7 @@
 <div class="toast" id="toast">コピーしました</div>
 <script>
 function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
-function fmt(){const n=parseFloat(document.getElementById('input').value.replace(/,/g,''))||0;const fmts=[['桁区切り',n.toLocaleString()],['日本円','¥'+n.toLocaleString()],['USD','$'+n.toLocaleString('en-US',{minimumFractionDigits:2})],['漢数字風',kansuji(n)],['万円表示',(n/10000).toFixed(1)+'万円'],['億円表示',(n/100000000).toFixed(2)+'億円']];document.getElementById('results').innerHTML=fmts.map(([l,v])=>'<div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:12px;cursor:pointer" onclick="navigator.clipboard.writeText(\''+v.replace(/'/g,"\\'")+'\'\');showToast()"><div style="font-size:0.65rem;color:var(--text3);margin-bottom:4px">'+l+'</div><div style="font-family:JetBrains Mono;font-size:0.95rem;color:var(--accent)">'+v+'</div></div>').join('')}
+function fmt(){const n=parseFloat(document.getElementById('input').value.replace(/,/g,''))||0;const fmts=[['桁区切り',n.toLocaleString()],['日本円','¥'+n.toLocaleString()],['USD','$'+n.toLocaleString('en-US',{minimumFractionDigits:2})],['漢数字風',kansuji(n)],['万円表示',(n/10000).toFixed(1)+'万円'],['億円表示',(n/100000000).toFixed(2)+'億円']];document.getElementById('results').innerHTML=fmts.map(([l,v])=>'<div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:12px;cursor:pointer" onclick="navigator.clipboard.writeText(\''+v.replace(/'/g,"\\'")+'\');showToast()"><div style="font-size:0.65rem;color:var(--text3);margin-bottom:4px">'+l+'</div><div style="font-family:JetBrains Mono;font-size:0.95rem;color:var(--accent)">'+v+'</div></div>').join('')}
 function kansuji(n){if(n>=100000000)return(n/100000000).toFixed(1)+'億';if(n>=10000)return(n/10000).toFixed(1)+'万';return n.toString()}fmt()
 </script>
 </body>

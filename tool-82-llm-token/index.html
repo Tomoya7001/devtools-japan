@@ -94,7 +94,6 @@ Please summarize the following article in three bullet points. Keep the tone neu
         <div class="brow"><span>合計（概算）</span><span class="val" id="bTotal"></span></div>
     </div>
     <div class="ad-slot" style="display:none"></div>
-    <!-- TODO要確認: トークン換算はモデル(GPT/Claude/Gemini)のトークナイザにより異なる。本ツールは文字数ベースの概算(日本語2.5字/tok・英数4字/tok)。正確な値とAPI料金は各モデル公式で確認 -->
     <div class="seo-content">
         <h2>LLMトークンとは／概算の仕組み</h2>
         <p>トークンとは、ChatGPT（GPT）・Claude・GeminiといったLLM（大規模言語モデル）が文章を処理する際の最小単位です。LLMは入力された文章をそのまま文字として扱うのではなく、単語や単語の一部、あるいは文字のまとまりを「トークン」という単位に分割してから処理します。API料金の課金もコンテキスト長（一度に扱える上限）の管理も、すべてこのトークン数を基準に行われます。そのため、プロンプトや文章が「およそ何トークンになるか」を事前に把握しておくと、料金の見積もりやコンテキスト上限の確認に役立ちます。</p>

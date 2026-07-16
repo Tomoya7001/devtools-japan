@@ -130,6 +130,7 @@
             <div class="pct" id="convInfo">PNG → JPEG</div>
             <div class="detail" id="convDetail">0 KB → 0 KB</div>
         </div>
+        <div id="formatWarning" style="display:none;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:0.8rem;color:#b91c1c"></div>
         <div class="result-grid">
             <div class="result-card"><div class="label"><span id="origFmt">元画像</span><span id="origSize">0 KB</span></div><img id="origImg" alt="変換前の画像"></div>
             <div class="result-card"><div class="label"><span id="compFmt">変換後</span><span id="compSize">0 KB</span></div><img id="compImg" alt="変換後の画像"></div>
@@ -227,23 +228,35 @@ function convert(){
         canvas.toBlob(blob=>{
             if(!blob){alert('この形式への変換に失敗しました。別の形式をお試しください。');return}
             convertedBlob=blob;
+            const actualFormat=blob.type||format;
+            const warnEl=document.getElementById('formatWarning');
+            if(actualFormat!==format){
+                warnEl.textContent=`お使いのブラウザは${fmtName(format)}形式への変換に対応していないため、${fmtName(actualFormat)}形式で出力しました。ダウンロードファイルの拡張子も${fmtName(actualFormat)}に合わせています。`;
+                warnEl.style.display='block';
+            }else{
+                warnEl.style.display='none';
+            }
             document.getElementById('compImg').src=URL.createObjectURL(blob);
             const origS=originalFile.size,compS=blob.size;
-            document.getElementById('convInfo').textContent=`${fmtName(originalFile.type)} → ${fmtName(format)}`;
+            document.getElementById('convInfo').textContent=`${fmtName(originalFile.type)} → ${fmtName(actualFormat)}`;
             document.getElementById('convDetail').textContent=`${formatSize(origS)} → ${formatSize(compS)}`;
             document.getElementById('origFmt').textContent=fmtName(originalFile.type);
-            document.getElementById('compFmt').textContent=fmtName(format);
+            document.getElementById('compFmt').textContent=fmtName(actualFormat);
             document.getElementById('origSize').textContent=formatSize(origS);
             document.getElementById('compSize').textContent=formatSize(compS);
             document.getElementById('result').style.display='block';
         },format,useQuality?quality:undefined);
+    };
+    img.onerror=()=>{
+        alert('画像の読み込みに失敗しました。ファイルが破損しているか、対応していない形式の可能性があります。');
+        reset();
     };
     img.src=URL.createObjectURL(originalFile);
 }
 
 function download(){
     if(!convertedBlob)return;
-    const format=document.getElementById('outputFormat').value;
+    const format=convertedBlob.type||document.getElementById('outputFormat').value;
     const ext=format==='image/jpeg'?'jpg':format.split('/')[1];
     const base=(originalFile.name||'image').replace(/\.[^.]+$/,'');
     const a=document.createElement('a');a.download=`${base}.${ext}`;a.href=URL.createObjectURL(convertedBlob);a.click();

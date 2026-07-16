@@ -69,7 +69,7 @@
     </script>
 </head>
 <body>
-<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='var(--text,#1e1e35)'" onmouseout="this.style.color='#5a5f78'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
     <div class="ad-slot" style="display:none"></div>
     <header><h1>和暦・西暦変換ツール</h1><p>和暦と西暦をワンクリックで相互変換。年齢も自動計算。</p></header>
@@ -99,7 +99,7 @@
     <div class="converter-card">
         <h3>和暦・西暦 早見表（令和〜昭和）</h3>
         <table class="era-table">
-            <thead><tr><th>和暦</th><th>西暦</th><th>年齢（2026年時点）</th></tr></thead>
+            <thead><tr><th>和暦</th><th>西暦</th><th id="ageColHead">年齢（2026年時点）</th></tr></thead>
             <tbody id="tableBody"></tbody>
         </table>
     </div>
@@ -144,20 +144,20 @@
     <div class="ad-slot" style="display:none"></div>
     
     
-    <div style="background:var(--bg-card,#111118);border:1px solid rgba(99,102,241,0.2);border-radius:12px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <div style="background:var(--bg-card,#ffffff);border:1px solid rgba(99,102,241,0.2);border-radius:12px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
       <div>
         <span style="font-size:0.75rem;color:#6366f1;font-weight:600">API</span>
-        <span style="font-size:0.8rem;color:#8888a8;margin-left:8px">この機能をアプリに組み込みませんか？</span>
+        <span style="font-size:0.8rem;color:var(--text2,#5a5f78);margin-left:8px">この機能をアプリに組み込みませんか？</span>
       </div>
       <a href="https://api.devtools-japan.com" target="_blank" rel="noopener" style="padding:6px 16px;background:transparent;border:1px solid rgba(99,102,241,0.4);color:#6366f1;border-radius:6px;text-decoration:none;font-size:0.75rem;font-weight:500;transition:all 0.2s;white-space:nowrap" onmouseover="this.style.background='rgba(99,102,241,0.1)'" onmouseout="this.style.background='transparent'">APIを見る →</a>
     </div>
 
-<div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
-      <h3 style="font-size:0.75rem;color:var(--text-muted,#4a4a68);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+<div style="background:var(--bg-card,#ffffff);border:1px solid var(--border,#e0e2ed);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3,#9498b0);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a href="/tool-16-timestamp/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">タイムスタンプ変換ツール</a>
-        <a href="/tool-21-tax-simulator/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">確定申告シミュレーター</a>
-        <a href="/tool-19-zenkaku-hankaku/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">全角半角変換ツール</a>
+        <a href="/tool-16-timestamp/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">タイムスタンプ変換ツール</a>
+        <a href="/tool-21-tax-simulator/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">確定申告シミュレーター</a>
+        <a href="/tool-19-zenkaku-hankaku/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">全角半角変換ツール</a>
       </div>
     </div>
     <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
@@ -165,6 +165,7 @@
 </div>
 <script>
 const ERAS={reiwa:{name:'令和',start:2019},heisei:{name:'平成',start:1989},showa:{name:'昭和',start:1926},taisho:{name:'大正',start:1912},meiji:{name:'明治',start:1868}};
+const THIS_YEAR=new Date().getFullYear();
 function seirekiToWareki(){
     const y=parseInt(document.getElementById('seirekiInput').value);
     if(isNaN(y))return;
@@ -175,8 +176,8 @@ function seirekiToWareki(){
     else if(y>=1912)era=`大正${y-1911}年`;
     else if(y>=1868)era=`明治${y-1867}年`;
     else{era='明治以前';} 
-    const age=2026-y;
-    const sub=age>=0?`${y}年生まれ → 2026年時点で ${age}歳`:'';
+    const age=THIS_YEAR-y;
+    const sub=age>=0?`${y}年生まれ → ${THIS_YEAR}年時点で ${age}歳`:'';
     document.getElementById('warekiResult').innerHTML=`<div class="main">${era}</div><div class="sub">${sub}</div>`;
 }
 function warekiToSeireki(){
@@ -184,10 +185,11 @@ function warekiToSeireki(){
     const n=parseInt(document.getElementById('warekiInput').value);
     if(isNaN(n))return;
     const y=ERAS[eraKey].start+(n-1);
-    const age=2026-y;
-    document.getElementById('seirekiResult').innerHTML=`<div class="main">${y}年</div><div class="sub">${age>=0?`2026年時点で ${age}歳`:''}</div>`;
+    const age=THIS_YEAR-y;
+    document.getElementById('seirekiResult').innerHTML=`<div class="main">${y}年</div><div class="sub">${age>=0?`${THIS_YEAR}年時点で ${age}歳`:''}</div>`;
 }
 // Build table
+document.getElementById('ageColHead').textContent=`年齢（${THIS_YEAR}年時点）`;
 const tbody=document.getElementById('tableBody');
 const keyYears=[2026,2025,2024,2020,2019,2018,2010,2000,1989,1988,1980,1970,1960,1950,1940,1930,1926,1925];
 keyYears.forEach(y=>{
@@ -196,7 +198,7 @@ keyYears.forEach(y=>{
     else if(y>=1989)era=`<span class="era-name">平成${y-1988}年</span>`;
     else if(y>=1926)era=`<span class="era-name">昭和${y-1925}年</span>`;
     else era=`<span class="era-name">大正${y-1911}年</span>`;
-    const age=2026-y;
+    const age=THIS_YEAR-y;
     tbody.innerHTML+=`<tr><td>${era}</td><td>${y}年</td><td>${age}歳</td></tr>`;
 });
 seirekiToWareki();

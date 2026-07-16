@@ -94,7 +94,8 @@
 
     <div class="result-grid">
         <div class="result-item"><div class="label">時間単価</div><div class="value" id="rHourly">-</div></div>
-        <div class="result-item"><div class="label">時間外 残業代（25%増）</div><div class="value" id="rOvertime">-</div></div>
+        <div class="result-item"><div class="label" id="rOvertimeLabel">時間外 残業代（25%増）</div><div class="value" id="rOvertime">-</div></div>
+        <div class="result-item" id="rOvertimeOverItem" style="display:none"><div class="label">残業手当（60時間超・50%増）</div><div class="value" id="rOvertimeOver">-</div></div>
         <div class="result-item"><div class="label">深夜 残業代（25%増）</div><div class="value" id="rNight">-</div></div>
         <div class="result-item"><div class="label">休日 残業代（35%増）</div><div class="value" id="rHoliday">-</div></div>
     </div>
@@ -187,14 +188,29 @@ function calc() {
     const nt = parseFloat(document.getElementById('nighttime').value) || 0;
     const hd = parseFloat(document.getElementById('holiday').value) || 0;
 
-    const otPay = Math.round(hourly * 1.25 * ot);
+    // \u670860\u6642\u9593\u4ee5\u5185\u306f25%\u5897\u300160\u6642\u9593\u3092\u8d85\u3048\u308b\u90e8\u5206\u306f50%\u5897\uff082023\u5e744\u6708\u301c\u5168\u4f01\u696d\u9069\u7528\uff09
+    const otWithin = Math.min(ot, 60);
+    const otOver = Math.max(ot - 60, 0);
+    const otPayWithin = Math.round(hourly * 1.25 * otWithin);
+    const otPayOver = Math.round(hourly * 1.50 * otOver);
+    const otPay = otPayWithin + otPayOver;
     const ntPay = Math.round(hourly * 1.25 * nt);
     const hdPay = Math.round(hourly * 1.35 * hd);
     const total = otPay + ntPay + hdPay;
 
     const f = n => n.toLocaleString();
     document.getElementById('rHourly').textContent = '\u00a5' + f(hourly);
-    document.getElementById('rOvertime').textContent = '\u00a5' + f(otPay);
+    const overItem = document.getElementById('rOvertimeOverItem');
+    if (otOver > 0) {
+        document.getElementById('rOvertimeLabel').textContent = '\u6b8b\u696d\u624b\u5f53\uff0860\u6642\u9593\u4ee5\u5185\u30fb25%\u5897\uff09';
+        document.getElementById('rOvertime').textContent = '\u00a5' + f(otPayWithin);
+        document.getElementById('rOvertimeOver').textContent = '\u00a5' + f(otPayOver);
+        overItem.style.display = '';
+    } else {
+        document.getElementById('rOvertimeLabel').textContent = '\u6642\u9593\u5916 \u6b8b\u696d\u4ee3\uff0825%\u5897\uff09';
+        document.getElementById('rOvertime').textContent = '\u00a5' + f(otPay);
+        overItem.style.display = 'none';
+    }
     document.getElementById('rNight').textContent = '\u00a5' + f(ntPay);
     document.getElementById('rHoliday').textContent = '\u00a5' + f(hdPay);
     document.getElementById('rTotal').textContent = '\u00a5' + f(total);

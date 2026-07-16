@@ -69,7 +69,7 @@
 </script>
 </head>
 <body>
-<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='var(--text,#1e1e35)'" onmouseout="this.style.color='#5a5f78'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
     <div class="ad-slot" style="display:none"></div>
     <header><h1>URLエンコード・デコード</h1><p>URLのパーセントエンコーディングを変換。日本語URL対応。</p></header>
@@ -84,7 +84,7 @@
     <div class="example-chips">
         <span class="chip" onclick="setExample('https://example.com/検索?q=東京タワー&lang=ja')">日本語URL</span>
         <span class="chip" onclick="setExample('key=value&name=太郎&city=大阪')">クエリパラメータ</span>
-        <span class="chip" onclick="setExample('Hello World! こんにちは')">絵文字テキスト</span>
+        <span class="chip" onclick="setExample('Hello World! こんにちは')">日本語テキスト</span>
     </div>
 
     <div class="pane"><div class="pane-header"><span id="inLabel">入力（テキスト/URL）</span><span id="inSize">0文字</span></div><textarea id="inputArea" placeholder="URLまたはテキストを入力..." oninput="convert()"></textarea></div>
@@ -93,7 +93,7 @@
     <div class="btn-row">
         <button class="btn btn-primary" onclick="convert()">変換</button>
         <button class="btn" onclick="navigator.clipboard.writeText(document.getElementById('outputArea').value);showToast()">コピー</button>
-        <button class="btn" onclick="document.getElementById('inputArea').value=document.getElementById('outputArea').value;document.getElementById('outputArea').value='';convert()">入れ替え</button>
+        <button class="btn" onclick="swapAreas()">入れ替え</button>
         <button class="btn" onclick="document.getElementById('inputArea').value='';document.getElementById('outputArea').value=''">クリア</button>
     </div>
 
@@ -139,12 +139,12 @@
         </div>
     <div class="ad-slot" style="display:none"></div>
     
-    <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
-      <h3 style="font-size:0.75rem;color:var(--text-muted,#4a4a68);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+    <div style="background:var(--bg-card,#ffffff);border:1px solid var(--border,#e0e2ed);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3,#9498b0);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a href="/tool-06-base64/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">Base64変換ツール</a>
-        <a href="/tool-14-html-escape/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">HTML特殊文字変換ツール</a>
-        <a href="/tool-03-json-formatter/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">JSON整形ツール</a>
+        <a href="/tool-06-base64/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">Base64変換ツール</a>
+        <a href="/tool-14-html-escape/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">HTML特殊文字変換ツール</a>
+        <a href="/tool-03-json-formatter/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">JSON整形ツール</a>
       </div>
     </div>
     <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
@@ -155,6 +155,11 @@
 let mode='enc';
 function setMode(m){mode=m;document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));document.getElementById({enc:'mEnc',dec:'mDec',comp:'mComp'}[m]).classList.add('active');convert()}
 function setExample(t){document.getElementById('inputArea').value=t;convert()}
+function swapAreas(){
+    document.getElementById('inputArea').value=document.getElementById('outputArea').value;
+    document.getElementById('outputArea').value='';
+    setMode(mode==='dec'?'enc':'dec');
+}
 function convert(){
     const i=document.getElementById('inputArea').value,o=document.getElementById('outputArea');
     try{if(mode==='enc')o.value=encodeURI(i);else if(mode==='dec')o.value=decodeURIComponent(i);else o.value=encodeURIComponent(i)}catch(e){o.value='変換エラー: '+e.message}

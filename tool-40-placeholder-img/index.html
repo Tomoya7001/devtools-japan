@@ -24,7 +24,7 @@
         header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
         .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
         .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
-        .preview-img{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;margin-bottom:16px;min-height:200px;display:flex;align-items:center;justify-content:center}.preview-img img{max-width:100%;border-radius:8px}.url-box{font-family:"JetBrains Mono",monospace;font-size:0.75rem;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:12px;color:var(--text2);cursor:pointer;word-break:break-all;margin-bottom:8px;transition:all 0.15s}.url-box:hover{border-color:var(--accent);color:var(--text)}
+        .preview-img{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;margin-bottom:16px;min-height:200px;display:flex;align-items:center;justify-content:center}.preview-img img{max-width:100%;border-radius:8px}.preview-img canvas{max-width:100%;height:auto;border-radius:8px}.url-box{font-family:"JetBrains Mono",monospace;font-size:0.75rem;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:12px;color:var(--text2);cursor:pointer;word-break:break-all;margin-bottom:8px;transition:all 0.15s}.url-box:hover{border-color:var(--accent);color:var(--text)}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
         .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
@@ -56,7 +56,7 @@
     </script>
 </head>
 <body>
-<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='#5a5f78'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
     <div class="ad-slot" style="display:none"></div>
     <header><h1>プレースホルダー画像生成</h1><p>指定サイズのダミー画像URLを生成。Webデザインのモックアップ作成に。</p></header>
@@ -69,7 +69,7 @@
 <div><label style="font-size:0.7rem;color:var(--text3);display:block;margin-bottom:4px">テキスト</label><input id="txt" value="" placeholder="サイズが入る" style="width:140px;padding:10px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:0.8rem;outline:none" oninput="gen()"></div>
 </div></div>
 <div class="preview-img"><canvas id="canvas"></canvas></div>
-<div class="url-box" id="htmlCode" onclick="navigator.clipboard.writeText(this.textContent);showToast()"></div>
+<div class="url-box" id="htmlCode" onclick="navigator.clipboard.writeText(this.dataset.code||this.textContent);showToast()"></div>
 <div style="display:flex;gap:10px;margin-bottom:24px">
 <button onclick="dl()" style="padding:10px 20px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:Noto Sans JP;font-size:0.85rem">ダウンロード</button>
 </div>
@@ -111,12 +111,12 @@
         </div>
     <div class="ad-slot" style="display:none"></div>
     
-    <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
-      <h3 style="font-size:0.75rem;color:var(--text-muted,#4a4a68);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a href="/tool-10-image-compress/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">画像圧縮ツール</a>
-        <a href="/tool-23-sns-image-sizes/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">SNS画像サイズ一覧</a>
-        <a href="/tool-28-aspect-ratio/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">アスペクト比計算ツール</a>
+        <a href="/tool-10-image-compress/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">画像圧縮ツール</a>
+        <a href="/tool-23-sns-image-sizes/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">SNS画像サイズ一覧</a>
+        <a href="/tool-28-aspect-ratio/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">アスペクト比計算ツール</a>
       </div>
     </div>
     <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
@@ -133,7 +133,11 @@ function gen(){
     const ctx=c.getContext('2d');ctx.fillStyle=bg;ctx.fillRect(0,0,w,h);
     const fs=Math.min(w,h)*0.12;ctx.fillStyle=fg;ctx.font=fs+'px JetBrains Mono, monospace';
     ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(txt,w/2,h/2);
-    document.getElementById('htmlCode').textContent='<img src="data:image/png..." width="'+w+'" height="'+h+'" alt="placeholder">';}
+    // 実際のデータURL入りのimgタグを生成（クリックで全文コピー）
+    const tag='<img src="'+c.toDataURL('image/png')+'" width="'+w+'" height="'+h+'" alt="placeholder">';
+    const codeEl=document.getElementById('htmlCode');
+    codeEl.dataset.code=tag;
+    codeEl.textContent=tag.length>300?tag.slice(0,300)+'…（クリックで全文コピー）':tag;}
 function dl(){const c=document.getElementById('canvas');const a=document.createElement('a');a.download='placeholder.png';a.href=c.toDataURL();a.click()}
 gen();
 </script>

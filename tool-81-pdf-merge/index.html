@@ -157,7 +157,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 <script>
 let files=[];
+const pdfLibReady=(typeof PDFLib!=='undefined');
 const dz=document.getElementById('dropzone');
+if(!pdfLibReady){
+    setStatus('PDF処理ライブラリの読み込みに失敗しました。通信環境を確認してページを再読み込みしてください。','error');
+}
 dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('dragover')});
 dz.addEventListener('dragleave',()=>dz.classList.remove('dragover'));
 dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('dragover');addFiles(e.dataTransfer.files)});
@@ -191,7 +195,7 @@ function render(){
     const has=files.length>0;
     ul.style.display=has?'block':'none';
     document.getElementById('actionRow').style.display=has?'flex':'none';
-    document.getElementById('mergeBtn').disabled=files.length<2;
+    document.getElementById('mergeBtn').disabled=files.length<2||!pdfLibReady;
 }
 
 function move(i,dir){
@@ -207,6 +211,7 @@ function removeFile(i){
 }
 
 async function mergePdfs(){
+    if(typeof PDFLib==='undefined'){setStatus('PDF処理ライブラリの読み込みに失敗しました。通信環境を確認してページを再読み込みしてください。','error');return}
     if(files.length<2){setStatus('結合するには2つ以上のPDFを選択してください。','error');return}
     const btn=document.getElementById('mergeBtn');
     btn.disabled=true;

@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML特殊文字変換ツール | エスケープ・アンエスケープ（&lt; &gt; &amp;）</title>
-    <meta name="description" content="HTMLの特殊文字（&lt; &gt; &amp; " ')をエスケープ・アンエスケープ変換。&lt;とは何か、XSS対策との関係、HTMLエンティティ一覧付き。ブラウザ完結で安心。">
+    <meta name="description" content="HTMLの特殊文字（&lt; &gt; &amp; ダブルクオート・シングルクオート）をエスケープ・アンエスケープ変換。&lt;とは何か、XSS対策との関係、HTMLエンティティ一覧付き。ブラウザ完結で安心。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#84cc16;--accent-dim:rgba(132,204,22,0.1);--radius:12px}
@@ -69,10 +69,10 @@
     </script>
 </head>
 <body>
-<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='var(--text,#1e1e35)'" onmouseout="this.style.color='#5a5f78'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
     <div class="ad-slot" style="display:none"></div>
-    <header><h1>lt;/&gt; HTML特殊文字変換</h1><p>HTMLの特殊文字をエスケープ・アンエスケープ変換</p></header>
+    <header><h1>&lt;/&gt; HTML特殊文字変換</h1><p>HTMLの特殊文字をエスケープ・アンエスケープ変換</p></header>
     <div class="toggle"><button class="active" id="bEsc" onclick="setDir('esc')">エスケープ（→実体参照）</button><button id="bUn" onclick="setDir('un')">アンエスケープ（→文字）</button></div>
     <div class="pane"><div class="pane-header" id="inLbl">入力（HTML）</div><textarea id="input" placeholder='<div class="test">&amp; 文字</div>' oninput="conv()"><div class="hello">こんにちは & 世界</div></textarea></div>
     <div class="pane"><div class="pane-header" id="outLbl">出力（エスケープ済み）</div><textarea id="output" readonly></textarea></div>
@@ -119,12 +119,12 @@
         </div>
     <div class="ad-slot" style="display:none"></div>
     
-    <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
-      <h3 style="font-size:0.75rem;color:var(--text-muted,#4a4a68);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+    <div style="background:var(--bg-card,#ffffff);border:1px solid var(--border,#e0e2ed);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3,#9498b0);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a href="/tool-06-base64/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">Base64変換ツール</a>
-        <a href="/tool-07-url-encode/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">URLエンコード・デコードツール</a>
-        <a href="/tool-11-markdown-preview/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">Markdownプレビュー</a>
+        <a href="/tool-06-base64/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">Base64変換ツール</a>
+        <a href="/tool-07-url-encode/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">URLエンコード・デコードツール</a>
+        <a href="/tool-11-markdown-preview/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">Markdownプレビュー</a>
       </div>
     </div>
     <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>

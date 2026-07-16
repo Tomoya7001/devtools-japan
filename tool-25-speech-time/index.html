@@ -37,7 +37,7 @@
         .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
         .breakdown{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:24px}
         .breakdown h3{font-size:0.75rem;color:var(--text3);margin-bottom:12px}
-        .brow{display:flex;justify-content:space-between;padding:6px 0;font-size:0.8rem;color:var(--text2);border-bottom:1px solid rgba(28,40,56,0.5)}
+        .brow{display:flex;justify-content:space-between;padding:6px 0;font-size:0.8rem;color:var(--text2);border-bottom:1px solid var(--border)}
         .brow .val{font-family:'JetBrains Mono',monospace;color:var(--text)}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
         .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
@@ -67,11 +67,11 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"読み上げ時間計算ツール","item":"https://www.devtools-japan.com/tool-25-speech-time/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"読み上げ時間はどのくらいの正確さですか？","acceptedAnswer":{"@type":"Answer","text":"文字数と選んだ読み上げ速度（ゆっくり〜アナウンサーの4段階）から目安時間を算出します。実際は間の取り方や句読点で前後するため、本番では少し余裕を見て調整するのがおすすめです。"}},{"@type":"Question","name":"入力したテキストはサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。計算はすべてブラウザ内で完結し、入力した原稿が外部サーバーに送信されることはありません。登録不要・無料で利用でき、プレゼン原稿やスピーチの下書きも安心して貼り付けられます。"}},{"@type":"Question","name":"45秒では何文字読めますか？","acceptedAnswer":{"@type":"Answer","text":"普通の速度（350字/分）で約262文字です。ゆっくりなら約188文字、早口なら約338文字が目安になります。"}},{"@type":"Question","name":"40秒では何文字ですか？","acceptedAnswer":{"@type":"Answer","text":"普通の速度で約233文字、ゆっくりで約167文字、早口で約300文字が目安です。"}},{"@type":"Question","name":"20分のYouTube台本は何文字必要ですか？","acceptedAnswer":{"@type":"Answer","text":"普通の速度（350字/分）で約7,000文字が目安です。ゆっくりめに話すなら約5,000文字、テンポよく話すなら約9,000文字程度になります。"}},{"@type":"Question","name":"450文字は何分かかりますか？","acceptedAnswer":{"@type":"Answer","text":"普通の速度（350字/分）で約1分17秒です。ゆっくりなら約1分48秒、アナウンサー速度なら約54秒が目安です。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"読み上げ時間はどのくらいの正確さですか？","acceptedAnswer":{"@type":"Answer","text":"文字数と選んだ読み上げ速度（ゆっくり〜アナウンサーの4段階）から目安時間を算出します。実際は間の取り方や句読点で前後するため、本番では少し余裕を見て調整するのがおすすめです。"}},{"@type":"Question","name":"入力したテキストはサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。計算はすべてブラウザ内で完結し、入力した原稿が外部サーバーに送信されることはありません。登録不要・無料で利用でき、プレゼン原稿やスピーチの下書きも安心して貼り付けられます。"}},{"@type":"Question","name":"45秒では何文字読めますか？","acceptedAnswer":{"@type":"Answer","text":"普通の速度（350字/分）で約262文字です。ゆっくりなら約188文字、早口なら約338文字が目安になります。"}},{"@type":"Question","name":"40秒では何文字ですか？","acceptedAnswer":{"@type":"Answer","text":"普通の速度で約233文字、ゆっくりで約167文字、早口で約300文字が目安です。"}},{"@type":"Question","name":"20分のYouTube台本は何文字必要ですか？","acceptedAnswer":{"@type":"Answer","text":"普通の速度（350字/分）で約7,000文字が目安です。ゆっくりめに話すなら約5,000文字、テンポよく話すなら約9,000文字程度になります。"}},{"@type":"Question","name":"450文字は何分かかりますか？","acceptedAnswer":{"@type":"Answer","text":"普通の速度（350字/分）で約1分17秒です。ゆっくりなら約1分48秒、アナウンサー速度なら約54秒が目安です。"}},{"@type":"Question","name":"YouTubeの台本では1分あたり何文字必要ですか？","acceptedAnswer":{"@type":"Answer","text":"一般的なトーク系動画では1分あたり約300字が目安です。ゆっくり落ち着いて話すスタイルなら約250字/分で見積もると安心です。20分の動画なら約6,000字が必要になります。"}}]}
     </script>
     </head>
 <body>
-<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='#5a5f78'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
     <div class="ad-slot" style="display:none"></div>
     <header><h1>読み上げ時間計算</h1><p>テキストの読み上げ・プレゼン所要時間を自動計算</p></header>
@@ -138,29 +138,44 @@
         </table>
         <p style="font-size:0.75rem;color:var(--text3)">※ 文字数は目安です。句読点や間の取り方で前後します。正確な所要時間は上の計算ツールに実際の原稿を貼り付けてご確認ください。</p>
 
+        <h2 style="margin-top:24px">YouTube動画の台本に必要な文字数の目安</h2>
+        <p>「YouTube 台本 文字数」で迷ったら、まず動画の長さから逆算するのが近道です。一般的なトーク系動画では1分あたり約300字が目安で、例えば20分動画の台本なら約6,000字が必要になります。以下は300字/分の話速で計算した、動画の長さ別の必要文字数です。</p>
+        <table class="lookup-table">
+            <thead><tr><th>動画の長さ</th><th>必要文字数の目安（300字/分）</th></tr></thead>
+            <tbody>
+            <tr><td>5分</td><td class="acc">約1,500字</td></tr>
+            <tr><td>10分</td><td class="acc">約3,000字</td></tr>
+            <tr><td>15分</td><td class="acc">約4,500字</td></tr>
+            <tr><td>20分</td><td class="acc">約6,000字</td></tr>
+            <tr><td>30分</td><td class="acc">約9,000字</td></tr>
+            </tbody>
+        </table>
+        <p>ゆっくり落ち着いて話すスタイルなら250字/分、テンポの速い解説系なら350字/分前後で見積もると精度が上がります。台本が書き上がったら、上のツールに貼り付けて実際の読み上げ時間を確認し、目標の動画時間に合わせて調整しましょう。</p>
+
         <h2 style="margin-top:24px">よくある質問</h2>
         <div class="faq-item"><div class="q">45秒では何文字読めますか？</div><div class="a">普通の速度（350字/分）で約262文字です。ゆっくりなら約188文字、早口なら約338文字が目安になります。</div></div>
         <div class="faq-item"><div class="q">40秒では何文字ですか？</div><div class="a">普通の速度で約233文字、ゆっくりで約167文字、早口で約300文字が目安です。</div></div>
         <div class="faq-item"><div class="q">20分のYouTube台本は何文字必要ですか？</div><div class="a">普通の速度（350字/分）で約7,000文字が目安です。ゆっくりめに話すなら約5,000文字、テンポよく話すなら約9,000文字程度になります。</div></div>
         <div class="faq-item"><div class="q">450文字は何分かかりますか？</div><div class="a">普通の速度（350字/分）で約1分17秒です。ゆっくりなら約1分48秒、アナウンサー速度なら約54秒が目安です。</div></div>
+        <div class="faq-item"><div class="q">YouTubeの台本では1分あたり何文字必要ですか？</div><div class="a">一般的なトーク系動画では1分あたり約300字が目安です。ゆっくり落ち着いて話すスタイルなら約250字/分で見積もると安心です。完成した台本は上のツールで実際の読み上げ時間を確認できます。</div></div>
     </div>
     <div class="ad-slot" style="display:none"></div>
     
     
-    <div style="background:var(--bg-card,#111118);border:1px solid rgba(99,102,241,0.2);border-radius:12px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <div style="background:var(--bg-card);border:1px solid rgba(99,102,241,0.2);border-radius:12px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
       <div>
         <span style="font-size:0.75rem;color:#6366f1;font-weight:600">API</span>
-        <span style="font-size:0.8rem;color:#8888a8;margin-left:8px">この機能をアプリに組み込みませんか？</span>
+        <span style="font-size:0.8rem;color:var(--text2);margin-left:8px">この機能をアプリに組み込みませんか？</span>
       </div>
       <a href="https://api.devtools-japan.com" target="_blank" rel="noopener" style="padding:6px 16px;background:transparent;border:1px solid rgba(99,102,241,0.4);color:#6366f1;border-radius:6px;text-decoration:none;font-size:0.75rem;font-weight:500;transition:all 0.2s;white-space:nowrap" onmouseover="this.style.background='rgba(99,102,241,0.1)'" onmouseout="this.style.background='transparent'">APIを見る →</a>
     </div>
 
-<div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
-      <h3 style="font-size:0.75rem;color:var(--text-muted,#4a4a68);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+<div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a href="/tool-01-moji-counter/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">文字数カウンター</a>
-        <a href="/tool-18-dummy-text/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">ダミーテキスト生成ツール</a>
-        <a href="/tool-43-word-counter-en/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">英文ワードカウンター</a>
+        <a href="/tool-01-moji-counter/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">文字数カウンター</a>
+        <a href="/tool-18-dummy-text/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ダミーテキスト生成ツール</a>
+        <a href="/tool-43-word-counter-en/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">英文ワードカウンター</a>
       </div>
     </div>
     <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
@@ -169,7 +184,7 @@
 <script>
 let speed=350;
 function setSpeed(el){speed=parseInt(el.dataset.speed);document.querySelectorAll('.speed-chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');calc()}
-function fmtTime(min){const m=Math.floor(min);const s=Math.round((min-m)*60);return m>0?`${m}分${s>0?s+'秒':''}`:s+'秒'}
+function fmtTime(min){let m=Math.floor(min);let s=Math.round((min-m)*60);if(s===60){m+=1;s=0}return m>0?`${m}分${s>0?s+'秒':''}`:s+'秒'}
 function calc(){
     const text=document.getElementById('input').value;
     const chars=[...text.replace(/[\s\u3000]/g,'')].length;

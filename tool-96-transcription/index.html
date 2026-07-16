@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字起こし 無料 | ブラウザでリアルタイム音声入力【アップロード不要・時間無制限】</title>
+    <meta name="description" content="無料の文字起こしツール。マイクに話すだけでブラウザ上でリアルタイムに音声をテキストに変換。アップロード不要・登録不要・時間無制限。会議メモ・インタビュー・アイデアの音声入力に。日本語・英語・中国語・韓国語対応。録音データの保存は一切なし。">
+    <meta name="keywords" content="文字起こし 無料,音声 テキスト 変換,ブラウザ 文字起こし,リアルタイム 文字起こし,音声入力">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#16a34a;--accent-dim:rgba(22,163,74,0.1);--rec:#dc2626;--radius:12px}
+        ::selection{background:rgba(99,102,241,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.7}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:32px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .unsupported{display:none;background:#fef2f2;border:1px solid #fecaca;border-radius:var(--radius);padding:16px 20px;margin-bottom:20px;font-size:0.85rem;color:#991b1b;line-height:1.8}
+        .controls{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:20px;flex-wrap:wrap}
+        .lang-select{padding:10px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;outline:none;cursor:pointer}
+        .lang-select:focus{border-color:var(--accent)}
+        .rec-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 40px;background:var(--accent);border:1px solid var(--accent);border-radius:999px;color:#fff;font-family:'Noto Sans JP',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 14px rgba(22,163,74,0.25)}
+        .rec-btn:hover{filter:brightness(1.06)}
+        .rec-btn:disabled{background:var(--text3);border-color:var(--text3);cursor:not-allowed;box-shadow:none}
+        .rec-btn.recording{background:#fff;border-color:var(--rec);color:var(--rec);box-shadow:0 4px 14px rgba(220,38,38,0.15)}
+        .rec-dot{width:11px;height:11px;border-radius:50%;background:var(--rec);display:none}
+        .rec-btn.recording .rec-dot{display:inline-block;animation:pulse 1.3s ease-out infinite}
+        @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(220,38,38,0.55)}70%{box-shadow:0 0 0 12px rgba(220,38,38,0)}100%{box-shadow:0 0 0 0 rgba(220,38,38,0)}}
+        .status-line{text-align:center;font-size:0.8rem;color:var(--text3);margin-bottom:20px;min-height:1.4em}
+        .status-line.error{color:#b91c1c}
+        .pane{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:14px;overflow:hidden}
+        .pane-header{padding:10px 16px;background:#f7f8fb;border-bottom:1px solid var(--border);font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;display:flex;justify-content:space-between}
+        textarea{width:100%;min-height:220px;background:transparent;border:none;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:14px;line-height:1.9;padding:16px;resize:vertical;outline:none}
+        textarea::placeholder{color:var(--text3)}
+        .interim{padding:0 16px 14px;font-size:14px;line-height:1.9;color:var(--text3);font-style:italic;min-height:1.9em}
+        .toolbar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:20px}
+        .tbtn{padding:9px 18px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:var(--text2);font-family:'Noto Sans JP',sans-serif;font-size:0.8rem;cursor:pointer;transition:all 0.2s}
+        .tbtn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
+        .privacy-note{background:var(--accent-dim);border:1px solid rgba(22,163,74,0.25);border-radius:var(--radius);padding:14px 18px;font-size:0.78rem;color:var(--text2);line-height:1.9;margin-bottom:24px}
+        .privacy-note strong{color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}
+        .seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}
+        .seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 10px;text-align:left;white-space:nowrap}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        @media(max-width:600px){
+            .container{padding:24px 16px}
+            header h1{font-size:1.4rem}
+            .controls{flex-direction:column}
+            .rec-btn{width:100%;justify-content:center}
+            .lang-select{width:100%}
+            .toolbar{justify-content:stretch}
+            .tbtn{flex:1 1 45%}
+        }
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-96-transcription/">
+    <meta property="og:title" content="文字起こし 無料 | ブラウザでリアルタイム音声入力【アップロード不要・時間無制限】">
+    <meta property="og:description" content="マイクに話すだけでリアルタイムに音声をテキスト変換。無料・登録不要・時間無制限。録音データの保存なし。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-96-transcription/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="文字起こし 無料 | ブラウザでリアルタイム音声入力">
+    <meta name="twitter:description" content="マイクに話すだけでリアルタイムに音声をテキスト変換。無料・登録不要・時間無制限。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"音声文字起こしツール（リアルタイム）","description":"マイクの音声をブラウザ上でリアルタイムにテキスト変換する無料の文字起こしツール","url":"https://www.devtools-japan.com/tool-96-transcription/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"音声文字起こしツール","item":"https://www.devtools-japan.com/tool-96-transcription/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"本当に無料ですか？時間制限はありますか？","acceptedAnswer":{"@type":"Answer","text":"はい、完全無料で時間制限もありません。会員登録も不要です。多くの文字起こしサービスにある「月○分まで」といった分数制限はなく、何時間でも何回でも利用できます。"}},{"@type":"Question","name":"音声ファイル（録音データ）の文字起こしはできますか？","acceptedAnswer":{"@type":"Answer","text":"現在はマイクからのリアルタイム入力のみに対応しています。音声ファイルのアップロードによる文字起こしは今後の対応を予定しています。録音済みデータを文字起こししたい場合は、スピーカーで再生した音声をマイクで拾わせる方法でも一定の精度で認識できます。"}},{"@type":"Question","name":"対応ブラウザは何ですか？","acceptedAnswer":{"@type":"Answer","text":"Google Chrome と Microsoft Edge（PC・Android）で利用できます。Safari も比較的新しいバージョンで動作します。Firefox は音声認識APIに未対応のため利用できません。最も安定して動作する Chrome の利用を推奨します。"}},{"@type":"Question","name":"認識精度はどのくらいですか？","acceptedAnswer":{"@type":"Answer","text":"静かな環境ではっきり話した場合、日本語で実用的な精度が得られます。マイクとの距離を15〜30cm程度に保ち、早口を避けて一文ずつ区切って話すと精度が上がります。専門用語や固有名詞は誤認識されることがあるため、認識後にテキストエリアで直接修正してください。"}},{"@type":"Question","name":"音声データはどこかに送られますか？保存されますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールが音声を録音・保存することはありません。音声認識にはブラウザ内蔵の音声認識機能を利用しており、Chromeの場合は認識処理のためにGoogleの音声サービスへ音声が送られます。認識結果のテキストはお使いのブラウザ内にのみ表示され、当サイトのサーバーへ音声・テキストが送信されることは一切ありません。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='var(--text,#1e1e35)'" onmouseout="this.style.color='#5a5f78'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot" style="display:none"></div>
+    <header><h1>音声文字起こし（リアルタイム）</h1><p>マイクに話すだけで、ブラウザ上で音声をテキストに変換。アップロード不要・時間無制限</p></header>
+
+    <div class="unsupported" id="unsupported">
+        <strong>お使いのブラウザは音声認識に対応していません。</strong><br>
+        このツールはブラウザの音声認識機能（Web Speech API）を利用します。Firefox などの一部ブラウザでは動作しないため、<strong>Google Chrome</strong> または <strong>Microsoft Edge</strong> でのご利用をおすすめします。ページ下部の使い方・コツの解説は、どのブラウザでもご覧いただけます。
+    </div>
+
+    <div class="controls">
+        <select class="lang-select" id="langSelect" onchange="changeLang()" aria-label="認識する言語">
+            <option value="ja-JP" selected>日本語（ja-JP）</option>
+            <option value="en-US">英語（en-US）</option>
+            <option value="zh-CN">中国語（zh-CN）</option>
+            <option value="ko-KR">韓国語（ko-KR）</option>
+        </select>
+        <button class="rec-btn" id="recBtn" onclick="toggleRec()">
+            <span class="rec-dot"></span>
+            <svg id="micIcon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v5a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/></svg>
+            <span id="recLabel">文字起こしを開始</span>
+        </button>
+    </div>
+    <div class="status-line" id="statusLine">マイクの使用許可を求められたら「許可」を選択してください</div>
+
+    <div class="pane">
+        <div class="pane-header"><span>認識結果（直接編集できます）</span><span id="charCount">0文字</span></div>
+        <textarea id="output" placeholder="ここに認識されたテキストが表示されます。手動での入力・修正も可能です。" oninput="updateCount()"></textarea>
+        <div class="interim" id="interim"></div>
+    </div>
+
+    <div class="toolbar">
+        <button class="tbtn" onclick="insertKuten()" title="文末に句点を挿入">「。」挿入</button>
+        <button class="tbtn" onclick="copyText()">コピー</button>
+        <button class="tbtn" onclick="downloadTxt()">.txtダウンロード</button>
+        <button class="tbtn" onclick="clearText()">クリア</button>
+    </div>
+
+    <div class="privacy-note">
+        <strong>プライバシーについて：</strong>音声データの録音・保存は行いません。認識はブラウザ内蔵の音声認識機能（Chromeの場合はGoogleの音声サービス）を利用します。ファイルのアップロードは不要で、認識結果のテキストが当サイトのサーバーに送信されることもありません。
+    </div>
+
+    <div class="ad-slot" style="display:none"></div>
+
+    <div class="seo-content">
+        <h2>無料・時間無制限のブラウザ文字起こしツールの使い方</h2>
+        <p>本ツールは、マイクに向かって話すだけで音声をリアルタイムにテキストへ変換する無料の文字起こしツールです。音声ファイルのアップロードは不要、会員登録も不要で、<strong>利用時間の制限もありません</strong>。ブラウザだけで完結するので、ソフトのインストールなしにすぐ使えます。</p>
+        <h3>使い方（3ステップ）</h3>
+        <p>1. 認識する言語を選びます（日本語・英語・中国語・韓国語に対応）。<br>2. 「文字起こしを開始」ボタンを押し、ブラウザのマイク使用許可ダイアログで「許可」を選択します。<br>3. マイクに向かって話すと、認識中の文字がグレーで表示され、確定するとテキストエリアに追記されていきます。停止ボタンを押すまで連続して認識し続けます。</p>
+        <p>認識結果はテキストエリアで直接編集できます。誤認識した箇所はその場で修正し、「コピー」や「.txtダウンロード」でそのまま持ち出せます。最近の Chrome では日本語の句読点がある程度自動で挿入されますが、入らない場合は「。」挿入ボタンで手動補完できます。</p>
+        <h3>対応ブラウザ</h3>
+        <div class="table-wrap">
+            <table class="lookup-table">
+                <thead><tr><th>ブラウザ</th><th>対応状況</th><th>備考</th></tr></thead>
+                <tbody>
+                <tr><td>Google Chrome（PC / Android）</td><td class="acc">◎ 推奨</td><td>最も安定。日本語の句読点自動挿入にも対応</td></tr>
+                <tr><td>Microsoft Edge</td><td class="acc">○ 対応</td><td>Chromeと同系エンジン。ほぼ同等に動作</td></tr>
+                <tr><td>Safari（Mac / iPhone）</td><td>△ 一部対応</td><td>比較的新しいバージョンで動作。挙動に差異あり</td></tr>
+                <tr><td>Firefox</td><td>✕ 非対応</td><td>音声認識API未対応のため利用不可</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <h3>こんな場面で使えます</h3>
+        <p>会議・打ち合わせの議事メモ、インタビューや取材のテキスト化、講義・セミナーの記録、ブログや原稿の音声入力（キーボードより速い場合も）、思いついたアイデアのメモ、語学の発音チェック（英語で話して正しく認識されるか確認）など。長時間の会議でも分数を気にせず回しっぱなしにできるのが特長です。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>認識精度を上げるコツ</h2>
+        <h3>マイクとの距離・環境</h3>
+        <p>マイクとの距離は15〜30cm程度が目安です。近すぎると息のノイズを拾い、遠すぎると音量不足で認識率が下がります。エアコンやテレビの音などの背景ノイズが少ない静かな環境ほど精度が上がります。会議で使う場合は、マイクを発言者の近くに置くか、外付けマイクの利用がおすすめです。</p>
+        <h3>話し方</h3>
+        <p>極端な早口を避け、一文ずつ区切ってはっきり話すと確定が速く、精度も安定します。専門用語・固有名詞・数字の羅列は誤認識されやすいため、認識後にテキストエリアで直接修正してください。無音が続くと認識が一時的に区切られますが、本ツールは自動で再開するため、停止ボタンを押すまで話し続けられます。</p>
+        <h3>他の文字起こしサービスとの違い</h3>
+        <p>Notta や Rimo Voice などの文字起こしサービスの多くは、無料プランに「月○分まで」といった分数制限があり、継続利用には月額料金がかかります。本ツールはブラウザ内蔵の音声認識機能を利用するため、<strong>完全無料・時間無制限・登録不要</strong>で使えます。また、音声の録音・保存を一切行わないため、録音データがサービス側に残る心配がありません。一方で、話者分離（誰が話したかの識別）や音声ファイルのアップロードには現状対応していないため、それらが必要な場合は専用サービスとの使い分けをおすすめします。</p>
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">本当に無料ですか？時間制限はありますか？</div><div class="a">はい、完全無料で時間制限もありません。会員登録も不要です。多くの文字起こしサービスにある「月○分まで」といった分数制限はなく、何時間でも何回でも利用できます。</div></div>
+        <div class="faq-item"><div class="q">音声ファイル（録音データ）の文字起こしはできますか？</div><div class="a">現在はマイクからのリアルタイム入力のみに対応しています。音声ファイルのアップロードによる文字起こしは今後の対応を予定しています。録音済みデータを文字起こししたい場合は、スピーカーで再生した音声をマイクで拾わせる方法でも一定の精度で認識できます。</div></div>
+        <div class="faq-item"><div class="q">対応ブラウザは何ですか？</div><div class="a">Google Chrome と Microsoft Edge（PC・Android）で利用できます。Safari も比較的新しいバージョンで動作します。Firefox は音声認識APIに未対応のため利用できません。最も安定して動作する Chrome の利用を推奨します。</div></div>
+        <div class="faq-item"><div class="q">認識精度はどのくらいですか？</div><div class="a">静かな環境ではっきり話した場合、日本語で実用的な精度が得られます。マイクとの距離を15〜30cm程度に保ち、早口を避けて一文ずつ区切って話すと精度が上がります。専門用語や固有名詞は誤認識されることがあるため、認識後にテキストエリアで直接修正してください。</div></div>
+        <div class="faq-item"><div class="q">音声データはどこかに送られますか？保存されますか？</div><div class="a">本ツールが音声を録音・保存することはありません。音声認識にはブラウザ内蔵の音声認識機能を利用しており、Chromeの場合は認識処理のためにGoogleの音声サービスへ音声が送られます。認識結果のテキストはお使いのブラウザ内にのみ表示され、当サイトのサーバーへ音声・テキストが送信されることは一切ありません。</div></div>
+    </div>
+
+    <div class="ad-slot" style="display:none"></div>
+
+    <div style="background:var(--bg-card);border:1px solid rgba(99,102,241,0.2);border-radius:12px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <div>
+        <span style="font-size:0.75rem;color:#6366f1;font-weight:600">API</span>
+        <span style="font-size:0.8rem;color:var(--text2);margin-left:8px">この機能をアプリに組み込みませんか？</span>
+      </div>
+      <a href="https://api.devtools-japan.com" target="_blank" rel="noopener" style="padding:6px 16px;background:transparent;border:1px solid rgba(99,102,241,0.4);color:#6366f1;border-radius:6px;text-decoration:none;font-size:0.75rem;font-weight:500;transition:all 0.2s;white-space:nowrap" onmouseover="this.style.background='rgba(99,102,241,0.1)'" onmouseout="this.style.background='transparent'">APIを見る →</a>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-01-moji-counter/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">文字数カウント</a>
+        <a href="/tool-25-speech-time/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">読み上げ時間計算</a>
+        <a href="/tool-26-proofreader/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">文章校正</a>
+        <a href="/tool-83-reading-time/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">読了時間計算</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+var supported = !!SR;
+
+var els = {
+    unsupported: document.getElementById('unsupported'),
+    lang: document.getElementById('langSelect'),
+    btn: document.getElementById('recBtn'),
+    label: document.getElementById('recLabel'),
+    status: document.getElementById('statusLine'),
+    output: document.getElementById('output'),
+    interim: document.getElementById('interim'),
+    count: document.getElementById('charCount')
+};
+
+// active: ユーザーが「開始」を押してから「停止」を押すまで true（自動再起動の判定に使用）
+var state = { active: false, recognizing: false };
+var recognition = null;
+
+// 確定テキストの追記（言語に応じたスペーシング）
+function appendFinal(existing, chunk, lang) {
+    var t = (chunk || '').trim();
+    if (!t) return existing;
+    if (!existing) return t;
+    var useSpace = (lang === 'en-US' || lang === 'ko-KR');
+    if (useSpace && !/\s$/.test(existing)) return existing + ' ' + t;
+    return existing + t;
+}
+
+function setStatus(msg, isError) {
+    els.status.textContent = msg;
+    els.status.className = 'status-line' + (isError ? ' error' : '');
+}
+
+function updateCount() {
+    var n = Array.from(els.output.value.replace(/[\s　]/g, '')).length;
+    els.count.textContent = n.toLocaleString() + '文字';
+}
+
+function setRecordingUI(on) {
+    if (on) {
+        els.btn.classList.add('recording');
+        els.label.textContent = '停止';
+    } else {
+        els.btn.classList.remove('recording');
+        els.label.textContent = '文字起こしを開始';
+        els.interim.textContent = '';
+    }
+}
+
+function buildRecognition() {
+    var r = new SR();
+    r.lang = els.lang.value;
+    r.continuous = true;
+    r.interimResults = true;
+    r.onstart = handleStart;
+    r.onresult = handleResult;
+    r.onend = handleEnd;
+    r.onerror = handleError;
+    return r;
+}
+
+function handleStart() {
+    state.recognizing = true;
+    setStatus('録音中… マイクに向かって話してください（' + els.lang.options[els.lang.selectedIndex].text + '）');
+}
+
+function handleResult(e) {
+    var interim = '';
+    for (var i = e.resultIndex; i < e.results.length; i++) {
+        var res = e.results[i];
+        if (res.isFinal) {
+            els.output.value = appendFinal(els.output.value, res[0].transcript, els.lang.value);
+            els.output.scrollTop = els.output.scrollHeight;
+        } else {
+            interim += res[0].transcript;
+        }
+    }
+    els.interim.textContent = interim;
+    updateCount();
+}
+
+// Chromeは無音が続くと自動停止する → ユーザーが停止するまで自動で再起動（時間無制限のキモ）
+function handleEnd() {
+    state.recognizing = false;
+    if (state.active) {
+        setTimeout(function () {
+            if (state.active && !state.recognizing) tryStart();
+        }, 250);
+    } else {
+        setRecordingUI(false);
+        setStatus('停止しました。テキストは編集・コピー・ダウンロードできます');
+    }
+}
+
+function handleError(e) {
+    var err = e && e.error;
+    if (err === 'no-speech') {
+        // 無音は無視 → onend で自動再起動される
+        return;
+    }
+    if (err === 'not-allowed' || err === 'service-not-allowed') {
+        state.active = false;
+        setRecordingUI(false);
+        setStatus('マイク許可が必要です。ブラウザのアドレスバーからマイクの使用を「許可」して、もう一度お試しください', true);
+        return;
+    }
+    if (err === 'audio-capture') {
+        state.active = false;
+        setRecordingUI(false);
+        setStatus('マイクが見つかりません。マイクの接続と、他のアプリが使用中でないかをご確認ください', true);
+        return;
+    }
+    if (err === 'network') {
+        state.active = false;
+        setRecordingUI(false);
+        setStatus('ネットワークエラーが発生しました。Web Speech APIは音声処理にブラウザの音声認識サービスを利用するため、インターネット接続が必要です', true);
+        return;
+    }
+    if (err === 'aborted') return;
+    setStatus('エラーが発生しました（' + err + '）。もう一度お試しください', true);
+}
+
+function tryStart() {
+    recognition = buildRecognition();
+    try {
+        recognition.start();
+    } catch (ex) {
+        // start()の二重呼び出し等は無視（onendから再試行される）
+    }
+}
+
+function startRec() {
+    if (!supported || state.active) return;
+    state.active = true;
+    setRecordingUI(true);
+    setStatus('マイクを準備しています…');
+    tryStart();
+}
+
+function stopRec() {
+    state.active = false;
+    if (recognition) {
+        try { recognition.stop(); } catch (ex) {}
+    }
+    setRecordingUI(false);
+    setStatus('停止しました。テキストは編集・コピー・ダウンロードできます');
+}
+
+function toggleRec() {
+    if (state.active) { stopRec(); } else { startRec(); }
+}
+
+function changeLang() {
+    // 録音中に言語を変えたら再起動（onend→tryStartで新しい言語設定が反映される）
+    if (state.active && recognition) {
+        try { recognition.stop(); } catch (ex) {}
+    }
+}
+
+function insertKuten() {
+    var v = els.output.value;
+    if (v && !/[。．.！？!?\n\s]$/.test(v)) {
+        els.output.value = v + '。';
+        updateCount();
+    }
+    els.output.focus();
+}
+
+function copyText() {
+    if (!els.output.value) return;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(els.output.value).then(function () {
+            setStatus('クリップボードにコピーしました');
+        });
+    } else {
+        els.output.select();
+        document.execCommand('copy');
+        setStatus('クリップボードにコピーしました');
+    }
+}
+
+function downloadTxt() {
+    var text = els.output.value;
+    if (!text) return;
+    var d = new Date();
+    var name = '文字起こし_' + d.getFullYear() + ('0' + (d.getMonth() + 1)).slice(-2) + ('0' + d.getDate()).slice(-2) + '.txt';
+    var blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    setStatus('.txtファイルをダウンロードしました');
+}
+
+function clearText() {
+    if (!els.output.value) return;
+    if (confirm('認識結果をすべて消去します。よろしいですか？')) {
+        els.output.value = '';
+        els.interim.textContent = '';
+        updateCount();
+        setStatus('クリアしました');
+    }
+}
+
+// 初期化：非対応ブラウザ（Firefox等）ではUIを無効化し案内を表示
+if (!supported) {
+    els.unsupported.style.display = 'block';
+    els.btn.disabled = true;
+    els.lang.disabled = true;
+    setStatus('このブラウザでは音声認識を利用できません。Chrome / Edge をお使いください', true);
+}
+updateCount();
+
+// テスト用フック（動作には影響しません）
+window.DTJ_TRANSCRIBE = {
+    appendFinal: appendFinal,
+    state: state,
+    startRec: startRec,
+    stopRec: stopRec,
+    toggleRec: toggleRec,
+    handleResult: handleResult,
+    getRecognition: function () { return recognition; },
+    els: els
+};
+</script>
+</body>
+</html>

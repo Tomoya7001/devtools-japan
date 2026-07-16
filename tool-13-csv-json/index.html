@@ -72,7 +72,7 @@
     </script>
 </head>
 <body>
-<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='var(--text,#1e1e35)'" onmouseout="this.style.color='#5a5f78'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
     <div class="ad-slot" style="display:none"></div>
     <header><h1>CSV ⇔ JSON 変換</h1><p>CSVとJSONデータを相互変換。テーブルプレビュー付き。</p></header>
@@ -102,7 +102,7 @@
         <h3>CSV→JSON変換</h3>
         <p>CSVの1行目をヘッダー（キー名）として使用し、2行目以降をオブジェクトの配列に変換します。タブ区切り（TSV）にも対応しています。</p>
         <h3>JSON→CSV変換</h3>
-        <p>JSON配列をCSV形式に変換します。ネストされたオブジェクトはフラットに展開されます。変換結果はコピーまたはダウンロードできます。すべてブラウザ内で処理されます。</p>
+        <p>JSON配列をCSV形式に変換します。対象はフラットなオブジェクトの配列です（ネストされたオブジェクトの自動展開には対応していません）。変換結果はコピーまたはダウンロードできます。すべてブラウザ内で処理されます。</p>
         </div>
     <div class="seo-content">
         <h2>CSVとJSONの違いと相互変換</h2>
@@ -130,12 +130,12 @@
         </div>
     <div class="ad-slot" style="display:none"></div>
     
-    <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
-      <h3 style="font-size:0.75rem;color:var(--text-muted,#4a4a68);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+    <div style="background:var(--bg-card,#ffffff);border:1px solid var(--border,#e0e2ed);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3,#9498b0);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a href="/tool-03-json-formatter/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">JSON整形ツール</a>
-        <a href="/tool-49-sql-formatter/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">SQLフォーマッター</a>
-        <a href="/tool-44-tab-space/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">タブ⇔スペース変換ツール</a>
+        <a href="/tool-03-json-formatter/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">JSON整形ツール</a>
+        <a href="/tool-49-sql-formatter/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">SQLフォーマッター</a>
+        <a href="/tool-44-tab-space/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">タブ⇔スペース変換ツール</a>
       </div>
     </div>
     <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
@@ -146,7 +146,8 @@
 let mode='csv2json';
 function setMode(m){mode=m;document.getElementById('mCsv').classList.toggle('active',m==='csv2json');document.getElementById('mJson').classList.toggle('active',m==='json2csv');document.getElementById('inLabel').textContent=m==='csv2json'?'入力（CSV）':'入力（JSON）';document.getElementById('outLabel').textContent=m==='csv2json'?'出力（JSON）':'出力（CSV）';convert()}
 function parseCSV(csv){const lines=csv.trim().split('\n');const headers=lines[0].split(',').map(h=>h.trim());const data=[];for(let i=1;i<lines.length;i++){if(!lines[i].trim())continue;const vals=lines[i].split(',').map(v=>v.trim());const obj={};headers.forEach((h,j)=>{const v=vals[j]||'';obj[h]=isNaN(v)||v===''?v:Number(v)});data.push(obj)}return data}
-function jsonToCSV(json){const arr=JSON.parse(json);if(!Array.isArray(arr)||!arr.length)return'';const headers=Object.keys(arr[0]);return headers.join(',')+'\n'+arr.map(row=>headers.map(h=>{const v=row[h];return typeof v==='string'&&v.includes(',')?`"${v}"`:v??''}).join(',')).join('\n')}
+function csvEscape(v){const s=v==null?'':String(v);return /[",\n\r]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s}
+function jsonToCSV(json){const arr=JSON.parse(json);if(!Array.isArray(arr)||!arr.length)return'';const headers=Object.keys(arr[0]);return headers.map(csvEscape).join(',')+'\n'+arr.map(row=>headers.map(h=>csvEscape(row[h])).join(',')).join('\n')}
 function convert(){
     const input=document.getElementById('inputArea').value.trim();
     const output=document.getElementById('outputArea');

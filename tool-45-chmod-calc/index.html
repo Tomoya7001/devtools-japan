@@ -60,11 +60,11 @@
     </script>
 </head>
 <body>
-<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#1e1e35'" onmouseout="this.style.color='#5a5f78'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
     <div class="ad-slot" style="display:none"></div>
     <header><h1>chmod計算ツール</h1><p>Linuxファイルパーミッションの数値⇔記号変換</p></header>
-    <div class="card"><h3>数値入力</h3><input id="numInput" value="755" maxlength="3" style="width:100%;padding:16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--accent);font-family:JetBrains Mono;font-size:2rem;text-align:center;outline:none" oninput="fromNum()"></div>
+    <div class="card"><h3>数値入力</h3><input id="numInput" value="755" maxlength="3" style="width:100%;padding:16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--accent);font-family:JetBrains Mono;font-size:2rem;text-align:center;outline:none" oninput="fromNum()"><div id="numError" style="display:none;color:#ef4444;font-size:0.75rem;margin-top:8px;text-align:center">0〜7の数字で入力してください</div></div>
 <div class="card"><h3>記号表示</h3><div id="symDisplay" style="font-family:JetBrains Mono;font-size:1.6rem;color:var(--accent);text-align:center;padding:12px">rwxr-xr-x</div></div>
 <div class="card"><h3>チェックボックス</h3><div id="checkboxes" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px"></div></div>
 <div class="card" style="text-align:center"><div style="font-family:JetBrains Mono;font-size:0.9rem;color:var(--text2)" id="cmdDisplay">chmod 755 filename</div></div>
@@ -104,12 +104,12 @@
     </div>
     <div class="ad-slot" style="display:none"></div>
     
-    <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
-      <h3 style="font-size:0.75rem;color:var(--text-muted,#4a4a68);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a href="/tool-30-cron-generator/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">Cron式ジェネレーター</a>
-        <a href="/tool-50-htaccess-gen/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">.htaccess生成ツール</a>
-        <a href="/tool-37-number-base/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">進数変換ツール</a>
+        <a href="/tool-30-cron-generator/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">Cron式ジェネレーター</a>
+        <a href="/tool-50-htaccess-gen/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">.htaccess生成ツール</a>
+        <a href="/tool-37-number-base/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">進数変換ツール</a>
       </div>
     </div>
     <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
@@ -120,7 +120,7 @@
 function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
 const roles=['Owner','Group','Others'];const perms=['r','w','x'];const vals=[4,2,1];
 function buildCheckboxes(){const el=document.getElementById('checkboxes');el.innerHTML=roles.map((role,ri)=>'<div style="background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:12px"><div style="font-size:0.7rem;color:var(--text3);margin-bottom:8px">'+role+'</div>'+perms.map((p,pi)=>'<label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:0.85rem;color:var(--text2);margin-bottom:4px"><input type="checkbox" id="cb'+ri+''+pi+'" onchange="fromCb()"> '+p+'</label>').join('')+'</div>').join('')}
-function fromNum(){const v=document.getElementById('numInput').value;const digits=v.split('').map(Number);if(digits.length!==3)return;let sym='';
+function fromNum(){const inp=document.getElementById('numInput');const v=inp.value;const err=document.getElementById('numError');const valid=/^[0-7]{0,3}$/.test(v);inp.style.borderColor=valid?'var(--border)':'#ef4444';err.style.display=valid?'none':'block';if(!valid)return;const digits=v.split('').map(Number);if(digits.length!==3)return;let sym='';
 digits.forEach((d,ri)=>{perms.forEach((p,pi)=>{const on=d&vals[pi];sym+=on?p:'-';const cb=document.getElementById('cb'+ri+pi);if(cb)cb.checked=!!on})});
 document.getElementById('symDisplay').textContent=sym;document.getElementById('cmdDisplay').textContent='chmod '+v+' filename'}
 function fromCb(){let num='';roles.forEach((r,ri)=>{let n=0;perms.forEach((p,pi)=>{if(document.getElementById('cb'+ri+pi).checked)n+=vals[pi]});num+=n});

@@ -64,7 +64,7 @@
             background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius);
             display:flex; flex-direction:column; align-items:center; justify-content:center; padding:24px; gap:16px;
         }
-        #qrCanvas { border-radius:8px; image-rendering:pixelated; }
+        #qrCanvas { border-radius:8px; image-rendering:pixelated; max-width:100%; height:auto; }
         .download-row { display:flex; gap:8px; width:100%; }
         .btn { flex:1; padding:10px 16px; border:none; border-radius:8px; font-family:'Noto Sans JP',sans-serif; font-size:0.8rem; font-weight:500; cursor:pointer; transition:all 0.2s; }
         .btn-primary { background:var(--accent); color:#000; }
@@ -106,7 +106,7 @@
 </script>
 </head>
 <body>
-<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='var(--text,#1e1e35)'" onmouseout="this.style.color='#5a5f78'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
     <div class="ad-slot" style="display:none"></div>
     <header>
@@ -149,13 +149,14 @@
                 </div>
             </div>
             <div class="color-row">
-                <div class="field-group"><label>前景色</label><input type="color" id="fgColor" value="#ffffff" onchange="generateQR()"></div>
-                <div class="field-group"><label>背景色</label><input type="color" id="bgColor" value="#151820" onchange="generateQR()"></div>
+                <div class="field-group"><label>前景色</label><input type="color" id="fgColor" value="#151820" onchange="generateQR()"></div>
+                <div class="field-group"><label>背景色</label><input type="color" id="bgColor" value="#ffffff" onchange="generateQR()"></div>
             </div>
         </div>
 
         <div class="preview-section">
             <canvas id="qrCanvas" width="256" height="256"></canvas>
+            <div id="qrError" style="display:none;color:#ef4444;font-size:0.8rem;text-align:center;line-height:1.6"></div>
             <div class="download-row">
                 <button class="btn btn-primary" onclick="downloadPNG()">PNG保存</button>
                 <button class="btn btn-secondary" onclick="downloadSVG()">SVG保存</button>
@@ -218,12 +219,12 @@
 
     <div class="ad-slot" style="display:none"></div>
     
-    <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
-      <h3 style="font-size:0.75rem;color:var(--text-muted,#4a4a68);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+    <div style="background:var(--bg-card,#ffffff);border:1px solid var(--border,#e0e2ed);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3,#9498b0);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a href="/tool-07-url-encode/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">URLエンコード・デコードツール</a>
-        <a href="/tool-20-favicon/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">Favicon生成ツール</a>
-        <a href="/tool-06-base64/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">Base64変換ツール</a>
+        <a href="/tool-07-url-encode/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">URLエンコード・デコードツール</a>
+        <a href="/tool-20-favicon/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">Favicon生成ツール</a>
+        <a href="/tool-06-base64/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">Base64変換ツール</a>
       </div>
     </div>
     <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
@@ -231,62 +232,29 @@
 </div>
 <div class="copied-toast" id="toast">ダウンロードしました</div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 <script>
-// Minimal QR Code generator (no external dependency)
-// Based on QR Code specification - supports up to version 10
-const QRCode = (() => {
-    function generate(text, moduleCount = 0) {
-        // Simple QR matrix generation using canvas-based approach
-        // For production: use qrcode-generator library
-        const size = moduleCount || Math.max(21, Math.ceil(text.length / 2) + 21);
-        const modules = [];
-        for (let i = 0; i < size; i++) { modules[i] = []; for (let j = 0; j < size; j++) modules[i][j] = false; }
-
-        // Encode data into modules (simplified - creates visual QR pattern)
-        // Finder patterns
-        function setFinderPattern(row, col) {
-            for (let r = -1; r <= 7; r++) for (let c = -1; c <= 7; c++) {
-                const mr = row + r, mc = col + c;
-                if (mr < 0 || mr >= size || mc < 0 || mc >= size) continue;
-                modules[mr][mc] = (r >= 0 && r <= 6 && (c === 0 || c === 6)) ||
-                    (c >= 0 && c <= 6 && (r === 0 || r === 6)) ||
-                    (r >= 2 && r <= 4 && c >= 2 && c <= 4);
-            }
-        }
-        setFinderPattern(0, 0);
-        setFinderPattern(0, size - 7);
-        setFinderPattern(size - 7, 0);
-
-        // Timing patterns
-        for (let i = 8; i < size - 8; i++) {
-            modules[6][i] = i % 2 === 0;
-            modules[i][6] = i % 2 === 0;
-        }
-
-        // Data encoding (simplified visual representation)
-        const bytes = new TextEncoder().encode(text);
-        let bitIdx = 0;
-        for (let col = size - 1; col > 0; col -= 2) {
-            if (col === 6) col--;
-            for (let row = 0; row < size; row++) {
-                for (let c = 0; c < 2; c++) {
-                    const mc = col - c;
-                    if (modules[row][mc] !== false && modules[row][mc] !== true) continue;
-                    if (row <= 8 && mc <= 8) continue;
-                    if (row <= 8 && mc >= size - 8) continue;
-                    if (row >= size - 8 && mc <= 8) continue;
-                    if (row === 6 || mc === 6) continue;
-                    const byteIdx = Math.floor(bitIdx / 8);
-                    const bit = byteIdx < bytes.length ? (bytes[byteIdx] >> (7 - bitIdx % 8)) & 1 : Math.random() > 0.5 ? 1 : 0;
-                    modules[row][mc] = bit === 1;
-                    bitIdx++;
-                }
-            }
-        }
-        return { modules, size };
+// QRコード生成には qrcode-generator ライブラリ（CDN）を使用
+function buildQRModules(text) {
+    if (qrcode.stringToBytesFuncs && qrcode.stringToBytesFuncs['UTF-8']) {
+        qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8'];
     }
-    return { generate };
-})();
+    const qr = qrcode(0, 'M'); // 0 = 型番自動選択, 誤り訂正レベルM
+    qr.addData(text);
+    qr.make();
+    const n = qr.getModuleCount();
+    const margin = 4; // クワイエットゾーン（余白）
+    const size = n + margin * 2;
+    const modules = [];
+    for (let r = 0; r < size; r++) {
+        modules[r] = [];
+        for (let c = 0; c < size; c++) {
+            const qr_r = r - margin, qr_c = c - margin;
+            modules[r][c] = qr_r >= 0 && qr_r < n && qr_c >= 0 && qr_c < n && qr.isDark(qr_r, qr_c);
+        }
+    }
+    return { modules, size };
+}
 
 let currentMode = 'text';
 let currentQR = null;
@@ -303,8 +271,9 @@ function switchMode(mode) {
 function getContent() {
     if (currentMode==='text') return document.getElementById('qrText').value || 'https://www.devtools-japan.com';
     if (currentMode==='wifi') {
+        const escWifi = v => v.replace(/([\\;,:"])/g, '\\$1');
         const s=document.getElementById('wifiSsid').value, p=document.getElementById('wifiPass').value, e=document.getElementById('wifiEnc').value;
-        return `WIFI:T:${e};S:${s};P:${p};;`;
+        return `WIFI:T:${e};S:${escWifi(s)};P:${escWifi(p)};;`;
     }
     if (currentMode==='email') {
         const t=document.getElementById('emailTo').value, s=document.getElementById('emailSubject').value, b=document.getElementById('emailBody').value;
@@ -324,22 +293,37 @@ function generateQR() {
     const fg = document.getElementById('fgColor').value;
     const bg = document.getElementById('bgColor').value;
     const canvas = document.getElementById('qrCanvas');
+    const errEl = document.getElementById('qrError');
     canvas.width = size; canvas.height = size;
     const ctx = canvas.getContext('2d');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, size, size);
 
-    // Use a proper QR library approach - encode to modules
-    const qr = QRCode.generate(content, 33);
+    if (typeof qrcode === 'undefined') {
+        currentQR = null;
+        errEl.textContent = 'QRコードライブラリの読み込みに失敗しました。通信環境をご確認のうえ、ページを再読み込みしてください。';
+        errEl.style.display = 'block';
+        return;
+    }
+
+    let qr;
+    try {
+        qr = buildQRModules(content);
+    } catch (e) {
+        currentQR = null;
+        errEl.textContent = 'エラー: 入力内容が長すぎるためQRコードを生成できません。内容を短くしてください。';
+        errEl.style.display = 'block';
+        return;
+    }
+    errEl.style.display = 'none';
     currentQR = qr;
     const cellSize = size / qr.size;
 
-    ctx.fillStyle = bg;
-    ctx.fillRect(0, 0, size, size);
     ctx.fillStyle = fg;
-
     for (let r = 0; r < qr.size; r++) {
         for (let c = 0; c < qr.size; c++) {
             if (qr.modules[r][c]) {
-                ctx.fillRect(c * cellSize, r * cellSize, cellSize + 0.5, cellSize + 0.5);
+                ctx.fillRect(Math.floor(c * cellSize), Math.floor(r * cellSize), Math.ceil(cellSize), Math.ceil(cellSize));
             }
         }
     }

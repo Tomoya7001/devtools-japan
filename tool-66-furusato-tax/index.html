@@ -85,13 +85,13 @@
     <div class="card"><h3>年収別の上限額の目安（独身・共働きの場合）</h3>
         <table class="ref">
             <tr><th>年収</th><th>上限額の目安</th></tr>
-            <tr><td>300万円</td><td>約28,000円</td></tr>
-            <tr><td>400万円</td><td>約42,000円</td></tr>
-            <tr><td>500万円</td><td>約61,000円</td></tr>
-            <tr><td>600万円</td><td>約77,000円</td></tr>
-            <tr><td>700万円</td><td>約108,000円</td></tr>
+            <tr><td>300万円</td><td>約27,000円</td></tr>
+            <tr><td>400万円</td><td>約41,000円</td></tr>
+            <tr><td>500万円</td><td>約60,000円</td></tr>
+            <tr><td>600万円</td><td>約76,000円</td></tr>
+            <tr><td>700万円</td><td>約107,000円</td></tr>
             <tr><td>800万円</td><td>約129,000円</td></tr>
-            <tr><td>1,000万円</td><td>約180,000円</td></tr>
+            <tr><td>1,000万円</td><td>約176,000円</td></tr>
         </table>
     </div>
 
@@ -182,7 +182,8 @@ function calc() {
     else if (taxable <= 6950000) rate = 0.20;
     else if (taxable <= 9000000) rate = 0.23;
     else if (taxable <= 18000000) rate = 0.33;
-    else rate = 0.40;
+    else if (taxable <= 40000000) rate = 0.40;
+    else rate = 0.45;
 
     // ふるさと納税上限額 = 住民税所得割 × 20% ÷ (90% - 所得税率×1.021) + 2000
     const limit = Math.floor((residentTax * 0.2) / (0.9 - rate * 1.021) + 2000);

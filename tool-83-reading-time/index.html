@@ -160,7 +160,8 @@
 </div>
 <script>
 let speed=500;
-function setSpeed(el){speed=parseInt(el.dataset.speed);document.querySelectorAll('.speed-chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');calc()}
+let lastEdited='text';
+function setSpeed(el){speed=parseInt(el.dataset.speed);document.querySelectorAll('.speed-chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');recalc()}
 function fmtTime(min){const m=Math.floor(min);const s=Math.round((min-m)*60);return m>0?`${m}分${s>0?s+'秒':''}`:s+'秒'}
 function render(chars){
     const min=chars/speed;
@@ -174,16 +175,20 @@ function render(chars){
     document.getElementById('bFast').textContent=fmtTime(chars/600);
 }
 function calc(){
+    lastEdited='text';
     const text=document.getElementById('input').value;
     const chars=[...text.replace(/[\s　]/g,'')].length;
-    document.getElementById('charInput').value='';
     render(chars);
 }
 function calcFromNumber(){
+    lastEdited='number';
     const v=document.getElementById('charInput').value;
     const chars=Math.max(0,parseInt(v)||0);
-    document.getElementById('input').value='';
     render(chars);
+}
+function recalc(){
+    if(lastEdited==='number')calcFromNumber();
+    else calc();
 }
 calc();
 </script>

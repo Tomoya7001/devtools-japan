@@ -173,10 +173,16 @@
             <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
 let pdfFile=null;
 let pageCount=0;
 const dz=document.getElementById('dropzone');
+if(typeof PDFLib==='undefined'){
+    document.getElementById('extractBtn').disabled=true;
+    document.getElementById('splitBtn').disabled=true;
+    setStatus('PDF処理ライブラリの読み込みに失敗しました。通信環境を確認してページを再読み込みしてください。','error');
+}
 dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('dragover')});
 dz.addEventListener('dragleave',()=>dz.classList.remove('dragover'));
 dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('dragover');loadFile(e.dataTransfer.files)});
@@ -187,6 +193,9 @@ async function loadFile(fileList){
     if(!f)return;
     if(!(f.type==='application/pdf'||f.name.toLowerCase().endsWith('.pdf'))){
         setStatus('PDFファイルを選択してください。','error');return;
+    }
+    if(typeof PDFLib==='undefined'){
+        setStatus('PDF処理ライブラリの読み込みに失敗しました。通信環境を確認してページを再読み込みしてください。','error');return;
     }
     setStatus('読み込んでいます…');
     try{
@@ -276,16 +285,35 @@ async function splitAll(){
         const total = src.getPageCount();
         const base = pdfFile.name.replace(/\.pdf$/i,'');
         const pad = String(total).length;
-        for(let i=0;i<total;i++){
-            const out = await PDFDocument.create();
-            const [pg] = await out.copyPages(src, [i]);
-            out.addPage(pg);
-            const data = await out.save();
-            const num = String(i+1).padStart(pad,'0');
-            downloadPdf(data, base+'_p'+num+'.pdf');
-            await new Promise(r=>setTimeout(r,250));
+        if(total>10){
+            if(typeof JSZip==='undefined'){
+                setStatus('ZIP作成ライブラリの読み込みに失敗しました。通信環境を確認してページを再読み込みしてください。','error');
+                return;
+            }
+            const zip=new JSZip();
+            for(let i=0;i<total;i++){
+                const out = await PDFDocument.create();
+                const [pg] = await out.copyPages(src, [i]);
+                out.addPage(pg);
+                const data = await out.save();
+                const num = String(i+1).padStart(pad,'0');
+                zip.file(base+'_p'+num+'.pdf', data);
+            }
+            const zipBlob=await zip.generateAsync({type:'blob'});
+            downloadBlob(zipBlob, base+'_split.zip');
+            setStatus(total+'ページを個別PDFに分割し、ZIPファイルにまとめました（'+base+'_split.zip）。','ok');
+        }else{
+            for(let i=0;i<total;i++){
+                const out = await PDFDocument.create();
+                const [pg] = await out.copyPages(src, [i]);
+                out.addPage(pg);
+                const data = await out.save();
+                const num = String(i+1).padStart(pad,'0');
+                downloadPdf(data, base+'_p'+num+'.pdf');
+                await new Promise(r=>setTimeout(r,250));
+            }
+            setStatus(total+'ページを個別PDFに分割しました（'+base+'_p'+'…）。','ok');
         }
-        setStatus(total+'ページを個別PDFに分割しました（'+base+'_p'+'…）。','ok');
     }catch(err){
         setStatus('分割に失敗しました。パスワード保護された（暗号化）PDFや破損したファイルでないか確認してください。','error');
     }finally{
@@ -294,7 +322,10 @@ async function splitAll(){
 }
 
 function downloadPdf(data,name){
-    const blob=new Blob([data],{type:'application/pdf'});
+    downloadBlob(new Blob([data],{type:'application/pdf'}),name);
+}
+
+function downloadBlob(blob,name){
     const a=document.createElement('a');
     a.download=name;
     a.href=URL.createObjectURL(blob);

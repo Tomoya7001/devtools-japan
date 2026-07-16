@@ -139,7 +139,7 @@
 <script>
 function calc() {
     const amount = parseInt(document.getElementById('amount').value) || 0;
-    let years = parseInt(document.getElementById('years').value) || 0;
+    let years = parseFloat(document.getElementById('years').value) || 0;
     const exec5 = document.getElementById('exec5').checked;
 
     // 勤続年数は1年未満切り上げ

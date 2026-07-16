@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEIC JPG 変換 | iPhone写真を一括変換【無料・アップロード不要】</title>
+    <meta name="description" content="iPhoneのHEIC写真をJPGへ一括変換できる無料ツール。複数ファイルをまとめてドラッグ＆ドロップし、ZIPで一括ダウンロード。画像はサーバーに送信されずブラウザ内で変換されるため安全。HEIF対応・PNG出力・品質調整も可能。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#0891b2;--accent-dim:rgba(8,145,178,0.1);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(8,145,178,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{background:#f7f8fb;border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text3);font-size:12px;margin-bottom:28px;min-height:90px;display:flex;align-items:center;justify-content:center}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+
+        .privacy-note{display:flex;align-items:center;gap:10px;background:var(--accent-dim);border:1px solid rgba(8,145,178,0.3);border-radius:var(--radius);padding:12px 16px;margin-bottom:20px;font-size:0.82rem;color:var(--text)}
+        .privacy-note svg{flex-shrink:0;color:var(--accent)}
+        .privacy-note strong{color:var(--accent)}
+
+        .dropzone{border:2px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:all 0.3s;margin-bottom:24px;background:var(--bg-card)}
+        .dropzone:hover,.dropzone.dragover{border-color:var(--accent);background:var(--accent-dim)}
+        .dropzone .icon{font-size:3rem;margin-bottom:12px;color:var(--accent)}
+        .dropzone p{color:var(--text2);font-size:0.9rem}
+        .dropzone small{color:var(--text3);font-size:0.75rem}
+        .dropzone.disabled{cursor:not-allowed;opacity:0.5}
+        input[type="file"]{display:none}
+
+        .lib-error{display:none;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:0.82rem;color:#b91c1c}
+
+        .settings{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px;display:none}
+        .settings h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .setting-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:8px}
+        .setting-row:last-child{border-bottom:none}
+        .setting-label{font-size:0.85rem;color:var(--text2)}
+        .slider-group{display:flex;align-items:center;gap:12px}
+        .slider-val{font-family:'JetBrains Mono',monospace;font-size:0.9rem;color:var(--accent);min-width:44px;text-align:right}
+        input[type="range"]{-webkit-appearance:none;width:160px;height:6px;background:#f7f8fb;border-radius:3px;outline:none}
+        input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;background:var(--accent);border-radius:50%;cursor:pointer}
+        .toggle{position:relative;width:44px;height:24px;flex-shrink:0}
+        .toggle input{opacity:0;width:0;height:0}
+        .toggle .track{position:absolute;inset:0;background:#d5d8e5;border-radius:12px;transition:background 0.2s;cursor:pointer}
+        .toggle .track::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;background:#fff;border-radius:50%;transition:transform 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.2)}
+        .toggle input:checked + .track{background:var(--accent)}
+        .toggle input:checked + .track::after{transform:translateX(20px)}
+
+        .filelist{display:none;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:24px;overflow:hidden}
+        .filelist-head{padding:10px 16px;background:#f7f8fb;border-bottom:1px solid var(--border);font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;display:flex;justify-content:space-between;align-items:center}
+        .file-row{display:flex;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid var(--border);font-size:0.82rem}
+        .file-row:last-child{border-bottom:none}
+        .file-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text)}
+        .file-size{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--text3);flex-shrink:0}
+        .file-status{flex-shrink:0;font-size:0.72rem;padding:3px 10px;border-radius:20px;white-space:nowrap}
+        .st-wait{background:#f0f1f6;color:var(--text3)}
+        .st-conv{background:var(--accent-dim);color:var(--accent);animation:pulse 1.2s ease-in-out infinite}
+        .st-done{background:rgba(34,197,94,0.12);color:#15803d}
+        .st-err{background:rgba(239,68,68,0.1);color:#b91c1c}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+        .file-dl{flex-shrink:0;padding:5px 12px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text2);font-family:'Noto Sans JP',sans-serif;font-size:0.72rem;cursor:pointer;transition:all 0.2s}
+        .file-dl:hover{border-color:var(--accent);color:var(--text)}
+        .file-err-msg{width:100%;font-size:0.72rem;color:#b91c1c;padding-left:2px}
+
+        .progress-wrap{display:none;margin-bottom:24px}
+        .progress-text{font-size:0.8rem;color:var(--text2);text-align:center;margin-bottom:8px;font-family:'JetBrains Mono',monospace}
+        .progress-bar{height:8px;background:#eceef5;border-radius:4px;overflow:hidden}
+        .progress-fill{height:100%;width:0%;background:var(--accent);border-radius:4px;transition:width 0.3s}
+
+        .btn{padding:12px 24px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text2);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+        .btn:hover{border-color:var(--accent);color:var(--text)}
+        .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:500}
+        .btn:disabled{opacity:0.5;cursor:not-allowed}
+        .btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+        .note{font-size:0.78rem;color:var(--text3);text-align:center;margin-bottom:24px}
+
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content p{margin-bottom:10px}
+        .seo-content h3{color:var(--text);font-size:0.92rem;margin:18px 0 8px}
+        .seo-content ol,.seo-content ul{margin:0 0 10px 1.4em}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .lookup-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:0.8rem}
+        .lookup-table th,.lookup-table td{border:1px solid var(--border);padding:8px 6px;text-align:left}
+        .lookup-table th{background:#f7f8fb;color:var(--text2);font-weight:500;font-size:0.72rem}
+        .lookup-table td{color:var(--text)}
+        .lookup-table td.acc{color:var(--accent);font-weight:700}
+        .faq-item{margin-bottom:14px}.faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}.faq-item .a{color:var(--text2)}
+        .related{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px;margin-top:24px}
+        .related h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
+        .related .links{display:flex;gap:8px;flex-wrap:wrap}
+        .related a{padding:8px 16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.2s}
+        .related a:hover{border-color:var(--accent);color:var(--text)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        @media(max-width:600px){
+            header h1{font-size:1.4rem}
+            .dropzone{padding:32px 16px}
+            .setting-row{flex-direction:column;align-items:flex-start}
+            .slider-group{width:100%}
+            input[type="range"]{flex:1;width:auto}
+        }
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-94-heic-to-jpg/">
+    <meta property="og:title" content="HEIC→JPG一括変換ツール | DevTools Japan">
+    <meta property="og:description" content="iPhoneのHEIC写真をJPGへ一括変換。サーバー送信なし・ブラウザ完結で安全">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-94-heic-to-jpg/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="HEIC→JPG一括変換ツール | DevTools Japan">
+    <meta name="twitter:description" content="iPhoneのHEIC写真をJPGへ一括変換。サーバー送信なし・ブラウザ完結で安全">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"HEIC→JPG一括変換ツール","description":"iPhoneのHEIC/HEIF写真をJPGまたはPNGへ一括変換。サーバー送信なし・ブラウザ完結で安全","url":"https://www.devtools-japan.com/tool-94-heic-to-jpg/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"HEIC→JPG一括変換ツール","item":"https://www.devtools-japan.com/tool-94-heic-to-jpg/"}]}
+    </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"HEICからJPGに変換すると画質は落ちますか？","acceptedAnswer":{"@type":"Answer","text":"JPEGは非可逆圧縮のため厳密には再圧縮による劣化がありますが、初期値の品質0.9であれば見た目にはほとんど分からないレベルです。品質スライダー（0.5〜1.0）を上げるほど高画質・大容量になります。画質を一切落としたくない場合はPNG出力に切り替えてください（可逆圧縮のため劣化しませんが、ファイルサイズは大きくなります）。"}},{"@type":"Question","name":"一括で何枚まで変換できますか？","acceptedAnswer":{"@type":"Answer","text":"枚数の上限は設けていませんが、変換はお使いの端末のメモリ上で行われるため、端末性能により実際の上限は変わります。目安として一度に20〜30枚程度までにし、大量にある場合は数回に分けて変換することをおすすめします。変換は1枚ずつ順番に処理され、途中でエラーになったファイルがあっても残りは継続されます。"}},{"@type":"Question","name":"写真をアップロードするのは安全ですか？","acceptedAnswer":{"@type":"Answer","text":"本ツールはそもそも写真をアップロードしません。ファイルの読み込みから変換、ダウンロードまですべてお使いのブラウザ内（JavaScript）で完結し、サーバーへの送信は一切行われないため、プライベートな写真でも安心して利用できます。無料・登録不要です。"}},{"@type":"Question","name":"HEIF形式にも対応していますか？","acceptedAnswer":{"@type":"Answer","text":"はい。HEIC（.heic）はHEIF（High Efficiency Image File Format）というコンテナ規格の一種で、本ツールは.heicと.heifの両方の拡張子に対応しています。iPhoneやiPadで撮影した写真のほか、一部のAndroid端末やデジタルカメラが出力するHEIFファイルも変換できます。"}},{"@type":"Question","name":"iPhoneの写真しか変換できませんか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。HEIC/HEIF形式のファイルであれば撮影機器を問わず変換できます。iPhone・iPadのほか、HEIF撮影に対応したAndroidスマートフォンやソニー・キヤノンなどのデジタルカメラで撮影したファイルにも対応します。なお、拡張子が.heicでも中身が実はJPEGというファイル（転送アプリが自動変換したものなど）は「変換不要」としてエラー表示になります。"}}]}
+</script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot" style="display:none"></div>
+    <header><h1>HEIC→JPG一括変換ツール</h1><p>iPhoneのHEIC/HEIF写真をJPGへまとめて変換。ブラウザ完結・無料・登録不要。</p></header>
+
+    <div class="privacy-note"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg><span><strong>画像はサーバーに送信されません。</strong>変換はすべてお使いのブラウザ内で行われるため、プライベートな写真も安全です。</span></div>
+
+    <div class="lib-error" id="libError"></div>
+
+    <div class="dropzone" id="dropzone">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><path d="M19 13v6H5v-6H3v8h18v-8h-2zM11 4.83 8.41 7.41 7 6l5-5 5 5-1.41 1.41L13 4.83V16h-2V4.83z"/></svg></div>
+        <p>クリックまたはドラッグ＆ドロップでHEICファイルを選択（複数可）</p>
+        <small>.heic / .heif 対応 / 何枚でもまとめてOK</small>
+    </div>
+    <input type="file" id="fileInput" accept=".heic,.heif" multiple>
+
+    <div class="settings" id="settings">
+        <h3>変換設定</h3>
+        <div class="setting-row">
+            <span class="setting-label">JPG品質（0.5〜1.0）</span>
+            <div class="slider-group">
+                <input type="range" id="quality" min="0.5" max="1.0" value="0.9" step="0.05" oninput="document.getElementById('qualVal').textContent=parseFloat(this.value).toFixed(2)">
+                <span class="slider-val" id="qualVal">0.90</span>
+            </div>
+        </div>
+        <div class="setting-row">
+            <span class="setting-label">PNGで出力する（無劣化・容量大）</span>
+            <label class="toggle"><input type="checkbox" id="pngToggle" onchange="onPngToggle()"><span class="track"></span></label>
+        </div>
+    </div>
+
+    <div class="filelist" id="filelist">
+        <div class="filelist-head"><span id="listTitle">ファイル一覧</span><span id="listCount"></span></div>
+        <div id="fileRows"></div>
+    </div>
+
+    <div class="progress-wrap" id="progressWrap">
+        <div class="progress-text" id="progressText"></div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+
+    <div class="btn-row" id="actionRow" style="display:none">
+        <button class="btn btn-primary" id="convertBtn" onclick="convertAll()">変換する</button>
+        <button class="btn" id="zipBtn" onclick="downloadZip()" style="display:none">まとめてZIPでダウンロード</button>
+        <button class="btn" id="resetBtn" onclick="resetAll()">リセット</button>
+    </div>
+
+    <p class="note">変換は1枚ずつ順番に処理されます。大量の写真を一度に変換すると端末のメモリを多く消費するため、目安として20〜30枚ずつに分けることをおすすめします。</p>
+
+    <div class="ad-slot" style="display:none"></div>
+    <div class="seo-content">
+        <h2>HEICとは？ なぜWindowsでそのまま開けないのか</h2>
+        <p>HEIC（High Efficiency Image Container）は、Appleが2017年のiOS 11からiPhone・iPadの標準撮影形式として採用した画像フォーマットです。国際規格であるHEIF（High Efficiency Image File Format）をベースにしており、JPEGと同程度の画質を約半分のファイルサイズで保存できるのが最大の特長です。iPhoneのストレージを節約できる優れた形式ですが、その分、対応していない環境では扱いづらいという弱点があります。</p>
+        <p>特にWindowsパソコンでは、標準状態ではHEICファイルをダブルクリックしても開けないことが多く、「HEIF 画像拡張機能」や有料の「HEVC ビデオ拡張機能」を別途インストールしないと表示できない場合があります。また、会社の申請システムやWebサービスへの画像アップロード、年賀状印刷サービス、古い画像編集ソフトなどはJPEGしか受け付けないことが多く、iPhoneから写真を渡された相手が開けない・使えないというトラブルが頻繁に起こります。こうした場面で必要になるのが、HEICからJPG（JPEG）への変換です。</p>
+        <h3>iPhone側でJPG撮影に切り替える設定（互換性優先）</h3>
+        <p>今後撮影する写真を最初からJPEGで保存したい場合は、iPhoneの設定を変更できます。手順は次のとおりです。</p>
+        <ol>
+            <li>「設定」アプリを開く</li>
+            <li>「カメラ」をタップ</li>
+            <li>「フォーマット」をタップ</li>
+            <li>「高効率」から「互換性優先」に切り替える</li>
+        </ol>
+        <p>「互換性優先」にすると以後の写真はJPEG、動画はH.264で保存され、WindowsやWebサービスでもそのまま扱えるようになります。ただしファイルサイズは高効率（HEIC/HEVC）の約2倍になるため、ストレージ容量と相談して選んでください。すでに撮影済みのHEIC写真はこの設定では変換されないので、本ツールでまとめてJPGに変換するのが手軽です。</p>
+
+        <h2>使い方 — HEIC写真をまとめてJPGに変換する手順</h2>
+        <p>本ツールの使い方は3ステップです。①上のエリアにHEIC/HEIFファイルをドラッグ＆ドロップ（またはクリックして選択）します。複数ファイルの同時選択に対応しています。②必要ならJPG品質スライダー（0.5〜1.0、初期値0.9）を調整するか、無劣化のPNG出力に切り替えます。③「変換する」を押すと1枚ずつ順番に変換され、各ファイルの状態が「待機中→変換中→完了」と表示されます。完了したファイルは個別にダウンロードできるほか、2枚以上ある場合は「まとめてZIPでダウンロード」で一括保存できます。途中で変換に失敗したファイルがあってもそこで止まらず、残りのファイルの変換は継続されます。</p>
+        <h3>アップロード型の変換サイトとの違い</h3>
+        <p>HEIC変換サービスの多くは、写真をいったんサーバーへアップロードし、サーバー側で変換してからダウンロードさせる「アップロード型」です。この方式は、プライベートな写真が外部サーバーを経由するというプライバシー上の不安に加え、通信量が大きい・枚数制限や有料プランがある・混雑時に待たされるといったデメリットがあります。</p>
+        <p>本ツールは「ブラウザ完結型」です。変換処理はすべてお使いの端末のブラウザ内（JavaScript）で実行され、写真がネットワークに送信されることは一切ありません。家族の写真や身分証の写しなど、外部に出したくない画像でも安心して変換できます。両者の違いをまとめると次のとおりです。</p>
+        <div class="table-wrap">
+        <table class="lookup-table">
+            <thead><tr><th>項目</th><th>本ツール（ブラウザ完結型）</th><th>アップロード型サイト</th></tr></thead>
+            <tbody>
+                <tr><td class="acc">写真の送信</td><td>なし（端末内で完結）</td><td>あり（サーバーを経由）</td></tr>
+                <tr><td class="acc">プライバシー</td><td>外部に出ないため安全</td><td>運営者のサーバーに一時保存される</td></tr>
+                <tr><td class="acc">通信量</td><td>ページ読み込み分のみ</td><td>写真の容量分だけ発生</td></tr>
+                <tr><td class="acc">料金・制限</td><td>無料・枚数制限なし</td><td>無料枠に枚数制限がある場合が多い</td></tr>
+                <tr><td class="acc">処理速度</td><td>端末性能に依存</td><td>回線速度と混雑状況に依存</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">HEICからJPGに変換すると画質は落ちますか？</div><div class="a">JPEGは非可逆圧縮のため厳密には再圧縮による劣化がありますが、初期値の品質0.9であれば見た目にはほとんど分からないレベルです。品質スライダー（0.5〜1.0）を上げるほど高画質・大容量になります。画質を一切落としたくない場合はPNG出力に切り替えてください（可逆圧縮のため劣化しませんが、ファイルサイズは大きくなります）。</div></div>
+        <div class="faq-item"><div class="q">一括で何枚まで変換できますか？</div><div class="a">枚数の上限は設けていませんが、変換はお使いの端末のメモリ上で行われるため、端末性能により実際の上限は変わります。目安として一度に20〜30枚程度までにし、大量にある場合は数回に分けて変換することをおすすめします。変換は1枚ずつ順番に処理され、途中でエラーになったファイルがあっても残りは継続されます。</div></div>
+        <div class="faq-item"><div class="q">写真をアップロードするのは安全ですか？</div><div class="a">本ツールはそもそも写真をアップロードしません。ファイルの読み込みから変換、ダウンロードまですべてお使いのブラウザ内（JavaScript）で完結し、サーバーへの送信は一切行われないため、プライベートな写真でも安心して利用できます。無料・登録不要です。</div></div>
+        <div class="faq-item"><div class="q">HEIF形式にも対応していますか？</div><div class="a">はい。HEIC（.heic）はHEIF（High Efficiency Image File Format）というコンテナ規格の一種で、本ツールは.heicと.heifの両方の拡張子に対応しています。iPhoneやiPadで撮影した写真のほか、一部のAndroid端末やデジタルカメラが出力するHEIFファイルも変換できます。</div></div>
+        <div class="faq-item"><div class="q">iPhoneの写真しか変換できませんか？</div><div class="a">いいえ。HEIC/HEIF形式のファイルであれば撮影機器を問わず変換できます。iPhone・iPadのほか、HEIF撮影に対応したAndroidスマートフォンやソニー・キヤノンなどのデジタルカメラで撮影したファイルにも対応します。なお、拡張子が.heicでも中身が実はJPEGというファイル（転送アプリが自動変換したものなど）は「変換不要」としてエラー表示になります。</div></div>
+        </div>
+    <div class="ad-slot" style="display:none"></div>
+
+    <div class="related">
+      <h3>関連ツール</h3>
+      <div class="links">
+        <a href="/tool-79-image-convert/">画像形式変換</a>
+        <a href="/tool-88-image-resize/">画像リサイズ</a>
+        <a href="/tool-10-image-compress/">画像圧縮</a>
+        <a href="/tool-80-image-to-pdf/">画像→PDF</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+let items=[];            // {file, status:'wait'|'conv'|'done'|'err', blob, outName, errMsg}
+let processing=false;
+let heicReady=(typeof heic2any!=='undefined');
+let zipReady=(typeof JSZip!=='undefined');
+
+const dz=document.getElementById('dropzone');
+const fileInput=document.getElementById('fileInput');
+
+if(!heicReady){
+    const el=document.getElementById('libError');
+    el.textContent='変換ライブラリ（heic2any）の読み込みに失敗しました。通信環境を確認してページを再読み込みしてください。';
+    el.style.display='block';
+    dz.classList.add('disabled');
+}
+if(heicReady&&!zipReady){
+    const el=document.getElementById('libError');
+    el.textContent='ZIPライブラリの読み込みに失敗しました。個別ダウンロードは利用できますが、「まとめてZIPでダウンロード」は利用できません。';
+    el.style.display='block';
+}
+
+dz.addEventListener('click',()=>{if(heicReady)fileInput.click()});
+dz.addEventListener('dragover',e=>{e.preventDefault();if(heicReady)dz.classList.add('dragover')});
+dz.addEventListener('dragleave',()=>dz.classList.remove('dragover'));
+dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('dragover');if(heicReady)addFiles(e.dataTransfer.files)});
+fileInput.addEventListener('change',()=>{addFiles(fileInput.files);fileInput.value=''});
+
+function isHeic(f){return /\.(heic|heif)$/i.test(f.name)}
+
+function addFiles(fileList){
+    if(processing)return;
+    let skipped=0;
+    for(const f of Array.from(fileList)){
+        if(!isHeic(f)){skipped++;continue}
+        items.push({file:f,status:'wait',blob:null,outName:null,errMsg:null});
+    }
+    if(skipped>0)alert(skipped+'件のファイルは.heic/.heif形式ではないためスキップしました。');
+    renderList();
+}
+
+function statusBadge(it){
+    switch(it.status){
+        case 'wait':return '<span class="file-status st-wait">待機中</span>';
+        case 'conv':return '<span class="file-status st-conv">変換中…</span>';
+        case 'done':return '<span class="file-status st-done">完了</span>';
+        case 'err':return '<span class="file-status st-err">エラー</span>';
+    }
+    return '';
+}
+
+function renderList(){
+    const wrap=document.getElementById('filelist');
+    const rows=document.getElementById('fileRows');
+    if(items.length===0){
+        wrap.style.display='none';
+        document.getElementById('settings').style.display='none';
+        document.getElementById('actionRow').style.display='none';
+        return;
+    }
+    wrap.style.display='block';
+    document.getElementById('settings').style.display='block';
+    document.getElementById('actionRow').style.display='flex';
+    rows.innerHTML='';
+    items.forEach((it,i)=>{
+        const row=document.createElement('div');
+        row.className='file-row';
+        row.id='row-'+i;
+        let html='<span class="file-name">'+escapeHtml(it.file.name)+'</span>'
+            +'<span class="file-size">'+formatSize(it.file.size)+'</span>'
+            +statusBadge(it);
+        if(it.status==='done')html+='<button class="file-dl" onclick="downloadOne('+i+')">保存</button>';
+        row.innerHTML=html;
+        if(it.status==='err'&&it.errMsg){
+            const em=document.createElement('div');
+            em.className='file-err-msg';
+            em.textContent=it.errMsg;
+            row.appendChild(em);
+        }
+        rows.appendChild(row);
+    });
+    document.getElementById('listCount').textContent=items.length+'ファイル';
+    updateButtons();
+}
+
+function updateButtons(){
+    const doneCount=items.filter(it=>it.status==='done').length;
+    document.getElementById('zipBtn').style.display=(doneCount>=2&&zipReady)?'inline-flex':'none';
+    const waitCount=items.filter(it=>it.status==='wait').length;
+    const cb=document.getElementById('convertBtn');
+    cb.disabled=processing||waitCount===0||!heicReady;
+    cb.textContent=processing?'変換中…':(doneCount>0&&waitCount>0?'残りを変換する':'変換する');
+    document.getElementById('resetBtn').disabled=processing;
+}
+
+function onPngToggle(){
+    const png=document.getElementById('pngToggle').checked;
+    document.getElementById('quality').disabled=png;
+    document.getElementById('quality').style.opacity=png?0.4:1;
+    document.getElementById('qualVal').style.opacity=png?0.4:1;
+}
+
+function friendlyError(e){
+    const msg=(e&&(e.message||(typeof e==='string'?e:'')))||'';
+    if(/already browser readable/i.test(msg))
+        return 'このファイルは中身がすでにJPEG/PNGなどのブラウザ対応形式です（変換不要）。拡張子を書き換えてそのままご利用ください。';
+    if(/ERR_LIBHEIF|format not supported|could not parse/i.test(msg))
+        return 'HEICデータとして読み取れませんでした。ファイルが破損しているか、非対応の形式の可能性があります。';
+    return '変換に失敗しました。ファイルが破損しているか、非対応の形式の可能性があります。';
+}
+
+// 順次処理キュー：convertFn は blob を返す Promise。エラーが出ても次のファイルへ進む。
+async function processQueue(list,convertFn,onUpdate){
+    let done=0,errors=0;
+    for(let i=0;i<list.length;i++){
+        const it=list[i];
+        if(it.status==='done'){done++;continue}
+        it.status='conv';
+        onUpdate(i,done+errors,list.length);
+        try{
+            it.blob=await convertFn(it);
+            it.status='done';
+            done++;
+        }catch(e){
+            it.status='err';
+            it.errMsg=friendlyError(e);
+            it.blob=null;
+            errors++;
+        }
+        onUpdate(i,done+errors,list.length);
+    }
+    return {done:done,errors:errors};
+}
+
+async function convertAll(){
+    if(processing||!heicReady)return;
+    processing=true;
+    const png=document.getElementById('pngToggle').checked;
+    const quality=parseFloat(document.getElementById('quality').value);
+    const toType=png?'image/png':'image/jpeg';
+    const ext=png?'.png':'.jpg';
+    const pw=document.getElementById('progressWrap');
+    pw.style.display='block';
+    updateButtons();
+
+    const convertFn=async it=>{
+        let out=await heic2any(png?{blob:it.file,toType:toType}:{blob:it.file,toType:toType,quality:quality});
+        if(Array.isArray(out))out=out[0]; // 複数画像入りHEICは1枚目を採用
+        it.outName=it.file.name.replace(/\.(heic|heif)$/i,'')+ext;
+        return out;
+    };
+    const onUpdate=(i,finished,total)=>{
+        renderList();
+        const pct=Math.round(finished/total*100);
+        document.getElementById('progressFill').style.width=pct+'%';
+        document.getElementById('progressText').textContent=finished+' / '+total+' 完了';
+    };
+    const res=await processQueue(items,convertFn,onUpdate);
+    processing=false;
+    renderList();
+    document.getElementById('progressText').textContent=
+        res.errors>0?(res.done+'件を変換しました（'+res.errors+'件はエラー）'):(res.done+'件すべて変換が完了しました');
+    document.getElementById('progressFill').style.width='100%';
+}
+
+function downloadBlob(blob,name){
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.download=name;a.href=url;a.click();
+    setTimeout(()=>URL.revokeObjectURL(url),3000); // メモリ解放
+}
+
+function downloadOne(i){
+    const it=items[i];
+    if(!it||it.status!=='done'||!it.blob)return;
+    downloadBlob(it.blob,it.outName||('converted-'+(i+1)+'.jpg'));
+}
+
+async function downloadZip(){
+    if(!zipReady){alert('ZIPライブラリが読み込まれていないため、個別ダウンロードをご利用ください。');return}
+    const done=items.filter(it=>it.status==='done'&&it.blob);
+    if(done.length===0)return;
+    const zip=new JSZip();
+    const used={};
+    for(const it of done){
+        let name=it.outName||'converted.jpg';
+        if(used[name]){ // 同名ファイルの衝突回避
+            const n=++used[name];
+            name=name.replace(/(\.[a-z]+)$/i,'_'+n+'$1');
+        }else{used[name]=1}
+        zip.file(name,it.blob);
+    }
+    const blob=await zip.generateAsync({type:'blob'});
+    downloadBlob(blob,'heic_converted.zip');
+}
+
+function resetAll(){
+    if(processing)return;
+    items=[];
+    document.getElementById('progressWrap').style.display='none';
+    document.getElementById('progressFill').style.width='0%';
+    document.getElementById('progressText').textContent='';
+    fileInput.value='';
+    renderList();
+}
+
+function escapeHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function formatSize(b){return b>1024*1024?(b/1024/1024).toFixed(1)+' MB':(b/1024).toFixed(0)+' KB'}
+</script>
+</body>
+</html>

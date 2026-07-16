@@ -184,7 +184,6 @@
 
         <h2>SNS画像サイズ早見表</h2>
         <p>本ツールのプリセットに対応する主要SNSの推奨画像サイズと用途・縦横比をまとめると次のとおりです。サイズはプラットフォームの仕様変更により変わることがあるため、実際に投稿する前に各SNSの公式ヘルプで最新の推奨値を確認することをおすすめします。</p>
-        <!-- TODO要確認: SNS推奨画像サイズは変更されるため各SNS公式で最新を確認 -->
         <div class="table-wrap">
         <table class="lookup-table">
             <thead><tr><th>用途</th><th>サイズ（px）</th><th>縦横比</th><th>主な使いどころ</th></tr></thead>
@@ -268,7 +267,6 @@ function onDimInput(changed){
 
 function applyPreset(i){
     const p=PRESETS[i];
-    document.getElementById('lockRatio').checked=false;
     document.getElementById('widthInput').value=p.w;
     document.getElementById('heightInput').value=p.h;
 }
@@ -289,7 +287,11 @@ function handleFile(file){
         document.getElementById('convertRow').style.display='flex';
         document.getElementById('result').style.display='none';
         toggleQuality();
-        dz.innerHTML=`<div class="icon">選択中</div><p>${file.name}</p><small>${fmtName(file.type)} / ${natW}×${natH} / ${formatSize(file.size)}</small>`;
+        dz.innerHTML=`<div class="icon" style="font-size:0.9rem;font-weight:500">選択中</div><p>${file.name}</p><small>${fmtName(file.type)} / ${natW}×${natH} / ${formatSize(file.size)}</small>`;
+    };
+    probe.onerror=()=>{
+        alert('画像の読み込みに失敗しました。ファイルが破損しているか、対応していない形式の可能性があります。');
+        originalFile=null;
     };
     probe.src=url;
 }
@@ -322,6 +324,9 @@ function resize(){
             document.getElementById('compSize').textContent=formatSize(blob.size);
             document.getElementById('result').style.display='block';
         },format,useQuality?quality:undefined);
+    };
+    img.onerror=()=>{
+        alert('画像の読み込みに失敗しました。ファイルが破損しているか、対応していない形式の可能性があります。');
     };
     img.src=URL.createObjectURL(originalFile);
 }

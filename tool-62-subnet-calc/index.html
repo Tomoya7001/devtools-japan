@@ -136,6 +136,11 @@ function calc() {
     const ipInt = ipToInt(ip);
     if (ipInt === null) {
         document.getElementById('rNetwork').textContent = '不正なIP';
+        document.getElementById('rBroadcast').textContent = '-';
+        document.getElementById('rMask').textContent = '-';
+        document.getElementById('rWildcard').textContent = '-';
+        document.getElementById('rRange').textContent = '-';
+        document.getElementById('rHosts').textContent = '-';
         return;
     }
     const mask = cidr === 0 ? 0 : (0xFFFFFFFF << (32 - cidr)) >>> 0;

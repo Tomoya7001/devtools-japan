@@ -312,6 +312,13 @@ function draw(){
     if(subtitle.trim()!==''){
         ctx.font=`400 ${subSize}px ${ff}`;
         subLines=wrapText(subtitle,maxW);
+        // サイト名と重ならないよう、サブタイトルは最大2行に制限（超過分は…で省略）
+        if(subLines.length>2){
+            subLines=subLines.slice(0,2);
+            let last=subLines[1];
+            while(last.length>0&&ctx.measureText(last+'…').width>maxW){last=last.slice(0,-1);}
+            subLines[1]=last+'…';
+        }
     }
     const subLH=subSize*1.45;
 

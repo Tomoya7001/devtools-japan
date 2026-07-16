@@ -49,6 +49,7 @@
         .btn:hover{border-color:var(--accent);color:var(--text)}
         .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:500}
         .btn-primary:hover{color:#fff}
+        .btn:disabled{opacity:0.4;cursor:not-allowed}
         .btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
 
         .note{font-size:0.75rem;color:var(--text3);text-align:center;margin-bottom:24px;line-height:1.7}
@@ -90,7 +91,7 @@
     <header><h1>画像→PDF変換ツール</h1><p>複数の画像を1つのPDFにまとめてダウンロード。サーバー送信なし・プライバシー安全。</p></header>
 
     <div class="dropzone" id="dropzone" onclick="document.getElementById('fileInput').click()">
-        <div class="icon"></div>
+        <div class="icon"><svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><path d="M19 13v6H5v-6H3v8h18v-8h-2zM11 4.83 8.41 7.41 7 6l5-5 5 5-1.41 1.41L13 4.83V16h-2V4.83z"/></svg></div>
         <p>クリックまたはドラッグ＆ドロップで画像を選択（複数可）</p>
         <small>JPEG・PNG対応 / 複数選択で1つのPDFに結合</small>
     </div>
@@ -115,9 +116,10 @@
     <ul class="file-list" id="fileList"></ul>
 
     <div class="btn-row" id="actionRow" style="display:none">
-        <button class="btn btn-primary" onclick="generatePdf()">PDFを生成してダウンロード</button>
+        <button class="btn btn-primary" id="generateBtn" onclick="generatePdf()">PDFを生成してダウンロード</button>
         <button class="btn" onclick="reset()">リセット</button>
     </div>
+    <div id="pdfStatus" style="display:none;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:10px 14px;margin-bottom:24px;font-size:0.8rem;color:#b91c1c"></div>
 
     <p class="note" id="note" style="display:none">画像はブラウザ内でPDF化され、サーバーにアップロードされません。</p>
 
@@ -173,6 +175,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
 let files=[];
+const libReady=(typeof window.jspdf!=='undefined');
+function showPdfError(msg){
+    const el=document.getElementById('pdfStatus');
+    el.textContent=msg;
+    el.style.display='block';
+}
+if(!libReady){
+    document.getElementById('generateBtn').disabled=true;
+    showPdfError('PDF生成ライブラリの読み込みに失敗しました。通信環境を確認してページを再読み込みしてください。');
+}
 const dz=document.getElementById('dropzone');
 dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('dragover')});
 dz.addEventListener('dragleave',()=>dz.classList.remove('dragover'));
@@ -217,29 +229,38 @@ function loadImage(file){
 
 async function generatePdf(){
     if(!files.length)return;
-    const { jsPDF }=window.jspdf;
-    const size=document.getElementById('paperSize').value;
-    const orientation=document.getElementById('orientation').value;
-    const margin=parseInt(document.getElementById('margin').value,10);
-    const doc=new jsPDF({orientation,unit:'mm',format:size});
-    const pageW=doc.internal.pageSize.getWidth();
-    const pageH=doc.internal.pageSize.getHeight();
-
-    for(let i=0;i<files.length;i++){
-        const {img,url,type}=await loadImage(files[i]);
-        if(i>0)doc.addPage();
-        const availW=pageW-margin*2;
-        const availH=pageH-margin*2;
-        const ratio=Math.min(availW/img.width,availH/img.height);
-        const w=img.width*ratio;
-        const h=img.height*ratio;
-        const x=(pageW-w)/2;
-        const y=(pageH-h)/2;
-        const fmt=type==='image/png'?'PNG':'JPEG';
-        doc.addImage(img,fmt,x,y,w,h);
-        URL.revokeObjectURL(url);
+    if(typeof window.jspdf==='undefined'){
+        showPdfError('PDF生成ライブラリの読み込みに失敗しました。通信環境を確認してページを再読み込みしてください。');
+        return;
     }
-    doc.save('images.pdf');
+    try{
+        document.getElementById('pdfStatus').style.display='none';
+        const { jsPDF }=window.jspdf;
+        const size=document.getElementById('paperSize').value;
+        const orientation=document.getElementById('orientation').value;
+        const margin=parseInt(document.getElementById('margin').value,10);
+        const doc=new jsPDF({orientation,unit:'mm',format:size});
+        const pageW=doc.internal.pageSize.getWidth();
+        const pageH=doc.internal.pageSize.getHeight();
+
+        for(let i=0;i<files.length;i++){
+            const {img,url,type}=await loadImage(files[i]);
+            if(i>0)doc.addPage();
+            const availW=pageW-margin*2;
+            const availH=pageH-margin*2;
+            const ratio=Math.min(availW/img.width,availH/img.height);
+            const w=img.width*ratio;
+            const h=img.height*ratio;
+            const x=(pageW-w)/2;
+            const y=(pageH-h)/2;
+            const fmt=type==='image/png'?'PNG':'JPEG';
+            doc.addImage(img,fmt,x,y,w,h);
+            URL.revokeObjectURL(url);
+        }
+        doc.save('images.pdf');
+    }catch(e){
+        showPdfError('PDFの生成に失敗しました。画像ファイルが破損していないかご確認のうえ、再度お試しください。');
+    }
 }
 
 function reset(){

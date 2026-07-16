@@ -82,6 +82,7 @@
     <div class="card"><h3>入力</h3>
         <div class="row"><label>遺産総額</label><input type="number" id="estate" value="80000000" oninput="calc()"><span class="unit">円</span></div>
         <div class="row"><label>法定相続人の数</label><input type="number" id="heirs" value="3" min="1" max="20" oninput="calc()"><span class="unit">人</span></div>
+        <div class="row"><label>配偶者（法定相続人に含む）</label><select id="spouse" onchange="calc()"><option value="yes" selected>あり（配偶者1/2＋子で1/2）</option><option value="no">なし（子などで均等）</option></select><span class="unit"></span></div>
         <div class="row"><label>債務・葬式費用</label><input type="number" id="debts" value="2000000" oninput="calc()"><span class="unit">円</span></div>
     </div>
 
@@ -107,7 +108,7 @@
         </table>
     </div>
 
-    <div class="note">このツールは概算シミュレーションです。配偶者控除（1億6,000万円）、小規模宅地の特例、生命保険金の非課税枠などは含まれていません。正確な税額は税理士にご相談ください。</div>
+    <div class="note">このツールは概算シミュレーションです。課税遺産総額は法定相続分（配偶者あり: 配偶者1/2・子が残り1/2を均等、配偶者なし: 均等）で按分して税額を計算します。配偶者控除（1億6,000万円）、小規模宅地の特例、生命保険金の非課税枠などは含まれていません。正確な税額は税理士にご相談ください。</div>
 
     <div class="ad-slot"></div>
 
@@ -183,8 +184,7 @@ function calc() {
     const netEstate = Math.max(0, estate - debts);
     const taxable = Math.max(0, netEstate - deduction);
 
-    // 法定相続分で按分して税額計算（簡易版: 均等按分）
-    const perPerson = Math.floor(taxable / heirs);
+    // 法定相続分で按分して税額計算（配偶者あり: 配偶者1/2・子が残り1/2を均等 / なし: 均等按分）
     function taxForAmount(a) {
         if (a <= 10000000) return a * 0.10;
         if (a <= 30000000) return a * 0.15 - 500000;
@@ -195,7 +195,18 @@ function calc() {
         if (a <= 600000000) return a * 0.50 - 42000000;
         return a * 0.55 - 72000000;
     }
-    const totalTax = Math.floor(taxForAmount(perPerson) * heirs);
+    const hasSpouse = document.getElementById('spouse').value === 'yes';
+    let totalTax;
+    if (hasSpouse && heirs >= 2) {
+        const spouseShare = Math.floor(taxable / 2);
+        const childShare = Math.floor(taxable / 2 / (heirs - 1));
+        totalTax = Math.floor(taxForAmount(spouseShare) + taxForAmount(childShare) * (heirs - 1));
+    } else if (hasSpouse) {
+        totalTax = Math.floor(taxForAmount(taxable));
+    } else {
+        const perPerson = Math.floor(taxable / heirs);
+        totalTax = Math.floor(taxForAmount(perPerson) * heirs);
+    }
 
     const f = n => n.toLocaleString();
     document.getElementById('rDeduction').textContent = '\u00a5' + f(deduction);

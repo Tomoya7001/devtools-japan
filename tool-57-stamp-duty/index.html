@@ -83,6 +83,10 @@
             <option value="contract2" selected>請負契約書（第2号文書）</option>
             <option value="receipt">領収書・受取書（第17号文書）</option>
         </select><span class="unit"></span></div>
+        <div class="row" id="reducedRow"><label>軽減税率（不動産譲渡・建設工事請負が対象、2027年3月31日までの作成分）</label><select id="reduced" onchange="calc()" style="text-align:left">
+            <option value="no" selected>適用しない（本則税率）</option>
+            <option value="yes">適用する（軽減税率）</option>
+        </select><span class="unit"></span></div>
         <div class="row"><label>記載金額</label><input type="number" id="docAmount" value="5000000" oninput="calc()"><span class="unit">円</span></div>
     </div>
 
@@ -90,7 +94,27 @@
         <div class="result-item" style="grid-column:1/-1"><div class="label">必要な印紙税額</div><div class="value" id="rStamp" style="font-size:2.5rem">-</div><div class="sub" id="rStampNote"></div></div>
     </div>
 
-    <div class="card"><h3>請負契約書（第2号文書）の印紙税額表</h3>
+    <div class="card"><h3>不動産売買契約書（第1号文書）の印紙税額表（本則税率）</h3>
+        <table class="ref">
+            <tr><th>記載金額</th><th>印紙税額</th><th>軽減税率※</th></tr>
+            <tr><td>1万円未満</td><td>非課税</td><td>-</td></tr>
+            <tr><td>1万円〜10万円</td><td>200円</td><td>-（本則どおり）</td></tr>
+            <tr><td>10万円超〜50万円</td><td>400円</td><td>200円</td></tr>
+            <tr><td>50万円超〜100万円</td><td>1,000円</td><td>500円</td></tr>
+            <tr><td>100万円超〜500万円</td><td>2,000円</td><td>1,000円</td></tr>
+            <tr><td>500万円超〜1,000万円</td><td>10,000円</td><td>5,000円</td></tr>
+            <tr><td>1,000万円超〜5,000万円</td><td>20,000円</td><td>10,000円</td></tr>
+            <tr><td>5,000万円超〜1億円</td><td>60,000円</td><td>30,000円</td></tr>
+            <tr><td>1億円超〜5億円</td><td>100,000円</td><td>60,000円</td></tr>
+            <tr><td>5億円超〜10億円</td><td>200,000円</td><td>160,000円</td></tr>
+            <tr><td>10億円超〜50億円</td><td>400,000円</td><td>320,000円</td></tr>
+            <tr><td>50億円超</td><td>600,000円</td><td>480,000円</td></tr>
+            <tr><td>金額の記載なし</td><td>200円</td><td>-</td></tr>
+        </table>
+        <p style="font-size:0.72rem;color:var(--text3)">※ 不動産譲渡契約書（記載金額10万円超）で、2014年4月1日〜2027年3月31日に作成されるものに適用される軽減税率（租税特別措置法）。</p>
+    </div>
+
+    <div class="card"><h3>請負契約書（第2号文書）の印紙税額表（本則税率）</h3>
         <table class="ref">
             <tr><th>記載金額</th><th>印紙税額</th></tr>
             <tr><td>1万円未満</td><td>非課税</td></tr>
@@ -107,9 +131,10 @@
             <tr><td>50億円超</td><td>600,000円</td></tr>
             <tr><td>金額の記載なし</td><td>200円</td></tr>
         </table>
+        <p style="font-size:0.72rem;color:var(--text3)">※ 建設工事の請負契約書（記載金額100万円超）で、2014年4月1日〜2027年3月31日に作成されるものには軽減税率が適用されます（例: 100万円超〜200万円 200円、1,000万円超〜5,000万円 10,000円）。上の「軽減税率」で切り替えて確認できます。</p>
     </div>
 
-    <div class="note">2024年3月31日までの軽減税率は終了しています。電子契約の場合、印紙税は不要です。詳しくは国税庁のサイトをご確認ください。</div>
+    <div class="note">不動産譲渡契約書（第1号）と建設工事請負契約書（第2号）には、2027年3月31日までに作成されるものについて印紙税の軽減措置が適用されます（国税庁 No.7108）。建設工事以外の請負契約書は軽減の対象外です。電子契約の場合、印紙税は不要です。詳しくは国税庁のサイトをご確認ください。</div>
 
     <div class="ad-slot"></div>
 
@@ -124,7 +149,6 @@
         <p>契約書の作成・チェック業務で「この金額ならいくらの印紙？」を即座に確認できます。すべてブラウザ上で動作し、データがサーバーに送信されることはありません。</p>
     </div>
 
-    <!-- TODO要確認: 第1号(不動産譲渡)・第2号(建設工事請負)契約書は租税特別措置法による軽減税率の対象期間が延長されている可能性あり。本表・本ツールは本則税率を掲載。最新の税額・軽減措置は国税庁「No.7140 印紙税額の一覧表」 https://www.nta.go.jp/taxes/shiraberu/taxanswer/inshi/7140.htm で要確認 -->
     <div class="seo-content">
         <h2>領収書（第17号文書）の印紙税額 早見表</h2>
         <p>「領収書はいくらから収入印紙が必要？」を一目で確認できる早見表です。売上代金の受取書（領収書）は記載金額が5万円未満なら非課税で、5万円以上から印紙税がかかります。下表は本ツールと同じ判定基準（国税庁の本則税率）です。</p>
@@ -168,7 +192,7 @@
             <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
 </div>
 <script>
-function getStampDuty(type, amount) {
+function getStampDuty(type, amount, reduced) {
     if (type === 'receipt') {
         if (amount < 50000) return {tax: 0, note: '5万円未満は非課税'};
         if (amount <= 1000000) return {tax: 200, note: ''};
@@ -183,10 +207,52 @@ function getStampDuty(type, amount) {
         if (amount <= 200000000) return {tax: 40000, note: ''};
         if (amount <= 300000000) return {tax: 60000, note: ''};
         if (amount <= 500000000) return {tax: 100000, note: ''};
+        if (amount <= 1000000000) return {tax: 150000, note: ''};
         return {tax: 200000, note: ''};
     }
-    // 請負契約書・売買契約書
+    if (type === 'contract1') {
+        // 不動産売買契約書（第1号文書）
+        if (amount < 10000) return {tax: 0, note: '1万円未満は非課税'};
+        if (reduced && amount > 100000) {
+            // 不動産譲渡契約書の軽減税率（10万円超、2014年4月1日〜2027年3月31日作成分）
+            if (amount <= 500000) return {tax: 200, note: '軽減税率適用（本則400円）'};
+            if (amount <= 1000000) return {tax: 500, note: '軽減税率適用（本則1,000円）'};
+            if (amount <= 5000000) return {tax: 1000, note: '軽減税率適用（本則2,000円）'};
+            if (amount <= 10000000) return {tax: 5000, note: '軽減税率適用（本則10,000円）'};
+            if (amount <= 50000000) return {tax: 10000, note: '軽減税率適用（本則20,000円）'};
+            if (amount <= 100000000) return {tax: 30000, note: '軽減税率適用（本則60,000円）'};
+            if (amount <= 500000000) return {tax: 60000, note: '軽減税率適用（本則100,000円）'};
+            if (amount <= 1000000000) return {tax: 160000, note: '軽減税率適用（本則200,000円）'};
+            if (amount <= 5000000000) return {tax: 320000, note: '軽減税率適用（本則400,000円）'};
+            return {tax: 480000, note: '軽減税率適用（本則600,000円）'};
+        }
+        if (amount <= 100000) return {tax: 200, note: ''};
+        if (amount <= 500000) return {tax: 400, note: ''};
+        if (amount <= 1000000) return {tax: 1000, note: ''};
+        if (amount <= 5000000) return {tax: 2000, note: ''};
+        if (amount <= 10000000) return {tax: 10000, note: ''};
+        if (amount <= 50000000) return {tax: 20000, note: ''};
+        if (amount <= 100000000) return {tax: 60000, note: ''};
+        if (amount <= 500000000) return {tax: 100000, note: ''};
+        if (amount <= 1000000000) return {tax: 200000, note: ''};
+        if (amount <= 5000000000) return {tax: 400000, note: ''};
+        return {tax: 600000, note: ''};
+    }
+    // 請負契約書（第2号文書）
     if (amount < 10000) return {tax: 0, note: '1万円未満は非課税'};
+    if (reduced && amount > 1000000) {
+        // 建設工事請負契約書の軽減税率（100万円超、2014年4月1日〜2027年3月31日作成分）
+        if (amount <= 2000000) return {tax: 200, note: '軽減税率適用（本則400円）'};
+        if (amount <= 3000000) return {tax: 500, note: '軽減税率適用（本則1,000円）'};
+        if (amount <= 5000000) return {tax: 1000, note: '軽減税率適用（本則2,000円）'};
+        if (amount <= 10000000) return {tax: 5000, note: '軽減税率適用（本則10,000円）'};
+        if (amount <= 50000000) return {tax: 10000, note: '軽減税率適用（本則20,000円）'};
+        if (amount <= 100000000) return {tax: 30000, note: '軽減税率適用（本則60,000円）'};
+        if (amount <= 500000000) return {tax: 60000, note: '軽減税率適用（本則100,000円）'};
+        if (amount <= 1000000000) return {tax: 160000, note: '軽減税率適用（本則200,000円）'};
+        if (amount <= 5000000000) return {tax: 320000, note: '軽減税率適用（本則400,000円）'};
+        return {tax: 480000, note: '軽減税率適用（本則600,000円）'};
+    }
     if (amount <= 1000000) return {tax: 200, note: ''};
     if (amount <= 2000000) return {tax: 400, note: ''};
     if (amount <= 3000000) return {tax: 1000, note: ''};
@@ -203,7 +269,9 @@ function getStampDuty(type, amount) {
 function calc() {
     const type = document.getElementById('docType').value;
     const amount = parseInt(document.getElementById('docAmount').value) || 0;
-    const result = getStampDuty(type, amount);
+    const reduced = document.getElementById('reduced').value === 'yes';
+    document.getElementById('reducedRow').style.display = type === 'receipt' ? 'none' : 'flex';
+    const result = getStampDuty(type, amount, reduced);
     document.getElementById('rStamp').textContent = result.tax === 0 ? '非課税' : '\u00a5' + result.tax.toLocaleString();
     document.getElementById('rStampNote').textContent = result.note;
 }

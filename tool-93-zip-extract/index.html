@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E27Q8YTG7L');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZIP解凍 オンライン | パスワード対応・文字化け自動修復【無料・アップロード不要】</title>
+    <meta name="description" content="ZIPファイルをブラウザだけで解凍する無料ツール。Windowsで作られたZIPの文字化け（Shift_JIS）を自動判定して修復。パスワード付きZIP（AES-256/ZipCrypto）にも対応。ファイルはサーバーに送信されず、すべて端末内で処理されます。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#fff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#d97706;--accent-dim:rgba(217,119,6,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        .back-bar a:hover{color:var(--text)}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}.row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input[type=text],.row input[type=password],.row select{width:280px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input[type=text],.row input[type=password],.row select{width:100%}.fileitem{flex-wrap:wrap}}
+        .drop{border:2px dashed var(--border);border-radius:12px;padding:36px 20px;text-align:center;cursor:pointer;transition:all 0.2s;background:#fafbfc}
+        .drop:hover,.drop.over{border-color:var(--accent);background:var(--accent-dim)}
+        .drop svg{width:40px;height:40px;color:var(--text3);margin-bottom:12px}
+        .drop p{color:var(--text2);font-size:0.9rem}.drop .sub{font-size:0.75rem;color:var(--text3);margin-top:6px}
+        .privacy-note{background:var(--accent-dim);border:1px solid rgba(217,119,6,0.25);border-radius:8px;padding:14px 16px;font-size:0.8rem;color:#92660a;margin-bottom:24px;line-height:1.9}
+        .privacy-note strong{color:#7c4a00}
+        .filelist{margin-top:16px}
+        .fileitem{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;font-size:0.85rem}
+        .fileitem .name{color:var(--text);word-break:break-all;flex:1;font-family:'JetBrains Mono','Noto Sans JP',monospace;font-size:0.8rem}
+        .fileitem .size{color:var(--text3);font-size:0.75rem;white-space:nowrap}
+        .fileitem .lock{font-size:0.7rem;color:var(--accent);white-space:nowrap}
+        .dlbtn{padding:6px 14px;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:0.75rem;font-weight:500;cursor:pointer;font-family:'Noto Sans JP',sans-serif;white-space:nowrap}
+        .dlbtn:hover{opacity:0.92}.dlbtn:disabled{opacity:0.4;cursor:not-allowed}
+        .btn{width:100%;padding:14px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Noto Sans JP',sans-serif;margin-top:8px}
+        .btn:hover{opacity:0.92}.btn:disabled{opacity:0.4;cursor:not-allowed}
+        .badge{display:none;margin-top:12px;padding:8px 14px;border-radius:999px;background:rgba(34,197,94,0.12);color:#15803d;font-size:0.8rem;font-weight:500}
+        .badge.show{display:inline-block}
+        .status{margin-top:14px;padding:12px 16px;border-radius:8px;font-size:0.85rem;display:none}
+        .status.show{display:block}
+        .status.info{background:var(--accent-dim);color:var(--text2)}
+        .status.ok{background:rgba(34,197,94,0.1);color:#15803d}
+        .status.err{background:rgba(239,68,68,0.1);color:#b91c1c}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .opt-desc{font-size:0.75rem;color:var(--text3);margin-top:4px;line-height:1.7}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-93-zip-extract/">
+    <meta property="og:title" content="ZIP解凍 オンライン | パスワード対応・文字化け自動修復【無料・アップロード不要】">
+    <meta property="og:description" content="ZIPをブラウザだけで解凍。Shift_JISの文字化けを自動修復、パスワード付きZIPにも対応。サーバー送信なし">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-93-zip-extract/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ZIP解凍 オンライン【無料・アップロード不要】">
+    <meta name="twitter:description" content="ZIPをブラウザだけで解凍。文字化け自動修復・パスワード対応。サーバー送信なし">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"ZIP解凍（ブラウザ完結・文字化け自動修復）","url":"https://www.devtools-japan.com/tool-93-zip-extract/","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"description":"ZIPファイルをブラウザだけで解凍する無料ツール。Shift_JISによるファイル名の文字化けを自動判定して修復し、パスワード付きZIP（AES-256/ZipCrypto）にも対応。ファイルはサーバーに送信されません。"}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"DevTools Japan","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"ZIP解凍（ブラウザ完結・文字化け自動修復）","item":"https://www.devtools-japan.com/tool-93-zip-extract/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ZIPの文字化けはどうやって直せますか？","acceptedAnswer":{"@type":"Answer","text":"Windowsで作成されたZIPはファイル名がShift_JISで記録されることが多く、MacやスマホがUTF-8として解釈すると文字化けします。このツールはファイル名のエンコーディングを自動判定し、Shift_JISのファイル名を正しく復元して表示・保存します。判定が合わない場合はエンコーディングを手動で切り替えることもできます。"}},{"@type":"Question","name":"パスワード付きZIPは解凍できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。AES-256とZipCrypto（従来方式）の両方に対応しています。暗号化されたZIPを読み込むとパスワード入力欄が表示されるので、入力してからダウンロードしてください。パスワードはブラウザ内でのみ使用され、外部に送信されません。"}},{"@type":"Question","name":"スマホでも使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。iPhone（Safari）やAndroid（Chrome）などのモダンブラウザであれば、アプリのインストールなしでそのまま利用できます。スマホで受け取った文字化けZIPの確認にも便利です。"}},{"@type":"Question","name":"アップロードされたファイルは安全ですか？","acceptedAnswer":{"@type":"Answer","text":"このツールはファイルをサーバーにアップロードしません。解凍処理はすべてお使いの端末のブラウザ内で完結するため、機密ファイルや社内資料でも安心して利用できます。"}},{"@type":"Question","name":"対応している形式は？","acceptedAnswer":{"@type":"Answer","text":"標準的なZIP形式（Deflate圧縮・無圧縮）と、AES-256およびZipCryptoで暗号化されたZIPに対応しています。RAR・7z・tar.gzなどZIP以外の形式には対応していません。また、非常に大きいZIPは端末のメモリを消費するためご注意ください。"}}]}
+    </script>
+</head>
+<body>
+<div class="back-bar" style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>ZIP解凍（ブラウザ完結）</h1><p>文字化けを自動修復・パスワード付きZIP対応。サーバー送信なし</p></header>
+    <div class="privacy-note">
+        <strong>ファイルはサーバーに送信されません。</strong><br>
+        解凍・文字化け修復・パスワード解除を含むすべての処理は、お使いの端末のブラウザ内で完結します。アップロード型の解凍サービスと違い、中身が外部に渡ることはありません。<br>
+        ※ 非常に大きいZIP（数百MB以上）は端末のメモリを多く消費します。動作が重い場合はファイルを分けてお試しください。
+    </div>
+    <div class="card"><h3>1. ZIPファイルを選択</h3>
+        <div class="drop" id="drop">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10h-4v-2h4v2zm0-4h-4v-2h4v2z"/></svg>
+            <p>ここにZIPファイルをドラッグ&ドロップ<br>またはクリックして選択</p>
+            <p class="sub">.zip 形式・端末内で処理されます</p>
+        </div>
+        <input type="file" id="fileInput" accept=".zip,application/zip,application/x-zip-compressed" style="display:none">
+    </div>
+    <div class="card"><h3>2. オプション</h3>
+        <div class="row"><label>ファイル名の文字コード</label><select id="encoding">
+            <option value="auto" selected>自動判定（推奨）</option>
+            <option value="shift_jis">Shift_JIS（Windows製ZIP）</option>
+            <option value="utf-8">UTF-8（Mac・スマホ製ZIP）</option>
+        </select></div>
+        <div class="row" id="passwordRow" style="display:none"><label>パスワード（暗号化ZIP）</label><input type="password" id="password" placeholder="パスワードを入力" autocomplete="off"></div>
+        <div class="opt-desc">文字化けしている場合は「自動判定」のままで多くの場合修復されます。表示が正しくないときは手動で切り替えてください。AES-256・ZipCryptoのどちらの暗号化も自動で処理されます。</div>
+    </div>
+    <div class="card"><h3>3. 中身の一覧とダウンロード</h3>
+        <span class="badge" id="repairBadge">文字化けを修復しました（Shift_JIS → UTF-8）</span>
+        <div class="filelist" id="filelist"><p style="color:var(--text3);font-size:0.8rem">ZIPファイルを読み込むと、ここに中身が一覧表示されます。</p></div>
+        <button class="btn" id="dlAllBtn" style="display:none">すべてダウンロード</button>
+        <div class="status" id="status"></div>
+    </div>
+    <div class="ad-slot"></div>
+    <div class="seo-content">
+        <h2>ZIP解凍ツールの使い方・文字化けが起きる理由</h2>
+        <p>ZIPファイルをドラッグ&ドロップするだけで、中身の一覧表示とファイルごとのダウンロードができる無料のオンライン解凍ツールです。アプリのインストールは不要で、すべての処理がブラウザ内で完結します。</p>
+        <h3>使い方</h3>
+        <p>1. ZIPファイルを選択すると、中のファイル名とサイズが一覧表示されます。<br>2. ファイル名が文字化けしている場合は自動的にShift_JISとして修復されます。うまくいかないときは文字コードを手動で切り替えてください。<br>3. 各ファイルの「保存」ボタンで個別に、「すべてダウンロード」でまとめて保存できます。ファイル数が多い場合は、文字化けを修復したUTF-8のZIPとして再パッケージしてダウンロードできます。<br>4. パスワード付きZIPの場合はパスワード欄が表示されるので、入力してからダウンロードしてください。</p>
+        <h3>なぜZIPのファイル名は文字化けするのか</h3>
+        <p>原因はOSごとの文字コードの違いです。Windowsの標準機能（エクスプローラーの「圧縮」）で作られたZIPは、日本語ファイル名を<strong>Shift_JIS（CP932）</strong>で記録します。一方、MacのFinderやiPhone・Androidで作られたZIPは<strong>UTF-8</strong>で記録します。ZIPの仕様上「UTF-8である」というフラグが付いていれば正しく読めますが、Shift_JISのZIPにはこのフラグがないため、Macやスマホ、一部の解凍ソフトがUTF-8として読もうとして「日本語.txt」が「譌･譛ｬ隱・txt」のような文字列に化けてしまいます。</p>
+        <p>このツールは、UTF-8フラグのないファイル名についてバイト列を解析し、UTF-8として不正な並びであればShift_JISとして復元する自動判定を行います。修復が行われた場合は「文字化けを修復しました」と表示されます。</p>
+    </div>
+    <div class="seo-content">
+        <h2>アップロード型の解凍サービスとの違い・安全性</h2>
+        <p>一般的なオンライン解凍サービスは、ZIPファイルを一度サーバーにアップロードしてから解凍します。便利な反面、ファイルの中身が第三者のサーバーに渡るため、業務データや個人情報を含むファイルには不向きです。</p>
+        <h3>このツールはファイルを送信しません</h3>
+        <p>このツールはJavaScriptによってお使いの端末のブラウザ内だけで解凍を行います。ZIPファイルの中身も、入力したパスワードも、外部のサーバーには一切送信されません。通信が発生しないため、機密ファイルの解凍やパスワード付きZIPの展開にも安心して使えます。オフラインでも（ページを読み込み済みであれば）動作します。</p>
+        <h3>パスワード付きZIPへの対応</h3>
+        <p>強力なAES-256暗号化と、Windows・Macの標準機能で使われる従来方式のZipCryptoの両方に対応しています。暗号方式は自動で判別されるため、パスワードを入力するだけで解凍できます。</p>
+        <h3>よくある質問</h3>
+        <h3>ZIPの文字化けはどうやって直せますか？</h3>
+        <p>Windowsで作成されたZIPはファイル名がShift_JISで記録されることが多く、MacやスマホがUTF-8として解釈すると文字化けします。このツールはファイル名のエンコーディングを自動判定し、Shift_JISのファイル名を正しく復元して表示・保存します。判定が合わない場合はエンコーディングを手動で切り替えることもできます。</p>
+        <h3>パスワード付きZIPは解凍できますか？</h3>
+        <p>はい。AES-256とZipCrypto（従来方式）の両方に対応しています。暗号化されたZIPを読み込むとパスワード入力欄が表示されるので、入力してからダウンロードしてください。パスワードはブラウザ内でのみ使用され、外部に送信されません。</p>
+        <h3>スマホでも使えますか？</h3>
+        <p>はい。iPhone（Safari）やAndroid（Chrome）などのモダンブラウザであれば、アプリのインストールなしでそのまま利用できます。スマホで受け取った文字化けZIPの確認にも便利です。</p>
+        <h3>アップロードされたファイルは安全ですか？</h3>
+        <p>このツールはファイルをサーバーにアップロードしません。解凍処理はすべてお使いの端末のブラウザ内で完結するため、機密ファイルや社内資料でも安心して利用できます。</p>
+        <h3>対応している形式は？</h3>
+        <p>標準的なZIP形式（Deflate圧縮・無圧縮）と、AES-256およびZipCryptoで暗号化されたZIPに対応しています。RAR・7z・tar.gzなどZIP以外の形式には対応していません。また、非常に大きいZIPは端末のメモリを消費するためご注意ください。</p>
+    </div>
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-70-zip-password/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem">パスワード付きZIP作成</a>
+        <a href="/tool-17-hash/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem">ハッシュ生成</a>
+        <a href="/tool-81-pdf-merge/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem">PDF結合</a>
+        <a href="/tool-06-base64/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem">Base64変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+    <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@zip.js/zip.js@2.8.26/dist/zip.min.js"></script>
+<script>
+(function(){
+    var libReady = (typeof zip !== 'undefined');
+    if (libReady) { zip.configure({ useWebWorkers: false }); }
+    var drop = document.getElementById('drop');
+    var fileInput = document.getElementById('fileInput');
+    var filelist = document.getElementById('filelist');
+    var statusEl = document.getElementById('status');
+    var encodingSel = document.getElementById('encoding');
+    var passwordRow = document.getElementById('passwordRow');
+    var passwordInput = document.getElementById('password');
+    var repairBadge = document.getElementById('repairBadge');
+    var dlAllBtn = document.getElementById('dlAllBtn');
+    var reader = null;          // zip.ZipReader
+    var entries = [];           // non-directory entries
+    var displayNames = [];      // decoded full paths (parallel to entries)
+    var zipBaseName = 'archive';
+
+    function fmtSize(b){ if(b<1024)return b+' B'; if(b<1048576)return (b/1024).toFixed(1)+' KB'; return (b/1048576).toFixed(1)+' MB'; }
+    function showStatus(msg,type){ statusEl.textContent=msg; statusEl.className='status show '+type; }
+    function hideStatus(){ statusEl.className='status'; }
+    function hasNonAscii(s){ for(var i=0;i<s.length;i++){ if(s.charCodeAt(i)>127) return true; } return false; }
+
+    // 文字化け自動判定ヒューリスティック:
+    // UTF-8フラグが無いエントリについて、rawFilename のバイト列を検査する。
+    // - バイト列が厳密に有効なUTF-8で、置換文字(U+FFFD)を含まない → UTF-8（Mac/スマホ製の無フラグZIP対策）
+    // - UTF-8として不正（ロッシー復号で�が出る）で、Shift_JIS復号が成功し
+    //   日本語文字（ひらがな/カタカナ/漢字/半角カナ）を含む、または�を含まない → Shift_JIS
+    // - それ以外 → UTF-8（ロッシー）
+    function detectAutoEncoding(raw){
+        var utf8Valid = true, utf8Str = '', sjisStr = null;
+        try { utf8Str = new TextDecoder('utf-8', {fatal:true}).decode(raw); }
+        catch(e){ utf8Valid = false; utf8Str = new TextDecoder('utf-8').decode(raw); }
+        if (utf8Valid && utf8Str.indexOf('�') === -1) return 'utf-8';
+        try { sjisStr = new TextDecoder('shift_jis', {fatal:true}).decode(raw); }
+        catch(e){ sjisStr = null; }
+        if (sjisStr === null) {
+            try { sjisStr = new TextDecoder('shift_jis').decode(raw); } catch(e){ sjisStr = ''; }
+            if (sjisStr && sjisStr.indexOf('�') === -1) { /* clean after all */ }
+            else sjisStr = null;
+        }
+        var jaRe = /[぀-ヿ一-鿿｡-ﾟ]/;
+        if (sjisStr !== null && (utf8Str.indexOf('�') !== -1 || jaRe.test(sjisStr))) return 'shift_jis';
+        return 'utf-8';
+    }
+
+    // Returns {name, usedSjis} for an entry under the current mode
+    function decodeEntryName(entry, mode){
+        var raw = entry.rawFilename;
+        var enc;
+        if (mode === 'auto') {
+            if (entry.filenameUTF8) enc = 'utf-8';
+            else enc = (raw && raw.length) ? detectAutoEncoding(raw) : 'utf-8';
+        } else {
+            enc = mode;
+        }
+        var name;
+        if (!raw || !raw.length) { name = entry.filename || ''; enc = 'utf-8'; }
+        else {
+            try { name = new TextDecoder(enc).decode(raw); }
+            catch(e){ name = new TextDecoder('utf-8').decode(raw); enc = 'utf-8'; }
+        }
+        return { name: name, usedSjis: enc === 'shift_jis' && hasNonAscii(name) };
+    }
+
+    function baseName(path){ var p = path.replace(/\/+$/,''); var i = p.lastIndexOf('/'); return i === -1 ? p : p.slice(i+1); }
+
+    function renderList(){
+        var mode = encodingSel.value;
+        var repaired = false;
+        displayNames = [];
+        filelist.innerHTML = '';
+        entries.forEach(function(entry, i){
+            var d = decodeEntryName(entry, mode);
+            displayNames.push(d.name);
+            if (d.usedSjis) repaired = true;
+            var div = document.createElement('div'); div.className = 'fileitem';
+            var name = document.createElement('span'); name.className = 'name'; name.textContent = d.name;
+            var size = document.createElement('span'); size.className = 'size'; size.textContent = fmtSize(entry.uncompressedSize || 0);
+            div.appendChild(name); div.appendChild(size);
+            if (entry.encrypted) { var lock = document.createElement('span'); lock.className = 'lock'; lock.textContent = '🔒 暗号化'; div.appendChild(lock); }
+            var btn = document.createElement('button'); btn.className = 'dlbtn'; btn.textContent = '保存';
+            btn.onclick = function(){ downloadOne(i, btn); };
+            div.appendChild(btn);
+            filelist.appendChild(div);
+        });
+        repairBadge.className = repaired ? 'badge show' : 'badge';
+        var anyEncrypted = entries.some(function(e){ return e.encrypted; });
+        passwordRow.style.display = anyEncrypted ? '' : 'none';
+        if (entries.length > 0) {
+            dlAllBtn.style.display = '';
+            dlAllBtn.textContent = entries.length > 10 ? '文字化け修復済みZIPとして保存（' + entries.length + 'ファイル）' : 'すべてダウンロード（' + entries.length + 'ファイル）';
+        } else {
+            dlAllBtn.style.display = 'none';
+            filelist.innerHTML = '<p style="color:var(--text3);font-size:0.8rem">このZIPにはファイルが含まれていません。</p>';
+        }
+    }
+
+    function passwordErrorMessage(err){
+        var m = (err && err.message) ? String(err.message) : String(err);
+        if (/password/i.test(m)) return 'パスワードが違います。正しいパスワードを入力してください（AES-256・ZipCryptoとも自動対応しています）。';
+        return '解凍中にエラーが発生しました: ' + m;
+    }
+
+    async function getEntryBlob(entry){
+        var opts = {};
+        if (entry.encrypted) {
+            var pw = passwordInput.value;
+            if (!pw) { throw { noPassword: true }; }
+            opts.password = pw;
+        }
+        return await entry.getData(new zip.BlobWriter(), opts);
+    }
+
+    function saveBlob(blob, filename){
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a'); a.href = url; a.download = filename;
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
+    }
+
+    async function downloadOne(i, btn){
+        if (!libReady) return;
+        var entry = entries[i];
+        btn.disabled = true; hideStatus();
+        try {
+            var blob = await getEntryBlob(entry);
+            saveBlob(blob, baseName(displayNames[i]) || 'file');
+            showStatus('「' + baseName(displayNames[i]) + '」をダウンロードしました。', 'ok');
+        } catch(err){
+            if (err && err.noPassword) showStatus('このファイルは暗号化されています。パスワードを入力してください。', 'err');
+            else showStatus(passwordErrorMessage(err), 'err');
+        } finally { btn.disabled = false; }
+    }
+
+    dlAllBtn.onclick = async function(){
+        if (!libReady || entries.length === 0) return;
+        dlAllBtn.disabled = true; hideStatus();
+        try {
+            if (entries.length > 10) {
+                // 文字化けを修復したファイル名で UTF-8 ZIP に再パッケージ（パスワードなし）
+                showStatus('文字化け修復済みZIPを作成しています…', 'info');
+                var writer = new zip.ZipWriter(new zip.BlobWriter('application/zip'));
+                var used = {};
+                for (var i = 0; i < entries.length; i++) {
+                    var blob = await getEntryBlob(entries[i]);
+                    var name = displayNames[i] || ('file' + i);
+                    while (used[name]) name = name.replace(/(\.[^.\/]*)?$/, '_' + i + '$1');
+                    used[name] = true;
+                    await writer.add(name, new zip.BlobReader(blob));
+                    showStatus('文字化け修復済みZIPを作成しています… (' + (i+1) + '/' + entries.length + ')', 'info');
+                }
+                var outBlob = await writer.close();
+                saveBlob(outBlob, zipBaseName + '_fixed.zip');
+                showStatus('完了しました。ファイル名をUTF-8に修復した「' + zipBaseName + '_fixed.zip」をダウンロードしました。', 'ok');
+            } else {
+                for (var j = 0; j < entries.length; j++) {
+                    showStatus('ダウンロード中… (' + (j+1) + '/' + entries.length + ')', 'info');
+                    var b = await getEntryBlob(entries[j]);
+                    saveBlob(b, baseName(displayNames[j]) || ('file' + j));
+                    await new Promise(function(r){ setTimeout(r, 350); });
+                }
+                showStatus('完了しました。' + entries.length + 'ファイルをダウンロードしました。', 'ok');
+            }
+        } catch(err){
+            if (err && err.noPassword) showStatus('このZIPは暗号化されています。パスワードを入力してください。', 'err');
+            else showStatus(passwordErrorMessage(err), 'err');
+        } finally { dlAllBtn.disabled = false; }
+    };
+
+    async function loadZip(file){
+        if (!libReady) { showStatus('解凍ライブラリの読み込みに失敗しました。通信環境を確認してページを再読み込みしてください。', 'err'); return; }
+        hideStatus(); showStatus('読み込んでいます…', 'info');
+        try {
+            zipBaseName = (file.name || 'archive').replace(/\.zip$/i, '') || 'archive';
+            var buf = await file.arrayBuffer();
+            if (reader) { try { await reader.close(); } catch(e){} }
+            reader = new zip.ZipReader(new zip.Uint8ArrayReader(new Uint8Array(buf)));
+            var all = await reader.getEntries();
+            entries = all.filter(function(e){ return !e.directory; });
+            renderList();
+            hideStatus();
+            if (entries.length > 0) showStatus(entries.length + 'ファイルを読み込みました。', 'ok');
+        } catch(err){
+            entries = []; displayNames = [];
+            filelist.innerHTML = '<p style="color:var(--text3);font-size:0.8rem">読み込みに失敗しました。</p>';
+            dlAllBtn.style.display = 'none'; repairBadge.className = 'badge';
+            showStatus('ZIPファイルが壊れているか、対応していない形式です。別のファイルでお試しください。（' + ((err && err.message) ? err.message : err) + '）', 'err');
+        }
+    }
+
+    encodingSel.onchange = function(){ if (entries.length) renderList(); };
+    drop.onclick = function(){ fileInput.click(); };
+    fileInput.onchange = function(e){ if (e.target.files && e.target.files[0]) loadZip(e.target.files[0]); fileInput.value = ''; };
+    drop.ondragover = function(e){ e.preventDefault(); drop.classList.add('over'); };
+    drop.ondragleave = function(){ drop.classList.remove('over'); };
+    drop.ondrop = function(e){ e.preventDefault(); drop.classList.remove('over'); if (e.dataTransfer.files && e.dataTransfer.files[0]) loadZip(e.dataTransfer.files[0]); };
+    if (!libReady) { showStatus('解凍ライブラリの読み込みに失敗しました。通信環境を確認してページを再読み込みしてください。', 'err'); }
+})();
+</script>
+</body>
+</html>

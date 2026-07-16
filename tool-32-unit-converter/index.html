@@ -34,7 +34,7 @@
         .swap-btn:hover{background:var(--accent-dim);border-color:var(--accent)}
         .result-all{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:24px}
         .result-all h3{font-size:0.75rem;color:var(--text3);margin-bottom:10px}
-        .rrow{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(44,36,24,0.3);font-size:0.8rem;cursor:pointer;transition:background 0.15s;padding:6px 8px;border-radius:4px}
+        .rrow{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);font-size:0.8rem;cursor:pointer;transition:background 0.15s;padding:6px 8px;border-radius:4px}
         .rrow:hover{background:var(--accent-dim)}
         .rrow .unit{color:var(--text2)}.rrow .val{font-family:'JetBrains Mono',monospace;color:var(--text)}
         .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
@@ -69,7 +69,7 @@
     </script>
     </head>
 <body>
-<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='#5a5f78'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
     <div class="ad-slot" style="display:none"></div>
     <header><h1>単位変換ツール</h1><p>長さ・重さ・温度・面積・速度を瞬時に変換</p></header>
@@ -93,7 +93,7 @@
         <h3>対応するカテゴリ</h3>
         <p>長さ（mm/cm/m/km/inch/ft/yard/mile）、重さ（mg/g/kg/ton/oz/lb）、温度（摂氏/華氏/ケルビン）に対応しています。値を入力するとリアルタイムで変換結果が表示されます。</p>
         <h3>海外とのやり取りに</h3>
-        <p>アメリカとの取引ではインチ・ポンド・華氏が使われるため、メートル法との変換が頻繁に必要になります。レシピの単位変換（カップ⇔ml等）にも便利です。</p>
+        <p>アメリカとの取引ではインチ・ポンド・華氏が使われるため、メートル法との変換が頻繁に必要になります。面積（坪⇔㎡）や速度（mph⇔km/h）の読み替えにも便利です。</p>
         </div>
     <div class="seo-content">
         <h2>単位換算 早見表</h2>
@@ -141,12 +141,12 @@
         </div>
     <div class="ad-slot" style="display:none"></div>
     
-    <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
-      <h3 style="font-size:0.75rem;color:var(--text-muted,#4a4a68);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a href="/tool-29-byte-converter/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">バイト変換ツール</a>
-        <a href="/tool-42-number-format/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">数値フォーマッター</a>
-        <a href="/tool-37-number-base/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">進数変換ツール</a>
+        <a href="/tool-29-byte-converter/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">バイト変換ツール</a>
+        <a href="/tool-42-number-format/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">数値フォーマッター</a>
+        <a href="/tool-37-number-base/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">進数変換ツール</a>
       </div>
     </div>
     <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
@@ -189,7 +189,7 @@ function calc(){
     document.getElementById('valB').value=Number.isInteger(result)?result:result.toPrecision(8);
     const units=CATS[activeCat].units;
     document.getElementById('allResults').innerHTML=Object.entries(units).map(([k,u])=>{
-        const v=convert(val,from,k);const display=Number.isInteger(v)?v.toLocaleString():v<0.001?v.toExponential(3):v.toPrecision(6);
+        const v=convert(val,from,k);const display=Number.isInteger(v)?v.toLocaleString():(v!==0&&Math.abs(v)<0.001)?v.toExponential(3):v.toPrecision(6);
         return`<div class="rrow" onclick="navigator.clipboard.writeText('${display}');showToast()"><span class="unit">${u.name}</span><span class="val">${display}</span></div>`;
     }).join('');
 }

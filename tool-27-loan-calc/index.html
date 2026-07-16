@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ローン返済シミュレーター | 住宅ローン・借入返済額計算・毎月返済額の早見表</title>
-    <meta name="description" content="住宅ローン・自動車ローン・借入の月々返済額と総返済額を自動計算。3000万円35年など借入額・金利別の毎月返済額早見表付き。元利均等・元金均等に対応し、繰上返済の効果も確認できます。">
+    <meta name="description" content="住宅ローン・自動車ローン・借入の月々返済額と総返済額を自動計算。3000万円35年など借入額・金利別の毎月返済額早見表付き。元利均等返済に対応し、元金均等や繰上返済の考え方も解説しています。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#06b6d4;--accent-dim:rgba(6,182,212,0.1);--green:#22c55e;--red:#ef4444;--radius:12px}
@@ -24,7 +24,7 @@
         header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
         .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
         .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
-        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(26,40,48,0.5);flex-wrap:wrap;gap:8px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:8px}
         .row:last-child{border-bottom:none}
         .row label{font-size:0.85rem;color:var(--text2);flex:1;min-width:140px}
         .row input{width:160px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.9rem;outline:none;text-align:right}
@@ -72,7 +72,7 @@
     </script>
     </head>
 <body>
-<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='#5a5f78'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
     <div class="ad-slot" style="display:none"></div>
     <header><h1>ローン返済シミュレーター</h1><p>住宅ローン・借入の月額返済・総返済額を自動計算</p></header>
@@ -94,9 +94,9 @@
         <h2>ローン返済シミュレーターの使い方</h2>
         <p>住宅ローン、自動車ローン、教育ローンなどの返済額を自動計算する無料ツールです。借入額・金利・返済期間を入力するだけで、毎月の返済額、総返済額、利息総額が即座にわかります。</p>
         <h3>元利均等返済と元金均等返済</h3>
-        <p>元利均等返済は毎月の返済額が一定で計画を立てやすい反面、利息の総額は多くなります。元金均等返済は毎月の返済額が徐々に減少し、利息の総額は少なくなりますが、初期の返済額が大きくなります。このツールでは両方の返済方式をシミュレーションできます。</p>
-        <h3>繰り上げ返済のシミュレーション</h3>
-        <p>繰り上げ返済を行った場合の利息軽減効果も確認できます。返済開始後何年目に繰り上げ返済するかによって、節約できる利息額が変わります。</p>
+        <p>元利均等返済は毎月の返済額が一定で計画を立てやすい反面、利息の総額は多くなります。元金均等返済は毎月の返済額が徐々に減少し、利息の総額は少なくなりますが、初期の返済額が大きくなります。本ツールの計算は日本の住宅ローンで最も一般的な元利均等返済のみに対応しています。</p>
+        <h3>繰り上げ返済の考え方</h3>
+        <p>繰り上げ返済を行うと、返済した元金に以後の利息がかからなくなるため、返済開始から早い時期に行うほど利息軽減効果が大きくなります。本ツールは繰り上げ返済なしの前提で総返済額を試算していますので、繰り上げ返済を検討する際の比較の基準としてご活用ください。</p>
         </div>
     <div class="seo-content">
         <h2>ローン返済の早見表</h2>
@@ -130,14 +130,14 @@
         </div>
     <div class="ad-slot" style="display:none"></div>
     
-    <div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
-      <h3 style="font-size:0.75rem;color:var(--text-muted,#4a4a68);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a href="/tool-21-tax-simulator/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">確定申告シミュレーター</a>
-        <a href="/tool-22-withholding-tax/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">源泉徴収税計算ツール</a>
-        <a href="/tool-42-number-format/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">数値フォーマッター</a>
-      <a href="/tool-56-inheritance-tax/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">相続税シミュレーター</a>
-<a href="/tool-55-late-fee-calc/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">遅延損害金計算</a>
+        <a href="/tool-21-tax-simulator/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">確定申告シミュレーター</a>
+        <a href="/tool-22-withholding-tax/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">源泉徴収税計算ツール</a>
+        <a href="/tool-42-number-format/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">数値フォーマッター</a>
+      <a href="/tool-56-inheritance-tax/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">相続税シミュレーター</a>
+<a href="/tool-55-late-fee-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">遅延損害金計算</a>
 </div>
     </div>
     <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>

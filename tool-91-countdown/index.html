@@ -87,7 +87,7 @@
 
     <div class="card"><h3>目標日を入力</h3>
         <div class="row"><label>目標の日付</label><input type="date" id="targetDate" style="text-align:left" oninput="calcCountdown()"></div>
-        <div class="row"><label>今日（基準日）</label><input type="date" id="todayDate" style="text-align:left" oninput="calcCountdown()"></div>
+        <div class="row"><label>今日（基準日）</label><input type="date" id="todayDate" style="text-align:left" oninput="buildPresets();calcCountdown()"></div>
         <div style="margin-top:14px">
             <div style="font-size:0.75rem;color:var(--text3);margin-bottom:6px">イベント例</div>
             <div class="preset-row" id="presetRow"></div>

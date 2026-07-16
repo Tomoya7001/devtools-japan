@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>全角半角変換ツール | 英数字・カタカナ・記号を一括変換</title>
-    <meta name="description" content="全角⇔半角を一括変換。英数字・記号・スペースの双方向変換、全角カタカナのひらがな化に対応。住所録の表記統一やフォーム入力の正規化、CSVのデータクレンジングに便利な無料ツール。ブラウザ内で完結し外部送信なし。">
+    <meta name="description" content="全角⇔半角を一括変換。英数字・記号・スペース・カタカナ（ｱｲｳ・ｶﾞﾊﾟ対応）の双方向変換に対応。住所録の表記統一やフォーム入力の正規化、CSVのデータクレンジングに便利な無料ツール。ブラウザ内で完結し外部送信なし。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#a78bfa;--accent-dim:rgba(167,139,250,0.1);--radius:12px}
@@ -60,11 +60,11 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"全角半角変換ツール","item":"https://www.devtools-japan.com/tool-19-zenkaku-hankaku/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"全角と半角の違いは？","acceptedAnswer":{"@type":"Answer","text":"全角は2バイト幅で表示される文字（ＡＢＣ・１２３・！？＠など）、半角は1バイト幅で表示される文字（ABC・123・!?@など）です。見た目が似ていても文字コードは異なるため、システム上は別の文字として扱われます。"}},{"@type":"Question","name":"カタカナの全角半角変換に対応していますか？","acceptedAnswer":{"@type":"Answer","text":"カタカナはチップをオンにして「半角に変換」を押すと、全角カタカナ（アイウ）をひらがな（あいう）へ変換します。半角カタカナへの変換や、半角カタカナから全角への変換には対応していません。"}},{"@type":"Question","name":"英数字だけを半角にできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。上部のチップで「英字」「数字」だけをオンにし、ほかをオフにして「半角に変換」を押すと、英数字だけを半角へ揃えられます。変換対象は文字種ごとに個別指定できます。"}},{"@type":"Question","name":"住所録やデータの表記統一に使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。全角と半角が混在した住所録・氏名・電話番号などをまとめて統一でき、フォーム入力の正規化やCSVデータの整形といったデータクレンジングに役立ちます。"}},{"@type":"Question","name":"変換したテキストはサーバーに送られますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。変換処理はすべてお使いのブラウザ内で完結し、入力したテキストが外部サーバーに送信されることはありません。安心して機密情報を含むデータも処理できます。"}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"全角と半角の違いは？","acceptedAnswer":{"@type":"Answer","text":"全角は2バイト幅で表示される文字（ＡＢＣ・１２３・！？＠など）、半角は1バイト幅で表示される文字（ABC・123・!?@など）です。見た目が似ていても文字コードは異なるため、システム上は別の文字として扱われます。"}},{"@type":"Question","name":"カタカナの全角半角変換に対応していますか？","acceptedAnswer":{"@type":"Answer","text":"はい。カタカナのチップをオンにすると、「半角に変換」で全角カタカナ（アイウ）を半角カタカナ（ｱｲｳ）へ、「全角に変換」で半角カタカナを全角カタカナへ変換します。ｶﾞ・ﾊﾟなど濁点・半濁点付きの文字にも対応しています。"}},{"@type":"Question","name":"英数字だけを半角にできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。上部のチップで「英字」「数字」だけをオンにし、ほかをオフにして「半角に変換」を押すと、英数字だけを半角へ揃えられます。変換対象は文字種ごとに個別指定できます。"}},{"@type":"Question","name":"住所録やデータの表記統一に使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。全角と半角が混在した住所録・氏名・電話番号などをまとめて統一でき、フォーム入力の正規化やCSVデータの整形といったデータクレンジングに役立ちます。"}},{"@type":"Question","name":"変換したテキストはサーバーに送られますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。変換処理はすべてお使いのブラウザ内で完結し、入力したテキストが外部サーバーに送信されることはありません。安心して機密情報を含むデータも処理できます。"}}]}
     </script>
 </head>
 <body>
-<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#8888a8;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='#e4e4f0'" onmouseout="this.style.color='#8888a8'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif" onmouseover="this.style.color='var(--text,#1e1e35)'" onmouseout="this.style.color='#5a5f78'"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
 <div class="container">
     <div class="ad-slot" style="display:none"></div>
     <header><h1>全角半角変換ツール</h1><p>英数字・カタカナ・記号の全角⇔半角を一括変換</p></header>
@@ -105,15 +105,15 @@
                 <tr><td>数字</td><td class="acc">１２３</td><td class="acc">123</td><td>全角⇔半角（双方向）</td></tr>
                 <tr><td>記号</td><td class="acc">！？＠</td><td class="acc">!?@</td><td>全角⇔半角（双方向）</td></tr>
                 <tr><td>スペース</td><td class="acc">全角空白「　」</td><td class="acc">半角空白「 」</td><td>全角⇔半角（双方向）</td></tr>
-                <tr><td>カタカナ</td><td class="acc">アイウ</td><td class="acc">あいう</td><td>「半角に変換」で全角カタカナ→ひらがな</td></tr>
+                <tr><td>カタカナ</td><td class="acc">アイウ・ガパ</td><td class="acc">ｱｲｳ・ｶﾞﾊﾟ</td><td>全角⇔半角（双方向）</td></tr>
             </tbody>
         </table>
         </div>
-        <p>英字・数字・記号・スペースは「半角に変換」「全角に変換」のどちらにも対応した双方向変換です。チップで変換対象を個別にオン・オフできるため、たとえば「英字は変換せず数字だけ半角に揃える」といった指定も可能です。カタカナは「半角に変換」を押したときに全角カタカナをひらがなへ変換する挙動になっており、「全角に変換」側ではカタカナは変換対象になりません。</p>
+        <p>英字・数字・記号・スペースは「半角に変換」「全角に変換」のどちらにも対応した双方向変換です。チップで変換対象を個別にオン・オフできるため、たとえば「英字は変換せず数字だけ半角に揃える」といった指定も可能です。カタカナも双方向対応で、「半角に変換」では全角カタカナ（アイウ・ガギグなど）を半角カタカナ（ｱｲｳ・ｶﾞｷﾞｸﾞ）へ、「全角に変換」では半角カタカナを全角カタカナへ変換します。濁点・半濁点付きの文字も正しく変換されます。</p>
 
         <h2>よくある質問</h2>
         <div class="faq-item"><div class="q">全角と半角の違いは？</div><div class="a">全角は2バイト幅で表示される文字（ＡＢＣ・１２３・！？＠など）、半角は1バイト幅で表示される文字（ABC・123・!?@など）です。見た目が似ていても文字コードは異なるため、システム上は別の文字として扱われます。</div></div>
-        <div class="faq-item"><div class="q">カタカナの全角半角変換に対応していますか？</div><div class="a">カタカナはチップをオンにして「半角に変換」を押すと、全角カタカナ（アイウ）をひらがな（あいう）へ変換します。半角カタカナへの変換や、半角カタカナから全角への変換には対応していません。</div></div>
+        <div class="faq-item"><div class="q">カタカナの全角半角変換に対応していますか？</div><div class="a">はい。カタカナのチップをオンにすると、「半角に変換」で全角カタカナ（アイウ）を半角カタカナ（ｱｲｳ）へ、「全角に変換」で半角カタカナを全角カタカナへ変換します。ｶﾞ・ﾊﾟなど濁点・半濁点付きの文字にも対応しています。</div></div>
         <div class="faq-item"><div class="q">英数字だけを半角にできますか？</div><div class="a">はい。上部のチップで「英字」「数字」だけをオンにし、ほかをオフにして「半角に変換」を押すと、英数字だけを半角へ揃えられます。変換対象は文字種ごとに個別指定できます。</div></div>
         <div class="faq-item"><div class="q">住所録やデータの表記統一に使えますか？</div><div class="a">はい。全角と半角が混在した住所録・氏名・電話番号などをまとめて統一でき、フォーム入力の正規化やCSVデータの整形といったデータクレンジングに役立ちます。</div></div>
         <div class="faq-item"><div class="q">変換したテキストはサーバーに送られますか？</div><div class="a">いいえ。変換処理はすべてお使いのブラウザ内で完結し、入力したテキストが外部サーバーに送信されることはありません。安心して機密情報を含むデータも処理できます。</div></div>
@@ -121,20 +121,20 @@
     <div class="ad-slot" style="display:none"></div>
     
     
-    <div style="background:var(--bg-card,#111118);border:1px solid rgba(99,102,241,0.2);border-radius:12px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <div style="background:var(--bg-card,#ffffff);border:1px solid rgba(99,102,241,0.2);border-radius:12px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
       <div>
         <span style="font-size:0.75rem;color:#6366f1;font-weight:600">API</span>
-        <span style="font-size:0.8rem;color:#8888a8;margin-left:8px">この機能をアプリに組み込みませんか？</span>
+        <span style="font-size:0.8rem;color:var(--text2,#5a5f78);margin-left:8px">この機能をアプリに組み込みませんか？</span>
       </div>
       <a href="https://api.devtools-japan.com" target="_blank" rel="noopener" style="padding:6px 16px;background:transparent;border:1px solid rgba(99,102,241,0.4);color:#6366f1;border-radius:6px;text-decoration:none;font-size:0.75rem;font-weight:500;transition:all 0.2s;white-space:nowrap" onmouseover="this.style.background='rgba(99,102,241,0.1)'" onmouseout="this.style.background='transparent'">APIを見る →</a>
     </div>
 
-<div style="background:var(--bg-card,#111118);border:1px solid var(--border,#1e1e30);border-radius:12px;padding:20px;margin-bottom:24px">
-      <h3 style="font-size:0.75rem;color:var(--text-muted,#4a4a68);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+<div style="background:var(--bg-card,#ffffff);border:1px solid var(--border,#e0e2ed);border-radius:12px;padding:20px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3,#9498b0);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a href="/tool-15-case-converter/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">文字列ケース変換ツール</a>
-        <a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">和暦・西暦変換ツール</a>
-        <a href="/tool-26-proofreader/" style="padding:8px 16px;background:var(--bg-elevated,#0c0c14);border:1px solid var(--border,#1e1e30);border-radius:8px;color:var(--text-secondary,#8888a8);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--text,#e4e4f0)'" onmouseout="this.style.borderColor='var(--border,#1e1e30)';this.style.color='var(--text-secondary,#8888a8)'">文章校正チェッカー</a>
+        <a href="/tool-15-case-converter/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">文字列ケース変換ツール</a>
+        <a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">和暦・西暦変換ツール</a>
+        <a href="/tool-26-proofreader/" style="padding:8px 16px;background:var(--bg,#f7f8fb);border:1px solid var(--border,#e0e2ed);border-radius:8px;color:var(--text2,#5a5f78);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--accent,#6366f1)';this.style.color='var(--accent,#6366f1)'" onmouseout="this.style.borderColor='var(--border,#e0e2ed)';this.style.color='var(--text2,#5a5f78)'">文章校正チェッカー</a>
       </div>
     </div>
     <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
@@ -143,10 +143,34 @@
 <div class="toast" id="toast">コピーしました</div>
 <script>
 const isOn=id=>document.getElementById(id).classList.contains('active');
+// \u5168\u89D2\u30AB\u30BF\u30AB\u30CA\u2192\u534A\u89D2\u30AB\u30BF\u30AB\u30CA\u5BFE\u5FDC\u8868\uFF08\u6FC1\u70B9\u30FB\u534A\u6FC1\u70B9\u4ED8\u304D\u3092\u542B\u3080\uFF09
+const ZEN2HAN_KANA={
+    '\u30AC':'\uFF76\uFF9E','\u30AE':'\uFF77\uFF9E','\u30B0':'\uFF78\uFF9E','\u30B2':'\uFF79\uFF9E','\u30B4':'\uFF7A\uFF9E','\u30B6':'\uFF7B\uFF9E','\u30B8':'\uFF7C\uFF9E','\u30BA':'\uFF7D\uFF9E','\u30BC':'\uFF7E\uFF9E','\u30BE':'\uFF7F\uFF9E',
+    '\u30C0':'\uFF80\uFF9E','\u30C2':'\uFF81\uFF9E','\u30C5':'\uFF82\uFF9E','\u30C7':'\uFF83\uFF9E','\u30C9':'\uFF84\uFF9E','\u30D0':'\uFF8A\uFF9E','\u30D3':'\uFF8B\uFF9E','\u30D6':'\uFF8C\uFF9E','\u30D9':'\uFF8D\uFF9E','\u30DC':'\uFF8E\uFF9E',
+    '\u30D1':'\uFF8A\uFF9F','\u30D4':'\uFF8B\uFF9F','\u30D7':'\uFF8C\uFF9F','\u30DA':'\uFF8D\uFF9F','\u30DD':'\uFF8E\uFF9F','\u30F4':'\uFF73\uFF9E',
+    '\u30A2':'\uFF71','\u30A4':'\uFF72','\u30A6':'\uFF73','\u30A8':'\uFF74','\u30AA':'\uFF75','\u30AB':'\uFF76','\u30AD':'\uFF77','\u30AF':'\uFF78','\u30B1':'\uFF79','\u30B3':'\uFF7A',
+    '\u30B5':'\uFF7B','\u30B7':'\uFF7C','\u30B9':'\uFF7D','\u30BB':'\uFF7E','\u30BD':'\uFF7F','\u30BF':'\uFF80','\u30C1':'\uFF81','\u30C4':'\uFF82','\u30C6':'\uFF83','\u30C8':'\uFF84',
+    '\u30CA':'\uFF85','\u30CB':'\uFF86','\u30CC':'\uFF87','\u30CD':'\uFF88','\u30CE':'\uFF89','\u30CF':'\uFF8A','\u30D2':'\uFF8B','\u30D5':'\uFF8C','\u30D8':'\uFF8D','\u30DB':'\uFF8E',
+    '\u30DE':'\uFF8F','\u30DF':'\uFF90','\u30E0':'\uFF91','\u30E1':'\uFF92','\u30E2':'\uFF93','\u30E4':'\uFF94','\u30E6':'\uFF95','\u30E8':'\uFF96',
+    '\u30E9':'\uFF97','\u30EA':'\uFF98','\u30EB':'\uFF99','\u30EC':'\uFF9A','\u30ED':'\uFF9B','\u30EF':'\uFF9C','\u30F2':'\uFF66','\u30F3':'\uFF9D',
+    '\u30A1':'\uFF67','\u30A3':'\uFF68','\u30A5':'\uFF69','\u30A7':'\uFF6A','\u30A9':'\uFF6B','\u30C3':'\uFF6F','\u30E3':'\uFF6C','\u30E5':'\uFF6D','\u30E7':'\uFF6E',
+    '\u30FC':'\uFF70','\u30FB':'\uFF65'
+};
+const HAN2ZEN_KANA={};
+Object.keys(ZEN2HAN_KANA).forEach(k=>{HAN2ZEN_KANA[ZEN2HAN_KANA[k]]=k});
+HAN2ZEN_KANA['\uFF9E']='\u309B';HAN2ZEN_KANA['\uFF9F']='\u309C';
+function zenKanaToHan(s){return s.replace(/[\u30A1-\u30F4\u30FC\u30FB]/g,c=>ZEN2HAN_KANA[c]||c)}
+function hanKanaToZen(s){
+    return s.replace(/([\uFF66-\uFF9D])\uFF9E/g,(m,c)=>HAN2ZEN_KANA[c+'\uFF9E']||((HAN2ZEN_KANA[c]||c)+'\u309B'))
+            .replace(/([\uFF66-\uFF9D])\uFF9F/g,(m,c)=>HAN2ZEN_KANA[c+'\uFF9F']||((HAN2ZEN_KANA[c]||c)+'\u309C'))
+            .replace(/[\uFF65-\uFF9F]/g,c=>HAN2ZEN_KANA[c]||c);
+}
 function toHan(){
     let s=document.getElementById('input').value;
-    if(isOn('cAlpha')||isOn('cNum')||isOn('cSymbol'))s=s.replace(/[\uFF01-\uFF5E]/g,c=>String.fromCharCode(c.charCodeAt(0)-0xFEE0));
-    if(isOn('cKana'))s=s.replace(/[\u30A1-\u30F6]/g,c=>String.fromCharCode(c.charCodeAt(0)-0x60)).replace(/\u30FC/g,'-');
+    if(isOn('cAlpha'))s=s.replace(/[\uFF21-\uFF3A\uFF41-\uFF5A]/g,c=>String.fromCharCode(c.charCodeAt(0)-0xFEE0));
+    if(isOn('cNum'))s=s.replace(/[\uFF10-\uFF19]/g,c=>String.fromCharCode(c.charCodeAt(0)-0xFEE0));
+    if(isOn('cSymbol'))s=s.replace(/[\uFF01-\uFF0F\uFF1A-\uFF20\uFF3B-\uFF40\uFF5B-\uFF5E]/g,c=>String.fromCharCode(c.charCodeAt(0)-0xFEE0));
+    if(isOn('cKana'))s=zenKanaToHan(s);
     if(isOn('cSpace'))s=s.replace(/\u3000/g,' ');
     document.getElementById('output').value=s;updateCounts();
 }
@@ -155,6 +179,7 @@ function toZen(){
     if(isOn('cAlpha'))s=s.replace(/[a-zA-Z]/g,c=>String.fromCharCode(c.charCodeAt(0)+0xFEE0));
     if(isOn('cNum'))s=s.replace(/[0-9]/g,c=>String.fromCharCode(c.charCodeAt(0)+0xFEE0));
     if(isOn('cSymbol'))s=s.replace(/[!-\/:-@\[-`{-~]/g,c=>String.fromCharCode(c.charCodeAt(0)+0xFEE0));
+    if(isOn('cKana'))s=hanKanaToZen(s);
     if(isOn('cSpace'))s=s.replace(/ /g,'\u3000');
     document.getElementById('output').value=s;updateCounts();
 }

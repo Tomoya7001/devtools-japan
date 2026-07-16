@@ -166,7 +166,8 @@ function calc() {
     else if (taxableIncome <= 6950000) incomeTax = taxableIncome * 0.20 - 427500;
     else if (taxableIncome <= 9000000) incomeTax = taxableIncome * 0.23 - 636000;
     else if (taxableIncome <= 18000000) incomeTax = taxableIncome * 0.33 - 1536000;
-    else incomeTax = taxableIncome * 0.40 - 2796000;
+    else if (taxableIncome <= 40000000) incomeTax = taxableIncome * 0.40 - 2796000;
+    else incomeTax = taxableIncome * 0.45 - 4796000;
     incomeTax = Math.floor(incomeTax * 1.021);
 
     // 住民税（課税所得の10% + 均等割）。住民税の基礎控除は43万なので再計算

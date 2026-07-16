@@ -148,14 +148,15 @@ function calc() {
     const type = document.getElementById('type').value;
     const rate = parseFloat(document.getElementById('rate').value);
 
+    const ratePercent = Math.round(rate * 100);
     let exclude, tax, include;
     if (type === 'exclude') {
         exclude = amount;
-        tax = Math.floor(amount * rate);
+        tax = Math.floor(amount * ratePercent / 100);
         include = exclude + tax;
     } else {
         include = amount;
-        exclude = Math.floor(amount / (1 + rate));
+        exclude = Math.floor(amount * 100 / (100 + ratePercent));
         tax = include - exclude;
     }
 
