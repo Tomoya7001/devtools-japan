@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOML ⇔ JSON 変換ツール | TOMLとJSONを相互変換【無料・ブラウザ完結】</title>
+    <meta name="description" content="TOMLとJSONを双方向にリアルタイム変換する無料ツール。Cargo.tomlやpyproject.tomlなどの設定ファイルをJSONに、JSONをTOMLに変換。テーブル・配列・インラインテーブル・ドットキーに対応。データは端末内で処理され送信されません。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+        .toolbar button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .toolbar button:hover{border-color:var(--accent);color:var(--accent)}
+        .toolbar button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+        .toolbar button.primary:hover{opacity:0.9;color:#fff}
+        .panes{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+        @media(max-width:700px){.panes{grid-template-columns:1fr}}
+        .pane{display:flex;flex-direction:column}
+        .pane-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+        .pane-head .name{font-size:0.8rem;font-weight:600;color:var(--text)}
+        .pane-head button{padding:5px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:6px;color:var(--text2);font-size:0.72rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .pane-head button:hover{border-color:var(--accent);color:var(--accent)}
+        textarea{width:100%;min-height:340px;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.82rem;line-height:1.6;outline:none;resize:vertical;white-space:pre;overflow-wrap:normal;tab-size:2}
+        textarea:focus{border-color:var(--accent)}
+        .status{margin-top:8px;font-size:0.75rem;min-height:1.2em;font-family:'JetBrains Mono',monospace}
+        .status.ok{color:var(--green)}
+        .status.err{color:var(--red)}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        code{font-family:'JetBrains Mono',monospace;background:var(--accent-dim);padding:1px 5px;border-radius:4px;font-size:0.85em}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-113-toml-json/">
+    <meta property="og:title" content="TOML ⇔ JSON 変換ツール | TOMLとJSONを相互変換【無料】">
+    <meta property="og:description" content="TOMLとJSONを双方向にリアルタイム変換。Cargo.toml・pyproject.tomlの設定をJSONへ、JSONをTOMLへ。ブラウザ内で完結。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-113-toml-json/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="TOML ⇔ JSON 変換ツール【無料】">
+    <meta name="twitter:description" content="TOMLとJSONを双方向にリアルタイム変換。ブラウザ内で完結し、データは送信されません。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"TOML ⇔ JSON 変換ツール","description":"TOMLとJSONを双方向に相互変換する無料ツール。Cargo.tomlやpyproject.tomlなどの設定ファイルに対応し、すべての処理はブラウザ内で完結します。","url":"https://www.devtools-japan.com/tool-113-toml-json/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"TOML ⇔ JSON 変換ツール","item":"https://www.devtools-japan.com/tool-113-toml-json/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"TOMLとは何ですか？JSONと何が違いますか？","acceptedAnswer":{"@type":"Answer","text":"TOML（Tom's Obvious, Minimal Language）は人間が読み書きしやすい設定ファイル向けのフォーマットで、RustのCargo.tomlやPythonのpyproject.tomlなど2025年時点の多くのツールチェーンで標準的に使われています。JSONはデータ交換向けのフォーマットで、コメントを書けず末尾カンマも許されません。TOMLはコメントやセクション（[table]）、日時型などを直接書けるため設定ファイルに向き、JSONはAPIやプログラム間のデータ受け渡しに向いています。本ツールは両者を相互に変換します。"}},{"@type":"Question","name":"Cargo.tomlやpyproject.tomlを変換できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。RustのCargo.tomlやPythonのpyproject.tomlのような、キー/値・[table]・[[array of tables]]・インラインテーブル・ドット区切りキー・配列を使った一般的な設定ファイルをJSONに変換できます。逆にJSONを貼り付ければTOMLへも変換します。ただし本ツールは軽量な自前パーサのため、複数行文字列や特殊な日時表現など一部の高度な記法には対応していません（後述の未対応ケースをご確認ください）。"}},{"@type":"Question","name":"入力したデータはサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。変換処理はすべてお使いのブラウザ内（クライアントサイド）のJavaScriptで実行され、外部のサーバーやCDNには一切送信されません。社内の設定ファイルや秘密情報を含むTOML・JSONでも、ネットワークに出ることなく安全に変換できます。ページを開いた後はオフラインでも動作します。"}},{"@type":"Question","name":"どちらの方向にも変換できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。左のTOMLペインを編集すると右のJSONへ、右のJSONペインを編集すると左のTOMLへ、それぞれリアルタイムに自動変換されます。編集中のペインが変換元になり、もう一方が結果として更新されます。パースに失敗した場合は各ペインの下に日本語でエラーメッセージを表示し、どこで問題が起きたかの手がかりを示します。"}},{"@type":"Question","name":"対応していないTOMLの記法はありますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールは一般的なTOMLのサブセットに対応します。対応：キー/値、基本文字列・リテラル文字列、整数・浮動小数・真偽値・日時（文字列として保持）、配列、インラインテーブル、[table]、[[array of tables]]、ドット区切りキー、コメント。未対応：三連引用符による複数行文字列、文字列内の一部エスケープや Unicode \\uXXXX の完全対応、日時型の厳密な型変換（日時は文字列として扱います）、数値のアンダースコア区切り・16進/8進/2進リテラルの一部。設定ファイルの標準的な用途では十分ですが、変換結果は必ずご確認ください。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>TOML ⇔ JSON 変換</h1><p>TOMLとJSONを双方向にリアルタイム変換（ブラウザ完結）</p></header>
+
+    <div class="card">
+        <div class="toolbar">
+            <button class="primary" onclick="loadSample()">サンプル（Cargo.toml風）</button>
+            <button onclick="clearAll()">クリア</button>
+            <button onclick="swapPanes()">左右入れ替え</button>
+        </div>
+        <div class="panes">
+            <div class="pane">
+                <div class="pane-head"><span class="name">TOML</span><button onclick="copyPane('toml')">コピー</button></div>
+                <textarea id="tomlInput" spellcheck="false" placeholder="ここにTOMLを入力…" oninput="fromToml()"></textarea>
+                <div class="status" id="tomlStatus"></div>
+            </div>
+            <div class="pane">
+                <div class="pane-head"><span class="name">JSON</span><button onclick="copyPane('json')">コピー</button></div>
+                <textarea id="jsonInput" spellcheck="false" placeholder="ここにJSONを入力…" oninput="fromJson()"></textarea>
+                <div class="status" id="jsonStatus"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="note">変換はすべてお使いのブラウザ内で行われ、入力データが外部に送信されることはありません。編集したペインが変換元となり、もう一方へ自動反映されます。一般的なTOMLのサブセット（キー/値・テーブル・配列・インラインテーブル・ドットキー・コメント）に対応します。複数行文字列など一部の高度な記法は未対応です（下部FAQ参照）。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>TOML ⇔ JSON 変換ツールの使い方</h2>
+        <p>TOMLとJSONを相互に変換する無料ツールです。左のTOMLペインにTOMLを貼り付けると右側にJSONが、右のJSONペインにJSONを貼り付けると左側にTOMLが、それぞれリアルタイムで表示されます。インストールや会員登録は不要で、変換はすべてお使いの端末内（クライアントサイド）で完結するため、設定ファイルや秘密情報を含むデータでも安全に扱えます。</p>
+        <p>使い方は簡単です。「サンプル（Cargo.toml風）」ボタンで例を読み込み、動作を確認できます。各ペインの「コピー」ボタンで結果をクリップボードにコピー、「クリア」で入力を消去、「左右入れ替え」でTOMLとJSONのペイン位置を入れ替えられます。パースに失敗した場合は、そのペインの下に日本語のエラーメッセージが表示されます。</p>
+
+        <h2>TOMLとは — 2025年の設定ファイル標準</h2>
+        <p>TOML（Tom's Obvious, Minimal Language）は、人間が読み書きしやすいことを重視した設定ファイル向けのフォーマットです。RustのパッケージマネージャCargoが使う<code>Cargo.toml</code>、Pythonのプロジェクト設定<code>pyproject.toml</code>をはじめ、多くのモダンなツールチェーンで標準的に採用されています。セクションを<code>[table]</code>で区切り、コメントを<code>#</code>で書け、日時型も直接記述できるため、階層のある設定を見通しよく表現できます。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>観点</th><th>TOML</th><th>JSON</th></tr>
+            <tr><td>主な用途</td><td>設定ファイル</td><td>データ交換・API</td></tr>
+            <tr><td>コメント</td><td>可（<code>#</code>）</td><td>不可</td></tr>
+            <tr><td>末尾カンマ</td><td>配列で許容</td><td>不可</td></tr>
+            <tr><td>セクション記法</td><td>[table] / [[array]]</td><td>ネストしたオブジェクト</td></tr>
+            <tr><td>日時型</td><td>ネイティブ対応</td><td>文字列で表現</td></tr>
+            <tr><td>代表例</td><td>Cargo.toml / pyproject.toml</td><td>package.json / tsconfig.json</td></tr>
+        </table>
+        </div>
+
+        <h3>変換の対応範囲</h3>
+        <p>本ツールは軽量な自前パーサで動作し、一般的なTOMLのサブセットに対応します。対応する要素は、キー/値ペア、基本文字列（"..."）とリテラル文字列（'...'）、整数・浮動小数・真偽値、日時（文字列として保持）、配列、インラインテーブル（<code>{ a = 1 }</code>）、<code>[table]</code>、<code>[[array of tables]]</code>、ドット区切りキー（<code>a.b.c = 1</code>）、そして<code>#</code>コメントです。JSON→TOMLでは、オブジェクトを<code>[table]</code>、オブジェクトの配列を<code>[[array of tables]]</code>として出力し、それ以外の値は適切なTOMLリテラルに変換します。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">TOMLとは何ですか？JSONと何が違いますか？</div><div class="a">TOML（Tom's Obvious, Minimal Language）は人間が読み書きしやすい設定ファイル向けのフォーマットで、RustのCargo.tomlやPythonのpyproject.tomlなど2025年時点の多くのツールチェーンで標準的に使われています。JSONはデータ交換向けのフォーマットで、コメントを書けず末尾カンマも許されません。TOMLはコメントやセクション（[table]）、日時型などを直接書けるため設定ファイルに向き、JSONはAPIやプログラム間のデータ受け渡しに向いています。本ツールは両者を相互に変換します。</div></div>
+        <div class="faq-item"><div class="q">Cargo.tomlやpyproject.tomlを変換できますか？</div><div class="a">はい。RustのCargo.tomlやPythonのpyproject.tomlのような、キー/値・[table]・[[array of tables]]・インラインテーブル・ドット区切りキー・配列を使った一般的な設定ファイルをJSONに変換できます。逆にJSONを貼り付ければTOMLへも変換します。ただし本ツールは軽量な自前パーサのため、複数行文字列や特殊な日時表現など一部の高度な記法には対応していません。</div></div>
+        <div class="faq-item"><div class="q">入力したデータはサーバーに送信されますか？</div><div class="a">いいえ。変換処理はすべてお使いのブラウザ内（クライアントサイド）のJavaScriptで実行され、外部のサーバーやCDNには一切送信されません。社内の設定ファイルや秘密情報を含むTOML・JSONでも、ネットワークに出ることなく安全に変換できます。ページを開いた後はオフラインでも動作します。</div></div>
+        <div class="faq-item"><div class="q">どちらの方向にも変換できますか？</div><div class="a">はい。左のTOMLペインを編集すると右のJSONへ、右のJSONペインを編集すると左のTOMLへ、それぞれリアルタイムに自動変換されます。編集中のペインが変換元になり、もう一方が結果として更新されます。パースに失敗した場合は各ペインの下に日本語でエラーメッセージを表示します。</div></div>
+        <div class="faq-item"><div class="q">対応していないTOMLの記法はありますか？</div><div class="a">本ツールは一般的なTOMLのサブセットに対応します。対応：キー/値、基本文字列・リテラル文字列、整数・浮動小数・真偽値・日時（文字列として保持）、配列、インラインテーブル、[table]、[[array of tables]]、ドット区切りキー、コメント。未対応：三連引用符による複数行文字列、文字列内の一部エスケープやUnicode \uXXXX の完全対応、日時型の厳密な型変換（日時は文字列として扱います）、数値のアンダースコア区切り・16進/8進/2進リテラルの一部。設定ファイルの標準的な用途では十分ですが、変換結果は必ずご確認ください。</div></div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+"use strict";
+
+/* ============================================================
+   TOML パーサ（サブセット） -> JavaScript オブジェクト
+   対応: key/value, basic/literal string, int, float, bool,
+         datetime(文字列保持), array, inline table,
+         [table], [[array of tables]], dotted keys, comments
+   ============================================================ */
+function parseTOML(src){
+    var root = {};
+    // 配列テーブルの定義済み判定用（順序保持は挿入順に依存）
+    var lines = src.split(/\r?\n/);
+    var current = root;      // 現在のテーブル（[table] / [[array]] のカレント）
+    for (var i=0; i<lines.length; i++){
+        var raw = lines[i];
+        var line = stripComment(raw).trim();
+        if (line === "") continue;
+
+        if (line[0] === "["){
+            // テーブル or 配列テーブル
+            if (line[1] === "["){
+                if (line.slice(-2) !== "]]") throw err(i, "[[...]] が正しく閉じられていません");
+                var keyStr = line.slice(2, -2).trim();
+                var path = parseKeyPath(keyStr, i);
+                current = addArrayTable(root, path, i);
+            } else {
+                if (line.slice(-1) !== "]") throw err(i, "[...] が正しく閉じられていません");
+                var keyStr2 = line.slice(1, -1).trim();
+                var path2 = parseKeyPath(keyStr2, i);
+                current = addTable(root, path2, i);
+            }
+            continue;
+        }
+
+        // key = value
+        var eq = findEquals(line);
+        if (eq < 0) throw err(i, "'=' が見つかりません（key = value 形式が必要です）");
+        var keyPart = line.slice(0, eq).trim();
+        var valPart = line.slice(eq+1).trim();
+        if (keyPart === "") throw err(i, "キーが空です");
+        if (valPart === "") throw err(i, "値が空です");
+        var keys = parseKeyPath(keyPart, i);
+        var val = parseValue(valPart, i);
+        assignDotted(current, keys, val, i);
+    }
+    return root;
+}
+
+// コメント除去（文字列内の # は保持）
+function stripComment(line){
+    var out = "";
+    var inBasic=false, inLiteral=false;
+    for (var i=0;i<line.length;i++){
+        var c=line[i];
+        if (inBasic){
+            out+=c;
+            if (c==="\\" && i+1<line.length){ out+=line[i+1]; i++; continue; }
+            if (c==='"') inBasic=false;
+            continue;
+        }
+        if (inLiteral){
+            out+=c;
+            if (c==="'") inLiteral=false;
+            continue;
+        }
+        if (c==='"'){ inBasic=true; out+=c; continue; }
+        if (c==="'"){ inLiteral=true; out+=c; continue; }
+        if (c==="#") break;
+        out+=c;
+    }
+    return out;
+}
+
+// '=' の位置を文字列を無視して探す
+function findEquals(line){
+    var inBasic=false, inLiteral=false;
+    for (var i=0;i<line.length;i++){
+        var c=line[i];
+        if (inBasic){ if (c==="\\"){i++;continue;} if (c==='"') inBasic=false; continue; }
+        if (inLiteral){ if (c==="'") inLiteral=false; continue; }
+        if (c==='"'){ inBasic=true; continue; }
+        if (c==="'"){ inLiteral=true; continue; }
+        if (c==="[") break; // 値側のブラケット手前で終了（key に [ は来ない前提）
+        if (c==="=") return i;
+    }
+    return -1;
+}
+
+// ドット区切りのキーパスを配列に（引用キー対応）
+function parseKeyPath(str, lineNo){
+    var parts=[]; var cur=""; var inBasic=false, inLiteral=false; var quoted=false;
+    for (var i=0;i<str.length;i++){
+        var c=str[i];
+        if (inBasic){ if (c==='"'){inBasic=false;} else if(c==="\\"&&i+1<str.length){cur+=unescapeChar(str[i+1]);i++;} else {cur+=c;} continue; }
+        if (inLiteral){ if (c==="'"){inLiteral=false;} else {cur+=c;} continue; }
+        if (c==='"'){ inBasic=true; quoted=true; continue; }
+        if (c==="'"){ inLiteral=true; quoted=true; continue; }
+        if (c==="."){ parts.push(cur.trim()); cur=""; quoted=false; continue; }
+        cur+=c;
+    }
+    parts.push(quoted?cur:cur.trim());
+    for (var j=0;j<parts.length;j++){ if (parts[j]==="") throw err(lineNo, "空のキー要素があります"); }
+    return parts;
+}
+
+function addTable(root, path, lineNo){
+    var obj=root;
+    for (var i=0;i<path.length;i++){
+        var k=path[i];
+        if (Array.isArray(obj[k])){
+            // 既存の配列テーブルの最後の要素へ潜る
+            obj = obj[k][obj[k].length-1];
+        } else if (obj[k]===undefined){
+            obj[k]={}; obj=obj[k];
+        } else if (typeof obj[k]==="object"){
+            obj=obj[k];
+        } else {
+            throw err(lineNo, "キー '"+k+"' が値とテーブルで衝突しています");
+        }
+    }
+    return obj;
+}
+
+function addArrayTable(root, path, lineNo){
+    var obj=root;
+    for (var i=0;i<path.length-1;i++){
+        var k=path[i];
+        if (Array.isArray(obj[k])){ obj=obj[k][obj[k].length-1]; }
+        else if (obj[k]===undefined){ obj[k]={}; obj=obj[k]; }
+        else if (typeof obj[k]==="object"){ obj=obj[k]; }
+        else throw err(lineNo, "キー '"+k+"' が値とテーブルで衝突しています");
+    }
+    var last=path[path.length-1];
+    if (obj[last]===undefined) obj[last]=[];
+    if (!Array.isArray(obj[last])) throw err(lineNo, "キー '"+last+"' は配列テーブルにできません");
+    var el={}; obj[last].push(el); return el;
+}
+
+function assignDotted(table, keys, val, lineNo){
+    var obj=table;
+    for (var i=0;i<keys.length-1;i++){
+        var k=keys[i];
+        if (obj[k]===undefined) obj[k]={};
+        else if (typeof obj[k]!=="object" || Array.isArray(obj[k])) throw err(lineNo, "ドットキー '"+k+"' が既存の値と衝突しています");
+        obj=obj[k];
+    }
+    var lk=keys[keys.length-1];
+    if (obj[lk]!==undefined) throw err(lineNo, "キー '"+lk+"' が重複しています");
+    obj[lk]=val;
+}
+
+// 値のパース
+function parseValue(str, lineNo){
+    var r=parseValueAt(str, 0, lineNo);
+    // 末尾の余分を確認
+    var rest=str.slice(r.pos).trim();
+    if (rest!=="") throw err(lineNo, "値の後ろに余分な文字があります: "+rest);
+    return r.val;
+}
+
+function skipWs(str,pos){ while(pos<str.length && /\s/.test(str[pos])) pos++; return pos; }
+
+function parseValueAt(str, pos, lineNo){
+    pos=skipWs(str,pos);
+    if (pos>=str.length) throw err(lineNo, "値が空です");
+    var c=str[pos];
+    if (c==='"') return parseBasicString(str,pos,lineNo);
+    if (c==="'") return parseLiteralString(str,pos,lineNo);
+    if (c==="[") return parseArray(str,pos,lineNo);
+    if (c==="{") return parseInlineTable(str,pos,lineNo);
+    // スカラー: 次の , ] } まで
+    var end=pos;
+    var depth=0;
+    while(end<str.length){
+        var ch=str[end];
+        if (ch==="," || ch==="]" || ch==="}") break;
+        end++;
+    }
+    var token=str.slice(pos,end).trim();
+    return { val: parseScalar(token, lineNo), pos: end };
+}
+
+function parseBasicString(str,pos,lineNo){
+    var i=pos+1; var out="";
+    while(i<str.length){
+        var c=str[i];
+        if (c==="\\"){
+            var n=str[i+1];
+            if (n==="u" || n==="U"){
+                var len=(n==="u")?4:8;
+                var hex=str.slice(i+2,i+2+len);
+                out+=String.fromCodePoint(parseInt(hex,16)||0);
+                i+=2+len; continue;
+            }
+            out+=unescapeChar(n); i+=2; continue;
+        }
+        if (c==='"'){ return { val: out, pos: i+1 }; }
+        out+=c; i++;
+    }
+    throw err(lineNo, "文字列が閉じられていません（\" 不足）");
+}
+
+function parseLiteralString(str,pos,lineNo){
+    var i=pos+1; var out="";
+    while(i<str.length){
+        var c=str[i];
+        if (c==="'"){ return { val: out, pos: i+1 }; }
+        out+=c; i++;
+    }
+    throw err(lineNo, "リテラル文字列が閉じられていません（' 不足）");
+}
+
+function unescapeChar(n){
+    switch(n){
+        case "n": return "\n";
+        case "t": return "\t";
+        case "r": return "\r";
+        case '"': return '"';
+        case "\\": return "\\";
+        case "b": return "\b";
+        case "f": return "\f";
+        default: return n;
+    }
+}
+
+function parseArray(str,pos,lineNo){
+    var i=pos+1; var arr=[];
+    while(true){
+        i=skipWs(str,i);
+        if (i>=str.length) throw err(lineNo, "配列が閉じられていません（] 不足）");
+        if (str[i]==="]"){ return { val: arr, pos: i+1 }; }
+        var r=parseValueAt(str,i,lineNo);
+        arr.push(r.val);
+        i=skipWs(str,r.pos);
+        if (str[i]===","){ i++; continue; }
+        if (str[i]==="]"){ return { val: arr, pos: i+1 }; }
+        throw err(lineNo, "配列の区切り ',' または ']' が必要です");
+    }
+}
+
+function parseInlineTable(str,pos,lineNo){
+    var i=pos+1; var obj={};
+    i=skipWs(str,i);
+    if (str[i]==="}") return { val: obj, pos: i+1 };
+    while(true){
+        i=skipWs(str,i);
+        // キー読み取り（= まで、文字列考慮）
+        var keyStart=i; var inB=false,inL=false;
+        while(i<str.length){
+            var c=str[i];
+            if (inB){ if(c==="\\"){i+=2;continue;} if(c==='"')inB=false; i++; continue; }
+            if (inL){ if(c==="'")inL=false; i++; continue; }
+            if (c==='"'){inB=true;i++;continue;}
+            if (c==="'"){inL=true;i++;continue;}
+            if (c==="=") break;
+            i++;
+        }
+        if (i>=str.length) throw err(lineNo, "インラインテーブルに '=' がありません");
+        var keyStr=str.slice(keyStart,i).trim();
+        var keys=parseKeyPath(keyStr,lineNo);
+        i++; // '='
+        var r=parseValueAt(str,i,lineNo);
+        assignDotted(obj, keys, r.val, lineNo);
+        i=skipWs(str,r.pos);
+        if (str[i]===","){ i++; continue; }
+        if (str[i]==="}"){ return { val: obj, pos: i+1 }; }
+        throw err(lineNo, "インラインテーブルの区切り ',' または '}' が必要です");
+    }
+}
+
+function parseScalar(token, lineNo){
+    if (token==="") throw err(lineNo, "値が空です");
+    if (token==="true") return true;
+    if (token==="false") return false;
+    if (token==="inf"||token==="+inf") return Infinity;
+    if (token==="-inf") return -Infinity;
+    if (token==="nan"||token==="+nan"||token==="-nan") return NaN;
+    // 日時（RFC3339 風）は文字列として保持
+    if (/^\d{4}-\d{2}-\d{2}([Tt ]\d{2}:\d{2}:\d{2}(\.\d+)?([Zz]|[+-]\d{2}:\d{2})?)?$/.test(token)) return token;
+    if (/^\d{2}:\d{2}:\d{2}(\.\d+)?$/.test(token)) return token;
+    // 数値（アンダースコア除去）
+    var num=token.replace(/_/g,"");
+    if (/^[+-]?(0x[0-9a-fA-F]+)$/.test(num)) return parseInt(num,16);
+    if (/^[+-]?(0o[0-7]+)$/.test(num)) return parseInt(num.replace(/0o/,""),8);
+    if (/^[+-]?(0b[01]+)$/.test(num)) return parseInt(num.replace(/0b/,""),2);
+    if (/^[+-]?\d+$/.test(num)) return parseInt(num,10);
+    if (/^[+-]?(\d+\.\d*|\.\d+|\d+)([eE][+-]?\d+)?$/.test(num) && /[.eE]/.test(num)) return parseFloat(num);
+    throw err(lineNo, "値を解釈できません: "+token);
+}
+
+function err(lineNo, msg){
+    var e=new Error("行 "+(lineNo+1)+": "+msg);
+    e.tomlLine=lineNo+1;
+    return e;
+}
+
+/* ============================================================
+   JavaScript オブジェクト -> TOML 文字列
+   ============================================================ */
+function stringifyTOML(obj){
+    if (obj===null || typeof obj!=="object" || Array.isArray(obj))
+        throw new Error("最上位はオブジェクト（{ }）である必要があります");
+    return emitTable(obj, []).replace(/\n{3,}/g,"\n\n").replace(/^\n+/,"").replace(/\n+$/,"\n");
+}
+
+function isPlainObject(v){ return v!==null && typeof v==="object" && !Array.isArray(v); }
+function isArrayOfTables(v){
+    return Array.isArray(v) && v.length>0 && v.every(function(e){ return isPlainObject(e); });
+}
+
+function emitTable(obj, path){
+    var out="";
+    var deferred=[]; // ネストテーブル・配列テーブルは後回し
+    var keys=Object.keys(obj);
+    // まずスカラー/配列/インラインを出力
+    for (var i=0;i<keys.length;i++){
+        var k=keys[i]; var v=obj[k];
+        if (isPlainObject(v)){ deferred.push(k); continue; }
+        if (isArrayOfTables(v)){ deferred.push(k); continue; }
+        out += formatKey(k)+" = "+formatValue(v)+"\n";
+    }
+    for (var j=0;j<deferred.length;j++){
+        var dk=deferred[j]; var dv=obj[dk];
+        var newPath=path.concat([dk]);
+        if (isPlainObject(dv)){
+            out += "\n["+newPath.map(formatKey).join(".")+"]\n";
+            out += emitTable(dv, newPath);
+        } else { // array of tables
+            for (var a=0;a<dv.length;a++){
+                out += "\n[["+newPath.map(formatKey).join(".")+"]]\n";
+                out += emitTable(dv[a], newPath);
+            }
+        }
+    }
+    return out;
+}
+
+function formatKey(k){
+    if (/^[A-Za-z0-9_-]+$/.test(k)) return k;
+    return '"'+String(k).replace(/\\/g,"\\\\").replace(/"/g,'\\"')+'"';
+}
+
+function formatValue(v){
+    if (v===null) return '""';
+    if (typeof v==="boolean") return v?"true":"false";
+    if (typeof v==="number"){
+        if (v===Infinity) return "inf";
+        if (v===-Infinity) return "-inf";
+        if (Number.isNaN(v)) return "nan";
+        return String(v);
+    }
+    if (typeof v==="string") return formatString(v);
+    if (Array.isArray(v)){
+        return "["+v.map(function(e){
+            if (isPlainObject(e)) return formatInlineTable(e);
+            return formatValue(e);
+        }).join(", ")+"]";
+    }
+    if (isPlainObject(v)) return formatInlineTable(v);
+    return '""';
+}
+
+function formatInlineTable(o){
+    var keys=Object.keys(o);
+    return "{ "+keys.map(function(k){ return formatKey(k)+" = "+formatValue(o[k]); }).join(", ")+" }";
+}
+
+function formatString(s){
+    var esc=s.replace(/\\/g,"\\\\").replace(/"/g,'\\"')
+             .replace(/\n/g,"\\n").replace(/\t/g,"\\t").replace(/\r/g,"\\r");
+    return '"'+esc+'"';
+}
+
+/* ============================================================
+   UI 配線
+   ============================================================ */
+var tomlEl=document.getElementById("tomlInput");
+var jsonEl=document.getElementById("jsonInput");
+var tomlStatus=document.getElementById("tomlStatus");
+var jsonStatus=document.getElementById("jsonStatus");
+var lock=false;
+
+function setStatus(el, msg, ok){
+    el.textContent=msg;
+    el.className="status "+(ok?"ok":(msg?"err":""));
+}
+
+function fromToml(){
+    if (lock) return;
+    var src=tomlEl.value;
+    if (src.trim()===""){ jsonEl.value=""; setStatus(tomlStatus,"",true); setStatus(jsonStatus,"",true); return; }
+    try {
+        var obj=parseTOML(src);
+        var json=JSON.stringify(obj, null, 2);
+        lock=true; jsonEl.value=json; lock=false;
+        setStatus(tomlStatus,"✓ TOML を解析しました", true);
+        setStatus(jsonStatus,"", true);
+    } catch(e){
+        setStatus(tomlStatus,"✕ "+e.message, false);
+    }
+}
+
+function fromJson(){
+    if (lock) return;
+    var src=jsonEl.value;
+    if (src.trim()===""){ tomlEl.value=""; setStatus(jsonStatus,"",true); setStatus(tomlStatus,"",true); return; }
+    try {
+        var obj=JSON.parse(src);
+        var toml=stringifyTOML(obj);
+        lock=true; tomlEl.value=toml; lock=false;
+        setStatus(jsonStatus,"✓ JSON を解析しました", true);
+        setStatus(tomlStatus,"", true);
+    } catch(e){
+        setStatus(jsonStatus,"✕ "+(e.message||"JSON を解析できません"), false);
+    }
+}
+
+function copyPane(which){
+    var el=(which==="toml")?tomlEl:jsonEl;
+    if (!el.value){ return; }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(el.value);
+    } else {
+        el.select(); document.execCommand("copy");
+    }
+    var st=(which==="toml")?tomlStatus:jsonStatus;
+    var prev=st.textContent, prevCls=st.className;
+    setStatus(st,"✓ コピーしました", true);
+    setTimeout(function(){ st.textContent=prev; st.className=prevCls; }, 1200);
+}
+
+function clearAll(){
+    tomlEl.value=""; jsonEl.value="";
+    setStatus(tomlStatus,"",true); setStatus(jsonStatus,"",true);
+    tomlEl.focus();
+}
+
+function swapPanes(){
+    var t=tomlEl.value; tomlEl.value=jsonEl.value; jsonEl.value=t;
+    // 入れ替え後は TOML ペインを元として再解析
+    fromToml();
+}
+
+var SAMPLE=[
+"# Cargo.toml 風のサンプル",
+'[package]',
+'name = "devtools-japan"',
+'version = "1.4.2"',
+'edition = "2021"',
+'authors = ["DevTools Japan", "Contributor <dev@example.com>"]',
+'description = "TOML と JSON を相互変換する無料ツール"',
+'',
+'[dependencies]',
+'serde = { version = "1.0", features = ["derive"] }',
+'tokio = { version = "1", features = ["full"] }',
+'regex = "1.10"',
+'',
+'[features]',
+'default = ["json"]',
+'json = []',
+'',
+'[[bin]]',
+'name = "converter"',
+'path = "src/main.rs"',
+'',
+'[[bin]]',
+'name = "cli"',
+'path = "src/cli.rs"',
+'',
+'[profile.release]',
+'opt-level = 3',
+'lto = true',
+'codegen-units = 1'
+].join("\n");
+
+function loadSample(){
+    tomlEl.value=SAMPLE;
+    fromToml();
+}
+
+// 初期表示
+loadSample();
+</script>
+</body>
+</html>

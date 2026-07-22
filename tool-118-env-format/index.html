@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.envフォーマッター・検証ツール | 環境変数の整形・重複チェック・秘匿マスク【無料】</title>
+    <meta name="description" content=".envファイルを貼り付けるだけで整形・検証できる無料ツール。KEY=VALUEのソート・重複削除・無効キー検出・クォート補正に加え、値を****に隠す秘匿マスクや.env↔JSON相互変換にも対応。すべてブラウザ内で完結し外部送信しません。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        textarea{width:100%;min-height:180px;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.85rem;line-height:1.6;outline:none;resize:vertical;white-space:pre;overflow-wrap:normal}
+        textarea:focus{border-color:var(--accent)}
+        .toggle-wrap{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:4px}
+        .toggle{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--text2);cursor:pointer}
+        .toggle input{width:auto}
+        .btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+        .btn{padding:10px 20px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.sec{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.sec:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+        .stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.stat-grid{grid-template-columns:1fr 1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .stat-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-align:center}
+        .stat-item .label{font-size:0.68rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px}
+        .stat-item .value{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent)}
+        .stat-item .value.warn{color:var(--red)}
+        .warnings{margin-bottom:16px}
+        .warn-item{display:flex;align-items:flex-start;gap:8px;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:10px 14px;font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .warn-item .ic{color:var(--red);font-weight:700;flex-shrink:0}
+        .warn-item.ok{background:rgba(34,197,94,0.06);border-color:rgba(34,197,94,0.2)}
+        .warn-item.ok .ic{color:var(--green)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-118-env-format/">
+    <meta property="og:title" content=".envフォーマッター・検証 | 環境変数の整形・重複チェック・秘匿マスク【無料】">
+    <meta property="og:description" content=".envを貼るだけでソート・重複削除・検証・クォート補正。秘匿マスクと.env↔JSON変換にも対応。すべてブラウザ内で完結。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-118-env-format/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content=".envフォーマッター・検証【無料】">
+    <meta name="twitter:description" content=".envの整形・検証・秘匿マスク・JSON相互変換をブラウザ内で。外部送信なし。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":".envフォーマッター・検証ツール","description":".envファイルを整形・検証し、ソート・重複削除・秘匿マスク・JSON相互変換を行う無料ツール","url":"https://www.devtools-japan.com/tool-118-env-format/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":".envフォーマッター・検証ツール","item":"https://www.devtools-japan.com/tool-118-env-format/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":".envファイルとは何ですか？","acceptedAnswer":{"@type":"Answer","text":".envはアプリの環境変数を「KEY=VALUE」形式で1行ずつ記述するプレーンテキストのファイルです。データベース接続情報やAPIキー、動作モードなどの設定値をソースコードから分離して管理するために使われ、Node.js・Python・Ruby・Docker・各種フレームワークで広く利用されています。値はプロセス起動時に環境変数として読み込まれます。"}},{"@type":"Question","name":".envの値をクォートで囲む必要はありますか？","acceptedAnswer":{"@type":"Answer","text":"値にスペース・#・改行・引用符などの特殊文字が含まれる場合はダブルクォートで囲むのが安全です。英数字とアンダースコアだけの単純な値はクォート不要です。本ツールの「必要な値をクォート」を有効にすると、囲む必要がある値だけを自動でダブルクォートで囲み、内部の引用符やバックスラッシュも適切にエスケープします。"}},{"@type":"Question","name":"入力した.envや秘密情報は外部に送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。すべての解析・整形・変換はお使いのブラウザ内のJavaScriptだけで完結し、入力内容がサーバーや外部サービスへ送信されることは一切ありません。APIキーやパスワードを含む.envでも安全に扱えます。第三者と共有する前に「秘匿マスク」を有効にすれば、値を****に置き換えてキー名だけを共有できます。"}},{"@type":"Question","name":"重複したキーがあるとどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"多くの環境変数ローダーは同じキーが複数行あると後に書かれた値で上書きします。本ツールも同じ挙動に合わせ、重複キーは「最後の値を残す」方式で1つにまとめ、どのキーが重複していたかを警告として表示します。意図しない上書きに気づけるため、設定ミスの発見に役立ちます。"}},{"@type":"Question","name":".envとJSONは相互に変換できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。本ツールは解析した.envをキーと値のJSONオブジェクトに変換でき、逆に平坦なJSONオブジェクトを.env形式へ戻すこともできます。設定を他ツールへ取り込む・比較する・バックアップするといった用途に便利です。JSONの値は文字列化され、.envへ戻す際に必要に応じて自動でクォートされます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>.envフォーマッター・検証</h1><p>環境変数ファイルの整形・検証・秘匿マスク・JSON変換</p></header>
+
+    <div class="card"><h3>.env を貼り付け</h3>
+        <textarea id="input" placeholder="# .env を貼り付けてください&#10;export DATABASE_URL=postgres://user:pass@localhost:5432/db&#10;API_KEY = &quot;my secret key&quot;&#10;DEBUG=true"></textarea>
+        <div style="margin-top:14px">
+            <div style="font-size:0.75rem;color:var(--text3);margin-bottom:8px">オプション</div>
+            <div class="toggle-wrap">
+                <label class="toggle"><input type="checkbox" id="optSort" checked oninput="run()"> キーをA-Zでソート</label>
+                <label class="toggle"><input type="checkbox" id="optDedupe" checked oninput="run()"> 重複キーを削除（最後を残す）</label>
+                <label class="toggle"><input type="checkbox" id="optQuote" checked oninput="run()"> 必要な値をクォート</label>
+                <label class="toggle"><input type="checkbox" id="optExport" oninput="run()"> export を付与</label>
+                <label class="toggle"><input type="checkbox" id="optMask" oninput="run()"> 秘匿マスク（値を****）</label>
+            </div>
+        </div>
+        <div class="btn-row">
+            <button class="btn" onclick="run()">整形・検証</button>
+            <button class="btn sec" onclick="loadSample()">サンプル読込</button>
+            <button class="btn sec" onclick="toJSON()">→ JSON へ変換</button>
+            <button class="btn sec" onclick="fromJSON()">JSON → .env</button>
+            <button class="btn sec" onclick="clearAll()">クリア</button>
+        </div>
+    </div>
+
+    <div class="stat-grid">
+        <div class="stat-item"><div class="label">有効な変数</div><div class="value" id="statKeys">0</div></div>
+        <div class="stat-item"><div class="label">重複キー</div><div class="value" id="statDupes">0</div></div>
+        <div class="stat-item"><div class="label">警告</div><div class="value" id="statWarns">0</div></div>
+    </div>
+
+    <div class="warnings" id="warnings"></div>
+
+    <div class="card"><h3>結果（出力）</h3>
+        <textarea id="output" readonly placeholder="ここに整形結果が表示されます"></textarea>
+        <div class="btn-row">
+            <button class="btn" onclick="copyOut()">結果をコピー</button>
+        </div>
+    </div>
+
+    <div class="note">すべての解析・整形・変換はお使いのブラウザ内だけで実行され、入力した.envや秘密情報が外部へ送信されることはありません。第三者に共有する際は「秘匿マスク」を有効にすると、値を****に置き換えてキー名だけを安全に共有できます。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>.envフォーマッター・検証ツールの使い方</h2>
+        <p>.envファイルの中身を上のテキスト欄に貼り付けるだけで、環境変数を「KEY=VALUE」単位で解析し、整形と検証を自動で行う無料ツールです。キーのA-Zソート、重複キーの削除、無効なキー名や値の欠落の検出、特殊文字を含む値の自動クォート、そして値を****に隠す秘匿マスクまで、設定ファイルの掃除に必要な処理をブラウザだけで完結できます。インストールや会員登録は不要で、貼り付けた内容は一切外部に送信されません。</p>
+        <p>使い方はかんたんです。.envの内容を貼り付けると、有効な変数の数・重複キーの数・警告の数が即座に表示され、下の出力欄に整形済みの.envが生成されます。オプションのチェックボックスで、ソートの有無・重複削除・クォート補正・exportの付与・秘匿マスクを切り替えられます。「サンプル読込」でコメントや引用符・重複を含む例をすぐに試せます。</p>
+        <h3>解析ルール</h3>
+        <p>各行を「KEY=VALUE」として解析します。先頭の <code>export</code> プレフィックス、キーと値の前後の空白、行頭が <code>#</code> のコメント行、空行に対応します。値はダブルクォート／シングルクォートで囲めば内部のスペースや記号を保持し、囲まれていない値は前後の空白を取り除きます。キー名として有効なのは英字またはアンダースコアで始まり、英数字とアンダースコアだけからなる名前です。</p>
+
+        <h2>整形・検証でできること</h2>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>機能</th><th>内容</th></tr>
+            <tr><td>ソート</td><td>キー名をA-Z順に並べ替え、設定を見つけやすくします</td></tr>
+            <tr><td>重複削除</td><td>同じキーが複数あれば後に書かれた値を残し1つにまとめます</td></tr>
+            <tr><td>検証・警告</td><td>無効なキー名、値の欠落、重複を検出して一覧表示します</td></tr>
+            <tr><td>クォート補正</td><td>スペースや#などを含む値だけを自動でダブルクォートし、内部の引用符・改行をエスケープします</td></tr>
+            <tr><td>秘匿マスク</td><td>すべての値を****に置き換え、キー名だけを安全に共有できます</td></tr>
+            <tr><td>JSON変換</td><td>.env↔JSONを相互に変換し、他ツールへの取り込みや比較に使えます</td></tr>
+        </table>
+        </div>
+        <h3>プライバシーについて</h3>
+        <p>本ツールの処理はすべてJavaScriptによりお使いの端末内で実行されます。APIキー・データベースのパスワード・トークンなどの機密情報を含む.envを貼り付けても、その内容がサーバーや第三者に送られることはありません。チームやチャットに設定を共有したいときは、値を隠す秘匿マスクを使えば、どんなキーが定義されているかという構造だけを漏洩リスクなく共有できます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">.envファイルとは何ですか？</div><div class="a">.envはアプリの環境変数を「KEY=VALUE」形式で1行ずつ記述するプレーンテキストのファイルです。データベース接続情報やAPIキー、動作モードなどの設定値をソースコードから分離して管理するために使われ、Node.js・Python・Ruby・Docker・各種フレームワークで広く利用されています。値はプロセス起動時に環境変数として読み込まれます。</div></div>
+        <div class="faq-item"><div class="q">.envの値をクォートで囲む必要はありますか？</div><div class="a">値にスペース・#・改行・引用符などの特殊文字が含まれる場合はダブルクォートで囲むのが安全です。英数字とアンダースコアだけの単純な値はクォート不要です。本ツールの「必要な値をクォート」を有効にすると、囲む必要がある値だけを自動でダブルクォートで囲み、内部の引用符やバックスラッシュも適切にエスケープします。</div></div>
+        <div class="faq-item"><div class="q">入力した.envや秘密情報は外部に送信されますか？</div><div class="a">いいえ。すべての解析・整形・変換はお使いのブラウザ内のJavaScriptだけで完結し、入力内容がサーバーや外部サービスへ送信されることは一切ありません。APIキーやパスワードを含む.envでも安全に扱えます。第三者と共有する前に「秘匿マスク」を有効にすれば、値を****に置き換えてキー名だけを共有できます。</div></div>
+        <div class="faq-item"><div class="q">重複したキーがあるとどうなりますか？</div><div class="a">多くの環境変数ローダーは同じキーが複数行あると後に書かれた値で上書きします。本ツールも同じ挙動に合わせ、重複キーは「最後の値を残す」方式で1つにまとめ、どのキーが重複していたかを警告として表示します。意図しない上書きに気づけるため、設定ミスの発見に役立ちます。</div></div>
+        <div class="faq-item"><div class="q">.envとJSONは相互に変換できますか？</div><div class="a">はい。本ツールは解析した.envをキーと値のJSONオブジェクトに変換でき、逆に平坦なJSONオブジェクトを.env形式へ戻すこともできます。設定を他ツールへ取り込む・比較する・バックアップするといった用途に便利です。JSONの値は文字列化され、.envへ戻す際に必要に応じて自動でクォートされます。</div></div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+var KEY_RE = /^[A-Za-z_][A-Za-z0-9_]*$/;
+
+// 1行を解析。{key,value} または {error} または null(空行/コメント)
+function parseLine(raw){
+    var line = raw.replace(/\r$/, '');
+    var trimmed = line.trim();
+    if (trimmed === '' || trimmed.charAt(0) === '#') return null;
+    var work = trimmed;
+    // export プレフィックス
+    if (/^export\s+/.test(work)) work = work.replace(/^export\s+/, '');
+    var eq = work.indexOf('=');
+    if (eq === -1){
+        return {error:true, raw:trimmed, msg:'「=」が無い行です'};
+    }
+    var key = work.slice(0, eq).trim();
+    var rest = work.slice(eq + 1);
+    if (key === ''){
+        return {error:true, raw:trimmed, msg:'キー名が空です'};
+    }
+    var valPart = rest.trim();
+    var value = '';
+    var quoted = false;
+    if (valPart.length >= 2 && (valPart.charAt(0) === '"' || valPart.charAt(0) === "'")){
+        var q = valPart.charAt(0);
+        // 末尾の同じクォートを探す（インラインコメント考慮せず、閉じクォートまで）
+        var closeIdx = -1;
+        for (var i = 1; i < valPart.length; i++){
+            if (valPart.charAt(i) === '\\' && q === '"'){ i++; continue; }
+            if (valPart.charAt(i) === q){ closeIdx = i; break; }
+        }
+        if (closeIdx !== -1){
+            var inner = valPart.slice(1, closeIdx);
+            if (q === '"'){
+                inner = inner.replace(/\\n/g,'\n').replace(/\\r/g,'\r').replace(/\\t/g,'\t').replace(/\\"/g,'"').replace(/\\\\/g,'\\');
+            }
+            value = inner;
+            quoted = true;
+        } else {
+            value = valPart; // 閉じられていない → そのまま
+        }
+    } else {
+        // 未クォート値: 行内 # コメントを除去（先頭に空白があるもの）
+        var hashPos = valPart.search(/\s#/);
+        if (hashPos !== -1) valPart = valPart.slice(0, hashPos).trim();
+        value = valPart;
+    }
+    var invalidKey = !KEY_RE.test(key);
+    var missingVal = (value === '' && !quoted);
+    return {key:key, value:value, invalidKey:invalidKey, missingVal:missingVal};
+}
+
+// 値のクォートが必要か
+function needsQuote(v){
+    if (v === '') return false;
+    return /[\s#"'\\=`$]/.test(v) || /^\s|\s$/.test(v) || v.indexOf('\n') !== -1;
+}
+function quoteValue(v){
+    var esc = v.replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n/g,'\\n').replace(/\r/g,'\\r').replace(/\t/g,'\\t');
+    return '"' + esc + '"';
+}
+
+// 入力全体を解析 → {entries:[{key,value,invalidKey,missingVal}], errors:[], dupes:[]}
+function parseEnv(text){
+    var lines = text.split('\n');
+    var order = [];      // 出現順のキー配列（重複含む）
+    var map = {};        // key -> entry（最後を残す前提で上書き）
+    var errors = [];
+    var seen = {};
+    var dupes = {};
+    for (var i = 0; i < lines.length; i++){
+        var r = parseLine(lines[i]);
+        if (r === null) continue;
+        if (r.error){ errors.push(r.msg + ': ' + r.raw); continue; }
+        if (Object.prototype.hasOwnProperty.call(seen, r.key)){
+            dupes[r.key] = true;
+        }
+        seen[r.key] = true;
+        if (!Object.prototype.hasOwnProperty.call(map, r.key)) order.push(r.key);
+        map[r.key] = r; // 後の値で上書き（keep last）
+    }
+    var entries = order.map(function(k){ return map[k]; });
+    return {entries:entries, errors:errors, dupes:Object.keys(dupes)};
+}
+
+function currentOptions(){
+    return {
+        sort: document.getElementById('optSort').checked,
+        dedupe: document.getElementById('optDedupe').checked,
+        quote: document.getElementById('optQuote').checked,
+        exp: document.getElementById('optExport').checked,
+        mask: document.getElementById('optMask').checked
+    };
+}
+
+// entries + options → .env テキスト
+function format(entries, opt){
+    var list = entries.slice();
+    if (opt.sort) list.sort(function(a,b){ return a.key < b.key ? -1 : (a.key > b.key ? 1 : 0); });
+    var out = [];
+    for (var i = 0; i < list.length; i++){
+        var e = list[i];
+        var v = opt.mask ? '****' : e.value;
+        if (!opt.mask && opt.quote && needsQuote(v)){
+            v = quoteValue(v);
+        }
+        var prefix = opt.exp ? 'export ' : '';
+        out.push(prefix + e.key + '=' + v);
+    }
+    return out.join('\n');
+}
+
+function run(){
+    var text = document.getElementById('input').value;
+    var opt = currentOptions();
+    var parsed = parseEnv(text);
+    var entries = parsed.entries;
+
+    var output = format(entries, opt);
+    document.getElementById('output').value = output;
+
+    // 統計
+    document.getElementById('statKeys').textContent = entries.length;
+    var dupeEl = document.getElementById('statDupes');
+    dupeEl.textContent = parsed.dupes.length;
+    dupeEl.className = 'value' + (parsed.dupes.length ? ' warn' : '');
+
+    // 警告収集
+    var warns = [];
+    parsed.dupes.forEach(function(k){ warns.push('重複キー「' + k + '」: ' + (opt.dedupe ? '最後の値を残しました' : '重複したまま出力しています')); });
+    entries.forEach(function(e){
+        if (e.invalidKey) warns.push('無効なキー名「' + e.key + '」: 英字/_で始まり英数字と_のみが有効です');
+        if (e.missingVal) warns.push('値が空です「' + e.key + '」: 値が設定されていません');
+    });
+    parsed.errors.forEach(function(m){ warns.push(m); });
+
+    var warnEl = document.getElementById('statWarns');
+    warnEl.textContent = warns.length;
+    warnEl.className = 'value' + (warns.length ? ' warn' : '');
+
+    var box = document.getElementById('warnings');
+    box.innerHTML = '';
+    if (warns.length === 0){
+        if (entries.length > 0){
+            box.innerHTML = '<div class="warn-item ok"><span class="ic">&#10003;</span><span>問題は見つかりませんでした。' + entries.length + '件の変数はすべて有効です。</span></div>';
+        }
+    } else {
+        warns.forEach(function(w){
+            var d = document.createElement('div');
+            d.className = 'warn-item';
+            var ic = document.createElement('span'); ic.className = 'ic'; ic.textContent = '!';
+            var sp = document.createElement('span'); sp.textContent = w;
+            d.appendChild(ic); d.appendChild(sp);
+            box.appendChild(d);
+        });
+    }
+}
+
+function toJSON(){
+    var text = document.getElementById('input').value;
+    var opt = currentOptions();
+    var parsed = parseEnv(text);
+    var list = parsed.entries.slice();
+    if (opt.sort) list.sort(function(a,b){ return a.key < b.key ? -1 : (a.key > b.key ? 1 : 0); });
+    var obj = {};
+    list.forEach(function(e){ obj[e.key] = opt.mask ? '****' : e.value; });
+    document.getElementById('output').value = JSON.stringify(obj, null, 2);
+    run.__stats = null;
+    // 統計も更新
+    document.getElementById('statKeys').textContent = list.length;
+    var dupeEl = document.getElementById('statDupes');
+    dupeEl.textContent = parsed.dupes.length;
+    dupeEl.className = 'value' + (parsed.dupes.length ? ' warn' : '');
+}
+
+function fromJSON(){
+    var text = document.getElementById('input').value.trim();
+    var opt = currentOptions();
+    var obj;
+    try {
+        obj = JSON.parse(text);
+    } catch(e){
+        document.getElementById('output').value = 'JSONとして解析できませんでした。有効なJSONオブジェクトを入力してください。';
+        return;
+    }
+    if (obj === null || typeof obj !== 'object' || Array.isArray(obj)){
+        document.getElementById('output').value = 'JSONオブジェクト（{ "KEY": "VALUE" }）を入力してください。';
+        return;
+    }
+    var keys = Object.keys(obj);
+    if (opt.sort) keys.sort();
+    var out = [];
+    keys.forEach(function(k){
+        var raw = obj[k];
+        var v = (raw === null || raw === undefined) ? '' : String(raw);
+        if (opt.mask) v = '****';
+        else if (opt.quote && needsQuote(v)) v = quoteValue(v);
+        var prefix = opt.exp ? 'export ' : '';
+        out.push(prefix + k + '=' + v);
+    });
+    document.getElementById('output').value = out.join('\n');
+    document.getElementById('statKeys').textContent = keys.length;
+}
+
+function loadSample(){
+    var sample =
+'# Application config\n' +
+'export DATABASE_URL=postgres://user:pass@localhost:5432/mydb\n' +
+'API_KEY = "my secret api key"\n' +
+'  DEBUG=true   # inline comment\n' +
+'APP_NAME=\'DevTools Japan\'\n' +
+'EMPTY_VALUE=\n' +
+'PORT=3000\n' +
+'PORT=8080\n' +
+'1INVALID=oops\n' +
+'MESSAGE="Hello \\"World\\""\n' +
+'# trailing comment line\n';
+    document.getElementById('input').value = sample;
+    run();
+}
+
+function clearAll(){
+    document.getElementById('input').value = '';
+    document.getElementById('output').value = '';
+    document.getElementById('statKeys').textContent = '0';
+    var dupeEl = document.getElementById('statDupes'); dupeEl.textContent = '0'; dupeEl.className = 'value';
+    var warnEl = document.getElementById('statWarns'); warnEl.textContent = '0'; warnEl.className = 'value';
+    document.getElementById('warnings').innerHTML = '';
+}
+
+function copyOut(){
+    var out = document.getElementById('output');
+    if (!out.value) return;
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(out.value);
+    } else {
+        out.removeAttribute('readonly');
+        out.select();
+        try { document.execCommand('copy'); } catch(e){}
+        out.setAttribute('readonly','');
+    }
+}
+
+document.getElementById('input').addEventListener('input', run);
+loadSample();
+</script>
+</body>
+</html>

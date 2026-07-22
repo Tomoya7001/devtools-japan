@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cubic-bezier イージングエディタ | CSSアニメーションのtiming-functionを視覚的に作成【無料】</title>
+    <meta name="description" content="CSSのcubic-bezier()を視覚的に編集できる無料ツール。2つの制御点をドラッグしてイージング曲線を作り、cubic-bezier(x1,y1,x2,y2)を即コピー。ease/ease-in/ease-out等のプリセットと、実際の動きを確認できるプレビュー再生付き。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .preset-row button.active{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        /* editor specific */
+        .editor-wrap{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start}
+        .editor-wrap .canvas-col{flex:0 0 auto;margin:0 auto}
+        #bezierSvg{touch-action:none;display:block;background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);cursor:crosshair;user-select:none}
+        .bezier-string{display:flex;align-items:center;gap:10px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-bottom:16px;flex-wrap:wrap}
+        .bezier-string code{font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:500;color:var(--accent);flex:1;word-break:break-all}
+        .copy-btn{padding:8px 16px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif;white-space:nowrap}
+        .copy-btn:hover{opacity:0.9}
+        .num-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        @media(max-width:600px){.num-grid{grid-template-columns:1fr 1fr}}
+        .num-field{display:flex;flex-direction:column;gap:4px}
+        .num-field label{font-size:0.72rem;color:var(--text3);font-family:'JetBrains Mono',monospace}
+        .num-field input{width:100%;padding:10px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.9rem;outline:none;text-align:center}
+        .num-field input:focus{border-color:var(--accent)}
+        .demo-track{position:relative;height:56px;background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);margin:8px 0 16px;overflow:hidden}
+        .demo-dot{position:absolute;top:50%;left:8px;width:36px;height:36px;margin-top:-18px;border-radius:10px;background:var(--accent);box-shadow:0 4px 12px rgba(139,92,246,0.4)}
+        .demo-controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+        .demo-controls .btn{flex:0 0 auto}
+        .dur-field{display:flex;align-items:center;gap:8px;font-size:0.82rem;color:var(--text2)}
+        .dur-field input[type=range]{accent-color:var(--accent)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-110-cubic-bezier/">
+    <meta property="og:title" content="cubic-bezier イージングエディタ | CSSのtiming-functionを視覚的に作成【無料】">
+    <meta property="og:description" content="制御点をドラッグしてイージング曲線を作成。cubic-bezier()を即コピー、プリセットと動きのプレビュー付き。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-110-cubic-bezier/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="cubic-bezier イージングエディタ【無料】">
+    <meta name="twitter:description" content="CSSのイージング曲線を視覚的に編集。cubic-bezier()をコピー、プレビュー再生付き。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"cubic-bezier イージングエディタ","description":"CSSのcubic-bezier()を視覚的に編集できる無料ツール。制御点をドラッグしてイージング曲線を作成し、動きをプレビューできます。","url":"https://www.devtools-japan.com/tool-110-cubic-bezier/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"cubic-bezier イージングエディタ","item":"https://www.devtools-japan.com/tool-110-cubic-bezier/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"cubic-bezier() とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"cubic-bezier() は CSS の transition-timing-function や animation-timing-function に指定できる関数で、アニメーションの加速・減速の仕方（イージング）を3次ベジェ曲線で表します。cubic-bezier(x1, y1, x2, y2) の4つの数値は、始点(0,0)と終点(1,1)の間にある2つの制御点 P1(x1,y1)・P2(x2,y2) の座標です。横軸が時間の進み、縦軸が変化の進みを表し、曲線の形で動きの緩急を細かく調整できます。"}},{"@type":"Question","name":"x と y の値にはどんな範囲を指定できますか？","acceptedAnswer":{"@type":"Answer","text":"制御点の x 座標（x1, x2）は 0〜1 の範囲でなければなりません。時間軸が逆行することはできないためです。一方、y 座標（y1, y2）は 0〜1 の範囲を超えて負の値や 1 より大きい値も指定できます。y を範囲外にすると、一度行き過ぎてから戻る「バウンド」のような動き（オーバーシュート）を表現できます。このエディタでは y 方向は上下に余白をとって -0.5〜1.5 程度まで制御点をドラッグできます。"}},{"@type":"Question","name":"ease や ease-in-out はどんな cubic-bezier に対応しますか？","acceptedAnswer":{"@type":"Answer","text":"CSSのキーワードは、それぞれ決まった cubic-bezier に対応しています。linear は cubic-bezier(0,0,1,1)、ease は cubic-bezier(0.25,0.1,0.25,1)、ease-in は cubic-bezier(0.42,0,1,1)、ease-out は cubic-bezier(0,0,0.58,1)、ease-in-out は cubic-bezier(0.42,0,0.58,1) です。このエディタのプリセットボタンを押すと、対応する値が入力され曲線も自動で描画されます。"}},{"@type":"Question","name":"作った値はどう使えばいいですか？","acceptedAnswer":{"@type":"Answer","text":"表示された cubic-bezier(...) の文字列をコピーし、CSSの transition や animation の timing-function に貼り付けます。例えば transition: transform 0.4s cubic-bezier(0.25,0.1,0.25,1); のように指定します。animation-timing-function プロパティや、animationショートハンドの中でも同じ形式で使えます。すべての計算はブラウザ内で完結し、サーバーには送信されません。"}},{"@type":"Question","name":"プレビューの再生ボタンは何を確認できますか？","acceptedAnswer":{"@type":"Answer","text":"再生ボタンを押すと、いま編集中の cubic-bezier を timing-function に使ってボックスが左から右へ移動します。曲線の形だけでは分かりにくい実際の動きの緩急を、目で見て確認できます。再生時間（duration）はスライダーで 0.2〜3秒の範囲に調整でき、値を変えるとプレビューにも即反映されます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>cubic-bezier イージングエディタ</h1><p>CSSアニメーションのイージング曲線を視覚的に作成</p></header>
+
+    <div class="card"><h3>ベジェ曲線エディタ</h3>
+        <div class="editor-wrap">
+            <div class="canvas-col">
+                <svg id="bezierSvg" width="320" height="320" viewBox="0 0 320 320" aria-label="ベジェ曲線エディタ"></svg>
+            </div>
+            <div style="flex:1;min-width:220px">
+                <div class="bezier-string">
+                    <code id="bezierStr">cubic-bezier(0.25, 0.1, 0.25, 1)</code>
+                    <button class="copy-btn" id="copyBtn" onclick="copyBezier()">コピー</button>
+                </div>
+                <div class="num-grid">
+                    <div class="num-field"><label>x1 (0〜1)</label><input type="number" id="x1" step="0.01" min="0" max="1" value="0.25" oninput="onNumInput()"></div>
+                    <div class="num-field"><label>y1</label><input type="number" id="y1" step="0.01" value="0.1" oninput="onNumInput()"></div>
+                    <div class="num-field"><label>x2 (0〜1)</label><input type="number" id="x2" step="0.01" min="0" max="1" value="0.25" oninput="onNumInput()"></div>
+                    <div class="num-field"><label>y2</label><input type="number" id="y2" step="0.01" value="1" oninput="onNumInput()"></div>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top:16px">
+            <div style="font-size:0.75rem;color:var(--text3);margin-bottom:6px">プリセット</div>
+            <div class="preset-row" id="presetRow"></div>
+        </div>
+    </div>
+
+    <div class="card"><h3>動きのプレビュー</h3>
+        <div class="demo-track"><div class="demo-dot" id="demoDot"></div></div>
+        <div class="demo-controls">
+            <button class="btn" id="playBtn" onclick="playDemo()">再生 ▶</button>
+            <div class="dur-field">
+                <span>再生時間</span>
+                <input type="range" id="durRange" min="0.2" max="3" step="0.1" value="1" oninput="onDurChange()">
+                <span id="durLabel" style="font-family:'JetBrains Mono',monospace;color:var(--accent)">1.0s</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="note">cubic-bezier(x1, y1, x2, y2) の4値は、始点(0,0)と終点(1,1)を結ぶ3次ベジェ曲線の制御点 P1・P2 の座標です。x（横=時間）は 0〜1、y（縦=変化量）は範囲外も指定でき、行き過ぎて戻るオーバーシュートも表現できます。すべての処理はブラウザ内で完結します。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>cubic-bezier イージングエディタの使い方</h2>
+        <p>CSSアニメーションの「動きの緩急」を決める timing-function を、視覚的に作成できる無料ツールです。グラフ上の2つの制御点（P1・P2）をドラッグすると、リアルタイムでベジェ曲線が描き替わり、対応する <code>cubic-bezier(x1, y1, x2, y2)</code> の文字列が上部に表示されます。コピーボタンを押せばそのままCSSに貼り付けられ、インストールや会員登録は不要、すべての計算はお使いの端末内で完結します。</p>
+        <p>数値を細かく指定したい場合は、x1・y1・x2・y2 の入力欄に直接値を入れることもできます。グラフの操作と数値入力は連動しており、どちらを変更してももう一方に反映されます。<code>ease</code>・<code>ease-in</code>・<code>ease-out</code>・<code>ease-in-out</code>・<code>linear</code> のプリセットボタンを押すと、CSS標準キーワードに対応した値がすぐに入力されます。</p>
+        <h3>動きをプレビューで確認</h3>
+        <p>曲線の形だけでは実際の動きがイメージしづらいものです。「再生 ▶」ボタンを押すと、いま編集中の cubic-bezier を timing-function に使ってボックスが左から右へ移動し、加速・減速の様子を目で確かめられます。再生時間（duration）はスライダーで 0.2〜3秒の範囲に調整でき、ゆっくり／速い動きの違いも比較できます。</p>
+
+        <h2>cubic-bezier の仕組み</h2>
+        <p>cubic-bezier() は3次ベジェ曲線でイージングを表します。曲線は必ず始点 (0,0) から終点 (1,1) を通り、その間の形を2つの制御点 P1(x1, y1)・P2(x2, y2) で調整します。横軸は時間の進み（0=開始、1=終了）、縦軸はアニメーションの進み（0=初期値、1=最終値）を表します。曲線が急なところは変化が速く、緩やかなところは変化が遅い、という対応になります。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>キーワード</th><th>cubic-bezier</th><th>動きの特徴</th></tr>
+            <tr><td>linear</td><td>cubic-bezier(0, 0, 1, 1)</td><td>一定速度。緩急なし</td></tr>
+            <tr><td>ease</td><td>cubic-bezier(0.25, 0.1, 0.25, 1)</td><td>初期値。ゆっくり始まりゆっくり終わる（既定）</td></tr>
+            <tr><td>ease-in</td><td>cubic-bezier(0.42, 0, 1, 1)</td><td>ゆっくり始まり最後に加速</td></tr>
+            <tr><td>ease-out</td><td>cubic-bezier(0, 0, 0.58, 1)</td><td>速く始まり最後に減速</td></tr>
+            <tr><td>ease-in-out</td><td>cubic-bezier(0.42, 0, 0.58, 1)</td><td>ゆっくり始まりゆっくり終わる</td></tr>
+        </table>
+        </div>
+        <h3>x と y の範囲</h3>
+        <p>制御点の x 座標（x1, x2）は 0〜1 の範囲に限られます。時間は逆行できないためです。一方、y 座標（y1, y2）は 0〜1 を超える値や負の値も指定でき、一度行き過ぎてから戻る「オーバーシュート（バウンド）」のような動きを作れます。このエディタでは縦方向に余白をとっており、y を約 -0.5〜1.5 の範囲までドラッグできます。</p>
+        <h3>CSSでの使い方</h3>
+        <p>作成した値は、transition や animation の timing-function に貼り付けて使います。例えば <code>transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);</code> や <code>animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);</code> のように指定します。適切なイージングを選ぶと、UIの操作感やアニメーションの印象が大きく変わります。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">cubic-bezier() とは何ですか？</div><div class="a">cubic-bezier() は CSS の transition-timing-function や animation-timing-function に指定できる関数で、アニメーションの加速・減速の仕方（イージング）を3次ベジェ曲線で表します。cubic-bezier(x1, y1, x2, y2) の4つの数値は、始点(0,0)と終点(1,1)の間にある2つの制御点 P1(x1,y1)・P2(x2,y2) の座標です。横軸が時間の進み、縦軸が変化の進みを表し、曲線の形で動きの緩急を細かく調整できます。</div></div>
+        <div class="faq-item"><div class="q">x と y の値にはどんな範囲を指定できますか？</div><div class="a">制御点の x 座標（x1, x2）は 0〜1 の範囲でなければなりません。時間軸が逆行することはできないためです。一方、y 座標（y1, y2）は 0〜1 の範囲を超えて負の値や 1 より大きい値も指定できます。y を範囲外にすると、一度行き過ぎてから戻る「バウンド」のような動き（オーバーシュート）を表現できます。このエディタでは y 方向は上下に余白をとって -0.5〜1.5 程度まで制御点をドラッグできます。</div></div>
+        <div class="faq-item"><div class="q">ease や ease-in-out はどんな cubic-bezier に対応しますか？</div><div class="a">CSSのキーワードは、それぞれ決まった cubic-bezier に対応しています。linear は cubic-bezier(0,0,1,1)、ease は cubic-bezier(0.25,0.1,0.25,1)、ease-in は cubic-bezier(0.42,0,1,1)、ease-out は cubic-bezier(0,0,0.58,1)、ease-in-out は cubic-bezier(0.42,0,0.58,1) です。このエディタのプリセットボタンを押すと、対応する値が入力され曲線も自動で描画されます。</div></div>
+        <div class="faq-item"><div class="q">作った値はどう使えばいいですか？</div><div class="a">表示された cubic-bezier(...) の文字列をコピーし、CSSの transition や animation の timing-function に貼り付けます。例えば transition: transform 0.4s cubic-bezier(0.25,0.1,0.25,1); のように指定します。animation-timing-function プロパティや、animationショートハンドの中でも同じ形式で使えます。すべての計算はブラウザ内で完結し、サーバーには送信されません。</div></div>
+        <div class="faq-item"><div class="q">プレビューの再生ボタンは何を確認できますか？</div><div class="a">再生ボタンを押すと、いま編集中の cubic-bezier を timing-function に使ってボックスが左から右へ移動します。曲線の形だけでは分かりにくい実際の動きの緩急を、目で見て確認できます。再生時間（duration）はスライダーで 0.2〜3秒の範囲に調整でき、値を変えるとプレビューにも即反映されます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ===== グラフ座標系 =====
+// SVG 320x320。内側 padding=40。プロット領域 240x240。
+// x: 0..1 -> px 40..280 (左->右)
+// y: 縦は範囲外(-0.5..1.5)を許容。y=0 を 280、y=1 を 40 に配置(下->上)。
+const SVG = document.getElementById('bezierSvg');
+const NS = 'http://www.w3.org/2000/svg';
+const PAD = 40, PLOT = 240;          // プロット領域
+const X0 = PAD, X1PX = PAD + PLOT;   // 40, 280
+const Y_TOP_VAL = 1.5, Y_BOT_VAL = -0.5; // 縦の表示範囲
+// SVG全高320のうち縦を使う: yVal -> pixel
+function yToPx(v){
+    // v=1.5 -> 0, v=-0.5 -> 320  線形
+    return (Y_TOP_VAL - v) / (Y_TOP_VAL - Y_BOT_VAL) * 320;
+}
+function pxToY(py){
+    return Y_TOP_VAL - (py / 320) * (Y_TOP_VAL - Y_BOT_VAL);
+}
+function xToPx(v){ return X0 + v * PLOT; }
+function pxToX(px){ return (px - X0) / PLOT; }
+
+// 現在の制御点
+let P = {x1:0.25, y1:0.1, x2:0.25, y2:1};
+
+const PRESETS = [
+    {name:'ease',        v:[0.25,0.1,0.25,1]},
+    {name:'ease-in',     v:[0.42,0,1,1]},
+    {name:'ease-out',    v:[0,0,0.58,1]},
+    {name:'ease-in-out', v:[0.42,0,0.58,1]},
+    {name:'linear',      v:[0,0,1,1]}
+];
+
+function buildPresets(){
+    const row = document.getElementById('presetRow');
+    row.innerHTML = '';
+    PRESETS.forEach(p=>{
+        const b = document.createElement('button');
+        b.textContent = p.name;
+        b.dataset.name = p.name;
+        b.onclick = ()=>{ setValues(p.v[0],p.v[1],p.v[2],p.v[3]); };
+        row.appendChild(b);
+    });
+}
+
+function svgEl(tag, attrs){
+    const el = document.createElementNS(NS, tag);
+    for (const k in attrs) el.setAttribute(k, attrs[k]);
+    return el;
+}
+
+function draw(){
+    SVG.innerHTML = '';
+    // グリッド背景 (y=0 と y=1 の水平線 = プロットの基準枠)
+    const gTop = yToPx(1), gBot = yToPx(0);
+    // 枠(0..1の正方領域)
+    SVG.appendChild(svgEl('rect',{x:X0,y:gTop,width:PLOT,height:gBot-gTop,fill:'#ffffff',stroke:'#e0e2ed','stroke-width':1}));
+    // 補助グリッド
+    for (let i=1;i<4;i++){
+        const gx = X0 + PLOT*i/4;
+        SVG.appendChild(svgEl('line',{x1:gx,y1:gTop,x2:gx,y2:gBot,stroke:'#eef0f6','stroke-width':1}));
+        const gy = gTop + (gBot-gTop)*i/4;
+        SVG.appendChild(svgEl('line',{x1:X0,y1:gy,x2:X1PX,y2:gy,stroke:'#eef0f6','stroke-width':1}));
+    }
+    // 端点
+    const sx=xToPx(0), sy=yToPx(0), ex=xToPx(1), ey=yToPx(1);
+    // 制御点ピクセル
+    const c1x=xToPx(P.x1), c1y=yToPx(P.y1), c2x=xToPx(P.x2), c2y=yToPx(P.y2);
+    // ハンドル線
+    SVG.appendChild(svgEl('line',{x1:sx,y1:sy,x2:c1x,y2:c1y,stroke:'#22c55e','stroke-width':2}));
+    SVG.appendChild(svgEl('line',{x1:ex,y1:ey,x2:c2x,y2:c2y,stroke:'#ef4444','stroke-width':2}));
+    // ベジェ曲線
+    const d = `M ${sx} ${sy} C ${c1x} ${c1y}, ${c2x} ${c2y}, ${ex} ${ey}`;
+    SVG.appendChild(svgEl('path',{d:d,fill:'none',stroke:'#8b5cf6','stroke-width':3}));
+    // 端点マーカー
+    SVG.appendChild(svgEl('circle',{cx:sx,cy:sy,r:4,fill:'#9498b0'}));
+    SVG.appendChild(svgEl('circle',{cx:ex,cy:ey,r:4,fill:'#9498b0'}));
+    // 制御点(ドラッグ可)
+    const h1 = svgEl('circle',{cx:c1x,cy:c1y,r:9,fill:'#22c55e',stroke:'#fff','stroke-width':2,style:'cursor:grab'});
+    h1.dataset.pt = 'p1';
+    const h2 = svgEl('circle',{cx:c2x,cy:c2y,r:9,fill:'#ef4444',stroke:'#fff','stroke-width':2,style:'cursor:grab'});
+    h2.dataset.pt = 'p2';
+    SVG.appendChild(h1); SVG.appendChild(h2);
+}
+
+function updateString(){
+    const s = `cubic-bezier(${round(P.x1)}, ${round(P.y1)}, ${round(P.x2)}, ${round(P.y2)})`;
+    document.getElementById('bezierStr').textContent = s;
+    return s;
+}
+function round(n){ return Math.round(n*100)/100; }
+
+function syncInputs(){
+    document.getElementById('x1').value = round(P.x1);
+    document.getElementById('y1').value = round(P.y1);
+    document.getElementById('x2').value = round(P.x2);
+    document.getElementById('y2').value = round(P.y2);
+}
+
+function markActivePreset(){
+    const cur = [round(P.x1),round(P.y1),round(P.x2),round(P.y2)].join(',');
+    document.querySelectorAll('#presetRow button').forEach(b=>{
+        const p = PRESETS.find(x=>x.name===b.dataset.name);
+        const pv = p.v.map(round).join(',');
+        b.classList.toggle('active', pv===cur);
+    });
+}
+
+function refresh(){
+    draw();
+    updateString();
+    markActivePreset();
+}
+
+// 値をセット(範囲クランプ) -> 全同期
+function setValues(x1,y1,x2,y2){
+    P.x1 = clamp01(x1); P.x2 = clamp01(x2);
+    P.y1 = clampY(y1);  P.y2 = clampY(y2);
+    syncInputs();
+    refresh();
+}
+function clamp01(v){ v = parseFloat(v); if (isNaN(v)) v=0; return Math.min(1, Math.max(0, v)); }
+function clampY(v){ v = parseFloat(v); if (isNaN(v)) v=0; return Math.min(Y_TOP_VAL, Math.max(Y_BOT_VAL, v)); }
+
+function onNumInput(){
+    const x1 = document.getElementById('x1').value;
+    const y1 = document.getElementById('y1').value;
+    const x2 = document.getElementById('x2').value;
+    const y2 = document.getElementById('y2').value;
+    P.x1 = clamp01(x1); P.x2 = clamp01(x2);
+    P.y1 = clampY(y1);  P.y2 = clampY(y2);
+    refresh();
+}
+
+// ===== ドラッグ =====
+let dragging = null;
+function svgPoint(evt){
+    const rect = SVG.getBoundingClientRect();
+    const cx = (evt.touches ? evt.touches[0].clientX : evt.clientX) - rect.left;
+    const cy = (evt.touches ? evt.touches[0].clientY : evt.clientY) - rect.top;
+    // rect は表示サイズ。viewBox は320なのでスケール変換
+    const sx = 320 / rect.width, sy = 320 / rect.height;
+    return {x: cx*sx, y: cy*sy};
+}
+function startDrag(e){
+    const t = e.target;
+    if (t.dataset && t.dataset.pt){ dragging = t.dataset.pt; e.preventDefault(); }
+}
+function moveDrag(e){
+    if (!dragging) return;
+    e.preventDefault();
+    const pt = svgPoint(e);
+    let xv = clamp01(pxToX(pt.x));
+    let yv = clampY(pxToY(pt.y));
+    if (dragging==='p1'){ P.x1=xv; P.y1=yv; }
+    else { P.x2=xv; P.y2=yv; }
+    syncInputs();
+    refresh();
+}
+function endDrag(){ dragging = null; }
+
+SVG.addEventListener('mousedown', startDrag);
+window.addEventListener('mousemove', moveDrag);
+window.addEventListener('mouseup', endDrag);
+SVG.addEventListener('touchstart', startDrag, {passive:false});
+window.addEventListener('touchmove', moveDrag, {passive:false});
+window.addEventListener('touchend', endDrag);
+
+// ===== コピー =====
+function copyBezier(){
+    const s = updateString();
+    const btn = document.getElementById('copyBtn');
+    const done = ()=>{ btn.textContent='コピー済'; setTimeout(()=>btn.textContent='コピー',1500); };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(s).then(done).catch(fallbackCopy);
+    } else fallbackCopy();
+    function fallbackCopy(){
+        const ta = document.createElement('textarea');
+        ta.value = s; document.body.appendChild(ta); ta.select();
+        try{ document.execCommand('copy'); done(); }catch(e){}
+        document.body.removeChild(ta);
+    }
+}
+
+// ===== プレビュー再生 =====
+let duration = 1;
+function onDurChange(){
+    duration = parseFloat(document.getElementById('durRange').value);
+    document.getElementById('durLabel').textContent = duration.toFixed(1) + 's';
+}
+function playDemo(){
+    const dot = document.getElementById('demoDot');
+    const track = dot.parentElement;
+    const s = updateString(); // 現在のライブ関数
+    const maxX = track.clientWidth - dot.offsetWidth - 16; // 8px余白×2
+    // リセット
+    dot.style.transition = 'none';
+    dot.style.transform = 'translateX(0px)';
+    // 強制リフロー
+    void dot.offsetWidth;
+    // ライブの cubic-bezier を timing-function に適用
+    dot.style.transition = `transform ${duration}s ${s}`;
+    dot.style.transform = `translateX(${maxX}px)`;
+    // 往復: 到達後に戻す
+    clearTimeout(playDemo._t);
+    playDemo._t = setTimeout(()=>{
+        dot.style.transition = `transform ${duration}s ${s}`;
+        dot.style.transform = 'translateX(0px)';
+    }, duration*1000 + 250);
+}
+
+// ===== 初期化 =====
+buildPresets();
+onDurChange();
+setValues(0.25, 0.1, 0.25, 1); // 既定 = ease
+</script>
+</body>
+</html>

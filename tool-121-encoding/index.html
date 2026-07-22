@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字コード変換・文字化け判定ツール | Shift_JIS/UTF-8を自動判定して文字化けを修復【無料】</title>
+    <meta name="description" content="文字化けしたファイルやテキストの文字コードを自動判定し、Shift_JIS・EUC-JP・ISO-2022-JP・UTF-8・UTF-16でデコードして正しく表示。改行コード（CRLF/LF/CR）変換、バイトのHEX表示、UTF-8ダウンロードにも対応した無料ツール。すべてブラウザ内で処理します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.2rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        /* tool-specific */
+        .dropzone{border:2px dashed var(--border);border-radius:var(--radius);padding:28px 16px;text-align:center;color:var(--text2);cursor:pointer;transition:border-color 0.2s,background 0.2s;font-size:0.85rem}
+        .dropzone:hover,.dropzone.drag{border-color:var(--accent);background:var(--accent-dim)}
+        .dropzone .big{font-size:1rem;color:var(--text);margin-bottom:6px}
+        textarea{width:100%;min-height:120px;padding:12px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.85rem;line-height:1.7;outline:none;resize:vertical}
+        textarea:focus{border-color:var(--accent)}
+        .enc-list{display:flex;flex-direction:column;gap:10px}
+        .enc-card{border:1px solid var(--border);border-radius:8px;padding:12px 14px;background:#f7f8fb;cursor:pointer;transition:border-color 0.2s}
+        .enc-card:hover{border-color:var(--accent)}
+        .enc-card.best{border-color:var(--accent);background:var(--accent-dim)}
+        .enc-card.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-dim)}
+        .enc-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
+        .enc-name{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:0.85rem;color:var(--text)}
+        .enc-badge{font-size:0.65rem;padding:2px 8px;border-radius:20px;background:var(--accent);color:#fff}
+        .enc-badge.warn{background:var(--red)}
+        .enc-badge.ok{background:var(--green)}
+        .enc-score{font-size:0.7rem;color:var(--text3)}
+        .enc-prev{font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--text2);white-space:pre-wrap;word-break:break-all;max-height:64px;overflow:hidden;line-height:1.6}
+        .hexview{font-family:'JetBrains Mono',monospace;font-size:0.72rem;line-height:1.6;color:var(--text2);background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:12px;overflow-x:auto;white-space:pre;max-height:260px;overflow-y:auto}
+        .btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+        .btn.secondary{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.secondary:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+        .hidden{display:none}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-121-encoding/">
+    <meta property="og:title" content="文字コード変換・文字化け判定 | Shift_JIS/UTF-8を自動判定して修復【無料】">
+    <meta property="og:description" content="文字化けの原因となる文字コードを自動判定し、Shift_JIS・EUC-JP・UTF-8などでデコードして正しく表示。改行コード変換・HEX表示にも対応。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-121-encoding/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="文字コード変換・文字化け判定【無料】">
+    <meta name="twitter:description" content="Shift_JIS/UTF-8を自動判定して文字化けを修復。改行コード変換・HEX表示対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"文字コード変換・文字化け判定ツール","description":"文字化けしたファイル・テキストの文字コードを自動判定し、Shift_JIS・EUC-JP・ISO-2022-JP・UTF-8・UTF-16でデコードして正しく表示する無料ツール。改行コード変換とHEX表示にも対応。","url":"https://www.devtools-japan.com/tool-121-encoding/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"文字コード変換・文字化け判定ツール","item":"https://www.devtools-japan.com/tool-121-encoding/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"なぜ文字化けが起きるの？","acceptedAnswer":{"@type":"Answer","text":"文字化けは、ファイルを作成したときの文字コードと、開いたソフトが想定した文字コードが食い違うことで起こります。日本の業務システムや古いExcelのCSVは今でもShift_JIS（CP932）を前提にしていることが多く、UTF-8で保存したファイルをそのまま開くと「譁�」のように化けます。本ツールはファイルのバイト列を読み取り、Shift_JIS・EUC-JP・ISO-2022-JP・UTF-8・UTF-16の各文字コードでデコードした結果を並べて表示するので、正しく読める文字コードを選んで文字化けを修復できます。"}},{"@type":"Question","name":"文字コードは自動で判定できる？","acceptedAnswer":{"@type":"Answer","text":"はい。まずBOM（バイト順マーク）の有無を確認し、UTF-8・UTF-16のBOM付きファイルはそれを優先します。BOMがない場合は各文字コードでデコードを試し、文字化けの目印である置換文字（U+FFFD �）が最も少なく、日本語として妥当な範囲に収まる候補を「最有力」として自動選択します。あくまで推定のため、複数の候補が近い場合は各プレビューを見比べて正しいものを選んでください。"}},{"@type":"Question","name":"Shift_JISで保存し直せる？","acceptedAnswer":{"@type":"Answer","text":"いいえ。ブラウザ標準のTextDecoderはShift_JIS・EUC-JP・ISO-2022-JPなどの旧来の日本語文字コードを「読み込む（デコードする）」ことはできますが、書き出せる（エンコードできる）のはUTF-8のみという仕様です。そのため本ツールはShift_JISでの再保存には対応していません。役割は、文字化けの原因となる文字コードを判定してデコード・修復し、改行コードを変換し、バイトをHEX表示することです。ダウンロードはUTF-8（BOMなし）で行えます。"}},{"@type":"Question","name":"改行コードのCRLF・LF・CRとは？","acceptedAnswer":{"@type":"Answer","text":"改行コードは行の区切りを表す制御文字で、Windowsは CRLF（\\r\\n）、Mac/Linux・多くのプログラミング環境は LF（\\n）、古いMac OSは CR（\\r）を使います。混在するとdiffが崩れたり、シェルスクリプトが動かない、CSVの行がずれるといった不具合の原因になります。本ツールは現在の改行コードを判定して表示し、CRLF・LF・CRのいずれかへ一括変換できます。"}},{"@type":"Question","name":"アップロードしたファイルはサーバーに送られる？","acceptedAnswer":{"@type":"Answer","text":"いいえ。文字コードの判定・デコード・改行変換・HEX表示・ダウンロードまで、すべての処理はお使いのブラウザ内（クライアントサイド）で完結します。ファイルの中身がサーバーへ送信されることはなく、外部CDNのライブラリも使わずブラウザ標準のTextDecoderのみで動作するため、社外秘のCSVやログも安心して扱えます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>文字コード変換・文字化け判定</h1><p>Shift_JIS/UTF-8を自動判定して文字化けを修復・改行コード変換</p></header>
+
+    <div class="card"><h3>入力（ファイル または テキスト）</h3>
+        <div class="dropzone" id="dropzone">
+            <div class="big">ここにファイルをドロップ</div>
+            <div>またはクリックしてファイルを選択（CSV / TXT / ログ など）</div>
+            <input type="file" id="fileInput" class="hidden">
+        </div>
+        <div style="margin:14px 0 6px;font-size:0.75rem;color:var(--text3)">テキストを直接貼り付けて判定・改行変換する場合</div>
+        <textarea id="pasteInput" placeholder="文字化けしたテキストや、改行コードを変換したいテキストをここに貼り付け"></textarea>
+        <div class="btn-row">
+            <button class="btn" id="analyzePaste">貼り付けテキストを判定</button>
+            <button class="btn secondary" id="clearAll">クリア</button>
+        </div>
+    </div>
+
+    <div class="big-result">
+        <div class="headline" id="headline">判定結果</div>
+        <div class="days"><span id="bestEnc">-</span></div>
+        <div class="target" id="fileMeta">ファイルまたはテキストを入力してください</div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">推定文字コード</div><div class="value" id="rEnc" style="font-size:1.1rem">-</div></div>
+        <div class="result-item"><div class="label">現在の改行コード</div><div class="value" id="rEol" style="font-size:1.1rem">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">バイト数</div><div class="value" id="rBytes">-</div></div>
+        <div class="result-item"><div class="label">BOM</div><div class="value" id="rBom" style="font-size:1.1rem">-</div></div>
+    </div>
+
+    <div class="card" id="candCard"><h3>文字コード候補（クリックで選択）</h3>
+        <div class="enc-list" id="encList"><div style="font-size:0.8rem;color:var(--text3)">入力するとここに各文字コードのプレビューが並びます。</div></div>
+    </div>
+
+    <div class="card"><h3>修復テキスト（選択した文字コードでデコード）</h3>
+        <div class="row" style="border:none;padding-bottom:8px">
+            <label>出力する改行コード</label>
+            <select id="eolSelect">
+                <option value="keep">変換しない（元のまま）</option>
+                <option value="lf">LF（\n / Mac・Linux）</option>
+                <option value="crlf">CRLF（\r\n / Windows）</option>
+                <option value="cr">CR（\r / 旧Mac）</option>
+            </select>
+        </div>
+        <textarea id="outputArea" placeholder="選択した文字コードでデコードした結果がここに表示されます"></textarea>
+        <div class="btn-row">
+            <button class="btn" id="copyBtn">コピー</button>
+            <button class="btn secondary" id="downloadBtn">UTF-8でダウンロード</button>
+        </div>
+    </div>
+
+    <div class="card"><h3>バイトHEX表示（先頭）</h3>
+        <div class="hexview" id="hexView">ファイルまたはテキストを入力すると、先頭バイトの16進ダンプを表示します。</div>
+    </div>
+
+    <div class="note">文字コードの判定・デコード・改行変換・HEX表示・ダウンロードはすべてブラウザ内で完結し、ファイルはサーバーに送信されません。旧来の日本語文字コードの読み込みにはブラウザ標準の TextDecoder を使用します。TextDecoder はデコード専用のため、書き出し（ダウンロード）は UTF-8（BOMなし）のみ対応します。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>文字コード変換・文字化け判定ツールの使い方</h2>
+        <p>文字化けしたファイルやテキストの文字コードを自動判定し、正しい文字コードでデコードして表示・修復できる無料ツールです。日本の業務システムや古いExcelが書き出すCSVは今でも Shift_JIS（CP932）を前提にしていることが多く、UTF-8のファイルをそのまま開くと文字化けが発生します。本ツールはファイルのバイト列を読み取り、Shift_JIS・EUC-JP・ISO-2022-JP・UTF-8・UTF-16LE の各文字コードでデコードした結果を並べて表示するので、正しく読める候補を選ぶだけで文字化けを直せます。</p>
+        <p>使い方は簡単です。上部のドロップエリアにファイルをドラッグ＆ドロップするか、クリックしてファイルを選びます。テキストを直接確認したい場合は貼り付け欄に入力して「貼り付けテキストを判定」を押してください。読み込むと、BOMの有無・バイト数・現在の改行コードを表示し、各文字コードのプレビューを「文字化けの目印（置換文字）が少ない順」に並べます。最有力の候補には目印が付きますが、あくまで推定なので、プレビューを見比べて正しいものをクリックしてください。選んだ文字コードでデコードした全文が下の欄に表示され、コピーやUTF-8でのダウンロードができます。</p>
+        <h3>こんな場面に</h3>
+        <p>Excelで開いたCSVが文字化けした、取引先から届いたShift_JISのファイルがエディタで読めない、Webからダウンロードしたログの日本語が「�」だらけになる、Windowsで作ったファイルをMac/Linuxで扱うと改行がおかしい——such な場面で、原因の文字コードや改行コードを特定し、正しく読める形に整えられます。</p>
+
+        <h2>文字化けと文字コードの判定のしくみ</h2>
+        <p>文字化けは、ファイルを保存したときの文字コードと、開いた側が想定した文字コードが食い違うことで起こります。同じバイト列でも、Shift_JISとして読むかUTF-8として読むかで表示される文字がまったく変わるためです。本ツールは、まずBOM（バイト順マーク）を確認し、UTF-8（EF BB BF）やUTF-16のBOMがあればそれを優先します。BOMがない場合は各文字コードで実際にデコードを試み、デコードに失敗した箇所に現れる置換文字（U+FFFD、表示上は「�」）の数が最も少なく、日本語として妥当な候補を最有力として自動選択します。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>文字コード</th><th>主な用途</th><th>判定の手がかり</th></tr>
+            <tr><td>UTF-8</td><td>現在の標準。Web・多くのアプリ</td><td>BOM（任意）や妥当なマルチバイト列。置換文字が出にくい</td></tr>
+            <tr><td>Shift_JIS / CP932</td><td>Windows・Excel CSV・業務システム</td><td>日本語がUTF-8だと化ける。SJISで読むと通る</td></tr>
+            <tr><td>EUC-JP</td><td>旧来のUNIX系・一部の掲示板/メール</td><td>SJISともUTF-8とも異なるバイト範囲</td></tr>
+            <tr><td>ISO-2022-JP</td><td>日本語メール（JISコード）</td><td>エスケープシーケンスで切替</td></tr>
+            <tr><td>UTF-16LE</td><td>Windowsのメモ帳「Unicode」保存など</td><td>BOM（FF FE）やヌルバイトが規則的に出現</td></tr>
+        </table>
+        </div>
+        <h3>改行コード（CRLF / LF / CR）の変換</h3>
+        <p>改行コードは行の区切りを表す制御文字で、Windowsは CRLF（\r\n）、Mac/Linuxや多くのプログラミング環境は LF（\n）、古いMac OSは CR（\r）を使います。改行コードが混在するとdiffが余計に膨らむ、シェルスクリプトが動かない、CSVの行がずれるといった不具合の原因になります。本ツールは読み込んだテキストの改行コードを判定して表示し、出力時に CRLF・LF・CR のいずれかへ一括変換できます。</p>
+        <h3>バイトのHEX表示</h3>
+        <p>先頭バイトの16進ダンプ（HEX表示）を、オフセット・16進・対応するASCII文字とあわせて表示します。BOMの有無や、想定した文字コードのバイト範囲になっているかを目視で確認したいときに役立ちます。</p>
+
+        <h2>この処理はブラウザだけでできること・できないこと</h2>
+        <p>本ツールは外部のCDNやサーバーを一切使わず、ブラウザ標準の TextDecoder のみで動作します。TextDecoder は Shift_JIS・EUC-JP・ISO-2022-JP・UTF-16 などの旧来の文字コードを「読み込む（デコードする）」ことができるため、文字化けの修復に最適です。一方で、Web標準の仕様上ブラウザが「書き出せる（エンコードできる）」のは UTF-8 のみで、Shift_JISで保存し直すことはできません。そのため本ツールの役割は、文字コードの判定・デコードによる文字化け修復、改行コードの変換、HEX表示に絞っており、ダウンロードは UTF-8（BOMなし）で提供します。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">なぜ文字化けが起きるの？</div><div class="a">文字化けは、ファイルを作成したときの文字コードと、開いたソフトが想定した文字コードが食い違うことで起こります。日本の業務システムや古いExcelのCSVは今でもShift_JIS（CP932）を前提にしていることが多く、UTF-8で保存したファイルをそのまま開くと「譁�」のように化けます。本ツールはファイルのバイト列を読み取り、Shift_JIS・EUC-JP・ISO-2022-JP・UTF-8・UTF-16の各文字コードでデコードした結果を並べて表示するので、正しく読める文字コードを選んで文字化けを修復できます。</div></div>
+        <div class="faq-item"><div class="q">文字コードは自動で判定できる？</div><div class="a">はい。まずBOM（バイト順マーク）の有無を確認し、UTF-8・UTF-16のBOM付きファイルはそれを優先します。BOMがない場合は各文字コードでデコードを試し、文字化けの目印である置換文字（U+FFFD �）が最も少なく、日本語として妥当な範囲に収まる候補を「最有力」として自動選択します。あくまで推定のため、複数の候補が近い場合は各プレビューを見比べて正しいものを選んでください。</div></div>
+        <div class="faq-item"><div class="q">Shift_JISで保存し直せる？</div><div class="a">いいえ。ブラウザ標準のTextDecoderはShift_JIS・EUC-JP・ISO-2022-JPなどの旧来の日本語文字コードを「読み込む（デコードする）」ことはできますが、書き出せる（エンコードできる）のはUTF-8のみという仕様です。そのため本ツールはShift_JISでの再保存には対応していません。役割は、文字化けの原因となる文字コードを判定してデコード・修復し、改行コードを変換し、バイトをHEX表示することです。ダウンロードはUTF-8（BOMなし）で行えます。</div></div>
+        <div class="faq-item"><div class="q">改行コードのCRLF・LF・CRとは？</div><div class="a">改行コードは行の区切りを表す制御文字で、Windowsは CRLF（\r\n）、Mac/Linux・多くのプログラミング環境は LF（\n）、古いMac OSは CR（\r）を使います。混在するとdiffが崩れたり、シェルスクリプトが動かない、CSVの行がずれるといった不具合の原因になります。本ツールは現在の改行コードを判定して表示し、CRLF・LF・CRのいずれかへ一括変換できます。</div></div>
+        <div class="faq-item"><div class="q">アップロードしたファイルはサーバーに送られる？</div><div class="a">いいえ。文字コードの判定・デコード・改行変換・HEX表示・ダウンロードまで、すべての処理はお使いのブラウザ内（クライアントサイド）で完結します。ファイルの中身がサーバーへ送信されることはなく、外部CDNのライブラリも使わずブラウザ標準のTextDecoderのみで動作するため、社外秘のCSVやログも安心して扱えます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ===== 状態 =====
+let currentBytes = null;    // Uint8Array（元バイト列）
+let currentFileName = 'text';
+let candidates = [];        // [{enc, label, text, fffd, score, hasBom}]
+let selectedEnc = null;
+
+const ENCODINGS = [
+    {enc:'utf-8',      label:'UTF-8'},
+    {enc:'shift_jis',  label:'Shift_JIS (CP932)'},
+    {enc:'euc-jp',     label:'EUC-JP'},
+    {enc:'iso-2022-jp',label:'ISO-2022-JP'},
+    {enc:'utf-16le',   label:'UTF-16LE'}
+];
+
+// ===== BOM 判定 =====
+function detectBom(b){
+    if (b.length>=3 && b[0]===0xEF && b[1]===0xBB && b[2]===0xBF) return {enc:'utf-8', name:'UTF-8 BOM (EF BB BF)', skip:3};
+    if (b.length>=2 && b[0]===0xFF && b[1]===0xFE) return {enc:'utf-16le', name:'UTF-16LE BOM (FF FE)', skip:2};
+    if (b.length>=2 && b[0]===0xFE && b[1]===0xFF) return {enc:'utf-16be', name:'UTF-16BE BOM (FE FF)', skip:2};
+    return null;
+}
+
+// ===== U+FFFD（置換文字）を数える =====
+function countFffd(str){
+    let n=0;
+    for (let i=0;i<str.length;i++){ if (str.charCodeAt(i)===0xFFFD) n++; }
+    return n;
+}
+
+// ===== 各文字コードでデコード =====
+function decodeAll(bytes){
+    const bom = detectBom(bytes);
+    const list = [];
+    ENCODINGS.forEach(e=>{
+        let text='';
+        let ok=true;
+        try{
+            const dec = new TextDecoder(e.enc, {fatal:false});
+            text = dec.decode(bytes);
+        }catch(err){ ok=false; text='(この文字コードは非対応: '+e.enc+')'; }
+        const fffd = ok ? countFffd(text) : Number.MAX_SAFE_INTEGER;
+        // ヒューリスティック: 置換文字の割合が低いほど良い。
+        const ratio = text.length ? fffd/text.length : 1;
+        let score = ratio;
+        // BOMが一致する文字コードは強く優先
+        let hasBom=false;
+        if (bom && bom.enc===e.enc){ score -= 1; hasBom=true; }
+        list.push({enc:e.enc, label:e.label, text, fffd, ratio, score, ok, hasBom});
+    });
+    // score 昇順（小さいほど良い）
+    list.sort((a,b)=> a.score - b.score);
+    return {list, bom};
+}
+
+// ===== 改行コード判定 =====
+function detectEol(text){
+    const crlf=(text.match(/\r\n/g)||[]).length;
+    const lfOnly=(text.match(/(?<!\r)\n/g)||[]).length;
+    const crOnly=(text.match(/\r(?!\n)/g)||[]).length;
+    if (crlf===0 && lfOnly===0 && crOnly===0) return {name:'改行なし', counts:{crlf,lf:lfOnly,cr:crOnly}};
+    const arr=[['CRLF',crlf],['LF',lfOnly],['CR',crOnly]].filter(x=>x[1]>0);
+    if (arr.length>1) return {name:'混在（'+arr.map(x=>x[0]+':'+x[1]).join(' / ')+'）', counts:{crlf,lf:lfOnly,cr:crOnly}};
+    return {name:arr[0][0], counts:{crlf,lf:lfOnly,cr:crOnly}};
+}
+
+// ===== 改行コード変換 =====
+function convertEol(text, mode){
+    if (mode==='keep') return text;
+    const norm = text.replace(/\r\n/g,'\n').replace(/\r/g,'\n');
+    if (mode==='lf') return norm;
+    if (mode==='crlf') return norm.replace(/\n/g,'\r\n');
+    if (mode==='cr') return norm.replace(/\n/g,'\r');
+    return text;
+}
+
+// ===== HEX ダンプ =====
+function hexDump(bytes, maxBytes){
+    const limit=Math.min(bytes.length, maxBytes||256);
+    let out='';
+    for (let i=0;i<limit;i+=16){
+        const off=i.toString(16).padStart(8,'0');
+        let hex='', ascii='';
+        for (let j=0;j<16;j++){
+            if (i+j<limit){
+                const v=bytes[i+j];
+                hex+=v.toString(16).padStart(2,'0')+' ';
+                ascii+=(v>=0x20 && v<0x7f)?String.fromCharCode(v):'.';
+            } else { hex+='   '; }
+            if (j===7) hex+=' ';
+        }
+        out+=off+'  '+hex+' |'+ascii+'|\n';
+    }
+    if (bytes.length>limit) out+='... （先頭 '+limit+' / 全 '+bytes.length+' バイトを表示）\n';
+    return out;
+}
+
+// ===== 表示更新 =====
+function render(){
+    if (!currentBytes){ return; }
+    const {list, bom} = decodeAll(currentBytes);
+    candidates = list;
+    selectedEnc = selectedEnc || list[0].enc;
+
+    // メタ表示
+    document.getElementById('rBytes').textContent = currentBytes.length.toLocaleString();
+    document.getElementById('rBom').textContent = bom ? bom.name.split(' ')[0] : 'なし';
+    document.getElementById('bestEnc').textContent = list[0].label;
+    document.getElementById('rEnc').textContent = list[0].label;
+    document.getElementById('fileMeta').textContent = '対象: '+currentFileName+'（'+currentBytes.length.toLocaleString()+' バイト）';
+    document.getElementById('headline').textContent = '推定文字コード（最有力）';
+
+    // 候補カード
+    const el = document.getElementById('encList');
+    el.innerHTML='';
+    list.forEach((c,idx)=>{
+        const div=document.createElement('div');
+        div.className='enc-card'+(idx===0?' best':'')+(c.enc===selectedEnc?' sel':'');
+        let badge='';
+        if (idx===0) badge='<span class="enc-badge">最有力</span>';
+        else if (c.fffd===0) badge='<span class="enc-badge ok">化けなし</span>';
+        else if (c.ratio>0.05) badge='<span class="enc-badge warn">化け多い</span>';
+        const preview=(c.text||'').slice(0,140).replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        div.innerHTML='<div class="enc-head"><span class="enc-name">'+c.label+'</span>'+badge+'</div>'+
+            '<div class="enc-score">置換文字 '+(c.fffd===Number.MAX_SAFE_INTEGER?'-':c.fffd)+' 個'+(c.hasBom?' ・BOM一致':'')+'</div>'+
+            '<div class="enc-prev">'+preview+'</div>';
+        div.onclick=()=>{ selectedEnc=c.enc; render(); };
+        el.appendChild(div);
+    });
+
+    // 出力欄
+    const sel = list.find(c=>c.enc===selectedEnc) || list[0];
+    const eolMode = document.getElementById('eolSelect').value;
+    const outText = convertEol(sel.text, eolMode);
+    document.getElementById('outputArea').value = outText;
+
+    // 改行コード（元テキストで判定）
+    const eol = detectEol(sel.text);
+    document.getElementById('rEol').textContent = eol.name;
+
+    // HEX
+    document.getElementById('hexView').textContent = hexDump(currentBytes, 256);
+}
+
+// ===== ファイル読み込み =====
+function loadFile(file){
+    currentFileName = file.name || 'file';
+    const reader = new FileReader();
+    reader.onload = (e)=>{
+        currentBytes = new Uint8Array(e.target.result);
+        selectedEnc = null;
+        render();
+    };
+    reader.readAsArrayBuffer(file);
+}
+
+// ===== 貼り付けテキスト（UTF-8のバイト列として扱う）=====
+function loadPaste(){
+    const t = document.getElementById('pasteInput').value;
+    if (!t){ return; }
+    currentFileName = 'pasted-text';
+    currentBytes = new TextEncoder().encode(t); // UTF-8バイト列
+    selectedEnc = null;
+    render();
+}
+
+// ===== イベント =====
+const dz = document.getElementById('dropzone');
+const fi = document.getElementById('fileInput');
+dz.addEventListener('click', ()=> fi.click());
+fi.addEventListener('change', (e)=>{ if (e.target.files[0]) loadFile(e.target.files[0]); });
+dz.addEventListener('dragover', (e)=>{ e.preventDefault(); dz.classList.add('drag'); });
+dz.addEventListener('dragleave', ()=> dz.classList.remove('drag'));
+dz.addEventListener('drop', (e)=>{
+    e.preventDefault(); dz.classList.remove('drag');
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]);
+});
+document.getElementById('analyzePaste').addEventListener('click', loadPaste);
+document.getElementById('eolSelect').addEventListener('change', render);
+
+document.getElementById('copyBtn').addEventListener('click', ()=>{
+    const ta=document.getElementById('outputArea');
+    ta.select();
+    navigator.clipboard.writeText(ta.value).then(()=>{
+        const b=document.getElementById('copyBtn'); const o=b.textContent;
+        b.textContent='コピーしました'; setTimeout(()=>b.textContent=o,1200);
+    }).catch(()=>{ document.execCommand('copy'); });
+});
+
+document.getElementById('downloadBtn').addEventListener('click', ()=>{
+    const text=document.getElementById('outputArea').value;
+    if (!text){ return; }
+    // UTF-8（BOMなし）で書き出し
+    const blob=new Blob([new TextEncoder().encode(text)], {type:'text/plain;charset=utf-8'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    const base=(currentFileName||'text').replace(/\.[^.]+$/,'');
+    a.href=url; a.download=base+'.utf8.txt';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+});
+
+document.getElementById('clearAll').addEventListener('click', ()=>{
+    currentBytes=null; candidates=[]; selectedEnc=null; currentFileName='text';
+    document.getElementById('pasteInput').value='';
+    document.getElementById('outputArea').value='';
+    document.getElementById('fileInput').value='';
+    document.getElementById('encList').innerHTML='<div style="font-size:0.8rem;color:var(--text3)">入力するとここに各文字コードのプレビューが並びます。</div>';
+    document.getElementById('hexView').textContent='ファイルまたはテキストを入力すると、先頭バイトの16進ダンプを表示します。';
+    ['bestEnc','rEnc','rEol','rBytes','rBom'].forEach(id=>document.getElementById(id).textContent='-');
+    document.getElementById('fileMeta').textContent='ファイルまたはテキストを入力してください';
+    document.getElementById('headline').textContent='判定結果';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML整形・検証ツール | XMLフォーマッター（インデント・圧縮）＆整形式チェック【無料】</title>
+    <meta name="description" content="XMLを見やすく整形（インデント2/4スペース・タブ）／圧縮（ミニファイ）できる無料ツール。ブラウザのDOMParserで整形式（well-formed）を検証し、構文エラーを分かりやすく表示。CDATA・コメント・属性・名前空間・処理命令を保持。すべて端末内で処理。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        textarea{width:100%;min-height:180px;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.85rem;line-height:1.6;outline:none;resize:vertical;white-space:pre;overflow-wrap:normal}
+        textarea:focus{border-color:var(--accent)}
+        .btn-row{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+        .btn{padding:10px 20px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.sec{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.sec:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+        .status{padding:12px 16px;border-radius:8px;font-size:0.8rem;margin-bottom:14px;display:none;line-height:1.6}
+        .status.ok{display:block;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);color:#15803d}
+        .status.err{display:block;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);color:#b91c1c;font-family:'JetBrains Mono',monospace;white-space:pre-wrap;word-break:break-word}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-115-xml-format/">
+    <meta property="og:title" content="XML整形・検証ツール | XMLフォーマッター＆整形式チェック【無料】">
+    <meta property="og:description" content="XMLを整形（インデント）／圧縮し、DOMParserで整形式を検証。CDATA・コメント・属性・名前空間を保持。すべて端末内で処理。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-115-xml-format/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="XML整形・検証ツール【無料】">
+    <meta name="twitter:description" content="XMLを整形／圧縮し、整形式（well-formed）を検証。すべてブラウザ内で処理。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"XML整形・検証ツール","description":"XMLを整形（インデント）・圧縮（ミニファイ）し、ブラウザのDOMParserで整形式を検証する無料ツール","url":"https://www.devtools-japan.com/tool-115-xml-format/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"XML整形・検証ツール","item":"https://www.devtools-japan.com/tool-115-xml-format/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"XMLの整形（フォーマット）とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"XMLの整形とは、1行に詰まったり不規則にインデントされたXMLを、要素の階層に合わせて改行・字下げして人間が読みやすい形に並べ替えることです。本ツールではインデント幅を半角スペース2個・4個・タブから選べます。逆に、改行や余分な空白を取り除いてファイルサイズを小さくする「圧縮（ミニファイ）」も行えます。整形・圧縮どちらもタグの構造や意味は変えません。"}},{"@type":"Question","name":"整形式（well-formed）の検証はどう行われますか？","acceptedAnswer":{"@type":"Answer","text":"ブラウザに標準搭載されているDOMParserでXMLを解析し、パースに失敗した場合はparsererror要素が返るため、それを検出してエラー内容を表示します。タグの閉じ忘れ、開始タグと終了タグの不一致、属性値のクォート漏れ、ルート要素が複数あるなどの整形式エラーを検出できます。処理はすべてお使いのブラウザ内で完結し、サーバーへは一切送信しません。"}},{"@type":"Question","name":"CDATAやコメント、名前空間は保持されますか？","acceptedAnswer":{"@type":"Answer","text":"はい。整形・圧縮ともにDOMツリーをたどって再構築するため、CDATAセクション、コメント、属性、名前空間（xmlns接頭辞）、XML宣言や処理命令（PI）は保持されます。テキストノードの内容自体は変更しません。ただし要素間にある意味を持たない空白（インデント用の空白）は整形時に付け替えられます。"}},{"@type":"Question","name":"DTDやスキーマ（XSD）の検証はできますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールが行うのは「整形式（well-formed）」の検証、つまりXMLの構文が正しいかどうかのチェックです。DTDやXML Schema（XSD）に対して内容が妥当か（valid）を検証する機能は含まれていません。要素の出現順や必須属性などスキーマに基づく妥当性検証が必要な場合は、専用のバリデーターをご利用ください。"}},{"@type":"Question","name":"入力したXMLはサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。本ツールはJavaScriptでブラウザ内だけで動作し、入力したXMLが外部サーバーに送信・保存されることはありません。APIのレスポンスや設定ファイルなど、機密情報を含むXMLでも安心して整形・検証にお使いいただけます。オフラインでもページを開いていれば利用できます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>XML整形・検証</h1><p>XMLの整形（インデント）・圧縮とwell-formed検証</p></header>
+
+    <div class="card"><h3>XMLを入力</h3>
+        <textarea id="input" placeholder="ここにXMLを貼り付けてください" spellcheck="false" oninput="clearStatus()"></textarea>
+        <div class="row"><label>インデント（整形時）</label>
+            <select id="indent">
+                <option value="2">スペース2個</option>
+                <option value="4">スペース4個</option>
+                <option value="tab">タブ</option>
+            </select>
+        </div>
+        <div class="btn-row">
+            <button class="btn" onclick="formatXml()">整形する</button>
+            <button class="btn" onclick="minifyXml()">圧縮する</button>
+            <button class="btn sec" onclick="validateXml()">検証のみ</button>
+            <button class="btn sec" onclick="loadSample()">サンプル</button>
+            <button class="btn sec" onclick="copyOut()">コピー</button>
+            <button class="btn sec" onclick="clearAll()">クリア</button>
+        </div>
+    </div>
+
+    <div id="status" class="status"></div>
+
+    <div class="card"><h3>結果</h3>
+        <textarea id="output" placeholder="整形・圧縮の結果がここに表示されます" spellcheck="false" readonly></textarea>
+    </div>
+
+    <div class="note">整形・圧縮・検証はすべてお使いのブラウザ内（JavaScript）で処理され、入力したXMLが外部サーバーへ送信されることはありません。検証はブラウザのDOMParserによる「整形式（well-formed）」チェックです（DTD／スキーマの妥当性検証は行いません）。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>XML整形・検証ツールの使い方</h2>
+        <p>XMLを貼り付けるだけで、階層に合わせて見やすくインデント整形したり、余分な空白・改行を取り除いて1行に圧縮（ミニファイ）できる無料ツールです。同時にブラウザ標準のDOMParserで整形式（well-formed）かどうかを検証し、タグの閉じ忘れや不一致などの構文エラーを分かりやすく表示します。インストールや会員登録は不要で、すべての処理はお使いの端末内で完結するため、機密情報を含むXMLでも安心してご利用いただけます。</p>
+        <p>使い方はかんたんです。入力欄にXMLを貼り付け、「整形する」を押すと選択したインデント幅（スペース2個・4個・タブ）で読みやすく整形されます。「圧縮する」を押すと意味を持たない空白を取り除いてファイルサイズを削減します。「検証のみ」では整形せずに構文エラーの有無だけを確認できます。結果は「コピー」ボタンでクリップボードにコピーでき、「サンプル」ボタンでサンプルXMLを読み込めます。</p>
+        <h3>こんな用途に</h3>
+        <p>APIのレスポンスや設定ファイル（web.config・pom.xml・AndroidManifest.xmlなど）、RSS/Atomフィード、SVG、SOAPメッセージ、SitemapのXMLなどを読みやすく整形するのに使えます。逆に、通信量やファイルサイズを抑えたいときはXMLを圧縮できます。コピー＆ペーストで貼り付けたXMLがなぜエラーになるのか分からないときも、整形式チェックで原因の箇所を特定するのに役立ちます。</p>
+
+        <h2>整形と圧縮の違い</h2>
+        <p>「整形（プリティプリント）」は改行とインデントを加えて人間が読みやすい形にする処理、「圧縮（ミニファイ）」は要素間の意味を持たない空白を取り除いてデータを軽くする処理です。どちらもDOMツリーを再構築して出力するため、タグの構造や属性、テキストの内容といったXMLの意味は変わりません。整形したものを再度圧縮すれば元の圧縮状態に戻せる（ラウンドトリップできる）のが特長です。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>処理</th><th>内容</th><th>主な用途</th></tr>
+            <tr><td>整形</td><td>階層に合わせて改行・インデント</td><td>可読性向上・レビュー・デバッグ</td></tr>
+            <tr><td>圧縮</td><td>意味を持たない空白・改行を除去</td><td>サイズ削減・通信量削減</td></tr>
+            <tr><td>検証</td><td>DOMParserで整形式をチェック</td><td>構文エラーの発見・原因特定</td></tr>
+        </table>
+        </div>
+        <h3>保持される要素</h3>
+        <p>本ツールはDOMツリーをたどって出力を再構築するため、CDATAセクション、コメント（&lt;!-- --&gt;）、属性、名前空間（xmlns接頭辞）、XML宣言、処理命令（PI）は保持されます。テキストノードの中身自体は変更しません。整形時に付け替えられるのは、要素と要素の間にあるインデント用の空白だけです。要素内にテキストと子要素が混在する「混合コンテンツ」は、意図しない空白の増減を避けるため整形せずにそのまま出力します。</p>
+
+        <h2>整形式（well-formed）とは</h2>
+        <p>整形式とは、XMLの構文ルールを満たしている状態のことです。すべての開始タグに対応する終了タグがある、タグが正しく入れ子になっている、属性値がクォートで囲まれている、ルート要素が1つだけ、といった条件を満たす必要があります。本ツールはこれらの構文チェックを行いますが、DTDやXML Schema（XSD）に照らして内容が妥当か（valid）までは検証しません。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">XMLの整形（フォーマット）とは何ですか？</div><div class="a">XMLの整形とは、1行に詰まったり不規則にインデントされたXMLを、要素の階層に合わせて改行・字下げして人間が読みやすい形に並べ替えることです。本ツールではインデント幅を半角スペース2個・4個・タブから選べます。逆に、改行や余分な空白を取り除いてファイルサイズを小さくする「圧縮（ミニファイ）」も行えます。整形・圧縮どちらもタグの構造や意味は変えません。</div></div>
+        <div class="faq-item"><div class="q">整形式（well-formed）の検証はどう行われますか？</div><div class="a">ブラウザに標準搭載されているDOMParserでXMLを解析し、パースに失敗した場合はparsererror要素が返るため、それを検出してエラー内容を表示します。タグの閉じ忘れ、開始タグと終了タグの不一致、属性値のクォート漏れ、ルート要素が複数あるなどの整形式エラーを検出できます。処理はすべてお使いのブラウザ内で完結し、サーバーへは一切送信しません。</div></div>
+        <div class="faq-item"><div class="q">CDATAやコメント、名前空間は保持されますか？</div><div class="a">はい。整形・圧縮ともにDOMツリーをたどって再構築するため、CDATAセクション、コメント、属性、名前空間（xmlns接頭辞）、XML宣言や処理命令（PI）は保持されます。テキストノードの内容自体は変更しません。ただし要素間にある意味を持たない空白（インデント用の空白）は整形時に付け替えられます。</div></div>
+        <div class="faq-item"><div class="q">DTDやスキーマ（XSD）の検証はできますか？</div><div class="a">本ツールが行うのは「整形式（well-formed）」の検証、つまりXMLの構文が正しいかどうかのチェックです。DTDやXML Schema（XSD）に対して内容が妥当か（valid）を検証する機能は含まれていません。要素の出現順や必須属性などスキーマに基づく妥当性検証が必要な場合は、専用のバリデーターをご利用ください。</div></div>
+        <div class="faq-item"><div class="q">入力したXMLはサーバーに送信されますか？</div><div class="a">いいえ。本ツールはJavaScriptでブラウザ内だけで動作し、入力したXMLが外部サーバーに送信・保存されることはありません。APIのレスポンスや設定ファイルなど、機密情報を含むXMLでも安心して整形・検証にお使いいただけます。オフラインでもページを開いていれば利用できます。</div></div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-1-json-format/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">JSON整形</a><a href="/tool-2-sql-format/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">SQL整形</a><a href="/tool-13-base64/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">Base64エンコード</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+var SAMPLE = '<?xml version="1.0" encoding="UTF-8"?>\n<!-- 書店の在庫サンプル -->\n<catalog xmlns:app="https://example.com/app"><book id="b-001" lang="ja"><title>XML入門</title><author>山田 太郎</author><price currency="JPY">2800</price><description><![CDATA[初学者向けの<解説>を含みます]]></description><app:tags><tag>技術書</tag><tag>入門</tag></app:tags></book><book id="b-002" lang="en"><title>Learning XML</title><author>Jane Doe</author><price currency="USD">39.99</price></book></catalog>';
+
+function getIndentUnit(){
+    var v = document.getElementById('indent').value;
+    return v === 'tab' ? '\t' : ' '.repeat(parseInt(v, 10));
+}
+
+function clearStatus(){
+    var s = document.getElementById('status');
+    s.className = 'status';
+    s.textContent = '';
+}
+
+function setOk(msg){
+    var s = document.getElementById('status');
+    s.className = 'status ok';
+    s.textContent = '✓ ' + msg;
+}
+
+function setErr(msg){
+    var s = document.getElementById('status');
+    s.className = 'status err';
+    s.textContent = '✗ ' + msg;
+}
+
+// Parse and return doc; throws Error with readable message on failure
+function parseXml(text){
+    if (!text || !text.trim()){
+        throw new Error('XMLが入力されていません。');
+    }
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(text, 'application/xml');
+    var errNode = doc.getElementsByTagName('parsererror')[0];
+    if (errNode){
+        var raw = (errNode.textContent || '整形式エラー').trim();
+        // Firefox puts details in child nodes; Chrome as text. Normalize whitespace.
+        throw new Error(raw.replace(/\s*\n\s*/g, '\n'));
+    }
+    return doc;
+}
+
+function escapeText(s){
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function escapeAttr(s){
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+}
+
+function openTag(el){
+    var t = '<' + el.nodeName;
+    for (var i = 0; i < el.attributes.length; i++){
+        var a = el.attributes[i];
+        t += ' ' + a.name + '="' + escapeAttr(a.value) + '"';
+    }
+    return t;
+}
+
+// Serialize any node. indentUnit falsy => minify (no newlines / padding).
+function serializeNode(node, indentUnit, level){
+    var NT = { ELEMENT: 1, TEXT: 3, CDATA: 4, PI: 7, COMMENT: 8 };
+    var pad = indentUnit ? indentUnit.repeat(level) : '';
+    switch (node.nodeType){
+        case NT.TEXT:
+            // Text reaching here sits between element children => insignificant whitespace. Always drop.
+            if (!node.nodeValue.trim()) return '';
+            return pad + escapeText(node.nodeValue);
+        case NT.CDATA:
+            return pad + '<![CDATA[' + node.nodeValue + ']]>';
+        case NT.COMMENT:
+            return pad + '<!--' + node.nodeValue + '-->';
+        case NT.PI:
+            return pad + '<?' + node.target + ' ' + node.data + '?>';
+        case NT.ELEMENT:
+            return serializeElement(node, indentUnit, level);
+        default:
+            return pad + new XMLSerializer().serializeToString(node);
+    }
+}
+
+function serializeElement(el, indentUnit, level){
+    var pad = indentUnit ? indentUnit.repeat(level) : '';
+    var nl = indentUnit ? '\n' : '';
+    var children = el.childNodes;
+
+    // Classify children
+    var elementChildren = 0, significantText = 0, structural = 0;
+    for (var i = 0; i < children.length; i++){
+        var c = children[i];
+        if (c.nodeType === 1) elementChildren++;
+        else if (c.nodeType === 3){ if (c.nodeValue.trim().length) significantText++; }
+        else if (c.nodeType === 4 || c.nodeType === 8 || c.nodeType === 7) structural++;
+    }
+
+    // Empty element
+    if (children.length === 0){
+        return pad + openTag(el) + '></' + el.nodeName + '>';
+    }
+
+    // Mixed content (element children AND significant text): serialize inline to preserve meaning
+    if (elementChildren > 0 && significantText > 0){
+        return pad + new XMLSerializer().serializeToString(el);
+    }
+
+    // Leaf with only text (no element / CDATA / comment children): keep on one line
+    if (elementChildren === 0 && structural === 0){
+        var inner = '';
+        for (var j = 0; j < children.length; j++){
+            if (children[j].nodeType === 3) inner += children[j].nodeValue;
+        }
+        return pad + openTag(el) + '>' + escapeText(inner.trim()) + '</' + el.nodeName + '>';
+    }
+
+    // Block: element children and/or CDATA/comment/PI children
+    var parts = [];
+    for (var k = 0; k < children.length; k++){
+        var s = serializeNode(children[k], indentUnit, level + 1);
+        if (s !== '') parts.push(s);
+    }
+    return pad + openTag(el) + '>' + nl + parts.join(nl) + nl + pad + '</' + el.nodeName + '>';
+}
+
+function serializeDoc(doc, indentUnit){
+    var out = [];
+    var children = doc.childNodes;
+    for (var i = 0; i < children.length; i++){
+        var s = serializeNode(children[i], indentUnit, 0);
+        if (s !== '') out.push(s);
+    }
+    return out.join(indentUnit ? '\n' : '');
+}
+
+// XML declaration is not exposed as a DOM node; recover it from the source text.
+function getXmlDeclaration(text){
+    var m = text.match(/^\s*<\?xml[^>]*\?>/i);
+    return m ? m[0].trim() : '';
+}
+
+function formatXml(){
+    try {
+        var text = document.getElementById('input').value;
+        var doc = parseXml(text);
+        var decl = getXmlDeclaration(text);
+        var body = serializeDoc(doc, getIndentUnit());
+        document.getElementById('output').value = decl ? decl + '\n' + body : body;
+        setOk('整形式のXMLです。整形しました。');
+    } catch (e){
+        document.getElementById('output').value = '';
+        setErr('整形式エラー:\n' + e.message);
+    }
+}
+
+function minifyXml(){
+    try {
+        var text = document.getElementById('input').value;
+        var doc = parseXml(text);
+        var decl = getXmlDeclaration(text);
+        var body = serializeDoc(doc, ''); // no indent = minify
+        document.getElementById('output').value = decl ? decl + body : body;
+        setOk('整形式のXMLです。圧縮しました。');
+    } catch (e){
+        document.getElementById('output').value = '';
+        setErr('整形式エラー:\n' + e.message);
+    }
+}
+
+function validateXml(){
+    try {
+        parseXml(document.getElementById('input').value);
+        setOk('整形式（well-formed）のXMLです。構文エラーはありません。');
+    } catch (e){
+        setErr('整形式エラー:\n' + e.message);
+    }
+}
+
+function loadSample(){
+    document.getElementById('input').value = SAMPLE;
+    document.getElementById('output').value = '';
+    clearStatus();
+}
+
+function copyOut(){
+    var out = document.getElementById('output');
+    if (!out.value){ setErr('コピーする結果がありません。先に整形または圧縮してください。'); return; }
+    out.select();
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(out.value).then(function(){ setOk('結果をクリップボードにコピーしました。'); },
+            function(){ try { document.execCommand('copy'); setOk('結果をコピーしました。'); } catch(e){ setErr('コピーに失敗しました。'); } });
+    } else {
+        try { document.execCommand('copy'); setOk('結果をコピーしました。'); } catch(e){ setErr('コピーに失敗しました。'); }
+    }
+}
+
+function clearAll(){
+    document.getElementById('input').value = '';
+    document.getElementById('output').value = '';
+    clearStatus();
+}
+</script>
+</body>
+</html>

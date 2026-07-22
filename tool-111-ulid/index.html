@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ULID / NanoID / UUID v7 生成ツール | ソート可能なモダンID生成【無料】</title>
+    <meta name="description" content="ULID・NanoID・UUID v7（RFC 9562）・CUID2を無料生成。時系列でソート可能・URLセーフ・短い分散ID対応。まとめて生成・CSV/JSON出力・ULIDのタイムスタンプ復号・比較表つき。100%ブラウザ内処理で安全。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.sec{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .type-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+        .type-tabs button{flex:1;min-width:90px;padding:10px 8px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.85rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif;font-weight:500}
+        .type-tabs button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+        .opt-block{display:none;margin-top:8px}
+        .opt-block.show{display:block}
+        .id-list{margin-top:8px;max-height:420px;overflow-y:auto}
+        .id-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;background:#f7f8fb}
+        .id-item .idx{font-size:0.7rem;color:var(--text3);min-width:26px;font-family:'JetBrains Mono',monospace}
+        .id-item .val{flex:1;font-family:'JetBrains Mono',monospace;font-size:0.82rem;color:var(--text);word-break:break-all}
+        .id-item button{padding:5px 10px;background:#fff;border:1px solid var(--border);border-radius:6px;color:var(--text2);font-size:0.72rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif;white-space:nowrap}
+        .id-item button:hover{border-color:var(--accent);color:var(--accent)}
+        .btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+        .decode-out{font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--accent);word-break:break-all}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-111-ulid/">
+    <meta property="og:title" content="ULID / NanoID / UUID v7 生成ツール | ソート可能なモダンID生成【無料】">
+    <meta property="og:description" content="ULID・NanoID・UUID v7・CUID2を無料生成。時系列ソート可能・URLセーフ。まとめて生成・CSV/JSON出力・比較表つき。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-111-ulid/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ULID / NanoID / UUID v7 生成ツール【無料】">
+    <meta name="twitter:description" content="ソート可能なモダンID（ULID/NanoID/UUID v7/CUID2）を無料生成。CSV・JSON出力対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"ULID / NanoID / UUID v7 生成ツール","description":"ULID・NanoID・UUID v7（RFC 9562）・CUID2を生成する無料のモダンID生成ツール","url":"https://www.devtools-japan.com/tool-111-ulid/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"ULID / NanoID / UUID v7 生成ツール","item":"https://www.devtools-japan.com/tool-111-ulid/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ULIDとUUID v7の違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"どちらも先頭に48ビットのミリ秒タイムスタンプを持ち、生成順（時系列）に並ぶ点は共通です。違いは表現形式で、ULIDは26文字のCrockford Base32（大文字・数字、I/L/O/Uを除く）で表し、ハイフンを含まず辞書順の文字列ソートがそのまま時系列ソートになります。UUID v7はRFC 9562で標準化された36文字のUUID形式（8-4-4-4-12のハイフン区切り16進数）で、既存のUUIDカラムやライブラリとの互換性が高いのが利点です。DBの主キーを見た目でコンパクトにしたいならULID、標準UUID型をそのまま使いたいならUUID v7が向きます。"}},{"@type":"Question","name":"NanoIDはなぜUUIDより短いのに衝突しないのですか？","acceptedAnswer":{"@type":"Answer","text":"NanoIDは既定で21文字、64種類のURLセーフな文字（A-Z a-z 0-9 と _ -）を使うため、21文字で約126ビットの乱数量を持ちます。これはUUID v4の122ビットとほぼ同等で、暗号論的乱数（crypto.getRandomValues）で生成すれば実用上の衝突確率は極めて低くなります。文字数を増やせばさらに衝突耐性が上がり、逆に短くすると衝突しやすくなるため、用途に応じて長さを調整できます。ハイフンで区切らない連続文字列なのでURLやファイル名に埋め込みやすいのが特徴です。"}},{"@type":"Question","name":"UUID v4の代わりにUUID v7を使うメリットは？","acceptedAnswer":{"@type":"Answer","text":"UUID v4は完全ランダムのため、データベースの主キーに使うとインデックス（B-Tree）上で挿入位置がバラバラになり、ページ分割やキャッシュ効率の低下を招きます。UUID v7は先頭がタイムスタンプなので新しいレコードほど末尾に追記され、挿入が局所化してインデックスの断片化を抑えられます。結果として書き込み性能やレンジ検索が改善し、生成時刻の近い順に自然に並ぶためログやイベントの主キーにも適します。ランダム性が不要な部分だけ時刻に置き換えた設計なので、分散環境でも一意性は保たれます。"}},{"@type":"Question","name":"CUID2とはどんなIDですか？","acceptedAnswer":{"@type":"Answer","text":"CUID2は衝突耐性を重視した英小文字と数字だけの短いID（既定24文字）で、必ずアルファベットで始まります。連番やタイムスタンプをそのまま露出させず推測されにくくすることを目的としており、時系列ソートには向きません。URLやHTMLのidに使いやすく、大文字小文字の混同や特殊文字の問題が起きにくいのが利点です。ソート可能性が不要で、推測されにくく取り回しの良い識別子が欲しい場面に向いています。"}},{"@type":"Question","name":"結局どのIDを選べばよいですか？","acceptedAnswer":{"@type":"Answer","text":"DBの主キーで挿入性能と時系列ソートを両立したいならULIDまたはUUID v7、既存のUUID型・ライブラリ資産を活かすならUUID v7、見た目を短くしたいならULID。URLやAPIキー・短縮リンクなどURLセーフで短い識別子が欲しいならNanoID。推測されにくく取り回しの良い一般用途のIDならCUID2が候補です。ランダム性だけが必要で標準性を最優先するなら従来のUUID v4も選択肢になります。まずは主キー用途か表示用途かで大きく分け、ソートが必要かどうかで絞り込むと選びやすくなります。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>ULID / NanoID / UUID v7 生成</h1><p>ソート可能・URLセーフなモダンIDをまとめて生成（100%ブラウザ内処理）</p></header>
+
+    <div class="card"><h3>ID種類を選択</h3>
+        <div class="type-tabs" id="typeTabs">
+            <button data-type="ulid" class="active" onclick="setType('ulid')">ULID</button>
+            <button data-type="nanoid" onclick="setType('nanoid')">NanoID</button>
+            <button data-type="uuidv7" onclick="setType('uuidv7')">UUID v7</button>
+            <button data-type="cuid2" onclick="setType('cuid2')">CUID2</button>
+        </div>
+        <div style="font-size:0.72rem;color:var(--text3);margin-top:4px" id="typeDesc"></div>
+
+        <div class="opt-block show" id="opt-ulid">
+            <div class="row"><label>単調増加（同一ミリ秒内で順序保証）</label><input type="checkbox" id="ulidMono" style="width:auto" checked></div>
+        </div>
+        <div class="opt-block" id="opt-nanoid">
+            <div class="row"><label>文字数</label><input type="number" id="nanoLen" value="21" min="2" max="256"></div>
+            <div class="row"><label>使用文字（アルファベット）</label><input type="text" id="nanoAlpha" value="useandom-26T198340PX75pxJACKVERYMINDBUSHWOLF_GQZbfghjklmnvcdsqty1" style="text-align:left;width:100%;font-family:JetBrains Mono,monospace;font-size:0.75rem"></div>
+        </div>
+        <div class="opt-block" id="opt-cuid2">
+            <div class="row"><label>文字数</label><input type="number" id="cuidLen" value="24" min="8" max="32"></div>
+        </div>
+
+        <div class="row" style="margin-top:4px"><label>生成する個数（1〜100）</label><input type="number" id="count" value="5" min="1" max="100"></div>
+        <div class="btn-row">
+            <button class="btn" onclick="generate()">生成する</button>
+            <button class="btn sec" onclick="copyAll()">すべてコピー</button>
+            <button class="btn sec" onclick="downloadCSV()">CSV出力</button>
+            <button class="btn sec" onclick="downloadJSON()">JSON出力</button>
+        </div>
+    </div>
+
+    <div class="card"><h3>生成結果</h3>
+        <div class="id-list" id="idList"><div style="color:var(--text3);font-size:0.82rem;padding:8px">「生成する」を押すとここにIDが表示されます。</div></div>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="card"><h3>ULID タイムスタンプ復号</h3>
+        <div class="row"><label>ULIDを入力</label><input type="text" id="decodeInput" placeholder="01ARZ3NDEKTSV4RRFFQ69G5FAV" style="text-align:left;width:100%;font-family:JetBrains Mono,monospace;font-size:0.8rem" oninput="decodeUlid()"></div>
+        <div style="margin-top:12px">
+            <div style="font-size:0.7rem;color:var(--text3);margin-bottom:4px">埋め込まれた生成日時</div>
+            <div class="decode-out" id="decodeOut">ULIDの先頭10文字からミリ秒タイムスタンプを復元します。</div>
+        </div>
+    </div>
+
+    <div class="card"><h3>比較：どれを選ぶ？</h3>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>種類</th><th>長さ</th><th>ソート</th><th>文字種</th><th>主な用途</th></tr>
+            <tr><td>UUID v4</td><td>36</td><td>不可</td><td>16進+ハイフン</td><td>汎用・完全ランダム</td></tr>
+            <tr><td>UUID v7</td><td>36</td><td>時系列可</td><td>16進+ハイフン</td><td>DB主キー（RFC 9562）・標準互換</td></tr>
+            <tr><td>ULID</td><td>26</td><td>時系列可</td><td>Crockford Base32</td><td>DB主キー・ログ・短く見せたい</td></tr>
+            <tr><td>NanoID</td><td>21(既定)</td><td>不可</td><td>URLセーフ64種</td><td>URL・短縮リンク・APIキー</td></tr>
+            <tr><td>CUID2</td><td>24(既定)</td><td>不可</td><td>英小文字+数字</td><td>推測されにくい汎用ID・HTML id</td></tr>
+        </table>
+        </div>
+    </div>
+
+    <div class="note">すべての生成はお使いの端末内（JavaScript）で完結し、IDがサーバーへ送信されることはありません。乱数は暗号論的に安全な crypto.getRandomValues を使用しています。ULIDは48ビットのミリ秒タイムスタンプ＋80ビットの乱数、UUID v7はRFC 9562準拠のレイアウト（バージョン7・バリアント）で生成します。</div>
+
+    <div class="seo-content">
+        <h2>モダンID生成ツールの使い方</h2>
+        <p>ULID・NanoID・UUID v7・CUID2という、2025〜2026年にかけてUUID v4に代わって普及が進む「モダンな一意識別子（ID）」を、ブラウザだけで無料生成できるツールです。上部のタブでID種類を選び、生成個数（1〜100）を指定して「生成する」を押すだけで、まとめてIDを作成できます。各IDは個別にコピーでき、「すべてコピー」「CSV出力」「JSON出力」で一括して持ち出せるため、テストデータ作成やDBのシード、APIのサンプル値づくりにそのまま使えます。</p>
+        <p>ULIDでは「単調増加（monotonic）」オプションを有効にすると、同一ミリ秒内で生成しても乱数部をインクリメントして必ず昇順になるよう保証します。NanoIDは文字数と使用文字（アルファベット）を自由に変更でき、URLセーフな短いIDから長い高強度IDまで調整可能です。CUID2も文字数を指定できます。</p>
+        <h3>ULIDのタイムスタンプ復号</h3>
+        <p>ULIDは先頭10文字に48ビットのミリ秒タイムスタンプを埋め込んでいます。本ツールの「ULID タイムスタンプ復号」欄にULIDを貼り付けると、その先頭部分をCrockford Base32からデコードし、埋め込まれた生成日時を人間が読める日付に復元します。ログに残ったULIDから「いつ発行されたIDか」を後から確認したいときに便利です。</p>
+
+        <h2>なぜ今UUID v4から乗り換えるのか</h2>
+        <p>従来広く使われてきたUUID v4は完全ランダムで、標準性と手軽さから長く定番でした。しかしデータベースの主キーに使うと、ランダムな値がインデックスのあちこちに挿入されるため、B-Treeのページ分割が頻発しキャッシュ効率が落ちるという弱点があります。そこで先頭に時刻を持たせ、新しいレコードほど連続した位置に追記される「時系列ソート可能なID」が注目されています。ULID・UUID v7がその代表で、挿入の局所性が高くインデックスの断片化を抑えられます。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>観点</th><th>おすすめ</th><th>理由</th></tr>
+            <tr><td>DB主キー（性能重視）</td><td>UUID v7 / ULID</td><td>先頭タイムスタンプで挿入が局所化し断片化を抑制</td></tr>
+            <tr><td>標準・既存資産の活用</td><td>UUID v7</td><td>RFC 9562で標準化、既存のUUID型・ライブラリと互換</td></tr>
+            <tr><td>URL・短縮リンク</td><td>NanoID</td><td>URLセーフで短く、長さ調整で強度も可変</td></tr>
+            <tr><td>推測されにくい汎用ID</td><td>CUID2</td><td>連番・時刻を露出せず、英小文字+数字で扱いやすい</td></tr>
+        </table>
+        </div>
+        <h3>ソート可能なIDの仕組み</h3>
+        <p>ULIDとUUID v7は、どちらもIDの先頭に「Unixミリ秒時刻（48ビット）」を配置します。文字列やバイト列として比較したとき、時刻部分が上位桁に来るため、単純な辞書順ソートが自動的に生成時刻順のソートになります。ULIDはCrockford Base32という、紛らわしいI・L・O・Uを除いた32文字を使うことで、大文字小文字の混同や誤読を避けつつ人間にも読みやすくしています。UUID v7は残りのビットにバージョン番号（7）とバリアントビット、乱数を格納することで、標準UUIDのフォーマットを保ったまま時系列性を実現しています。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">ULIDとUUID v7の違いは何ですか？</div><div class="a">どちらも先頭に48ビットのミリ秒タイムスタンプを持ち、生成順（時系列）に並ぶ点は共通です。違いは表現形式で、ULIDは26文字のCrockford Base32（大文字・数字、I/L/O/Uを除く）で表し、ハイフンを含まず辞書順の文字列ソートがそのまま時系列ソートになります。UUID v7はRFC 9562で標準化された36文字のUUID形式で、既存のUUIDカラムやライブラリとの互換性が高いのが利点です。</div></div>
+        <div class="faq-item"><div class="q">NanoIDはなぜUUIDより短いのに衝突しないのですか？</div><div class="a">NanoIDは既定で21文字・64種類のURLセーフな文字を使い、約126ビットの乱数量を持ちます。これはUUID v4の122ビットとほぼ同等で、暗号論的乱数で生成すれば実用上の衝突確率は極めて低くなります。文字数を増やせばさらに衝突耐性が上がります。</div></div>
+        <div class="faq-item"><div class="q">UUID v4の代わりにUUID v7を使うメリットは？</div><div class="a">UUID v4は完全ランダムのためDB主キーにするとインデックスの挿入位置がバラつき、ページ分割やキャッシュ効率低下を招きます。UUID v7は先頭がタイムスタンプなので新しいレコードほど末尾に追記され、挿入が局所化して断片化を抑えられ、書き込み性能やレンジ検索が改善します。</div></div>
+        <div class="faq-item"><div class="q">CUID2とはどんなIDですか？</div><div class="a">CUID2は衝突耐性を重視した英小文字と数字だけの短いID（既定24文字）で、必ずアルファベットで始まります。連番や時刻を露出させず推測されにくくすることを目的とし、時系列ソートには向きません。URLやHTMLのidに使いやすいのが利点です。</div></div>
+        <div class="faq-item"><div class="q">結局どのIDを選べばよいですか？</div><div class="a">主キーで性能と時系列ソートを両立したいならULID/UUID v7、既存UUID資産を活かすならUUID v7、URLセーフで短いIDならNanoID、推測されにくい汎用IDならCUID2が候補です。まず主キー用途か表示用途かで分け、ソートが必要かで絞ると選びやすくなります。</div></div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/uuid/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">UUID v4 生成</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ===== Crockford Base32 (ULID) =====
+var ENC = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
+function encodeTime(t, len){
+    var s = '';
+    for(var i=len-1;i>=0;i--){ s = ENC[t % 32] + s; t = Math.floor(t/32); }
+    return s;
+}
+function randIdx(len){
+    var b = new Uint8Array(len);
+    crypto.getRandomValues(b);
+    var a = [];
+    for(var i=0;i<len;i++){ a.push(b[i] & 31); } // 256%32==0 → no bias
+    return a;
+}
+function idxToStr(a){ var s=''; for(var i=0;i<a.length;i++) s+=ENC[a[i]]; return s; }
+var _lastTime = -1, _lastRand = null;
+function genUlid(mono){
+    var now = Date.now();
+    var rand;
+    if(mono && now <= _lastTime){
+        now = _lastTime;
+        rand = _lastRand.slice();
+        for(var i=rand.length-1;i>=0;i--){ if(rand[i] < 31){ rand[i]++; break; } else { rand[i]=0; } }
+    } else {
+        rand = randIdx(16);
+    }
+    _lastTime = now; _lastRand = rand;
+    return encodeTime(now, 10) + idxToStr(rand);
+}
+function decodeUlidTime(id){
+    var t = id.substring(0,10).toUpperCase();
+    var time = 0;
+    for(var i=0;i<t.length;i++){
+        var idx = ENC.indexOf(t[i]);
+        if(idx < 0) return null;
+        time = time*32 + idx;
+    }
+    return time; // ms
+}
+// ===== NanoID =====
+function genNano(alphabet, size){
+    var len = alphabet.length;
+    var mask = (2 << (31 - Math.clz32((len - 1) | 1))) - 1;
+    var step = Math.ceil((1.6 * mask * size) / len);
+    var id = '';
+    while(true){
+        var bytes = new Uint8Array(step);
+        crypto.getRandomValues(bytes);
+        for(var i=0;i<step;i++){
+            var byte = bytes[i] & mask;
+            if(alphabet[byte]){ id += alphabet[byte]; if(id.length === size) return id; }
+        }
+    }
+}
+// ===== UUID v7 (RFC 9562) =====
+function genUuidV7(){
+    var ts = Date.now();
+    var b = new Uint8Array(16);
+    crypto.getRandomValues(b);
+    b[0] = Math.floor(ts / 1099511627776) & 0xff; // 2^40
+    b[1] = Math.floor(ts / 4294967296) & 0xff;     // 2^32
+    b[2] = Math.floor(ts / 16777216) & 0xff;       // 2^24
+    b[3] = Math.floor(ts / 65536) & 0xff;          // 2^16
+    b[4] = Math.floor(ts / 256) & 0xff;            // 2^8
+    b[5] = ts & 0xff;
+    b[6] = (b[6] & 0x0f) | 0x70; // version 7
+    b[8] = (b[8] & 0x3f) | 0x80; // variant 10
+    var h = '';
+    for(var i=0;i<16;i++) h += b[i].toString(16).padStart(2,'0');
+    return h.slice(0,8)+'-'+h.slice(8,12)+'-'+h.slice(12,16)+'-'+h.slice(16,20)+'-'+h.slice(20);
+}
+// ===== CUID2-style =====
+function genCuid2(length){
+    length = length || 24;
+    var letters = 'abcdefghijklmnopqrstuvwxyz';
+    var b36 = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    var bytes = new Uint8Array(length);
+    crypto.getRandomValues(bytes);
+    var id = letters[bytes[0] % 26];
+    for(var i=1;i<length;i++){ id += b36[bytes[i] % 36]; }
+    return id;
+}
+
+// ===== UI =====
+var curType = 'ulid';
+var results = [];
+var TYPE_DESC = {
+    ulid:'ULID — 26文字 Crockford Base32。48bit時刻＋80bit乱数で辞書順=時系列ソート。',
+    nanoid:'NanoID — 既定21文字のURLセーフID。長さと使用文字を調整可能。',
+    uuidv7:'UUID v7 — RFC 9562準拠。36文字・先頭タイムスタンプで時系列ソート可能。',
+    cuid2:'CUID2形式 — 英小文字+数字の短い衝突耐性ID。必ず英字で始まる。'
+};
+function setType(t){
+    curType = t;
+    var tabs = document.querySelectorAll('#typeTabs button');
+    for(var i=0;i<tabs.length;i++){ tabs[i].classList.toggle('active', tabs[i].getAttribute('data-type')===t); }
+    ['ulid','nanoid','cuid2'].forEach(function(o){
+        var el = document.getElementById('opt-'+o);
+        if(el) el.classList.toggle('show', o===t);
+    });
+    document.getElementById('typeDesc').textContent = TYPE_DESC[t] || '';
+}
+function makeOne(){
+    if(curType==='ulid') return genUlid(document.getElementById('ulidMono').checked);
+    if(curType==='nanoid'){
+        var len = Math.max(2, Math.min(256, parseInt(document.getElementById('nanoLen').value,10)||21));
+        var alpha = document.getElementById('nanoAlpha').value || 'useandom-26T198340PX75pxJACKVERYMINDBUSHWOLF_GQZbfghjklmnvcdsqty1';
+        return genNano(alpha, len);
+    }
+    if(curType==='uuidv7') return genUuidV7();
+    if(curType==='cuid2'){
+        var cl = Math.max(8, Math.min(32, parseInt(document.getElementById('cuidLen').value,10)||24));
+        return genCuid2(cl);
+    }
+    return '';
+}
+function generate(){
+    var n = parseInt(document.getElementById('count').value,10)||1;
+    n = Math.max(1, Math.min(100, n));
+    document.getElementById('count').value = n;
+    results = [];
+    for(var i=0;i<n;i++){ results.push(makeOne()); }
+    render();
+}
+function render(){
+    var list = document.getElementById('idList');
+    if(!results.length){ list.innerHTML = '<div style="color:var(--text3);font-size:0.82rem;padding:8px">「生成する」を押すとここにIDが表示されます。</div>'; return; }
+    var html = '';
+    for(var i=0;i<results.length;i++){
+        var v = results[i].replace(/&/g,'&amp;').replace(/</g,'&lt;');
+        html += '<div class="id-item"><span class="idx">'+(i+1)+'</span><span class="val">'+v+'</span><button onclick="copyOne('+i+',this)">コピー</button></div>';
+    }
+    list.innerHTML = html;
+}
+function copyOne(i, btn){
+    navigator.clipboard.writeText(results[i]).then(function(){
+        var o = btn.textContent; btn.textContent='済'; setTimeout(function(){ btn.textContent=o; },900);
+    });
+}
+function copyAll(){
+    if(!results.length){ alert('先にIDを生成してください。'); return; }
+    navigator.clipboard.writeText(results.join('\n'));
+}
+function download(content, filename, type){
+    var blob = new Blob([content], {type:type});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = filename; a.click();
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+}
+function downloadCSV(){
+    if(!results.length){ alert('先にIDを生成してください。'); return; }
+    var csv = 'index,type,id\n';
+    for(var i=0;i<results.length;i++){ csv += (i+1)+','+curType+',"'+results[i]+'"\n'; }
+    download(csv, curType+'_ids.csv', 'text/csv');
+}
+function downloadJSON(){
+    if(!results.length){ alert('先にIDを生成してください。'); return; }
+    download(JSON.stringify({type:curType, count:results.length, ids:results}, null, 2), curType+'_ids.json', 'application/json');
+}
+function decodeUlid(){
+    var v = document.getElementById('decodeInput').value.trim();
+    var out = document.getElementById('decodeOut');
+    if(!v){ out.textContent = 'ULIDの先頭10文字からミリ秒タイムスタンプを復元します。'; return; }
+    if(v.length < 10){ out.textContent = '10文字以上のULIDを入力してください。'; return; }
+    var ms = decodeUlidTime(v);
+    if(ms===null){ out.textContent = '無効な文字が含まれています（Crockford Base32ではありません）。'; return; }
+    var d = new Date(ms);
+    out.textContent = d.toLocaleString('ja-JP') + '（' + ms + ' ms / ' + d.toISOString() + '）';
+}
+// init
+setType('ulid');
+generate();
+</script>
+</body>
+</html>

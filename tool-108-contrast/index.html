@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コントラストチェッカー（WCAG / APCA）| 文字色と背景色のコントラスト比を判定【無料】</title>
+    <meta name="description" content="文字色と背景色のHEXを入力するだけで、WCAG 2.x のコントラスト比を計算し、AA（4.5/3.0）・AAA（7.0/4.5）の合否を自動判定する無料ツール。新しいAPCA（Lc）の目安も表示。プレビューで見え方も確認できます。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .color-field{display:flex;align-items:center;gap:10px}
+        .color-field input[type=color]{width:44px;height:40px;padding:2px;border:1px solid var(--border);border-radius:8px;background:#fff;cursor:pointer}
+        .color-field input[type=text]{width:130px;text-align:left;font-family:'JetBrains Mono',monospace;text-transform:uppercase}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}.color-field input[type=text]{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .preview{border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;margin-bottom:16px;transition:background .15s,color .15s}
+        .preview .big{font-size:1.8rem;font-weight:700;margin-bottom:12px}
+        .preview .normal{font-size:1rem;line-height:1.7}
+        .badge-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        @media(max-width:600px){.badge-grid{grid-template-columns:1fr}}
+        .badge-card{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px}
+        .badge-card .cat{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
+        .badge-line{display:flex;align-items:center;justify-content:space-between;padding:6px 0}
+        .badge-line span{font-size:0.85rem;color:var(--text2)}
+        .badge{display:inline-block;padding:4px 12px;border-radius:999px;font-size:0.75rem;font-weight:700;font-family:'JetBrains Mono',monospace}
+        .badge.pass{background:rgba(34,197,94,0.12);color:#16a34a}
+        .badge.fail{background:rgba(239,68,68,0.12);color:#dc2626}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-108-contrast/">
+    <meta property="og:title" content="コントラストチェッカー（WCAG / APCA）| コントラスト比を自動判定【無料】">
+    <meta property="og:description" content="文字色と背景色のコントラスト比を計算し、WCAG AA/AAA の合否とAPCA（Lc）の目安を表示。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-108-contrast/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="コントラストチェッカー（WCAG / APCA）【無料】">
+    <meta name="twitter:description" content="文字色と背景色のコントラスト比を計算し、AA/AAAの合否とAPCA Lcを表示。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"コントラストチェッカー（WCAG / APCA）","description":"文字色と背景色のコントラスト比を計算し、WCAG AA/AAAの合否とAPCA Lcの目安を表示する無料ツール","url":"https://www.devtools-japan.com/tool-108-contrast/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"コントラストチェッカー（WCAG / APCA）","item":"https://www.devtools-japan.com/tool-108-contrast/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"コントラスト比とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"コントラスト比とは、文字色と背景色の明るさ（相対輝度）の差を数値化したもので、1:1（同じ色）から21:1（白と黒）までの範囲で表されます。WCAG（Web Content Accessibility Guidelines）では、各色をsRGBから線形化して相対輝度を求め、(明るい方+0.05)÷(暗い方+0.05)で比率を計算します。数値が大きいほど文字が読みやすく、弱視や色覚特性のある人にも見やすい配色といえます。"}},{"@type":"Question","name":"WCAGのAAとAAAの基準の違いは？","acceptedAnswer":{"@type":"Answer","text":"WCAG 2.xでは、通常サイズの文字はAAで4.5:1以上、AAAで7:1以上が必要です。大きな文字（およそ18pt/24px以上、または太字14pt/18.66px以上）は、AAで3:1以上、AAAで4.5:1以上が基準となります。AAは多くの法令やガイドラインで求められる標準レベル、AAAはより厳格な最高レベルで、すべてのコンテンツで満たすことは必須とはされていません。"}},{"@type":"Question","name":"大きな文字（ラージテキスト）の扱いは？","acceptedAnswer":{"@type":"Answer","text":"WCAGでは、約18pt（24px）以上の文字、または太字で約14pt（18.66px）以上の文字を「大きな文字」として扱い、通常の文字より緩い基準（AAで3:1、AAAで4.5:1）を適用します。大きな文字は線が太く輪郭が認識しやすいため、コントラストが多少低くても読み取りやすいと考えられているためです。見出しやボタンのラベルなどが該当します。"}},{"@type":"Question","name":"APCA（Lc）とは何ですか？WCAG比とどう違いますか？","acceptedAnswer":{"@type":"Answer","text":"APCA（Accessible Perceptual Contrast Algorithm）は、WCAG 3.0に向けて開発中の新しいコントラスト指標です。人間の見え方（知覚）により近づけるため、文字色と背景色の明暗の向き（ポラリティ）やフォントサイズ・太さを考慮し、Lc（Lightness contrast）という0〜約108の値で表します。従来の比率より暗背景・明背景の差を適切に評価できるのが特徴で、目安としてLc60で本文、Lc75以上でより確実に読める配色とされます。本ツールのLcは推定値です。"}},{"@type":"Question","name":"コントラストが基準に満たない場合はどうすればいい？","acceptedAnswer":{"@type":"Answer","text":"合格しない場合は、文字色をより暗く（背景が明るいとき）または背景をより暗く/明るくして、明度差を広げます。彩度だけを上げても明度差が小さいとコントラスト比は上がりにくいため、明るさ（輝度）を意識して調整するのがコツです。本ツールでプレビューを見ながらHEXを変え、比率とAA/AAAの合否がリアルタイムで変わるのを確認しながら、基準を満たす配色に近づけてください。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>コントラストチェッカー（WCAG / APCA）</h1><p>文字色と背景色のコントラスト比を判定・APCA Lcも表示</p></header>
+
+    <div class="card"><h3>色を入力</h3>
+        <div class="row"><label>文字色（前景）</label>
+            <div class="color-field">
+                <input type="color" id="fgPicker" value="#1e1e35" aria-label="文字色を選択" oninput="syncFromPicker('fg')">
+                <input type="text" id="fgHex" value="#1E1E35" maxlength="7" aria-label="文字色のHEX" oninput="syncFromHex('fg')">
+            </div>
+        </div>
+        <div class="row"><label>背景色</label>
+            <div class="color-field">
+                <input type="color" id="bgPicker" value="#ffffff" aria-label="背景色を選択" oninput="syncFromPicker('bg')">
+                <input type="text" id="bgHex" value="#FFFFFF" maxlength="7" aria-label="背景色のHEX" oninput="syncFromHex('bg')">
+            </div>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn" style="background:#f7f8fb;color:var(--text2);border:1px solid var(--border)" onclick="swapColors()">⇅ 前景と背景を入れ替え</button>
+        </div>
+    </div>
+
+    <div class="preview" id="preview">
+        <div class="big" id="previewBig">大きな文字のプレビュー Aa 見出しサンプル</div>
+        <div class="normal" id="previewNormal">通常サイズの文章のプレビューです。実際の見え方を確認しながら、読みやすいコントラストの配色を選びましょう。The quick brown fox 0123456789</div>
+    </div>
+
+    <div class="big-result">
+        <div class="headline">コントラスト比</div>
+        <div class="days"><span id="ratioValue">-</span><span class="unit">: 1</span></div>
+        <div class="target" id="ratioLabel">HEXを入力してください</div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">APCA Lc（推定）</div><div class="value" id="apcaValue">-</div></div>
+        <div class="result-item"><div class="label">総合判定</div><div class="value" id="overallLabel" style="font-size:1.1rem">-</div></div>
+    </div>
+
+    <div class="badge-grid">
+        <div class="badge-card">
+            <div class="cat">通常の文字（本文）</div>
+            <div class="badge-line"><span>WCAG AA（4.5:1）</span><span class="badge" id="badgeNormalAA">-</span></div>
+            <div class="badge-line"><span>WCAG AAA（7:1）</span><span class="badge" id="badgeNormalAAA">-</span></div>
+        </div>
+        <div class="badge-card">
+            <div class="cat">大きな文字（18pt/太字14pt以上）</div>
+            <div class="badge-line"><span>WCAG AA（3:1）</span><span class="badge" id="badgeLargeAA">-</span></div>
+            <div class="badge-line"><span>WCAG AAA（4.5:1）</span><span class="badge" id="badgeLargeAAA">-</span></div>
+        </div>
+    </div>
+
+    <div class="note" style="margin-top:16px">コントラスト比はWCAG 2.xの相対輝度（sRGB線形化）に基づき (明+0.05)÷(暗+0.05) で計算します。白 #FFFFFF と黒 #000000 の比は 21:1 になります。APCA Lcは知覚コントラストの推定値で、WCAG 3.0で採用が検討されている新しい指標です。実装値のため参考としてご利用ください。すべての計算はブラウザ内で完結します。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>コントラストチェッカーの使い方</h2>
+        <p>文字色（前景）と背景色のHEXコードを入力するだけで、WCAG 2.xのコントラスト比を自動計算し、AA・AAAの合否をリアルタイムで判定する無料ツールです。カラーピッカーで直感的に色を選ぶこともでき、選んだ配色は上部のプレビューに即座に反映されるので、実際の見え方を確認しながら読みやすい配色を探せます。インストールや会員登録は不要で、すべての計算はお使いのブラウザ内で完結します。</p>
+        <p>使い方はかんたんです。「文字色（前景）」と「背景色」にHEX（例: #1E1E35）を入力するか、左のカラーピッカーで色を選びます。すると「コントラスト比」が大きく表示され、通常の文字と大きな文字それぞれについてAA・AAAの合否バッジが更新されます。あわせて新しい指標であるAPCAのLc（推定値）も表示します。「前景と背景を入れ替え」ボタンで、明暗の向き（ポラリティ）を反転したときの見え方も比較できます。</p>
+        <h3>こんな用途に</h3>
+        <p>Webサイトやアプリのデザインでアクセシビリティ基準（WCAG AA）を満たす配色選び、ボタンや見出しのテキストが背景に対して十分読みやすいかの確認、ブランドカラーを使いつつ最低限の可読性を確保したいときのチェックに。デザインシステムのトークン設計や、ダークモード配色の検証にも役立ちます。</p>
+
+        <h2>コントラスト比の計算方法</h2>
+        <p>WCAG 2.xのコントラスト比は、各色の「相対輝度」から求めます。まずsRGBの各チャンネル（R/G/B）を0〜1に正規化し、しきい値0.03928を境に線形化（ガンマ補正の解除）します。次に 0.2126×R + 0.7152×G + 0.0722×B で相対輝度Lを算出し、2色の輝度を L1（明るい方）・L2（暗い方）として (L1+0.05)÷(L2+0.05) を計算した値がコントラスト比です。値は最小1:1（同色）から最大21:1（白と黒）の範囲になります。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>対象</th><th>WCAG AA</th><th>WCAG AAA</th></tr>
+            <tr><td>通常の文字（本文など）</td><td>4.5:1 以上</td><td>7:1 以上</td></tr>
+            <tr><td>大きな文字（18pt/太字14pt以上）</td><td>3:1 以上</td><td>4.5:1 以上</td></tr>
+            <tr><td>UI部品・グラフィック境界</td><td>3:1 以上</td><td>—</td></tr>
+        </table>
+        </div>
+        <h3>APCA（Lc）という新しい指標</h3>
+        <p>APCA（Accessible Perceptual Contrast Algorithm）は、WCAG 3.0に向けて開発が進む新しいコントラスト指標です。従来の比率は明暗の向きを区別しませんが、APCAは文字色と背景色のどちらが明るいか（ポラリティ）や、フォントの大きさ・太さの影響を考慮し、Lc（Lightness contrast）という値で知覚上のコントラストを表します。目安として、Lc45で大きな見出し、Lc60で本文、Lc75以上でより小さな文字や確実な可読性が必要な場面に適するとされます。本ツールのLcは標準的なAPCAアルゴリズムに基づく推定値です。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">コントラスト比とは何ですか？</div><div class="a">コントラスト比とは、文字色と背景色の明るさ（相対輝度）の差を数値化したもので、1:1（同じ色）から21:1（白と黒）までの範囲で表されます。WCAGでは各色をsRGBから線形化して相対輝度を求め、(明るい方+0.05)÷(暗い方+0.05)で比率を計算します。数値が大きいほど文字が読みやすい配色といえます。</div></div>
+        <div class="faq-item"><div class="q">WCAGのAAとAAAの基準の違いは？</div><div class="a">通常サイズの文字はAAで4.5:1以上、AAAで7:1以上が必要です。大きな文字（約18pt/24px以上、または太字14pt/18.66px以上）は、AAで3:1以上、AAAで4.5:1以上が基準です。AAは多くの法令で求められる標準レベル、AAAはより厳格な最高レベルです。</div></div>
+        <div class="faq-item"><div class="q">大きな文字（ラージテキスト）の扱いは？</div><div class="a">約18pt（24px）以上、または太字で約14pt（18.66px）以上の文字を「大きな文字」として扱い、通常の文字より緩い基準（AAで3:1、AAAで4.5:1）を適用します。線が太く輪郭が認識しやすいためです。見出しやボタンのラベルなどが該当します。</div></div>
+        <div class="faq-item"><div class="q">APCA（Lc）とは何ですか？WCAG比とどう違いますか？</div><div class="a">APCAはWCAG 3.0に向けて開発中の新しい指標で、明暗の向き（ポラリティ）やフォントサイズ・太さを考慮し、Lc（0〜約108）という値で知覚コントラストを表します。目安はLc60で本文、Lc75以上でより確実に読める配色です。本ツールのLcは推定値です。</div></div>
+        <div class="faq-item"><div class="q">コントラストが基準に満たない場合はどうすればいい？</div><div class="a">文字色をより暗く、または背景をより明るく/暗くして明度差を広げます。彩度だけを上げても明度差が小さいとコントラスト比は上がりにくいため、明るさ（輝度）を意識して調整するのがコツです。プレビューを見ながらHEXを変え、合否がリアルタイムで変わるのを確認してください。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// HEX(#RGB or #RRGGBB) を [r,g,b] に変換。無効なら null
+function hexToRgb(hex){
+    if(!hex) return null;
+    hex = hex.trim().replace(/^#/,'');
+    if(hex.length === 3){ hex = hex.split('').map(function(c){return c+c;}).join(''); }
+    if(!/^[0-9a-fA-F]{6}$/.test(hex)) return null;
+    return [parseInt(hex.slice(0,2),16), parseInt(hex.slice(2,4),16), parseInt(hex.slice(4,6),16)];
+}
+function rgbToHex(rgb){
+    return '#' + rgb.map(function(c){return c.toString(16).padStart(2,'0');}).join('').toUpperCase();
+}
+// WCAG: sRGB線形化 → 相対輝度
+function linearize(c){ c = c/255; return c <= 0.03928 ? c/12.92 : Math.pow((c+0.055)/1.055, 2.4); }
+function relLuminance(rgb){ return 0.2126*linearize(rgb[0]) + 0.7152*linearize(rgb[1]) + 0.0722*linearize(rgb[2]); }
+function contrastRatio(fg, bg){
+    var L1 = relLuminance(fg), L2 = relLuminance(bg);
+    var lighter = Math.max(L1,L2), darker = Math.min(L1,L2);
+    return (lighter + 0.05) / (darker + 0.05);
+}
+// APCA (SAPC/SA98G) による Lc 推定
+function sRGBtoY(rgb){
+    return 0.2126729*Math.pow(rgb[0]/255,2.4) + 0.7151522*Math.pow(rgb[1]/255,2.4) + 0.0721750*Math.pow(rgb[2]/255,2.4);
+}
+function apcaLc(txt, bg){
+    var blkThrs = 0.022, blkClmp = 1.414, deltaYmin = 0.0005, scale = 1.14, loClip = 0.1, loOffset = 0.027;
+    var txtY = sRGBtoY(txt), bgY = sRGBtoY(bg);
+    txtY = txtY > blkThrs ? txtY : txtY + Math.pow(blkThrs - txtY, blkClmp);
+    bgY  = bgY  > blkThrs ? bgY  : bgY  + Math.pow(blkThrs - bgY,  blkClmp);
+    if(Math.abs(bgY - txtY) < deltaYmin) return 0;
+    var out;
+    if(bgY > txtY){ // 明背景・暗文字（通常ポラリティ）
+        var sapcN = (Math.pow(bgY,0.56) - Math.pow(txtY,0.57)) * scale;
+        out = sapcN < loClip ? 0 : sapcN - loOffset;
+    } else { // 暗背景・明文字（反転ポラリティ）
+        var sapcR = (Math.pow(bgY,0.65) - Math.pow(txtY,0.62)) * scale;
+        out = sapcR > -loClip ? 0 : sapcR + loOffset;
+    }
+    return out * 100;
+}
+function setBadge(el, pass){
+    el.textContent = pass ? 'PASS' : 'FAIL';
+    el.className = 'badge ' + (pass ? 'pass' : 'fail');
+}
+function calc(){
+    var fg = hexToRgb(document.getElementById('fgHex').value);
+    var bg = hexToRgb(document.getElementById('bgHex').value);
+    var ratioValue = document.getElementById('ratioValue');
+    var ratioLabel = document.getElementById('ratioLabel');
+    if(!fg || !bg){
+        ratioValue.textContent = '-';
+        ratioLabel.textContent = '有効なHEX（例: #1E1E35）を入力してください';
+        return;
+    }
+    // プレビュー
+    var preview = document.getElementById('preview');
+    preview.style.background = rgbToHex(bg);
+    preview.style.color = rgbToHex(fg);
+
+    var ratio = contrastRatio(fg, bg);
+    ratioValue.textContent = ratio.toFixed(2);
+    ratioLabel.textContent = '文字色 ' + rgbToHex(fg) + ' / 背景色 ' + rgbToHex(bg);
+
+    var lc = apcaLc(fg, bg);
+    document.getElementById('apcaValue').textContent = 'Lc ' + Math.abs(lc).toFixed(1);
+
+    // 合否
+    var nAA = ratio >= 4.5, nAAA = ratio >= 7.0, lAA = ratio >= 3.0, lAAA = ratio >= 4.5;
+    setBadge(document.getElementById('badgeNormalAA'), nAA);
+    setBadge(document.getElementById('badgeNormalAAA'), nAAA);
+    setBadge(document.getElementById('badgeLargeAA'), lAA);
+    setBadge(document.getElementById('badgeLargeAAA'), lAAA);
+
+    var overall = document.getElementById('overallLabel');
+    if(nAAA){ overall.textContent = 'AAA 合格'; overall.style.color = 'var(--green)'; }
+    else if(nAA){ overall.textContent = 'AA 合格'; overall.style.color = 'var(--green)'; }
+    else if(lAA){ overall.textContent = '大きな文字のみAA'; overall.style.color = 'var(--accent)'; }
+    else { overall.textContent = '基準未満'; overall.style.color = 'var(--red)'; }
+}
+// ピッカー → HEX入力へ同期
+function syncFromPicker(which){
+    var picker = document.getElementById(which+'Picker');
+    document.getElementById(which+'Hex').value = picker.value.toUpperCase();
+    calc();
+}
+// HEX入力 → ピッカーへ同期
+function syncFromHex(which){
+    var rgb = hexToRgb(document.getElementById(which+'Hex').value);
+    if(rgb){ document.getElementById(which+'Picker').value = rgbToHex(rgb).toLowerCase(); }
+    calc();
+}
+function swapColors(){
+    var fgHex = document.getElementById('fgHex');
+    var bgHex = document.getElementById('bgHex');
+    var tmp = fgHex.value; fgHex.value = bgHex.value; bgHex.value = tmp;
+    var fgRgb = hexToRgb(fgHex.value), bgRgb = hexToRgb(bgHex.value);
+    if(fgRgb) document.getElementById('fgPicker').value = rgbToHex(fgRgb).toLowerCase();
+    if(bgRgb) document.getElementById('bgPicker').value = rgbToHex(bgRgb).toLowerCase();
+    calc();
+}
+calc();
+</script>
+</body>
+</html>

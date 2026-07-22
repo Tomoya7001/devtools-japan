@@ -100,6 +100,22 @@
 - 月齢・月の満ち欠け: https://www.devtools-japan.com/tool-104-moon-phase/
 - 二十四節気カレンダー: https://www.devtools-japan.com/tool-105-sekki/
 - キーコードチェッカー: https://www.devtools-japan.com/tool-106-keycode/
+- OKLCHカラー変換・ピッカー: https://www.devtools-japan.com/tool-107-oklch/
+- コントラストチェッカー: https://www.devtools-japan.com/tool-108-contrast/
+- CSS clamp()流体タイポ生成: https://www.devtools-japan.com/tool-109-clamp/
+- cubic-bezierイージング: https://www.devtools-japan.com/tool-110-cubic-bezier/
+- ULID/NanoID/UUIDv7生成: https://www.devtools-japan.com/tool-111-ulid/
+- JSON⇔YAML変換: https://www.devtools-japan.com/tool-112-json-yaml/
+- TOML⇔JSON変換: https://www.devtools-japan.com/tool-113-toml-json/
+- JSON→TypeScript型生成: https://www.devtools-japan.com/tool-114-json-typescript/
+- XML整形・検証: https://www.devtools-japan.com/tool-115-xml-format/
+- Mermaid図ジェネレーター: https://www.devtools-japan.com/tool-116-mermaid/
+- JS/CSS/HTML Minify・整形: https://www.devtools-japan.com/tool-117-minify/
+- .envフォーマッター・検証: https://www.devtools-japan.com/tool-118-env-format/
+- ふりがな/ルビ変換: https://www.devtools-japan.com/tool-119-furigana/
+- ローマ字変換: https://www.devtools-japan.com/tool-120-romaji/
+- 文字コード変換・文字化け判定: https://www.devtools-japan.com/tool-121-encoding/
+- BMI計算: https://www.devtools-japan.com/tool-122-bmi/
 
 ## API
 DevTools Japan APIとして30本以上の無料REST APIを提供。認証不要で即利用可能。

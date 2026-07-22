@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS clamp() 流体タイポ生成ツール | フルイドタイポグラフィのclamp()を自動計算【無料】</title>
+    <meta name="description" content="最小・最大フォントサイズとビューポート幅を入れるだけで、流体タイポグラフィ用のclamp()式を自動生成する無料ツール。px→rem変換・傾き(vw)を正しく計算し、コピペ可能なCSSを出力。vwとcqi/cqw（コンテナクエリ単位）に対応し、ライブプレビュー付き。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px;text-align:center}
+        .code-out{font-family:'JetBrains Mono',monospace;font-size:1.05rem;font-weight:500;color:var(--accent);background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;word-break:break-all;line-height:1.6;text-align:left}
+        .copy-btn{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif;width:100%}
+        .copy-btn:hover{opacity:0.9}
+        .preview-box{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px 20px;margin-bottom:16px;overflow:hidden}
+        .preview-box .plabel{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
+        #previewText{font-weight:700;color:var(--text);line-height:1.3;margin:0}
+        .toggle-group{display:flex;gap:8px}
+        .toggle-group button{flex:1;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.85rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .toggle-group button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .seo-content code{font-family:'JetBrains Mono',monospace;font-size:0.82em;background:#f0f1f6;padding:1px 5px;border-radius:4px;color:var(--accent)}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .math-box{background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-size:0.78rem;color:var(--text2);line-height:1.9;margin-top:14px;font-family:'JetBrains Mono',monospace}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-109-clamp/">
+    <meta property="og:title" content="CSS clamp() 流体タイポ生成ツール | フルイドタイポグラフィのclamp()を自動計算【無料】">
+    <meta property="og:description" content="最小・最大フォントサイズとビューポート幅からclamp()式を自動生成。vw / cqi対応・px→rem変換・ライブプレビュー付き。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-109-clamp/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="CSS clamp() 流体タイポ生成ツール【無料】">
+    <meta name="twitter:description" content="最小・最大フォントとビューポート幅からclamp()式を自動生成。vw/cqi対応・ライブプレビュー付き。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"CSS clamp() 流体タイポ生成ツール","description":"最小・最大フォントサイズとビューポート幅から流体タイポグラフィ用のclamp()式を自動生成する無料ツール","url":"https://www.devtools-japan.com/tool-109-clamp/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"CSS clamp() 流体タイポ生成ツール","item":"https://www.devtools-japan.com/tool-109-clamp/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"clamp()で流体タイポグラフィを作るメリットは？","acceptedAnswer":{"@type":"Answer","text":"clamp(最小値, 推奨値, 最大値) は、ビューポート幅に応じてフォントサイズを滑らかに拡大縮小させつつ、下限と上限で頭打ちにできる関数です。従来のようにメディアクエリで複数のブレークポイントごとにfont-sizeを書き分ける必要がなく、1行で連続的にサイズが変化します。コード量が減り、どの画面幅でも読みやすいサイズを保てるため、2024〜2025年の流体タイポグラフィの標準的な手法になっています。"}},{"@type":"Question","name":"px→remの変換はなぜ必要？","acceptedAnswer":{"@type":"Answer","text":"clamp()の最小値・最大値をremで指定すると、ユーザーがブラウザの既定フォントサイズを変更した際にも文字サイズが追従し、アクセシビリティが向上します。本ツールはrem基準（既定16px）を使ってpx値をremへ変換します。例えば16pxは1rem、24pxは1.5remです。中間の傾きだけはビューポート幅に連動させたいのでvw（またはcqi）で表現します。"}},{"@type":"Question","name":"傾き（vwの係数）はどう計算する？","acceptedAnswer":{"@type":"Answer","text":"傾きは (最大フォント − 最小フォント) ÷ (最大ビューポート − 最小ビューポート) で求めます。この値は「ビューポートが1px広がるごとにフォントが何px増えるか」を表し、1vw = ビューポート幅の1%（=幅px÷100）なので、100倍するとvw係数になります。切片（rem部分）は、最小ビューポート幅のときにちょうど最小フォントになるよう逆算します。本ツールはこの計算を自動で行い、コピペ可能なclamp()式を出力します。"}},{"@type":"Question","name":"cqi / cqw とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"cqi・cqw はコンテナクエリ単位で、ビューポートではなく親コンテナ（container-type を指定した要素）の幅を基準にサイズを決めます。cqi はインライン方向、cqw は幅方向のコンテナ幅の1%です。これらはBaseline 2024で広くサポートされ、カード内やサイドバー内など、画面幅ではなくコンポーネント幅に応じて文字を流体化したい場合に最適です。本ツールの単位トグルでvwとcqi/cqwを切り替えられます。"}},{"@type":"Question","name":"生成されたclamp()はそのまま使える？","acceptedAnswer":{"@type":"Answer","text":"はい。出力されたCSSはfont-sizeプロパティにそのまま貼り付けて使えます。cqi/cqwを選んだ場合は、対象要素の祖先に container-type: inline-size;（またはsize）を指定したコンテナが必要です。値は端数を小数第4位程度に丸めていますが、実用上の表示差はほぼありません。厳密な値が必要な場合は入力値を調整して再生成してください。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>CSS clamp() 流体タイポ生成</h1><p>最小・最大サイズからフルイドタイポグラフィのclamp()を自動計算</p></header>
+
+    <div class="card"><h3>設定を入力</h3>
+        <div class="row"><label>最小フォントサイズ</label><input type="number" id="minFont" value="16" step="0.5" oninput="calc()"><span class="unit">px</span></div>
+        <div class="row"><label>最大フォントサイズ</label><input type="number" id="maxFont" value="24" step="0.5" oninput="calc()"><span class="unit">px</span></div>
+        <div class="row"><label>最小ビューポート幅</label><input type="number" id="minVw" value="320" step="1" oninput="calc()"><span class="unit">px</span></div>
+        <div class="row"><label>最大ビューポート幅</label><input type="number" id="maxVw" value="1280" step="1" oninput="calc()"><span class="unit">px</span></div>
+        <div class="row"><label>rem基準（ルートフォント）</label><input type="number" id="remBase" value="16" step="1" oninput="calc()"><span class="unit">px</span></div>
+        <div style="margin-top:16px">
+            <div style="font-size:0.75rem;color:var(--text3);margin-bottom:8px">流体化の基準単位</div>
+            <div class="toggle-group" id="unitToggle">
+                <button class="active" data-unit="vw" onclick="setUnit('vw')">vw（ビューポート幅）</button>
+                <button data-unit="cqi" onclick="setUnit('cqi')">cqi / cqw（コンテナ幅）</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="big-result">
+        <div class="headline">生成された CSS（コピー可）</div>
+        <div class="code-out" id="codeOut">clamp(...)</div>
+        <button class="copy-btn" id="copyBtn" onclick="copyCode()">CSS をコピー</button>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">最小値（rem）</div><div class="value" id="minRemOut">-</div></div>
+        <div class="result-item"><div class="label">最大値（rem）</div><div class="value" id="maxRemOut">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">切片（rem）</div><div class="value" id="interceptOut" style="font-size:1.1rem">-</div></div>
+        <div class="result-item"><div class="label">傾き（<span id="slopeUnitLabel">vw</span>）</div><div class="value" id="slopeOut" style="font-size:1.1rem">-</div></div>
+    </div>
+
+    <div class="preview-box">
+        <div class="plabel">ライブプレビュー（ブラウザ幅を変えると文字が伸縮します）</div>
+        <p id="previewText">あア亜Aa 流体タイポグラフィ 123</p>
+    </div>
+
+    <div class="math-box" id="mathBox"></div>
+
+    <div class="note">最小値・最大値はアクセシビリティのためremで出力し、中間の傾きだけをvw（またはcqi/cqw）で表現します。cqi/cqwを選んだ場合はプレビューはvw換算で近似表示します。実装時は対象要素の祖先に container-type: inline-size; を指定してください。値は小数第4位で丸めています。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>CSS clamp() 流体タイポ生成ツールの使い方</h2>
+        <p>最小フォントサイズ・最大フォントサイズと、それぞれを適用したい最小ビューポート幅・最大ビューポート幅を入力するだけで、流体タイポグラフィ（フルイドタイポグラフィ）用の <code>clamp()</code> 式を自動生成する無料ツールです。画面幅が狭いときは小さく、広いときは大きく、その間は滑らかに文字サイズが変化し、下限と上限でしっかり頭打ちになります。すべての計算はブラウザ内で完結し、インストールや会員登録は不要です。</p>
+        <p>出力された <code>clamp(最小rem, 切片rem + 傾きvw, 最大rem)</code> をそのまま <code>font-size</code> に貼り付けるだけで使えます。単位トグルで <strong>vw</strong>（ビューポート幅基準）と <strong>cqi / cqw</strong>（コンテナクエリ単位）を切り替えられ、コンポーネント単位で文字を流体化したい場面にも対応します。ライブプレビューはブラウザの横幅を変えると実際にサイズが伸縮するので、生成前に効果を確かめられます。</p>
+        <h3>なぜメディアクエリより clamp() なのか</h3>
+        <p>従来は <code>@media</code> でブレークポイントごとに <code>font-size</code> を書き分けていましたが、境界で値が段階的に飛び、コードも増えがちでした。<code>clamp()</code> と vw／コンテナクエリ単位を組み合わせると、1行で連続的にサイズが変化し、どの画面幅でも読みやすいサイズを保てます。コンテナクエリ単位（cqi/cqw）はBaseline 2024で広くサポートされ、2025年時点ではメディアクエリを使わない流体タイポグラフィが一般的なパターンになっています。</p>
+
+        <h2>clamp() の計算方法</h2>
+        <p>本ツールは次の手順で式を組み立てます。まず最小・最大フォントサイズを rem 基準（既定16px）で rem に変換します。次に傾き（ビューポートが1px広がるごとにフォントが何px増えるか）を求め、1vw = ビューポート幅の1% であることから100倍して vw 係数にします。最後に、最小ビューポート幅のときにちょうど最小フォントになるよう切片（rem部分）を逆算します。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>項目</th><th>計算式</th><th>説明</th></tr>
+            <tr><td>最小値(rem)</td><td>最小px ÷ rem基準</td><td>clamp の下限</td></tr>
+            <tr><td>最大値(rem)</td><td>最大px ÷ rem基準</td><td>clamp の上限</td></tr>
+            <tr><td>傾き</td><td>(最大px − 最小px) ÷ (最大vw − 最小vw) × 100</td><td>vw / cqi の係数</td></tr>
+            <tr><td>切片(rem)</td><td>(最小px − 傾きpx × 最小vw) ÷ rem基準</td><td>推奨値の定数部</td></tr>
+        </table>
+        </div>
+        <h3>計算例</h3>
+        <p>最小16px（320pxのとき）・最大24px（1280pxのとき）、rem基準16pxの場合。最小値=16÷16=1rem、最大値=24÷16=1.5rem、傾き=(24−16)÷(1280−320)×100=0.8333vw、切片=(16−0.008333×320)÷16=0.8333rem。よって <code>clamp(1rem, 0.8333rem + 0.8333vw, 1.5rem)</code> が生成されます。実際に320pxでは1rem(16px)、1280pxでは1.5rem(24px)にぴったり一致します。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">clamp()で流体タイポグラフィを作るメリットは？</div><div class="a">clamp(最小値, 推奨値, 最大値) は、ビューポート幅に応じてフォントサイズを滑らかに拡大縮小させつつ、下限と上限で頭打ちにできる関数です。従来のようにメディアクエリで複数のブレークポイントごとにfont-sizeを書き分ける必要がなく、1行で連続的にサイズが変化します。コード量が減り、どの画面幅でも読みやすいサイズを保てるため、2024〜2025年の流体タイポグラフィの標準的な手法になっています。</div></div>
+        <div class="faq-item"><div class="q">px→remの変換はなぜ必要？</div><div class="a">clamp()の最小値・最大値をremで指定すると、ユーザーがブラウザの既定フォントサイズを変更した際にも文字サイズが追従し、アクセシビリティが向上します。本ツールはrem基準（既定16px）を使ってpx値をremへ変換します。例えば16pxは1rem、24pxは1.5remです。中間の傾きだけはビューポート幅に連動させたいのでvw（またはcqi）で表現します。</div></div>
+        <div class="faq-item"><div class="q">傾き（vwの係数）はどう計算する？</div><div class="a">傾きは (最大フォント − 最小フォント) ÷ (最大ビューポート − 最小ビューポート) で求めます。この値は「ビューポートが1px広がるごとにフォントが何px増えるか」を表し、1vw = ビューポート幅の1%（=幅px÷100）なので、100倍するとvw係数になります。切片（rem部分）は、最小ビューポート幅のときにちょうど最小フォントになるよう逆算します。本ツールはこの計算を自動で行い、コピペ可能なclamp()式を出力します。</div></div>
+        <div class="faq-item"><div class="q">cqi / cqw とは何ですか？</div><div class="a">cqi・cqw はコンテナクエリ単位で、ビューポートではなく親コンテナ（container-type を指定した要素）の幅を基準にサイズを決めます。cqi はインライン方向、cqw は幅方向のコンテナ幅の1%です。これらはBaseline 2024で広くサポートされ、カード内やサイドバー内など、画面幅ではなくコンポーネント幅に応じて文字を流体化したい場合に最適です。本ツールの単位トグルでvwとcqi/cqwを切り替えられます。</div></div>
+        <div class="faq-item"><div class="q">生成されたclamp()はそのまま使える？</div><div class="a">はい。出力されたCSSはfont-sizeプロパティにそのまま貼り付けて使えます。cqi/cqwを選んだ場合は、対象要素の祖先に container-type: inline-size;（またはsize）を指定したコンテナが必要です。値は端数を小数第4位程度に丸めていますが、実用上の表示差はほぼありません。厳密な値が必要な場合は入力値を調整して再生成してください。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+let currentUnit = 'vw';
+
+function setUnit(u){
+    currentUnit = u;
+    document.querySelectorAll('#unitToggle button').forEach(function(b){
+        b.classList.toggle('active', b.dataset.unit === u);
+    });
+    calc();
+}
+
+// 端数を最大4桁で丸め、末尾の0を落とす
+function fmt(n){
+    if (!isFinite(n)) return '0';
+    return (Math.round(n * 10000) / 10000).toString();
+}
+
+function calc(){
+    const minFont = parseFloat(document.getElementById('minFont').value);
+    const maxFont = parseFloat(document.getElementById('maxFont').value);
+    const minVw = parseFloat(document.getElementById('minVw').value);
+    const maxVw = parseFloat(document.getElementById('maxVw').value);
+    const base = parseFloat(document.getElementById('remBase').value) || 16;
+
+    const codeOut = document.getElementById('codeOut');
+    if (!isFinite(minFont) || !isFinite(maxFont) || !isFinite(minVw) || !isFinite(maxVw) || maxVw === minVw){
+        codeOut.textContent = '入力値を確認してください';
+        return;
+    }
+
+    // px -> rem 変換（rem基準で割る）
+    const minRem = minFont / base;
+    const maxRem = maxFont / base;
+
+    // 傾き: ビューポート1pxあたりのフォント増加px。1vw = 幅の1% なので x100 で vw係数
+    const slopePxPerPx = (maxFont - minFont) / (maxVw - minVw);
+    const slopeUnit = slopePxPerPx * 100; // vw / cqi 係数
+
+    // 切片(px): 最小ビューポート幅で最小フォントになるよう逆算 -> remへ
+    const interceptPx = minFont - slopePxPerPx * minVw;
+    const interceptRem = interceptPx / base;
+
+    const unit = currentUnit; // 'vw' or 'cqi'
+    const preferred = fmt(interceptRem) + 'rem + ' + fmt(slopeUnit) + unit;
+
+    // 傾きが負でも clamp 自体は数学的に有効。下限・上限を数値順に整列
+    const lo = Math.min(minRem, maxRem);
+    const hi = Math.max(minRem, maxRem);
+    const css = 'clamp(' + fmt(lo) + 'rem, ' + preferred + ', ' + fmt(hi) + 'rem)';
+
+    codeOut.textContent = 'font-size: ' + css + ';';
+
+    document.getElementById('minRemOut').textContent = fmt(minRem) + 'rem';
+    document.getElementById('maxRemOut').textContent = fmt(maxRem) + 'rem';
+    document.getElementById('interceptOut').textContent = fmt(interceptRem) + 'rem';
+    document.getElementById('slopeOut').textContent = fmt(slopeUnit) + unit;
+    document.getElementById('slopeUnitLabel').textContent = (unit === 'vw') ? 'vw' : 'cqi';
+
+    // ライブプレビュー: cqi/cqw はコンテナ依存のため vw 近似で表示
+    document.getElementById('previewText').style.fontSize =
+        'clamp(' + fmt(lo) + 'rem, ' + fmt(interceptRem) + 'rem + ' + fmt(slopeUnit) + 'vw, ' + fmt(hi) + 'rem)';
+
+    // 数式の説明
+    document.getElementById('mathBox').innerHTML =
+        '最小: ' + minFont + 'px / ' + base + ' = ' + fmt(minRem) + 'rem<br>' +
+        '最大: ' + maxFont + 'px / ' + base + ' = ' + fmt(maxRem) + 'rem<br>' +
+        '傾き: (' + maxFont + ' - ' + minFont + ') / (' + maxVw + ' - ' + minVw + ') x 100 = ' + fmt(slopeUnit) + unit + '<br>' +
+        '切片: (' + minFont + ' - ' + fmt(slopePxPerPx) + ' x ' + minVw + ') / ' + base + ' = ' + fmt(interceptRem) + 'rem';
+}
+
+function copyCode(){
+    const txt = document.getElementById('codeOut').textContent;
+    navigator.clipboard.writeText(txt).then(function(){
+        const b = document.getElementById('copyBtn');
+        const old = b.textContent;
+        b.textContent = 'コピーしました！';
+        setTimeout(function(){ b.textContent = old; }, 1500);
+    }).catch(function(){});
+}
+
+calc();
+</script>
+</body>
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS/CSS/HTML Minify・整形（圧縮・ビューティファイ）| 無料オンラインツール</title>
+    <meta name="description" content="JavaScript・CSS・HTMLを圧縮（Minify）／整形（Beautify）できる無料オンラインツール。コメントや余分な空白を安全に除去し、インデントを整えて読みやすく。圧縮前後のバイト数と削減率も表示。すべてブラウザ内で完結し、コードは外部送信されません。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .seg{display:inline-flex;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+        .seg button{padding:8px 18px;background:transparent;border:none;color:var(--text2);font-size:0.85rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .seg button.active{background:var(--accent);color:#fff}
+        .editor-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        @media(max-width:640px){.editor-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .pane{display:flex;flex-direction:column}
+        .pane .plabel{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+        textarea{width:100%;min-height:260px;padding:12px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.82rem;line-height:1.6;outline:none;resize:vertical;white-space:pre;overflow:auto;-webkit-text-size-adjust:100%}
+        textarea:focus{border-color:var(--accent)}
+        .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+        .btn{padding:10px 20px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.sec{background:#f7f8fb;color:var(--text2);border:1px solid var(--border);font-weight:500}
+        .btn.sec:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+        .stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.stat-grid{grid-template-columns:1fr 1fr}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent)}
+        .result-item .value.good{color:var(--green)}
+        .result-item .sub{font-size:0.72rem;color:var(--text3);margin-top:4px}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--text);color:#fff;padding:10px 20px;border-radius:8px;font-size:0.85rem;opacity:0;pointer-events:none;transition:opacity 0.2s;z-index:50}
+        .toast.show{opacity:1}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-117-minify/">
+    <meta property="og:title" content="JS/CSS/HTML Minify・整形（圧縮・ビューティファイ）| 無料オンライン">
+    <meta property="og:description" content="JavaScript・CSS・HTMLを圧縮／整形。コメントや空白を安全に除去し、削減率も表示。すべてブラウザ内で完結。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-117-minify/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="JS/CSS/HTML Minify・整形【無料】">
+    <meta name="twitter:description" content="JS・CSS・HTMLを圧縮／整形。削減率も表示。ブラウザ内で完結し外部送信なし。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"JS/CSS/HTML Minify・整形ツール","description":"JavaScript・CSS・HTMLを圧縮（Minify）／整形（Beautify）する無料ツール。削減率も表示し、すべてブラウザ内で完結します。","url":"https://www.devtools-japan.com/tool-117-minify/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"JS/CSS/HTML Minify・整形ツール","item":"https://www.devtools-japan.com/tool-117-minify/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Minify（圧縮）とBeautify（整形）は何が違う？","acceptedAnswer":{"@type":"Answer","text":"Minifyはコメントや改行・インデントなどの不要な空白を取り除き、コードのファイルサイズを小さくする処理です。動作は変えずに通信量を減らして表示を高速化する目的で使います。逆にBeautifyは圧縮された1行のコードや乱れたコードに改行とインデントを付け直し、人が読みやすい形に整える処理です。本ツールは同じ入力に対してワンクリックで両方を切り替えられます。"}},{"@type":"Question","name":"コードは外部サーバーに送信される？","acceptedAnswer":{"@type":"Answer","text":"いいえ。圧縮・整形の処理はすべてお使いのブラウザ内のJavaScriptだけで実行され、入力したコードが外部のサーバーやAPIに送信されることはありません。外部CDNの読み込みもなく、社内コードや未公開のソースでも安心してお試しいただけます。"}},{"@type":"Question","name":"文字列やコメントに見える中身は壊れない？","acceptedAnswer":{"@type":"Answer","text":"本ツールはJavaScriptの文字列・テンプレートリテラル・正規表現リテラルを解析して保護し、その内側にある波かっこや「//」「/* */」のようなコメント風のテキストは中身をそのまま維持します。CSSの文字列やHTMLのpre・textarea内のテキストも保護されるため、コメント除去や空白圧縮によって文字列内容が壊れることはありません。"}},{"@type":"Question","name":"インデントの幅は変えられる？","acceptedAnswer":{"@type":"Answer","text":"はい。Beautify（整形）モードではインデント幅をスペース2・4・タブから選べます。整形は選んだ言語（JS／CSS／HTML）の波かっこやタグの入れ子に応じて自動でインデントを付け直します。チームのコーディング規約に合わせて幅を調整してご利用ください。"}},{"@type":"Question","name":"本格的なMinifierと同じ結果になる？","acceptedAnswer":{"@type":"Answer","text":"いいえ。本ツールは構文木（AST）を完全に解析する本格的なミニファイア（terser や cssnano など）ではなく、軽量なテキストベースの整形・圧縮ツールです。コメント除去や空白圧縮など一般的なコードで安全に効く処理を中心に行い、変数名の短縮やデッドコード削除などの高度な最適化は行いません。ビルドの前処理や下書きの整形には十分ですが、本番の最終ビルドには専用ツールの併用をおすすめします。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>JS/CSS/HTML Minify・整形</h1><p>JavaScript・CSS・HTMLを圧縮／整形（すべてブラウザ内で処理）</p></header>
+
+    <div class="card"><h3>設定</h3>
+        <div class="row"><label>言語</label>
+            <select id="lang" onchange="loadSample(false);run()">
+                <option value="js">JavaScript</option>
+                <option value="css">CSS</option>
+                <option value="html">HTML</option>
+            </select>
+        </div>
+        <div class="row"><label>モード</label>
+            <div class="seg" id="modeSeg">
+                <button data-mode="minify" class="active" onclick="setMode('minify')">Minify（圧縮）</button>
+                <button data-mode="beautify" onclick="setMode('beautify')">Beautify（整形）</button>
+            </div>
+        </div>
+        <div class="row" id="indentRow" style="display:none"><label>インデント幅（整形時）</label>
+            <select id="indent" onchange="run()">
+                <option value="2">スペース2</option>
+                <option value="4">スペース4</option>
+                <option value="tab">タブ</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="editor-grid">
+        <div class="pane">
+            <div class="plabel"><span>入力</span><span id="inSize">0 B</span></div>
+            <textarea id="input" spellcheck="false" placeholder="ここにコードを貼り付け…" oninput="run()"></textarea>
+        </div>
+        <div class="pane">
+            <div class="plabel"><span>出力</span><span id="outSize">0 B</span></div>
+            <textarea id="output" spellcheck="false" readonly placeholder="結果がここに表示されます"></textarea>
+        </div>
+    </div>
+
+    <div class="toolbar">
+        <button class="btn" onclick="run()">実行</button>
+        <button class="btn sec" onclick="copyOut()">出力をコピー</button>
+        <button class="btn sec" onclick="loadSample(true)">サンプル読込</button>
+        <button class="btn sec" onclick="clearAll()">クリア</button>
+    </div>
+
+    <div class="stat-grid">
+        <div class="result-item"><div class="label">入力サイズ</div><div class="value" id="statIn">- B</div></div>
+        <div class="result-item"><div class="label">出力サイズ</div><div class="value" id="statOut">- B</div></div>
+        <div class="result-item"><div class="label">削減率</div><div class="value good" id="statRatio">-</div><div class="sub" id="statDelta"></div></div>
+    </div>
+
+    <div class="note">処理はすべてブラウザ内のJavaScriptで実行され、コードは外部送信されません。文字列・正規表現・コメント、およびHTMLのpre／textareaの中身は保護します。本ツールはASTを完全解析する本格ミニファイアではなく軽量なテキストベース整形ツールのため、一般的なコードで安全に効く範囲の圧縮・整形を行います。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>JS/CSS/HTML Minify・整形ツールの使い方</h2>
+        <p>JavaScript・CSS・HTMLのコードを、ブラウザだけで圧縮（Minify）したり整形（Beautify）したりできる無料ツールです。まず「言語」で対象を選び、「モード」で圧縮か整形を選択したら、左の入力欄にコードを貼り付けるだけで、右の出力欄に結果がリアルタイムで表示されます。圧縮前後のバイト数と削減率も自動で計算されるので、どれだけ軽量化できたかがひと目で分かります。</p>
+        <p>圧縮（Minify）はコメントや改行・インデントといった動作に不要な空白を取り除き、ファイルサイズを小さくして通信量を減らします。整形（Beautify）は逆に、1行に詰まったコードや乱れたコードへ改行とインデントを付け直し、人が読みやすい形に整えます。整形モードではインデント幅をスペース2・4・タブから選べます。処理結果は「出力をコピー」でクリップボードにコピーでき、「サンプル読込」で各言語の見本を読み込んで動作を試せます。</p>
+        <h3>安全性への配慮</h3>
+        <p>圧縮では文字列の中身までうっかり削ってしまう事故が起きがちですが、本ツールはJavaScriptの文字列・テンプレートリテラル・正規表現リテラルを解析して保護し、その内側にある波かっこや「//」「/* */」のようなコメント風テキストはそのまま維持します。CSSの文字列、HTMLのpre・textarea・script・styleブロックの中身も保護対象です。これにより、コメント除去や空白圧縮によってコードの意味が変わってしまうことを防いでいます。</p>
+
+        <h2>MinifyとBeautifyの違い</h2>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>項目</th><th>Minify（圧縮）</th><th>Beautify（整形）</th></tr>
+            <tr><td>目的</td><td>ファイルサイズ削減・高速化</td><td>可読性の向上・レビュー</td></tr>
+            <tr><td>コメント</td><td>除去する</td><td>基本的に残す</td></tr>
+            <tr><td>空白・改行</td><td>不要分を除去し1行に</td><td>インデントを付けて整える</td></tr>
+            <tr><td>主な用途</td><td>本番配信前の下ごしらえ</td><td>難読化・圧縮コードの解読</td></tr>
+        </table>
+        </div>
+        <h3>圧縮でどれくらい軽くなる？</h3>
+        <p>圧縮の効果はコードの書き方によりますが、コメントやインデントが多いソースほど削減率は大きくなります。一般的な手書きのCSSやJavaScriptでは、コメントと空白の除去だけで数十パーセント程度サイズが縮むことも珍しくありません。本ツールは処理後に入力・出力それぞれのUTF-8バイト数と削減率（%）を表示するので、軽量化の目安として活用してください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">Minify（圧縮）とBeautify（整形）は何が違う？</div><div class="a">Minifyはコメントや改行・インデントなどの不要な空白を取り除き、コードのファイルサイズを小さくする処理です。動作は変えずに通信量を減らして表示を高速化する目的で使います。逆にBeautifyは圧縮された1行のコードや乱れたコードに改行とインデントを付け直し、人が読みやすい形に整える処理です。本ツールは同じ入力に対してワンクリックで両方を切り替えられます。</div></div>
+        <div class="faq-item"><div class="q">コードは外部サーバーに送信される？</div><div class="a">いいえ。圧縮・整形の処理はすべてお使いのブラウザ内のJavaScriptだけで実行され、入力したコードが外部のサーバーやAPIに送信されることはありません。外部CDNの読み込みもなく、社内コードや未公開のソースでも安心してお試しいただけます。</div></div>
+        <div class="faq-item"><div class="q">文字列やコメントに見える中身は壊れない？</div><div class="a">本ツールはJavaScriptの文字列・テンプレートリテラル・正規表現リテラルを解析して保護し、その内側にある波かっこや「//」「/* */」のようなコメント風のテキストは中身をそのまま維持します。CSSの文字列やHTMLのpre・textarea内のテキストも保護されるため、コメント除去や空白圧縮によって文字列内容が壊れることはありません。</div></div>
+        <div class="faq-item"><div class="q">インデントの幅は変えられる？</div><div class="a">はい。Beautify（整形）モードではインデント幅をスペース2・4・タブから選べます。整形は選んだ言語（JS／CSS／HTML）の波かっこやタグの入れ子に応じて自動でインデントを付け直します。チームのコーディング規約に合わせて幅を調整してご利用ください。</div></div>
+        <div class="faq-item"><div class="q">本格的なMinifierと同じ結果になる？</div><div class="a">いいえ。本ツールは構文木（AST）を完全に解析する本格的なミニファイア（terser や cssnano など）ではなく、軽量なテキストベースの整形・圧縮ツールです。コメント除去や空白圧縮など一般的なコードで安全に効く処理を中心に行い、変数名の短縮やデッドコード削除などの高度な最適化は行いません。ビルドの前処理や下書きの整形には十分ですが、本番の最終ビルドには専用ツールの併用をおすすめします。</div></div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast"></div>
+
+<!-- サンプルコード（JS文字列エスケープを避けるため text/plain として埋め込み） -->
+<script type="text/plain" id="sample-js">// サンプル JavaScript：文字列・正規表現・コメントの保護を確認
+const config = {
+  name: "widget { with braces }",       /* この波かっこは文字列内 */
+  note: 'not // a comment, keep this text',
+  path: /\/\* looks like a comment \*\//g
+};
+
+function greet(user) {
+  // 本物の行コメント（圧縮で消える）
+  const msg = `Hi ${user}, {status: ok};`;
+  return msg;
+}
+
+greet(config.name);
+</script>
+<script type="text/plain" id="sample-css">/* メインスタイル（コメントは圧縮で除去） */
+.card {
+  color: #1e1e35;
+  content: "a; b: c { keep this }";
+  margin: 0    auto;
+  padding: 10px   20px;
+}
+
+.card a:hover { color: #8b5cf6; }
+
+@media (max-width: 600px) {
+  .card { padding: 8px; }
+}
+</script>
+<script type="text/plain" id="sample-html"><!-- ページ見出し -->
+<div class="wrap">
+    <h1>タイトル</h1>
+    <p>Hello    world</p>
+    <ul>
+        <li>項目1</li>
+        <li>項目2</li>
+    </ul>
+    <pre>  この pre 内の
+    インデントと  空白は保持  </pre>
+    <img src="a.png" alt="画像">
+</div>
+</script>
+
+<script>
+"use strict";
+var mode = "minify";
+var SEN = String.fromCharCode(0); // 内部プレースホルダ用の区切り（通常のコードには現れない）
+
+function byteLen(s){ return new TextEncoder().encode(s || "").length; }
+function fmtBytes(n){
+  if(n < 1024) return n + " B";
+  return (n/1024).toFixed(1) + " KB";
+}
+function indentUnit(){
+  var v = document.getElementById('indent').value;
+  return v === 'tab' ? '\t' : ' '.repeat(parseInt(v,10));
+}
+
+/* ---------- 共通ヘルパー ---------- */
+// 直前トークンから、その "/" が正規表現の開始かを判定
+function regexAllowed(prev){
+  if(!prev) return true;
+  if(/[A-Za-z0-9_$)\]}.]/.test(prev)) return false; // 除算とみなす
+  return true;
+}
+// JS を「コード / 文字列 / 正規表現 / 行コメント / ブロックコメント」に分割
+function tokenizeJS(src){
+  var toks=[], i=0, n=src.length, prev='', buf='';
+  function flush(){ if(buf){ toks.push({t:'code', v:buf}); buf=''; } }
+  while(i<n){
+    var c=src[i], c2=src[i+1];
+    if(c==='/'&&c2==='/'){ flush(); var s=i; i+=2; while(i<n&&src[i]!=='\n')i++; toks.push({t:'lc',v:src.slice(s,i)}); continue; }
+    if(c==='/'&&c2==='*'){ flush(); var s2=i; i+=2; while(i<n&&!(src[i]==='*'&&src[i+1]==='/'))i++; i+=2; toks.push({t:'bc',v:src.slice(s2,Math.min(i,n))}); continue; }
+    if(c==='"'||c==="'"||c==='`'){ flush(); var s3=i, q=c; i++; while(i<n){ if(src[i]==='\\'){ i+=2; continue; } if(src[i]===q){ i++; break; } i++; } toks.push({t:'str',v:src.slice(s3,i)}); prev='s'; continue; }
+    if(c==='/'&&regexAllowed(prev)){ flush(); var s4=i; i++; var cls=false; while(i<n){ if(src[i]==='\\'){ i+=2; continue; } if(src[i]==='[')cls=true; else if(src[i]===']')cls=false; if(src[i]==='/'&&!cls){ i++; break; } if(src[i]==='\n')break; i++; } while(i<n&&/[a-z]/i.test(src[i]))i++; toks.push({t:'re',v:src.slice(s4,i)}); prev='r'; continue; }
+    if(!/\s/.test(c)) prev=c;
+    buf+=c; i++;
+  }
+  flush();
+  return toks;
+}
+
+/* ---------- JavaScript ---------- */
+function minifyJS(src){
+  var toks = tokenizeJS(src), out='';
+  var identL=/[A-Za-z0-9_$]/;
+  for(var k=0;k<toks.length;k++){
+    var tk=toks[k];
+    if(tk.t==='lc'||tk.t==='bc') continue; // コメント除去
+    if(tk.t==='str'||tk.t==='re'){ out+=tk.v; continue; }
+    // code: 空白を圧縮（識別子どうしの境界だけスペースを残す）
+    var s=tk.v, i=0, n=s.length;
+    while(i<n){
+      var c=s[i];
+      if(/\s/.test(c)){
+        var j=i; while(j<n&&/\s/.test(s[j]))j++;
+        var before=out.length?out[out.length-1]:'';
+        var after = j<n ? s[j] : (toks[k+1] ? toks[k+1].v[0] : '');
+        if(identL.test(before)&&identL.test(after)) out+=' ';
+        i=j; continue;
+      }
+      out+=c; i++;
+    }
+  }
+  return out.trim();
+}
+function beautifyJS(src, ind){
+  var toks = tokenizeJS(src), out='', depth=0, lineHas=false;
+  function pad(){ return ind.repeat(Math.max(0,depth)); }
+  function newline(){ out=out.replace(/[ \t]+$/,''); out+='\n'+pad(); lineHas=false; }
+  for(var k=0;k<toks.length;k++){
+    var tk=toks[k];
+    if(tk.t==='str'||tk.t==='re'){ out+=tk.v; lineHas=true; continue; }
+    if(tk.t==='lc'){ if(lineHas&&!/\s$/.test(out)) out+=' '; out+=tk.v; newline(); continue; }
+    if(tk.t==='bc'){ if(lineHas&&!/\s$/.test(out)) out+=' '; out+=tk.v; continue; }
+    var s=tk.v;
+    for(var i=0;i<s.length;i++){
+      var ch=s[i];
+      if(ch==='{'){ out=out.replace(/[ \t]+$/,''); if(lineHas) out+=' '; out+='{'; depth++; newline(); }
+      else if(ch==='}'){ depth=Math.max(0,depth-1); out=out.replace(/[ \t\n]+$/,''); out+='\n'+pad()+'}'; lineHas=true; }
+      else if(ch===';'){ out=out.replace(/[ \t]+$/,''); out+=';'; newline(); }
+      else if(/\s/.test(ch)){ if(lineHas && !/[ \t\n]$/.test(out)) out+=' '; }
+      else {
+        // 閉じ波かっこ直後に識別子が来たら新しい文として改行
+        if(/[A-Za-z_$]/.test(ch)){ var tr=out.replace(/[ \t]+$/,''); if(/\}$/.test(tr)){ out=tr; newline(); } }
+        out+=ch; lineHas=true;
+      }
+    }
+  }
+  return out.replace(/\n[ \t]*\n[ \t]*\n+/g,'\n\n').replace(/[ \t]+\n/g,'\n').replace(/^\n+/,'').replace(/\s+$/,'');
+}
+
+/* ---------- CSS ---------- */
+function stripCSSComments(src){
+  var out='', i=0, n=src.length;
+  while(i<n){
+    var c=src[i], c2=src[i+1];
+    if(c==='/'&&c2==='*'){ i+=2; while(i<n&&!(src[i]==='*'&&src[i+1]==='/'))i++; i+=2; continue; }
+    if(c==='"'||c==="'"){ var q=c; out+=c; i++; while(i<n){ if(src[i]==='\\'){ out+=src[i]+(src[i+1]||''); i+=2; continue; } out+=src[i]; if(src[i]===q){ i++; break; } i++; } continue; }
+    out+=c; i++;
+  }
+  return out;
+}
+function protectStrings(src, store){
+  return src.replace(/"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'/g, function(m){ store.push(m); return SEN+(store.length-1)+SEN; });
+}
+function restore(src, store){
+  return src.replace(new RegExp(SEN+'(\\d+)'+SEN,'g'), function(m,d){ return store[parseInt(d,10)]; });
+}
+function minifyCSS(src){
+  var store=[];
+  src = stripCSSComments(src);
+  src = protectStrings(src, store);
+  src = src.replace(/\s+/g,' ');
+  src = src.replace(/\s*([{}:;,])\s*/g,'$1'); // 結合子(+ > ~)は calc 破壊回避のため触らない
+  src = src.replace(/;}/g,'}');
+  src = src.trim();
+  return restore(src, store);
+}
+function beautifyCSS(src, ind){
+  var store=[];
+  src = stripCSSComments(src);
+  src = protectStrings(src, store);
+  src = src.replace(/\s+/g,' ').trim();
+  var out='', depth=0;
+  for(var i=0;i<src.length;i++){
+    var c=src[i];
+    if(c===' '){ if(out==='' || /[ \n]$/.test(out)) continue; out+=' '; }
+    else if(c==='{'){ out=out.replace(/ +$/,''); out+=' {\n'+ind.repeat(depth+1); depth++; }
+    else if(c==='}'){ out=out.replace(/[ \n]+$/,''); depth=Math.max(0,depth-1); out+='\n'+ind.repeat(depth)+'}\n'+ind.repeat(depth); }
+    else if(c===';'){ out=out.replace(/ +$/,''); out+=';\n'+ind.repeat(depth); }
+    else if(c===':'){
+      // 宣言(color: red)なら後ろにスペース、セレクタ(a:hover)なら付けない
+      var j=i+1, decl=false;
+      while(j<src.length){ var cj=src[j]; if(cj===';'||cj==='}'){ decl=true; break; } if(cj==='{'){ decl=false; break; } j++; }
+      out=out.replace(/ +$/,''); out+= decl ? ': ' : ':';
+      while(i+1<src.length && src[i+1]===' ') i++; // 直後の空白は取り込んで二重スペースを防ぐ
+    }
+    else out+=c;
+  }
+  out = out.replace(/\n[ \t]*\n+/g,'\n').replace(/[ \t]+\n/g,'\n').replace(/^\n+/,'').replace(/\s+$/,'');
+  return restore(out, store);
+}
+
+/* ---------- HTML ---------- */
+function protectHTMLBlocks(src, store, keepComments){
+  src = src.replace(/<(pre|textarea|script|style)([^>]*)>([\s\S]*?)<\/\1>/gi, function(m){ store.push(m); return SEN+(store.length-1)+SEN; });
+  if(keepComments){
+    src = src.replace(/<!--[\s\S]*?-->/g, function(m){ store.push(m); return SEN+(store.length-1)+SEN; });
+  }
+  return src;
+}
+function minifyHTML(src){
+  var store=[];
+  src = protectHTMLBlocks(src, store, false);
+  src = src.replace(/<!--[\s\S]*?-->/g,'');
+  src = src.replace(/\s+/g,' ');
+  src = src.replace(/>\s+</g,'><');
+  src = src.trim();
+  return restore(src, store);
+}
+function beautifyHTML(src, ind){
+  var store=[];
+  src = protectHTMLBlocks(src, store, true);
+  src = src.replace(/\s+/g,' ').replace(/>\s+</g,'><').trim();
+  var parts = src.split(/(<[^>]+>)/);
+  var voidEls = {area:1,base:1,br:1,col:1,embed:1,hr:1,img:1,input:1,link:1,meta:1,param:1,source:1,track:1,wbr:1};
+  var out='', depth=0;
+  for(var p=0;p<parts.length;p++){
+    var raw = parts[p]; if(raw==null) continue;
+    var t = raw.trim(); if(t==='') continue;
+    if(/^<\//.test(t)){
+      depth=Math.max(0,depth-1);
+      out += ind.repeat(depth)+t+'\n';
+    } else if(/^</.test(t)){
+      var mm = t.match(/^<\/?\s*([a-zA-Z0-9!]+)/);
+      var name = mm ? mm[1].toLowerCase() : '';
+      var isComment = /^<!/.test(t);
+      var selfClose = /\/>$/.test(t) || voidEls[name] || isComment;
+      out += ind.repeat(depth)+t+'\n';
+      if(!selfClose) depth++;
+    } else {
+      out += ind.repeat(depth)+t+'\n';
+    }
+  }
+  out = out.replace(/\s+$/,'');
+  return restore(out, store);
+}
+
+/* ---------- 実行 ---------- */
+function process(src, lang, mode, ind){
+  if(lang==='js')  return mode==='minify' ? minifyJS(src)  : beautifyJS(src, ind);
+  if(lang==='css') return mode==='minify' ? minifyCSS(src) : beautifyCSS(src, ind);
+  return mode==='minify' ? minifyHTML(src) : beautifyHTML(src, ind);
+}
+function run(){
+  var src = document.getElementById('input').value;
+  var lang = document.getElementById('lang').value;
+  var ind = indentUnit();
+  var out='';
+  try { out = process(src, lang, mode, ind); }
+  catch(e){ out = '// 処理中にエラーが発生しました: ' + e.message; }
+  document.getElementById('output').value = out;
+  var inB = byteLen(src), outB = byteLen(out);
+  document.getElementById('inSize').textContent = fmtBytes(inB);
+  document.getElementById('outSize').textContent = fmtBytes(outB);
+  document.getElementById('statIn').textContent = fmtBytes(inB);
+  document.getElementById('statOut').textContent = fmtBytes(outB);
+  var ratioEl = document.getElementById('statRatio');
+  var deltaEl = document.getElementById('statDelta');
+  if(inB>0){
+    var diff = inB - outB;
+    var pct = (diff / inB) * 100;
+    ratioEl.textContent = (pct>=0?'-':'+') + Math.abs(pct).toFixed(1) + '%';
+    ratioEl.classList.toggle('good', pct>=0);
+    deltaEl.textContent = (diff>=0? '−' : '+') + fmtBytes(Math.abs(diff));
+  } else {
+    ratioEl.textContent = '-'; deltaEl.textContent='';
+  }
+}
+function setMode(m){
+  mode = m;
+  var btns = document.querySelectorAll('#modeSeg button');
+  btns.forEach(function(b){ b.classList.toggle('active', b.dataset.mode===m); });
+  document.getElementById('indentRow').style.display = (m==='beautify') ? 'flex' : 'none';
+  run();
+}
+function loadSample(force){
+  var lang = document.getElementById('lang').value;
+  var el = document.getElementById('sample-'+lang);
+  var inp = document.getElementById('input');
+  if(force || !inp.value.trim()){
+    inp.value = el ? el.textContent.replace(/^\n/,'') : '';
+    run();
+  }
+}
+function clearAll(){
+  document.getElementById('input').value='';
+  run();
+}
+function copyOut(){
+  var out = document.getElementById('output').value;
+  if(!out){ toast('コピーする内容がありません'); return; }
+  navigator.clipboard.writeText(out).then(function(){ toast('出力をコピーしました'); },
+    function(){
+      var ta=document.getElementById('output'); ta.select(); document.execCommand('copy'); toast('出力をコピーしました');
+    });
+}
+var toastTimer=null;
+function toast(msg){
+  var t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+  if(toastTimer) clearTimeout(toastTimer);
+  toastTimer=setTimeout(function(){ t.classList.remove('show'); }, 1600);
+}
+
+// 初期表示
+loadSample(true);
+</script>
+</body>
+</html>

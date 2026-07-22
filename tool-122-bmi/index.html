@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI計算ツール | 身長・体重からBMI・肥満度・標準体重を自動計算【無料】</title>
+    <meta name="description" content="身長(cm)と体重(kg)を入力するだけでBMIを自動計算する無料ツール。日本肥満学会の判定基準で低体重〜肥満(4度)を判定し、標準体重(BMI22)と適正体重の範囲(BMI18.5〜25)も表示。WHO基準との違いも解説します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.85rem;color:var(--text3);margin-top:8px;font-weight:500}
+        .gauge-wrap{margin-top:18px}
+        .gauge-bar{position:relative;height:22px;border-radius:11px;background:linear-gradient(to right,#38bdf8 0%,#38bdf8 18.5%,#22c55e 18.5%,#22c55e 44%,#f59e0b 44%,#f59e0b 63%,#f97316 63%,#f97316 78%,#ef4444 78%,#ef4444 100%);overflow:visible}
+        .gauge-marker{position:absolute;top:-6px;width:4px;height:34px;background:#1e1e35;border-radius:2px;transform:translateX(-2px);transition:left 0.25s ease}
+        .gauge-labels{display:flex;justify-content:space-between;font-size:0.62rem;color:var(--text3);margin-top:8px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        .disclaimer{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-122-bmi/">
+    <meta property="og:title" content="BMI計算ツール | 身長・体重からBMI・肥満度・標準体重を自動計算【無料】">
+    <meta property="og:description" content="身長と体重を入力するだけでBMIを自動計算。日本肥満学会の基準で肥満度を判定し、標準体重・適正体重の範囲も表示。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-122-bmi/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="BMI計算ツール【無料】">
+    <meta name="twitter:description" content="身長と体重からBMI・肥満度・標準体重を自動計算。日本肥満学会の判定基準に対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"BMI計算ツール","description":"身長と体重からBMI・肥満度・標準体重・適正体重の範囲を自動計算する無料ツール","url":"https://www.devtools-japan.com/tool-122-bmi/","applicationCategory":"HealthApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"BMI計算ツール","item":"https://www.devtools-japan.com/tool-122-bmi/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"BMIはどうやって計算する？","acceptedAnswer":{"@type":"Answer","text":"BMI（ボディマス指数）は「体重(kg) ÷ 身長(m) の2乗」で計算します。身長はセンチメートルではなくメートルに直して2乗します。例えば身長170cm・体重65kgの場合、1.7×1.7＝2.89、65÷2.89＝約22.5がBMIになります。本ツールは身長(cm)と体重(kg)を入力すると自動でこの計算を行い、小数第1位まで表示します。"}},{"@type":"Question","name":"日本の肥満度の判定基準は？","acceptedAnswer":{"@type":"Answer","text":"日本肥満学会の基準では、BMI18.5未満を低体重（やせ）、18.5以上25未満を普通体重、25以上30未満を肥満(1度)、30以上35未満を肥満(2度)、35以上40未満を肥満(3度)、40以上を肥満(4度)と判定します。BMI25以上が「肥満」とされ、これは世界共通の基準ではなく日本独自の区分です。"}},{"@type":"Question","name":"WHO（世界保健機関）の基準とは何が違う？","acceptedAnswer":{"@type":"Answer","text":"WHOの国際基準では、BMI25以上30未満は「前肥満（overweight）」とされ、肥満（obese）はBMI30以上からです。一方、日本肥満学会はBMI25以上を「肥満」と定義します。日本人は欧米人より低いBMIでも生活習慣病のリスクが高まりやすいとされるため、より低い値で注意を促す基準になっています。"}},{"@type":"Question","name":"標準体重・適正体重とは？","acceptedAnswer":{"@type":"Answer","text":"標準体重は統計的に最も病気になりにくいとされるBMI22を基準に「22×身長(m)の2乗」で求めた体重です。身長170cmなら22×2.89＝約63.6kgが標準体重になります。本ツールでは、普通体重の範囲であるBMI18.5〜25に相当する体重（適正体重の範囲）もkgで表示します。"}},{"@type":"Question","name":"BMIだけで健康状態は判断できる？","acceptedAnswer":{"@type":"Answer","text":"できません。BMIは身長と体重だけから計算する簡易的な指標で、筋肉量や体脂肪率、脂肪のつき方（内臓脂肪か皮下脂肪か）は反映されません。筋肉量の多い方はBMIが高めに出ることもあります。BMIはあくまで目安であり、健康状態の判断や診断は医師・専門家にご相談ください。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>BMI計算</h1><p>身長・体重からBMI・肥満度・標準体重を自動計算</p></header>
+
+    <div class="card"><h3>身長・体重を入力</h3>
+        <div class="row"><label>身長</label><input type="number" id="height" value="170" min="1" step="0.1" inputmode="decimal" oninput="calcBMI()"><span class="unit">cm</span></div>
+        <div class="row"><label>体重</label><input type="number" id="weight" value="65" min="1" step="0.1" inputmode="decimal" oninput="calcBMI()"><span class="unit">kg</span></div>
+    </div>
+
+    <div class="big-result">
+        <div class="headline">あなたのBMI</div>
+        <div class="days"><span id="bmiValue">-</span></div>
+        <div class="target" id="categoryLabel">身長・体重を入力してください</div>
+        <div class="gauge-wrap">
+            <div class="gauge-bar"><div class="gauge-marker" id="gaugeMarker" style="left:50%"></div></div>
+            <div class="gauge-labels"><span>低体重</span><span>普通</span><span>肥満1</span><span>2度</span><span>3・4度</span></div>
+        </div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">標準体重（BMI22）</div><div class="value" id="stdWeight">-</div><div class="sub">最も病気になりにくい目安</div></div>
+        <div class="result-item"><div class="label">適正体重の範囲</div><div class="value" id="rangeWeight" style="font-size:1.1rem">-</div><div class="sub">BMI18.5〜25の範囲</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">判定（日本肥満学会）</div><div class="value" id="jpCategory" style="font-size:1.2rem">-</div></div>
+        <div class="result-item"><div class="label">標準体重までの差</div><div class="value" id="diffWeight" style="font-size:1.2rem">-</div><div class="sub">BMI22との差（±）</div></div>
+    </div>
+
+    <div class="note" id="whoNote">判定は<strong>日本肥満学会</strong>の基準（BMI25以上を肥満）に基づきます。WHO（世界保健機関）の国際基準では25以上30未満は「前肥満」、肥満は30以上とされ、区分が異なります。</div>
+
+    <div class="disclaimer">⚠️ BMIは身長と体重から求める簡易的な目安であり、筋肉量・体脂肪率・脂肪のつき方は反映されません。健康状態の<strong>診断ではありません</strong>。具体的な判断・治療については医師や専門家にご相談ください。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>BMI計算ツールの使い方</h2>
+        <p>身長（cm）と体重（kg）を入力するだけで、BMI（ボディマス指数）を自動計算する無料ツールです。BMIの数値に加えて、日本肥満学会の判定基準による肥満度、統計的に病気になりにくいとされる標準体重（BMI22）、普通体重にあたる適正体重の範囲（BMI18.5〜25）をまとめて表示します。インストールや会員登録は不要で、計算はすべてお使いの端末内で完結するため、入力した身長・体重が外部に送信されることはありません。</p>
+        <p>使い方はかんたんです。「身長」と「体重」の欄に数値を入力すると、画面中央に大きくBMIが表示され、下のゲージであなたが低体重〜肥満のどの位置にあるかがひと目でわかります。入力するたびにリアルタイムで再計算されるので、目標体重を入れて理想のBMIを確認するといった使い方もできます。</p>
+
+        <h2>BMIの計算式</h2>
+        <p>BMIは次の式で求めます。身長はセンチメートルではなくメートルに直してから2乗する点に注意してください。</p>
+        <p style="text-align:center;font-family:'JetBrains Mono',monospace;font-size:0.95rem;color:var(--text);background:var(--bg);padding:14px;border-radius:8px;border:1px solid var(--border)">BMI ＝ 体重(kg) ÷ 身長(m) ÷ 身長(m)</p>
+        <p>たとえば身長170cm・体重65kgの場合、身長は1.7mなので 1.7×1.7＝2.89、65÷2.89＝約22.5 がBMIになります。このとき標準体重は 22×2.89＝約63.6kg です。</p>
+
+        <h2>日本肥満学会の判定基準</h2>
+        <p>本ツールの判定は、日本肥満学会が定める基準に基づいています。BMI25以上を「肥満」とし、その程度に応じて1〜4度に分類します。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>BMI</th><th>判定（日本肥満学会）</th></tr>
+            <tr><td>18.5未満</td><td>低体重（やせ）</td></tr>
+            <tr><td>18.5以上 25未満</td><td>普通体重</td></tr>
+            <tr><td>25以上 30未満</td><td>肥満（1度）</td></tr>
+            <tr><td>30以上 35未満</td><td>肥満（2度）</td></tr>
+            <tr><td>35以上 40未満</td><td>肥満（3度）</td></tr>
+            <tr><td>40以上</td><td>肥満（4度）</td></tr>
+        </table>
+        </div>
+        <h3>WHO基準との違い</h3>
+        <p>WHO（世界保健機関）の国際基準では、BMI25以上30未満は「前肥満（overweight）」とされ、「肥満（obese）」はBMI30以上からです。これに対し日本肥満学会はBMI25以上をすでに「肥満」と定義しています。日本人を含むアジア人は、欧米人より低いBMIでも糖尿病や高血圧などの生活習慣病リスクが高まりやすいとされるため、より低い値で注意を促す基準になっています。同じBMIでも国や基準によって呼び方が変わる点を理解しておきましょう。</p>
+
+        <h2>標準体重・適正体重について</h2>
+        <p>標準体重は、統計的に最も病気になりにくいとされるBMI22を基準に「22×身長(m)の2乗」で求めた体重です。健康診断などで目標とされることが多い値です。適正体重の範囲は、普通体重にあたるBMI18.5〜25に相当する体重の幅で、この範囲内であれば標準的な体格と考えられます。ただし、これらはあくまで統計に基づく目安であり、体格や筋肉量には個人差があります。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">BMIはどうやって計算する？</div><div class="a">BMI（ボディマス指数）は「体重(kg) ÷ 身長(m) の2乗」で計算します。身長はメートルに直して2乗します。身長170cm・体重65kgなら 1.7×1.7＝2.89、65÷2.89＝約22.5 がBMIです。本ツールは身長(cm)と体重(kg)から自動計算し、小数第1位まで表示します。</div></div>
+        <div class="faq-item"><div class="q">日本の肥満度の判定基準は？</div><div class="a">日本肥満学会の基準では、BMI18.5未満を低体重、18.5以上25未満を普通体重、25以上30未満を肥満(1度)、30以上35未満を肥満(2度)、35以上40未満を肥満(3度)、40以上を肥満(4度)と判定します。BMI25以上が「肥満」とされます。</div></div>
+        <div class="faq-item"><div class="q">WHO（世界保健機関）の基準とは何が違う？</div><div class="a">WHOの国際基準では、BMI25以上30未満は「前肥満」、肥満はBMI30以上からです。日本肥満学会はBMI25以上を「肥満」と定義します。日本人は低いBMIでも生活習慣病リスクが高まりやすいため、より低い値で注意を促す基準になっています。</div></div>
+        <div class="faq-item"><div class="q">標準体重・適正体重とは？</div><div class="a">標準体重は最も病気になりにくいとされるBMI22を基準に「22×身長(m)の2乗」で求めた体重です。身長170cmなら約63.6kgです。本ツールでは普通体重の範囲であるBMI18.5〜25に相当する体重（適正体重の範囲）もkgで表示します。</div></div>
+        <div class="faq-item"><div class="q">BMIだけで健康状態は判断できる？</div><div class="a">できません。BMIは身長と体重だけの簡易指標で、筋肉量や体脂肪率、脂肪のつき方は反映されません。筋肉量の多い方はBMIが高めに出ることもあります。BMIは目安であり、健康状態の判断や診断は医師・専門家にご相談ください。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// 日本肥満学会の判定
+function judgeJP(bmi){
+    if (bmi < 18.5) return '低体重（やせ）';
+    if (bmi < 25)   return '普通体重';
+    if (bmi < 30)   return '肥満（1度）';
+    if (bmi < 35)   return '肥満（2度）';
+    if (bmi < 40)   return '肥満（3度）';
+    return '肥満（4度）';
+}
+// カテゴリの表示色
+function categoryColor(bmi){
+    if (bmi < 18.5) return '#38bdf8';
+    if (bmi < 25)   return '#22c55e';
+    if (bmi < 30)   return '#f59e0b';
+    if (bmi < 35)   return '#f97316';
+    return '#ef4444';
+}
+
+function calcBMI(){
+    const h = parseFloat(document.getElementById('height').value);
+    const w = parseFloat(document.getElementById('weight').value);
+    const bmiValue = document.getElementById('bmiValue');
+    const categoryLabel = document.getElementById('categoryLabel');
+    const jpCategory = document.getElementById('jpCategory');
+    const stdWeight = document.getElementById('stdWeight');
+    const rangeWeight = document.getElementById('rangeWeight');
+    const diffWeight = document.getElementById('diffWeight');
+    const marker = document.getElementById('gaugeMarker');
+
+    if (!h || !w || h <= 0 || w <= 0){
+        bmiValue.textContent = '-';
+        categoryLabel.textContent = '身長・体重を入力してください';
+        jpCategory.textContent = '-';
+        stdWeight.textContent = '-';
+        rangeWeight.textContent = '-';
+        diffWeight.textContent = '-';
+        return;
+    }
+
+    const m = h / 100;
+    const m2 = m * m;
+    const bmi = w / m2;
+    const bmiRounded = Math.round(bmi * 10) / 10;
+
+    const std = 22 * m2;             // 標準体重(BMI22)
+    const low = 18.5 * m2;           // 適正下限(BMI18.5)
+    const high = 25 * m2;            // 適正上限(BMI25)
+    const diff = w - std;            // 標準体重との差
+
+    const color = categoryColor(bmi);
+    bmiValue.textContent = bmiRounded.toFixed(1);
+    bmiValue.style.color = color;
+    const cat = judgeJP(bmi);
+    categoryLabel.textContent = '判定：' + cat;
+    jpCategory.textContent = cat;
+    jpCategory.style.color = color;
+
+    stdWeight.textContent = std.toFixed(1) + 'kg';
+    rangeWeight.textContent = low.toFixed(1) + '〜' + high.toFixed(1) + 'kg';
+
+    const sign = diff > 0 ? '+' : '';
+    diffWeight.textContent = sign + diff.toFixed(1) + 'kg';
+    diffWeight.style.color = Math.abs(diff) < 0.05 ? 'var(--green)' : (diff > 0 ? 'var(--red)' : 'var(--accent)');
+
+    // ゲージ: BMI15〜40を0〜100%にマッピング
+    let pct = (bmi - 15) / (40 - 15) * 100;
+    pct = Math.max(0, Math.min(100, pct));
+    marker.style.left = pct + '%';
+}
+
+calcBMI();
+</script>
+</body>
+</html>

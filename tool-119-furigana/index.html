@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ふりがな・ルビ変換ツール | 漢字に読み仮名を自動付与（ひらがな/カタカナ/ruby）【無料】</title>
+    <meta name="description" content="漢字まじりの日本語テキストに、ふりがな（読み仮名）を自動で付与する無料ツール。ひらがな・カタカナへの変換に加え、HTMLの<ruby>タグ（ルビ）も生成。名簿・出版・アクセシビリティ対応に。ブラウザ内で処理します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        textarea{width:100%;min-height:130px;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.95rem;line-height:1.8;outline:none;resize:vertical}
+        textarea:focus{border-color:var(--accent)}
+        .out-block{margin-bottom:16px}
+        .out-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+        .out-head .label{font-size:0.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em}
+        .out-body{background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:14px;min-height:52px;font-size:0.95rem;line-height:2;word-break:break-word;white-space:pre-wrap}
+        .out-body.ruby{line-height:2.6}
+        .out-body.code{font-family:'JetBrains Mono',monospace;font-size:0.8rem;line-height:1.7;white-space:pre-wrap;color:var(--text2)}
+        ruby rt{font-size:0.6em;color:var(--accent)}
+        .copy-btn{padding:6px 14px;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:0.75rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .copy-btn:hover{opacity:0.9}
+        .copy-btn.copied{background:var(--green)}
+        .status{font-size:0.8rem;color:var(--text2);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+        .spinner{width:14px;height:14px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite;flex-shrink:0}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        .status.error{color:var(--red)}
+        .status.ready{color:var(--green)}
+        .btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+        .btn{padding:10px 22px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.secondary{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn:disabled{opacity:0.5;cursor:not-allowed}
+        .seg{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+        .seg button{padding:7px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .seg button.active{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        @media(max-width:600px){.container{padding:24px 14px}}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-119-furigana/">
+    <meta property="og:title" content="ふりがな・ルビ変換ツール | 漢字に読み仮名を自動付与【無料】">
+    <meta property="og:description" content="漢字まじりの日本語テキストにふりがなを自動付与。ひらがな・カタカナ変換とHTMLの<ruby>タグ（ルビ）生成に対応。名簿・出版・アクセシビリティに。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-119-furigana/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ふりがな・ルビ変換ツール【無料】">
+    <meta name="twitter:description" content="漢字にふりがなを自動付与。ひらがな・カタカナ・rubyタグ生成に対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"ふりがな・ルビ変換ツール","description":"漢字まじりの日本語テキストにふりがな（読み仮名）を自動付与し、ひらがな・カタカナ・HTMLのrubyタグを生成する無料ツール","url":"https://www.devtools-japan.com/tool-119-furigana/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"ふりがな・ルビ変換ツール","item":"https://www.devtools-japan.com/tool-119-furigana/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ふりがなはどうやって付けているの？","acceptedAnswer":{"@type":"Answer","text":"入力された日本語テキストを形態素解析（けいたいそかいせき）し、単語ごとに辞書に登録された読みを取り出してふりがなを付与します。本ツールはブラウザ上で動作するkuromoji.jsという日本語形態素解析ライブラリと、その辞書データをCDNから読み込んで処理します。テキストはサーバーへ送信されず、すべてお使いの端末内（ブラウザ内）で変換されます。"}},{"@type":"Question","name":"読みは必ず正しい？","acceptedAnswer":{"@type":"Answer","text":"いいえ、100%正確ではありません。ふりがなは辞書に基づく推定のため、人名・地名などの固有名詞や、文脈で読みが変わる漢字（例：「行った」＝いった／おこなった）では誤ることがあります。特に名簿（名簿）などで正確さが求められる場合は、出力結果を必ず目視で確認・修正してください。"}},{"@type":"Question","name":"ひらがなだけでなくカタカナやルビも出せる？","acceptedAnswer":{"@type":"Answer","text":"はい。変換すると、読みを「ひらがな」「カタカナ」で表示するほか、HTMLの<ruby>漢字<rt>かんじ</rt></ruby>形式のルビ用マークアップも生成します。rubyタグはコピーボタンでコピーでき、そのままWebページやCMSに貼り付けてルビ表示に使えます。"}},{"@type":"Question","name":"オフラインでも使える？","acceptedAnswer":{"@type":"Answer","text":"ふりがなの自動付与には、CDNから読み込む解析辞書が必要なため、初回読み込み時にインターネット接続が必要です。オフラインなどで辞書の読み込みに失敗した場合は、その旨のエラーメッセージを表示します。その場合でもテキストの入力・貼り付けはでき、接続を回復して再読み込みすれば変換できます。"}},{"@type":"Question","name":"名簿や出版物の作成に使える？","acceptedAnswer":{"@type":"Answer","text":"はい。名簿の氏名一覧にふりがなを付けたり、出版・資料作成でルビを振ったり、Webのアクセシビリティ向上のためにrubyタグを付与したりする用途を想定しています。ただし固有名詞の読みは誤りやすいため、最終的な読みは必ず人の目で確認してご利用ください。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>ふりがな・ルビ変換</h1><p>漢字に読み仮名を自動付与（ひらがな / カタカナ / ruby）</p></header>
+
+    <div class="card"><h3>テキストを入力</h3>
+        <textarea id="input" placeholder="ここに漢字まじりの日本語を入力または貼り付けてください。例：東京特許許可局の担当者は山田太郎です。" oninput="onInput()"></textarea>
+        <div class="status" id="status"><span class="spinner"></span><span id="statusText">解析辞書を読み込み中です…（初回のみ少し時間がかかります）</span></div>
+        <div class="btn-row">
+            <button class="btn" id="convertBtn" onclick="convert()" disabled>ふりがなに変換</button>
+            <button class="btn secondary" onclick="clearAll()">クリア</button>
+            <button class="btn secondary" onclick="loadSample()">サンプル入力</button>
+        </div>
+    </div>
+
+    <div class="card"><h3>変換結果</h3>
+        <div class="out-block">
+            <div class="out-head"><span class="label">ひらがな</span><button class="copy-btn" onclick="copyText('outHira',this)">コピー</button></div>
+            <div class="out-body" id="outHira">—</div>
+        </div>
+        <div class="out-block">
+            <div class="out-head"><span class="label">カタカナ</span><button class="copy-btn" onclick="copyText('outKata',this)">コピー</button></div>
+            <div class="out-body" id="outKata">—</div>
+        </div>
+        <div class="out-block">
+            <div class="out-head"><span class="label">ルビ表示プレビュー</span></div>
+            <div class="out-body ruby" id="outRubyPreview">—</div>
+        </div>
+        <div class="out-block">
+            <div class="out-head"><span class="label">HTML &lt;ruby&gt; マークアップ</span><button class="copy-btn" onclick="copyText('outRubyCode',this)">コピー</button></div>
+            <div class="out-body code" id="outRubyCode">—</div>
+        </div>
+    </div>
+
+    <div class="note">ふりがなは辞書に基づく自動推定です。人名・地名などの固有名詞や、文脈で読みが変わる漢字は誤ることがあります。名簿や公開物では出力を必ず目視で確認してください。解析には kuromoji.js とその辞書データを CDN から読み込みます。テキストはサーバーに送信されず、すべてブラウザ内で処理されます。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>ふりがな・ルビ変換ツールの使い方</h2>
+        <p>漢字まじりの日本語テキストに、ふりがな（読み仮名）を自動で付与する無料ツールです。入力欄にテキストを貼り付けて「ふりがなに変換」を押すだけで、読みを「ひらがな」「カタカナ」で表示し、さらにHTMLの<code>&lt;ruby&gt;</code>タグ（ルビ用マークアップ）も生成します。インストールや会員登録は不要で、変換処理はすべてお使いのブラウザ内で完結し、入力テキストが外部サーバーへ送信されることはありません。</p>
+        <p>名簿（名簿）の氏名にふりがなを振りたいとき、出版・資料作成でルビが必要なとき、Webページのアクセシビリティ向上のために<code>ruby</code>要素を付けたいときなどに活用できます。生成した<code>&lt;ruby&gt;</code>マークアップはコピーボタンでコピーし、そのままWebサイトやCMSに貼り付けられます。</p>
+        <h3>3つの出力形式</h3>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>形式</th><th>例（入力「東京」）</th><th>主な用途</th></tr>
+            <tr><td>ひらがな</td><td>とうきょう</td><td>読みの確認、名簿のふりがな欄、検索用</td></tr>
+            <tr><td>カタカナ</td><td>トウキョウ</td><td>フリガナ欄（カナ指定）、帳票・データ入力</td></tr>
+            <tr><td>ruby タグ</td><td>&lt;ruby&gt;東京&lt;rt&gt;とうきょう&lt;/rt&gt;&lt;/ruby&gt;</td><td>Web・電子書籍でのルビ表示、アクセシビリティ</td></tr>
+        </table>
+        </div>
+
+        <h2>ふりがなの仕組みと注意点</h2>
+        <p>このツールは、日本語形態素解析ライブラリ「kuromoji.js」を使って入力文を単語に分割し、各単語の辞書上の読みを取り出してふりがなを付けています。辞書データはCDN（jsDelivr）から読み込むため、初回の読み込み時にインターネット接続が必要です。読み込み中は画面にインジケーターを表示し、完了すると「ふりがなに変換」ボタンが有効になります。</p>
+        <p>ふりがなはあくまで辞書に基づく自動推定であり、100%の正確さは保証できません。特に人名・地名などの固有名詞は読み方の候補が複数あることが多く、実際の読みと異なる場合があります。また「行った（いった／おこなった）」のように文脈で読みが変わる漢字も誤りやすい箇所です。名簿や公開する資料など、正確さが求められる場面では、必ず出力結果を目視で確認・修正してからご利用ください。</p>
+        <h3>オフライン時の動作</h3>
+        <p>辞書の読み込みに失敗した場合（オフライン時やCDNに接続できない場合など）は、その旨のエラーメッセージを表示します。この状態でもテキストの入力・貼り付けは可能です。インターネット接続を回復してページを再読み込みすると、辞書が読み込まれて変換できるようになります。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">ふりがなはどうやって付けているの？</div><div class="a">入力された日本語テキストを形態素解析し、単語ごとに辞書に登録された読みを取り出してふりがなを付与します。本ツールはブラウザ上で動作するkuromoji.jsという日本語形態素解析ライブラリと、その辞書データをCDNから読み込んで処理します。テキストはサーバーへ送信されず、すべてお使いの端末内（ブラウザ内）で変換されます。</div></div>
+        <div class="faq-item"><div class="q">読みは必ず正しい？</div><div class="a">いいえ、100%正確ではありません。ふりがなは辞書に基づく推定のため、人名・地名などの固有名詞や、文脈で読みが変わる漢字（例：「行った」＝いった／おこなった）では誤ることがあります。特に名簿などで正確さが求められる場合は、出力結果を必ず目視で確認・修正してください。</div></div>
+        <div class="faq-item"><div class="q">ひらがなだけでなくカタカナやルビも出せる？</div><div class="a">はい。変換すると、読みを「ひらがな」「カタカナ」で表示するほか、HTMLの&lt;ruby&gt;漢字&lt;rt&gt;かんじ&lt;/rt&gt;&lt;/ruby&gt;形式のルビ用マークアップも生成します。rubyタグはコピーボタンでコピーでき、そのままWebページやCMSに貼り付けてルビ表示に使えます。</div></div>
+        <div class="faq-item"><div class="q">オフラインでも使える？</div><div class="a">ふりがなの自動付与には、CDNから読み込む解析辞書が必要なため、初回読み込み時にインターネット接続が必要です。オフラインなどで辞書の読み込みに失敗した場合は、その旨のエラーメッセージを表示します。その場合でもテキストの入力・貼り付けはでき、接続を回復して再読み込みすれば変換できます。</div></div>
+        <div class="faq-item"><div class="q">名簿や出版物の作成に使える？</div><div class="a">はい。名簿の氏名一覧にふりがなを付けたり、出版・資料作成でルビを振ったり、Webのアクセシビリティ向上のためにrubyタグを付与したりする用途を想定しています。ただし固有名詞の読みは誤りやすいため、最終的な読みは必ず人の目で確認してご利用ください。</div></div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+
+<!-- 日本語形態素解析ライブラリ kuromoji.js（単一CDN例外。Mermaidツールと同様の方針） -->
+<script src="https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/build/kuromoji.js"></script>
+<script>
+let tokenizer = null;
+let dictReady = false;
+let debounceTimer = null;
+
+const statusEl = document.getElementById('status');
+const statusText = document.getElementById('statusText');
+const convertBtn = document.getElementById('convertBtn');
+
+// カタカナ -> ひらがな
+function kataToHira(str){
+    return str.replace(/[ァ-ヶ]/g, function(ch){
+        return String.fromCharCode(ch.charCodeAt(0) - 0x60);
+    });
+}
+// ひらがな -> カタカナ
+function hiraToKata(str){
+    return str.replace(/[ぁ-ゖ]/g, function(ch){
+        return String.fromCharCode(ch.charCodeAt(0) + 0x60);
+    });
+}
+// 漢字を含むか判定
+function hasKanji(str){
+    return /[一-龯々]/.test(str);
+}
+function escapeHtml(str){
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// 辞書読み込み
+try {
+    kuromoji.builder({ dicPath: 'https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dict/' })
+        .build(function(err, tk){
+            if (err) { showDictError(); return; }
+            tokenizer = tk;
+            dictReady = true;
+            statusEl.className = 'status ready';
+            statusText.textContent = '解析辞書の読み込みが完了しました。変換できます。';
+            convertBtn.disabled = false;
+            if (document.getElementById('input').value.trim()) convert();
+        });
+} catch (e) {
+    showDictError();
+}
+
+function showDictError(){
+    statusEl.className = 'status error';
+    statusText.textContent = '解析辞書の読み込みに失敗しました。オフラインの可能性があります。テキストの入力・貼り付けはできます。接続を確認のうえページを再読み込みしてください。';
+    convertBtn.disabled = true;
+}
+
+function onInput(){
+    if (!dictReady) return;
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(convert, 500);
+}
+
+function convert(){
+    if (!dictReady || !tokenizer) return;
+    const text = document.getElementById('input').value;
+    if (!text.trim()){
+        document.getElementById('outHira').textContent = '—';
+        document.getElementById('outKata').textContent = '—';
+        document.getElementById('outRubyPreview').textContent = '—';
+        document.getElementById('outRubyCode').textContent = '—';
+        return;
+    }
+    const tokens = tokenizer.tokenize(text);
+    let hira = '';
+    let kata = '';
+    let rubyHtml = '';
+    let rubyCode = '';
+    tokens.forEach(function(tk){
+        const surface = tk.surface_form;
+        // reading はカタカナ。辞書に無い語は '*' や undefined になる
+        let reading = tk.reading;
+        if (!reading || reading === '*'){
+            // 読み不明: 表層をそのまま使う
+            hira += surface;
+            kata += surface;
+            rubyHtml += escapeHtml(surface);
+            rubyCode += escapeHtml(surface);
+            return;
+        }
+        const readingHira = kataToHira(reading);
+        const readingKata = hiraToKata(reading);
+        hira += readingHira;
+        kata += readingKata;
+        // 漢字を含む語のみ ruby を付与。仮名・記号はそのまま
+        if (hasKanji(surface)){
+            rubyHtml += '<ruby>' + escapeHtml(surface) + '<rt>' + escapeHtml(readingHira) + '</rt></ruby>';
+            rubyCode += '<ruby>' + escapeHtml(surface) + '<rt>' + escapeHtml(readingHira) + '</rt></ruby>';
+        } else {
+            rubyHtml += escapeHtml(surface);
+            rubyCode += escapeHtml(surface);
+        }
+    });
+    document.getElementById('outHira').textContent = hira;
+    document.getElementById('outKata').textContent = kata;
+    document.getElementById('outRubyPreview').innerHTML = rubyHtml;
+    document.getElementById('outRubyCode').textContent = rubyCode;
+}
+
+function copyText(id, btn){
+    const el = document.getElementById(id);
+    const txt = (id === 'outRubyCode') ? el.textContent : el.textContent;
+    if (!txt || txt === '—') return;
+    navigator.clipboard.writeText(txt).then(function(){
+        const orig = btn.textContent;
+        btn.textContent = 'コピーしました';
+        btn.classList.add('copied');
+        setTimeout(function(){ btn.textContent = orig; btn.classList.remove('copied'); }, 1400);
+    });
+}
+
+function clearAll(){
+    document.getElementById('input').value = '';
+    convert();
+}
+
+function loadSample(){
+    document.getElementById('input').value = '東京特許許可局の担当者、山田太郎さんが新しい書類を提出しました。';
+    convert();
+}
+</script>
+</body>
+</html>

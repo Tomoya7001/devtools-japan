@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON → TypeScript 型生成ツール | JSONサンプルからinterface/typeを自動生成【無料】</title>
+    <meta name="description" content="JSONのサンプルを貼り付けるだけで、TypeScriptのinterfaceやtypeを自動生成する無料ツール。ネストしたオブジェクト・配列・オプショナル・ユニオン型を再帰的に推論。API連携の型定義を手作業なしで作成。すべてブラウザ内で完結。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .toggle-row{display:flex;align-items:center;gap:8px;justify-content:flex-end;width:auto}
+        .toggle-row input[type=checkbox]{width:auto;padding:0}
+        textarea{width:100%;min-height:200px;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.85rem;line-height:1.6;outline:none;resize:vertical}
+        textarea:focus{border-color:var(--accent)}
+        .output-pre{width:100%;min-height:120px;max-height:520px;overflow:auto;padding:16px;background:#1e1e35;border:1px solid var(--border);border-radius:8px;color:#e6e6f0;font-family:'JetBrains Mono',monospace;font-size:0.82rem;line-height:1.6;white-space:pre;-webkit-overflow-scrolling:touch}
+        .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+        .toolbar button{padding:9px 18px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .toolbar button:hover{border-color:var(--accent);color:var(--accent)}
+        .toolbar button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+        .toolbar button.primary:hover{opacity:0.9;color:#fff}
+        .err{color:var(--red);font-size:0.8rem;margin-top:8px;min-height:18px}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}.toggle-row{width:100%;justify-content:flex-start}}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .seo-content code{font-family:'JetBrains Mono',monospace;font-size:0.8rem;background:var(--bg);padding:1px 5px;border-radius:4px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-114-json-typescript/">
+    <meta property="og:title" content="JSON → TypeScript 型生成 | JSONからinterface/typeを自動生成【無料】">
+    <meta property="og:description" content="JSONサンプルを貼り付けるだけでTypeScriptの型を自動生成。ネスト・配列・オプショナル・ユニオンを再帰推論。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-114-json-typescript/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="JSON → TypeScript 型生成【無料】">
+    <meta name="twitter:description" content="JSONサンプルからTypeScriptのinterface/typeを自動生成。ネスト・配列・オプショナルを再帰推論。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"JSON → TypeScript 型生成ツール","description":"JSONサンプルからTypeScriptのinterface/typeを自動生成する無料ツール","url":"https://www.devtools-japan.com/tool-114-json-typescript/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"JSON → TypeScript 型生成ツール","item":"https://www.devtools-japan.com/tool-114-json-typescript/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"JSONからTypeScriptの型を自動生成できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。JSONのサンプルを貼り付けて「型を生成」を押すと、そのJSONの構造からTypeScriptのinterface（またはtype）を自動で生成します。プロパティの型は値から推論され、文字列はstring、数値はnumber、真偽値はboolean、nullはnullとして出力します。APIレスポンスの例をそのまま貼り付けるだけで、手作業での型定義が不要になります。"}},{"@type":"Question","name":"ネストしたオブジェクトや配列も型にできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。ネストしたオブジェクトは、親の型名にプロパティ名を連結した別の型（例: Root の address プロパティなら RootAddress）として再帰的に切り出します。配列は要素の型を推論し、要素がオブジェクトの場合は要素用のinterfaceを生成して T[] の形にします。空配列は any[]、要素の型が複数ある混在配列は (A | B)[] のようなユニオン配列として出力します。"}},{"@type":"Question","name":"省略可能（オプショナル）なプロパティはどう判定されますか？","acceptedAnswer":{"@type":"Answer","text":"オブジェクトの配列を型にするとき、すべての要素に共通して存在するキーは必須、一部の要素にしか存在しないキーは省略可能（?付き）として扱います。たとえば注文データの配列で一部だけに note があれば note?: string になります。また、値が null のプロパティを ? にする「nullを任意扱い」オプションを有効にすると、nullを含むプロパティをオプショナルとして出力します。"}},{"@type":"Question","name":"interfaceとtype（型エイリアス）はどちらを選ぶべき？","acceptedAnswer":{"@type":"Answer","text":"どちらでもオブジェクトの型を表現できます。interfaceは宣言のマージ（同名の再定義による拡張）やextendsによる継承がしやすく、オブジェクトの形を表す用途で広く使われます。typeはユニオン型・交差型・マップ型など、より柔軟な型表現に向いています。本ツールではオプションで切り替えられるので、プロジェクトの規約に合わせて選んでください。迷う場合はinterfaceが無難です。"}},{"@type":"Question","name":"生成した型で実行時の検証もできますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。TypeScriptの型はコンパイル時のみに機能し、ビルド後のJavaScriptには残らないため、実行時にJSONが型どおりか検証することはできません。実行時バリデーションが必要な場合は、zodやio-tsなどのスキーマライブラリを併用してください。本ツールが生成するのはあくまで開発時の静的な型定義です。生成後は必要に応じて手直ししてご利用ください。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>JSON → TypeScript 型生成</h1><p>JSONサンプルからinterface / typeを自動生成</p></header>
+
+    <div class="card"><h3>オプション</h3>
+        <div class="row"><label>ルート型名</label><input type="text" id="rootName" value="Root" style="text-align:left" oninput="generate()"></div>
+        <div class="row"><label>出力形式</label><select id="declKind" onchange="generate()"><option value="interface">interface</option><option value="type">type（型エイリアス）</option></select></div>
+        <div class="row"><label>readonly を付与</label><span class="toggle-row"><input type="checkbox" id="readonly" onchange="generate()"></span></div>
+        <div class="row"><label>null を任意（?）扱いにする</label><span class="toggle-row"><input type="checkbox" id="optOnNull" onchange="generate()"></span></div>
+    </div>
+
+    <div class="card"><h3>JSON を貼り付け</h3>
+        <div class="toolbar">
+            <button class="primary" onclick="generate()">型を生成</button>
+            <button onclick="loadSample()">サンプルを読み込む</button>
+            <button onclick="clearInput()">クリア</button>
+        </div>
+        <textarea id="jsonInput" spellcheck="false" placeholder='{ "id": 1, "name": "example" }' oninput="generate()"></textarea>
+        <div class="err" id="errMsg"></div>
+    </div>
+
+    <div class="card"><h3>生成された TypeScript</h3>
+        <div class="toolbar">
+            <button onclick="copyOutput()" id="copyBtn">コピー</button>
+        </div>
+        <pre class="output-pre" id="output">// ここに生成結果が表示されます</pre>
+    </div>
+
+    <div class="note">すべての処理はお使いのブラウザ内（クライアントサイド）で完結し、入力したJSONが外部サーバーに送信されることはありません。型は1つのサンプルJSONから推論されるため、実データの網羅性に応じて生成後に手直しが必要な場合があります。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>JSON → TypeScript 型生成ツールの使い方</h2>
+        <p>APIのレスポンスや設定ファイルなどのJSONサンプルを貼り付けるだけで、対応するTypeScriptの型定義（interface または type）を自動生成する無料ツールです。ネストしたオブジェクト、配列、オプショナルなプロパティ、ユニオン型までを再帰的に推論するため、手作業で型を書き起こす時間を大幅に短縮できます。インストールや会員登録は不要で、入力したJSONは外部に送信されず、すべてブラウザ内で処理されます。</p>
+        <p>使い方はかんたんです。上部のテキストエリアにJSONを貼り付けると、その場でTypeScriptの型が生成されます。ルート（最上位）の型名はデフォルトで「Root」ですが、任意の名前に変更できます。出力形式を interface / type で切り替えたり、すべてのプロパティに readonly を付けたり、値が null のプロパティを任意（?）扱いにしたりといったオプションも用意しています。生成結果は「コピー」ボタンでクリップボードにコピーして、そのままエディタに貼り付けられます。</p>
+        <h3>型はどのように推論されるか</h3>
+        <p>各プロパティの型は値から推論します。文字列は string、数値は number、真偽値は boolean、null は null になります。オブジェクトはネストの階層ごとに別の型として切り出し、親の型名にプロパティ名（PascalCase）を連結した名前を付けます。たとえば Root の address プロパティは RootAddress、その中の geo は RootAddressGeo という型になります。配列は要素の型を調べ、要素がオブジェクトなら要素用の型を生成して <code>型名[]</code> の形に、要素の型が複数あれば <code>(A | B)[]</code> のようなユニオン配列にします。空配列は any[] として出力します。</p>
+
+        <h2>オプショナル・ユニオン型の判定</h2>
+        <p>オブジェクトの配列を型にする場合、要素ごとにキーが異なることがあります。本ツールでは、すべての要素に共通して存在するキーを必須、一部の要素にしか存在しないキーをオプショナル（?付き）として扱います。これにより、実際のデータのばらつきを反映した実用的な型を得られます。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>JSONの値</th><th>生成されるTypeScript型</th><th>説明</th></tr>
+            <tr><td>"hello"</td><td>string</td><td>文字列は常に string</td></tr>
+            <tr><td>42 / 3.14</td><td>number</td><td>整数・小数の区別なく number</td></tr>
+            <tr><td>true / false</td><td>boolean</td><td>真偽値</td></tr>
+            <tr><td>null</td><td>null</td><td>他に値の型が分かる場合は type | null</td></tr>
+            <tr><td>["a","b"]</td><td>string[]</td><td>要素の型で配列化</td></tr>
+            <tr><td>[]</td><td>any[]</td><td>空配列は要素型が不明</td></tr>
+            <tr><td>[1,"a"]</td><td>(number | string)[]</td><td>混在配列はユニオン配列</td></tr>
+            <tr><td>{ "a": 1 }</td><td>RootA など</td><td>ネストオブジェクトは別interface</td></tr>
+        </table>
+        </div>
+        <h3>こんな場面に</h3>
+        <p>外部APIのJSONレスポンスに合わせた型を素早く用意したいとき、既存のJSON設定ファイルに型を付けたいとき、モックデータから開発用の型を起こしたいときなどに便利です。CSVやJSONの相互変換だけでなく、型定義の生成までブラウザ内で完結できます。生成された型は開発時の静的チェック用であり、実行時のバリデーションが必要な場合は zod などのスキーマライブラリと併用してください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">JSONからTypeScriptの型を自動生成できますか？</div><div class="a">はい。JSONのサンプルを貼り付けて「型を生成」を押すと、そのJSONの構造からTypeScriptのinterface（またはtype）を自動で生成します。プロパティの型は値から推論され、文字列はstring、数値はnumber、真偽値はboolean、nullはnullとして出力します。APIレスポンスの例をそのまま貼り付けるだけで、手作業での型定義が不要になります。</div></div>
+        <div class="faq-item"><div class="q">ネストしたオブジェクトや配列も型にできますか？</div><div class="a">はい。ネストしたオブジェクトは、親の型名にプロパティ名を連結した別の型（例: Root の address プロパティなら RootAddress）として再帰的に切り出します。配列は要素の型を推論し、要素がオブジェクトの場合は要素用のinterfaceを生成して T[] の形にします。空配列は any[]、要素の型が複数ある混在配列は (A | B)[] のようなユニオン配列として出力します。</div></div>
+        <div class="faq-item"><div class="q">省略可能（オプショナル）なプロパティはどう判定されますか？</div><div class="a">オブジェクトの配列を型にするとき、すべての要素に共通して存在するキーは必須、一部の要素にしか存在しないキーは省略可能（?付き）として扱います。たとえば注文データの配列で一部だけに note があれば note?: string になります。また、値が null のプロパティを ? にする「nullを任意扱い」オプションを有効にすると、nullを含むプロパティをオプショナルとして出力します。</div></div>
+        <div class="faq-item"><div class="q">interfaceとtype（型エイリアス）はどちらを選ぶべき？</div><div class="a">どちらでもオブジェクトの型を表現できます。interfaceは宣言のマージやextendsによる継承がしやすく、オブジェクトの形を表す用途で広く使われます。typeはユニオン型・交差型・マップ型など、より柔軟な型表現に向いています。本ツールではオプションで切り替えられるので、プロジェクトの規約に合わせて選んでください。迷う場合はinterfaceが無難です。</div></div>
+        <div class="faq-item"><div class="q">生成した型で実行時の検証もできますか？</div><div class="a">いいえ。TypeScriptの型はコンパイル時のみに機能し、ビルド後のJavaScriptには残らないため、実行時にJSONが型どおりか検証することはできません。実行時バリデーションが必要な場合は、zodやio-tsなどのスキーマライブラリを併用してください。本ツールが生成するのはあくまで開発時の静的な型定義です。</div></div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+var SAMPLE = {
+  "id": 101,
+  "name": "山田太郎",
+  "isActive": true,
+  "roles": ["admin", "editor"],
+  "address": {
+    "city": "東京",
+    "zip": "100-0001",
+    "geo": { "lat": 35.68, "lng": 139.76 }
+  },
+  "orders": [
+    { "orderId": "A-001", "amount": 3200, "shipped": true },
+    { "orderId": "A-002", "amount": 5400, "shipped": false, "note": "ギフト包装" }
+  ],
+  "lastLogin": null
+};
+
+function isPlainObj(v){ return v !== null && typeof v === 'object' && !Array.isArray(v); }
+function validId(k){ return /^[A-Za-z_$][A-Za-z0-9_$]*$/.test(k); }
+
+function pascalSeg(k){
+  var parts = String(k).split(/[^A-Za-z0-9]+/).filter(Boolean);
+  var s = parts.map(function(p){ return p.charAt(0).toUpperCase() + p.slice(1); }).join('');
+  if (!s) s = 'Field';
+  if (/^[0-9]/.test(s)) s = 'N' + s;
+  return s;
+}
+function sanitizeName(n){
+  var s = String(n).replace(/[^A-Za-z0-9_$]/g, '');
+  if (!s) s = 'Root';
+  if (/^[0-9]/.test(s)) s = 'T' + s;
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+function singular(n){
+  if (/[^s]s$/.test(n) && !/ss$/.test(n)) return n.slice(0, -1);
+  return n;
+}
+function wrapArray(inner){
+  return inner.indexOf(' | ') > -1 ? '(' + inner + ')[]' : inner + '[]';
+}
+
+var G;
+function primType(v){
+  var t = typeof v;
+  if (t === 'string') return 'string';
+  if (t === 'number') return 'number';
+  if (t === 'boolean') return 'boolean';
+  return 'any';
+}
+
+function uniqueName(base){
+  base = sanitizeName(base);
+  var name = base, i = 2;
+  while (G.used[name]) { name = base + i; i++; }
+  G.used[name] = true;
+  return name;
+}
+
+// values: array of sample values; returns TypeScript type string, registering interfaces as needed
+function inferFromValues(values, nameHint){
+  var hasNull = false, nonNull = [];
+  for (var i = 0; i < values.length; i++){
+    if (values[i] === null) hasNull = true; else nonNull.push(values[i]);
+  }
+  if (nonNull.length === 0) return 'null';
+  var parts = [], seen = {};
+  function add(t){ if (!seen[t]) { seen[t] = true; parts.push(t); } }
+
+  var objs = [], arrs = [], prims = [];
+  for (var j = 0; j < nonNull.length; j++){
+    var v = nonNull[j];
+    if (isPlainObj(v)) objs.push(v);
+    else if (Array.isArray(v)) arrs.push(v);
+    else prims.push(v);
+  }
+  if (objs.length) add(mergeObjects(objs, nameHint));
+  if (arrs.length){
+    var elems = [];
+    for (var a = 0; a < arrs.length; a++) elems = elems.concat(arrs[a]);
+    if (elems.length === 0) add('any[]');
+    else add(wrapArray(inferFromValues(elems, singular(nameHint))));
+  }
+  for (var p = 0; p < prims.length; p++) add(primType(prims[p]));
+  if (hasNull) add('null');
+  return parts.join(' | ');
+}
+
+function mergeObjects(objs, nameHint){
+  var name = uniqueName(nameHint);
+  var entry = { name: name, fields: [] };
+  G.interfaces.push(entry); // reserve position so the parent appears first
+
+  var total = objs.length;
+  var order = [], presence = {}, valuesByKey = {};
+  var o, k, ks, x;
+  for (o = 0; o < total; o++){
+    ks = Object.keys(objs[o]);
+    for (x = 0; x < ks.length; x++){
+      k = ks[x];
+      if (!(k in valuesByKey)) { valuesByKey[k] = []; presence[k] = 0; order.push(k); }
+    }
+  }
+  for (o = 0; o < total; o++){
+    ks = Object.keys(objs[o]);
+    for (x = 0; x < ks.length; x++){
+      k = ks[x];
+      presence[k]++;
+      valuesByKey[k].push(objs[o][k]);
+    }
+  }
+
+  var fields = [];
+  for (x = 0; x < order.length; x++){
+    k = order[x];
+    var vals = valuesByKey[k];
+    var presentInAll = presence[k] === total;
+    var hasNull = false, nonNull = [];
+    for (var i = 0; i < vals.length; i++){
+      if (vals[i] === null) hasNull = true; else nonNull.push(vals[i]);
+    }
+    var optional = !presentInAll;
+    var type;
+    if (nonNull.length === 0){
+      type = 'null';
+    } else {
+      type = inferFromValues(nonNull, name + pascalSeg(k));
+    }
+    if (hasNull && nonNull.length > 0){
+      if (G.optOnNull) optional = true;
+      else type = type + ' | null';
+    }
+    fields.push({ key: k, type: type, optional: optional });
+  }
+  entry.fields = fields;
+  return name;
+}
+
+function renderInterface(entry){
+  var kw = G.typeAlias ? ('export type ' + entry.name + ' = {') : ('export interface ' + entry.name + ' {');
+  var lines = [kw];
+  for (var i = 0; i < entry.fields.length; i++){
+    var f = entry.fields[i];
+    var ro = G.readonly ? 'readonly ' : '';
+    var key = validId(f.key) ? f.key : JSON.stringify(f.key);
+    lines.push('  ' + ro + key + (f.optional ? '?' : '') + ': ' + f.type + ';');
+  }
+  lines.push(G.typeAlias ? '};' : '}');
+  return lines.join('\n');
+}
+
+function buildTypes(root, rootName){
+  G = { interfaces: [], used: {},
+        typeAlias: document.getElementById('declKind').value === 'type',
+        readonly: document.getElementById('readonly').checked,
+        optOnNull: document.getElementById('optOnNull').checked };
+  rootName = sanitizeName(rootName || 'Root');
+
+  var alias = null;
+  if (isPlainObj(root)){
+    mergeObjects([root], rootName);
+  } else if (Array.isArray(root)){
+    var elemType;
+    if (root.length === 0) elemType = 'any';
+    else elemType = inferFromValues(root, rootName + 'Item');
+    alias = 'export type ' + rootName + ' = ' + wrapArray(elemType) + ';';
+  } else {
+    G.used[rootName] = true;
+    alias = 'export type ' + rootName + ' = ' + (root === null ? 'null' : primType(root)) + ';';
+  }
+
+  var blocks = [];
+  for (var i = 0; i < G.interfaces.length; i++) blocks.push(renderInterface(G.interfaces[i]));
+  if (alias) blocks.push(alias);
+  return blocks.join('\n\n');
+}
+
+function generate(){
+  var raw = document.getElementById('jsonInput').value;
+  var err = document.getElementById('errMsg');
+  var out = document.getElementById('output');
+  if (!raw.trim()){
+    err.textContent = '';
+    out.textContent = '// ここに生成結果が表示されます';
+    return;
+  }
+  var data;
+  try {
+    data = JSON.parse(raw);
+  } catch (e){
+    err.textContent = 'JSONの解析に失敗しました: ' + e.message;
+    return;
+  }
+  err.textContent = '';
+  var rootName = document.getElementById('rootName').value || 'Root';
+  try {
+    out.textContent = buildTypes(data, rootName);
+  } catch (e2){
+    err.textContent = '型の生成中にエラーが発生しました: ' + e2.message;
+  }
+}
+
+function loadSample(){
+  document.getElementById('jsonInput').value = JSON.stringify(SAMPLE, null, 2);
+  generate();
+}
+function clearInput(){
+  document.getElementById('jsonInput').value = '';
+  generate();
+}
+function copyOutput(){
+  var text = document.getElementById('output').textContent;
+  var btn = document.getElementById('copyBtn');
+  function done(){ var o = btn.textContent; btn.textContent = 'コピーしました'; setTimeout(function(){ btn.textContent = o; }, 1400); }
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text, done); });
+  } else { fallbackCopy(text, done); }
+}
+function fallbackCopy(text, cb){
+  var ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); } catch (e){}
+  document.body.removeChild(ta); cb();
+}
+
+// 初期表示: サンプルを読み込む
+loadSample();
+</script>
+</body>
+</html>

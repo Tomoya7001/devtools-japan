@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mermaid図ジェネレーター | テキストからフローチャート・シーケンス図を作成しSVG/PNG出力【無料】</title>
+    <meta name="description" content="Mermaid記法のテキストを入力するだけで、フローチャート・シーケンス図・ER図・ガント・クラス図をリアルタイム描画。SVG/PNGでダウンロードできる無料ツール。LLMが出力するMarkdownネイティブの図をそのまま可視化できます。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:960px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .editor-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+        @media(max-width:760px){.editor-grid{grid-template-columns:1fr}.container{padding:28px 14px}}
+        .pane{display:flex;flex-direction:column}
+        .pane .pane-label{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px}
+        #src{width:100%;min-height:360px;resize:vertical;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.85rem;line-height:1.6;outline:none}
+        #src:focus{border-color:var(--accent)}
+        .preview-box{min-height:360px;padding:14px;background:#fff;border:1px solid var(--border);border-radius:8px;overflow:auto;display:flex;align-items:center;justify-content:center}
+        .preview-box svg{max-width:100%;height:auto}
+        .err-box{display:none;margin-top:10px;padding:12px 16px;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:8px;color:var(--red);font-size:0.8rem;font-family:'JetBrains Mono',monospace;white-space:pre-wrap;line-height:1.5}
+        .load-err{display:none;margin-bottom:16px;padding:14px 18px;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:var(--radius);color:var(--red);font-size:0.85rem;line-height:1.6}
+        .btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+        .btn{padding:10px 20px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.secondary{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.secondary:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+        .btn:disabled{opacity:0.4;cursor:not-allowed}
+        .status{font-size:0.75rem;color:var(--text3);margin-top:8px;min-height:1em}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-116-mermaid/">
+    <meta property="og:title" content="Mermaid図ジェネレーター | テキストから図を作成しSVG/PNG出力【無料】">
+    <meta property="og:description" content="Mermaid記法のテキストからフローチャート・シーケンス図・ER図・ガント・クラス図をリアルタイム描画。SVG/PNGでダウンロード可能。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-116-mermaid/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Mermaid図ジェネレーター【無料】">
+    <meta name="twitter:description" content="Mermaid記法のテキストから図をリアルタイム描画。SVG/PNGでダウンロード可能。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Mermaid図ジェネレーター","description":"Mermaid記法のテキストからフローチャート・シーケンス図・ER図・ガント・クラス図を描画しSVG/PNGで出力する無料ツール","url":"https://www.devtools-japan.com/tool-116-mermaid/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"Mermaid図ジェネレーター","item":"https://www.devtools-japan.com/tool-116-mermaid/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Mermaidとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"Mermaidはテキストで図を記述するための記法（テキスト・トゥ・ダイアグラム）です。graph TD や sequenceDiagram のような短いコードを書くだけでフローチャート・シーケンス図・ER図・ガントチャート・クラス図などを生成できます。Markdownネイティブで扱えるため、GitHubやNotion、各種ドキュメントに埋め込みやすく、ChatGPTなどのLLMが図を出力する際の事実上の標準フォーマットになっています。"}},{"@type":"Question","name":"どんな種類の図を作れますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールはフローチャート（graph／flowchart）、シーケンス図（sequenceDiagram）、ER図（erDiagram）、ガントチャート（gantt）、クラス図（classDiagram）などMermaidが対応する主要な図を描画できます。プリセットのサンプルボタンから各種類のひな形を読み込んで、そのまま編集を始められます。"}},{"@type":"Question","name":"作った図はダウンロードできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。描画された図はSVG（ベクター形式・拡大しても劣化しない）とPNG（画像形式・資料やチャットに貼りやすい）でダウンロードできます。SVGは描画されたsvg要素をそのまま保存し、PNGはそのSVGをブラウザ内のcanvasでラスタライズして生成します。いずれもお使いの端末内で処理され、サーバーには送信されません。"}},{"@type":"Question","name":"入力したテキストはサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。図の描画とSVG/PNG出力はすべてブラウザ内（クライアントサイド）で完結し、入力したMermaidソースがサーバーへ送信されることはありません。ただし描画エンジンとしてMermaidライブラリのみをCDN（jsDelivr）から読み込みます。ライブラリの読み込み後は入力内容が外部へ送られることはありません。"}},{"@type":"Question","name":"オフラインでも使えますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールは描画エンジンとしてMermaidライブラリをCDN（jsDelivr）から1つだけ読み込むため、初回の読み込みにはインターネット接続が必要です。オフラインなどでライブラリの読み込みに失敗した場合は、画面上に日本語のエラーメッセージを表示します。読み込み済みであれば、その後の描画とSVG/PNG出力はネットワークなしで動作します。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>Mermaid図ジェネレーター</h1><p>テキストからフローチャート・シーケンス図・ER図を描画してSVG/PNG出力</p></header>
+
+    <div class="load-err" id="loadErr">Mermaidライブラリの読み込みに失敗しました。インターネット接続を確認して、ページを再読み込みしてください。（描画エンジンはCDNから読み込みます）</div>
+
+    <div class="card"><h3>サンプルを読み込む</h3>
+        <div class="preset-row" id="presetRow"></div>
+        <div class="editor-grid">
+            <div class="pane">
+                <div class="pane-label">Mermaidソース</div>
+                <textarea id="src" spellcheck="false" placeholder="ここにMermaid記法を入力…"></textarea>
+                <div class="btn-row">
+                    <button class="btn secondary" id="copyBtn" type="button">ソースをコピー</button>
+                </div>
+            </div>
+            <div class="pane">
+                <div class="pane-label">プレビュー</div>
+                <div class="preview-box" id="preview"><span style="color:var(--text3);font-size:0.8rem">描画準備中…</span></div>
+                <div class="err-box" id="errBox"></div>
+                <div class="btn-row">
+                    <button class="btn" id="svgBtn" type="button" disabled>SVGをダウンロード</button>
+                    <button class="btn" id="pngBtn" type="button" disabled>PNGをダウンロード</button>
+                </div>
+            </div>
+        </div>
+        <div class="status" id="status"></div>
+    </div>
+
+    <div class="note">図の描画とSVG/PNG出力はすべてブラウザ内で完結し、入力したMermaidソースはサーバーに送信されません。描画エンジンとしてMermaidライブラリのみをCDN（jsDelivr）から読み込みます。入力は約0.5秒の遅延（デバウンス）でリアルタイム描画され、記法エラーはプレビュー下に表示されます。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>Mermaid図ジェネレーターの使い方</h2>
+        <p>Mermaid記法のテキストを入力するだけで、フローチャート・シーケンス図・ER図・ガントチャート・クラス図をリアルタイムに描画し、SVG／PNG画像としてダウンロードできる無料ツールです。左のエディタにコードを入力すると、右のプレビューに図が自動で描画されます。インストールや会員登録は不要で、描画・出力はすべてお使いの端末（ブラウザ）内で完結します。</p>
+        <p>使い方はかんたんです。上部の「サンプルを読み込む」ボタンから作りたい図の種類（フローチャート・シーケンス図・ER図・ガント・クラス図）を選ぶと、ひな形が左のエディタに入ります。あとはノードやラベルを書き換えるだけ。入力するたびに約0.5秒の遅延で図が更新されるので、結果を見ながら編集できます。記法に誤りがある場合はプレビューの下にエラー内容を表示し、直前の正しい図は消えないため安心して修正できます。</p>
+        <h3>こんな用途に</h3>
+        <p>設計ドキュメントの処理フロー図、APIやシステム間のやり取りを示すシーケンス図、データベースのテーブル関係を表すER図、プロジェクトのスケジュールを描くガントチャート、クラス構造を示すクラス図など。ChatGPTなどのLLMが出力したMermaidコードをそのまま貼り付けて可視化する用途にも最適です。完成した図はSVG（ベクター）やPNG（画像）で保存し、資料・README・チャットにそのまま貼り付けられます。</p>
+
+        <h2>Mermaidとは</h2>
+        <p>Mermaidは「テキストで図を書く」ための記法です。<code>graph TD</code> や <code>sequenceDiagram</code> といった短いコードを書くだけで、線を1本ずつ引くことなく図が生成されます。Markdownネイティブで扱えるためGitHubやドキュメントに埋め込みやすく、2025〜2026年にはLLMが図を出力する際の事実上の標準フォーマットになりました。テキストなので差分管理（バージョン管理）しやすいのも特長です。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>図の種類</th><th>先頭キーワード</th><th>用途の例</th></tr>
+            <tr><td>フローチャート</td><td>graph / flowchart</td><td>処理の流れ・分岐・判断ロジック</td></tr>
+            <tr><td>シーケンス図</td><td>sequenceDiagram</td><td>システム間・API間のやり取り</td></tr>
+            <tr><td>ER図</td><td>erDiagram</td><td>データベースのテーブル関係</td></tr>
+            <tr><td>ガントチャート</td><td>gantt</td><td>プロジェクトのスケジュール</td></tr>
+            <tr><td>クラス図</td><td>classDiagram</td><td>クラス構造・継承・関連</td></tr>
+        </table>
+        </div>
+        <h3>SVGとPNGの違い</h3>
+        <p>SVGはベクター形式で、どれだけ拡大しても輪郭がぼやけません。図を後から編集したり、印刷・大きなスライドに使う場合に向いています。PNGはビットマップ（画像）形式で、SVGを表示できない環境やチャット・資料に貼り付けるときに便利です。本ツールのPNGは、描画されたSVGをブラウザ内のcanvasでラスタライズして生成しています。用途に合わせて使い分けてください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">Mermaidとは何ですか？</div><div class="a">Mermaidはテキストで図を記述するための記法（テキスト・トゥ・ダイアグラム）です。graph TD や sequenceDiagram のような短いコードを書くだけでフローチャート・シーケンス図・ER図・ガントチャート・クラス図などを生成できます。Markdownネイティブで扱えるため各種ドキュメントに埋め込みやすく、LLMが図を出力する際の事実上の標準フォーマットになっています。</div></div>
+        <div class="faq-item"><div class="q">どんな種類の図を作れますか？</div><div class="a">フローチャート（graph／flowchart）、シーケンス図（sequenceDiagram）、ER図（erDiagram）、ガントチャート（gantt）、クラス図（classDiagram）などMermaidが対応する主要な図を描画できます。プリセットのサンプルボタンから各種類のひな形を読み込んで、そのまま編集を始められます。</div></div>
+        <div class="faq-item"><div class="q">作った図はダウンロードできますか？</div><div class="a">はい。描画された図はSVG（拡大しても劣化しないベクター形式）とPNG（資料やチャットに貼りやすい画像形式）でダウンロードできます。SVGは描画されたsvg要素をそのまま保存し、PNGはそのSVGをブラウザ内のcanvasでラスタライズして生成します。いずれもお使いの端末内で処理されます。</div></div>
+        <div class="faq-item"><div class="q">入力したテキストはサーバーに送信されますか？</div><div class="a">いいえ。図の描画とSVG/PNG出力はすべてブラウザ内で完結し、入力したMermaidソースがサーバーへ送信されることはありません。ただし描画エンジンとしてMermaidライブラリのみをCDN（jsDelivr）から読み込みます。</div></div>
+        <div class="faq-item"><div class="q">オフラインでも使えますか？</div><div class="a">描画エンジンとしてMermaidライブラリをCDN（jsDelivr）から1つだけ読み込むため、初回の読み込みにはインターネット接続が必要です。読み込みに失敗した場合は画面上に日本語のエラーメッセージを表示します。読み込み済みであれば、その後の描画とSVG/PNG出力はネットワークなしで動作します。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+
+<script>
+// プリセットのサンプル（各図の種類のひな形）
+var PRESETS = {
+    flowchart: "graph TD\n    A[開始] --> B{条件を満たす?}\n    B -->|はい| C[処理を実行]\n    B -->|いいえ| D[スキップ]\n    C --> E[結果を保存]\n    D --> E\n    E --> F[終了]",
+    sequence: "sequenceDiagram\n    participant U as ユーザー\n    participant F as フロントエンド\n    participant A as APIサーバー\n    U->>F: フォーム送信\n    F->>A: POST /submit\n    A-->>F: 200 OK\n    F-->>U: 完了メッセージ",
+    er: "erDiagram\n    CUSTOMER ||--o{ ORDER : places\n    ORDER ||--|{ ORDER_ITEM : contains\n    PRODUCT ||--o{ ORDER_ITEM : \"referenced in\"\n    CUSTOMER {\n        int id\n        string name\n        string email\n    }\n    ORDER {\n        int id\n        date created_at\n    }",
+    gantt: "gantt\n    title プロジェクト計画\n    dateFormat YYYY-MM-DD\n    section 設計\n    要件定義      :a1, 2026-01-01, 7d\n    基本設計      :a2, after a1, 5d\n    section 開発\n    実装          :b1, after a2, 14d\n    テスト        :b2, after b1, 7d",
+    class: "classDiagram\n    class Animal {\n        +String name\n        +int age\n        +makeSound()\n    }\n    class Dog {\n        +bark()\n    }\n    class Cat {\n        +meow()\n    }\n    Animal <|-- Dog\n    Animal <|-- Cat"
+};
+var PRESET_LABELS = [
+    ["flowchart","フローチャート"],
+    ["sequence","シーケンス図"],
+    ["er","ER図"],
+    ["gantt","ガントチャート"],
+    ["class","クラス図"]
+];
+
+var srcEl = document.getElementById('src');
+var previewEl = document.getElementById('preview');
+var errBox = document.getElementById('errBox');
+var statusEl = document.getElementById('status');
+var svgBtn = document.getElementById('svgBtn');
+var pngBtn = document.getElementById('pngBtn');
+var copyBtn = document.getElementById('copyBtn');
+var loadErrEl = document.getElementById('loadErr');
+var presetRow = document.getElementById('presetRow');
+
+var mermaidRef = null;   // 読み込まれたmermaidインスタンス
+var lastSvg = '';        // 直近で描画に成功したSVG文字列
+var renderSeq = 0;
+
+// プリセットボタン生成
+PRESET_LABELS.forEach(function(p){
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.textContent = p[1];
+    btn.onclick = function(){ srcEl.value = PRESETS[p[0]]; renderNow(); };
+    presetRow.appendChild(btn);
+});
+
+function setExportEnabled(on){
+    svgBtn.disabled = !on;
+    pngBtn.disabled = !on;
+}
+
+// デバウンス付き描画
+var debTimer = null;
+function scheduleRender(){
+    if (debTimer) clearTimeout(debTimer);
+    debTimer = setTimeout(renderNow, 500);
+}
+
+function renderNow(){
+    if (!mermaidRef) return;
+    var code = srcEl.value.trim();
+    if (!code){
+        previewEl.innerHTML = '<span style="color:var(--text3);font-size:0.8rem">Mermaidソースを入力してください</span>';
+        errBox.style.display = 'none';
+        lastSvg = '';
+        setExportEnabled(false);
+        return;
+    }
+    var mySeq = ++renderSeq;
+    var id = 'mmd-' + mySeq;
+    statusEl.textContent = '描画中…';
+    mermaidRef.render(id, code).then(function(res){
+        if (mySeq !== renderSeq) return; // 古い描画結果は破棄
+        previewEl.innerHTML = res.svg;
+        lastSvg = res.svg;
+        errBox.style.display = 'none';
+        statusEl.textContent = '描画に成功しました';
+        setExportEnabled(true);
+    }).catch(function(e){
+        if (mySeq !== renderSeq) return;
+        errBox.style.display = 'block';
+        errBox.textContent = '記法エラー: ' + (e && e.message ? e.message : String(e));
+        statusEl.textContent = 'エラーがあります（直前の図を表示中）';
+        // 直前の正しい図は残す。出力可否はlastSvgの有無で判定
+        setExportEnabled(!!lastSvg);
+    });
+}
+
+// ソースをコピー
+copyBtn.onclick = function(){
+    var text = srcEl.value;
+    function done(){ copyBtn.textContent = 'コピーしました'; setTimeout(function(){ copyBtn.textContent = 'ソースをコピー'; }, 1500); }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text); done(); });
+    } else { fallbackCopy(text); done(); }
+};
+function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch(e){}
+    document.body.removeChild(ta);
+}
+
+// 現在のSVG文字列を取得（描画済みsvg要素から）
+function currentSvgString(){
+    var svg = previewEl.querySelector('svg');
+    if (svg) return new XMLSerializer().serializeToString(svg);
+    return lastSvg;
+}
+
+function triggerDownload(url, filename){
+    var a = document.createElement('a');
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+
+// SVGダウンロード
+svgBtn.onclick = function(){
+    var svgStr = currentSvgString();
+    if (!svgStr) return;
+    if (svgStr.indexOf('xmlns=') === -1){
+        svgStr = svgStr.replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"');
+    }
+    var blob = new Blob([svgStr], {type: 'image/svg+xml;charset=utf-8'});
+    var url = URL.createObjectURL(blob);
+    triggerDownload(url, 'mermaid-diagram.svg');
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+};
+
+// PNGダウンロード（SVGをcanvasでラスタライズ）
+pngBtn.onclick = function(){
+    var svgEl = previewEl.querySelector('svg');
+    if (!svgEl){ statusEl.textContent = '出力できる図がありません'; return; }
+    var svgStr = new XMLSerializer().serializeToString(svgEl);
+    if (svgStr.indexOf('xmlns=') === -1){
+        svgStr = svgStr.replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"');
+    }
+    // 描画サイズを決定
+    var rect = svgEl.getBoundingClientRect();
+    var vb = svgEl.viewBox && svgEl.viewBox.baseVal;
+    var w = Math.ceil((vb && vb.width) || rect.width || 800);
+    var h = Math.ceil((vb && vb.height) || rect.height || 600);
+    var scale = 2; // 高解像度出力
+    var blob = new Blob([svgStr], {type: 'image/svg+xml;charset=utf-8'});
+    var url = URL.createObjectURL(blob);
+    var img = new Image();
+    img.onload = function(){
+        var canvas = document.createElement('canvas');
+        canvas.width = w * scale; canvas.height = h * scale;
+        var ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.setTransform(scale, 0, 0, scale, 0, 0);
+        ctx.drawImage(img, 0, 0, w, h);
+        URL.revokeObjectURL(url);
+        try {
+            canvas.toBlob(function(pngBlob){
+                if (!pngBlob){ statusEl.textContent = 'PNG生成に失敗しました'; return; }
+                var purl = URL.createObjectURL(pngBlob);
+                triggerDownload(purl, 'mermaid-diagram.png');
+                setTimeout(function(){ URL.revokeObjectURL(purl); }, 1000);
+            }, 'image/png');
+        } catch(e){ statusEl.textContent = 'PNG生成に失敗しました: ' + e.message; }
+    };
+    img.onerror = function(){ URL.revokeObjectURL(url); statusEl.textContent = 'PNG生成に失敗しました（画像変換エラー）'; };
+    img.src = url;
+};
+
+srcEl.addEventListener('input', scheduleRender);
+
+// Mermaidライブラリの読み込み（唯一のCDN依存）
+import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs')
+    .then(function(mod){
+        mermaidRef = mod.default;
+        mermaidRef.initialize({ startOnLoad: false, theme: 'default', securityLevel: 'strict' });
+        // 初期サンプル
+        srcEl.value = PRESETS.flowchart;
+        renderNow();
+    })
+    .catch(function(err){
+        loadErrEl.style.display = 'block';
+        previewEl.innerHTML = '<span style="color:var(--red);font-size:0.8rem">描画エンジンを読み込めませんでした</span>';
+        statusEl.textContent = 'ライブラリの読み込みに失敗しました';
+    });
+</script>
+</body>
+</html>

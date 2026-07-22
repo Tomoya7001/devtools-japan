@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OKLCHカラー変換・ピッカー | OKLCH ⇔ HEX・RGB・HSL 相互変換【無料】</title>
+    <meta name="description" content="CSS Color 4のOKLCHカラーをブラウザだけで変換・調整できる無料ツール。L・C・H・アルファのスライダーでライブプレビューし、OKLCHとsRGB HEX・RGB・HSLを双方向に相互変換。色域外（out of gamut）は警告・クランプ。HEX貼り付けでOKLCHを取得。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .slider-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
+        .slider-row:last-child{border-bottom:none}
+        .slider-row .sl-label{font-size:0.85rem;color:var(--text2);width:150px;flex-shrink:0}
+        .slider-row .sl-label small{display:block;color:var(--text3);font-size:0.65rem}
+        .slider-row input[type=range]{flex:1;accent-color:var(--accent);height:4px;min-width:80px}
+        .slider-row input[type=number]{width:92px;padding:8px 10px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.85rem;outline:none;text-align:right}
+        .slider-row input[type=number]:focus{border-color:var(--accent)}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}.slider-row{flex-wrap:wrap}.slider-row .sl-label{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.1rem;font-weight:700;color:var(--accent);word-break:break-all}
+        .result-item .copy-mini{margin-top:8px;padding:5px 12px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;color:var(--text2);font-size:0.7rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .result-item .copy-mini:hover{border-color:var(--accent);color:var(--accent)}
+        .swatch{height:120px;border-radius:var(--radius);border:1px solid var(--border);margin-bottom:16px;background-image:linear-gradient(45deg,#e0e2ed 25%,transparent 25%),linear-gradient(-45deg,#e0e2ed 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#e0e2ed 75%),linear-gradient(-45deg,transparent 75%,#e0e2ed 75%);background-size:20px 20px;background-position:0 0,0 10px,10px -10px,-10px 0}
+        .swatch .inner{width:100%;height:100%;border-radius:var(--radius)}
+        .css-out{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:20px;text-align:center;margin-bottom:16px}
+        .css-out .css-str{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent);word-break:break-all;margin-bottom:12px}
+        .warn{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:10px 14px;font-size:0.78rem;color:var(--red);margin-bottom:16px;display:none}
+        .warn.show{display:block}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-107-oklch/">
+    <meta property="og:title" content="OKLCHカラー変換・ピッカー | OKLCH ⇔ HEX・RGB・HSL 相互変換【無料】">
+    <meta property="og:description" content="CSS Color 4のOKLCHカラーをブラウザだけで変換・調整。L・C・H・アルファのスライダーでライブプレビュー、HEX・RGB・HSLと双方向変換、色域外は警告。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-107-oklch/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="OKLCHカラー変換・ピッカー【無料】">
+    <meta name="twitter:description" content="OKLCHとHEX・RGB・HSLを双方向で相互変換。知覚的に均一なCSS Color 4カラーをブラウザだけで調整。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"OKLCHカラー変換・ピッカー","description":"OKLCHカラーをsRGB HEX・RGB・HSLと双方向に相互変換し、L・C・H・アルファをスライダーで調整できる無料ツール","url":"https://www.devtools-japan.com/tool-107-oklch/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"OKLCHカラー変換・ピッカー","item":"https://www.devtools-japan.com/tool-107-oklch/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"OKLCHとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"OKLCHはCSS Color 4で定義された色指定方法で、L（知覚的な明度 0〜1）、C（彩度・クロマ 0以上）、H（色相 0〜360度）の3要素で色を表します。OKLab色空間を極座標で表現したもので、人間の見え方に近い『知覚的均一性』を持ちます。2023年以降Chrome・Safari・Firefox・EdgeなどでBaseline対応となり、デザインシステムでHSLの置き換えとして広く使われ始めています。"}},{"@type":"Question","name":"OKLCHはHSLと何が違いますか？","acceptedAnswer":{"@type":"Answer","text":"HSLは実装が簡単な一方、同じ明度(L)の値でも色相によって実際の明るさがばらつくという欠点があります。OKLCHは知覚的に均一な明度を持つため、Lを固定したまま色相Hだけを変えても見た目の明るさがほぼ一定に保たれます。このため、アクセシブルなカラーパレットやダークモード、グラデーションの設計でHSLより扱いやすく、コントラスト調整が直感的になります。"}},{"@type":"Question","name":"色域外（out of gamut）の警告は何ですか？","acceptedAnswer":{"@type":"Answer","text":"OKLCHはsRGBより広い色を表現できるため、CやLの組み合わせによってはsRGBディスプレイで表示できない色（色域外）になります。その場合、本ツールはHEX・RGB出力をsRGBの範囲にクランプ（丸め込み）したうえで警告を表示します。表示されたHEXは近似値であり、元のOKLCH値とは厳密には一致しない点にご注意ください。"}},{"@type":"Question","name":"HEXコードからOKLCHに変換できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。HEX入力欄に#ff0000のような16進カラーコードを貼り付けると、sRGB→linear-sRGB→OKLab→OKLCHの順で正確に逆変換し、対応するL・C・Hの値とスライダーに反映します。RGBやHSLの数値からも同様に変換できるため、既存のカラーコードをOKLCHへ移行する作業に利用できます。"}},{"@type":"Question","name":"変換計算はサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。すべての変換はお使いのブラウザ内のJavaScriptだけで完結し、入力した色の値がサーバーや外部に送信されることはありません。OKLab⇔linear-sRGB⇔sRGBの標準的な変換行列とガンマ補正をそのまま実装しているため、オフラインでも動作し、プライバシーを気にせず利用できます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>OKLCHカラー変換・ピッカー</h1><p>OKLCH ⇔ HEX・RGB・HSL を双方向に相互変換</p></header>
+
+    <div class="swatch"><div class="inner" id="swatch"></div></div>
+
+    <div class="warn" id="gamutWarn">⚠ この色はsRGBの色域外（out of gamut）です。HEX・RGB出力は表示可能な範囲にクランプした近似値です。</div>
+
+    <div class="css-out">
+        <div class="css-str" id="cssStr">oklch(0.628 0.2577 29.23)</div>
+        <button class="btn" id="copyCss" onclick="copyCss()">CSS値をコピー</button>
+    </div>
+
+    <div class="card"><h3>OKLCH スライダー</h3>
+        <div class="slider-row">
+            <div class="sl-label">L 明度<small>0 〜 1</small></div>
+            <input type="range" id="lRange" min="0" max="1" step="0.001" value="0.628" oninput="fromOklch('L')">
+            <input type="number" id="lNum" min="0" max="1" step="0.001" value="0.628" oninput="fromOklch('L')">
+        </div>
+        <div class="slider-row">
+            <div class="sl-label">C 彩度（クロマ）<small>0 〜 0.4</small></div>
+            <input type="range" id="cRange" min="0" max="0.4" step="0.0001" value="0.2577" oninput="fromOklch('C')">
+            <input type="number" id="cNum" min="0" max="0.4" step="0.0001" value="0.2577" oninput="fromOklch('C')">
+        </div>
+        <div class="slider-row">
+            <div class="sl-label">H 色相<small>0 〜 360°</small></div>
+            <input type="range" id="hRange" min="0" max="360" step="0.01" value="29.23" oninput="fromOklch('H')">
+            <input type="number" id="hNum" min="0" max="360" step="0.01" value="29.23" oninput="fromOklch('H')">
+        </div>
+        <div class="slider-row">
+            <div class="sl-label">Alpha 不透明度<small>0 〜 1</small></div>
+            <input type="range" id="aRange" min="0" max="1" step="0.01" value="1" oninput="fromOklch('A')">
+            <input type="number" id="aNum" min="0" max="1" step="0.01" value="1" oninput="fromOklch('A')">
+        </div>
+    </div>
+
+    <div class="card"><h3>HEX / RGB / HSL から変換</h3>
+        <div class="row"><label>HEXコードを貼り付け</label><input type="text" id="hexIn" placeholder="#ff0000" oninput="fromHex()"></div>
+        <div class="row"><label>RGB (R,G,B 各 0〜255)</label><input type="text" id="rgbIn" placeholder="255,0,0" oninput="fromRgbInput()"></div>
+        <div class="row"><label>HSL (H,S%,L%)</label><input type="text" id="hslIn" placeholder="0,100,50" oninput="fromHslInput()"></div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">HEX</div><div class="value" id="outHex">-</div><button class="copy-mini" onclick="copyVal('outHex',this)">コピー</button></div>
+        <div class="result-item"><div class="label">RGB</div><div class="value" id="outRgb">-</div><button class="copy-mini" onclick="copyVal('outRgb',this)">コピー</button></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">HSL</div><div class="value" id="outHsl">-</div><button class="copy-mini" onclick="copyVal('outHsl',this)">コピー</button></div>
+        <div class="result-item"><div class="label">OKLCH (CSS)</div><div class="value" id="outOklch">-</div><button class="copy-mini" onclick="copyVal('outOklch',this)">コピー</button></div>
+    </div>
+
+    <div class="note">すべての変換はブラウザ内で完結し、色の値は外部に送信されません。OKLab⇔linear-sRGB⇔sRGBの標準変換行列とガンマ補正を実装しています。OKLCHはsRGBより広い色域を持つため、色域外の色はsRGBの範囲へクランプした近似HEXを表示します。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>OKLCHカラー変換ツールの使い方</h2>
+        <p>OKLCHは CSS Color Module Level 4（CSS Color 4）で標準化された新しい色指定方法で、2023年以降にChrome・Safari・Firefox・Edgeなど主要ブラウザで<strong>Baseline</strong>となりました。本ツールは、この OKLCH カラーをブラウザだけで自由に調整し、従来の sRGB HEX・RGB・HSL と双方向に相互変換できる無料ツールです。インストールや会員登録は不要で、入力した色の値はすべて端末内で処理され外部に送信されません。</p>
+        <p>使い方はシンプルです。L（明度）・C（彩度／クロマ）・H（色相）・Alpha（不透明度）の4つのスライダーを動かすと、上部のスウォッチ（色見本）と <code>oklch(L C H)</code> のCSS文字列がリアルタイムに更新されます。「CSS値をコピー」ボタンを押せば、そのままスタイルシートに貼り付けられます。逆に、下部のHEX欄に <code>#ff0000</code> のようなカラーコードを貼り付けると、対応するOKLCH値へ即座に逆変換され、スライダーにも反映されます。RGBやHSLの数値からの変換にも対応しています。</p>
+        <h3>各パラメータの意味</h3>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>記号</th><th>意味</th><th>範囲</th></tr>
+            <tr><td>L</td><td>知覚的な明度（Lightness）。0が黒、1が白</td><td>0 〜 1</td></tr>
+            <tr><td>C</td><td>彩度・クロマ（Chroma）。0が無彩色、大きいほど鮮やか</td><td>0 〜 約0.4</td></tr>
+            <tr><td>H</td><td>色相（Hue）。色の角度。0=赤系、120=緑系、240=青系</td><td>0 〜 360°</td></tr>
+            <tr><td>Alpha</td><td>不透明度。0で透明、1で不透明</td><td>0 〜 1</td></tr>
+        </table>
+        </div>
+
+        <h2>OKLCHが選ばれる理由</h2>
+        <p>従来よく使われてきたHSLは、同じL（明度）の値でも色相によって見た目の明るさが大きくばらつくという弱点がありました。たとえばHSLで明度50%の黄色と青は、数値上は同じでも人間の目には黄色のほうがずっと明るく見えます。OKLCHはOKLabという知覚的均一性を重視した色空間をベースにしているため、Lを固定したまま色相Hだけを変えても、見た目の明るさがほぼ一定に保たれます。これにより、アクセシブルなカラーパレット設計、ダークモードの配色、なめらかなグラデーション作成が格段に扱いやすくなります。</p>
+        <h3>色域外（out of gamut）の扱い</h3>
+        <p>OKLCHはsRGBより広い範囲の色を数式上表現できるため、CやLの組み合わせによっては現在のsRGBディスプレイで再現できない色になることがあります。この状態を「色域外（out of gamut）」と呼びます。本ツールでは色域外を検出すると警告を表示し、HEX・RGBの出力はsRGBの表示可能範囲へクランプ（各チャンネルを0〜255に丸め込み）した近似値を表示します。厳密な色を保ちたい場合は、Cを下げるかLを調整して警告が消える範囲に収めてください。</p>
+
+        <h2>変換の仕組み</h2>
+        <p>本ツールは色の変換を数式でごまかさず、Björn Ottosson氏が公開したOKLabの標準変換をそのまま実装しています。OKLCHからsRGBへは「OKLCH → OKLab（極座標を直交座標へ）→ linear-sRGB（3×3行列と立方）→ sRGB（ガンマ補正）」の順に、逆方向はその逆順で計算します。sRGB↔linear-sRGB間はCSSと同じガンマ関数（しきい値0.04045／0.0031308、指数2.4）を使用しています。たとえば <code>oklch(0.628 0.2577 29.23)</code> は sRGBの純赤 <code>#ff0000</code> にほぼ一致し、逆変換しても元の値に戻る往復（ラウンドトリップ）整合性を確認済みです。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">OKLCHとは何ですか？</div><div class="a">OKLCHはCSS Color 4で定義された色指定方法で、L（知覚的な明度 0〜1）、C（彩度・クロマ 0以上）、H（色相 0〜360度）の3要素で色を表します。OKLab色空間を極座標で表現したもので、人間の見え方に近い『知覚的均一性』を持ちます。2023年以降Chrome・Safari・Firefox・EdgeなどでBaseline対応となり、デザインシステムでHSLの置き換えとして広く使われ始めています。</div></div>
+        <div class="faq-item"><div class="q">OKLCHはHSLと何が違いますか？</div><div class="a">HSLは実装が簡単な一方、同じ明度(L)の値でも色相によって実際の明るさがばらつくという欠点があります。OKLCHは知覚的に均一な明度を持つため、Lを固定したまま色相Hだけを変えても見た目の明るさがほぼ一定に保たれます。このため、アクセシブルなカラーパレットやダークモード、グラデーションの設計でHSLより扱いやすく、コントラスト調整が直感的になります。</div></div>
+        <div class="faq-item"><div class="q">色域外（out of gamut）の警告は何ですか？</div><div class="a">OKLCHはsRGBより広い色を表現できるため、CやLの組み合わせによってはsRGBディスプレイで表示できない色（色域外）になります。その場合、本ツールはHEX・RGB出力をsRGBの範囲にクランプ（丸め込み）したうえで警告を表示します。表示されたHEXは近似値であり、元のOKLCH値とは厳密には一致しない点にご注意ください。</div></div>
+        <div class="faq-item"><div class="q">HEXコードからOKLCHに変換できますか？</div><div class="a">はい。HEX入力欄に#ff0000のような16進カラーコードを貼り付けると、sRGB→linear-sRGB→OKLab→OKLCHの順で正確に逆変換し、対応するL・C・Hの値とスライダーに反映します。RGBやHSLの数値からも同様に変換できるため、既存のカラーコードをOKLCHへ移行する作業に利用できます。</div></div>
+        <div class="faq-item"><div class="q">変換計算はサーバーに送信されますか？</div><div class="a">いいえ。すべての変換はお使いのブラウザ内のJavaScriptだけで完結し、入力した色の値がサーバーや外部に送信されることはありません。OKLab⇔linear-sRGB⇔sRGBの標準的な変換行列とガンマ補正をそのまま実装しているため、オフラインでも動作し、プライバシーを気にせず利用できます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧へ</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+"use strict";
+/* ===== Color math: OKLab <-> linear sRGB <-> sRGB (Bjorn Ottosson) ===== */
+function srgbToLinear(c){ return c >= 0.04045 ? Math.pow((c+0.055)/1.055, 2.4) : c/12.92; }
+function linearToSrgb(c){ return c >= 0.0031308 ? 1.055*Math.pow(c, 1/2.4) - 0.055 : 12.92*c; }
+
+// linear sRGB (0..1) -> OKLab
+function linearSrgbToOklab(r,g,b){
+    const l = 0.4122214708*r + 0.5363325363*g + 0.0514459929*b;
+    const m = 0.2119034982*r + 0.6806995451*g + 0.1073969566*b;
+    const s = 0.0883024619*r + 0.2817188376*g + 0.6299787005*b;
+    const l_ = Math.cbrt(l), m_ = Math.cbrt(m), s_ = Math.cbrt(s);
+    return {
+        L: 0.2104542553*l_ + 0.7936177850*m_ - 0.0040720468*s_,
+        a: 1.9779984951*l_ - 2.4285922050*m_ + 0.4505937099*s_,
+        b: 0.0259040371*l_ + 0.7827717662*m_ - 0.8086757660*s_
+    };
+}
+// OKLab -> linear sRGB (0..1, may be out of range)
+function oklabToLinearSrgb(L,a,b){
+    const l_ = L + 0.3963377774*a + 0.2158037573*b;
+    const m_ = L - 0.1055613458*a - 0.0638541728*b;
+    const s_ = L - 0.0894841775*a - 1.2914855480*b;
+    const l = l_*l_*l_, m = m_*m_*m_, s = s_*s_*s_;
+    return {
+        r:  4.0767416621*l - 3.3077115913*m + 0.2309699292*s,
+        g: -1.2684380046*l + 2.6097574011*m - 0.3413193965*s,
+        b: -0.0041960863*l - 0.7034186147*m + 1.7076147010*s
+    };
+}
+// OKLCH -> OKLab
+function oklchToOklab(L,C,H){
+    const h = H * Math.PI/180;
+    return { L:L, a: C*Math.cos(h), b: C*Math.sin(h) };
+}
+// OKLab -> OKLCH
+function oklabToOklch(L,a,b){
+    let H = Math.atan2(b,a) * 180/Math.PI;
+    if (H < 0) H += 360;
+    return { L:L, C: Math.sqrt(a*a + b*b), H:H };
+}
+
+/* ===== sRGB helpers ===== */
+// OKLCH -> sRGB {r,g,b} 0..255 (rounded/clamped) + inGamut flag
+function oklchToSrgb(L,C,H){
+    const lab = oklchToOklab(L,C,H);
+    const lin = oklabToLinearSrgb(lab.L, lab.a, lab.b);
+    const eps = 1e-4;
+    const inGamut = lin.r >= -eps && lin.r <= 1+eps &&
+                    lin.g >= -eps && lin.g <= 1+eps &&
+                    lin.b >= -eps && lin.b <= 1+eps;
+    const conv = v => {
+        const s = linearToSrgb(Math.min(1, Math.max(0, v)));
+        return Math.round(Math.min(1, Math.max(0, s)) * 255);
+    };
+    return { r: conv(lin.r), g: conv(lin.g), b: conv(lin.b), inGamut: inGamut };
+}
+// sRGB 0..255 -> OKLCH
+function srgbToOklch(r,g,b){
+    const lin = { r: srgbToLinear(r/255), g: srgbToLinear(g/255), b: srgbToLinear(b/255) };
+    const lab = linearSrgbToOklab(lin.r, lin.g, lin.b);
+    return oklabToOklch(lab.L, lab.a, lab.b);
+}
+function toHex(r,g,b){
+    const h = n => n.toString(16).padStart(2,'0');
+    return '#' + h(r) + h(g) + h(b);
+}
+function parseHex(str){
+    if(!str) return null;
+    let s = str.trim().replace(/^#/, '');
+    if(/^[0-9a-fA-F]{3}$/.test(s)){ s = s.split('').map(c=>c+c).join(''); }
+    if(!/^[0-9a-fA-F]{6}$/.test(s)) return null;
+    return { r: parseInt(s.slice(0,2),16), g: parseInt(s.slice(2,4),16), b: parseInt(s.slice(4,6),16) };
+}
+// RGB 0..255 -> HSL
+function rgbToHsl(r,g,b){
+    r/=255; g/=255; b/=255;
+    const max=Math.max(r,g,b), min=Math.min(r,g,b);
+    let h=0,s=0; const l=(max+min)/2;
+    if(max!==min){
+        const d=max-min;
+        s = l>0.5 ? d/(2-max-min) : d/(max+min);
+        if(max===r) h=(g-b)/d + (g<b?6:0);
+        else if(max===g) h=(b-r)/d + 2;
+        else h=(r-g)/d + 4;
+        h*=60;
+    }
+    return { h:h, s:s*100, l:l*100 };
+}
+// HSL -> RGB 0..255
+function hslToRgb(h,s,l){
+    h=((h%360)+360)%360; s/=100; l/=100;
+    const c=(1-Math.abs(2*l-1))*s;
+    const x=c*(1-Math.abs(((h/60)%2)-1));
+    const m=l-c/2;
+    let r=0,g=0,b=0;
+    if(h<60){r=c;g=x;} else if(h<120){r=x;g=c;}
+    else if(h<180){g=c;b=x;} else if(h<240){g=x;b=c;}
+    else if(h<300){r=x;b=c;} else {r=c;b=x;}
+    return { r:Math.round((r+m)*255), g:Math.round((g+m)*255), b:Math.round((b+m)*255) };
+}
+
+/* ===== State + rendering ===== */
+const state = { L:0.628, C:0.2577, H:29.23, A:1 };
+let updating = false;
+
+function fmt(n, d){ return (Math.round(n*Math.pow(10,d))/Math.pow(10,d)).toString(); }
+function toHex2Alpha(a){
+    const v = Math.round(Math.min(1,Math.max(0,a))*255);
+    return v.toString(16).padStart(2,'0');
+}
+
+function render(){
+    updating = true;
+    document.getElementById('lRange').value = state.L;
+    document.getElementById('lNum').value = fmt(state.L,3);
+    document.getElementById('cRange').value = state.C;
+    document.getElementById('cNum').value = fmt(state.C,4);
+    document.getElementById('hRange').value = state.H;
+    document.getElementById('hNum').value = fmt(state.H,2);
+    document.getElementById('aRange').value = state.A;
+    document.getElementById('aNum').value = fmt(state.A,2);
+
+    const px = oklchToSrgb(state.L, state.C, state.H);
+    const hex = toHex(px.r, px.g, px.b);
+    const hsl = rgbToHsl(px.r, px.g, px.b);
+
+    const cssBase = 'oklch(' + fmt(state.L,3) + ' ' + fmt(state.C,4) + ' ' + fmt(state.H,2);
+    const css = state.A < 1 ? cssBase + ' / ' + fmt(state.A,2) + ')' : cssBase + ')';
+    document.getElementById('cssStr').textContent = css;
+
+    const swatchColor = state.A < 1
+        ? 'rgba(' + px.r + ',' + px.g + ',' + px.b + ',' + state.A + ')'
+        : hex;
+    document.getElementById('swatch').style.background = swatchColor;
+
+    document.getElementById('outHex').textContent = hex + (state.A<1 ? toHex2Alpha(state.A) : '');
+    document.getElementById('outRgb').textContent = state.A<1
+        ? 'rgba(' + px.r + ', ' + px.g + ', ' + px.b + ', ' + fmt(state.A,2) + ')'
+        : 'rgb(' + px.r + ', ' + px.g + ', ' + px.b + ')';
+    document.getElementById('outHsl').textContent = state.A<1
+        ? 'hsla(' + Math.round(hsl.h) + ', ' + Math.round(hsl.s) + '%, ' + Math.round(hsl.l) + '%, ' + fmt(state.A,2) + ')'
+        : 'hsl(' + Math.round(hsl.h) + ', ' + Math.round(hsl.s) + '%, ' + Math.round(hsl.l) + '%)';
+    document.getElementById('outOklch').textContent = css;
+
+    document.getElementById('hexIn').value = hex;
+    document.getElementById('rgbIn').value = px.r + ',' + px.g + ',' + px.b;
+    document.getElementById('hslIn').value = Math.round(hsl.h) + ',' + Math.round(hsl.s) + ',' + Math.round(hsl.l);
+
+    document.getElementById('gamutWarn').classList.toggle('show', !px.inGamut);
+    updating = false;
+}
+
+function clampNum(v, lo, hi, def){
+    v = parseFloat(v);
+    if(isNaN(v)) return def;
+    return Math.min(hi, Math.max(lo, v));
+}
+
+function fromOklch(which){
+    if(updating) return;
+    const v = event.target.value;
+    if(which==='L') state.L = clampNum(v, 0, 1, state.L);
+    if(which==='C') state.C = clampNum(v, 0, 0.4, state.C);
+    if(which==='H') state.H = clampNum(v, 0, 360, state.H);
+    if(which==='A') state.A = clampNum(v, 0, 1, state.A);
+    render();
+}
+function fromHex(){
+    if(updating) return;
+    const rgb = parseHex(document.getElementById('hexIn').value);
+    if(!rgb) return;
+    applyRgb(rgb.r, rgb.g, rgb.b);
+}
+function fromRgbInput(){
+    if(updating) return;
+    const parts = document.getElementById('rgbIn').value.split(/[,\s]+/).filter(x=>x!=='').map(Number);
+    if(parts.length<3 || parts.slice(0,3).some(isNaN)) return;
+    const r=clampNum(parts[0],0,255,0), g=clampNum(parts[1],0,255,0), b=clampNum(parts[2],0,255,0);
+    applyRgb(Math.round(r), Math.round(g), Math.round(b));
+}
+function fromHslInput(){
+    if(updating) return;
+    const parts = document.getElementById('hslIn').value.split(/[,\s%]+/).filter(x=>x!=='').map(Number);
+    if(parts.length<3 || parts.slice(0,3).some(isNaN)) return;
+    const rgb = hslToRgb(parts[0], clampNum(parts[1],0,100,0), clampNum(parts[2],0,100,0));
+    applyRgb(rgb.r, rgb.g, rgb.b);
+}
+function applyRgb(r,g,b){
+    const lch = srgbToOklch(r,g,b);
+    state.L = lch.L; state.C = lch.C; state.H = lch.H;
+    render();
+}
+
+function copyCss(){
+    const txt = document.getElementById('cssStr').textContent;
+    if(navigator.clipboard) navigator.clipboard.writeText(txt);
+    const btn = document.getElementById('copyCss');
+    const old = btn.textContent; btn.textContent = 'コピーしました';
+    setTimeout(()=>{ btn.textContent = old; }, 1200);
+}
+function copyVal(id, btn){
+    const txt = document.getElementById(id).textContent;
+    if(navigator.clipboard) navigator.clipboard.writeText(txt);
+    const old = btn.textContent; btn.textContent = '✓';
+    setTimeout(()=>{ btn.textContent = old; }, 1000);
+}
+
+render();
+</script>
+</body>
+</html>
