@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISO週番号・年間通算日 計算ツール | 今日は第何週・今年の何日目【無料】</title>
+    <meta name="description" content="今日のISO 8601週番号（第何週）と年間通算日（今年の何日目か）を開いた瞬間に自動表示する無料ツール。今年の残り日数・うるう年判定・曜日も同時表示。ISO週は月曜始まり・最初の木曜を含む週を第1週とする正しい定義で計算。ブラウザ完結で送信なし。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center;position:relative}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .copy-btn{position:absolute;top:8px;right:8px;padding:3px 8px;background:#fff;border:1px solid var(--border);border-radius:6px;color:var(--text3);font-size:0.65rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .copy-btn:hover{border-color:var(--accent);color:var(--accent)}
+        .copy-btn.copied{border-color:var(--green);color:var(--green)}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-103-week-number/">
+    <meta property="og:title" content="ISO週番号・年間通算日 計算 | 今日は第何週・今年の何日目【無料】">
+    <meta property="og:description" content="今日のISO週番号と年間通算日を開いた瞬間に自動表示。残り日数・うるう年・曜日も表示。ブラウザ完結で送信なし。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-103-week-number/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ISO週番号・年間通算日 計算【無料】">
+    <meta name="twitter:description" content="今日は第何週・今年の何日目かを自動表示。残り日数・うるう年・曜日も。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"ISO週番号・年間通算日","description":"今日のISO 8601週番号と年間通算日を自動表示する無料ツール","url":"https://www.devtools-japan.com/tool-103-week-number/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"ISO週番号・年間通算日","item":"https://www.devtools-japan.com/tool-103-week-number/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"今日はISO週の第何週？","acceptedAnswer":{"@type":"Answer","text":"このツールを開くと、お使いの端末のローカル時刻から今日の日付を取得し、ISO 8601方式の週番号を「第◯週」として自動表示します。ISO週は月曜日を週の始まりとし、その年の最初の木曜日を含む週を第1週と定義します。年末年始は前後の年に週が繰り上がることがあり、その場合は週の属する年（ISO週年）も併せて表示します。"}},{"@type":"Question","name":"年間通算日（今年の何日目）はどう計算する？","acceptedAnswer":{"@type":"Answer","text":"年間通算日（day of year）は、その年の1月1日を1日目として、今日が今年の何日目かを数えた値です。本ツールは1月1日から今日までのカレンダー上の日数を数えて表示するため、うるう年の2月29日も自動的に反映されます。あわせて今年の残り日数（年末までの日数）も表示します。"}},{"@type":"Question","name":"計算は端末内だけで行われますか？","acceptedAnswer":{"@type":"Answer","text":"はい。週番号・年間通算日・残り日数・うるう年判定・曜日はすべてお使いのブラウザ内のJavaScriptで計算しており、外部サーバーへの送信や外部APIの呼び出しは一切ありません。日付は端末のローカル時刻（new Date）から取得します。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>ISO週番号・年間通算日</h1><p>今日は第何週？今年の何日目？を自動表示</p></header>
+
+    <div class="card"><h3>基準日</h3>
+        <div class="row"><label>日付（初期値は今日）</label><input type="date" id="baseDate" style="text-align:left" oninput="calcAll()"></div>
+        <div style="margin-top:10px;text-align:right"><button class="btn" style="padding:8px 18px;font-size:0.8rem" onclick="resetToday()">今日に戻す</button></div>
+    </div>
+
+    <div class="big-result">
+        <div class="headline" id="headline">ISO 8601 週番号</div>
+        <div class="days">第<span id="bigWeek">-</span><span class="unit">週</span></div>
+        <div class="target" id="weekYearLabel">-</div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><button class="copy-btn" data-target="doyValue">コピー</button><div class="label">年間通算日</div><div class="value" id="doyValue">-</div><div class="sub" id="doySub">今年の何日目か</div></div>
+        <div class="result-item"><button class="copy-btn" data-target="remainValue">コピー</button><div class="label">今年の残り日数</div><div class="value" id="remainValue">-</div><div class="sub" id="remainSub">年末まで</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><button class="copy-btn" data-target="weekValue">コピー</button><div class="label">週番号（数値）</div><div class="value" id="weekValue">-</div><div class="sub" id="weekSub">ISO 8601</div></div>
+        <div class="result-item"><div class="label">曜日</div><div class="value" id="dowValue" style="font-size:1.3rem">-</div><div class="sub" id="dowSub">ISO曜日番号</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">うるう年</div><div class="value" id="leapValue" style="font-size:1.3rem">-</div><div class="sub" id="leapSub">今年の総日数</div></div>
+        <div class="result-item"><button class="copy-btn" data-target="dateValue">コピー</button><div class="label">基準日</div><div class="value" id="dateValue" style="font-size:1.1rem">-</div><div class="sub">YYYY-MM-DD</div></div>
+    </div>
+
+    <div class="note">すべての値はお使いの端末のローカル時刻（new Date）から求め、ブラウザ内のJavaScriptだけで計算します。外部APIやサーバー送信は一切ありません。ISO週は月曜始まり・その年の最初の木曜を含む週を第1週とする ISO 8601 の定義で算出しています。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>ISO週番号・年間通算日ツールの使い方</h2>
+        <p>このページを開くと、お使いの端末の今日の日付から「ISO 8601週番号（第何週）」「年間通算日（今年の何日目か）」「今年の残り日数」「うるう年かどうか」「曜日」を瞬時に自動表示します。入力は不要で、別の日付を調べたいときだけ基準日を変更できます。会員登録やインストールは不要、計算はすべてブラウザ内で完結し、外部への送信は一切ありません。各数値の「コピー」ボタンで値をそのままコピーできます。</p>
+        <p>週番号はビジネスの週次レポートや生産計画（第◯週）、プロジェクト管理などで、年間通算日（day of year）はログ管理・データ集計・スケジュール計算などで使われます。日本ではあまり馴染みのないISO週番号も、正しい定義に基づいて自動で確認できます。</p>
+
+        <h2>ISO 8601 週番号の定義</h2>
+        <p>ISO 8601の週番号には明確なルールがあります。まず、週は月曜日に始まり日曜日に終わります。そして「その年の最初の木曜日を含む週」を第1週（Week 1）とします。これは言い換えると「1月4日を含む週が第1週」「1年で最初に4日以上その年に属する週が第1週」と同じ意味になります。この定義により、1年は第52週または第53週まで存在します。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>項目</th><th>ルール</th></tr>
+            <tr><td>週の始まり</td><td>月曜日（ISO曜日番号で1）</td></tr>
+            <tr><td>第1週の条件</td><td>その年の最初の木曜日を含む週（=1月4日を含む週）</td></tr>
+            <tr><td>週数の上限</td><td>その年は第52週または第53週まで</td></tr>
+            <tr><td>年末年始</td><td>12月末が翌年の第1週、1月初めが前年の第52/53週になることがある</td></tr>
+        </table>
+        </div>
+        <h3>週の属する年（ISO週年）に注意</h3>
+        <p>年末年始は、暦の上の年とISO週の属する年（ISO週年）がずれることがあります。たとえば12月31日が月曜〜水曜のときは翌年の第1週に、1月1日が金曜〜日曜のときは前年の最終週（第52または第53週）に含まれます。本ツールでは、こうしたずれが起きる場合に週番号と一緒に「週の属する年」を表示するので、レポートの年跨ぎでも混乱しません。</p>
+
+        <h2>年間通算日・残り日数・うるう年について</h2>
+        <p>年間通算日（day of year, 通日）は、1月1日を1日目として今日が今年の何日目かを表す数値です。1月1日は1、12月31日は平年で365・うるう年で366になります。今年の残り日数は「その年の総日数 − 年間通算日」で求め、大晦日までにあと何日あるかの目安になります。いずれもカレンダー上の実日付で数えるため、うるう年の2月29日も自動的に含まれます。</p>
+        <p>うるう年は、西暦が4で割り切れる年をうるう年とし、ただし100で割り切れる年は平年、さらに400で割り切れる年は再びうるう年とするグレゴリオ暦のルールで判定します。うるう年は1年が366日、平年は365日です。曜日はISO曜日番号（月曜=1〜日曜=7）でも併記します。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">今日はISO週の第何週？</div><div class="a">このツールを開くと、お使いの端末のローカル時刻から今日の日付を取得し、ISO 8601方式の週番号を「第◯週」として自動表示します。ISO週は月曜日を週の始まりとし、その年の最初の木曜日を含む週を第1週と定義します。年末年始は前後の年に週が繰り上がることがあり、その場合は週の属する年（ISO週年）も併せて表示します。</div></div>
+        <div class="faq-item"><div class="q">年間通算日（今年の何日目）はどう計算する？</div><div class="a">年間通算日（day of year）は、その年の1月1日を1日目として、今日が今年の何日目かを数えた値です。本ツールは1月1日から今日までのカレンダー上の日数を数えて表示するため、うるう年の2月29日も自動的に反映されます。あわせて今年の残り日数（年末までの日数）も表示します。</div></div>
+        <div class="faq-item"><div class="q">計算は端末内だけで行われますか？</div><div class="a">はい。週番号・年間通算日・残り日数・うるう年判定・曜日はすべてお使いのブラウザ内のJavaScriptで計算しており、外部サーバーへの送信や外部APIの呼び出しは一切ありません。日付は端末のローカル時刻（new Date）から取得します。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// 年月日ベースの日付（ローカル時刻）を YYYY-MM-DD で返す
+function ymd(d){
+    const y = d.getFullYear();
+    const m = String(d.getMonth()+1).padStart(2,'0');
+    const day = String(d.getDate()).padStart(2,'0');
+    return y+'-'+m+'-'+day;
+}
+const now = new Date();
+const todayStr = ymd(now);
+document.getElementById('baseDate').value = todayStr;
+
+// うるう年判定（グレゴリオ暦）
+function isLeap(y){ return (y%4===0 && y%100!==0) || y%400===0; }
+
+// ISO 8601 週番号（木曜基準）: {week, year} を返す
+function getISOWeek(y, m, d){
+    // UTC正午でその週の木曜へ移動して算出（時差・DSTの影響を避ける）
+    const date = new Date(Date.UTC(y, m-1, d));
+    // ISO曜日: 月曜=0 ... 日曜=6
+    const dayNum = (date.getUTCDay() + 6) % 7;
+    // その週の木曜日へ（木曜は Monday-start で index 3）
+    date.setUTCDate(date.getUTCDate() - dayNum + 3);
+    const isoYear = date.getUTCFullYear();
+    // その年の第1木曜を含む週の木曜 = 1月4日を含む週の木曜
+    const firstThursday = new Date(Date.UTC(isoYear, 0, 4));
+    const firstDayNum = (firstThursday.getUTCDay() + 6) % 7;
+    firstThursday.setUTCDate(firstThursday.getUTCDate() - firstDayNum + 3);
+    const week = 1 + Math.round((date - firstThursday) / (7 * 86400000));
+    return { week: week, year: isoYear };
+}
+
+function calcAll(){
+    const v = document.getElementById('baseDate').value;
+    if (!v) return;
+    const p = v.split('-').map(Number);
+    const y = p[0], m = p[1], d = p[2];
+
+    // 年間通算日（1月1日=1日目）
+    const startUTC = Date.UTC(y, 0, 1);
+    const curUTC = Date.UTC(y, m-1, d);
+    const doy = Math.round((curUTC - startUTC) / 86400000) + 1;
+
+    // 総日数・残り日数
+    const total = isLeap(y) ? 366 : 365;
+    const remain = total - doy;
+
+    // ISO週番号
+    const iso = getISOWeek(y, m, d);
+
+    // 曜日（ローカル基準ではなく指定日そのものの曜日）
+    const dowJp = ['日','月','火','水','木','金','土'];
+    const jsDow = new Date(y, m-1, d).getDay(); // 0=日
+    const isoDow = (jsDow + 6) % 7 + 1; // 月=1 ... 日=7
+
+    // 描画
+    document.getElementById('bigWeek').textContent = iso.week;
+    document.getElementById('weekValue').textContent = iso.week;
+    document.getElementById('weekSub').textContent = 'ISO 8601（第' + iso.week + '週）';
+    // ISO週年が暦年と異なる場合に明示
+    if (iso.year !== y){
+        document.getElementById('weekYearLabel').textContent = '週の属する年（ISO週年）: ' + iso.year + '年 ／ 暦年: ' + y + '年';
+    } else {
+        document.getElementById('weekYearLabel').textContent = iso.year + '年 第' + iso.week + '週（月曜〜日曜）';
+    }
+
+    document.getElementById('doyValue').textContent = doy;
+    document.getElementById('doySub').textContent = y + '年の' + doy + '日目 / 全' + total + '日';
+
+    document.getElementById('remainValue').textContent = remain;
+    document.getElementById('remainSub').textContent = y + '年の年末まであと' + remain + '日';
+
+    document.getElementById('dowValue').textContent = dowJp[jsDow] + '曜日';
+    document.getElementById('dowSub').textContent = 'ISO曜日番号: ' + isoDow + '（月=1〜日=7）';
+
+    document.getElementById('leapValue').textContent = isLeap(y) ? 'うるう年' : '平年';
+    document.getElementById('leapSub').textContent = y + '年は全' + total + '日';
+
+    document.getElementById('dateValue').textContent = v;
+}
+
+function resetToday(){
+    document.getElementById('baseDate').value = ymd(new Date());
+    calcAll();
+}
+
+// コピーボタン
+document.querySelectorAll('.copy-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+        const el = document.getElementById(btn.dataset.target);
+        if (!el) return;
+        const text = el.textContent;
+        const done = ()=>{ const o = btn.textContent; btn.textContent='コピー済'; btn.classList.add('copied'); setTimeout(()=>{ btn.textContent=o; btn.classList.remove('copied'); }, 1200); };
+        if (navigator.clipboard && navigator.clipboard.writeText){
+            navigator.clipboard.writeText(text).then(done).catch(()=>{ fallbackCopy(text); done(); });
+        } else { fallbackCopy(text); done(); }
+    });
+});
+function fallbackCopy(text){
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch(e){}
+    document.body.removeChild(ta);
+}
+
+// 初期表示: 開いた瞬間に今日の値を自動表示
+calcAll();
+</script>
+</body>
+</html>

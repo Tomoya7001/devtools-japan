@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>現在のUNIXタイムスタンプ｜今のエポック秒をリアルタイム表示【無料】</title>
+    <meta name="description" content="今この瞬間のUNIXタイムスタンプ（エポック秒）を1秒ごとにリアルタイム表示する無料ツール。ミリ秒・ISO 8601・UTC・JST・ローカル日時も同時表示。Unix時間⇔日時の相互変換にも対応。すべてブラウザ内で完結し、通信は行いません。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#3b82f6;--accent-dim:rgba(59,130,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(59,130,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.1rem;font-weight:700;color:var(--accent);word-break:break-all}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(59,130,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        @media(max-width:600px){.big-result .days{font-size:2rem}}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-99-unixtime-now/">
+    <meta property="og:title" content="現在のUNIXタイムスタンプ｜今のエポック秒をリアルタイム表示【無料】">
+    <meta property="og:description" content="今この瞬間のUNIXタイムスタンプを1秒ごとにリアルタイム表示。ミリ秒・ISO 8601・UTC・JST・ローカル日時も同時表示。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-99-unixtime-now/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="現在のUNIXタイムスタンプ【無料】">
+    <meta name="twitter:description" content="今のエポック秒を1秒ごとにリアルタイム表示。日時との相互変換にも対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"現在のUNIXタイムスタンプ（リアルタイム）","description":"今この瞬間のUNIXタイムスタンプ（エポック秒）を1秒ごとにリアルタイム表示する無料ツール","url":"https://www.devtools-japan.com/tool-99-unixtime-now/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"現在のUNIXタイムスタンプ（リアルタイム）","item":"https://www.devtools-japan.com/tool-99-unixtime-now/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"UNIXタイム（エポック秒）とは？","acceptedAnswer":{"@type":"Answer","text":"UNIXタイムとは、協定世界時（UTC）の1970年1月1日0時0分0秒を起点（エポック）として、そこから経過した秒数で時刻を表す方式です。エポック秒やPOSIX時間とも呼ばれます。タイムゾーンに依存しない単一の整数で世界中の時刻を表せるため、プログラムやデータベース、ログ、API通信などで時刻の記録や比較に広く使われています。"}},{"@type":"Question","name":"秒とミリ秒の違いは？","acceptedAnswer":{"@type":"Answer","text":"UNIXタイムには秒単位とミリ秒単位の2種類があります。秒単位は1970年からの経過秒数で、現在は10桁の整数です。ミリ秒単位はそれを1000倍した13桁の値で、JavaScriptのDate.now()が返すのはこのミリ秒です。1000で割ると秒に変換できます。扱うシステムがどちらの単位を期待しているかを必ず確認してください。本ツールでは秒とミリ秒の両方を同時に表示します。"}},{"@type":"Question","name":"今のエポック秒は何に使う？","acceptedAnswer":{"@type":"Answer","text":"現在のエポック秒は、APIのタイムスタンプ付与、トークンやセッションの有効期限（expや発行時刻iat）の設定、ログやデータのソート、キャッシュのバージョン管理、デバッグ時の時刻確認など、開発の幅広い場面で使われます。タイムゾーンに左右されない一意の値なので、その場でコピーしてテストデータやリクエストパラメータに貼り付ける用途に便利です。"}},{"@type":"Question","name":"タイムゾーンはどう扱われる？","acceptedAnswer":{"@type":"Answer","text":"UNIXタイムスタンプ自体はUTC基準の絶対時刻であり、タイムゾーンを持ちません。どの地域で見ても同じ瞬間なら同じ値になります。人間が読む日時に変換するときにタイムゾーンが関係し、本ツールではUTC日時とJST（日本標準時、UTC+9）日時、そしてお使いの端末のローカル日時をそれぞれ表示します。同じタイムスタンプでも表示上の時刻が9時間ずれるのはこのためです。"}},{"@type":"Question","name":"2038年問題とは？","acceptedAnswer":{"@type":"Answer","text":"2038年問題とは、UNIXタイムを32ビット符号付き整数で扱うシステムで、2038年1月19日3時14分7秒（UTC）を超えると値がオーバーフローし、時刻が1901年などに巻き戻ってしまう不具合です。原因は32ビットで表せる秒数の上限（約21億秒）を超えることにあります。対策として、多くの現代的なシステムでは64ビット整数でタイムスタンプを扱い、事実上この上限を心配する必要をなくしています。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>現在のUNIXタイムスタンプ</h1><p>今のエポック秒をリアルタイムに表示</p></header>
+
+    <div class="big-result">
+        <div class="headline">現在のUNIXタイムスタンプ（秒）</div>
+        <div class="days"><span id="nowSec">-</span></div>
+        <div class="target" id="nowSubLabel">1秒ごとに自動更新中</div>
+        <div style="margin-top:16px"><button class="btn" id="copyBtn" onclick="copyNowSec()">秒の値をコピー</button></div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">ミリ秒（Date.now()）</div><div class="value" id="nowMs">-</div></div>
+        <div class="result-item"><div class="label">ISO 8601</div><div class="value" id="nowIso">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">UTC日時</div><div class="value" id="nowUtc">-</div></div>
+        <div class="result-item"><div class="label">JST（日本時間）日時</div><div class="value" id="nowJst">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">ローカル日時</div><div class="value" id="nowLocal">-</div></div>
+        <div class="result-item"><div class="label">今日0時（ローカル）のタイムスタンプ</div><div class="value" id="todayMidnight">-</div></div>
+    </div>
+
+    <div class="note">表示中の値はすべてお使いの端末の時計から取得しています。UNIXタイムスタンプ（エポック秒）は1970年1月1日0時0分0秒（UTC）からの経過秒数です。すべてブラウザ内で計算され、入力やタイムスタンプが外部に送信されることはありません。</div>
+
+    <div class="card"><h3>Unix時間 → 日時に変換</h3>
+        <div class="row"><label>UNIXタイムスタンプ（秒）</label><input type="number" id="tsInput" placeholder="例: 1700000000" style="text-align:left" oninput="convertTsToDate()"></div>
+        <div class="result-grid" style="margin-top:16px">
+            <div class="result-item"><div class="label">JST（日本時間）</div><div class="value" id="tsJst" style="font-size:0.95rem">-</div></div>
+            <div class="result-item"><div class="label">UTC</div><div class="value" id="tsUtc" style="font-size:0.95rem">-</div></div>
+        </div>
+    </div>
+
+    <div class="card"><h3>日時 → Unix時間に変換</h3>
+        <div class="row"><label>日時（ローカル）</label><input type="datetime-local" id="dtInput" step="1" style="text-align:left" oninput="convertDateToTs()"></div>
+        <div class="result-grid" style="margin-top:16px">
+            <div class="result-item"><div class="label">タイムスタンプ（秒）</div><div class="value" id="dtSec">-</div></div>
+            <div class="result-item"><div class="label">タイムスタンプ（ミリ秒）</div><div class="value" id="dtMs">-</div></div>
+        </div>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>現在のUNIXタイムスタンプツールの使い方</h2>
+        <p>このページを開くと、今この瞬間のUNIXタイムスタンプ（エポック秒）が画面上部に大きく表示され、1秒ごとに自動で更新されていきます。入力は一切不要で、開いた瞬間からリアルタイムの秒数を確認できます。「秒の値をコピー」ボタンを押せば、その時点の秒数をワンクリックでクリップボードにコピーして、テストデータやAPIリクエスト、設定ファイルなどにすぐ貼り付けられます。</p>
+        <p>秒の値と同時に、ミリ秒（JavaScriptのDate.now()相当）、ISO 8601形式、UTC日時、JST（日本標準時）日時、端末のローカル日時、そして今日0時（ローカル）のタイムスタンプも一覧で表示します。これらもすべて1秒ごとに更新されるので、各表現の対応関係をその場で確認できます。すべての処理はお使いのブラウザ内で完結し、通信やサーバー送信は一切行いません。</p>
+        <h3>Unix時間と日時の相互変換</h3>
+        <p>ページ下部には2つの変換フォームを用意しています。「Unix時間 → 日時に変換」では、任意のUNIXタイムスタンプ（秒）を入力すると、それに対応するJST（日本時間）とUTCの日時を表示します。「日時 → Unix時間に変換」では、日時を選ぶとその瞬間のタイムスタンプを秒とミリ秒で求められます。これらの入力欄は任意で、空のままでも上部のリアルタイム表示は動作し続けます。</p>
+
+        <h2>UNIXタイムスタンプの基礎知識</h2>
+        <p>UNIXタイム（エポック秒）は、協定世界時（UTC）の1970年1月1日0時0分0秒を起点として、そこからの経過秒数で時刻を表す方式です。タイムゾーンに依存しない単一の整数で世界中の同じ瞬間を表せるため、データベースやログ、API、認証トークンの有効期限など、開発の現場で標準的に使われています。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>項目</th><th>内容</th></tr>
+            <tr><td>起点（エポック）</td><td>1970年1月1日 00:00:00 UTC</td></tr>
+            <tr><td>秒単位</td><td>現在は10桁の整数（例: 1700000000）</td></tr>
+            <tr><td>ミリ秒単位</td><td>秒を1000倍した13桁の値（Date.now()）</td></tr>
+            <tr><td>タイムゾーン</td><td>持たない（UTC基準の絶対時刻）</td></tr>
+            <tr><td>2038年問題</td><td>32ビット符号付き整数での上限に起因</td></tr>
+        </table>
+        </div>
+        <h3>秒とミリ秒に注意</h3>
+        <p>UNIXタイムには秒単位（10桁）とミリ秒単位（13桁）の2種類があり、扱いを取り違えると時刻が約1000倍ずれてしまいます。JavaScriptのDate.now()やnew Date().getTime()はミリ秒を返すため、秒を期待するシステムに渡すときは1000で割ってください。本ツールでは秒・ミリ秒の両方を並べて表示するので、必要な単位をそのままコピーできます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">UNIXタイム（エポック秒）とは？</div><div class="a">UNIXタイムとは、協定世界時（UTC）の1970年1月1日0時0分0秒を起点（エポック）として、そこから経過した秒数で時刻を表す方式です。エポック秒やPOSIX時間とも呼ばれます。タイムゾーンに依存しない単一の整数で世界中の時刻を表せるため、プログラムやデータベース、ログ、API通信などで時刻の記録や比較に広く使われています。</div></div>
+        <div class="faq-item"><div class="q">秒とミリ秒の違いは？</div><div class="a">UNIXタイムには秒単位とミリ秒単位の2種類があります。秒単位は1970年からの経過秒数で、現在は10桁の整数です。ミリ秒単位はそれを1000倍した13桁の値で、JavaScriptのDate.now()が返すのはこのミリ秒です。1000で割ると秒に変換できます。扱うシステムがどちらの単位を期待しているかを必ず確認してください。本ツールでは秒とミリ秒の両方を同時に表示します。</div></div>
+        <div class="faq-item"><div class="q">今のエポック秒は何に使う？</div><div class="a">現在のエポック秒は、APIのタイムスタンプ付与、トークンやセッションの有効期限（expや発行時刻iat）の設定、ログやデータのソート、キャッシュのバージョン管理、デバッグ時の時刻確認など、開発の幅広い場面で使われます。タイムゾーンに左右されない一意の値なので、その場でコピーしてテストデータやリクエストパラメータに貼り付ける用途に便利です。</div></div>
+        <div class="faq-item"><div class="q">タイムゾーンはどう扱われる？</div><div class="a">UNIXタイムスタンプ自体はUTC基準の絶対時刻であり、タイムゾーンを持ちません。どの地域で見ても同じ瞬間なら同じ値になります。人間が読む日時に変換するときにタイムゾーンが関係し、本ツールではUTC日時とJST（日本標準時、UTC+9）日時、そしてお使いの端末のローカル日時をそれぞれ表示します。同じタイムスタンプでも表示上の時刻が9時間ずれるのはこのためです。</div></div>
+        <div class="faq-item"><div class="q">2038年問題とは？</div><div class="a">2038年問題とは、UNIXタイムを32ビット符号付き整数で扱うシステムで、2038年1月19日3時14分7秒（UTC）を超えると値がオーバーフローし、時刻が1901年などに巻き戻ってしまう不具合です。原因は32ビットで表せる秒数の上限（約21億秒）を超えることにあります。対策として、多くの現代的なシステムでは64ビット整数でタイムスタンプを扱い、事実上この上限を心配する必要をなくしています。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// 2桁ゼロ埋め
+function p2(n){return String(n).padStart(2,'0');}
+
+// JST（UTC+9）の日時文字列を生成
+function fmtJst(ms){
+    const d = new Date(ms + 9*3600*1000); // UTCの内部値に+9時間してからUTCゲッタで読む
+    return d.getUTCFullYear()+'-'+p2(d.getUTCMonth()+1)+'-'+p2(d.getUTCDate())+' '+
+           p2(d.getUTCHours())+':'+p2(d.getUTCMinutes())+':'+p2(d.getUTCSeconds())+' JST';
+}
+// UTCの日時文字列を生成
+function fmtUtc(ms){
+    const d = new Date(ms);
+    return d.getUTCFullYear()+'-'+p2(d.getUTCMonth()+1)+'-'+p2(d.getUTCDate())+' '+
+           p2(d.getUTCHours())+':'+p2(d.getUTCMinutes())+':'+p2(d.getUTCSeconds())+' UTC';
+}
+// ローカルの日時文字列を生成
+function fmtLocal(d){
+    return d.getFullYear()+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate())+' '+
+           p2(d.getHours())+':'+p2(d.getMinutes())+':'+p2(d.getSeconds());
+}
+
+let currentSec = 0;
+
+function tick(){
+    const now = new Date();
+    const ms = now.getTime();
+    const sec = Math.floor(ms/1000);
+    currentSec = sec;
+
+    document.getElementById('nowSec').textContent = sec;
+    document.getElementById('nowMs').textContent = ms;
+    document.getElementById('nowIso').textContent = now.toISOString();
+    document.getElementById('nowUtc').textContent = fmtUtc(ms);
+    document.getElementById('nowJst').textContent = fmtJst(ms);
+    document.getElementById('nowLocal').textContent = fmtLocal(now);
+
+    // 今日0時（ローカル）のタイムスタンプ（秒）
+    const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
+    document.getElementById('todayMidnight').textContent = Math.floor(midnight.getTime()/1000);
+}
+
+// コピー
+function copyNowSec(){
+    const val = String(currentSec);
+    const btn = document.getElementById('copyBtn');
+    const done = ()=>{ const o = btn.textContent; btn.textContent = 'コピーしました'; setTimeout(()=>{btn.textContent = o;}, 1200); };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(val).then(done).catch(()=>fallbackCopy(val, done));
+    } else { fallbackCopy(val, done); }
+}
+function fallbackCopy(val, cb){
+    const ta = document.createElement('textarea');
+    ta.value = val; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try{ document.execCommand('copy'); }catch(e){}
+    document.body.removeChild(ta); if(cb) cb();
+}
+
+// Unix時間 → 日時
+function convertTsToDate(){
+    const raw = document.getElementById('tsInput').value.trim();
+    const jstEl = document.getElementById('tsJst');
+    const utcEl = document.getElementById('tsUtc');
+    if (raw === ''){ jstEl.textContent = '-'; utcEl.textContent = '-'; return; }
+    const sec = Number(raw);
+    if (!isFinite(sec)){ jstEl.textContent = '入力エラー'; utcEl.textContent = '入力エラー'; return; }
+    const ms = sec * 1000;
+    jstEl.textContent = fmtJst(ms);
+    utcEl.textContent = fmtUtc(ms);
+}
+
+// 日時 → Unix時間
+function convertDateToTs(){
+    const raw = document.getElementById('dtInput').value;
+    const secEl = document.getElementById('dtSec');
+    const msEl = document.getElementById('dtMs');
+    if (!raw){ secEl.textContent = '-'; msEl.textContent = '-'; return; }
+    const d = new Date(raw); // datetime-local はローカル時刻として解釈される
+    if (isNaN(d.getTime())){ secEl.textContent = '入力エラー'; msEl.textContent = '入力エラー'; return; }
+    const ms = d.getTime();
+    secEl.textContent = Math.floor(ms/1000);
+    msEl.textContent = ms;
+}
+
+// 起動: 即時表示 + 1秒ごとに更新
+tick();
+setInterval(tick, 1000);
+</script>
+</body>
+</html>

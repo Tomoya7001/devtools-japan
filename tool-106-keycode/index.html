@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>キーコードチェッカー | キーボードのkey・code・keyCodeをリアルタイム表示【無料】</title>
+    <meta name="description" content="キーを押すだけで event.key・event.code・keyCode/which・location・修飾キー（Shift/Ctrl/Alt/Meta）の状態をリアルタイム表示する無料ツール。ゲーム開発やキーイベント実装のデバッグに。すべてブラウザ内で完結し通信はしません。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#0891b2;--accent-dim:rgba(8,145,178,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(8,145,178,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent);word-break:break-all}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(8,145,178,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2;word-break:break-all}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .capture{background:var(--bg-card);border:2px dashed var(--accent);border-radius:var(--radius);padding:28px 20px;text-align:center;margin-bottom:16px;cursor:text;outline:none;transition:background 0.15s,border-color 0.15s}
+        .capture:focus{background:var(--accent-dim);border-style:solid}
+        .capture .hint{font-size:0.85rem;color:var(--text2)}
+        .capture:focus .hint{color:var(--accent)}
+        .badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:16px}
+        .badge{padding:10px 18px;border-radius:8px;border:1px solid var(--border);background:#f7f8fb;color:var(--text3);font-family:'JetBrains Mono',monospace;font-size:0.85rem;font-weight:500;transition:all 0.1s}
+        .badge.on{background:var(--accent);border-color:var(--accent);color:#fff}
+        .history-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+        .history-list li{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--text2)}
+        .history-list li .k{color:var(--accent);font-weight:600}
+        .history-list .empty{justify-content:center;color:var(--text3);font-family:'Noto Sans JP',sans-serif}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        table.ref tr.now td{background:var(--accent-dim);font-weight:600;color:var(--text)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-106-keycode/">
+    <meta property="og:title" content="キーコードチェッカー | key・code・keyCodeをリアルタイム表示【無料】">
+    <meta property="og:description" content="キーを押すだけで event.key・event.code・keyCode・location・修飾キーの状態をリアルタイム表示。キーイベント実装のデバッグに。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-106-keycode/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="キーコードチェッカー【無料】">
+    <meta name="twitter:description" content="押したキーの key・code・keyCode・修飾キー状態をリアルタイム表示。ブラウザ内で完結。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"キーコードチェッカー","description":"押したキーの event.key・event.code・keyCode・location・修飾キー状態をリアルタイム表示する無料ツール","url":"https://www.devtools-japan.com/tool-106-keycode/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"キーコードチェッカー","item":"https://www.devtools-japan.com/tool-106-keycode/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"event.key と event.code の違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"event.key は「入力される文字・意味」を表し、Shiftや言語レイアウトの影響を受けます。たとえばAキーを押すと通常は 'a'、Shift併用では 'A' になります。一方 event.code は「物理的なキーの位置」を表し、レイアウトや修飾キーに関係なく 'KeyA' のように固定です。文字入力の判定には key、ゲームの移動キーなど物理配置で判定したい場合は code を使うのが基本です。"}},{"@type":"Question","name":"keyCode は使ってもよいですか？","acceptedAnswer":{"@type":"Answer","text":"event.keyCode（および event.which）は数値のキーコードを返しますが、現在はW3Cの仕様で非推奨（deprecated）となっています。将来のブラウザで挙動が変わったり削除される可能性があるため、新規の実装では event.key または event.code の利用が推奨されます。このツールでは互換性の確認用に keyCode も併せて表示していますが、あくまで参考値として扱ってください。"}},{"@type":"Question","name":"event.location は何を表しますか？","acceptedAnswer":{"@type":"Answer","text":"event.location は同じ意味のキーが複数ある場合に、どの位置のキーかを示す数値です。0が標準、1が左側（左Shiftなど）、2が右側（右Ctrlなど）、3がテンキー（数字キーパッド）を表します。左右のShiftやCtrlを区別したい場合や、テンキーの数字を判別したい場合に利用できます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>キーコードチェッカー</h1><p>押したキーの key・code・keyCode・修飾キーをリアルタイム表示</p></header>
+
+    <div class="capture" id="capture" tabindex="0" autofocus>
+        <div class="hint" id="captureHint">ここをクリックして、キーを押してください</div>
+    </div>
+
+    <div class="big-result">
+        <div class="headline">event.key</div>
+        <div class="days"><span id="bigKey">-</span></div>
+        <div class="target" id="keyDesc">まだキーが押されていません</div>
+    </div>
+
+    <div class="badges" id="badges">
+        <span class="badge" data-mod="shift">Shift</span>
+        <span class="badge" data-mod="ctrl">Ctrl</span>
+        <span class="badge" data-mod="alt">Alt</span>
+        <span class="badge" data-mod="meta">Meta</span>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">event.code</div><div class="value" id="valCode" style="font-size:1.1rem">-</div></div>
+        <div class="result-item"><div class="label">event.location</div><div class="value" id="valLocation" style="font-size:1.1rem">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">event.keyCode<span style="font-size:0.6rem;color:var(--red)"> (非推奨)</span></div><div class="value" id="valKeyCode">-</div></div>
+        <div class="result-item"><div class="label">event.which<span style="font-size:0.6rem;color:var(--red)"> (非推奨)</span></div><div class="value" id="valWhich">-</div></div>
+    </div>
+
+    <div class="card"><h3>最近のキー履歴</h3>
+        <ul class="history-list" id="historyList">
+            <li class="empty">キーを押すとここに履歴が表示されます</li>
+        </ul>
+    </div>
+
+    <div class="note">このツールはキー入力をブラウザ内でそのまま表示するだけで、押したキーやその内容をどこにも送信しません。event.keyCode / event.which は非推奨（deprecated）のため参考値です。新規実装では event.key・event.code をご利用ください。ページ操作を妨げないよう、既定の動作は基本的にそのまま維持しています。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="card"><h3>event.location の値</h3>
+        <div class="table-wrap">
+        <table class="ref" id="refTable">
+            <tr><th>値</th><th>位置</th><th>例</th></tr>
+            <tr><td>0</td><td>標準（STANDARD）</td><td>通常の文字キー、上段の数字キー</td></tr>
+            <tr><td>1</td><td>左側（LEFT）</td><td>左Shift・左Ctrl・左Alt</td></tr>
+            <tr><td>2</td><td>右側（RIGHT）</td><td>右Shift・右Ctrl・右Alt</td></tr>
+            <tr><td>3</td><td>テンキー（NUMPAD）</td><td>数字キーパッドの各キー</td></tr>
+        </table>
+        </div>
+    </div>
+
+    <div class="seo-content">
+        <h2>キーコードチェッカーとは</h2>
+        <p>「キーコードチェッカー」は、キーボードのキーを押すだけで、そのキーの <strong>event.key・event.code・event.keyCode／which・event.location・修飾キー（Shift／Ctrl／Alt／Meta）の状態</strong>をリアルタイムに表示する無料ツールです。入力欄への文字入力やボタン操作は不要で、キャプチャエリアにフォーカスした状態でキーを押すだけで、押したキーの情報がその場で更新されます。すべての処理はお使いのブラウザ内（JavaScript）で完結し、押したキーの内容を含むいかなるデータも外部に送信しません。</p>
+        <p>Webアプリやゲームのキーボード操作を実装するとき、「このキーの code は何か」「日本語配列と英語配列で key はどう変わるか」「左右のShiftを区別できるか」といった疑問は、実際にキーを押して確かめるのが一番確実です。このツールを使えば、開発者ツールのコンソールに console.log を書かなくても、押したキーのイベント値を即座に確認できます。</p>
+        <h3>こんなときに</h3>
+        <p>ゲームやエディタでキー操作（WASD移動、ショートカット等）を実装するとき、キーボードショートカットのキー判定を組むとき、日本語配列（JIS）と英語配列（US）でのキーの違いを調べたいとき、テンキーや左右の修飾キーを区別したいとき、非推奨の keyCode を使った既存コードを event.key／event.code へ移行するときの対応表づくりに役立ちます。</p>
+
+        <h2>key・code・keyCode の違い</h2>
+        <p>キーイベントには複数のプロパティがあり、それぞれ意味が異なります。<strong>event.key</strong> は入力される「文字・意味」で、Shiftやキーボードレイアウトの影響を受けます（Aキー単独なら 'a'、Shift併用なら 'A'）。<strong>event.code</strong> は「物理的なキーの位置」で、レイアウトや修飾キーに関係なく 'KeyA' のように固定です。<strong>event.keyCode</strong> と <strong>event.which</strong> は数値のキーコードですが、現在は非推奨（deprecated）です。用途に応じて、文字入力の判定には key、物理配置での判定には code を使い分けるのが基本です。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>プロパティ</th><th>意味</th><th>Aキーの例</th></tr>
+            <tr><td>event.key</td><td>入力される文字・意味（レイアウト依存）</td><td>a（Shiftで A）</td></tr>
+            <tr><td>event.code</td><td>物理的なキーの位置（固定）</td><td>KeyA</td></tr>
+            <tr><td>event.keyCode</td><td>数値コード（非推奨）</td><td>65</td></tr>
+            <tr><td>event.location</td><td>キーの位置（左右・テンキー）</td><td>0（標準）</td></tr>
+        </table>
+        </div>
+        <h3>修飾キーの状態</h3>
+        <p>キーイベントには、その瞬間にどの修飾キーが押されていたかを示すプロパティもあります。event.shiftKey・event.ctrlKey・event.altKey・event.metaKey がそれぞれ true／false を返し、このツールでは押されている修飾キーのバッジが点灯します。metaKey は WindowsではWindowsキー、MacではCommand（⌘）キーに対応します。ショートカットの実装では、これらの真偽値を組み合わせて「Ctrl＋S」などの判定を行います。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">event.key と event.code の違いは何ですか？</div><div class="a">event.key は「入力される文字・意味」を表し、Shiftや言語レイアウトの影響を受けます。たとえばAキーを押すと通常は 'a'、Shift併用では 'A' になります。一方 event.code は「物理的なキーの位置」を表し、レイアウトや修飾キーに関係なく 'KeyA' のように固定です。文字入力の判定には key、ゲームの移動キーなど物理配置で判定したい場合は code を使うのが基本です。</div></div>
+        <div class="faq-item"><div class="q">keyCode は使ってもよいですか？</div><div class="a">event.keyCode（および event.which）は数値のキーコードを返しますが、現在はW3Cの仕様で非推奨（deprecated）となっています。将来のブラウザで挙動が変わったり削除される可能性があるため、新規の実装では event.key または event.code の利用が推奨されます。このツールでは互換性の確認用に keyCode も併せて表示していますが、あくまで参考値として扱ってください。</div></div>
+        <div class="faq-item"><div class="q">event.location は何を表しますか？</div><div class="a">event.location は同じ意味のキーが複数ある場合に、どの位置のキーかを示す数値です。0が標準、1が左側（左Shiftなど）、2が右側（右Ctrlなど）、3がテンキー（数字キーパッド）を表します。左右のShiftやCtrlを区別したい場合や、テンキーの数字を判別したい場合に利用できます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-97-wareki-today/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">今日の和暦ダッシュボード</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ===== すべてローカル処理・キー入力はどこにも送信しない =====
+const LOCATION_LABEL = {0:'標準 (STANDARD)', 1:'左側 (LEFT)', 2:'右側 (RIGHT)', 3:'テンキー (NUMPAD)'};
+// preventDefault が必要なキー（押すとページが動いてしまうもの）。フォーカス中のみ抑制する。
+const PREVENT_KEYS = new Set([' ', 'Tab', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Home', 'End', 'PageUp', 'PageDown']);
+
+const capture = document.getElementById('capture');
+const captureHint = document.getElementById('captureHint');
+const bigKey = document.getElementById('bigKey');
+const keyDesc = document.getElementById('keyDesc');
+const valCode = document.getElementById('valCode');
+const valLocation = document.getElementById('valLocation');
+const valKeyCode = document.getElementById('valKeyCode');
+const valWhich = document.getElementById('valWhich');
+const historyList = document.getElementById('historyList');
+const badges = document.querySelectorAll('#badges .badge');
+
+const history = [];
+
+// event.key を表示用に整える（スペースや制御キーを読みやすく）
+function displayKey(k){
+    if (k === ' ') return 'Space';
+    return k;
+}
+
+function updateBadges(e){
+    badges.forEach(b=>{
+        const mod = b.getAttribute('data-mod');
+        let on = false;
+        if (mod === 'shift') on = e.shiftKey;
+        else if (mod === 'ctrl') on = e.ctrlKey;
+        else if (mod === 'alt') on = e.altKey;
+        else if (mod === 'meta') on = e.metaKey;
+        b.classList.toggle('on', on);
+    });
+}
+
+function renderHistory(){
+    if (history.length === 0){
+        historyList.innerHTML = '<li class="empty">キーを押すとここに履歴が表示されます</li>';
+        return;
+    }
+    historyList.innerHTML = '';
+    history.forEach(h=>{
+        const li = document.createElement('li');
+        const left = document.createElement('span');
+        left.innerHTML = '<span class="k">' + escapeHtml(h.key) + '</span>';
+        const right = document.createElement('span');
+        right.textContent = h.code + ' / ' + h.keyCode;
+        li.appendChild(left);
+        li.appendChild(right);
+        historyList.appendChild(li);
+    });
+}
+
+function escapeHtml(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+capture.addEventListener('keydown', function(e){
+    // 押すとページがスクロール/移動する一部キーだけ、キャプチャ中は既定動作を抑制
+    if (PREVENT_KEYS.has(e.key)) e.preventDefault();
+
+    const shownKey = displayKey(e.key);
+    bigKey.textContent = shownKey;
+    keyDesc.textContent = e.key.length === 1 ? '1文字のキー' : '特殊キー / 名前付きキー';
+    valCode.textContent = e.code || '(なし)';
+    valLocation.textContent = e.location + ' : ' + (LOCATION_LABEL[e.location] || '不明');
+    valKeyCode.textContent = e.keyCode;
+    valWhich.textContent = e.which;
+
+    updateBadges(e);
+
+    // 履歴（最新を先頭に、最大8件）
+    history.unshift({key: shownKey, code: e.code || '(なし)', keyCode: e.keyCode});
+    if (history.length > 8) history.pop();
+    renderHistory();
+});
+
+// 修飾キーを離したときにバッジを更新（押しっぱなし解除を反映）
+capture.addEventListener('keyup', updateBadges);
+
+// フォーカス状態のヒント表示
+capture.addEventListener('focus', function(){
+    captureHint.textContent = 'キーを押してください';
+});
+capture.addEventListener('blur', function(){
+    captureHint.textContent = 'ここをクリックして、キーを押してください';
+    badges.forEach(b=>b.classList.remove('on'));
+});
+
+// 自動フォーカス（autofocus が効かない環境向けの保険）
+window.addEventListener('load', function(){ capture.focus(); });
+</script>
+</body>
+</html>

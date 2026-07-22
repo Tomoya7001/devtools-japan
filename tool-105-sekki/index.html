@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>二十四節気カレンダー | 今日はどの節気？次の節気までの残り日数を自動表示【無料】</title>
+    <meta name="description" content="ページを開いた瞬間に、今日が二十四節気のどの期間かを自動表示する無料ツール。立春・春分・夏至・冬至など24の節気、現在の節気の説明、次の節気の名称と残り日数、今年の二十四節気一覧（日付付き）を入力不要で確認できます。太陽黄経ベースの概算計算です。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#0d9488;--accent-dim:rgba(13,148,136,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(13,148,136,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(13,148,136,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .big-result .desc{font-size:0.85rem;color:var(--text2);margin-top:12px;line-height:1.8}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        table.ref tr.now td{background:var(--accent-dim);font-weight:600;color:var(--text)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-105-sekki/">
+    <meta property="og:title" content="二十四節気カレンダー | 今日はどの節気？次の節気までの残り日数を自動表示【無料】">
+    <meta property="og:description" content="開いた瞬間に、今日が二十四節気のどの期間かを自動表示。現在の節気の説明、次の節気の名称と残り日数、今年の節気一覧まで入力不要でわかる無料ツール。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-105-sekki/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="二十四節気カレンダー【無料】">
+    <meta name="twitter:description" content="今日はどの節気？次の節気までの残り日数と今年の節気一覧を開いた瞬間に自動表示。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"二十四節気カレンダー","description":"今日が二十四節気のどの期間かと次の節気までの残り日数を開いた瞬間に自動表示する無料ツール","url":"https://www.devtools-japan.com/tool-105-sekki/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"二十四節気カレンダー","item":"https://www.devtools-japan.com/tool-105-sekki/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"今はどの節気ですか？","acceptedAnswer":{"@type":"Answer","text":"このページを開くと、お使いの端末の現在日付から、今日が二十四節気のどの期間にあたるかを自動計算して大きく表示します。二十四節気は太陽の黄経（太陽が天球上を進む角度）を15度ずつ24等分して定めるもので、たとえば立春は黄経315度、春分は0度、夏至は90度、冬至は270度です。今日の直前に始まった節気が「現在の節気」となり、その名称と季節の意味、始まった日を表示します。"}},{"@type":"Question","name":"次の節気はいつですか？","acceptedAnswer":{"@type":"Answer","text":"現在の節気の次に来る節気の名称と、その開始日、今日からの残り日数を自動表示します。二十四節気は約15日ごとに切り替わるため、次の節気までは通常15日前後です。たとえば今が立春の期間なら、次は雨水となり、その開始日までの日数を「あと◯日」として表示します。日数は年月日ベースで数えるため、時刻や時差の影響を受けません。"}},{"@type":"Question","name":"表示される日付の精度はどれくらいですか？","acceptedAnswer":{"@type":"Answer","text":"本ツールは太陽黄経を近似式で計算し、黄経が各節気の角度（15度の倍数）に達する日を求めています。国立天文台が発表する正式な暦とは1日程度ずれる場合があり、日付はあくまで概算としてご利用ください。計算はすべてお使いの端末内（ブラウザ）で行い、日付を含むいかなるデータも外部に送信しません。厳密な日付が必要な場合は国立天文台の暦要項をご確認ください。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>二十四節気カレンダー</h1><p>今日はどの節気？次の節気までの残り日数を開いた瞬間に表示</p></header>
+
+    <div class="big-result">
+        <div class="headline" id="headline">今は</div>
+        <div class="days"><span id="bigSekki">-</span></div>
+        <div class="target" id="periodLabel">現在の節気を計算中…</div>
+        <div class="desc" id="sekkiDesc"></div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">現在の節気</div><div class="value" id="curSekki">-</div></div>
+        <div class="result-item"><div class="label">太陽黄経</div><div class="value" id="curLon">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">現在の節気の開始日</div><div class="value" id="curStart" style="font-size:1.1rem">-</div></div>
+        <div class="result-item"><div class="label">今日</div><div class="value" id="todayLabel" style="font-size:1.1rem">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">次の節気</div><div class="value" id="nextSekki">-</div></div>
+        <div class="result-item"><div class="label">次の節気まで</div><div class="value" id="nextRemain">-</div></div>
+    </div>
+
+    <div class="note">この画面はお使いの端末（ブラウザ）の現在日付をもとに、開いた瞬間に自動計算しています。入力は不要で、データはどこにも送信されません。二十四節気の日付は太陽黄経の近似計算で求めた概算値で、正式な暦と1日程度ずれる場合があります。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="card"><h3>今年（<span id="yearLabel">-</span>）の二十四節気一覧</h3>
+        <div class="table-wrap">
+        <table class="ref" id="sekkiTable">
+            <tr><th>節気</th><th>日付（概算）</th><th>太陽黄経</th><th>意味</th></tr>
+        </table>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text2);line-height:1.9;margin-top:8px">色の付いた行が現在の節気です。日付は太陽黄経の近似計算による概算で、うるう年や地球の公転のわずかなずれにより年ごとに1日前後前後します。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>二十四節気カレンダーとは</h2>
+        <p>「二十四節気カレンダー」は、ページを開いた瞬間に<strong>今日が二十四節気のどの期間にあたるか</strong>を自動で表示する、入力不要の無料ツールです。ボタンを押す必要はありません。お使いの端末（パソコン・スマートフォン）の現在日付を読み取り、現在の節気の名称・季節の意味・始まった日、そして次の節気の名称と残り日数、さらに今年の二十四節気一覧（日付付き）までをまとめて表示します。すべての計算はブラウザの中だけで完結し、日付を含むいかなるデータも外部に送信しません。</p>
+        <p>二十四節気（にじゅうしせっき）は、太陽の動きをもとに1年を24等分し、季節の移り変わりを表した暦です。立春・春分・夏至・秋分・冬至といった言葉は、天気予報や俳句、行事の由来としても親しまれています。「今って何の節気だっけ？」「次の節気はいつ？」と気になったときに、開くだけで答えが出るのがこのツールの役割です。</p>
+        <h3>こんなときに</h3>
+        <p>季節の挨拶文やビジネスメールの時候を選ぶとき、俳句・短歌の季語や暦のうんちくを確認したいとき、旬の食材や衣替えの目安を知りたいとき、行事やイベントの季節感を確かめたいとき。立春・夏至・冬至などの節目を意識した暮らしの目安づくりにもお使いいただけます。</p>
+
+        <h2>二十四節気の求め方</h2>
+        <p>二十四節気は、太陽が天球上を進む角度である<strong>太陽黄経（こうけい）</strong>を基準に定めます。春分点を黄経0度とし、太陽黄経が15度進むごとに1つの節気を置くため、1年（360度）が24等分されます。たとえば立春は黄経315度、雨水は330度、春分は0度、清明は15度…と続き、夏至は90度、秋分は180度、冬至は270度にあたります。太陽が各角度に達した日がその節気の始まりの日です。</p>
+        <p>このツールでは、太陽黄経を求める近似式を端末内のJavaScriptで計算し、黄経が15度の倍数に達する日付を1年分求めています。太陽黄経はおおよそ1日に約1度ずつ進むため、節気はおよそ15日ごとに切り替わります。地球の公転速度は季節でわずかに変化するため、各節気の間隔は14〜16日程度と少し前後します。なお本ツールの日付は近似計算による概算で、国立天文台が発表する正式な暦とは1日程度ずれる場合があります。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>季節</th><th>節気（太陽黄経）</th></tr>
+            <tr><td>春</td><td>立春(315°)・雨水(330°)・啓蟄(345°)・春分(0°)・清明(15°)・穀雨(30°)</td></tr>
+            <tr><td>夏</td><td>立夏(45°)・小満(60°)・芒種(75°)・夏至(90°)・小暑(105°)・大暑(120°)</td></tr>
+            <tr><td>秋</td><td>立秋(135°)・処暑(150°)・白露(165°)・秋分(180°)・寒露(195°)・霜降(210°)</td></tr>
+            <tr><td>冬</td><td>立冬(225°)・小雪(240°)・大雪(255°)・冬至(270°)・小寒(285°)・大寒(300°)</td></tr>
+        </table>
+        </div>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">今はどの節気ですか？</div><div class="a">このページを開くと、お使いの端末の現在日付から、今日が二十四節気のどの期間にあたるかを自動計算して大きく表示します。二十四節気は太陽の黄経（太陽が天球上を進む角度）を15度ずつ24等分して定めるもので、たとえば立春は黄経315度、春分は0度、夏至は90度、冬至は270度です。今日の直前に始まった節気が「現在の節気」となり、その名称と季節の意味、始まった日を表示します。</div></div>
+        <div class="faq-item"><div class="q">次の節気はいつですか？</div><div class="a">現在の節気の次に来る節気の名称と、その開始日、今日からの残り日数を自動表示します。二十四節気は約15日ごとに切り替わるため、次の節気までは通常15日前後です。たとえば今が立春の期間なら、次は雨水となり、その開始日までの日数を「あと◯日」として表示します。日数は年月日ベースで数えるため、時刻や時差の影響を受けません。</div></div>
+        <div class="faq-item"><div class="q">表示される日付の精度はどれくらいですか？</div><div class="a">本ツールは太陽黄経を近似式で計算し、黄経が各節気の角度（15度の倍数）に達する日を求めています。国立天文台が発表する正式な暦とは1日程度ずれる場合があり、日付はあくまで概算としてご利用ください。計算はすべてお使いの端末内（ブラウザ）で行い、日付を含むいかなるデータも外部に送信しません。厳密な日付が必要な場合は国立天文台の暦要項をご確認ください。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-97-wareki-today/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">今日の和暦ダッシュボード</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-98-holidays/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">祝日カレンダー</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ===== すべてローカル計算・ゼロ入力・ネットワーク送信なし =====
+// 二十四節気（太陽黄経の順。立春=315°から15°刻み）
+const SEKKI = {
+    315:{name:'立春',desc:'暦の上で春が始まる日。まだ寒さは残るが、少しずつ春の兆しが見え始める頃。'},
+    330:{name:'雨水',desc:'降る雪が雨に変わり、氷が解け始める頃。農耕の準備を始める目安とされる。'},
+    345:{name:'啓蟄',desc:'冬ごもりしていた虫たちが、暖かさに誘われて地中から出てくる頃。'},
+    0:{name:'春分',desc:'昼と夜の長さがほぼ等しくなる日。この日を境に昼が長くなっていく。'},
+    15:{name:'清明',desc:'万物が清らかで生き生きとし、草木が芽吹いて花が咲きそろう頃。'},
+    30:{name:'穀雨',desc:'春の雨が降って百穀を潤し、種まきの好機とされる頃。'},
+    45:{name:'立夏',desc:'暦の上で夏が始まる日。新緑がまぶしく、さわやかな季節。'},
+    60:{name:'小満',desc:'草木が茂り、あらゆる生命が満ち始める頃。麦の穂も育ち始める。'},
+    75:{name:'芒種',desc:'稲や麦など芒（のぎ）のある穀物の種をまく頃。梅雨が近づく。'},
+    90:{name:'夏至',desc:'一年で最も昼が長く、夜が短くなる日。本格的な夏の入り口。'},
+    105:{name:'小暑',desc:'梅雨が明けて暑さが本格化し始める頃。蝉が鳴き始める。'},
+    120:{name:'大暑',desc:'一年で最も暑さが厳しくなる頃。夏の土用もこの時期にあたる。'},
+    135:{name:'立秋',desc:'暦の上で秋が始まる日。まだ残暑は続くが、朝夕に秋の気配。'},
+    150:{name:'処暑',desc:'厳しい暑さがようやく和らぎ、朝晩が過ごしやすくなる頃。'},
+    165:{name:'白露',desc:'草花に朝露が宿り始め、秋の気配が深まっていく頃。'},
+    180:{name:'秋分',desc:'昼と夜の長さがほぼ等しくなる日。この日を境に夜が長くなる。'},
+    195:{name:'寒露',desc:'冷たい露が結び、秋が深まって空気が澄んでくる頃。'},
+    210:{name:'霜降',desc:'朝晩の冷え込みで霜が降り始める頃。紅葉が里へと下りてくる。'},
+    225:{name:'立冬',desc:'暦の上で冬が始まる日。木枯らしが吹き、冬支度を始める頃。'},
+    240:{name:'小雪',desc:'わずかに雪が降り始める頃。まだ本格的な積雪には至らない。'},
+    255:{name:'大雪',desc:'山だけでなく平野にも本格的に雪が降り積もり始める頃。'},
+    270:{name:'冬至',desc:'一年で最も昼が短く、夜が長い日。柚子湯やかぼちゃの風習がある。'},
+    285:{name:'小寒',desc:'寒さが厳しくなり始める「寒の入り」。これから寒さが本番を迎える。'},
+    300:{name:'大寒',desc:'一年で最も寒さが厳しい頃。この時期が過ぎると再び立春を迎える。'}
+};
+
+// 太陽黄経（度・0〜360）を近似計算。dateはJSのDate（UTCベースの絶対時刻）。
+function solarLongitude(date){
+    const jd = date.getTime()/86400000 + 2440587.5; // ユリウス日
+    const n = jd - 2451545.0;                        // J2000.0 からの日数
+    const L = 280.460 + 0.9856474 * n;               // 太陽の平均黄経
+    const g = 357.528 + 0.9856003 * n;               // 太陽の平均近点角
+    const gr = g * Math.PI / 180;
+    let lambda = L + 1.915 * Math.sin(gr) + 0.020 * Math.sin(2 * gr);
+    lambda = ((lambda % 360) + 360) % 360;
+    return lambda;
+}
+
+// タイムスタンプ(ms)から日本時間(JST)の年月日を返す
+function jstYMD(ms){
+    const t = new Date(ms + 9 * 3600000);
+    return {y:t.getUTCFullYear(), m:t.getUTCMonth()+1, d:t.getUTCDate()};
+}
+// 年月日の差（日数）。a,b は {y,m,d}
+function dayDiff(a, b){
+    return Math.round((Date.UTC(b.y,b.m-1,b.d) - Date.UTC(a.y,a.m-1,a.d)) / 86400000);
+}
+
+// 指定した西暦年（暦年）に始まる二十四節気の日付を求める
+// 返り値: [{lon, name, desc, ms, ymd}] を日付順で
+function sekkiForYear(year){
+    const out = [];
+    const dayMs = 86400000;
+    const startMs = Date.UTC(year, 0, 1, 3, 0, 0); // 1月1日 正午(JST)
+    let prevMs = startMs;
+    let prevLon = solarLongitude(new Date(prevMs));
+    for (let i = 1; i <= 370; i++){
+        const curMs = startMs + i * dayMs;
+        const curYmd = jstYMD(curMs);
+        if (curYmd.y > year) break; // その年のうちだけ
+        let curLon = solarLongitude(new Date(curMs));
+        let p = prevLon, c = curLon;
+        if (c < p) c += 360; // 春分点(360→0)の折り返しを補正
+        // (p, c] 区間に含まれる 15° の倍数を探す
+        let k = Math.ceil(p / 15);
+        for (let mult = k * 15; mult <= c; mult += 15){
+            const targetLon = ((mult % 360) + 360) % 360;
+            const frac = (mult - p) / (c - p);
+            const crossMs = prevMs + frac * dayMs;
+            const ymd = jstYMD(crossMs);
+            if (ymd.y !== year) continue;
+            const info = SEKKI[targetLon];
+            if (!info) continue;
+            out.push({lon:targetLon, name:info.name, desc:info.desc, ms:crossMs, ymd:ymd});
+        }
+        prevMs = curMs; prevLon = curLon;
+    }
+    out.sort((a,b)=>a.ms-b.ms);
+    return out;
+}
+
+// ===== メイン =====
+(function(){
+    const now = new Date();
+    const nowMs = now.getTime();
+    const todayYmd = jstYMD(nowMs);
+    const year = todayYmd.y;
+
+    // 前後の年もつなげて、現在と次の節気を確実に判定する
+    const timeline = [].concat(sekkiForYear(year-1), sekkiForYear(year), sekkiForYear(year+1))
+                       .sort((a,b)=>a.ms-b.ms);
+
+    // 現在の節気 = 開始が今日（JST日付）以前で最後のもの
+    let curIdx = -1;
+    for (let i = 0; i < timeline.length; i++){
+        const s = timeline[i];
+        if (dayDiff(s.ymd, todayYmd) >= 0){ curIdx = i; } else { break; }
+    }
+    const cur = timeline[curIdx];
+    const next = timeline[curIdx + 1];
+
+    const fmt = (y)=> y.m + '月' + y.d + '日';
+    const fmtFull = (y)=> y.y + '年' + y.m + '月' + y.d + '日';
+
+    // 大きな表示
+    document.getElementById('bigSekki').textContent = cur.name;
+    const endYmd = next ? jstYMD(next.ms - 86400000) : null;
+    document.getElementById('periodLabel').textContent =
+        '期間: ' + fmt(cur.ymd) + (endYmd ? ' 〜 ' + fmt(endYmd) : '') + '（太陽黄経 ' + cur.lon + '°）';
+    document.getElementById('sekkiDesc').textContent = cur.desc;
+
+    // グリッド
+    document.getElementById('curSekki').textContent = cur.name;
+    document.getElementById('curLon').textContent = cur.lon + '°';
+    document.getElementById('curStart').textContent = fmtFull(cur.ymd);
+    document.getElementById('todayLabel').textContent = fmtFull(todayYmd);
+    if (next){
+        const remain = dayDiff(todayYmd, next.ymd);
+        document.getElementById('nextSekki').textContent = next.name;
+        document.getElementById('nextRemain').textContent =
+            (remain === 0 ? '本日' : 'あと' + remain + '日');
+        document.getElementById('nextSekki').title = fmtFull(next.ymd);
+    }
+
+    // 今年の一覧テーブル
+    document.getElementById('yearLabel').textContent = year + '年';
+    const list = sekkiForYear(year);
+    const tbl = document.getElementById('sekkiTable');
+    list.forEach(s=>{
+        const tr = document.createElement('tr');
+        const isNow = (cur && s.name === cur.name && s.ms === cur.ms);
+        if (isNow) tr.className = 'now';
+        tr.innerHTML = '<td>' + s.name + (isNow ? '（現在）' : '') + '</td>'
+            + '<td>' + fmt(s.ymd) + '</td>'
+            + '<td>' + s.lon + '°</td>'
+            + '<td style="font-size:0.75rem">' + s.desc + '</td>';
+        tbl.appendChild(tr);
+    });
+})();
+</script>
+</body>
+</html>

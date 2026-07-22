@@ -16,6 +16,7 @@
 - ハッシュ生成: https://www.devtools-japan.com/tool-17-hash/
 - UUID生成: https://www.devtools-japan.com/tool-36-uuid-gen/
 - タイムスタンプ変換: https://www.devtools-japan.com/tool-16-timestamp/
+- 現在のUNIXタイムスタンプ（リアルタイム）: https://www.devtools-japan.com/tool-99-unixtime-now/
 - Cron式ジェネレーター: https://www.devtools-japan.com/tool-30-cron-generator/
 - JWTデコーダー: https://www.devtools-japan.com/tool-48-jwt-decoder/
 - SQLフォーマッター: https://www.devtools-japan.com/tool-49-sql-formatter/
@@ -43,6 +44,8 @@
 - 文字数カウンター: https://www.devtools-japan.com/tool-01-moji-counter/
 - 読み上げ時間計算: https://www.devtools-japan.com/tool-25-speech-time/
 - 和暦西暦変換: https://www.devtools-japan.com/tool-12-wareki/
+- 今日の和暦ダッシュボード: https://www.devtools-japan.com/tool-97-wareki-today/
+- 今年の祝日カレンダー・次の祝日カウントダウン: https://www.devtools-japan.com/tool-98-holidays/
 - 全角半角変換: https://www.devtools-japan.com/tool-19-zenkaku-hankaku/
 - 文章校正チェッカー: https://www.devtools-japan.com/tool-26-proofreader/
 - 原稿用紙換算（文字数⇔枚数）: https://www.devtools-japan.com/tool-76-manuscript-paper/
@@ -90,6 +93,13 @@
 - QRコード生成: https://www.devtools-japan.com/tool-04-qr-generator/
 - 単位変換: https://www.devtools-japan.com/tool-32-unit-converter/
 - 日付カウントダウン: https://www.devtools-japan.com/tool-91-countdown/
+- ブラウザ・端末情報: https://www.devtools-japan.com/tool-100-device-info/
+- 世界時計: https://www.devtools-japan.com/tool-101-world-clock/
+- 今年の進捗バー: https://www.devtools-japan.com/tool-102-year-progress/
+- ISO週番号・年間通算日: https://www.devtools-japan.com/tool-103-week-number/
+- 月齢・月の満ち欠け: https://www.devtools-japan.com/tool-104-moon-phase/
+- 二十四節気カレンダー: https://www.devtools-japan.com/tool-105-sekki/
+- キーコードチェッカー: https://www.devtools-japan.com/tool-106-keycode/
 
 ## API
 DevTools Japan APIとして30本以上の無料REST APIを提供。認証不要で即利用可能。

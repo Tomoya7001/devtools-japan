@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>月齢・月の満ち欠け 今日の月相を自動表示 | 次の満月・新月まであと何日【無料】</title>
+    <meta name="description" content="今日の月齢・月の満ち欠け（新月・三日月・上弦・満月・下弦など）と照度、次の満月・次の新月までの日数をブラウザだけで自動計算する無料ツール。開いた瞬間に今夜の月がわかります。外部通信なし・すべて端末内で計算します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .moon-visual{width:130px;height:130px;margin:0 auto 16px;border-radius:50%;position:relative;overflow:hidden;background:#12142a;box-shadow:0 0 0 1px rgba(139,92,246,0.25),0 8px 30px rgba(18,20,42,0.35)}
+        .moon-lit{position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 38% 35%,#fdfbe8 0%,#e9e6cf 55%,#cfcbaf 100%)}
+        .moon-shadow{position:absolute;top:0;height:100%;width:100%;background:#12142a}
+        .moon-terminator{position:absolute;top:0;height:100%;border-radius:50%;background:#12142a}
+        .moon-emoji{font-size:3rem;line-height:1}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-104-moon-phase/">
+    <meta property="og:title" content="月齢・月の満ち欠け 今日の月相を自動表示 | 次の満月・新月まであと何日【無料】">
+    <meta property="og:description" content="今日の月齢・月相・照度と、次の満月・新月までの日数を自動計算。開いた瞬間に今夜の月がわかる無料ツール。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-104-moon-phase/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="月齢・月の満ち欠け【無料】">
+    <meta name="twitter:description" content="今日の月齢・月相・照度、次の満月・新月までの日数を自動表示。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"月齢・月の満ち欠け","description":"今日の月齢・月相・照度と次の満月・新月までの日数を自動計算する無料ツール","url":"https://www.devtools-japan.com/tool-104-moon-phase/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"月齢・月の満ち欠け","item":"https://www.devtools-japan.com/tool-104-moon-phase/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"今日の月齢は？","acceptedAnswer":{"@type":"Answer","text":"このツールを開くと、お使いの端末の現在時刻をもとに今日の月齢（新月＝朔からの経過日数。0〜約29.5）を自動計算して画面上部に表示します。月齢は平均朔望月（新月から次の新月までの平均周期）29.53059日と、基準となる新月の日時（2000年1月6日18時14分 UTC）を用いた計算式でおおよその値を求めています。あわせて新月・三日月・上弦・満月・下弦などの月相の名称、月の照度（見かけ上光って見える割合の目安）も表示します。"}},{"@type":"Question","name":"次の満月・新月はいつ？","acceptedAnswer":{"@type":"Answer","text":"はい。今日の月齢をもとに、次の満月までの日数と次の新月までの日数を自動で計算して表示します。満月は月齢が約14.77日（朔望月のちょうど半分）付近、新月は月齢が0（または約29.53）付近になるタイミングです。本ツールでは平均朔望月を用いた概算のため、実際の満月・新月の瞬間とは数時間から1日程度ずれることがあります。正確な日時が必要な場合は国立天文台などの暦をあわせてご確認ください。"}},{"@type":"Question","name":"月齢や満ち欠けの精度は？","acceptedAnswer":{"@type":"Answer","text":"本ツールの月齢・月相・照度・次の満月/新月までの日数は、平均朔望月29.53059日を使った概算です。月の実際の公転軌道は楕円で速度が一定でないため、平均周期による計算では実際の値と最大で1日程度の誤差が生じることがあります。日常的に今夜の月のおおよその見え方や、満月・新月がいつ頃かを知る用途には十分ですが、天文観測や暦の厳密な用途には国立天文台の暦要項など公的な資料をご利用ください。計算はすべてお使いの端末内（ブラウザ）で行い、外部への通信は一切行いません。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>月齢・月の満ち欠け</h1><p>今夜の月齢・月相・照度と次の満月・新月までの日数を自動表示</p></header>
+
+    <div class="big-result">
+        <div class="headline" id="headline">今日の月齢</div>
+        <div class="moon-visual" id="moonVisual" aria-hidden="true">
+            <div class="moon-lit"></div>
+            <div class="moon-shadow" id="moonShadow"></div>
+            <div class="moon-terminator" id="moonTerminator"></div>
+        </div>
+        <div class="days"><span id="moonAge">-</span><span class="unit">日</span></div>
+        <div class="target" id="phaseLabel">計算中...</div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">月相</div><div class="value" id="phaseName" style="font-size:1.2rem">-</div><div class="sub" id="phaseEmoji" style="font-size:1.6rem">🌑</div></div>
+        <div class="result-item"><div class="label">照度（明るさの割合）</div><div class="value" id="illumination">-</div><div class="sub">見かけ上光る面の割合</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">次の満月まで</div><div class="value take" id="nextFull">-</div><div class="sub" id="nextFullDate">-</div></div>
+        <div class="result-item"><div class="label">次の新月まで</div><div class="value" id="nextNew">-</div><div class="sub" id="nextNewDate">-</div></div>
+    </div>
+
+    <div class="card"><h3>基準日を変更（任意）</h3>
+        <div class="row"><label>調べたい日付</label><input type="date" id="targetDate" style="text-align:left" oninput="calcMoon()"></div>
+        <div style="margin-top:14px">
+            <div style="font-size:0.75rem;color:var(--text3);margin-bottom:6px">かんたん操作</div>
+            <div class="preset-row" id="presetRow"></div>
+        </div>
+    </div>
+
+    <div class="note">月齢は新月（朔）からの経過日数で、平均朔望月29.53059日と基準の新月日時（2000年1月6日18:14 UTC）から算出したおおよその値です。照度・月相・次の満月/新月までの日数も同じ平均周期による概算で、実際の値と最大1日程度ずれることがあります。計算はお使いの端末内だけで行い、外部への通信は一切行いません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>月齢・月の満ち欠けツールの使い方</h2>
+        <p>ページを開くだけで、今日（今夜）の月齢・月相（月の満ち欠けの段階）・照度、そして次の満月・次の新月までの日数を自動で表示する無料ツールです。入力や会員登録は不要で、開いた瞬間にお使いの端末の現在時刻をもとに今夜の月の様子がわかります。画面上部には月齢の数値と、満ち欠けを表した月のイラスト、月相の名称を大きく表示します。</p>
+        <p>基準となる日付は自動で「今日」が入りますが、「基準日を変更」欄で任意の日付を選べば、過去や未来の特定の日の月齢・満ち欠けも調べられます。旅行やキャンプ、天体観測、お月見、釣りの計画などで「その日の月がどれくらい見えるか」「満月・新月はいつ頃か」を知りたいときにお使いください。すべての計算はブラウザ内で完結し、通信は行いません。</p>
+        <h3>こんな用途に</h3>
+        <p>お月見や中秋の名月の時期の確認、天体観測で月明かりの影響を避けたい夜の選定、キャンプや星空撮影の計画、釣りの潮回り（大潮・小潮）の目安、記念日や誕生日の月の満ち欠けの確認などに。次の満月・新月までの日数がひと目でわかるので、イベントの日取りを決めるときの参考にもなります。</p>
+
+        <h2>月齢と月相（満ち欠け）の関係</h2>
+        <p>月齢とは、新月（朔＝太陽と月が同じ方向に並び、月が見えなくなる瞬間）を0として、そこから経過した日数のことです。月は約29.5日（平均朔望月＝29.53059日）かけて新月→上弦→満月→下弦→次の新月と満ち欠けを繰り返します。月齢がおよそ7.4日で上弦の月（右半分が光る半月）、約14.8日で満月、約22.1日で下弦の月（左半分が光る半月）になります。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>月齢のおおよその範囲</th><th>月相の名称</th><th>見え方</th></tr>
+            <tr><td>約0日（0〜1.8）</td><td>新月（朔）</td><td>ほとんど見えない</td></tr>
+            <tr><td>約1.8〜5.5日</td><td>三日月（繊月）</td><td>右側が細く光る</td></tr>
+            <tr><td>約5.5〜9.2日</td><td>上弦の月</td><td>右半分が光る半月</td></tr>
+            <tr><td>約9.2〜12.9日</td><td>十三夜月（盈凸月）</td><td>右側が大きく膨らむ</td></tr>
+            <tr><td>約12.9〜16.6日</td><td>満月（望）</td><td>まるく光る</td></tr>
+            <tr><td>約16.6〜20.3日</td><td>寝待月（虧凸月）</td><td>左側が少し欠ける</td></tr>
+            <tr><td>約20.3〜24.0日</td><td>下弦の月</td><td>左半分が光る半月</td></tr>
+            <tr><td>約24.0〜29.5日</td><td>有明月（残月）</td><td>左側が細く光る</td></tr>
+        </table>
+        </div>
+        <h3>照度（月の明るさ）について</h3>
+        <p>照度は、地球から見た月面のうち太陽光で光って見える部分の割合を百分率で表したものです。新月では0％に近く、満月では100％に近づきます。上弦・下弦の半月ではおよそ50％です。本ツールの照度は月齢（位相角）から求めた幾何学的な概算で、実際の明るさ（等級）は月と地球の距離などによっても変わるため、あくまで満ち欠けの目安としてご覧ください。</p>
+
+        <h2>計算方法と精度について</h2>
+        <p>本ツールは、基準となる新月の日時（2000年1月6日18時14分 UTC）を起点に、平均朔望月29.53059日で割った余りから月齢を求めています。この方法は月の平均的な運動をもとにした概算で、月の公転軌道が楕円のため実際の値とは最大で1日程度ずれることがあります。日常的に今夜の月の見え方や満月・新月の時期を知る用途には十分ですが、厳密な天文用途には国立天文台の暦要項などをご利用ください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">今日の月齢は？</div><div class="a">このツールを開くと、お使いの端末の現在時刻をもとに今日の月齢（新月＝朔からの経過日数。0〜約29.5）を自動計算して画面上部に表示します。月齢は平均朔望月29.53059日と、基準となる新月の日時（2000年1月6日18時14分 UTC）を用いた計算式でおおよその値を求めています。あわせて新月・三日月・上弦・満月・下弦などの月相の名称、月の照度（見かけ上光って見える割合の目安）も表示します。</div></div>
+        <div class="faq-item"><div class="q">次の満月・新月はいつ？</div><div class="a">はい。今日の月齢をもとに、次の満月までの日数と次の新月までの日数を自動で計算して表示します。満月は月齢が約14.77日（朔望月のちょうど半分）付近、新月は月齢が0（または約29.53）付近になるタイミングです。本ツールでは平均朔望月を用いた概算のため、実際の満月・新月の瞬間とは数時間から1日程度ずれることがあります。正確な日時が必要な場合は国立天文台などの暦をあわせてご確認ください。</div></div>
+        <div class="faq-item"><div class="q">月齢や満ち欠けの精度は？</div><div class="a">本ツールの月齢・月相・照度・次の満月/新月までの日数は、平均朔望月29.53059日を使った概算です。月の実際の公転軌道は楕円で速度が一定でないため、平均周期による計算では実際の値と最大で1日程度の誤差が生じることがあります。日常的に今夜の月のおおよその見え方や、満月・新月がいつ頃かを知る用途には十分ですが、天文観測や暦の厳密な用途には国立天文台の暦要項など公的な資料をご利用ください。計算はすべてお使いの端末内（ブラウザ）で行い、外部への通信は一切行いません。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン（あと何日）</a><a href="/tool-101-world-clock/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">世界時計</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ===== 月齢・月の満ち欠け 計算（すべてローカル・外部通信なし）=====
+// 基準の新月日時: 2000-01-06 18:14 UTC (既知の朔) / 平均朔望月
+const SYNODIC = 29.53058867;              // 平均朔望月（日）
+const KNOWN_NEW_MOON = Date.UTC(2000,0,6,18,14,0); // 2000-01-06 18:14 UTC
+
+// 年月日ベースの日付（ローカル時刻）を YYYY-MM-DD で返す
+function ymd(d){
+    const y = d.getFullYear();
+    const m = String(d.getMonth()+1).padStart(2,'0');
+    const day = String(d.getDate()).padStart(2,'0');
+    return y+'-'+m+'-'+day;
+}
+
+// 指定時刻(ms)の月齢（0〜SYNODIC）を返す
+function moonAgeAt(ms){
+    const days = (ms - KNOWN_NEW_MOON) / 86400000;
+    let age = days % SYNODIC;
+    if (age < 0) age += SYNODIC;
+    return age;
+}
+
+// 月齢から月相名・絵文字を返す（8相）
+function phaseInfo(age){
+    const seg = SYNODIC / 8; // 約3.69日
+    if (age < seg*0.5 || age >= seg*7.5) return {name:'新月（朔）', emoji:'🌑'};
+    if (age < seg*1.5) return {name:'三日月', emoji:'🌒'};
+    if (age < seg*2.5) return {name:'上弦の月', emoji:'🌓'};
+    if (age < seg*3.5) return {name:'十三夜月', emoji:'🌔'};
+    if (age < seg*4.5) return {name:'満月（望）', emoji:'🌕'};
+    if (age < seg*5.5) return {name:'寝待月', emoji:'🌖'};
+    if (age < seg*6.5) return {name:'下弦の月', emoji:'🌗'};
+    return {name:'有明月', emoji:'🌘'};
+}
+
+// 照度（%）: 位相角から幾何学的に算出（新月0%・満月100%）
+function illuminationPct(age){
+    const phase = age / SYNODIC;                 // 0〜1
+    const frac = (1 - Math.cos(2*Math.PI*phase)) / 2; // 0(新月)〜1(満月)
+    return Math.round(frac * 1000) / 10;         // 小数第1位
+}
+
+// CSSの月ビジュアルを月齢に応じて描画
+function renderMoon(age){
+    const phase = age / SYNODIC; // 0〜1
+    const shadow = document.getElementById('moonShadow');
+    const term = document.getElementById('moonTerminator');
+    // 影を全面に置き、明部の反対側を隠す。ターミネーター（境界）を楕円で表現。
+    const waxing = phase < 0.5; // 満ちていく（右が光る）
+    // 影が覆う割合（0=満月 影なし, 1=新月 全面影）
+    const shadowFrac = Math.abs(0.5 - phase) * 2; // 0(満月)〜1(新月)
+    // 明るい側: waxing=右が光る -> 影は左側
+    if (waxing){
+        shadow.style.left = '0';
+        shadow.style.width = '50%';
+    } else {
+        shadow.style.left = '50%';
+        shadow.style.width = '50%';
+    }
+    // ターミネーターの楕円。位相角に応じて幅と位置を可変にし、なめらかな境界に。
+    const t = Math.cos(2*Math.PI*phase); // 1(新月)..-1(満月)
+    const ellipseW = Math.abs(t) * 100;  // 楕円の横幅(%)
+    term.style.width = ellipseW + '%';
+    term.style.height = '100%';
+    term.style.top = '0';
+    // 上弦(0.25)前後で影と明部の切替。中央に楕円を配置。
+    term.style.left = (50 - ellipseW/2) + '%';
+    if (waxing){
+        // 満ちていく: 前半は影が右へ張り出す(半月未満), 後半は明部が左へ
+        term.style.background = (phase < 0.25) ? '#12142a' : 'radial-gradient(circle at 45% 35%,#fdfbe8,#e9e6cf 60%,#cfcbaf)';
+    } else {
+        term.style.background = (phase > 0.75) ? '#12142a' : 'radial-gradient(circle at 55% 35%,#fdfbe8,#e9e6cf 60%,#cfcbaf)';
+    }
+    // 新月に近いときは全面を影で覆う
+    if (shadowFrac > 0.97){
+        shadow.style.left = '0';
+        shadow.style.width = '100%';
+        term.style.width = '0';
+    }
+}
+
+// 次に指定の目標月齢になる日時(ms)を返す
+function nextAt(nowMs, currentAge, targetAge){
+    let delta = targetAge - currentAge;
+    if (delta <= 0) delta += SYNODIC;
+    return nowMs + delta * 86400000;
+}
+
+function calcMoon(){
+    const dateVal = document.getElementById('targetDate').value;
+    let baseMs;
+    if (dateVal){
+        // 選択日は現地の正午を基準にして日中の代表値とする
+        const p = dateVal.split('-').map(Number);
+        baseMs = new Date(p[0], p[1]-1, p[2], 12, 0, 0).getTime();
+    } else {
+        baseMs = new Date().getTime();
+    }
+    const age = moonAgeAt(baseMs);
+    const info = phaseInfo(age);
+    const illum = illuminationPct(age);
+
+    document.getElementById('moonAge').textContent = age.toFixed(1);
+    document.getElementById('phaseName').textContent = info.name;
+    document.getElementById('phaseEmoji').textContent = info.emoji;
+    document.getElementById('phaseLabel').textContent = info.name + '（月齢 ' + age.toFixed(1) + '）';
+    document.getElementById('illumination').textContent = illum.toFixed(1) + '%';
+
+    renderMoon(age);
+
+    // 次の満月(月齢≈14.765)・次の新月(月齢≈0)
+    const FULL_AGE = SYNODIC / 2; // ≈14.765
+    const fullMs = nextAt(baseMs, age, FULL_AGE);
+    const newMs  = nextAt(baseMs, age, 0);
+    const dFull = Math.round((fullMs - baseMs) / 86400000 * 10) / 10;
+    const dNew  = Math.round((newMs - baseMs) / 86400000 * 10) / 10;
+
+    document.getElementById('nextFull').textContent = 'あと' + dFull.toFixed(1) + '日';
+    document.getElementById('nextNew').textContent = 'あと' + dNew.toFixed(1) + '日';
+    document.getElementById('nextFullDate').textContent = ymd(new Date(fullMs)) + ' 頃';
+    document.getElementById('nextNewDate').textContent = ymd(new Date(newMs)) + ' 頃';
+}
+
+// プリセット操作
+function buildPresets(){
+    const row = document.getElementById('presetRow');
+    row.innerHTML = '';
+    const items = [
+        {name:'今日に戻す', off:0},
+        {name:'1週間後', off:7},
+        {name:'1ヶ月後', off:30},
+        {name:'1週間前', off:-7}
+    ];
+    items.forEach(it=>{
+        const btn = document.createElement('button');
+        btn.textContent = it.name;
+        btn.onclick = ()=>{
+            const d = new Date();
+            d.setDate(d.getDate() + it.off);
+            document.getElementById('targetDate').value = it.off===0 ? '' : ymd(d);
+            calcMoon();
+        };
+        row.appendChild(btn);
+    });
+}
+
+buildPresets();
+// 初期表示: 今日の月を自動表示（入力欄は空＝現在時刻）
+calcMoon();
+</script>
+</body>
+</html>

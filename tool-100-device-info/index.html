@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブラウザ・端末情報チェッカー｜UserAgent・画面解像度・OSを即表示【無料】</title>
+    <meta name="description" content="開いた瞬間にあなたのブラウザ・端末情報を表示する無料ツール。UserAgent・ブラウザ名・OS・画面解像度・ビューポート・タイムゾーン・言語・デバイスピクセル比などをすべて端末内で取得し、サーバーには一切送信しません。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .row .val{font-family:'JetBrains Mono',monospace;font-size:0.9rem;color:var(--text);text-align:right;word-break:break-all;max-width:60%}
+        .row .val.na{color:var(--text3);font-family:'Noto Sans JP',sans-serif}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .ua-box{font-family:'JetBrains Mono',monospace;font-size:0.82rem;line-height:1.7;color:var(--text);background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:14px 16px;word-break:break-all}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        .privacy-note{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.28);border-radius:var(--radius);padding:16px 18px;font-size:0.82rem;color:var(--text2);line-height:1.9;margin-bottom:16px}
+        .privacy-note strong{color:var(--text)}
+        .privacy-note a{color:var(--accent);text-decoration:none;font-weight:500}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-100-device-info/">
+    <meta property="og:title" content="ブラウザ・端末情報チェッカー｜UserAgent・画面解像度・OSを即表示【無料】">
+    <meta property="og:description" content="開いた瞬間にブラウザ・端末情報を表示。UserAgent・OS・画面解像度・タイムゾーンなどをすべて端末内で取得し送信なし。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-100-device-info/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ブラウザ・端末情報チェッカー【無料】">
+    <meta name="twitter:description" content="UserAgent・OS・画面解像度・タイムゾーンなどを開いた瞬間に表示。すべて端末内で取得・送信なし。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"ブラウザ・端末情報チェッカー","description":"ブラウザ名・OS・画面解像度・UserAgentなどの端末情報を開いた瞬間に表示する無料ツール。すべて端末内で取得し送信しません。","url":"https://www.devtools-japan.com/tool-100-device-info/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"ブラウザ・端末情報チェッカー","item":"https://www.devtools-japan.com/tool-100-device-info/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"UserAgent（ユーザーエージェント）とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"UserAgentは、ブラウザがWebサイトに自分の種類やバージョン、OSなどを伝えるために送る文字列です。navigator.userAgentで取得でき、ブラウザ名やバージョン、Windows・macOS・iOS・Androidといったプラットフォームの判定に使われます。本ツールではこの文字列を端末内で読み取り、簡易的にブラウザ名とOSを判定して表示しています。"}},{"@type":"Question","name":"この端末情報はサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ、送信されません。表示している情報はすべてお使いのブラウザ内のJavaScript（navigator・screen・Intlなど）だけで取得しており、当サイトのサーバーや第三者に送ることは一切ありません。ページを閉じればデータはどこにも残りません。安心してご利用いただけます。"}},{"@type":"Question","name":"画面解像度とビューポートの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"画面解像度（screen.width×screen.height）はディスプレイ全体のピクセル数で、ブラウザウィンドウの大きさとは関係なく一定です。ビューポート（innerWidth×innerHeight）は実際にWebページが描画されるブラウザ内の表示領域で、ウィンドウのサイズ変更やツールバーの有無で変わります。レスポンシブ設計ではこのビューポートの幅が基準になります。"}},{"@type":"Question","name":"ダークモードの判定はどう行っていますか？","acceptedAnswer":{"@type":"Answer","text":"OSやブラウザのカラーテーマ設定は、CSSメディアクエリのprefers-color-schemeで判定できます。本ツールではwindow.matchMedia('(prefers-color-scheme: dark)')を使い、一致すればダーク、そうでなければライトと表示します。設定を切り替えると即座に判定が更新されます。これはユーザーの見た目の好みを尊重した配色を提供するために使われる仕組みです。"}},{"@type":"Question","name":"このツールでIPアドレスは分かりますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ、本ツールではIPアドレスは表示しません。IPアドレスはブラウザ内のJavaScriptだけでは取得できず、ネットワーク通信が必要になるためです。本ツールは送信ゼロを方針としているため、IPアドレスは扱いません。IPアドレスを確認したい場合は、IPアドレス確認ツール（tool-31）をご利用ください。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>ブラウザ・端末情報</h1><p>あなたの環境を開いた瞬間に表示（すべて端末内で取得・送信なし）</p></header>
+
+    <div class="privacy-note">
+        <strong>プライバシーについて：</strong>このページに表示される情報はすべてお使いのブラウザ内で取得しており、サーバーには一切送信しません。<strong>IPアドレスはここには表示されません。</strong>IPアドレスを確認したい場合は <a href="/tool-31-ip-checker/">IPアドレス確認ツール（tool-31）</a> をご利用ください。
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">ブラウザ</div><div class="value" id="rBrowser" style="font-size:1.1rem">-</div><div class="sub" id="rBrowserVer">-</div></div>
+        <div class="result-item"><div class="label">OS</div><div class="value" id="rOS" style="font-size:1.1rem">-</div></div>
+    </div>
+
+    <div class="card"><h3>画面・表示</h3>
+        <div class="row"><label>画面解像度</label><span class="val" id="rScreen">-</span></div>
+        <div class="row"><label>ウィンドウ・ビューポート</label><span class="val" id="rViewport">-</span></div>
+        <div class="row"><label>デバイスピクセル比（DPR）</label><span class="val" id="rDpr">-</span></div>
+        <div class="row"><label>カラースキーム</label><span class="val" id="rScheme">-</span></div>
+        <div class="row"><label>色深度</label><span class="val" id="rColorDepth">-</span></div>
+    </div>
+
+    <div class="card"><h3>言語・地域</h3>
+        <div class="row"><label>表示言語</label><span class="val" id="rLang">-</span></div>
+        <div class="row"><label>優先言語一覧</label><span class="val" id="rLangs">-</span></div>
+        <div class="row"><label>タイムゾーン</label><span class="val" id="rTz">-</span></div>
+    </div>
+
+    <div class="card"><h3>デバイス・接続</h3>
+        <div class="row"><label>論理CPUコア数</label><span class="val" id="rCores">-</span></div>
+        <div class="row"><label>タッチ対応</label><span class="val" id="rTouch">-</span></div>
+        <div class="row"><label>接続種別</label><span class="val" id="rConn">-</span></div>
+        <div class="row"><label>オンライン状態</label><span class="val" id="rOnline">-</span></div>
+        <div class="row"><label>Cookie有効</label><span class="val" id="rCookie">-</span></div>
+        <div class="row"><label>プラットフォーム</label><span class="val" id="rPlatform">-</span></div>
+    </div>
+
+    <div class="card"><h3>UserAgent（完全な文字列）</h3>
+        <div class="ua-box" id="rUA">-</div>
+        <div style="text-align:right;margin-top:12px"><button class="btn" id="copyBtn" onclick="copyUA()">UserAgentをコピー</button></div>
+    </div>
+
+    <div class="note">これらの値はすべて、お使いのブラウザのJavaScript（navigator・screen・Intl・matchMedia）から取得しています。項目によっては一部のブラウザで取得できず「取得不可」と表示される場合があります。ウィンドウサイズやカラースキームを変更すると表示は自動で更新されます。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>ブラウザ・端末情報チェッカーの使い方</h2>
+        <p>このツールは、ページを開いた瞬間にあなたのブラウザや端末の情報を自動で表示する無料ツールです。入力やボタン操作は一切不要で、ブラウザ名・バージョン、OS、画面解像度、ウィンドウのビューポートサイズ、デバイスピクセル比、カラースキーム（ダーク／ライト）、表示言語、タイムゾーン、CPUコア数、タッチ対応、接続種別、オンライン状態、Cookieの有効可否、そして完全なUserAgent文字列までをまとめて確認できます。</p>
+        <p>取得しているすべての値は、お使いのブラウザ内のJavaScript（navigator・screen・Intl・window.matchMediaなど）から読み取ったものです。当サイトのサーバーや第三者に送信することは一切ありません。ページを閉じれば情報はどこにも残らず、ログとして保存されることもありません。開発時の動作確認、サポート窓口へ環境を伝えるとき、レスポンシブ表示のデバッグなどに手軽にお使いいただけます。</p>
+        <h3>こんな用途に</h3>
+        <p>Webサイトの表示がおかしいときに自分のブラウザ・OS・解像度をサポートへ正確に伝える、CSSのレスポンシブ設計でビューポート幅やデバイスピクセル比を確認する、ダークモードの判定が効いているか確かめる、多言語サイトでブラウザの優先言語やタイムゾーンを見る、といった場面に役立ちます。UserAgent文字列はコピーボタンでワンクリックで取得でき、問い合わせや不具合報告にそのまま貼り付けられます。</p>
+
+        <h2>各項目の見方</h2>
+        <p>ブラウザ名とバージョンはUserAgent文字列から簡易的に判定しています。ブラウザによっては互換性のために他ブラウザ名を含むUserAgentを送るため、判定はあくまで目安です。正確な文字列は「UserAgent（完全な文字列）」欄でご確認ください。画面解像度はディスプレイ全体のピクセル数、ビューポートは実際にページが描画される表示領域で、ウィンドウのリサイズに合わせて自動更新されます。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>項目</th><th>取得元</th><th>説明</th></tr>
+            <tr><td>ブラウザ・OS</td><td>navigator.userAgent</td><td>UA文字列から簡易判定。あくまで目安</td></tr>
+            <tr><td>画面解像度</td><td>screen.width × height</td><td>ディスプレイ全体のピクセル数</td></tr>
+            <tr><td>ビューポート</td><td>innerWidth × innerHeight</td><td>ページの表示領域。リサイズで変化</td></tr>
+            <tr><td>DPR</td><td>devicePixelRatio</td><td>CSSピクセルと物理ピクセルの比</td></tr>
+            <tr><td>カラースキーム</td><td>prefers-color-scheme</td><td>ダーク／ライトの好み設定</td></tr>
+            <tr><td>タイムゾーン</td><td>Intl … timeZone</td><td>端末に設定されたタイムゾーン</td></tr>
+        </table>
+        </div>
+        <h3>取得不可と表示される場合</h3>
+        <p>接続種別（navigator.connection）やCPUコア数（navigator.hardwareConcurrency）など、一部のプロパティはブラウザによって未対応です。対応していない項目は誤った値を出さないよう「取得不可」と表示します。これはツールの不具合ではなく、そのブラウザがその情報を提供していないことを示します。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">UserAgent（ユーザーエージェント）とは何ですか？</div><div class="a">UserAgentは、ブラウザがWebサイトに自分の種類やバージョン、OSなどを伝えるために送る文字列です。navigator.userAgentで取得でき、ブラウザ名やバージョン、Windows・macOS・iOS・Androidといったプラットフォームの判定に使われます。本ツールではこの文字列を端末内で読み取り、簡易的にブラウザ名とOSを判定して表示しています。</div></div>
+        <div class="faq-item"><div class="q">この端末情報はサーバーに送信されますか？</div><div class="a">いいえ、送信されません。表示している情報はすべてお使いのブラウザ内のJavaScript（navigator・screen・Intlなど）だけで取得しており、当サイトのサーバーや第三者に送ることは一切ありません。ページを閉じればデータはどこにも残りません。安心してご利用いただけます。</div></div>
+        <div class="faq-item"><div class="q">画面解像度とビューポートの違いは何ですか？</div><div class="a">画面解像度（screen.width×screen.height）はディスプレイ全体のピクセル数で、ブラウザウィンドウの大きさとは関係なく一定です。ビューポート（innerWidth×innerHeight）は実際にWebページが描画されるブラウザ内の表示領域で、ウィンドウのサイズ変更やツールバーの有無で変わります。レスポンシブ設計ではこのビューポートの幅が基準になります。</div></div>
+        <div class="faq-item"><div class="q">ダークモードの判定はどう行っていますか？</div><div class="a">OSやブラウザのカラーテーマ設定は、CSSメディアクエリのprefers-color-schemeで判定できます。本ツールではwindow.matchMedia('(prefers-color-scheme: dark)')を使い、一致すればダーク、そうでなければライトと表示します。設定を切り替えると即座に判定が更新されます。これはユーザーの見た目の好みを尊重した配色を提供するために使われる仕組みです。</div></div>
+        <div class="faq-item"><div class="q">このツールでIPアドレスは分かりますか？</div><div class="a">いいえ、本ツールではIPアドレスは表示しません。IPアドレスはブラウザ内のJavaScriptだけでは取得できず、ネットワーク通信が必要になるためです。本ツールは送信ゼロを方針としているため、IPアドレスは扱いません。IPアドレスを確認したい場合は、IPアドレス確認ツール（tool-31）をご利用ください。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-31-ip-checker/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">IPアドレス確認</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// すべてブラウザ内で取得。ネットワーク送信は一切行わない。
+var NA = '取得不可';
+
+function setText(id, val){
+    var el = document.getElementById(id);
+    if (!el) return;
+    if (val === null || val === undefined || val === '' ){
+        el.textContent = NA;
+        el.classList.add('na');
+    } else {
+        el.textContent = val;
+        el.classList.remove('na');
+    }
+}
+
+// UserAgent からブラウザ名・バージョンを簡易判定
+function detectBrowser(ua){
+    var name = null, ver = null, m;
+    if (/Edg\//.test(ua)) { name = 'Microsoft Edge'; m = ua.match(/Edg\/([\d.]+)/); }
+    else if (/OPR\//.test(ua) || /Opera/.test(ua)) { name = 'Opera'; m = ua.match(/(?:OPR|Version)\/([\d.]+)/); }
+    else if (/Firefox\//.test(ua)) { name = 'Firefox'; m = ua.match(/Firefox\/([\d.]+)/); }
+    else if (/SamsungBrowser\//.test(ua)) { name = 'Samsung Internet'; m = ua.match(/SamsungBrowser\/([\d.]+)/); }
+    else if (/Chrome\//.test(ua)) { name = 'Google Chrome'; m = ua.match(/Chrome\/([\d.]+)/); }
+    else if (/CriOS\//.test(ua)) { name = 'Google Chrome (iOS)'; m = ua.match(/CriOS\/([\d.]+)/); }
+    else if (/Version\/[\d.]+.*Safari/.test(ua)) { name = 'Safari'; m = ua.match(/Version\/([\d.]+)/); }
+    else if (/Safari\//.test(ua)) { name = 'Safari'; m = ua.match(/Safari\/([\d.]+)/); }
+    if (m && m[1]) ver = m[1];
+    return { name: name, ver: ver };
+}
+
+// UserAgent から OS を簡易判定
+function detectOS(ua){
+    if (/Windows NT 10/.test(ua)) return 'Windows 10 / 11';
+    if (/Windows NT 6\.3/.test(ua)) return 'Windows 8.1';
+    if (/Windows NT 6\.1/.test(ua)) return 'Windows 7';
+    if (/Windows/.test(ua)) return 'Windows';
+    if (/iPhone/.test(ua)) return 'iOS (iPhone)';
+    if (/iPad/.test(ua)) return 'iPadOS';
+    if (/Android/.test(ua)) { var a = ua.match(/Android ([\d.]+)/); return a ? 'Android ' + a[1] : 'Android'; }
+    if (/Mac OS X/.test(ua)) { var mm = ua.match(/Mac OS X ([\d_]+)/); return mm ? 'macOS ' + mm[1].replace(/_/g,'.') : 'macOS'; }
+    if (/CrOS/.test(ua)) return 'ChromeOS';
+    if (/Linux/.test(ua)) return 'Linux';
+    return null;
+}
+
+function renderStatic(){
+    var nav = navigator;
+    var ua = nav.userAgent || '';
+
+    // UserAgent 全文
+    setText('rUA', ua || NA);
+
+    // ブラウザ
+    var b = detectBrowser(ua);
+    setText('rBrowser', b.name);
+    setText('rBrowserVer', b.ver ? 'バージョン ' + b.ver : (b.name ? 'バージョン不明' : NA));
+
+    // OS
+    setText('rOS', detectOS(ua));
+
+    // 画面解像度
+    if (window.screen && screen.width) {
+        setText('rScreen', screen.width + ' × ' + screen.height + ' px');
+        setText('rColorDepth', (screen.colorDepth != null ? screen.colorDepth + ' bit' : NA));
+    } else {
+        setText('rScreen', null);
+        setText('rColorDepth', null);
+    }
+
+    // DPR
+    setText('rDpr', (window.devicePixelRatio != null ? window.devicePixelRatio : NA));
+
+    // 言語
+    setText('rLang', nav.language || null);
+    if (nav.languages && nav.languages.length) {
+        setText('rLangs', nav.languages.join(', '));
+    } else {
+        setText('rLangs', null);
+    }
+
+    // タイムゾーン
+    try {
+        var tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        setText('rTz', tz || null);
+    } catch (e) { setText('rTz', null); }
+
+    // CPUコア数
+    setText('rCores', (nav.hardwareConcurrency != null ? nav.hardwareConcurrency + ' コア' : null));
+
+    // タッチ対応
+    var touch = ('ontouchstart' in window) || (nav.maxTouchPoints > 0);
+    setText('rTouch', touch ? '対応（最大タッチ点数: ' + (nav.maxTouchPoints || '不明') + '）' : '非対応');
+
+    // 接続種別
+    var conn = nav.connection || nav.mozConnection || nav.webkitConnection;
+    if (conn && conn.effectiveType) {
+        setText('rConn', conn.effectiveType);
+    } else {
+        setText('rConn', null);
+    }
+
+    // Cookie 有効
+    setText('rCookie', (typeof nav.cookieEnabled === 'boolean') ? (nav.cookieEnabled ? '有効' : '無効') : null);
+
+    // プラットフォーム
+    setText('rPlatform', nav.platform || null);
+}
+
+// リサイズで変わる項目
+function renderDynamic(){
+    setText('rViewport', window.innerWidth + ' × ' + window.innerHeight + ' px');
+}
+
+// カラースキーム（prefers-color-scheme）
+function renderScheme(){
+    if (window.matchMedia) {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setText('rScheme', 'ダーク（dark）');
+        } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+            setText('rScheme', 'ライト（light）');
+        } else {
+            setText('rScheme', '指定なし（no-preference）');
+        }
+    } else {
+        setText('rScheme', null);
+    }
+}
+
+// オンライン状態
+function renderOnline(){
+    setText('rOnline', navigator.onLine ? 'オンライン' : 'オフライン');
+}
+
+// UserAgent コピー
+function copyUA(){
+    var ua = navigator.userAgent || '';
+    var btn = document.getElementById('copyBtn');
+    var done = function(){
+        if (!btn) return;
+        var orig = 'UserAgentをコピー';
+        btn.textContent = 'コピーしました';
+        setTimeout(function(){ btn.textContent = orig; }, 1500);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(ua).then(done, function(){ fallbackCopy(ua, done); });
+    } else {
+        fallbackCopy(ua, done);
+    }
+}
+function fallbackCopy(text, cb){
+    try {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        cb();
+    } catch (e) {}
+}
+
+// 初期描画
+renderStatic();
+renderDynamic();
+renderScheme();
+renderOnline();
+
+// 自動更新
+window.addEventListener('resize', renderDynamic);
+window.addEventListener('online', renderOnline);
+window.addEventListener('offline', renderOnline);
+if (window.matchMedia) {
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    if (mq.addEventListener) mq.addEventListener('change', renderScheme);
+    else if (mq.addListener) mq.addListener(renderScheme);
+}
+</script>
+</body>
+</html>

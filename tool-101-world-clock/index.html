@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界時計｜主要都市の現在時刻を一覧表示【無料・リアルタイム】</title>
+    <meta name="description" content="東京・ニューヨーク・ロンドン・パリなど世界の主要都市の現在時刻を1秒ごとにリアルタイム表示する無料の世界時計。UTCオフセット付きで時差がひと目でわかり、サマータイム(DST)にも自動対応。すべてブラウザ内で計算し外部送信なし。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#14b8a6;--accent-dim:rgba(20,184,166,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(20,184,166,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row .city{font-size:0.9rem;color:var(--text);font-weight:500}
+        .row .off{font-size:0.72rem;color:var(--text3);margin-left:8px}
+        .row .time{font-family:'JetBrains Mono',monospace;font-size:1.05rem;font-weight:500;color:var(--text);text-align:right}
+        .row .date{font-size:0.72rem;color:var(--text3);margin-top:2px;text-align:right}
+        .row.here{background:var(--accent-dim);margin:0 -20px;padding-left:20px;padding-right:20px;border-radius:8px}
+        .row.here .city{color:var(--accent)}
+        .badge{display:inline-block;font-size:0.6rem;color:var(--accent);border:1px solid var(--accent);border-radius:4px;padding:1px 5px;margin-left:6px;vertical-align:middle}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(20,184,166,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-101-world-clock/">
+    <meta property="og:title" content="世界時計｜主要都市の現在時刻を一覧表示【無料・リアルタイム】">
+    <meta property="og:description" content="東京・ニューヨーク・ロンドンなど世界の主要都市の現在時刻を1秒ごとにリアルタイム表示。UTCオフセット付きで時差がひと目でわかります。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-101-world-clock/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="世界時計【無料・リアルタイム】">
+    <meta name="twitter:description" content="主要都市の現在時刻をUTCオフセット付きでリアルタイム表示。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"世界時計","description":"主要都市の現在時刻をリアルタイム表示する無料ツール","url":"https://www.devtools-japan.com/tool-101-world-clock/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"世界時計","item":"https://www.devtools-japan.com/tool-101-world-clock/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"世界時計とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"世界時計とは、世界各地の主要都市の現在時刻を同時に一覧で確認できるツールです。本ツールは東京・ニューヨーク・ロンドン・パリなど主要都市の現在時刻を1秒ごとにリアルタイム更新し、それぞれのUTCオフセット（協定世界時からのずれ）も併記します。海外の取引先や家族との連絡、オンライン会議の時刻調整、海外旅行の計画などに役立ちます。時刻はお使いの端末の時計をもとに各都市のタイムゾーンへ換算しており、計算はすべてブラウザ内で完結します。"}},{"@type":"Question","name":"タイムゾーンとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"タイムゾーン（時間帯）とは、同じ標準時を使う地域のまとまりのことです。地球は自転しているため、経度が異なる地域では太陽の位置が変わり、それに合わせて各地域が採用する時刻も異なります。多くの国はUTC（協定世界時）を基準に、UTC+9（日本）やUTC-5（米国東部の標準時）のようにずれを定めています。本ツールではIANAタイムゾーン識別子（例：Asia/Tokyo）を用いて各都市の現在時刻を求めるため、地域ごとの正しい時刻とUTCオフセットを表示できます。"}},{"@type":"Question","name":"サマータイム（DST）には対応していますか？","acceptedAnswer":{"@type":"Answer","text":"はい、対応しています。サマータイム（夏時間・DST）とは、日照時間の長い時期に時計を1時間進める制度で、欧米の多くの地域で採用されています。本ツールはオフセットを固定値で持たず、ブラウザ内蔵のタイムゾーンデータベースを用いて日時ごとに各都市の実際のオフセットを計算します。そのため、夏時間の実施期間中はニューヨークがUTC-4、ロンドンがUTC+1のように、その時点で正しいオフセットが自動的に反映されます。"}},{"@type":"Question","name":"UTCとGMTの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"UTC（協定世界時）とGMT（グリニッジ標準時）は、日常的な用途ではほぼ同じ時刻を指し、多くの場面で同義に扱われます。歴史的にはGMTがロンドンのグリニッジ天文台を基準とした時刻で、現在の世界標準はより精密な原子時計に基づくUTCです。UTCはうるう秒により天文時とのずれを一定範囲に保ちます。本ツールでは世界共通の基準としてUTC（UTC+0）を一覧に含めており、各都市のオフセットはUTCからのずれとして表示します。"}},{"@type":"Question","name":"なぜ都市ごとに時刻が違うのですか？","acceptedAnswer":{"@type":"Answer","text":"地球が約24時間で1回自転しているため、経度によって太陽が真南に来る時刻がずれるからです。各地域は生活時間を昼夜に合わせるため、経度に応じた標準時を採用しており、東にある都市ほど時刻が進んでいます。例えば東京（UTC+9）はロンドン（標準時UTC+0）より9時間進んでいます。さらにサマータイムを導入する地域では季節によってオフセットが変化します。本ツールはこれらを踏まえ、各都市の現在時刻と日付、UTCオフセットをまとめて表示します。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>世界時計</h1><p>主要都市の現在時刻をリアルタイム表示</p></header>
+
+    <div class="big-result">
+        <div class="headline" id="headline">現在のあなたの時刻</div>
+        <div class="days"><span id="localTime">--:--:--</span></div>
+        <div class="target" id="localZone">タイムゾーンを取得中...</div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">ローカル日付</div><div class="value" id="localDate" style="font-size:1.1rem">-</div></div>
+        <div class="result-item"><div class="label">UTC現在時刻</div><div class="value" id="utcTime" style="font-size:1.2rem">-</div><div class="sub" id="utcDate">-</div></div>
+    </div>
+
+    <div class="card"><h3>世界の主要都市の現在時刻</h3>
+        <div id="cityList"></div>
+    </div>
+
+    <div class="note">各都市の時刻は、お使いの端末の時計をもとにIANAタイムゾーン識別子（例：Asia/Tokyo）を用いて算出しています。UTCオフセットは固定値ではなく、その時点のサマータイム（DST）を反映した実際の値を計算して表示します。時刻は1秒ごとに自動更新され、通信は行わずすべてブラウザ内で処理します。あなたの現在地と一致する都市の行は強調表示されます。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>世界時計ツールの使い方</h2>
+        <p>東京・ニューヨーク・ロンドン・パリなど、世界の主要都市の現在時刻を1秒ごとにリアルタイムで一覧表示する無料の世界時計です。ページを開くだけで自動的に時刻の表示が始まり、入力や操作は必要ありません。画面上部にはお使いの端末の現在時刻（ローカル時刻）とタイムゾーン名・UTCオフセットを大きく表示し、その下に世界各都市の現在時刻・日付・UTCオフセットを一覧で確認できます。</p>
+        <p>各都市の時刻は、ブラウザに内蔵されたタイムゾーンデータベースとIANAタイムゾーン識別子（例：Asia/Tokyo、America/New_York）をもとに計算しています。オフセットを固定値で持たないため、サマータイム（夏時間・DST）の実施期間中も自動的に正しい時刻とUTCオフセットが表示されます。海外との連絡やオンライン会議の時刻調整、海外旅行や出張の計画、海外市場の取引時間の把握などにご活用ください。</p>
+        <h3>こんな用途に</h3>
+        <p>海外の取引先や家族・友人と連絡を取る際の相手先の時刻確認に、複数の国をまたぐオンライン会議やウェビナーの開始時刻の調整に、海外旅行・出張時の現地時間の把握に、海外の株式・為替市場の取引時間帯の確認に。UTCオフセットが併記されているため、2都市間の時差もひと目で計算できます。</p>
+
+        <h2>タイムゾーンとUTCオフセットの読み方</h2>
+        <p>UTC（協定世界時）は世界共通の時刻の基準で、各都市の時刻は「UTCから何時間ずれているか」で表されます。例えばUTC+9は日本の標準時で、UTC（UTC+0）より9時間進んでいることを意味します。逆にニューヨーク（東部標準時）はUTC-5で、UTCより5時間遅れています。2都市間の時差は、それぞれのUTCオフセットの差で求められます。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>都市</th><th>標準時のオフセット</th><th>備考</th></tr>
+            <tr><td>東京</td><td>UTC+9</td><td>年間を通じて固定（サマータイムなし）</td></tr>
+            <tr><td>ロンドン</td><td>UTC+0 / 夏はUTC+1</td><td>夏時間(BST)を実施</td></tr>
+            <tr><td>ニューヨーク</td><td>UTC-5 / 夏はUTC-4</td><td>夏時間(EDT)を実施</td></tr>
+            <tr><td>インド(コルカタ)</td><td>UTC+5:30</td><td>30分単位のオフセット</td></tr>
+        </table>
+        </div>
+        <h3>サマータイム（DST）と表示の自動更新</h3>
+        <p>欧米の多くの地域では、日照時間の長い時期に時計を1時間進めるサマータイム（夏時間・DST）を採用しています。本ツールはオフセットを固定せず、日時ごとに各都市の実際のオフセットを計算するため、夏時間の切り替わりも自動で反映されます。表示は1秒ごとに更新され、常に最新の時刻を確認できます。すべての計算はお使いの端末内で完結し、時刻や現在地などの情報が外部に送信されることはありません。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">世界時計とは何ですか？</div><div class="a">世界時計とは、世界各地の主要都市の現在時刻を同時に一覧で確認できるツールです。本ツールは東京・ニューヨーク・ロンドン・パリなど主要都市の現在時刻を1秒ごとにリアルタイム更新し、それぞれのUTCオフセット（協定世界時からのずれ）も併記します。海外の取引先や家族との連絡、オンライン会議の時刻調整、海外旅行の計画などに役立ちます。時刻はお使いの端末の時計をもとに各都市のタイムゾーンへ換算しており、計算はすべてブラウザ内で完結します。</div></div>
+        <div class="faq-item"><div class="q">タイムゾーンとは何ですか？</div><div class="a">タイムゾーン（時間帯）とは、同じ標準時を使う地域のまとまりのことです。地球は自転しているため、経度が異なる地域では太陽の位置が変わり、それに合わせて各地域が採用する時刻も異なります。多くの国はUTC（協定世界時）を基準に、UTC+9（日本）やUTC-5（米国東部の標準時）のようにずれを定めています。本ツールではIANAタイムゾーン識別子（例：Asia/Tokyo）を用いて各都市の現在時刻を求めるため、地域ごとの正しい時刻とUTCオフセットを表示できます。</div></div>
+        <div class="faq-item"><div class="q">サマータイム（DST）には対応していますか？</div><div class="a">はい、対応しています。サマータイム（夏時間・DST）とは、日照時間の長い時期に時計を1時間進める制度で、欧米の多くの地域で採用されています。本ツールはオフセットを固定値で持たず、ブラウザ内蔵のタイムゾーンデータベースを用いて日時ごとに各都市の実際のオフセットを計算します。そのため、夏時間の実施期間中はニューヨークがUTC-4、ロンドンがUTC+1のように、その時点で正しいオフセットが自動的に反映されます。</div></div>
+        <div class="faq-item"><div class="q">UTCとGMTの違いは何ですか？</div><div class="a">UTC（協定世界時）とGMT（グリニッジ標準時）は、日常的な用途ではほぼ同じ時刻を指し、多くの場面で同義に扱われます。歴史的にはGMTがロンドンのグリニッジ天文台を基準とした時刻で、現在の世界標準はより精密な原子時計に基づくUTCです。UTCはうるう秒により天文時とのずれを一定範囲に保ちます。本ツールでは世界共通の基準としてUTC（UTC+0）を一覧に含めており、各都市のオフセットはUTCからのずれとして表示します。</div></div>
+        <div class="faq-item"><div class="q">なぜ都市ごとに時刻が違うのですか？</div><div class="a">地球が約24時間で1回自転しているため、経度によって太陽が真南に来る時刻がずれるからです。各地域は生活時間を昼夜に合わせるため、経度に応じた標準時を採用しており、東にある都市ほど時刻が進んでいます。例えば東京（UTC+9）はロンドン（標準時UTC+0）より9時間進んでいます。さらにサマータイムを導入する地域では季節によってオフセットが変化します。本ツールはこれらを踏まえ、各都市の現在時刻と日付、UTCオフセットをまとめて表示します。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// 主要都市（IANAタイムゾーン識別子。オフセットはハードコードせずDSTを反映して算出）
+var CITIES = [
+    {name:'東京', tz:'Asia/Tokyo'},
+    {name:'UTC（協定世界時）', tz:'UTC'},
+    {name:'ニューヨーク', tz:'America/New_York'},
+    {name:'ロサンゼルス', tz:'America/Los_Angeles'},
+    {name:'ロンドン', tz:'Europe/London'},
+    {name:'パリ', tz:'Europe/Paris'},
+    {name:'ベルリン', tz:'Europe/Berlin'},
+    {name:'シドニー', tz:'Australia/Sydney'},
+    {name:'上海', tz:'Asia/Shanghai'},
+    {name:'シンガポール', tz:'Asia/Singapore'},
+    {name:'ドバイ', tz:'Asia/Dubai'},
+    {name:'ホノルル', tz:'Pacific/Honolulu'},
+    {name:'コルカタ（インド）', tz:'Asia/Kolkata'},
+    {name:'サンパウロ', tz:'America/Sao_Paulo'}
+];
+
+var LOCAL_TZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+// あるタイムゾーンでの date のUTCオフセット（分）を計算する。
+// その時点のDSTを反映した実際の値になる（固定値ではない）。
+function offsetMinutes(timeZone, date){
+    var dtf = new Intl.DateTimeFormat('en-US',{timeZone:timeZone,hour12:false,
+        year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit'});
+    var parts = dtf.formatToParts(date);
+    var map = {};
+    for (var i=0;i<parts.length;i++){ if(parts[i].type!=='literal') map[parts[i].type]=parts[i].value; }
+    var hour = map.hour==='24' ? '00' : map.hour;
+    var asUTC = Date.UTC(+map.year, +map.month-1, +map.day, +hour, +map.minute, +map.second);
+    return Math.round((asUTC - date.getTime())/60000);
+}
+
+// オフセット分を "UTC+9" / "UTC+5:30" / "UTC-4" 形式にする
+function fmtOffset(min){
+    var sign = min >= 0 ? '+' : '-';
+    var a = Math.abs(min);
+    var h = Math.floor(a/60);
+    var m = a % 60;
+    return 'UTC' + sign + h + (m ? ':' + String(m).padStart(2,'0') : '');
+}
+
+// 指定タイムゾーンの時刻(HH:MM:SS)
+function fmtTime(timeZone, date){
+    return new Intl.DateTimeFormat('ja-JP',{timeZone:timeZone,hour12:false,
+        hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(date);
+}
+// 指定タイムゾーンの日付(YYYY/MM/DD 曜)
+function fmtDate(timeZone, date){
+    return new Intl.DateTimeFormat('ja-JP',{timeZone:timeZone,
+        year:'numeric',month:'2-digit',day:'2-digit',weekday:'short'}).format(date);
+}
+
+// 都市リストの行を一度だけ構築（値だけを毎秒更新する）
+var cityRows = [];
+(function buildCityRows(){
+    var container = document.getElementById('cityList');
+    for (var i=0;i<CITIES.length;i++){
+        var c = CITIES[i];
+        var row = document.createElement('div');
+        row.className = 'row';
+        // ローカルタイムゾーンと一致する都市の行を強調
+        var isHere = (c.tz === LOCAL_TZ);
+        if (isHere) row.className = 'row here';
+
+        var left = document.createElement('div');
+        left.style.flex = '1';
+        var cityEl = document.createElement('span');
+        cityEl.className = 'city';
+        cityEl.textContent = c.name;
+        left.appendChild(cityEl);
+        if (isHere){
+            var badge = document.createElement('span');
+            badge.className = 'badge';
+            badge.textContent = '現在地';
+            left.appendChild(badge);
+        }
+        var offEl = document.createElement('div');
+        offEl.className = 'off';
+        left.appendChild(offEl);
+
+        var right = document.createElement('div');
+        var timeEl = document.createElement('div');
+        timeEl.className = 'time';
+        var dateEl = document.createElement('div');
+        dateEl.className = 'date';
+        right.appendChild(timeEl);
+        right.appendChild(dateEl);
+
+        row.appendChild(left);
+        row.appendChild(right);
+        container.appendChild(row);
+
+        cityRows.push({tz:c.tz, timeEl:timeEl, dateEl:dateEl, offEl:offEl});
+    }
+})();
+
+function tick(){
+    var now = new Date();
+
+    // ビッグリザルト: ローカル時刻
+    document.getElementById('localTime').textContent = fmtTime(LOCAL_TZ, now);
+    document.getElementById('localDate').textContent = fmtDate(LOCAL_TZ, now);
+    var localOff = fmtOffset(offsetMinutes(LOCAL_TZ, now));
+    document.getElementById('localZone').textContent = LOCAL_TZ + '（' + localOff + '）';
+
+    // UTC
+    document.getElementById('utcTime').textContent = fmtTime('UTC', now);
+    document.getElementById('utcDate').textContent = fmtDate('UTC', now);
+
+    // 都市一覧
+    for (var i=0;i<cityRows.length;i++){
+        var r = cityRows[i];
+        r.timeEl.textContent = fmtTime(r.tz, now);
+        r.dateEl.textContent = fmtDate(r.tz, now);
+        r.offEl.textContent = fmtOffset(offsetMinutes(r.tz, now));
+    }
+}
+
+// 初回即時描画 → 以後1秒ごとに更新
+tick();
+setInterval(tick, 1000);
+</script>
+</body>
+</html>
