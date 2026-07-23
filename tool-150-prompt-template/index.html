@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIプロンプト テンプレート・整形ツール | {{変数}}を差し込んで完成プロンプトを自動生成【無料】</title>
+    <meta name="description" content="{{変数}}形式のプレースホルダを含むプロンプトテンプレートを入力すると、変数欄が自動生成され値を入れるだけで完成プロンプトをリアルタイム差し込み・コピー。要約・翻訳・コード生成などのプリセットや文字数・概算トークン数表示、空白整形も無料で使えます。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:260px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        textarea{width:100%;min-height:160px;padding:12px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.88rem;line-height:1.7;outline:none;resize:vertical}
+        textarea:focus{border-color:var(--accent)}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .output-box{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:18px;margin-bottom:16px}
+        .output-box .headline{font-size:0.75rem;color:var(--text2);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.06em}
+        .output-text{font-family:'JetBrains Mono',monospace;font-size:0.9rem;line-height:1.8;color:var(--text);white-space:pre-wrap;word-break:break-word;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:14px;min-height:60px}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .var-empty{font-size:0.82rem;color:var(--text3);padding:6px 0}
+        .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+        .btn{padding:10px 20px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.secondary{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.secondary:hover{border-color:var(--accent);color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-150-prompt-template/">
+    <meta property="og:title" content="AIプロンプト テンプレート・整形ツール | {{変数}}差し込みで完成プロンプト自動生成【無料】">
+    <meta property="og:description" content="{{変数}}入りテンプレートから変数欄を自動生成。値を入れるだけで完成プロンプトをリアルタイム差し込み・コピー。プリセットや概算トークン数表示も。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-150-prompt-template/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AIプロンプト テンプレート・整形ツール【無料】">
+    <meta name="twitter:description" content="{{変数}}入りテンプレートを差し込んで完成プロンプトを自動生成・コピー。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"AIプロンプト テンプレート・整形ツール","description":"変数プレースホルダ入りのプロンプトテンプレートを差し込んで完成プロンプトを自動生成する無料ツール","url":"https://www.devtools-japan.com/tool-150-prompt-template/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"AIプロンプト テンプレート・整形ツール","item":"https://www.devtools-japan.com/tool-150-prompt-template/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"変数（プレースホルダ）はどう書けばいい？","acceptedAnswer":{"@type":"Answer","text":"テンプレート本文の中で、差し替えたい部分を二重波かっこで囲んで書きます。たとえば「{{対象読者}}向けに{{テーマ}}を説明して」のように書くと、対象読者・テーマという2つの変数欄が自動的に生成されます。同じ名前の変数を複数箇所で使えば、1度の入力ですべてのその位置に同じ値が差し込まれます。"}},{"@type":"Question","name":"入力したテンプレートや値はサーバーに送信される？","acceptedAnswer":{"@type":"Answer","text":"いいえ。テンプレートの解析・変数欄の生成・差し込み・文字数やトークン数の計算はすべてお使いのブラウザ内（JavaScript）で完結します。入力内容が外部サーバーに送信・保存されることはないため、社外秘のプロンプトや下書きも安心してお試しいただけます。"}},{"@type":"Question","name":"表示されるトークン数は正確？","acceptedAnswer":{"@type":"Answer","text":"表示するトークン数はあくまで概算の目安です。実際のトークン数は利用するAIモデルやトークナイザーによって異なります。本ツールでは日本語は文字数に、英数字は単語や記号のまとまりに重み付けした簡易ロジックで見積もっているため、大まかな長さの把握や上限に収まるかの確認にお使いください。"}},{"@type":"Question","name":"整形ボタンは何をする？","acceptedAnswer":{"@type":"Answer","text":"整形ボタンは、テンプレート本文に含まれる余分な空白や連続する空行を整理します。行末の無駄な半角・全角スペースを削り、3行以上続く空行を2行までにまとめ、全体の前後の空白を取り除きます。文章そのものや変数（{{...}}）は変更せず、見た目と無駄なトークンだけを減らせます。"}},{"@type":"Question","name":"プリセットのテンプレートは編集できる？","acceptedAnswer":{"@type":"Answer","text":"はい。要約・翻訳・コード生成・校正・ロールプレイなどのプリセットボタンを押すと、その雛形がテンプレート欄に挿入されます。挿入後は自由に書き換えられ、変数を増やしたり文言を調整したりできます。何も入力していない初期状態ではサンプルテンプレートが表示されるので、まずはそれを触って動作を確認できます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>AIプロンプト テンプレート・整形ツール</h1><p>{{変数}}入りテンプレートを差し込んで完成プロンプトを自動生成</p></header>
+
+    <div class="card"><h3>プリセットテンプレート</h3>
+        <div class="preset-row" id="presetRow"></div>
+    </div>
+
+    <div class="card"><h3>プロンプトテンプレート（本文）</h3>
+        <textarea id="template" placeholder="{{変数}} を含むプロンプトを入力してください" oninput="onTemplateInput()"></textarea>
+        <div class="btn-row">
+            <button class="btn secondary" onclick="formatTemplate()">余分な空白・改行を整形</button>
+            <button class="btn secondary" onclick="clearTemplate()">クリア</button>
+        </div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">変数の数</div><div class="value" id="varCount">-</div></div>
+        <div class="result-item"><div class="label">文字数（完成後）</div><div class="value" id="charCount">-</div></div>
+        <div class="result-item"><div class="label">概算トークン数</div><div class="value" id="tokenCount">-</div><div class="sub">目安</div></div>
+    </div>
+
+    <div class="card"><h3>変数に値を入力</h3>
+        <div id="varFields"></div>
+    </div>
+
+    <div class="output-box">
+        <div class="headline">完成プロンプト</div>
+        <div class="output-text" id="output">-</div>
+        <div class="btn-row">
+            <button class="btn" onclick="copyOutput()" id="copyBtn">クリップボードにコピー</button>
+        </div>
+    </div>
+
+    <div class="note">テンプレートの解析・差し込み・文字数やトークン数の計算はすべてお使いのブラウザ内で行われ、入力内容が外部に送信されることはありません。トークン数は日本語・英数字を重み付けした簡易推定で、実際の値はAIモデルにより異なる概算です。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>プロンプトテンプレートツールの使い方</h2>
+        <p>このツールは、繰り返し使うAIプロンプトを「テンプレート」として管理し、変わる部分だけを差し替えて完成プロンプトを素早く作るための無料ツールです。テンプレート本文の中で差し替えたい箇所を <strong>{{変数名}}</strong> のように二重波かっこで書くと、その変数の入力欄が自動的に生成されます。値を入力するたびに、下部の「完成プロンプト」がリアルタイムで更新され、ボタン1つでコピーできます。</p>
+        <p>たとえば「あなたはプロの{{職業}}です。{{対象}}に向けて{{テーマ}}を説明してください」というテンプレートを入力すると、職業・対象・テーマの3つの欄が現れます。それぞれに値を入れれば、完成した文章がそのままAIチャットに貼り付けられる形で表示されます。同じ変数名を複数の場所で使えば、1度の入力で全箇所に同じ値が差し込まれるため、長いプロンプトでも入力の手間がかかりません。</p>
+        <h3>プリセットからすぐ試す</h3>
+        <p>画面上部のプリセットボタンには、要約・翻訳・コード生成・文章校正・ロールプレイといった、よく使うプロンプトの雛形を用意しています。ボタンを押すとテンプレート欄に雛形が挿入され、そのまま編集・差し込みができます。何も入力していない初期状態ではサンプルテンプレートが表示されるので、まずは変数欄に値を入れて動作を確かめてみてください。</p>
+
+        <h2>変数の書き方と差し込みの仕組み</h2>
+        <p>変数は半角の二重波かっこ <strong>{{ }}</strong> で名前を囲むだけです。名前には日本語・英数字・記号を使えます。テンプレートを入力すると、出現した順に重複を除いた変数欄が並びます。空欄のままにした変数は、完成プロンプト側でもプレースホルダ表記のまま残るため、どこが未入力かがひと目で分かります。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>書き方</th><th>意味</th><th>例</th></tr>
+            <tr><td>{{変数名}}</td><td>差し替えたい箇所を定義</td><td>{{テーマ}} → 入力値に置換</td></tr>
+            <tr><td>同名の変数を複数使用</td><td>1入力で全箇所へ差し込み</td><td>{{名前}}様、{{名前}}のご注文</td></tr>
+            <tr><td>空欄のままの変数</td><td>プレースホルダ表記を維持</td><td>未入力は {{テーマ}} のまま表示</td></tr>
+        </table>
+        </div>
+        <h3>文字数・概算トークン数・整形</h3>
+        <p>完成プロンプトの文字数と、AIモデルへの入力サイズの目安となる概算トークン数を表示します。トークン数は日本語を文字数ベース、英数字を単語・記号のまとまりベースで重み付けした簡易推定で、正確な値はモデルやトークナイザーによって変わります。「余分な空白・改行を整形」ボタンを押すと、行末の無駄なスペースや3行以上の連続空行を整理し、無駄なトークンを減らしながら見た目も整えられます。文章や変数そのものは変更しません。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">変数（プレースホルダ）はどう書けばいい？</div><div class="a">テンプレート本文の中で、差し替えたい部分を二重波かっこで囲んで書きます。たとえば「{{対象読者}}向けに{{テーマ}}を説明して」のように書くと、対象読者・テーマという2つの変数欄が自動的に生成されます。同じ名前の変数を複数箇所で使えば、1度の入力ですべてのその位置に同じ値が差し込まれます。</div></div>
+        <div class="faq-item"><div class="q">入力したテンプレートや値はサーバーに送信される？</div><div class="a">いいえ。テンプレートの解析・変数欄の生成・差し込み・文字数やトークン数の計算はすべてお使いのブラウザ内（JavaScript）で完結します。入力内容が外部サーバーに送信・保存されることはないため、社外秘のプロンプトや下書きも安心してお試しいただけます。</div></div>
+        <div class="faq-item"><div class="q">表示されるトークン数は正確？</div><div class="a">表示するトークン数はあくまで概算の目安です。実際のトークン数は利用するAIモデルやトークナイザーによって異なります。本ツールでは日本語は文字数に、英数字は単語や記号のまとまりに重み付けした簡易ロジックで見積もっているため、大まかな長さの把握や上限に収まるかの確認にお使いください。</div></div>
+        <div class="faq-item"><div class="q">整形ボタンは何をする？</div><div class="a">整形ボタンは、テンプレート本文に含まれる余分な空白や連続する空行を整理します。行末の無駄な半角・全角スペースを削り、3行以上続く空行を2行までにまとめ、全体の前後の空白を取り除きます。文章そのものや変数（{{...}}）は変更せず、見た目と無駄なトークンだけを減らせます。</div></div>
+        <div class="faq-item"><div class="q">プリセットのテンプレートは編集できる？</div><div class="a">はい。要約・翻訳・コード生成・校正・ロールプレイなどのプリセットボタンを押すと、その雛形がテンプレート欄に挿入されます。挿入後は自由に書き換えられ、変数を増やしたり文言を調整したりできます。何も入力していない初期状態ではサンプルテンプレートが表示されるので、まずはそれを触って動作を確認できます。</div></div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-149-llm-token/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">LLMトークン計測</a><a href="/tool-14-char-count/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">文字数カウント</a><a href="/tool-16-case-convert/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">大文字小文字変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+var SAMPLE = "あなたはプロの{{職業}}です。\n{{対象読者}}に向けて、次のテーマについて{{文字数}}字程度で分かりやすく説明してください。\n\nテーマ: {{テーマ}}\n口調: {{口調}}";
+
+var PRESETS = [
+    {name:"要約", text:"次の文章を、{{対象読者}}にも分かるように{{文字数}}字以内で要約してください。専門用語は必要に応じて補足し、重要な論点を漏らさないでください。\n\n--- 文章 ---\n{{本文}}"},
+    {name:"翻訳", text:"次の{{原文言語}}のテキストを、自然な{{目標言語}}に翻訳してください。文脈は「{{場面}}」です。直訳ではなく意味が伝わる表現にしてください。\n\n--- 原文 ---\n{{本文}}"},
+    {name:"コード生成", text:"あなたは経験豊富な{{言語}}エンジニアです。次の要件を満たす{{言語}}のコードを書いてください。コメントを付け、エッジケースも考慮してください。\n\n要件: {{要件}}\n制約: {{制約}}"},
+    {name:"文章校正", text:"次の文章を校正してください。誤字脱字・文法・表記ゆれを修正し、{{トーン}}なトーンに整えてください。修正点は箇条書きで説明してください。\n\n--- 文章 ---\n{{本文}}"},
+    {name:"ロールプレイ", text:"あなたは{{役割}}として振る舞ってください。設定は「{{設定}}」です。私は{{相手}}として話します。{{役割}}になりきって、一人称で自然に応答してください。\n\n最初の状況: {{状況}}"},
+    {name:"アイデア出し", text:"{{テーマ}}に関するアイデアを{{個数}}個提案してください。対象は{{対象}}で、目的は「{{目的}}」です。それぞれに一言の理由を添えてください。"}
+];
+
+var varValues = {};
+
+function extractVars(text){
+    var re = /\{\{\s*([^{}]+?)\s*\}\}/g;
+    var seen = {};
+    var order = [];
+    var m;
+    while ((m = re.exec(text)) !== null){
+        var name = m[1].trim();
+        if (name && !seen[name]){ seen[name] = true; order.push(name); }
+    }
+    return order;
+}
+
+function fillTemplate(text){
+    return text.replace(/\{\{\s*([^{}]+?)\s*\}\}/g, function(whole, name){
+        var key = name.trim();
+        var v = varValues[key];
+        if (v !== undefined && v !== ""){ return v; }
+        return whole;
+    });
+}
+
+function estimateTokens(text){
+    if (!text) return 0;
+    var jp = (text.match(/[　-〿぀-ヿ㐀-䶿一-鿿＀-￯]/g) || []).length;
+    var rest = text.replace(/[　-〿぀-ヿ㐀-䶿一-鿿＀-￯]/g, "");
+    var words = (rest.match(/[A-Za-z0-9]+|[^\sA-Za-z0-9]/g) || []).length;
+    return Math.max(1, Math.round(jp * 1.0 + words * 1.3));
+}
+
+function buildVarFields(vars){
+    var wrap = document.getElementById("varFields");
+    wrap.innerHTML = "";
+    if (vars.length === 0){
+        var p = document.createElement("div");
+        p.className = "var-empty";
+        p.textContent = "テンプレートに {{変数}} を書くと、ここに入力欄が表示されます。";
+        wrap.appendChild(p);
+        return;
+    }
+    vars.forEach(function(name){
+        var rowEl = document.createElement("div");
+        rowEl.className = "row";
+        var label = document.createElement("label");
+        label.textContent = name;
+        var input = document.createElement("input");
+        input.type = "text";
+        input.value = varValues[name] || "";
+        input.setAttribute("placeholder", "値を入力");
+        input.addEventListener("input", function(){
+            varValues[name] = input.value;
+            render();
+        });
+        rowEl.appendChild(label);
+        rowEl.appendChild(input);
+        wrap.appendChild(rowEl);
+    });
+}
+
+function render(){
+    var text = document.getElementById("template").value || SAMPLE;
+    var filled = fillTemplate(text);
+    document.getElementById("output").textContent = filled;
+    document.getElementById("charCount").textContent = filled.length;
+    document.getElementById("tokenCount").textContent = "約" + estimateTokens(filled);
+}
+
+function onTemplateInput(){
+    var text = document.getElementById("template").value || SAMPLE;
+    var vars = extractVars(text);
+    document.getElementById("varCount").textContent = vars.length;
+    // 使わなくなった変数の値は保持しつつ欄だけ再構築
+    buildVarFields(vars);
+    render();
+}
+
+function formatTemplate(){
+    var el = document.getElementById("template");
+    var text = el.value;
+    if (!text){ text = SAMPLE; }
+    var lines = text.split("\n").map(function(line){
+        return line.replace(/[ \t　]+$/g, "");
+    });
+    var out = lines.join("\n");
+    out = out.replace(/\n{3,}/g, "\n\n");
+    out = out.replace(/^\s+|\s+$/g, "");
+    el.value = out;
+    onTemplateInput();
+}
+
+function clearTemplate(){
+    document.getElementById("template").value = "";
+    varValues = {};
+    onTemplateInput();
+}
+
+function copyOutput(){
+    var txt = document.getElementById("output").textContent;
+    var btn = document.getElementById("copyBtn");
+    function done(){
+        var old = btn.textContent;
+        btn.textContent = "コピーしました";
+        setTimeout(function(){ btn.textContent = old; }, 1500);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(done, function(){ fallbackCopy(txt); done(); });
+    } else {
+        fallbackCopy(txt); done();
+    }
+}
+
+function fallbackCopy(txt){
+    var ta = document.createElement("textarea");
+    ta.value = txt;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+}
+
+function buildPresets(){
+    var row = document.getElementById("presetRow");
+    row.innerHTML = "";
+    PRESETS.forEach(function(p){
+        var btn = document.createElement("button");
+        btn.textContent = p.name;
+        btn.onclick = function(){
+            document.getElementById("template").value = p.text;
+            onTemplateInput();
+        };
+        row.appendChild(btn);
+    });
+}
+
+buildPresets();
+onTemplateInput();
+</script>
+</body>
+</html>

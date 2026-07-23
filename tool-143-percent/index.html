@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>パーセント計算機 | 割合・増減率・○%増減を自動計算する無料ツール</title>
+    <meta name="description" content="AのB％はいくつ、AはBの何％、AからBへの増減率、A%増減した値の4モードを備えた無料のパーセント計算機。入力に応じてリアルタイム計算、結果コピー、丸め桁指定に対応。使用例と解説付きで割合の計算がすぐできます。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+        .tabs button{flex:1 1 auto;min-width:150px;padding:12px 10px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.82rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:all 0.15s}
+        .tabs button:hover{border-color:var(--accent);color:var(--accent)}
+        .tabs button.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+        .mode-panel{display:none}
+        .mode-panel.active{display:block}
+        .formula{font-size:0.78rem;color:var(--text3);margin-bottom:14px;line-height:1.7;font-family:'JetBrains Mono',monospace}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}.tabs button{min-width:120px}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.up{color:var(--green)}
+        .result-item .value.down{color:var(--red)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2;word-break:break-all}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .copy-btn{margin-top:14px;padding:8px 18px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .copy-btn:hover{border-color:var(--accent);color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-143-percent/">
+    <meta property="og:title" content="パーセント計算機 | 割合・増減率・○%増減を自動計算【無料】">
+    <meta property="og:description" content="AのB％、AはBの何％、増減率、○%増減した値の4モードを備えた無料のパーセント計算機。リアルタイム計算・結果コピー・丸め桁指定対応。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-143-percent/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="パーセント計算機【無料】">
+    <meta name="twitter:description" content="割合・増減率・○%増減を自動計算。リアルタイム計算・結果コピー対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"パーセント計算機","description":"割合・増減率・○%増減を自動計算する無料のパーセント計算ツール","url":"https://www.devtools-japan.com/tool-143-percent/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"パーセント計算機","item":"https://www.devtools-japan.com/tool-143-percent/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"AのB％はどうやって計算する？","acceptedAnswer":{"@type":"Answer","text":"AにB÷100を掛けて求めます。たとえば3000円の8％は 3000×0.08＝240 です。本ツールの「AのB%はいくつ」モードにAとBを入力すると、この計算を自動で行い、結果をリアルタイムに表示します。消費税や割引額、手数料などを求めるときに便利です。"}},{"@type":"Question","name":"AはBの何％かを求めるには？","acceptedAnswer":{"@type":"Answer","text":"A÷B×100で求めます。たとえば得点が42点で満点が50点なら 42÷50×100＝84％ です。「AはBの何%」モードにAとBを入力すると割合を自動計算します。テストの得点率、目標に対する達成率、全体に占める構成比などを知りたいときに使います。"}},{"@type":"Question","name":"増減率（％）はどう計算する？","acceptedAnswer":{"@type":"Answer","text":"（変化後B−変化前A）÷A×100で求めます。1000から1200へ増えた場合は 200÷1000×100＝＋20％、1000から800へ減った場合は −20％ です。「AからBへの増減率」モードは前年比・前月比・値上げ率・値下げ率などの計算に使え、増加はプラス、減少はマイナスで表示します。"}},{"@type":"Question","name":"○%増し・○%引きした値はどう出す？","acceptedAnswer":{"@type":"Answer","text":"増加は A×(1＋B/100)、減少は A×(1−B/100) で求めます。「A%増/減した値」モードでAと割合Bを入力し、増加か減少を選ぶと結果を表示します。1000円を20％増しにすると1200円、20％引きにすると800円です。税込価格や割引後価格、値上げ後の金額を素早く求められます。"}},{"@type":"Question","name":"計算結果の小数点以下の桁数は変えられる？","acceptedAnswer":{"@type":"Answer","text":"はい。各モードに「丸め桁数（小数点以下）」の指定があり、0〜6桁の範囲で選べます。指定した桁数で四捨五入した結果を表示し、割り切れない割合でも見やすく丸められます。表示された結果はコピーボタンでクリップボードにコピーでき、そのまま資料や計算に貼り付けられます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>パーセント計算機</h1><p>割合・増減率・○%増減をリアルタイムで自動計算</p></header>
+
+    <div class="tabs" id="tabs">
+        <button class="active" data-mode="0" onclick="switchMode(0)">AのB%はいくつ</button>
+        <button data-mode="1" onclick="switchMode(1)">AはBの何%</button>
+        <button data-mode="2" onclick="switchMode(2)">AからBへの増減率</button>
+        <button data-mode="3" onclick="switchMode(3)">A%増/減した値</button>
+    </div>
+
+    <!-- モード0: AのB%はいくつ -->
+    <div class="mode-panel active" id="panel0">
+        <div class="card"><h3>AのB%はいくつ</h3>
+            <div class="formula">結果 = A × B ÷ 100</div>
+            <div class="row"><label>A（元の値）</label><input type="number" id="m0a" value="3000" oninput="calcAll()"></div>
+            <div class="row"><label>B（パーセント）</label><input type="number" id="m0b" value="8" oninput="calcAll()"><span class="unit">%</span></div>
+            <div class="row"><label>丸め桁数（小数点以下）</label><select id="m0r" onchange="calcAll()"><option>0</option><option selected>2</option><option>1</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+        </div>
+        <div class="big-result">
+            <div class="headline" id="m0head">3000 の 8% は</div>
+            <div class="days"><span id="m0out">-</span></div>
+            <div class="target" id="m0label">AとBを入力してください</div>
+        </div>
+        <button class="copy-btn" onclick="copyResult('m0out')">結果をコピー</button>
+    </div>
+
+    <!-- モード1: AはBの何% -->
+    <div class="mode-panel" id="panel1">
+        <div class="card"><h3>AはBの何%</h3>
+            <div class="formula">結果 = A ÷ B × 100 (%)</div>
+            <div class="row"><label>A（部分の値）</label><input type="number" id="m1a" value="42" oninput="calcAll()"></div>
+            <div class="row"><label>B（全体の値）</label><input type="number" id="m1b" value="50" oninput="calcAll()"></div>
+            <div class="row"><label>丸め桁数（小数点以下）</label><select id="m1r" onchange="calcAll()"><option>0</option><option selected>2</option><option>1</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+        </div>
+        <div class="big-result">
+            <div class="headline" id="m1head">42 は 50 の</div>
+            <div class="days"><span id="m1out">-</span><span class="unit">%</span></div>
+            <div class="target" id="m1label">AとBを入力してください</div>
+        </div>
+        <button class="copy-btn" onclick="copyResult('m1out')">結果をコピー</button>
+    </div>
+
+    <!-- モード2: AからBへの増減率 -->
+    <div class="mode-panel" id="panel2">
+        <div class="card"><h3>AからBへの増減率</h3>
+            <div class="formula">結果 = (B − A) ÷ A × 100 (%)</div>
+            <div class="row"><label>A（変化前の値）</label><input type="number" id="m2a" value="1000" oninput="calcAll()"></div>
+            <div class="row"><label>B（変化後の値）</label><input type="number" id="m2b" value="1200" oninput="calcAll()"></div>
+            <div class="row"><label>丸め桁数（小数点以下）</label><select id="m2r" onchange="calcAll()"><option>0</option><option selected>2</option><option>1</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+        </div>
+        <div class="big-result">
+            <div class="headline" id="m2head">1000 → 1200 の増減率</div>
+            <div class="days"><span id="m2out">-</span><span class="unit">%</span></div>
+            <div class="target" id="m2label">変化前後の値を入力してください</div>
+        </div>
+        <div class="result-grid">
+            <div class="result-item"><div class="label">差分（B − A）</div><div class="value" id="m2diff">-</div></div>
+            <div class="result-item"><div class="label">状態</div><div class="value" id="m2state" style="font-size:1.1rem">-</div></div>
+        </div>
+        <button class="copy-btn" onclick="copyResult('m2out')">結果をコピー</button>
+    </div>
+
+    <!-- モード3: A%増/減した値 -->
+    <div class="mode-panel" id="panel3">
+        <div class="card"><h3>A%増/減した値</h3>
+            <div class="formula">増加 = A × (1 + B/100) ／ 減少 = A × (1 − B/100)</div>
+            <div class="row"><label>A（元の値）</label><input type="number" id="m3a" value="1000" oninput="calcAll()"></div>
+            <div class="row"><label>B（パーセント）</label><input type="number" id="m3b" value="20" oninput="calcAll()"><span class="unit">%</span></div>
+            <div class="row"><label>増加 / 減少</label><select id="m3dir" onchange="calcAll()"><option value="up" selected>増加（+）</option><option value="down">減少（−）</option></select></div>
+            <div class="row"><label>丸め桁数（小数点以下）</label><select id="m3r" onchange="calcAll()"><option selected>0</option><option>2</option><option>1</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+        </div>
+        <div class="big-result">
+            <div class="headline" id="m3head">1000 を 20% 増しにすると</div>
+            <div class="days"><span id="m3out">-</span></div>
+            <div class="target" id="m3label">Aと割合を入力してください</div>
+        </div>
+        <div class="result-grid">
+            <div class="result-item"><div class="label">増減額</div><div class="value" id="m3amt">-</div></div>
+            <div class="result-item"><div class="label">元の値</div><div class="value" id="m3base" style="font-size:1.1rem">-</div></div>
+        </div>
+        <button class="copy-btn" onclick="copyResult('m3out')">結果をコピー</button>
+    </div>
+
+    <div class="note">各モードは入力に応じてリアルタイムで計算します。入力が空の場合はサンプル値（例: 3000の8%）で結果を表示します。丸め桁数は小数点以下0〜6桁で指定でき、指定桁で四捨五入します。すべての計算はお使いの端末内で完結し、入力値が送信されることはありません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>パーセント計算機の使い方</h2>
+        <p>「AのB％はいくつ」「AはBの何％」「AからBへの増減率」「A%増/減した値」の4つの計算を、タブを切り替えるだけで行える無料のパーセント計算ツールです。数値を入力すると自動でリアルタイムに計算し、結果はワンクリックでコピーできます。インストールや会員登録は不要で、割合・百分率の計算をブラウザだけで素早く済ませられます。</p>
+        <p>上部のタブで計算モードを選び、A・Bなどの値を入力してください。入力が空のときはサンプル値で計算結果を表示するので、初めてでも動作を確認しながら使えます。小数点以下の丸め桁数は0〜6桁で指定でき、割り切れない割合も見やすく丸められます。</p>
+
+        <h3>4つの計算モード</h3>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>モード</th><th>計算式</th><th>用途の例</th></tr>
+            <tr><td>AのB%はいくつ</td><td>A × B ÷ 100</td><td>消費税・割引額・手数料の金額</td></tr>
+            <tr><td>AはBの何%</td><td>A ÷ B × 100</td><td>得点率・達成率・構成比</td></tr>
+            <tr><td>AからBへの増減率</td><td>(B − A) ÷ A × 100</td><td>前年比・前月比・値上げ／値下げ率</td></tr>
+            <tr><td>A%増/減した値</td><td>A × (1 ± B/100)</td><td>税込価格・割引後価格・値上げ後の金額</td></tr>
+        </table>
+        </div>
+
+        <h2>使用例</h2>
+        <h3>例1：3000円の8%（消費税・割引額）</h3>
+        <p>「AのB%はいくつ」モードでA＝3000、B＝8と入力すると、3000×0.08＝240と表示されます。消費税額や割引額、ポイント還元額などをすぐに求められます。</p>
+        <h3>例2：42点は50点満点の何%（得点率）</h3>
+        <p>「AはBの何%」モードでA＝42、B＝50と入力すると、42÷50×100＝84％と表示されます。テストの得点率、目標に対する達成率、全体に占める割合の計算に使えます。</p>
+        <h3>例3：1000から1200への増減率（前年比）</h3>
+        <p>「AからBへの増減率」モードでA＝1000、B＝1200と入力すると、＋20％と表示されます。売上や価格の前年比・前月比、値上げ率・値下げ率を求めるときに便利です。減少した場合はマイナスで表示されます。</p>
+        <h3>例4：1000円を20%増し／引きにした値（税込・割引後）</h3>
+        <p>「A%増/減した値」モードでA＝1000、B＝20を入力し、増加を選ぶと1200円、減少を選ぶと800円と表示されます。税込価格や割引後価格、値上げ後の金額を素早く計算できます。</p>
+
+        <h2>パーセント（百分率）の基本</h2>
+        <p>パーセント（％）は全体を100としたときの割合を表す単位です。1％は0.01（100分の1）にあたり、割合の計算では「％の値÷100」を小数に直して掛けたり割ったりします。たとえば「50％」は0.5、「8％」は0.08です。割合の元になる「全体（基準）」がどれかを取り違えると答えがずれるため、AとBのどちらが基準かを意識して入力してください。</p>
+        <h3>増減率の符号について</h3>
+        <p>増減率は変化後から変化前を引いた差を、変化前（基準）で割って求めます。増えていればプラス、減っていればマイナスで表示されます。なお「20％増やしてから20％減らす」と元に戻らないのは、増減それぞれで基準となる値が変わるためです。基準を確認したうえで結果をご利用ください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">AのB％はどうやって計算する？</div><div class="a">AにB÷100を掛けて求めます。たとえば3000円の8％は 3000×0.08＝240 です。本ツールの「AのB%はいくつ」モードにAとBを入力すると、この計算を自動で行い、結果をリアルタイムに表示します。消費税や割引額、手数料などを求めるときに便利です。</div></div>
+        <div class="faq-item"><div class="q">AはBの何％かを求めるには？</div><div class="a">A÷B×100で求めます。たとえば得点が42点で満点が50点なら 42÷50×100＝84％ です。「AはBの何%」モードにAとBを入力すると割合を自動計算します。テストの得点率、目標に対する達成率、全体に占める構成比などを知りたいときに使います。</div></div>
+        <div class="faq-item"><div class="q">増減率（％）はどう計算する？</div><div class="a">（変化後B−変化前A）÷A×100で求めます。1000から1200へ増えた場合は 200÷1000×100＝＋20％、1000から800へ減った場合は −20％ です。「AからBへの増減率」モードは前年比・前月比・値上げ率・値下げ率などの計算に使え、増加はプラス、減少はマイナスで表示します。</div></div>
+        <div class="faq-item"><div class="q">○%増し・○%引きした値はどう出す？</div><div class="a">増加は A×(1＋B/100)、減少は A×(1−B/100) で求めます。「A%増/減した値」モードでAと割合Bを入力し、増加か減少を選ぶと結果を表示します。1000円を20％増しにすると1200円、20％引きにすると800円です。税込価格や割引後価格、値上げ後の金額を素早く求められます。</div></div>
+        <div class="faq-item"><div class="q">計算結果の小数点以下の桁数は変えられる？</div><div class="a">はい。各モードに「丸め桁数（小数点以下）」の指定があり、0〜6桁の範囲で選べます。指定した桁数で四捨五入した結果を表示し、割り切れない割合でも見やすく丸められます。表示された結果はコピーボタンでクリップボードにコピーでき、そのまま資料や計算に貼り付けられます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-51-business-day-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">営業日計算</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+function switchMode(idx){
+    for (var i=0;i<4;i++){
+        document.getElementById('panel'+i).classList.toggle('active', i===idx);
+    }
+    var btns = document.querySelectorAll('#tabs button');
+    btns.forEach(function(b){ b.classList.toggle('active', parseInt(b.getAttribute('data-mode'),10)===idx); });
+}
+
+// 数値取得: 空・非数はサンプル値(fallback)
+function num(id, fallback){
+    var el = document.getElementById(id);
+    var v = el.value.trim();
+    if (v === '' || isNaN(Number(v))) return fallback;
+    return Number(v);
+}
+function rnd(n, digits){
+    if (!isFinite(n)) return n;
+    var f = Math.pow(10, digits);
+    return Math.round(n * f) / f;
+}
+// 3桁区切り（小数部は保持）
+function fmt(n){
+    if (!isFinite(n)) return '—';
+    var neg = n < 0;
+    var s = Math.abs(n).toString();
+    var parts = s.split('.');
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return (neg ? '-' : '') + parts.join('.');
+}
+
+function calcAll(){
+    // モード0: A × B / 100
+    var a0 = num('m0a', 3000), b0 = num('m0b', 8), r0 = parseInt(document.getElementById('m0r').value,10);
+    var out0 = rnd(a0 * b0 / 100, r0);
+    document.getElementById('m0out').textContent = fmt(out0);
+    document.getElementById('m0head').textContent = fmt(a0) + ' の ' + fmt(b0) + '% は';
+    document.getElementById('m0label').textContent = fmt(a0) + ' × ' + fmt(b0) + ' ÷ 100 = ' + fmt(out0);
+
+    // モード1: A / B * 100
+    var a1 = num('m1a', 42), b1 = num('m1b', 50), r1 = parseInt(document.getElementById('m1r').value,10);
+    var out1 = (b1 === 0) ? Infinity : rnd(a1 / b1 * 100, r1);
+    document.getElementById('m1out').textContent = fmt(out1);
+    document.getElementById('m1head').textContent = fmt(a1) + ' は ' + fmt(b1) + ' の';
+    document.getElementById('m1label').textContent = (b1 === 0) ? 'Bに0以外の値を入力してください' : (fmt(a1) + ' ÷ ' + fmt(b1) + ' × 100 = ' + fmt(out1) + '%');
+
+    // モード2: (B - A) / A * 100
+    var a2 = num('m2a', 1000), b2 = num('m2b', 1200), r2 = parseInt(document.getElementById('m2r').value,10);
+    var diff2 = b2 - a2;
+    var out2 = (a2 === 0) ? Infinity : rnd(diff2 / a2 * 100, r2);
+    var m2out = document.getElementById('m2out');
+    m2out.textContent = (isFinite(out2) && out2 > 0 ? '+' : '') + fmt(out2);
+    m2out.parentElement.className = 'days';
+    document.getElementById('m2head').textContent = fmt(a2) + ' → ' + fmt(b2) + ' の増減率';
+    document.getElementById('m2diff').textContent = (diff2 > 0 ? '+' : '') + fmt(diff2);
+    var st = document.getElementById('m2state');
+    if (!isFinite(out2)){ st.textContent = '計算不可'; st.className='value'; document.getElementById('m2label').textContent='Aに0以外の値を入力してください'; }
+    else if (out2 > 0){ st.textContent='増加'; st.className='value up'; document.getElementById('m2label').textContent='('+fmt(b2)+' − '+fmt(a2)+') ÷ '+fmt(a2)+' × 100'; }
+    else if (out2 < 0){ st.textContent='減少'; st.className='value down'; document.getElementById('m2label').textContent='('+fmt(b2)+' − '+fmt(a2)+') ÷ '+fmt(a2)+' × 100'; }
+    else { st.textContent='増減なし'; st.className='value'; document.getElementById('m2label').textContent='('+fmt(b2)+' − '+fmt(a2)+') ÷ '+fmt(a2)+' × 100'; }
+
+    // モード3: A × (1 ± B/100)
+    var a3 = num('m3a', 1000), b3 = num('m3b', 20), r3 = parseInt(document.getElementById('m3r').value,10);
+    var dir = document.getElementById('m3dir').value;
+    var factor = (dir === 'up') ? (1 + b3/100) : (1 - b3/100);
+    var out3 = rnd(a3 * factor, r3);
+    var amt3 = rnd(a3 * (b3/100) * (dir === 'up' ? 1 : -1), r3);
+    document.getElementById('m3out').textContent = fmt(out3);
+    document.getElementById('m3head').textContent = fmt(a3) + ' を ' + fmt(b3) + '% ' + (dir==='up' ? '増しにすると' : '引きにすると');
+    document.getElementById('m3amt').textContent = (amt3 > 0 ? '+' : '') + fmt(amt3);
+    document.getElementById('m3base').textContent = fmt(a3);
+    document.getElementById('m3label').textContent = fmt(a3) + ' × ' + rnd(factor, 4) + ' = ' + fmt(out3);
+    var amtEl = document.getElementById('m3amt');
+    amtEl.className = 'value' + (amt3 > 0 ? ' up' : (amt3 < 0 ? ' down' : ''));
+}
+
+function copyResult(id){
+    var el = document.getElementById(id);
+    var text = el.textContent;
+    var done = function(){
+        var btn = event && event.target ? event.target : null;
+        if (btn){ var old = btn.textContent; btn.textContent = 'コピーしました'; setTimeout(function(){ btn.textContent = old; }, 1200); }
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); });
+    } else { fallbackCopy(text); done(); }
+}
+function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch(e){}
+    document.body.removeChild(ta);
+}
+
+calcAll();
+</script>
+</body>
+</html>

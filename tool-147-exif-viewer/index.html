@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画像EXIF確認・削除ツール（プライバシー） | 撮影日時・カメラ・GPS位置情報を表示して除去【無料】</title>
+    <meta name="description" content="画像をドラッグ&ドロップするだけでEXIFメタデータ（撮影日時・カメラ機種・レンズ・GPS位置情報・向き・解像度）を一覧表示。ワンクリックでEXIFを削除した画像をダウンロード。アップロード不要・すべてブラウザ内で完結する無料プライバシーツール。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .drop{border:2px dashed var(--border);border-radius:var(--radius);padding:40px 20px;text-align:center;cursor:pointer;transition:border-color 0.2s,background 0.2s}
+        .drop:hover,.drop.drag{border-color:var(--accent);background:var(--accent-dim)}
+        .drop .big{font-size:1.05rem;color:var(--text);font-weight:500;margin-bottom:6px}
+        .drop .small{font-size:0.8rem;color:var(--text3)}
+        .drop svg{width:40px;height:40px;color:var(--accent);margin-bottom:12px}
+        .preview-wrap{text-align:center;margin-bottom:16px}
+        .preview-wrap img{max-width:100%;max-height:320px;border-radius:8px;border:1px solid var(--border)}
+        .preview-wrap .fname{font-size:0.8rem;color:var(--text3);margin-top:8px;word-break:break-all}
+        table.exif{width:100%;border-collapse:collapse;font-size:0.82rem}
+        table.exif th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text);white-space:nowrap}
+        table.exif td{border:1px solid var(--border);padding:8px 12px;color:var(--text2);word-break:break-word}
+        table.exif td.k{color:var(--text);font-weight:500;white-space:nowrap;width:38%}
+        table.exif td.gps a{color:var(--accent);text-decoration:none}
+        table.exif td.gps a:hover{text-decoration:underline}
+        .empty-exif{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:8px;padding:16px;font-size:0.85rem;color:var(--text2);text-align:center}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;align-items:center}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.ghost{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:999px;padding:6px 14px;font-size:0.72rem;color:var(--accent);font-weight:600}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-147-exif-viewer/">
+    <meta property="og:title" content="画像EXIF確認・削除ツール（プライバシー）| GPS位置情報や撮影情報を表示して除去【無料】">
+    <meta property="og:description" content="画像のEXIFメタデータを一覧表示し、ワンクリックで削除。アップロード不要、すべてブラウザ内で完結。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-147-exif-viewer/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="画像EXIF確認・削除ツール（プライバシー）【無料】">
+    <meta name="twitter:description" content="EXIFメタデータの確認とGPS位置情報の削除をブラウザ内で完結。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"画像EXIF確認・削除ツール（プライバシー）","description":"画像のEXIFメタデータを確認し、GPS位置情報などを削除できる無料ツール。アップロード不要でブラウザ内で完結。","url":"https://www.devtools-japan.com/tool-147-exif-viewer/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"画像EXIF確認・削除ツール（プライバシー）","item":"https://www.devtools-japan.com/tool-147-exif-viewer/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"EXIFとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"EXIF（Exchangeable Image File Format）は、デジタルカメラやスマートフォンで撮影した画像に自動で埋め込まれるメタデータです。撮影日時、カメラの機種、レンズ、シャッタースピードやF値などの撮影設定、画像の向き、そして端末の設定によってはGPSによる撮影場所の緯度経度まで含まれます。本ツールは画像を読み込むだけでこれらの情報を一覧表示します。"}},{"@type":"Question","name":"画像はサーバーにアップロードされますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。本ツールはすべての処理をお使いのブラウザ内（JavaScript）で完結します。画像がサーバーに送信されることは一切なく、EXIFの解析も削除もあなたの端末の中だけで行われます。会員登録やインストールも不要で、プライバシーに配慮した設計です。"}},{"@type":"Question","name":"EXIFを削除するとどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"EXIF削除では、画像をcanvasに再描画してからJPEGまたはPNGとして書き出すため、撮影日時・カメラ機種・GPS位置情報などのメタデータが取り除かれます。SNSやフリマ、ブログに写真を載せる前に位置情報などのプライバシー情報を消したい場合に有効です。画像の見た目（ピクセル）はそのまま保持されます。"}},{"@type":"Question","name":"GPS位置情報が表示されないのはなぜですか？","acceptedAnswer":{"@type":"Answer","text":"すべての画像にGPS情報が含まれるわけではありません。位置情報の記録をオフにして撮影した場合、スクリーンショットやSNS経由でダウンロードした画像、EXIFを持たないPNGなどでは、GPS座標が記録されていないため表示されません。この場合は「EXIFなし」または該当項目が空欄となります。"}},{"@type":"Question","name":"対応している画像形式は？","acceptedAnswer":{"@type":"Answer","text":"EXIF情報の読み取りは、主にJPEG（.jpg / .jpeg）形式に対応しています。JPEGはカメラやスマートフォンの標準形式で、EXIFを持つ代表的な形式です。PNGなどEXIFを持たない形式を読み込んだ場合は「EXIFなし」と表示しますが、いずれの形式でもcanvas再描画によるメタデータ削除・ダウンロードは利用できます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>画像EXIF確認・削除ツール</h1><p>撮影日時・カメラ・GPS位置情報を表示して、まとめて削除</p></header>
+
+    <div class="card"><h3>画像を読み込む</h3>
+        <div class="drop" id="drop">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+            <div class="big">画像をドラッグ&amp;ドロップ</div>
+            <div class="small">またはクリックして画像を選択（JPEG推奨・複数のEXIFタグに対応）</div>
+        </div>
+        <input type="file" id="fileInput" accept="image/*" style="display:none">
+        <div style="margin-top:14px"><span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> アップロード不要・すべてブラウザ内で完結</span></div>
+    </div>
+
+    <div class="card" id="resultCard" style="display:none">
+        <h3>読み込んだ画像</h3>
+        <div class="preview-wrap"><img id="preview" alt="読み込んだ画像のプレビュー"><div class="fname" id="fname"></div></div>
+        <div class="actions">
+            <button class="btn" id="downloadBtn">EXIFを削除してダウンロード</button>
+            <button class="btn ghost" id="clearBtn">クリア</button>
+        </div>
+    </div>
+
+    <div class="card" id="exifCard" style="display:none">
+        <h3>EXIFメタデータ</h3>
+        <div id="exifBody"></div>
+    </div>
+
+    <div class="card" id="guideCard">
+        <h3>使い方</h3>
+        <div style="font-size:0.85rem;color:var(--text2);line-height:1.9">
+            <p style="margin-bottom:8px">1. 上のエリアに画像をドラッグ&amp;ドロップするか、クリックして画像ファイルを選びます。</p>
+            <p style="margin-bottom:8px">2. 画像に含まれるEXIF（撮影日時・カメラ機種・レンズ・GPS位置情報・向き・解像度など）を自動で一覧表示します。GPS座標がある場合は地図リンクを表示します。</p>
+            <p style="margin-bottom:8px">3. 「EXIFを削除してダウンロード」を押すと、位置情報などのメタデータを取り除いた画像を保存できます。</p>
+            <p>画像はサーバーに送信されず、解析も削除もすべてあなたの端末（ブラウザ）の中だけで行われます。</p>
+        </div>
+    </div>
+
+    <div class="note">EXIFの解析は外部ライブラリを使わず、画像のバイナリ（ArrayBuffer / DataView）から APP1・TIFF・IFD の主要タグを直接読み取っています。EXIFを持たない画像や記録されていない項目は「EXIFなし」または空欄となります。GPS座標の地図リンクは緯度経度を外部地図サービスで開くもので、画像そのものは送信されません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>画像EXIF確認・削除ツールの使い方</h2>
+        <p>スマートフォンやデジタルカメラで撮影した写真には、EXIF（Exif）と呼ばれるメタデータが自動的に埋め込まれています。このツールは、画像をドラッグ&amp;ドロップまたは選択するだけで、撮影日時・カメラの機種・レンズ・シャッタースピードやF値などの撮影設定・画像の向き・解像度、そして端末の設定によってはGPSによる撮影場所の緯度経度まで、一覧で確認できる無料ツールです。GPS座標が記録されている場合は、緯度経度とともに地図で開くためのリンクも表示します。</p>
+        <p>確認だけでなく、ワンクリックでEXIFを削除した画像を書き出せます。写真をSNSやフリマアプリ、ブログに投稿する前に、自宅や職場などの位置情報が写真から特定されてしまうのを防ぐために役立ちます。画像はサーバーにアップロードされず、EXIFの解析も削除もすべてお使いのブラウザ内（JavaScript）で完結するため、プライバシーを気にせず安心してご利用いただけます。</p>
+        <h3>こんな用途に</h3>
+        <p>フリマ・オークションの出品写真から自宅の位置情報を消したいとき、SNSやブログに写真を載せる前にプライバシー情報を除去したいとき、写真の撮影日時やカメラ設定を後から確認したいとき、他人から受け取った画像に位置情報が含まれていないか点検したいときなどに便利です。撮影に使われた機材や設定を調べたいカメラ愛好家の方にもお使いいただけます。</p>
+
+        <h2>EXIFに含まれる主な情報</h2>
+        <p>EXIFには撮影に関するさまざまな情報が含まれます。中でもGPSによる位置情報は、写真がどこで撮影されたかを緯度経度で特定できてしまうため、公開前の削除が特に重要です。主な項目は次のとおりです。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>項目</th><th>内容</th></tr>
+            <tr><td>撮影日時</td><td>写真が撮影された年月日・時刻（DateTimeOriginal）</td></tr>
+            <tr><td>カメラ機種</td><td>撮影に使われた端末やカメラのメーカー・機種名</td></tr>
+            <tr><td>レンズ・撮影設定</td><td>レンズ名、F値、シャッタースピード、ISO感度、焦点距離</td></tr>
+            <tr><td>GPS位置情報</td><td>撮影場所の緯度・経度（記録されている場合）</td></tr>
+            <tr><td>向き（Orientation）</td><td>画像の回転・反転情報</td></tr>
+            <tr><td>解像度</td><td>画像の幅・高さ（ピクセル）や解像度</td></tr>
+        </table>
+        </div>
+        <h3>EXIF削除の仕組み</h3>
+        <p>本ツールのEXIF削除は、読み込んだ画像を一度canvas（キャンバス）に再描画し、その結果をJPEGまたはPNGとして書き出すことで実現しています。canvasに描き直された画像にはEXIFなどのメタデータが引き継がれないため、撮影日時やGPS位置情報を含まないクリーンな画像が得られます。見た目のピクセルはそのまま維持されるので、位置情報などの情報だけを取り除いて安全に共有できます。すべての処理はブラウザ内で行われ、画像が外部に送信されることはありません。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">EXIFとは何ですか？</div><div class="a">EXIF（Exchangeable Image File Format）は、デジタルカメラやスマートフォンで撮影した画像に自動で埋め込まれるメタデータです。撮影日時、カメラの機種、レンズ、シャッタースピードやF値などの撮影設定、画像の向き、そして端末の設定によってはGPSによる撮影場所の緯度経度まで含まれます。本ツールは画像を読み込むだけでこれらの情報を一覧表示します。</div></div>
+        <div class="faq-item"><div class="q">画像はサーバーにアップロードされますか？</div><div class="a">いいえ。本ツールはすべての処理をお使いのブラウザ内（JavaScript）で完結します。画像がサーバーに送信されることは一切なく、EXIFの解析も削除もあなたの端末の中だけで行われます。会員登録やインストールも不要で、プライバシーに配慮した設計です。</div></div>
+        <div class="faq-item"><div class="q">EXIFを削除するとどうなりますか？</div><div class="a">EXIF削除では、画像をcanvasに再描画してからJPEGまたはPNGとして書き出すため、撮影日時・カメラ機種・GPS位置情報などのメタデータが取り除かれます。SNSやフリマ、ブログに写真を載せる前に位置情報などのプライバシー情報を消したい場合に有効です。画像の見た目（ピクセル）はそのまま保持されます。</div></div>
+        <div class="faq-item"><div class="q">GPS位置情報が表示されないのはなぜですか？</div><div class="a">すべての画像にGPS情報が含まれるわけではありません。位置情報の記録をオフにして撮影した場合、スクリーンショットやSNS経由でダウンロードした画像、EXIFを持たないPNGなどでは、GPS座標が記録されていないため表示されません。この場合は「EXIFなし」または該当項目が空欄となります。</div></div>
+        <div class="faq-item"><div class="q">対応している画像形式は？</div><div class="a">EXIF情報の読み取りは、主にJPEG（.jpg / .jpeg）形式に対応しています。JPEGはカメラやスマートフォンの標準形式で、EXIFを持つ代表的な形式です。PNGなどEXIFを持たない形式を読み込んだ場合は「EXIFなし」と表示しますが、いずれの形式でもcanvas再描画によるメタデータ削除・ダウンロードは利用できます。</div></div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">すべてのツール</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+(function(){
+    "use strict";
+    var drop = document.getElementById('drop');
+    var fileInput = document.getElementById('fileInput');
+    var resultCard = document.getElementById('resultCard');
+    var exifCard = document.getElementById('exifCard');
+    var exifBody = document.getElementById('exifBody');
+    var guideCard = document.getElementById('guideCard');
+    var preview = document.getElementById('preview');
+    var fname = document.getElementById('fname');
+    var downloadBtn = document.getElementById('downloadBtn');
+    var clearBtn = document.getElementById('clearBtn');
+    var currentFile = null;
+
+    // ---- events ----
+    drop.addEventListener('click', function(){ fileInput.click(); });
+    fileInput.addEventListener('change', function(e){
+        if (e.target.files && e.target.files[0]) handleFile(e.target.files[0]);
+    });
+    ['dragenter','dragover'].forEach(function(ev){
+        drop.addEventListener(ev, function(e){ e.preventDefault(); e.stopPropagation(); drop.classList.add('drag'); });
+    });
+    ['dragleave','drop'].forEach(function(ev){
+        drop.addEventListener(ev, function(e){ e.preventDefault(); e.stopPropagation(); drop.classList.remove('drag'); });
+    });
+    drop.addEventListener('drop', function(e){
+        var dt = e.dataTransfer;
+        if (dt && dt.files && dt.files[0]) handleFile(dt.files[0]);
+    });
+    clearBtn.addEventListener('click', reset);
+    downloadBtn.addEventListener('click', downloadStripped);
+
+    function reset(){
+        currentFile = null;
+        fileInput.value = '';
+        if (preview.src) { try { URL.revokeObjectURL(preview.src); } catch(e){} }
+        preview.removeAttribute('src');
+        resultCard.style.display = 'none';
+        exifCard.style.display = 'none';
+        guideCard.style.display = 'block';
+        exifBody.innerHTML = '';
+    }
+
+    function handleFile(file){
+        if (!file || !/^image\//.test(file.type || '')) {
+            alert('画像ファイルを選択してください。');
+            return;
+        }
+        currentFile = file;
+        guideCard.style.display = 'none';
+        resultCard.style.display = 'block';
+        exifCard.style.display = 'block';
+        fname.textContent = file.name + '（' + formatBytes(file.size) + '）';
+        if (preview.src) { try { URL.revokeObjectURL(preview.src); } catch(e){} }
+        preview.src = URL.createObjectURL(file);
+
+        var reader = new FileReader();
+        reader.onload = function(ev){
+            try {
+                var exif = parseExif(ev.target.result);
+                renderExif(exif);
+            } catch(err){
+                renderExif(null);
+            }
+        };
+        reader.onerror = function(){ renderExif(null); };
+        reader.readAsArrayBuffer(file);
+    }
+
+    function formatBytes(b){
+        if (b < 1024) return b + ' B';
+        if (b < 1024*1024) return (b/1024).toFixed(1) + ' KB';
+        return (b/(1024*1024)).toFixed(2) + ' MB';
+    }
+
+    // ================= EXIF parser (no library) =================
+    // JPEG APP1 (Exif) -> TIFF header -> IFD0 / Exif SubIFD / GPS IFD
+    function parseExif(buffer){
+        var view = new DataView(buffer);
+        if (view.byteLength < 4) return null;
+        if (view.getUint16(0) !== 0xFFD8) return null; // not JPEG (SOI)
+
+        var offset = 2;
+        var length = view.byteLength;
+        var tiffStart = -1;
+        while (offset < length - 4) {
+            if (view.getUint8(offset) !== 0xFF) { offset++; continue; }
+            var marker = view.getUint8(offset + 1);
+            if (marker === 0xD9 || marker === 0xDA) break; // EOI / SOS
+            var segLen = view.getUint16(offset + 2);
+            if (marker === 0xE1) {
+                // check "Exif\0\0"
+                var p = offset + 4;
+                if (p + 6 <= length &&
+                    view.getUint32(p) === 0x45786966 &&      // "Exif"
+                    view.getUint16(p + 4) === 0x0000) {
+                    tiffStart = p + 6;
+                    break;
+                }
+            }
+            offset += 2 + segLen;
+        }
+        if (tiffStart < 0) return null;
+
+        // TIFF header: byte order
+        var b0 = view.getUint16(tiffStart);
+        var little;
+        if (b0 === 0x4949) little = true;       // "II"
+        else if (b0 === 0x4D4D) little = false; // "MM"
+        else return null;
+        if (view.getUint16(tiffStart + 2, little) !== 0x002A) return null;
+
+        var ifd0Offset = view.getUint32(tiffStart + 4, little);
+        var tags = {};
+        readIFD(view, tiffStart, tiffStart + ifd0Offset, little, tags, IFD0_TAGS);
+
+        var out = {};
+        var hasAny = false;
+        for (var k in tags) { hasAny = true; break; }
+
+        // Exif SubIFD
+        if (tags._exifIFD) {
+            var exifTags = {};
+            readIFD(view, tiffStart, tiffStart + tags._exifIFD, little, exifTags, EXIF_TAGS);
+            for (var ek in exifTags) { tags[ek] = exifTags[ek]; hasAny = true; }
+        }
+        // GPS IFD
+        var gps = null;
+        if (tags._gpsIFD) {
+            var gpsTags = {};
+            readIFD(view, tiffStart, tiffStart + tags._gpsIFD, little, gpsTags, GPS_TAGS);
+            gps = buildGPS(gpsTags);
+            if (gps) hasAny = true;
+        }
+
+        if (!hasAny) return null;
+        tags._gps = gps;
+        return tags;
+    }
+
+    // tag maps: id -> {name, key}
+    var IFD0_TAGS = {
+        0x010F: 'Make', 0x0110: 'Model', 0x0112: 'Orientation',
+        0x011A: 'XResolution', 0x011B: 'YResolution', 0x0128: 'ResolutionUnit',
+        0x0131: 'Software', 0x0132: 'DateTime', 0x013B: 'Artist', 0x8298: 'Copyright',
+        0x8769: '_exifIFD', 0x8825: '_gpsIFD'
+    };
+    var EXIF_TAGS = {
+        0x829A: 'ExposureTime', 0x829D: 'FNumber', 0x8827: 'ISO', 0x8822: 'ExposureProgram',
+        0x9003: 'DateTimeOriginal', 0x9004: 'DateTimeDigitized',
+        0x920A: 'FocalLength', 0xA405: 'FocalLength35mm',
+        0x9201: 'ShutterSpeedValue', 0x9202: 'ApertureValue',
+        0x9207: 'MeteringMode', 0x9209: 'Flash', 0xA002: 'PixelXDimension', 0xA003: 'PixelYDimension',
+        0xA433: 'LensMake', 0xA434: 'LensModel', 0xA500: 'Gamma'
+    };
+    var GPS_TAGS = {
+        0x0001: 'GPSLatitudeRef', 0x0002: 'GPSLatitude',
+        0x0003: 'GPSLongitudeRef', 0x0004: 'GPSLongitude',
+        0x0005: 'GPSAltitudeRef', 0x0006: 'GPSAltitude'
+    };
+
+    var TYPE_SIZE = {1:1, 2:1, 3:2, 4:4, 5:8, 6:1, 7:1, 8:2, 9:4, 10:8};
+
+    function readIFD(view, tiffStart, dirStart, little, out, tagMap){
+        if (dirStart + 2 > view.byteLength) return;
+        var entries = view.getUint16(dirStart, little);
+        var base = dirStart + 2;
+        for (var i = 0; i < entries; i++) {
+            var entry = base + i * 12;
+            if (entry + 12 > view.byteLength) break;
+            var tag = view.getUint16(entry, little);
+            var name = tagMap[tag];
+            if (!name) continue;
+            var type = view.getUint16(entry + 2, little);
+            var count = view.getUint32(entry + 4, little);
+            var size = TYPE_SIZE[type] || 1;
+            var total = size * count;
+            var valOffset = entry + 8;
+            if (total > 4) valOffset = tiffStart + view.getUint32(entry + 8, little);
+            out[name] = readValue(view, valOffset, type, count, little);
+        }
+    }
+
+    function readValue(view, offset, type, count, little){
+        if (offset < 0 || offset > view.byteLength) return null;
+        var i, vals;
+        if (type === 2) { // ASCII
+            var s = '';
+            for (i = 0; i < count; i++) {
+                if (offset + i >= view.byteLength) break;
+                var c = view.getUint8(offset + i);
+                if (c === 0) break;
+                s += String.fromCharCode(c);
+            }
+            return s.trim();
+        }
+        if (type === 3) { // SHORT
+            vals = [];
+            for (i = 0; i < count; i++) vals.push(view.getUint16(offset + i*2, little));
+            return count === 1 ? vals[0] : vals;
+        }
+        if (type === 4) { // LONG
+            vals = [];
+            for (i = 0; i < count; i++) vals.push(view.getUint32(offset + i*4, little));
+            return count === 1 ? vals[0] : vals;
+        }
+        if (type === 5) { // RATIONAL
+            vals = [];
+            for (i = 0; i < count; i++) {
+                var num = view.getUint32(offset + i*8, little);
+                var den = view.getUint32(offset + i*8 + 4, little);
+                vals.push(den === 0 ? 0 : num / den);
+            }
+            return count === 1 ? vals[0] : vals;
+        }
+        if (type === 10) { // SRATIONAL
+            vals = [];
+            for (i = 0; i < count; i++) {
+                var sn = view.getInt32(offset + i*8, little);
+                var sd = view.getInt32(offset + i*8 + 4, little);
+                vals.push(sd === 0 ? 0 : sn / sd);
+            }
+            return count === 1 ? vals[0] : vals;
+        }
+        if (type === 1 || type === 7) { // BYTE / UNDEFINED
+            vals = [];
+            for (i = 0; i < count; i++) vals.push(view.getUint8(offset + i));
+            return count === 1 ? vals[0] : vals;
+        }
+        return null;
+    }
+
+    function buildGPS(g){
+        if (!g.GPSLatitude || !g.GPSLongitude) return null;
+        var lat = dmsToDecimal(g.GPSLatitude, g.GPSLatitudeRef);
+        var lng = dmsToDecimal(g.GPSLongitude, g.GPSLongitudeRef);
+        if (lat === null || lng === null) return null;
+        var alt = null;
+        if (typeof g.GPSAltitude === 'number') {
+            alt = g.GPSAltitude;
+            if (g.GPSAltitudeRef === 1) alt = -alt;
+        }
+        return { lat: lat, lng: lng, alt: alt };
+    }
+
+    function dmsToDecimal(dms, ref){
+        if (!dms || dms.length < 3) return null;
+        var d = dms[0], m = dms[1], s = dms[2];
+        var dec = d + (m / 60) + (s / 3600);
+        if (ref === 'S' || ref === 'W') dec = -dec;
+        return dec;
+    }
+
+    // ================= render =================
+    var ORIENT = {
+        1:'通常（回転なし）', 2:'左右反転', 3:'180°回転', 4:'上下反転',
+        5:'反時計回り90°+反転', 6:'時計回り90°', 7:'時計回り90°+反転', 8:'反時計回り90°'
+    };
+
+    function esc(s){
+        return String(s).replace(/[&<>"']/g, function(c){
+            return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+        });
+    }
+
+    function renderExif(tags){
+        if (!tags) {
+            exifBody.innerHTML = '<div class="empty-exif">この画像にはEXIF情報が見つかりませんでした（EXIFなし）。<br>位置情報の記録がオフの写真、スクリーンショット、PNGなどでは表示されないことがあります。それでもEXIF削除・ダウンロードは利用できます。</div>';
+            return;
+        }
+        var rows = [];
+        function add(label, value){
+            if (value === undefined || value === null || value === '') return;
+            rows.push('<tr><td class="k">' + esc(label) + '</td><td>' + value + '</td></tr>');
+        }
+
+        add('撮影日時', tags.DateTimeOriginal ? esc(tags.DateTimeOriginal) : (tags.DateTime ? esc(tags.DateTime) : null));
+        add('デジタル化日時', tags.DateTimeDigitized ? esc(tags.DateTimeDigitized) : null);
+        add('メーカー', tags.Make ? esc(tags.Make) : null);
+        add('カメラ機種', tags.Model ? esc(tags.Model) : null);
+        add('ソフトウェア', tags.Software ? esc(tags.Software) : null);
+        add('レンズ', tags.LensModel ? esc(tags.LensModel) : (tags.LensMake ? esc(tags.LensMake) : null));
+
+        if (typeof tags.FNumber === 'number') add('F値', 'F' + round(tags.FNumber, 1));
+        if (typeof tags.ExposureTime === 'number') add('シャッタースピード', formatShutter(tags.ExposureTime));
+        if (tags.ISO !== undefined && tags.ISO !== null) add('ISO感度', 'ISO ' + esc(Array.isArray(tags.ISO) ? tags.ISO[0] : tags.ISO));
+        if (typeof tags.FocalLength === 'number') add('焦点距離', round(tags.FocalLength, 1) + ' mm');
+        if (typeof tags.FocalLength35mm === 'number') add('焦点距離(35mm換算)', tags.FocalLength35mm + ' mm');
+
+        if (tags.Orientation) add('向き', esc(ORIENT[tags.Orientation] || tags.Orientation));
+
+        var w = tags.PixelXDimension, h = tags.PixelYDimension;
+        if (w && h) add('解像度', esc(w) + ' × ' + esc(h) + ' px');
+        if (typeof tags.XResolution === 'number') add('解像度(DPI)', round(tags.XResolution,0) + (tags.ResolutionUnit === 3 ? ' dpcm' : ' dpi'));
+
+        add('作成者', tags.Artist ? esc(tags.Artist) : null);
+        add('著作権', tags.Copyright ? esc(tags.Copyright) : null);
+
+        var gps = tags._gps;
+        if (gps) {
+            var latStr = round(gps.lat, 6);
+            var lngStr = round(gps.lng, 6);
+            var mapUrl = 'https://www.google.com/maps?q=' + latStr + ',' + lngStr;
+            var gpsCell = '緯度 ' + latStr + ' / 経度 ' + lngStr +
+                '<br><a href="' + mapUrl + '" target="_blank" rel="noopener noreferrer nofollow">地図で開く（外部サイト）</a>';
+            rows.push('<tr><td class="k">GPS位置情報</td><td class="gps">' + gpsCell + '</td></tr>');
+            if (gps.alt !== null && gps.alt !== undefined) add('高度', round(gps.alt, 1) + ' m');
+        }
+
+        if (rows.length === 0) {
+            exifBody.innerHTML = '<div class="empty-exif">読み取り可能なEXIF項目が見つかりませんでした（EXIFなし）。</div>';
+            return;
+        }
+        var html = '<div class="table-wrap"><table class="exif"><tbody>' + rows.join('') + '</tbody></table></div>';
+        if (gps) {
+            html += '<div class="note" style="margin-top:14px;margin-bottom:0">この画像にはGPS位置情報が含まれています。撮影場所が特定される可能性があるため、公開前に「EXIFを削除してダウンロード」で除去することをおすすめします。</div>';
+        }
+        exifBody.innerHTML = html;
+    }
+
+    function round(n, digits){
+        var f = Math.pow(10, digits);
+        return String(Math.round(n * f) / f);
+    }
+    function formatShutter(t){
+        if (t >= 1) return round(t, 1) + ' 秒';
+        return '1/' + Math.round(1 / t) + ' 秒';
+    }
+
+    // ================= EXIF strip via canvas =================
+    function downloadStripped(){
+        if (!currentFile) return;
+        var img = new Image();
+        var url = URL.createObjectURL(currentFile);
+        img.onload = function(){
+            var canvas = document.createElement('canvas');
+            canvas.width = img.naturalWidth || img.width;
+            canvas.height = img.naturalHeight || img.height;
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            URL.revokeObjectURL(url);
+
+            var isPng = /png$/i.test(currentFile.type) || /\.png$/i.test(currentFile.name);
+            var mime = isPng ? 'image/png' : 'image/jpeg';
+            var ext = isPng ? '.png' : '.jpg';
+            var base = currentFile.name.replace(/\.[^.]+$/, '');
+            var outName = base + '_no-exif' + ext;
+
+            var done = function(blob){
+                if (!blob) { alert('画像の書き出しに失敗しました。'); return; }
+                var a = document.createElement('a');
+                var burl = URL.createObjectURL(blob);
+                a.href = burl;
+                a.download = outName;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                setTimeout(function(){ URL.revokeObjectURL(burl); }, 1000);
+            };
+            if (canvas.toBlob) {
+                canvas.toBlob(done, mime, isPng ? undefined : 0.92);
+            } else {
+                var dataUrl = canvas.toDataURL(mime, isPng ? undefined : 0.92);
+                var a2 = document.createElement('a');
+                a2.href = dataUrl; a2.download = outName;
+                document.body.appendChild(a2); a2.click(); document.body.removeChild(a2);
+            }
+        };
+        img.onerror = function(){ URL.revokeObjectURL(url); alert('画像の読み込みに失敗しました。'); };
+        img.src = url;
+    }
+})();
+</script>
+</body>
+</html>

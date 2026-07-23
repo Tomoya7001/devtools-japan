@@ -136,6 +136,14 @@
 - VideoObject構造化データ生成: https://www.devtools-japan.com/tool-140-video-schema/
 - Event構造化データ生成: https://www.devtools-japan.com/tool-141-event-schema/
 - Recipe構造化データ生成: https://www.devtools-japan.com/tool-142-recipe-schema/
+- パーセント計算機: https://www.devtools-japan.com/tool-143-percent/
+- 時間・時刻の計算機: https://www.devtools-japan.com/tool-144-time-calc/
+- 数値の統計・平均・中央値計算ツール: https://www.devtools-japan.com/tool-145-stats-calc/
+- 分数計算機: https://www.devtools-japan.com/tool-146-fraction/
+- 画像EXIF確認・削除ツール: https://www.devtools-japan.com/tool-147-exif-viewer/
+- PDF→画像変換: https://www.devtools-japan.com/tool-148-pdf-to-image/
+- JSON Schema ジェネレーター: https://www.devtools-japan.com/tool-149-jsonschema-gen/
+- AIプロンプト テンプレート: https://www.devtools-japan.com/tool-150-prompt-template/
 
 ## API
 DevTools Japan APIとして30本以上の無料REST APIを提供。認証不要で即利用可能。

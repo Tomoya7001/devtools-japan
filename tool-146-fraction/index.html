@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分数計算機 | 分数の足し算・引き算・掛け算・割り算を約分・通分の途中経過つきで自動計算【無料】</title>
+    <meta name="description" content="2つ以上の分数の四則演算（＋−×÷）を自動計算する無料ツール。帯分数の入力に対応し、結果を既約分数・小数・帯分数で表示。約分と通分の途中経過、分数⇔小数の相互変換、ゼロ除算のエラー判定にも対応します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .term{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 0;border-bottom:1px solid var(--border)}
+        .term:last-child{border-bottom:none}
+        .term .op-sel{width:64px;text-align:center}
+        .term .mixbox{display:flex;align-items:center;gap:6px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:6px 10px}
+        .term .mixbox input{width:52px;padding:6px;background:#fff;border:1px solid var(--border);border-radius:6px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:0.9rem;outline:none;color:var(--text)}
+        .term .mixbox input:focus{border-color:var(--accent)}
+        .term .fracstack{display:inline-flex;flex-direction:column;align-items:center;gap:2px}
+        .term .fbar{width:100%;height:1px;background:var(--text3)}
+        .term .whole{font-family:'JetBrains Mono',monospace;font-size:1.1rem;color:var(--text);min-width:16px;text-align:center}
+        .term .rm{background:none;border:none;color:var(--text3);cursor:pointer;font-size:1.1rem;line-height:1;padding:4px}
+        .term .rm:hover{color:var(--red)}
+        .term-add{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+        .term-add button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.85rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .term-add button:hover{border-color:var(--accent);color:var(--accent)}
+        .steps{list-style:none;font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--text2);line-height:1.9}
+        .steps li{padding:6px 0;border-bottom:1px dashed var(--border)}
+        .steps li:last-child{border-bottom:none}
+        .steps li .stlabel{font-family:'Noto Sans JP',sans-serif;font-size:0.75rem;color:var(--text3);margin-right:8px}
+        .error-box{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:12px 16px;font-size:0.85rem;color:var(--red);margin-bottom:16px;display:none}
+        .fbig{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 2px}
+        .fbig .fbar{height:2px;background:var(--accent);width:100%;margin:2px 0}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-146-fraction/">
+    <meta property="og:title" content="分数計算機 | 分数の四則演算を約分・通分の途中経過つきで自動計算【無料】">
+    <meta property="og:description" content="2つ以上の分数の＋−×÷を自動計算。帯分数入力に対応し、既約分数・小数・帯分数で表示。約分・通分の途中経過も確認できます。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-146-fraction/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="分数計算機【無料】">
+    <meta name="twitter:description" content="分数の四則演算を約分・通分の途中経過つきで自動計算。既約分数・小数・帯分数で表示。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"分数計算機","description":"2つ以上の分数の四則演算を約分・通分の途中経過つきで自動計算し、既約分数・小数・帯分数で表示する無料ツール","url":"https://www.devtools-japan.com/tool-146-fraction/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"分数計算機","item":"https://www.devtools-japan.com/tool-146-fraction/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"帯分数（例：2と3分の1）も計算できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。各項に整数部・分子・分母の3つの入力欄があり、整数部に2、分子に1、分母に3と入れると帯分数「2と3分の1（＝7/3）」として扱われます。整数部を空欄または0にすれば通常の真分数・仮分数として計算できます。計算結果も既約分数・小数に加えて帯分数の形で表示します。"}},{"@type":"Question","name":"計算の順序（掛け算・割り算の優先）はどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールは入力した項を左から順番に計算します。たとえば1/2＋1/3×1/4と入れた場合、四則演算の優先順位ではなく、先頭から (1/2＋1/3) を求め、その結果に ×1/4 を適用します。優先順位を明示したい場合は、先に計算したいまとまりだけを入力して結果を求め、その値を次の計算に使ってください。"}},{"@type":"Question","name":"ゼロで割るとどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"分母に0を入力した場合や、0（＝0/n）で割ろうとした場合はエラーとして扱い、計算を中止して赤いメッセージを表示します。分数は分母が0だと値が定義できず、0で割る操作も数学的に定義されないためです。分母を0以外の整数に修正すると計算が再開されます。"}},{"@type":"Question","name":"約分・通分の途中経過は見られますか？","acceptedAnswer":{"@type":"Answer","text":"はい。各ステップで、足し算・引き算のときは共通の分母（分母の積または最小公倍数）にそろえる通分の過程を表示し、その後に分子・分母を最大公約数で割る約分の過程を表示します。掛け算・割り算でも計算前後の分数と約分結果を確認できるので、途中式の学習や検算に役立ちます。"}},{"@type":"Question","name":"分数と小数の相互変換はできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。ページ下部の変換欄で、分数を入力すると小数に、小数を入力すると既約分数に変換できます。小数から分数への変換では、入力した桁数をもとに分母を10・100…として約分します。分母の素因数が2と5だけなら有限小数、それ以外を含む場合は割り切れない循環小数になる旨も表示します。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>分数計算機</h1><p>分数の四則演算（＋−×÷）を約分・通分の途中経過つきで自動計算</p></header>
+
+    <div class="card"><h3>分数を入力</h3>
+        <div id="terms"></div>
+        <div class="term-add">
+            <button type="button" onclick="addTerm('+')">＋ 項を追加</button>
+            <button type="button" onclick="resetTerms()">リセット</button>
+        </div>
+        <div style="font-size:0.72rem;color:var(--text3);margin-top:10px;line-height:1.7">各項は「整数部・分子・分母」で入力します。整数部を入れると帯分数、空欄なら通常の分数として扱います。項どうしは左から順番に計算します。</div>
+    </div>
+
+    <div class="error-box" id="errorBox"></div>
+
+    <div class="big-result">
+        <div class="headline">計算結果（既約分数）</div>
+        <div class="days"><span id="bigResult">-</span></div>
+        <div class="target" id="bigExpr">分数を入力してください</div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">帯分数</div><div class="value" id="resMixed" style="font-size:1.2rem">-</div></div>
+        <div class="result-item"><div class="label">小数</div><div class="value" id="resDecimal" style="font-size:1.2rem">-</div></div>
+    </div>
+
+    <div class="card"><h3>約分・通分の途中経過</h3>
+        <ul class="steps" id="stepList"><li>分数を入力すると、通分・約分のステップがここに表示されます。</li></ul>
+    </div>
+
+    <div class="note">項は入力順に左から計算します（掛け算・割り算を優先しません）。足し算・引き算では分母をそろえて通分し、その後に最大公約数で約分します。分母に0を入力した場合や0で割る操作はエラーとして表示します。数値は倍精度で扱うため、桁数が非常に大きい場合は丸め誤差が生じることがあります。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="card"><h3>分数 ⇄ 小数の変換</h3>
+        <div class="row"><label>分数 → 小数（分子／分母）</label>
+            <span><input type="number" id="cf_n" value="3" style="width:70px" oninput="fracToDec()"> / <input type="number" id="cf_d" value="8" style="width:70px" oninput="fracToDec()"></span>
+        </div>
+        <div class="row"><label>変換結果（小数）</label><span class="value" id="cf_out" style="font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:700">0.375</span></div>
+        <div class="row"><label>小数 → 分数</label><input type="number" id="cd_in" value="0.75" step="any" style="width:120px" oninput="decToFrac()"></div>
+        <div class="row"><label>変換結果（既約分数）</label><span class="value" id="cd_out" style="font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:700">3/4</span></div>
+    </div>
+
+    <div class="seo-content">
+        <h2>分数計算機の使い方</h2>
+        <p>分数計算機は、2つ以上の分数の足し算・引き算・掛け算・割り算（四則演算）をブラウザだけで自動計算できる無料ツールです。各項の「整数部・分子・分母」を入力し、項と項の間の演算子（＋−×÷）を選ぶだけで、結果を既約分数・小数・帯分数の3つの形で同時に表示します。インストールや会員登録は不要で、計算はすべてお使いの端末内で完結します。</p>
+        <p>整数部の欄を使えば「2と3分の1」のような帯分数もそのまま入力できます。整数部を空欄または0にすれば、2分の1のような真分数や、5分の7のような仮分数として計算されます。「項を追加」ボタンを押すと3つ目・4つ目の分数を続けて入力でき、たとえば 1/2＋1/3−1/4 のような複数項の計算も一度に行えます。</p>
+        <h3>約分・通分の途中経過</h3>
+        <p>このツールの特徴は、答えだけでなく計算の途中式を表示することです。足し算・引き算では、いったん分母をそろえる「通分」の式を示し、その後に分子と分母を最大公約数で割る「約分」の式を表示します。掛け算・割り算では、計算前後の分数と約分の結果を確認できます。宿題の見直しや検算、分数の学び直しに活用してください。</p>
+
+        <h2>分数の四則演算のルール</h2>
+        <p>分数の計算には決まったルールがあります。足し算・引き算は分母をそろえてから分子どうしを計算し、掛け算は分子どうし・分母どうしを掛け、割り算は割る数の分子と分母を入れ替えて掛けます。最後に分子と分母の最大公約数で割って既約分数にします。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>演算</th><th>計算方法</th><th>例</th></tr>
+            <tr><td>足し算 ＋</td><td>通分して分子を足す</td><td>1/2＋1/3＝3/6＋2/6＝5/6</td></tr>
+            <tr><td>引き算 −</td><td>通分して分子を引く</td><td>3/4−1/6＝9/12−2/12＝7/12</td></tr>
+            <tr><td>掛け算 ×</td><td>分子どうし・分母どうしを掛ける</td><td>2/3×3/5＝6/15＝2/5</td></tr>
+            <tr><td>割り算 ÷</td><td>逆数を掛ける</td><td>2/3÷4/9＝2/3×9/4＝3/2</td></tr>
+        </table>
+        </div>
+        <h3>帯分数・仮分数・既約分数</h3>
+        <p>帯分数は「2と3分の1」のように整数と分数を組み合わせた表し方で、仮分数（分子が分母以上の分数）に直すと7/3になります。既約分数は、分子と分母の最大公約数が1になるまで約分した、それ以上簡単にできない分数のことです。本ツールは入力を内部で仮分数に直して計算し、結果を既約分数にそろえたうえで、帯分数の形にも変換して表示します。</p>
+        <h3>分数と小数の関係</h3>
+        <p>分数は分子を分母で割ることで小数に直せます。約分後の分母の素因数が2と5だけの場合は割り切れる有限小数になり、それ以外の素因数（3や7など）を含む場合は割り切れずに同じ数字の並びが繰り返す循環小数になります。ページ下部の変換欄では、分数から小数、小数から既約分数への変換ができます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">帯分数（例：2と3分の1）も計算できますか？</div><div class="a">はい。各項に整数部・分子・分母の3つの入力欄があり、整数部に2、分子に1、分母に3と入れると帯分数「2と3分の1（＝7/3）」として扱われます。整数部を空欄または0にすれば通常の真分数・仮分数として計算できます。計算結果も既約分数・小数に加えて帯分数の形で表示します。</div></div>
+        <div class="faq-item"><div class="q">計算の順序（掛け算・割り算の優先）はどうなりますか？</div><div class="a">本ツールは入力した項を左から順番に計算します。たとえば1/2＋1/3×1/4と入れた場合、四則演算の優先順位ではなく、先頭から (1/2＋1/3) を求め、その結果に ×1/4 を適用します。優先順位を明示したい場合は、先に計算したいまとまりだけを入力して結果を求め、その値を次の計算に使ってください。</div></div>
+        <div class="faq-item"><div class="q">ゼロで割るとどうなりますか？</div><div class="a">分母に0を入力した場合や、0（＝0/n）で割ろうとした場合はエラーとして扱い、計算を中止して赤いメッセージを表示します。分数は分母が0だと値が定義できず、0で割る操作も数学的に定義されないためです。分母を0以外の整数に修正すると計算が再開されます。</div></div>
+        <div class="faq-item"><div class="q">約分・通分の途中経過は見られますか？</div><div class="a">はい。各ステップで、足し算・引き算のときは共通の分母（分母の積または最小公倍数）にそろえる通分の過程を表示し、その後に分子・分母を最大公約数で割る約分の過程を表示します。掛け算・割り算でも計算前後の分数と約分結果を確認できるので、途中式の学習や検算に役立ちます。</div></div>
+        <div class="faq-item"><div class="q">分数と小数の相互変換はできますか？</div><div class="a">はい。ページ下部の変換欄で、分数を入力すると小数に、小数を入力すると既約分数に変換できます。小数から分数への変換では、入力した桁数をもとに分母を10・100…として約分します。分母の素因数が2と5だけなら有限小数、それ以外を含む場合は割り切れない循環小数になる旨も表示します。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ===== 分数ユーティリティ =====
+function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b];}return a||1;}
+function lcm(a,b){return Math.abs(a/gcd(a,b)*b);}
+// 分数を正規化（符号は分子に集約、約分）
+function normalize(n,d){
+    if(d===0) throw new Error('分母に0は指定できません（0で割ることはできません）。');
+    if(d<0){n=-n;d=-d;}
+    const g=gcd(n,d);
+    return {n:n/g,d:d/g};
+}
+// 帯分数表示文字列
+function toMixedStr(n,d){
+    if(d===1) return String(n);
+    const sign=n<0?'-':'';
+    const an=Math.abs(n);
+    const whole=Math.floor(an/d);
+    const rem=an%d;
+    if(whole===0) return sign+rem+'/'+d;
+    if(rem===0) return sign+whole;
+    return sign+whole+'と'+rem+'/'+d;
+}
+// 小数表示（有限/循環判定つき）
+function toDecimalStr(n,d){
+    const val=n/d;
+    // 約分後の分母から2,5を取り除く
+    let rd=Math.abs(d);
+    while(rd%2===0) rd/=2;
+    while(rd%5===0) rd/=5;
+    const terminating=(rd===1);
+    let s=val.toFixed(terminating?10:12);
+    // 末尾0を除去
+    s=s.replace(/(\.\d*?)0+$/,'$1').replace(/\.$/,'');
+    return terminating?s:s+'…（循環小数）';
+}
+// 分数HTML（縦積み）
+function fracHTML(n,d){
+    if(d===1) return '<span style="font-family:JetBrains Mono,monospace">'+n+'</span>';
+    const sign=n<0?'-':'';
+    const an=Math.abs(n);
+    return sign+'<span class="fbig"><span>'+an+'</span><span class="fbar"></span><span>'+d+'</span></span>';
+}
+
+// ===== 項UI =====
+const opChars={'+':'＋','-':'−','*':'×','/':'÷'};
+let terms=[];
+function renderTerms(){
+    const box=document.getElementById('terms');
+    box.innerHTML='';
+    terms.forEach((t,i)=>{
+        const div=document.createElement('div');
+        div.className='term';
+        let opSel='';
+        if(i>0){
+            opSel='<select class="op-sel" data-i="'+i+'" data-k="op">'+
+                ['+','-','*','/'].map(o=>'<option value="'+o+'"'+(t.op===o?' selected':'')+'>'+opChars[o]+'</option>').join('')+
+                '</select>';
+        } else {
+            opSel='<span style="width:64px;text-align:center;color:var(--text3);font-size:0.85rem">項'+(i+1)+'</span>';
+        }
+        div.innerHTML=opSel+
+            '<div class="mixbox">'+
+              '<input type="number" data-i="'+i+'" data-k="w" value="'+t.w+'" placeholder="整数">'+
+              '<div class="fracstack">'+
+                '<input type="number" data-i="'+i+'" data-k="n" value="'+t.n+'" placeholder="分子">'+
+                '<div class="fbar" style="width:52px"></div>'+
+                '<input type="number" data-i="'+i+'" data-k="d" value="'+t.d+'" placeholder="分母">'+
+              '</div>'+
+            '</div>'+
+            (terms.length>2?'<button type="button" class="rm" data-rm="'+i+'" title="この項を削除">×</button>':'');
+        box.appendChild(div);
+    });
+    box.querySelectorAll('input,select').forEach(el=>{
+        el.addEventListener('input',onFieldChange);
+    });
+    box.querySelectorAll('[data-rm]').forEach(el=>{
+        el.addEventListener('click',()=>{terms.splice(parseInt(el.dataset.rm,10),1);renderTerms();compute();});
+    });
+}
+function onFieldChange(e){
+    const i=parseInt(e.target.dataset.i,10);
+    const k=e.target.dataset.k;
+    const v=e.target.value;
+    if(k==='op'){terms[i].op=v;}
+    else {terms[i][k]=(v==='')?'':v;}
+    compute();
+}
+function addTerm(op){
+    terms.push({op:op,w:'',n:'1',d:'2'});
+    renderTerms();compute();
+}
+function resetTerms(){
+    terms=[{op:'+',w:'',n:'1',d:'2'},{op:'+',w:'',n:'1',d:'3'}];
+    renderTerms();compute();
+}
+
+// 項を仮分数に変換
+function termToFrac(t){
+    let w=parseInt(t.w,10); if(isNaN(w)) w=0;
+    let n=parseInt(t.n,10); if(isNaN(n)) n=0;
+    let d=parseInt(t.d,10); if(isNaN(d)) d=1;
+    if(d===0) throw new Error('分母に0は指定できません。分母は0以外の整数を入力してください。');
+    const sign=(w<0||(w===0&&n<0))?-1:1;
+    const num=sign*(Math.abs(w)*Math.abs(d)+Math.abs(n));
+    return normalize(num,Math.abs(d));
+}
+
+// 2つの分数を演算し、ステップ文字列を返す
+function applyOp(a,b,op,steps){
+    let raw,label;
+    if(op==='+'||op==='-'){
+        const cd=a.d*b.d;
+        const an=a.n*b.d;
+        const bn=b.n*a.d;
+        const sum=(op==='+')?an+bn:an-bn;
+        steps.push('<span class="stlabel">通分</span>'+fracHTML(a.n,a.d)+' '+opChars[op]+' '+fracHTML(b.n,b.d)+' = '+fracHTML(an,cd)+' '+opChars[op]+' '+fracHTML(bn,cd)+' = '+fracHTML(sum,cd));
+        raw={n:sum,d:cd};
+    } else if(op==='*'){
+        raw={n:a.n*b.n,d:a.d*b.d};
+        steps.push('<span class="stlabel">乗算</span>'+fracHTML(a.n,a.d)+' × '+fracHTML(b.n,b.d)+' = '+fracHTML(raw.n,raw.d));
+    } else {
+        if(b.n===0) throw new Error('0で割ることはできません（'+fracHTML(b.n,b.d).replace(/<[^>]+>/g,'')+' で除算しようとしました）。');
+        raw={n:a.n*b.d,d:a.d*b.n};
+        steps.push('<span class="stlabel">除算</span>'+fracHTML(a.n,a.d)+' ÷ '+fracHTML(b.n,b.d)+' = '+fracHTML(a.n,a.d)+' × '+fracHTML(b.d,b.n)+' = '+fracHTML(raw.n,raw.d));
+    }
+    const norm=normalize(raw.n,raw.d);
+    if(norm.n!==raw.n||norm.d!==raw.d){
+        const g=gcd(raw.n,raw.d);
+        steps.push('<span class="stlabel">約分</span>'+fracHTML(raw.n,raw.d)+' → 分子・分母を '+g+' で割って → '+fracHTML(norm.n,norm.d));
+    }
+    return norm;
+}
+
+function showError(msg){
+    const eb=document.getElementById('errorBox');
+    eb.textContent='エラー：'+msg;
+    eb.style.display='block';
+    document.getElementById('bigResult').textContent='-';
+    document.getElementById('bigExpr').textContent='入力を修正してください';
+    document.getElementById('resMixed').textContent='-';
+    document.getElementById('resDecimal').textContent='-';
+    document.getElementById('stepList').innerHTML='<li>入力エラーのため計算を中止しました。</li>';
+}
+function clearError(){document.getElementById('errorBox').style.display='none';}
+
+function compute(){
+    try{
+        clearError();
+        const steps=[];
+        let acc=termToFrac(terms[0]);
+        const exprParts=[toMixedStr(acc.n,acc.d)];
+        for(let i=1;i<terms.length;i++){
+            const b=termToFrac(terms[i]);
+            exprParts.push(opChars[terms[i].op]+' '+toMixedStr(b.n,b.d));
+            acc=applyOp(acc,b,terms[i].op,steps);
+        }
+        document.getElementById('bigResult').innerHTML=fracHTML(acc.n,acc.d);
+        document.getElementById('bigExpr').textContent=exprParts.join(' ')+' =';
+        document.getElementById('resMixed').textContent=toMixedStr(acc.n,acc.d);
+        document.getElementById('resDecimal').textContent=toDecimalStr(acc.n,acc.d);
+        const sl=document.getElementById('stepList');
+        if(steps.length===0){
+            sl.innerHTML='<li>1つの分数だけなので、約分後の値をそのまま表示しています。</li>';
+        } else {
+            sl.innerHTML=steps.map(s=>'<li>'+s+'</li>').join('');
+        }
+    }catch(err){
+        showError(err.message);
+    }
+}
+
+// ===== 分数⇔小数 変換 =====
+function fracToDec(){
+    const n=parseFloat(document.getElementById('cf_n').value);
+    const d=parseFloat(document.getElementById('cf_d').value);
+    const out=document.getElementById('cf_out');
+    if(isNaN(n)||isNaN(d)){out.textContent='-';return;}
+    if(d===0){out.textContent='0では割れません';out.style.color='var(--red)';return;}
+    out.style.color='var(--accent)';
+    out.textContent=toDecimalStr(n,d);
+}
+function decToFrac(){
+    const raw=document.getElementById('cd_in').value.trim();
+    const out=document.getElementById('cd_out');
+    if(raw===''){out.textContent='-';return;}
+    const val=parseFloat(raw);
+    if(isNaN(val)){out.textContent='-';return;}
+    out.style.color='var(--accent)';
+    const dot=raw.indexOf('.');
+    const decimals=(dot<0)?0:(raw.length-dot-1);
+    let den=Math.pow(10,decimals);
+    let num=Math.round(val*den);
+    const norm=normalize(num,den);
+    out.textContent=toMixedStr(norm.n,norm.d)+'（'+norm.n+'/'+norm.d+'）';
+}
+
+// ===== 初期化 =====
+resetTerms();
+fracToDec();
+decToFrac();
+</script>
+</body>
+</html>

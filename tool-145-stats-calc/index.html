@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数値の統計・平均・中央値計算ツール | 合計・分散・標準偏差を一括計算【無料】</title>
+    <meta name="description" content="数値の並びを貼り付けるだけで、件数・合計・平均・中央値・最頻値・最小・最大・範囲・分散・標準偏差（母集団/標本）を一括計算する無料ツール。カンマ・空白・改行区切りに対応し、ヒストグラム表示と結果コピーもできます。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        textarea{width:100%;min-height:120px;padding:12px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.9rem;line-height:1.7;outline:none;resize:vertical}
+        textarea:focus{border-color:var(--accent)}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .stat-table{width:100%;border-collapse:collapse;font-size:0.85rem}
+        .stat-table th{text-align:left;padding:10px 12px;background:var(--bg);border:1px solid var(--border);color:var(--text2);font-weight:500;width:45%}
+        .stat-table td{text-align:right;padding:10px 12px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;color:var(--text);font-weight:500}
+        .hist{margin-top:8px}
+        .hist-bar{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+        .hist-bar .rng{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text3);width:130px;text-align:right;flex-shrink:0}
+        .hist-bar .track{flex:1;background:#f0f1f6;border-radius:4px;overflow:hidden;height:20px}
+        .hist-bar .fill{height:100%;background:var(--accent);border-radius:4px;min-width:2px}
+        .hist-bar .cnt{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text2);width:28px;flex-shrink:0}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.ghost{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-145-stats-calc/">
+    <meta property="og:title" content="数値の統計・平均・中央値計算ツール | 分散・標準偏差を一括計算【無料】">
+    <meta property="og:description" content="数値の並びを貼り付けるだけで平均・中央値・最頻値・分散・標準偏差を一括計算。ヒストグラム表示とコピーに対応。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-145-stats-calc/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="数値の統計・平均・中央値計算ツール【無料】">
+    <meta name="twitter:description" content="平均・中央値・最頻値・分散・標準偏差を一括計算。ヒストグラム表示とコピーに対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"数値の統計・平均・中央値計算ツール","description":"数値リストから平均・中央値・分散・標準偏差などを一括計算する無料ツール","url":"https://www.devtools-japan.com/tool-145-stats-calc/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"数値の統計・平均・中央値計算ツール","item":"https://www.devtools-japan.com/tool-145-stats-calc/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"どんな区切りの数値を貼り付けられますか？","acceptedAnswer":{"@type":"Answer","text":"カンマ区切り・空白区切り・改行区切りのいずれにも対応しています。これらが混在していても構いません。例えば表計算ソフトの1列をコピーした改行区切りのデータや、CSVの1行をコピーしたカンマ区切りのデータをそのまま貼り付けて計算できます。数値として解釈できない文字列は自動的に無視され、無視した個数を画面に表示します。"}},{"@type":"Question","name":"平均と中央値と最頻値は何が違いますか？","acceptedAnswer":{"@type":"Answer","text":"平均（算術平均）は全ての値の合計を件数で割った値で、代表値として最も一般的です。中央値は値を小さい順に並べたときの真ん中の値で、件数が偶数のときは中央2つの平均になります。最頻値は最も多く出現する値です。極端に大きい・小さい外れ値があると平均は引っ張られやすいため、中央値と合わせて確認すると分布の偏りを把握しやすくなります。"}},{"@type":"Question","name":"母集団の標準偏差と標本の標準偏差はどちらを使えばよいですか？","acceptedAnswer":{"@type":"Answer","text":"データが対象全体をすべて含む場合は母集団の標準偏差（nで割る）を、全体から抽出した一部の標本から全体を推定したい場合は標本の標準偏差（n-1で割る、不偏標準偏差）を使います。本ツールは両方を同時に表示するので、目的に合わせて選べます。一般的なアンケートや実験データの多くは標本の標準偏差が使われます。"}},{"@type":"Question","name":"入力したデータはサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。すべての計算はお使いのブラウザ内（JavaScript）で完結し、入力した数値がサーバーへ送信・保存されることはありません。会員登録やインストールも不要で、機密性のある社内データや個人的な数値でも安心してご利用いただけます。ページを閉じれば入力内容は残りません。"}},{"@type":"Question","name":"何件くらいまでの数値を計算できますか？","acceptedAnswer":{"@type":"Answer","text":"数千〜数万件程度であればブラウザ上で問題なく計算できます。件数が非常に多い場合は端末の性能により表示が重くなることがありますが、平均・中央値・分散などの計算自体は正確に行われます。ヒストグラムは自動的に階級（ビン）へ振り分けて表示するため、件数が多くても分布の形を把握できます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>数値の統計・平均・中央値計算</h1><p>数値リストから平均・中央値・分散・標準偏差を一括計算</p></header>
+
+    <div class="card"><h3>数値を入力</h3>
+        <textarea id="dataInput" placeholder="例: 12, 15, 20, 20, 34&#10;カンマ・空白・改行区切りに対応" oninput="calcStats()"></textarea>
+        <div class="preset-row" style="margin-top:12px">
+            <button onclick="loadSample()">サンプル数列を入力</button>
+            <button onclick="clearData()">クリア</button>
+        </div>
+        <div class="row" style="margin-top:8px"><label>結果の小数桁数</label><input type="number" id="decimals" value="4" min="0" max="10" step="1" oninput="calcStats()"></div>
+    </div>
+
+    <div class="big-result">
+        <div class="headline">平均（算術平均）</div>
+        <div class="days"><span id="bigMean">-</span></div>
+        <div class="target" id="countLabel">数値を入力してください</div>
+    </div>
+
+    <div class="card"><h3>統計サマリー</h3>
+        <table class="stat-table">
+            <tbody id="statBody"></tbody>
+        </table>
+        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn ghost" onclick="copyTable()">結果テーブルをコピー</button>
+            <span id="copyMsg" style="font-size:0.75rem;color:var(--green);align-self:center"></span>
+        </div>
+    </div>
+
+    <div class="card"><h3>ヒストグラム（度数分布）</h3>
+        <div class="hist" id="hist"></div>
+    </div>
+
+    <div class="note">数値として解釈できない値は自動的に除外し、無視した個数を表示します。標準偏差・分散は母集団（nで割る）と標本（n-1で割る、不偏）の両方を計算します。すべての計算はお使いのブラウザ内で行われ、入力データが送信されることはありません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>数値統計計算ツールの使い方</h2>
+        <p>テキストエリアに数値の並びを貼り付けるだけで、件数・合計・平均（算術平均）・中央値・最頻値・最小・最大・範囲・分散・標準偏差を瞬時に一括計算する無料ツールです。区切りはカンマ・空白・改行のいずれにも対応し、混在していても問題ありません。表計算ソフトの1列やCSVの1行をそのままコピーして貼り付けられます。インストールや会員登録は不要で、すべての計算はお使いの端末内（ブラウザ）で完結します。</p>
+        <p>使い方はかんたんです。「数値を入力」欄にデータを貼り付けると、平均が画面上部に大きく表示され、その下の統計サマリーに各指標が一覧で並びます。小数桁数を変更すれば表示精度を調整でき、「結果テーブルをコピー」ボタンで指標一覧をまとめてクリップボードに保存できます。さらにヒストグラム（度数分布）で、データがどのあたりに集まっているかを棒グラフで視覚的に確認できます。</p>
+        <h3>こんな用途に</h3>
+        <p>テストの点数やアンケートのスコア集計、実験・計測データのばらつき確認、売上や在庫数値の平均把握、レポートや論文用の基礎統計量の算出などに便利です。平均だけでなく中央値・最頻値・標準偏差を同時に見ることで、データの中心とばらつきの両面から分布を素早く理解できます。</p>
+
+        <h2>各統計量の意味</h2>
+        <p>本ツールが計算する主な統計量とその意味は次のとおりです。用途に応じて代表値（平均・中央値・最頻値）とばらつき（分散・標準偏差・範囲）を組み合わせて読み解いてください。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>統計量</th><th>意味</th></tr>
+            <tr><td>平均（算術平均）</td><td>すべての値の合計を件数で割った代表値。外れ値の影響を受けやすい</td></tr>
+            <tr><td>中央値</td><td>小さい順に並べた真ん中の値。偶数件のときは中央2つの平均。外れ値に強い</td></tr>
+            <tr><td>最頻値</td><td>最も多く出現する値。複数ある場合はすべて表示</td></tr>
+            <tr><td>範囲</td><td>最大値から最小値を引いた値。データの広がりの目安</td></tr>
+            <tr><td>分散</td><td>平均からの散らばりの大きさ。母集団はnで、標本はn-1で割る</td></tr>
+            <tr><td>標準偏差</td><td>分散の平方根。元データと同じ単位でばらつきを表す</td></tr>
+        </table>
+        </div>
+        <h3>母集団と標本の違い</h3>
+        <p>分散と標準偏差には、対象全体をすべて含む「母集団」の値（偏差平方和をnで割る）と、一部を抜き出した「標本」から全体を推定する値（n-1で割る、不偏分散・不偏標準偏差）があります。調査対象すべてのデータがそろっているなら母集団、抽出した一部から全体を見積もりたいなら標本を選びます。本ツールは両方を同時に表示するため、目的に合わせて使い分けられます。一般的な実験やアンケートの分析では標本（n-1）がよく使われます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">どんな区切りの数値を貼り付けられますか？</div><div class="a">カンマ区切り・空白区切り・改行区切りのいずれにも対応しています。これらが混在していても構いません。例えば表計算ソフトの1列をコピーした改行区切りのデータや、CSVの1行をコピーしたカンマ区切りのデータをそのまま貼り付けて計算できます。数値として解釈できない文字列は自動的に無視され、無視した個数を画面に表示します。</div></div>
+        <div class="faq-item"><div class="q">平均と中央値と最頻値は何が違いますか？</div><div class="a">平均（算術平均）は全ての値の合計を件数で割った値で、代表値として最も一般的です。中央値は値を小さい順に並べたときの真ん中の値で、件数が偶数のときは中央2つの平均になります。最頻値は最も多く出現する値です。極端に大きい・小さい外れ値があると平均は引っ張られやすいため、中央値と合わせて確認すると分布の偏りを把握しやすくなります。</div></div>
+        <div class="faq-item"><div class="q">母集団の標準偏差と標本の標準偏差はどちらを使えばよいですか？</div><div class="a">データが対象全体をすべて含む場合は母集団の標準偏差（nで割る）を、全体から抽出した一部の標本から全体を推定したい場合は標本の標準偏差（n-1で割る、不偏標準偏差）を使います。本ツールは両方を同時に表示するので、目的に合わせて選べます。一般的なアンケートや実験データの多くは標本の標準偏差が使われます。</div></div>
+        <div class="faq-item"><div class="q">入力したデータはサーバーに送信されますか？</div><div class="a">いいえ。すべての計算はお使いのブラウザ内（JavaScript）で完結し、入力した数値がサーバーへ送信・保存されることはありません。会員登録やインストールも不要で、機密性のある社内データや個人的な数値でも安心してご利用いただけます。ページを閉じれば入力内容は残りません。</div></div>
+        <div class="faq-item"><div class="q">何件くらいまでの数値を計算できますか？</div><div class="a">数千〜数万件程度であればブラウザ上で問題なく計算できます。件数が非常に多い場合は端末の性能により表示が重くなることがありますが、平均・中央値・分散などの計算自体は正確に行われます。ヒストグラムは自動的に階級（ビン）へ振り分けて表示するため、件数が多くても分布の形を把握できます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-51-business-day-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">営業日計算</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+const SAMPLE = '12, 15, 18, 20, 20, 22, 25, 27, 30, 34, 34, 40';
+
+function parseNumbers(raw){
+    const tokens = raw.split(/[\s,]+/).filter(function(s){ return s.length > 0; });
+    const nums = [];
+    let ignored = 0;
+    tokens.forEach(function(tok){
+        const v = Number(tok);
+        if (tok !== '' && isFinite(v)){
+            nums.push(v);
+        } else {
+            ignored++;
+        }
+    });
+    return { nums: nums, ignored: ignored };
+}
+
+function fmt(x, d){
+    if (!isFinite(x)) return '-';
+    const r = Number(x.toFixed(d));
+    return r.toLocaleString('ja-JP', { maximumFractionDigits: d });
+}
+
+function computeStats(nums){
+    const n = nums.length;
+    const sorted = nums.slice().sort(function(a,b){ return a - b; });
+    let sum = 0;
+    for (let i = 0; i < n; i++) sum += nums[i];
+    const mean = sum / n;
+    let median;
+    if (n % 2 === 1){
+        median = sorted[(n - 1) / 2];
+    } else {
+        median = (sorted[n/2 - 1] + sorted[n/2]) / 2;
+    }
+    const freq = {};
+    let maxFreq = 0;
+    for (let i = 0; i < n; i++){
+        const k = nums[i];
+        freq[k] = (freq[k] || 0) + 1;
+        if (freq[k] > maxFreq) maxFreq = freq[k];
+    }
+    let modes = [];
+    if (maxFreq > 1){
+        for (const k in freq){ if (freq[k] === maxFreq) modes.push(Number(k)); }
+        modes.sort(function(a,b){ return a - b; });
+    }
+    const min = sorted[0];
+    const max = sorted[n - 1];
+    const range = max - min;
+    let sq = 0;
+    for (let i = 0; i < n; i++){ const dd = nums[i] - mean; sq += dd * dd; }
+    const varPop = sq / n;
+    const varSample = n > 1 ? sq / (n - 1) : NaN;
+    const sdPop = Math.sqrt(varPop);
+    const sdSample = n > 1 ? Math.sqrt(varSample) : NaN;
+    return { n: n, sum: sum, mean: mean, median: median, modes: modes, maxFreq: maxFreq,
+             min: min, max: max, range: range, varPop: varPop, varSample: varSample,
+             sdPop: sdPop, sdSample: sdSample, sorted: sorted };
+}
+
+let lastRows = [];
+
+function calcStats(){
+    const raw = document.getElementById('dataInput').value;
+    const d = Math.max(0, Math.min(10, parseInt(document.getElementById('decimals').value, 10) || 0));
+    const parsed = parseNumbers(raw);
+    let nums = parsed.nums;
+    let usingSample = false;
+    if (nums.length === 0){
+        nums = parseNumbers(SAMPLE).nums;
+        usingSample = true;
+    }
+    const s = computeStats(nums);
+    document.getElementById('bigMean').textContent = fmt(s.mean, d);
+
+    let countLabel = '件数 ' + s.n + '件';
+    if (usingSample){
+        countLabel += '（サンプル数列を表示中）';
+    } else if (parsed.ignored > 0){
+        countLabel += ' / 無視した値 ' + parsed.ignored + '個';
+    }
+    document.getElementById('countLabel').textContent = countLabel;
+
+    let modeText;
+    if (s.modes.length === 0){
+        modeText = 'なし（全て1回）';
+    } else if (s.modes.length > 6){
+        modeText = s.modes.slice(0, 6).map(function(m){ return fmt(m, d); }).join(', ') + ' 他 (各' + s.maxFreq + '回)';
+    } else {
+        modeText = s.modes.map(function(m){ return fmt(m, d); }).join(', ') + ' (各' + s.maxFreq + '回)';
+    }
+
+    lastRows = [
+        ['件数 (n)', String(s.n)],
+        ['合計', fmt(s.sum, d)],
+        ['平均 (算術平均)', fmt(s.mean, d)],
+        ['中央値', fmt(s.median, d)],
+        ['最頻値', modeText],
+        ['最小値', fmt(s.min, d)],
+        ['最大値', fmt(s.max, d)],
+        ['範囲', fmt(s.range, d)],
+        ['分散 (母集団)', fmt(s.varPop, d)],
+        ['分散 (標本 n-1)', fmt(s.varSample, d)],
+        ['標準偏差 (母集団)', fmt(s.sdPop, d)],
+        ['標準偏差 (標本 n-1)', fmt(s.sdSample, d)]
+    ];
+
+    const body = document.getElementById('statBody');
+    body.innerHTML = '';
+    lastRows.forEach(function(r){
+        const tr = document.createElement('tr');
+        const th = document.createElement('th');
+        th.textContent = r[0];
+        const td = document.createElement('td');
+        td.textContent = r[1];
+        tr.appendChild(th);
+        tr.appendChild(td);
+        body.appendChild(tr);
+    });
+
+    renderHistogram(s);
+    document.getElementById('copyMsg').textContent = '';
+}
+
+function renderHistogram(s){
+    const host = document.getElementById('hist');
+    host.innerHTML = '';
+    const n = s.n;
+    if (n === 0){ return; }
+    let bins = Math.min(12, Math.max(1, Math.ceil(Math.sqrt(n))));
+    const min = s.min;
+    const max = s.max;
+    const counts = new Array(bins).fill(0);
+    let width = (max - min) / bins;
+    if (width === 0){
+        counts[0] = n;
+        bins = 1;
+        width = 1;
+    } else {
+        s.sorted.forEach(function(v){
+            let idx = Math.floor((v - min) / width);
+            if (idx >= bins) idx = bins - 1;
+            if (idx < 0) idx = 0;
+            counts[idx]++;
+        });
+    }
+    const maxCount = Math.max.apply(null, counts);
+    for (let i = 0; i < bins; i++){
+        const lo = min + width * i;
+        const hi = (i === bins - 1) ? max : min + width * (i + 1);
+        const bar = document.createElement('div');
+        bar.className = 'hist-bar';
+        const rng = document.createElement('div');
+        rng.className = 'rng';
+        rng.textContent = fmt(lo, 1) + '〜' + fmt(hi, 1);
+        const track = document.createElement('div');
+        track.className = 'track';
+        const fill = document.createElement('div');
+        fill.className = 'fill';
+        fill.style.width = (maxCount > 0 ? (counts[i] / maxCount * 100) : 0) + '%';
+        track.appendChild(fill);
+        const cnt = document.createElement('div');
+        cnt.className = 'cnt';
+        cnt.textContent = counts[i];
+        bar.appendChild(rng);
+        bar.appendChild(track);
+        bar.appendChild(cnt);
+        host.appendChild(bar);
+    }
+}
+
+function copyTable(){
+    const text = lastRows.map(function(r){ return r[0] + '\t' + r[1]; }).join('\n');
+    const msg = document.getElementById('copyMsg');
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){
+            msg.textContent = 'コピーしました';
+        }, function(){
+            msg.textContent = 'コピーに失敗しました';
+        });
+    } else {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); msg.textContent = 'コピーしました'; }
+        catch (e) { msg.textContent = 'コピーに失敗しました'; }
+        document.body.removeChild(ta);
+    }
+}
+
+function loadSample(){
+    document.getElementById('dataInput').value = SAMPLE;
+    calcStats();
+}
+
+function clearData(){
+    document.getElementById('dataInput').value = '';
+    calcStats();
+}
+
+calcStats();
+</script>
+</body>
+</html>

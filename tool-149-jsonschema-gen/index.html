@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Schema ジェネレーター | サンプルJSONから型を推論してスキーマ自動生成【無料】</title>
+    <meta name="description" content="サンプルのJSONを貼り付けるだけで、その構造からJSON Schema（draft-07 / 2020-12）を自動生成する無料ツール。型推定・required自動付与・配列要素のマージ・ネスト対応。生成したスキーマはコピー・ダウンロードできます。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input[type=text],.row select{width:220px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .row input[type=text]:focus,.row select:focus{border-color:var(--accent)}
+        .switch{position:relative;display:inline-block;width:46px;height:26px}
+        .switch input{opacity:0;width:0;height:0}
+        .slider{position:absolute;cursor:pointer;inset:0;background:#d4d7e4;border-radius:26px;transition:0.2s}
+        .slider:before{content:"";position:absolute;height:20px;width:20px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:0.2s}
+        .switch input:checked + .slider{background:var(--accent)}
+        .switch input:checked + .slider:before{transform:translateX(20px)}
+        textarea{width:100%;min-height:220px;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.82rem;line-height:1.6;outline:none;resize:vertical}
+        textarea:focus{border-color:var(--accent)}
+        .output-box{width:100%;min-height:220px;padding:14px;background:#1e1e35;border:1px solid var(--border);border-radius:8px;color:#e8e9f3;font-family:'JetBrains Mono',monospace;font-size:0.82rem;line-height:1.6;white-space:pre;overflow:auto}
+        .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+        .btn{padding:10px 20px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.sub{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.sub:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+        .error-box{display:none;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:12px 16px;font-size:0.82rem;color:var(--red);margin-bottom:16px;font-family:'JetBrains Mono',monospace}
+        .status-line{font-size:0.75rem;color:var(--text3);margin-top:10px}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input[type=text],.row select{width:100%}}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-149-jsonschema-gen/">
+    <meta property="og:title" content="JSON Schema ジェネレーター | サンプルJSONから型を推論してスキーマ自動生成【無料】">
+    <meta property="og:description" content="サンプルのJSONを貼り付けるだけでJSON Schema（draft-07 / 2020-12）を自動生成。型推定・required自動付与・ネスト対応。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-149-jsonschema-gen/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="JSON Schema ジェネレーター【無料】">
+    <meta name="twitter:description" content="サンプルJSONから型を推論してJSON Schemaを自動生成。コピー・ダウンロード対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"JSON Schema ジェネレーター","description":"サンプルのJSONからJSON Schema（draft-07 / 2020-12）を推論生成する無料ツール","url":"https://www.devtools-japan.com/tool-149-jsonschema-gen/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"JSON Schema ジェネレーター","item":"https://www.devtools-japan.com/tool-149-jsonschema-gen/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"JSON Schema とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"JSON Schema は、JSONデータがどのような構造・型を持つべきかを記述するための仕様です。プロパティ名や型（string / number / boolean など）、必須フィールド、ネストした構造などをスキーマとして定義しておくことで、受け取ったJSONが期待どおりの形かどうかを機械的に検証（バリデーション）できます。APIの入出力定義やフォーム検証、設定ファイルの妥当性チェックなどに広く使われています。"}},{"@type":"Question","name":"draft-07 と 2020-12 の違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"どちらもJSON Schemaのバージョン（ドラフト）で、$schema に指定するURIが異なります。draft-07 は長く使われてきた安定版で対応ツールが非常に多く、2020-12 はより新しく items の扱いや $dynamicRef など機能が拡張されています。本ツールは基本構造（type・properties・required・items）を出力するため、どちらのドラフトを選んでも生成される骨組みは同じで、先頭の $schema の値だけが切り替わります。利用先のバリデータが対応しているバージョンを選んでください。"}},{"@type":"Question","name":"required は自動で付きますか？","acceptedAnswer":{"@type":"Answer","text":"「required を自動付与」をオンにすると、サンプルJSONに存在するオブジェクトのキーをすべて必須（required）として出力します。配列内に複数のオブジェクトがある場合は、すべての要素に共通して現れたキーだけを required にまとめます。すべてのフィールドを任意にしたい場合はトグルをオフにしてください。生成後にスキーマを直接編集して、必要なフィールドだけを required 配列に残すこともできます。"}},{"@type":"Question","name":"配列の要素はどのように扱われますか？","acceptedAnswer":{"@type":"Answer","text":"配列は type が array のスキーマになり、その要素の型は items に推論されます。要素がオブジェクトの配列であれば、全要素のプロパティをマージして一つの items スキーマを作ります。数値と整数が混在する場合は number にまとめるなど、できるだけ一つの型に統合します。型が大きく異なる要素が混在する場合は、複数の型を配列で表現します。空の配列は要素の型を推論できないため items を付けずに array とだけ出力します。"}},{"@type":"Question","name":"生成したスキーマはそのまま使えますか？","acceptedAnswer":{"@type":"Answer","text":"生成されるスキーマは、貼り付けたサンプルJSONの構造から型を推論した「たたき台」です。基本的な type・properties・required・items を備えているため多くのバリデータでそのまま利用できますが、文字列の書式（format）、数値の範囲（minimum / maximum）、必須の細かな指定などは含まれません。生成結果をコピーまたはダウンロードしたうえで、用途に合わせて制約を追記して仕上げることをおすすめします。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>JSON Schema ジェネレーター</h1><p>サンプルJSONから型を推論してスキーマを自動生成</p></header>
+
+    <div class="card"><h3>生成オプション</h3>
+        <div class="row"><label>ドラフト（$schema）</label>
+            <select id="draft">
+                <option value="draft-07">draft-07（推奨・互換性高）</option>
+                <option value="2020-12">2020-12（最新）</option>
+            </select>
+        </div>
+        <div class="row"><label>title（任意）</label><input type="text" id="titleInput" placeholder="例: User"></div>
+        <div class="row"><label>required を自動付与</label>
+            <label class="switch"><input type="checkbox" id="reqToggle" checked><span class="slider"></span></label>
+        </div>
+    </div>
+
+    <div class="card"><h3>サンプルJSONを貼り付け</h3>
+        <textarea id="jsonInput" spellcheck="false" placeholder="ここにサンプルのJSONを貼り付けてください"></textarea>
+        <div class="btn-row">
+            <button class="btn" id="genBtn">スキーマを生成</button>
+            <button class="btn sub" id="sampleBtn">サンプルを挿入</button>
+            <button class="btn sub" id="clearBtn">クリア</button>
+        </div>
+    </div>
+
+    <div class="error-box" id="errorBox"></div>
+
+    <div class="card"><h3>生成された JSON Schema</h3>
+        <div class="output-box" id="outputBox"></div>
+        <div class="btn-row">
+            <button class="btn" id="copyBtn">コピー</button>
+            <button class="btn sub" id="downloadBtn">ダウンロード（.json）</button>
+        </div>
+        <div class="status-line" id="statusLine"></div>
+    </div>
+
+    <div class="note">生成されるスキーマは貼り付けたサンプルJSONの構造から型を推論したたたき台です。format・数値範囲・詳細な必須指定などは含まれないため、用途に合わせて調整してください。入力が空の場合はサンプルJSONの結果を表示します。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>JSON Schema ジェネレーターの使い方</h2>
+        <p>サンプルのJSONを貼り付けるだけで、その構造からJSON Schemaを自動生成する無料ツールです。API開発やフォーム検証、設定ファイルの妥当性チェックなどで必要になるスキーマの「たたき台」を、手書きせずに素早く用意できます。インストールや会員登録は不要で、すべての処理はお使いのブラウザ内で完結します。貼り付けたJSONが外部に送信されることはありません。</p>
+        <p>使い方はかんたんです。入力欄にサンプルのJSONを貼り付け、「スキーマを生成」を押すだけで、下に整形されたJSON Schemaが表示されます。ドラフトは draft-07（デフォルト）と 2020-12 から選べ、title の指定や required の自動付与もワンタッチで切り替えられます。生成したスキーマはコピーやダウンロードができるので、そのままプロジェクトに取り込めます。</p>
+        <h3>主な機能</h3>
+        <p>型推定（string / number / integer / boolean / object / array / null）、オブジェクトのキーからの required 自動付与、配列要素のマージ、ネストした構造への対応に対応しています。整数と小数を判別し、整数値には integer、小数を含む値には number を割り当てます。オブジェクトの配列では全要素のプロパティを統合し、共通して現れるキーだけを required にまとめます。</p>
+
+        <h2>型推論のしくみ</h2>
+        <p>本ツールは、貼り付けられたJSONの各値を再帰的にたどり、値の種類に応じてスキーマの type を決定します。オブジェクトは properties にキーごとのスキーマを展開し、配列は items に要素のスキーマを推論します。ネストが深い構造でも、内側まで再帰的にたどってスキーマ化します。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>JSONの値</th><th>推論される type</th><th>補足</th></tr>
+            <tr><td>"文字列"</td><td>string</td><td>すべての文字列は string</td></tr>
+            <tr><td>整数（例 123）</td><td>integer</td><td>小数点を含まない数値</td></tr>
+            <tr><td>小数（例 98.5）</td><td>number</td><td>小数を含む数値</td></tr>
+            <tr><td>true / false</td><td>boolean</td><td>真偽値</td></tr>
+            <tr><td>{ ... }</td><td>object</td><td>properties と required を生成</td></tr>
+            <tr><td>[ ... ]</td><td>array</td><td>items に要素の型を推論</td></tr>
+            <tr><td>null</td><td>null</td><td>値が null の場合</td></tr>
+        </table>
+        </div>
+        <h3>配列とオブジェクトのマージ</h3>
+        <p>オブジェクトの配列では、全要素のプロパティを一つの items スキーマに統合します。required を自動付与している場合は、すべての要素に共通して現れたキーだけを required にまとめるため、要素によって有無が変わるフィールドは任意扱いになります。数値と整数が混在する配列は number に統合し、大きく型が異なる要素が混在する場合は複数の型を配列で表現します。空配列は要素の型を推論できないため、items を付けずに array とだけ出力します。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">JSON Schema とは何ですか？</div><div class="a">JSON Schema は、JSONデータがどのような構造・型を持つべきかを記述するための仕様です。プロパティ名や型（string / number / boolean など）、必須フィールド、ネストした構造などをスキーマとして定義しておくことで、受け取ったJSONが期待どおりの形かどうかを機械的に検証（バリデーション）できます。APIの入出力定義やフォーム検証、設定ファイルの妥当性チェックなどに広く使われています。</div></div>
+        <div class="faq-item"><div class="q">draft-07 と 2020-12 の違いは何ですか？</div><div class="a">どちらもJSON Schemaのバージョン（ドラフト）で、$schema に指定するURIが異なります。draft-07 は長く使われてきた安定版で対応ツールが非常に多く、2020-12 はより新しく items の扱いや $dynamicRef など機能が拡張されています。本ツールは基本構造を出力するため、どちらのドラフトを選んでも生成される骨組みは同じで、先頭の $schema の値だけが切り替わります。</div></div>
+        <div class="faq-item"><div class="q">required は自動で付きますか？</div><div class="a">「required を自動付与」をオンにすると、サンプルJSONに存在するオブジェクトのキーをすべて必須として出力します。配列内に複数のオブジェクトがある場合は、すべての要素に共通して現れたキーだけを required にまとめます。すべてのフィールドを任意にしたい場合はトグルをオフにしてください。</div></div>
+        <div class="faq-item"><div class="q">配列の要素はどのように扱われますか？</div><div class="a">配列は type が array のスキーマになり、その要素の型は items に推論されます。要素がオブジェクトの配列であれば、全要素のプロパティをマージして一つの items スキーマを作ります。数値と整数が混在する場合は number にまとめるなど、できるだけ一つの型に統合します。空の配列は要素の型を推論できないため items を付けずに array とだけ出力します。</div></div>
+        <div class="faq-item"><div class="q">生成したスキーマはそのまま使えますか？</div><div class="a">生成されるスキーマは、貼り付けたサンプルJSONの構造から型を推論したたたき台です。基本的な type・properties・required・items を備えているため多くのバリデータでそのまま利用できますが、文字列の書式や数値の範囲などは含まれません。生成結果をコピーまたはダウンロードしたうえで、用途に合わせて制約を追記して仕上げることをおすすめします。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-1-json-formatter/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">JSON整形</a><a href="/tool-2-json-yaml/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">JSON/YAML変換</a><a href="/tool-3-jwt-decoder/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">JWTデコーダー</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+var SAMPLE_JSON = {
+  "id": 123,
+  "name": "山田太郎",
+  "email": "taro@example.com",
+  "isActive": true,
+  "score": 98.5,
+  "tags": ["admin", "user"],
+  "address": {
+    "city": "東京",
+    "zip": "100-0001"
+  },
+  "roles": [
+    {"id": 1, "label": "編集者"},
+    {"id": 2, "label": "閲覧者"}
+  ],
+  "note": null
+};
+var SAMPLE_TEXT = JSON.stringify(SAMPLE_JSON, null, 2);
+
+var DRAFT_URI = {
+  "draft-07": "http://json-schema.org/draft-07/schema#",
+  "2020-12": "https://json-schema.org/draft/2020-12/schema"
+};
+
+function getReq(){ return document.getElementById('reqToggle').checked; }
+
+// 単一の値からスキーマを推論
+function inferSchema(value, addReq){
+  if (value === null) return {type:"null"};
+  if (Array.isArray(value)){
+    var s = {type:"array"};
+    if (value.length > 0){
+      var items = value.map(function(v){ return inferSchema(v, addReq); });
+      s.items = mergeSchemas(items, addReq);
+    }
+    return s;
+  }
+  var t = typeof value;
+  if (t === "object"){
+    var os = {type:"object"};
+    var props = {};
+    var req = [];
+    var keys = Object.keys(value);
+    for (var i=0;i<keys.length;i++){
+      props[keys[i]] = inferSchema(value[keys[i]], addReq);
+      req.push(keys[i]);
+    }
+    os.properties = props;
+    if (addReq && req.length) os.required = req;
+    return os;
+  }
+  if (t === "number"){
+    return Number.isInteger(value) ? {type:"integer"} : {type:"number"};
+  }
+  if (t === "boolean") return {type:"boolean"};
+  return {type:"string"};
+}
+
+// 複数スキーマ（配列要素など）を1つにマージ
+function mergeSchemas(list, addReq){
+  var types = {};
+  for (var i=0;i<list.length;i++){
+    if (list[i] && list[i].type) types[list[i].type] = true;
+  }
+  var typeArr = Object.keys(types);
+
+  // オブジェクトのマージ
+  if (typeArr.length === 1 && typeArr[0] === "object"){
+    var objs = list.filter(function(s){ return s.type === "object"; });
+    var merged = {type:"object", properties:{}};
+    var propLists = {};
+    var reqCount = {};
+    for (var j=0;j<objs.length;j++){
+      var p = objs[j].properties || {};
+      var pk = Object.keys(p);
+      for (var k=0;k<pk.length;k++){
+        (propLists[pk[k]] = propLists[pk[k]] || []).push(p[pk[k]]);
+      }
+      var rq = objs[j].required || [];
+      for (var r=0;r<rq.length;r++){
+        reqCount[rq[r]] = (reqCount[rq[r]] || 0) + 1;
+      }
+    }
+    var req = [];
+    var allKeys = Object.keys(propLists);
+    for (var a=0;a<allKeys.length;a++){
+      merged.properties[allKeys[a]] = mergeSchemas(propLists[allKeys[a]], addReq);
+      if (addReq && reqCount[allKeys[a]] === objs.length) req.push(allKeys[a]);
+    }
+    if (req.length) merged.required = req;
+    return merged;
+  }
+
+  // 配列のマージ
+  if (typeArr.length === 1 && typeArr[0] === "array"){
+    var arrs = list.filter(function(s){ return s.type === "array"; });
+    var ma = {type:"array"};
+    var itemList = [];
+    for (var b=0;b<arrs.length;b++){
+      if (arrs[b].items) itemList.push(arrs[b].items);
+    }
+    if (itemList.length) ma.items = mergeSchemas(itemList, addReq);
+    return ma;
+  }
+
+  if (typeArr.length === 1){
+    return {type: typeArr[0]};
+  }
+
+  // integer と number が混在 → number に統合
+  if (typeArr.length === 2 && types["integer"] && types["number"]){
+    return {type:"number"};
+  }
+
+  // 型が混在 → 型を配列で表現
+  return {type: typeArr};
+}
+
+function buildSchema(parsed){
+  var addReq = getReq();
+  var draft = document.getElementById('draft').value;
+  var title = document.getElementById('titleInput').value.trim();
+  var core = inferSchema(parsed, addReq);
+  var out = {};
+  out["$schema"] = DRAFT_URI[draft] || DRAFT_URI["draft-07"];
+  if (title) out.title = title;
+  var ck = Object.keys(core);
+  for (var i=0;i<ck.length;i++){ out[ck[i]] = core[ck[i]]; }
+  return out;
+}
+
+function showError(msg){
+  var box = document.getElementById('errorBox');
+  box.textContent = '不正なJSONです: ' + msg;
+  box.style.display = 'block';
+}
+function clearError(){
+  document.getElementById('errorBox').style.display = 'none';
+}
+
+function generate(){
+  clearError();
+  var raw = document.getElementById('jsonInput').value.trim();
+  var usedSample = false;
+  if (!raw){ raw = SAMPLE_TEXT; usedSample = true; }
+  var parsed;
+  try {
+    parsed = JSON.parse(raw);
+  } catch (e){
+    showError(e.message);
+    document.getElementById('outputBox').textContent = '';
+    document.getElementById('statusLine').textContent = '';
+    return;
+  }
+  var schema = buildSchema(parsed);
+  var text = JSON.stringify(schema, null, 2);
+  document.getElementById('outputBox').textContent = text;
+  document.getElementById('statusLine').textContent =
+    (usedSample ? 'サンプルJSONから生成しました。' : '生成しました。') +
+    ' （' + text.length + ' 文字）';
+}
+
+document.getElementById('genBtn').addEventListener('click', generate);
+document.getElementById('draft').addEventListener('change', generate);
+document.getElementById('titleInput').addEventListener('input', generate);
+document.getElementById('reqToggle').addEventListener('change', generate);
+document.getElementById('jsonInput').addEventListener('input', generate);
+
+document.getElementById('sampleBtn').addEventListener('click', function(){
+  document.getElementById('jsonInput').value = SAMPLE_TEXT;
+  generate();
+});
+document.getElementById('clearBtn').addEventListener('click', function(){
+  document.getElementById('jsonInput').value = '';
+  generate();
+});
+
+document.getElementById('copyBtn').addEventListener('click', function(){
+  var text = document.getElementById('outputBox').textContent;
+  if (!text) return;
+  var btn = this;
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){
+      btn.textContent = 'コピーしました';
+      setTimeout(function(){ btn.textContent = 'コピー'; }, 1500);
+    });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+    btn.textContent = 'コピーしました';
+    setTimeout(function(){ btn.textContent = 'コピー'; }, 1500);
+  }
+});
+
+document.getElementById('downloadBtn').addEventListener('click', function(){
+  var text = document.getElementById('outputBox').textContent;
+  if (!text) return;
+  var blob = new Blob([text], {type:'application/json'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'schema.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+});
+
+// 初期表示: サンプルJSONで生成
+generate();
+</script>
+</body>
+</html>
