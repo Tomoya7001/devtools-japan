@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSite構造化データ生成ツール | Sitelinks検索ボックス(SearchAction)のJSON-LDを自動作成【無料】</title>
+    <meta name="description" content="サイト名・URL・サイト内検索のURLテンプレートを入力するだけで、schema.org WebSite と SearchAction（Sitelinks Searchbox / サイトリンク検索ボックス）の JSON-LD 構造化データをリアルタイム生成する無料ツール。{search_term_string} を含む検索URLから potentialAction を自動組み立て、空欄フィールドは自動除外。100%ブラウザ内で完結。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1;padding-right:12px}
+        .row input,.row select,.row textarea{width:300px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .row textarea{resize:vertical;min-height:52px;line-height:1.6;font-family:'JetBrains Mono',monospace;font-size:0.82rem}
+        .row input:focus,.row select:focus,.row textarea:focus{border-color:var(--accent)}
+        .row.stack{flex-direction:column;align-items:stretch;gap:8px}
+        .row.stack label{padding-right:0}
+        .row.stack input,.row.stack select,.row.stack textarea{width:100%}
+        .fieldhint{font-size:0.72rem;color:var(--text3);margin-top:2px;line-height:1.5}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input,.row select,.row textarea{width:100%}}
+        .output-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .output-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+        .output-head h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em}
+        .copy-btn{padding:8px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .copy-btn:hover{opacity:0.9}
+        pre.code{background:#1e1e35;color:#e6e6f0;border-radius:8px;padding:16px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:0.78rem;line-height:1.7;white-space:pre;-webkit-overflow-scrolling:touch}
+        .hint-list{list-style:none;margin-top:8px}
+        .hint-list li{font-size:0.8rem;color:var(--text2);padding:6px 0 6px 22px;position:relative;line-height:1.6}
+        .hint-list li::before{content:'';position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+        .hint-list li.warn::before{background:var(--red)}
+        .hint-list li.ok::before{background:var(--green)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        code.inline{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--accent)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-155-website-schema/">
+    <meta property="og:title" content="WebSite構造化データ生成ツール | Sitelinks検索ボックス(SearchAction)のJSON-LDを自動作成【無料】">
+    <meta property="og:description" content="サイト名・URL・検索URLテンプレートから schema.org WebSite と SearchAction の JSON-LD をリアルタイム生成。サイトリンク検索ボックス対策に。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-155-website-schema/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="WebSite構造化データ生成ツール【無料】">
+    <meta name="twitter:description" content="WebSite + SearchAction の schema.org JSON-LD をリアルタイム生成。{search_term_string} 対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"WebSite構造化データ生成ツール","description":"schema.org WebSite と SearchAction（Sitelinks Searchbox）の JSON-LD 構造化データをリアルタイム生成する無料ツール","url":"https://www.devtools-japan.com/tool-155-website-schema/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"WebSite構造化データ生成ツール","item":"https://www.devtools-japan.com/tool-155-website-schema/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"WebSiteの構造化データとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"WebSite構造化データは、サイト全体を表す schema.org の WebSite 型の情報を、検索エンジンが理解できる JSON-LD 形式で記述したものです。サイト名（name）や正規URL（url）、別名（alternateName）などを含みます。さらに potentialAction として SearchAction を加えると、サイト内検索の仕組みを検索エンジンに伝えられます。本ツールは入力内容から、この WebSite と SearchAction をひとつにまとめた JSON-LD を自動生成します。"}},{"@type":"Question","name":"SearchAction（サイトリンク検索ボックス）とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"SearchAction は、あなたのサイトのサイト内検索機能を表す schema.org のアクション定義です。WebSite の potentialAction として記述すると、Google の検索結果に「サイトリンク検索ボックス（Sitelinks Searchbox）」が表示される対象になり得ます。ユーザーが検索結果から直接サイト内を検索できるようになり、目的のページへ素早く誘導できます。ただし表示可否は Google が自動判定するため、記述しても必ず表示されるとは限りません。"}},{"@type":"Question","name":"検索URLテンプレートはどう書けばよいですか？","acceptedAnswer":{"@type":"Answer","text":"サイト内検索の結果ページのURLに、検索語が入る位置へプレースホルダ {search_term_string} を置いた形で入力してください。たとえば検索結果が https://www.example.com/search?q=キーワード の形式なら、テンプレートは https://www.example.com/search?q={search_term_string} と書きます。ツールはこれを SearchAction の target（EntryPoint の urlTemplate）に設定し、query-input を required name=search_term_string として自動で組み立てます。"}},{"@type":"Question","name":"入力していない項目はどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"空欄のフィールドは JSON-LD に含まれず自動的に除外されます。別名（alternateName）や検索URLテンプレートは任意項目のため、必要なものだけ入力すれば構いません。検索URLテンプレートを空欄にすると potentialAction（SearchAction）ブロック全体が出力から除かれ、サイト名とURLだけのシンプルな WebSite 構造化データになります。値のないプロパティが空文字として残らないため、常に有効な構造化データを生成できます。"}},{"@type":"Question","name":"生成したJSON-LDはどこに貼り付けますか？","acceptedAnswer":{"@type":"Answer","text":"生成された ld+json のスクリプトタグ一式をコピーし、サイトのトップページ（ホームページ）のHTMLの head 内、または body 内に貼り付けてください。サイトリンク検索ボックスを狙う場合は、原則としてサイトのホームページに1つだけ設置します。貼り付け後は Google のリッチリザルトテストや schema.org バリデータで、エラーや警告がないか確認することを推奨します。JSON-LD はページの見た目に影響しません。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>WebSite構造化データ生成</h1><p>schema.org WebSite ＋ SearchAction（サイトリンク検索ボックス）JSON-LD をリアルタイム生成</p></header>
+
+    <div class="card"><h3>サイト情報</h3>
+        <div class="row stack"><label>サイト名（name） <span style="color:var(--red)">*</span></label><input type="text" id="f_name" placeholder="例: DevTools Japan" oninput="generate()"></div>
+        <div class="row stack"><label>サイトURL（url） <span style="color:var(--red)">*</span></label><input type="text" id="f_url" placeholder="例: https://www.example.com/" oninput="generate()">
+            <div class="fieldhint">サイトのトップページ（ホームページ）の正規URL。末尾のスラッシュ有無は実際のURLに合わせてください。</div>
+        </div>
+        <div class="row stack"><label>別名（alternateName・任意）</label><input type="text" id="f_alt" placeholder="例: デブツールズ・ジャパン" oninput="generate()">
+            <div class="fieldhint">サイトの略称・愛称・英語表記など。検索でサイト名の別表記を伝えたいときに入力します。</div>
+        </div>
+        <div class="row stack"><label>コンテンツの言語（inLanguage・任意）</label><input type="text" id="f_lang" placeholder="例: ja" value="ja" oninput="generate()">
+            <div class="fieldhint">BCP 47 の言語タグ。日本語サイトなら ja、英語なら en など。空欄にすると出力から除外されます。</div>
+        </div>
+    </div>
+
+    <div class="card"><h3>サイト内検索（SearchAction・任意）</h3>
+        <div class="row stack"><label>検索URLテンプレート（target urlTemplate）</label><textarea id="f_search" placeholder="https://www.example.com/search?q={search_term_string}" oninput="generate()"></textarea>
+            <div class="fieldhint">サイト内検索の結果ページURLに <code class="inline">{search_term_string}</code> を含めてください。この欄が空だと SearchAction は出力されません。</div>
+        </div>
+    </div>
+
+    <div class="output-card">
+        <div class="output-head"><h3>生成された JSON-LD</h3><button class="copy-btn" onclick="copyOutput()" id="copyBtn">コピー</button></div>
+        <pre class="code" id="output">// 入力するとここに JSON-LD が表示されます</pre>
+    </div>
+
+    <div class="card"><h3>サイトリンク検索ボックス要件のヒント</h3>
+        <ul class="hint-list" id="hints"></ul>
+    </div>
+
+    <div class="note">生成される JSON-LD は schema.org の WebSite 型に基づき、検索URLテンプレートを入力すると potentialAction として SearchAction（EntryPoint の urlTemplate ＋ query-input）を組み込みます。空欄のフィールドは自動的に除外されます。サイトリンク検索ボックスはサイトのホームページに1つだけ設置するのが原則です。実装後は Google のリッチリザルトテストで検証することを推奨します。すべての処理は端末内で完結し、入力内容は送信されません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>WebSite構造化データ生成ツールの使い方</h2>
+        <p>サイト名・サイトURL・サイト内検索のURLテンプレートを入力するだけで、schema.org の WebSite 型に準拠した JSON-LD 構造化データをリアルタイムに生成する無料ツールです。検索URLテンプレートを入力すると、potentialAction として SearchAction（サイトリンク検索ボックス、Sitelinks Searchbox）を自動で組み込みます。生成された ld+json のスクリプトタグ一式をコピーして、サイトのホームページのHTMLに貼り付けるだけで、検索エンジンにサイトの基本情報とサイト内検索の仕組みを伝えられます。インストールや会員登録は不要で、入力した内容はサーバーに送信されず、すべての生成処理がお使いのブラウザ内で完結します。</p>
+        <p>使い方はシンプルです。まず必須のサイト名とサイトURLを入力し、必要に応じて別名（alternateName）やコンテンツの言語（inLanguage）を埋めます。続いてサイト内検索を持っている場合は、検索結果ページのURLに検索語のプレースホルダ <code class="inline">{search_term_string}</code> を含めた検索URLテンプレートを入力します。入力を変更するたびに下部の出力エリアの JSON-LD が即座に更新されるので、内容を確認しながら仕上げられます。空欄の項目は出力から自動で除外されるため、埋めたい項目だけを入力すれば有効な構造化データになります。</p>
+        <h3>SearchAction（サイトリンク検索ボックス）の仕組み</h3>
+        <p>Google のサイトリンク検索ボックスは、検索結果にあなたのサイト専用の検索窓を表示する機能です。これを狙うには、WebSite の potentialAction に SearchAction を記述します。SearchAction の target には検索結果ページのURLテンプレートを EntryPoint の <code class="inline">urlTemplate</code> として指定し、query-input には <code class="inline">required name=search_term_string</code> を設定します。本ツールでは、入力された検索URLテンプレート内の <code class="inline">{search_term_string}</code> がそのままプレースホルダとして機能し、正しい形の SearchAction を自動で組み立てます。</p>
+
+        <h2>生成されるプロパティ</h2>
+        <p>本ツールが出力する主な WebSite / SearchAction プロパティは次のとおりです。必須級の項目と任意項目を区別して、必要なものだけを入力してください。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>プロパティ</th><th>内容</th><th>形式</th></tr>
+            <tr><td>@type</td><td>WebSite</td><td>固定（必須）</td></tr>
+            <tr><td>name</td><td>サイト名</td><td>文字列（必須）</td></tr>
+            <tr><td>url</td><td>サイトのトップページURL</td><td>URL文字列（必須）</td></tr>
+            <tr><td>alternateName</td><td>サイトの別名・略称</td><td>文字列（任意）</td></tr>
+            <tr><td>inLanguage</td><td>コンテンツの言語</td><td>BCP 47（例: ja）</td></tr>
+            <tr><td>potentialAction</td><td>サイト内検索アクション</td><td>SearchAction 型</td></tr>
+            <tr><td>target</td><td>検索結果URLテンプレート</td><td>EntryPoint / urlTemplate</td></tr>
+            <tr><td>query-input</td><td>検索語の入力定義</td><td>required name=search_term_string</td></tr>
+        </table>
+        </div>
+        <h3>設置と検証のための推奨事項</h3>
+        <p>サイトリンク検索ボックスを狙う場合、WebSite の構造化データは原則としてサイトのホームページに1つだけ設置します。検索URLテンプレートは、実際に動作するサイト内検索の結果ページのURL形式に正確に合わせることが重要です。<code class="inline">{search_term_string}</code> の位置に検索語が入ったとき、そのURLで本当に検索結果が表示されるかをブラウザで確認しておきましょう。なお、構造化データを記述しても検索結果への表示可否は Google が自動的に判断するため、必ずしも検索ボックスが表示されるとは限りません。実装後は Google のリッチリザルトテストや schema.org バリデータでエラー・警告を確認しましょう。JSON-LD はHTMLの表示位置に影響しないため、head 内・body 内のどちらに置いても構いません。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">WebSiteの構造化データとは何ですか？</div><div class="a">WebSite構造化データは、サイト全体を表す schema.org の WebSite 型の情報を、検索エンジンが理解できる JSON-LD 形式で記述したものです。サイト名（name）や正規URL（url）、別名（alternateName）などを含みます。さらに potentialAction として SearchAction を加えると、サイト内検索の仕組みを検索エンジンに伝えられます。本ツールは入力内容から、この WebSite と SearchAction をひとつにまとめた JSON-LD を自動生成します。</div></div>
+        <div class="faq-item"><div class="q">SearchAction（サイトリンク検索ボックス）とは何ですか？</div><div class="a">SearchAction は、あなたのサイトのサイト内検索機能を表す schema.org のアクション定義です。WebSite の potentialAction として記述すると、Google の検索結果に「サイトリンク検索ボックス（Sitelinks Searchbox）」が表示される対象になり得ます。ユーザーが検索結果から直接サイト内を検索できるようになり、目的のページへ素早く誘導できます。ただし表示可否は Google が自動判定するため、記述しても必ず表示されるとは限りません。</div></div>
+        <div class="faq-item"><div class="q">検索URLテンプレートはどう書けばよいですか？</div><div class="a">サイト内検索の結果ページのURLに、検索語が入る位置へプレースホルダ {search_term_string} を置いた形で入力してください。たとえば検索結果が https://www.example.com/search?q=キーワード の形式なら、テンプレートは https://www.example.com/search?q={search_term_string} と書きます。ツールはこれを SearchAction の target（EntryPoint の urlTemplate）に設定し、query-input を required name=search_term_string として自動で組み立てます。</div></div>
+        <div class="faq-item"><div class="q">入力していない項目はどうなりますか？</div><div class="a">空欄のフィールドは JSON-LD に含まれず自動的に除外されます。別名（alternateName）や検索URLテンプレートは任意項目のため、必要なものだけ入力すれば構いません。検索URLテンプレートを空欄にすると potentialAction（SearchAction）ブロック全体が出力から除かれ、サイト名とURLだけのシンプルな WebSite 構造化データになります。値のないプロパティが空文字として残らないため、常に有効な構造化データを生成できます。</div></div>
+        <div class="faq-item"><div class="q">生成したJSON-LDはどこに貼り付けますか？</div><div class="a">生成された ld+json のスクリプトタグ一式をコピーし、サイトのトップページ（ホームページ）のHTMLの head 内、または body 内に貼り付けてください。サイトリンク検索ボックスを狙う場合は、原則としてサイトのホームページに1つだけ設置します。貼り付け後は Google のリッチリザルトテストや schema.org バリデータで、エラーや警告がないか確認することを推奨します。JSON-LD はページの見た目に影響しません。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-142-recipe-schema/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">Recipe構造化データ生成</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧へ</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ---- script タグ文字列はトークン分割して素書きを避ける ----
+var LD_OPEN = '<' + 'script type="application/ld+json">';
+var LD_CLOSE = '<' + '/' + 'script>';
+
+function val(id){
+    var el = document.getElementById(id);
+    return el ? el.value.trim() : '';
+}
+
+function buildWebSite(){
+    var w = { '@context': 'https://schema.org', '@type': 'WebSite' };
+
+    var name = val('f_name');
+    if (name) w.name = name;
+
+    var url = val('f_url');
+    if (url) w.url = url;
+
+    var alt = val('f_alt');
+    if (alt) w.alternateName = alt;
+
+    var lang = val('f_lang');
+    if (lang) w.inLanguage = lang;
+
+    // サイト内検索（SearchAction）。テンプレートが空なら丸ごと除外
+    var search = val('f_search');
+    if (search){
+        w.potentialAction = {
+            '@type': 'SearchAction',
+            'target': {
+                '@type': 'EntryPoint',
+                'urlTemplate': search
+            },
+            'query-input': 'required name=search_term_string'
+        };
+    }
+
+    return w;
+}
+
+function buildHints(site){
+    var hints = document.getElementById('hints');
+    hints.innerHTML = '';
+    var hasSearch = !!site.potentialAction;
+    var tmpl = hasSearch ? site.potentialAction.target.urlTemplate : '';
+    var hasPlaceholder = hasSearch && tmpl.indexOf('{search_term_string}') !== -1;
+    var checks = [
+        { ok: !!site.name, text: 'サイト名（name）— 必須。サイト全体の名称を記述します。' },
+        { ok: !!site.url, text: 'サイトURL（url）— 必須。トップページの正規URLを記述します。' },
+        { ok: !!site.alternateName, text: '別名（alternateName）— 任意。略称・英語表記などを伝えられます。' },
+        { ok: !!site.inLanguage, text: '言語（inLanguage）— 任意。BCP 47（例: ja）で記述します。' },
+        { ok: hasSearch, text: 'SearchAction — サイトリンク検索ボックスの対象になり得ます。' },
+        { ok: hasPlaceholder, text: '検索URLに {search_term_string} を含める — SearchAction に必須。', force: hasSearch && !hasPlaceholder }
+    ];
+    for (var i = 0; i < checks.length; i++){
+        var li = document.createElement('li');
+        if (checks[i].force){
+            li.className = 'warn';
+            li.textContent = '要修正: ' + checks[i].text;
+        } else {
+            li.className = checks[i].ok ? 'ok' : 'warn';
+            li.textContent = (checks[i].ok ? '設定済み: ' : '未設定: ') + checks[i].text;
+        }
+        hints.appendChild(li);
+    }
+}
+
+function generate(){
+    var site = buildWebSite();
+    var json = JSON.stringify(site, null, 2);
+    var wrapped = LD_OPEN + '\n' + json + '\n' + LD_CLOSE;
+    document.getElementById('output').textContent = wrapped;
+    buildHints(site);
+}
+
+function copyOutput(){
+    var text = document.getElementById('output').textContent;
+    var btn = document.getElementById('copyBtn');
+    function done(){ btn.textContent = 'コピー済み'; setTimeout(function(){ btn.textContent = 'コピー'; }, 1400); }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text); done(); });
+    } else {
+        fallbackCopy(text); done();
+    }
+}
+
+function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+}
+
+// 初期サンプル（入力ゼロでもサンプル出力）
+(function init(){
+    document.getElementById('f_name').value = 'DevTools Japan';
+    document.getElementById('f_url').value = 'https://www.example.com/';
+    document.getElementById('f_alt').value = 'デブツールズ・ジャパン';
+    document.getElementById('f_lang').value = 'ja';
+    document.getElementById('f_search').value = 'https://www.example.com/search?q={search_term_string}';
+    generate();
+})();
+</script>
+</body>
+</html>

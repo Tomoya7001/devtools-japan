@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article構造化データ生成ツール | schema.org JSON-LD（Article/BlogPosting/NewsArticle）を無料作成</title>
+    <meta name="description" content="Article・BlogPosting・NewsArticleのschema.org構造化データ（JSON-LD）をフォーム入力で自動生成する無料ツール。見出し・著者・発行元・公開日・画像などを入力するだけでコピー可能なJSON-LDを出力。すべてブラウザ内で完結します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:320px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .seg{display:flex;gap:8px;flex-wrap:wrap}
+        .seg button{padding:8px 16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.82rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .seg button.active{background:var(--accent);border-color:var(--accent);color:#fff}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .output-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .output-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+        .output-head h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em}
+        pre.code{background:#1e1e35;color:#e6e6f0;border-radius:8px;padding:16px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:0.78rem;line-height:1.7;white-space:pre;-webkit-overflow-scrolling:touch}
+        .btn{padding:9px 20px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.copied{background:var(--green)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-151-article-schema/">
+    <meta property="og:title" content="Article構造化データ生成ツール | schema.org JSON-LDを無料作成">
+    <meta property="og:description" content="Article・BlogPosting・NewsArticleのschema.org JSON-LDをフォーム入力で自動生成。コピーしてそのまま貼り付け可能。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-151-article-schema/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Article構造化データ生成ツール【無料】">
+    <meta name="twitter:description" content="Article/BlogPosting/NewsArticleのJSON-LDを自動生成。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Article構造化データ生成ツール","description":"Article・BlogPosting・NewsArticleのschema.org構造化データ（JSON-LD）を自動生成する無料ツール","url":"https://www.devtools-japan.com/tool-151-article-schema/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"Article構造化データ生成ツール","item":"https://www.devtools-japan.com/tool-151-article-schema/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ArticleとBlogPostingとNewsArticleの違いは？","acceptedAnswer":{"@type":"Answer","text":"いずれもschema.orgの記事系タイプで、BlogPostingとNewsArticleはArticleのサブタイプです。一般的な記事にはArticle、ブログ記事にはBlogPosting、報道・ニュース記事にはNewsArticleを選ぶのが目安です。本ツールでは3つのタイプをボタンで切り替えられ、選んだ@typeがそのままJSON-LDに反映されます。迷ったときは汎用のArticleを選んでおけば問題ありません。"}},{"@type":"Question","name":"生成したJSON-LDはどこに貼り付ければいい？","acceptedAnswer":{"@type":"Answer","text":"生成されたコードは<script type=\"application/ld+json\">〜</script>を含む完全なブロックです。記事ページのHTMLの<head>内、または<body>内のどこかにそのまま貼り付けてください。1ページに複数の構造化データを置いても問題ありません。貼り付け後はGoogleのリッチリザルトテストやスキーマ検証ツールで正しく認識されるか確認することをおすすめします。"}},{"@type":"Question","name":"入力した内容はサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。このツールはすべてブラウザ内（クライアントサイド）のJavaScriptだけで動作し、入力した見出しや著者名、URLなどが外部サーバーへ送信されることはありません。生成処理もお使いの端末内で完結するため、公開前の下書き記事の情報を入力しても安心してご利用いただけます。"}},{"@type":"Question","name":"空欄の項目はどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"画像URLや更新日、記事カテゴリ（articleSection）などの任意項目を空欄のままにすると、その項目はJSON-LDに出力されません。不要なプロパティを空文字のまま含めないことで、無効な値による警告を避けたきれいな構造化データになります。必須寄りの見出しや著者・発行元は入力しておくことをおすすめします。"}},{"@type":"Question","name":"日付はどの形式で入力すればいい？","acceptedAnswer":{"@type":"Answer","text":"公開日（datePublished）と更新日（dateModified）は日付ピッカーで選ぶだけで、出力時にISO 8601形式（YYYY-MM-DD）へ整形されます。schema.orgとGoogleはISO 8601の日付・日時形式を推奨しており、本ツールはその形式で出力するため、そのまま検索エンジンに正しく認識されます。時刻やタイムゾーンまで厳密に指定したい場合は、出力後に手動で調整してください。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>Article構造化データ生成</h1><p>schema.org Article / BlogPosting / NewsArticle のJSON-LDを自動生成</p></header>
+
+    <div class="card"><h3>記事タイプ</h3>
+        <div class="seg" id="typeSeg">
+            <button type="button" data-type="Article" class="active" onclick="setType('Article')">Article</button>
+            <button type="button" data-type="BlogPosting" onclick="setType('BlogPosting')">BlogPosting</button>
+            <button type="button" data-type="NewsArticle" onclick="setType('NewsArticle')">NewsArticle</button>
+        </div>
+    </div>
+
+    <div class="card"><h3>記事情報を入力</h3>
+        <div class="row"><label>見出し（headline）</label><input type="text" id="headline" placeholder="記事のタイトル" oninput="build()"></div>
+        <div class="row"><label>概要（description）</label><input type="text" id="description" placeholder="記事の要約" oninput="build()"></div>
+        <div class="row"><label>著者名（author）</label><input type="text" id="authorName" placeholder="山田 太郎" oninput="build()"></div>
+        <div class="row"><label>発行元名（publisher）</label><input type="text" id="publisherName" placeholder="サイト名・会社名" oninput="build()"></div>
+        <div class="row"><label>発行元ロゴURL（logo）</label><input type="text" id="publisherLogo" placeholder="https://example.com/logo.png" oninput="build()"></div>
+        <div class="row"><label>公開日（datePublished）</label><input type="date" id="datePublished" style="width:200px" oninput="build()"></div>
+        <div class="row"><label>更新日（dateModified）</label><input type="date" id="dateModified" style="width:200px" oninput="build()"></div>
+        <div class="row"><label>画像URL（image）</label><input type="text" id="image" placeholder="https://example.com/cover.jpg" oninput="build()"></div>
+        <div class="row"><label>記事URL（mainEntityOfPage）</label><input type="text" id="articleUrl" placeholder="https://example.com/article" oninput="build()"></div>
+        <div class="row"><label>記事カテゴリ（articleSection）</label><input type="text" id="articleSection" placeholder="テクノロジー" oninput="build()"></div>
+    </div>
+
+    <div class="output-card">
+        <div class="output-head"><h3>生成されたJSON-LD</h3><button type="button" class="btn" id="copyBtn" onclick="copyCode()">コピー</button></div>
+        <pre class="code" id="output"></pre>
+    </div>
+
+    <div class="note">このツールが生成するJSON-LDは、あなたの記事ページに貼り付けるための構造化データです（このページ自身の構造化データとは別物です）。入力内容はすべてブラウザ内で処理され、外部に送信されません。空欄の任意項目は出力に含めず、日付はISO 8601形式（YYYY-MM-DD）で出力します。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>Article構造化データ生成ツールの使い方</h2>
+        <p>記事・ブログ・ニュースページ向けのschema.org構造化データ（JSON-LD）を、フォームに入力するだけで自動生成する無料ツールです。見出し・概要・著者名・発行元・公開日・画像URLなどを入力すると、コピーしてそのまま貼り付けられるJSON-LDがリアルタイムで生成されます。インストールや会員登録は不要で、すべての処理はお使いの端末内（クライアントサイド）で完結します。</p>
+        <p>まず上部の「記事タイプ」でArticle・BlogPosting・NewsArticleのいずれかを選び、続けて記事情報を入力してください。入力するたびに下部のコードボックスの内容が更新されます。完成したら「コピー」ボタンで全体をコピーし、記事ページのHTMLに貼り付けます。画像URLや更新日、記事カテゴリなどの任意項目は空欄のままでも構いません。空欄の項目は出力に含まれないため、余計な空値のないきれいな構造化データになります。</p>
+        <h3>構造化データを設置するメリット</h3>
+        <p>Articleなどの構造化データを設置すると、検索エンジンが記事のタイトル・著者・公開日・画像といった情報を正確に理解できるようになり、検索結果でのリッチな表示（見出しやサムネイル）につながる可能性があります。ニュース系のコンテンツではNewsArticle、ブログ記事ではBlogPostingを使うことで、コンテンツの種類も明確に伝えられます。</p>
+
+        <h2>各項目の説明</h2>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>項目</th><th>プロパティ</th><th>説明</th></tr>
+            <tr><td>記事タイプ</td><td>@type</td><td>Article / BlogPosting / NewsArticle から選択</td></tr>
+            <tr><td>見出し</td><td>headline</td><td>記事のタイトル。Googleは110文字以内を推奨</td></tr>
+            <tr><td>概要</td><td>description</td><td>記事内容の短い要約</td></tr>
+            <tr><td>著者名</td><td>author</td><td>Person型として出力される著者の名前</td></tr>
+            <tr><td>発行元</td><td>publisher</td><td>Organization型。ロゴURLも指定可能</td></tr>
+            <tr><td>公開日 / 更新日</td><td>datePublished / dateModified</td><td>ISO 8601形式（YYYY-MM-DD）で出力</td></tr>
+            <tr><td>画像URL</td><td>image</td><td>記事のメイン画像。リッチリザルトで重要</td></tr>
+            <tr><td>記事URL</td><td>mainEntityOfPage</td><td>この記事が主題となるページのURL</td></tr>
+            <tr><td>記事カテゴリ</td><td>articleSection</td><td>記事のセクション・カテゴリ名（任意）</td></tr>
+        </table>
+        </div>
+        <h3>出力形式について</h3>
+        <p>生成されるコードは<code>&lt;script type="application/ld+json"&gt;</code>で始まる完全なブロックです。特殊文字（引用符やバックスラッシュなど）は正しくエスケープされるため、値をそのまま入力しても壊れたJSONにはなりません。設置後はGoogleのリッチリザルトテストやschema.orgのバリデータで、意図どおりに認識されるかを確認することをおすすめします。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">ArticleとBlogPostingとNewsArticleの違いは？</div><div class="a">いずれもschema.orgの記事系タイプで、BlogPostingとNewsArticleはArticleのサブタイプです。一般的な記事にはArticle、ブログ記事にはBlogPosting、報道・ニュース記事にはNewsArticleを選ぶのが目安です。本ツールでは3つのタイプをボタンで切り替えられ、選んだ@typeがそのままJSON-LDに反映されます。迷ったときは汎用のArticleを選んでおけば問題ありません。</div></div>
+        <div class="faq-item"><div class="q">生成したJSON-LDはどこに貼り付ければいい？</div><div class="a">生成されたコードは&lt;script type="application/ld+json"&gt;〜&lt;/script&gt;を含む完全なブロックです。記事ページのHTMLの&lt;head&gt;内、または&lt;body&gt;内のどこかにそのまま貼り付けてください。1ページに複数の構造化データを置いても問題ありません。貼り付け後はGoogleのリッチリザルトテストやスキーマ検証ツールで正しく認識されるか確認することをおすすめします。</div></div>
+        <div class="faq-item"><div class="q">入力した内容はサーバーに送信されますか？</div><div class="a">いいえ。このツールはすべてブラウザ内（クライアントサイド）のJavaScriptだけで動作し、入力した見出しや著者名、URLなどが外部サーバーへ送信されることはありません。生成処理もお使いの端末内で完結するため、公開前の下書き記事の情報を入力しても安心してご利用いただけます。</div></div>
+        <div class="faq-item"><div class="q">空欄の項目はどうなりますか？</div><div class="a">画像URLや更新日、記事カテゴリ（articleSection）などの任意項目を空欄のままにすると、その項目はJSON-LDに出力されません。不要なプロパティを空文字のまま含めないことで、無効な値による警告を避けたきれいな構造化データになります。必須寄りの見出しや著者・発行元は入力しておくことをおすすめします。</div></div>
+        <div class="faq-item"><div class="q">日付はどの形式で入力すればいい？</div><div class="a">公開日（datePublished）と更新日（dateModified）は日付ピッカーで選ぶだけで、出力時にISO 8601形式（YYYY-MM-DD）へ整形されます。schema.orgとGoogleはISO 8601の日付・日時形式を推奨しており、本ツールはその形式で出力するため、そのまま検索エンジンに正しく認識されます。時刻やタイムゾーンまで厳密に指定したい場合は、出力後に手動で調整してください。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧へ</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+let currentType = 'Article';
+
+function setType(t){
+    currentType = t;
+    document.querySelectorAll('#typeSeg button').forEach(b=>{
+        b.classList.toggle('active', b.getAttribute('data-type') === t);
+    });
+    build();
+}
+
+function val(id){
+    const el = document.getElementById(id);
+    return el ? el.value.trim() : '';
+}
+
+// ISO 8601 (YYYY-MM-DD) はdate inputがそのまま返すので値をそのまま使う
+function build(){
+    const obj = {"@context":"https://schema.org","@type":currentType};
+
+    const headline = val('headline');
+    const description = val('description');
+    const authorName = val('authorName');
+    const publisherName = val('publisherName');
+    const publisherLogo = val('publisherLogo');
+    const datePublished = val('datePublished');
+    const dateModified = val('dateModified');
+    const image = val('image');
+    const articleUrl = val('articleUrl');
+    const articleSection = val('articleSection');
+
+    if (articleUrl) obj.mainEntityOfPage = {"@type":"WebPage","@id":articleUrl};
+    if (headline) obj.headline = headline;
+    if (description) obj.description = description;
+    if (image) obj.image = image;
+    if (authorName) obj.author = {"@type":"Person","name":authorName};
+
+    if (publisherName || publisherLogo){
+        const pub = {"@type":"Organization"};
+        if (publisherName) pub.name = publisherName;
+        if (publisherLogo) pub.logo = {"@type":"ImageObject","url":publisherLogo};
+        obj.publisher = pub;
+    }
+
+    if (datePublished) obj.datePublished = datePublished;
+    if (dateModified) obj.dateModified = dateModified;
+    if (articleSection) obj.articleSection = articleSection;
+
+    // JSON.stringify が引用符・バックスラッシュ等を正しくエスケープする
+    const json = JSON.stringify(obj, null, 2);
+    var LD_OPEN = '<' + 'script type="application/ld+json">';
+    var LD_CLOSE = '<\/' + 'script>';
+    const code = LD_OPEN + '\n' + json + '\n' + LD_CLOSE;
+    document.getElementById('output').textContent = code;
+}
+
+function copyCode(){
+    const text = document.getElementById('output').textContent;
+    const btn = document.getElementById('copyBtn');
+    const done = ()=>{ btn.textContent = 'コピーしました'; btn.classList.add('copied'); setTimeout(()=>{ btn.textContent = 'コピー'; btn.classList.remove('copied'); }, 1600); };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done).catch(()=>fallbackCopy(text, done));
+    } else {
+        fallbackCopy(text, done);
+    }
+}
+
+function fallbackCopy(text, done){
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); done(); } catch(e){}
+    document.body.removeChild(ta);
+}
+
+// 初期表示のサンプル
+(function(){
+    document.getElementById('headline').value = 'サンプル記事のタイトル';
+    document.getElementById('description').value = 'この記事の概要をここに記載します。';
+    document.getElementById('authorName').value = '山田 太郎';
+    document.getElementById('publisherName').value = 'DevTools Japan';
+    document.getElementById('publisherLogo').value = 'https://www.devtools-japan.com/logo.png';
+    document.getElementById('datePublished').value = '2026-01-15';
+    document.getElementById('image').value = 'https://example.com/cover.jpg';
+    document.getElementById('articleUrl').value = 'https://example.com/sample-article';
+    build();
+})();
+</script>
+</body>
+</html>

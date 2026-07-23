@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>出産予定日計算ツール | 最終月経・排卵日から妊娠週数と予定日を自動計算【無料】</title>
+    <meta name="description" content="最終月経開始日（ネーゲレ概算法）・排卵日/受精日・妊娠週数から出産予定日（EDD）を自動計算する無料ツール。現在の妊娠週数・三半期・安定期・正産期などのマイルストーン日付も表示。すべて端末内で計算します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .milestone-table{width:100%;border-collapse:collapse;font-size:0.82rem}
+        .milestone-table th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        .milestone-table td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .milestone-table td.date{font-family:'JetBrains Mono',monospace;color:var(--text)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .mode-input{display:none}
+        .mode-input.active{display:flex}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-160-due-date/">
+    <meta property="og:title" content="出産予定日計算ツール | 妊娠週数と予定日を自動計算【無料】">
+    <meta property="og:description" content="最終月経・排卵日・妊娠週数から出産予定日と現在の妊娠週数、安定期・正産期などのマイルストーンを自動計算。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-160-due-date/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="出産予定日計算ツール【無料】">
+    <meta name="twitter:description" content="最終月経・排卵日・妊娠週数から出産予定日と妊娠週数を自動計算。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"出産予定日計算ツール","description":"最終月経・排卵日・妊娠週数から出産予定日と妊娠週数を自動計算する無料ツール","url":"https://www.devtools-japan.com/tool-160-due-date/","applicationCategory":"HealthApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"出産予定日計算ツール","item":"https://www.devtools-japan.com/tool-160-due-date/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"出産予定日はどうやって計算される？","acceptedAnswer":{"@type":"Answer","text":"最終月経開始日（LMP）を基準にする場合は、ネーゲレ概算法に基づき最終月経開始日に280日（40週0日）を加えた日を出産予定日（EDD）とします。排卵日・受精日から計算する場合は、その日に266日（38週0日）を加えた日が予定日です。妊娠週数から逆算する場合は、入力した週数・日数から最終月経開始日を割り出し、そこに280日を加えて求めます。"}},{"@type":"Question","name":"妊娠週数はいつを0週0日として数える？","acceptedAnswer":{"@type":"Answer","text":"妊娠週数は最終月経開始日を妊娠0週0日として数えます。そのため受精・排卵は一般的に妊娠2週0日ごろ、着床は妊娠3週ごろに起こります。本ツールは基準日（今日）と最終月経開始日の差を日数で求め、7で割った商を『◯週』、余りを『◯日』として『妊娠12週3日』のように表示します。"}},{"@type":"Question","name":"三半期（初期・中期・後期）の区切りは？","acceptedAnswer":{"@type":"Answer","text":"本ツールでは妊娠初期を0週0日〜13週6日、妊娠中期を14週0日〜27週6日、妊娠後期を28週0日以降として区分しています。あわせて安定期の目安とされる16週0日、正産期の37週0日〜41週6日といった主要な節目の日付も一覧で表示します。区切り方には諸説があるため目安としてご覧ください。"}},{"@type":"Question","name":"排卵日がわからない場合はどうすれば？","acceptedAnswer":{"@type":"Answer","text":"排卵日や受精日が特定できない場合は、最終月経開始日（LMP）モードをお使いください。月経周期が28日でおおむね規則的な方であれば、ネーゲレ概算法による最終月経開始日＋280日の予定日がよい目安になります。周期が長い・短い、不規則な場合は排卵日がずれるため、あくまで概算となります。"}},{"@type":"Question","name":"この予定日はどのくらい正確？医師の診断は必要？","acceptedAnswer":{"@type":"Answer","text":"本ツールの結果はネーゲレ概算法などの一般的な計算式に基づく『目安』であり、月経周期の個人差により実際とずれることがあります。実際の出産予定日は超音波検査による胎児の計測などをもとに医師が確定します。妊娠の判断・健康管理については必ず産婦人科医の診断を優先し、本ツールを医療上の判断の根拠にしないでください。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>出産予定日計算</h1><p>最終月経・排卵日・妊娠週数から予定日と妊娠週数を自動計算</p></header>
+
+    <div class="card"><h3>入力方法を選択</h3>
+        <div class="row"><label>計算方法</label>
+            <select id="mode" onchange="switchMode();calcDue()">
+                <option value="lmp">最終月経開始日（LMP）から</option>
+                <option value="ovul">排卵日・受精日から</option>
+                <option value="weeks">妊娠週数から逆算</option>
+            </select>
+        </div>
+        <div class="row mode-input active" data-mode="lmp"><label>最終月経開始日</label><input type="date" id="lmpDate" style="text-align:left" oninput="calcDue()"></div>
+        <div class="row mode-input" data-mode="ovul"><label>排卵日・受精日</label><input type="date" id="ovulDate" style="text-align:left" oninput="calcDue()"></div>
+        <div class="row mode-input" data-mode="weeks"><label>現在の妊娠週数</label><input type="number" id="curWeeks" min="0" max="45" placeholder="12" oninput="calcDue()"><span class="unit">週</span></div>
+        <div class="row mode-input" data-mode="weeks"><label>現在の妊娠日数</label><input type="number" id="curDays" min="0" max="6" placeholder="3" oninput="calcDue()"><span class="unit">日</span></div>
+        <div class="row"><label>基準日（今日）</label><input type="date" id="baseDate" style="text-align:left" oninput="calcDue()"></div>
+    </div>
+
+    <div class="big-result">
+        <div class="headline" id="headline">出産予定日（EDD）</div>
+        <div class="days"><span id="bigEdd">-</span></div>
+        <div class="target" id="targetLabel">入力してください</div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">現在の妊娠週数</div><div class="value" id="gaLabel" style="font-size:1.2rem">-</div></div>
+        <div class="result-item"><div class="label">三半期</div><div class="value" id="triLabel" style="font-size:1.2rem">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">予定日まで</div><div class="value" id="remainLabel" style="font-size:1.2rem">-</div></div>
+        <div class="result-item"><div class="label">受精日の目安</div><div class="value" id="concLabel" style="font-size:1rem">-</div></div>
+    </div>
+
+    <div class="card"><h3>主要マイルストーン</h3>
+        <div class="table-wrap">
+        <table class="milestone-table">
+            <tbody id="milestoneBody">
+                <tr><td>—</td><td class="date">入力してください</td></tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+    <div class="note">本ツールの結果はネーゲレ概算法などの一般的な計算式に基づく<strong>目安</strong>です。月経周期の個人差により実際とずれることがあります。実際の出産予定日は超音波検査などをもとに医師が確定します。妊娠・健康の判断は必ず産婦人科医の診断を優先してください。日付は端末のローカル時刻で年月日ベースに計算し、時差によるずれを防いでいます。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>出産予定日計算ツールの使い方</h2>
+        <p>最終月経開始日・排卵日（受精日）・現在の妊娠週数のいずれかを入力するだけで、出産予定日（EDD）や現在の妊娠週数・日数、三半期、安定期や正産期といった主要なマイルストーンの日付を自動計算する無料ツールです。インストールや会員登録は不要で、すべての計算はお使いの端末内（ブラウザ）で完結し、入力した日付が外部へ送信されることはありません。</p>
+        <p>画面上部の「計算方法」から入力方法を選び、日付や週数を入力すると、出産予定日が大きく表示され、あわせて現在の妊娠週数（例：妊娠12週3日）、妊娠初期・中期・後期の区分、予定日までの残り日数、受精日の目安が表示されます。さらに妊娠中期・後期の開始日、安定期の目安、正産期の期間などをマイルストーン一覧で確認できます。</p>
+        <h3>3つの入力方法</h3>
+        <p>（1）最終月経開始日（LMP）から：直近の生理が始まった日を入力すると、ネーゲレ概算法（LMP＋280日＝40週0日）で予定日を求めます。（2）排卵日・受精日から：排卵日や受精日がわかる場合はその日を入力すると、＋266日（38週0日）で予定日を計算します。（3）妊娠週数から逆算：健診などで告げられた現在の妊娠週数・日数と、その基準となる日付を入力すると、最終月経開始日を逆算して予定日を求めます。</p>
+
+        <h2>妊娠週数と出産予定日の考え方</h2>
+        <p>妊娠週数は最終月経開始日を「妊娠0週0日」として数えます。したがって排卵・受精はおよそ妊娠2週ごろ、着床は妊娠3週ごろに起こります。ネーゲレ概算法では、月経周期を28日と仮定し、最終月経開始日に280日（40週）を加えた日を出産予定日とします。排卵日基準の場合は受精から出産までを266日（38週）と考えます。いずれも周期が28日から外れる方では実際とずれるため、あくまで概算です。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>入力方法</th><th>計算式</th><th>説明</th></tr>
+            <tr><td>最終月経開始日（LMP）</td><td>LMP ＋ 280日</td><td>ネーゲレ概算法。40週0日を予定日とする一般的な方法</td></tr>
+            <tr><td>排卵日・受精日</td><td>排卵日 ＋ 266日</td><td>受精から38週0日。排卵日が明確な場合に有用</td></tr>
+            <tr><td>妊娠週数から逆算</td><td>基準日 − 経過日数 ＝ LMP</td><td>現在の週数からLMPを割り出し ＋280日で予定日</td></tr>
+        </table>
+        </div>
+        <h3>三半期と主要マイルストーン</h3>
+        <p>本ツールでは妊娠初期を0週0日〜13週6日、妊娠中期を14週0日〜27週6日、妊娠後期を28週0日以降として区分します。あわせて、安定期の目安とされる16週0日、正産期（正期産）とされる37週0日〜41週6日などの節目を日付で表示します。妊娠37週未満は早産、42週0日以降は過期産とされます。区切り方や呼び方には諸説があるため、表示は目安としてご利用ください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">出産予定日はどうやって計算される？</div><div class="a">最終月経開始日（LMP）を基準にする場合は、ネーゲレ概算法に基づき最終月経開始日に280日（40週0日）を加えた日を出産予定日（EDD）とします。排卵日・受精日から計算する場合は、その日に266日（38週0日）を加えた日が予定日です。妊娠週数から逆算する場合は、入力した週数・日数から最終月経開始日を割り出し、そこに280日を加えて求めます。</div></div>
+        <div class="faq-item"><div class="q">妊娠週数はいつを0週0日として数える？</div><div class="a">妊娠週数は最終月経開始日を妊娠0週0日として数えます。そのため受精・排卵は一般的に妊娠2週0日ごろ、着床は妊娠3週ごろに起こります。本ツールは基準日（今日）と最終月経開始日の差を日数で求め、7で割った商を『◯週』、余りを『◯日』として『妊娠12週3日』のように表示します。</div></div>
+        <div class="faq-item"><div class="q">三半期（初期・中期・後期）の区切りは？</div><div class="a">本ツールでは妊娠初期を0週0日〜13週6日、妊娠中期を14週0日〜27週6日、妊娠後期を28週0日以降として区分しています。あわせて安定期の目安とされる16週0日、正産期の37週0日〜41週6日といった主要な節目の日付も一覧で表示します。区切り方には諸説があるため目安としてご覧ください。</div></div>
+        <div class="faq-item"><div class="q">排卵日がわからない場合はどうすれば？</div><div class="a">排卵日や受精日が特定できない場合は、最終月経開始日（LMP）モードをお使いください。月経周期が28日でおおむね規則的な方であれば、ネーゲレ概算法による最終月経開始日＋280日の予定日がよい目安になります。周期が長い・短い、不規則な場合は排卵日がずれるため、あくまで概算となります。</div></div>
+        <div class="faq-item"><div class="q">この予定日はどのくらい正確？医師の診断は必要？</div><div class="a">本ツールの結果はネーゲレ概算法などの一般的な計算式に基づく『目安』であり、月経周期の個人差により実際とずれることがあります。実際の出産予定日は超音波検査による胎児の計測などをもとに医師が確定します。妊娠の判断・健康管理については必ず産婦人科医の診断を優先し、本ツールを医療上の判断の根拠にしないでください。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ローカル日付を YYYY-MM-DD で返す（時差ずれ防止）
+function ymd(d){
+    const y = d.getFullYear();
+    const m = String(d.getMonth()+1).padStart(2,'0');
+    const day = String(d.getDate()).padStart(2,'0');
+    return y+'-'+m+'-'+day;
+}
+// YYYY-MM-DD を UTC正午のエポック日数（86400000単位）に。時差の影響を避ける
+function toEpochDay(str){
+    const p = str.split('-').map(Number);
+    return Date.UTC(p[0], p[1]-1, p[2]) / 86400000;
+}
+// エポック日数（整数）を YYYY年M月D日（曜日）に整形
+const WD = ['日','月','火','水','木','金','土'];
+function fmtDay(epochDay){
+    const d = new Date(epochDay * 86400000);
+    return d.getUTCFullYear()+'年'+(d.getUTCMonth()+1)+'月'+d.getUTCDate()+'日（'+WD[d.getUTCDay()]+'）';
+}
+
+const now = new Date();
+const todayStr = ymd(now);
+document.getElementById('baseDate').value = todayStr;
+
+function switchMode(){
+    const mode = document.getElementById('mode').value;
+    document.querySelectorAll('.mode-input').forEach(el=>{
+        el.classList.toggle('active', el.getAttribute('data-mode') === mode);
+    });
+}
+
+function calcDue(){
+    const mode = document.getElementById('mode').value;
+    const baseStr = document.getElementById('baseDate').value;
+    if (!baseStr) return;
+    const base = toEpochDay(baseStr);
+
+    // 各モードから「最終月経開始日（LMP）」のエポック日数を求める
+    let lmp = null;
+    if (mode === 'lmp'){
+        const v = document.getElementById('lmpDate').value;
+        if (v) lmp = toEpochDay(v);
+    } else if (mode === 'ovul'){
+        const v = document.getElementById('ovulDate').value;
+        // 排卵日 = LMP + 14日 と仮定（EDD = 排卵日 + 266 = LMP + 280）
+        if (v) lmp = toEpochDay(v) - 14;
+    } else if (mode === 'weeks'){
+        const wv = document.getElementById('curWeeks').value;
+        const dv = document.getElementById('curDays').value;
+        if (wv !== ''){
+            const w = parseInt(wv, 10) || 0;
+            const dd = parseInt(dv, 10) || 0;
+            lmp = base - (w * 7 + dd);
+        }
+    }
+
+    const bigEdd = document.getElementById('bigEdd');
+    const targetLabel = document.getElementById('targetLabel');
+    const gaLabel = document.getElementById('gaLabel');
+    const triLabel = document.getElementById('triLabel');
+    const remainLabel = document.getElementById('remainLabel');
+    const concLabel = document.getElementById('concLabel');
+    const body = document.getElementById('milestoneBody');
+
+    if (lmp === null){
+        bigEdd.textContent = '-';
+        targetLabel.textContent = '入力してください';
+        gaLabel.textContent = '-';
+        triLabel.textContent = '-';
+        remainLabel.textContent = '-';
+        concLabel.textContent = '-';
+        body.innerHTML = '<tr><td>—</td><td class="date">入力してください</td></tr>';
+        return;
+    }
+
+    const edd = lmp + 280;                 // 出産予定日（40週0日）
+    bigEdd.textContent = fmtDay(edd);
+    targetLabel.textContent = mode === 'ovul' ? '排卵日＋266日 / LMP＋280日で算出' : 'ネーゲレ概算法（LMP＋280日）で算出';
+
+    // 現在の妊娠週数・日数（基準日 − LMP）
+    const gaDays = base - lmp;
+    if (gaDays < 0){
+        gaLabel.textContent = '妊娠前';
+    } else {
+        const w = Math.floor(gaDays / 7);
+        const dd = gaDays % 7;
+        gaLabel.textContent = '妊娠' + w + '週' + dd + '日';
+    }
+
+    // 三半期
+    if (gaDays < 0){
+        triLabel.textContent = '—';
+    } else if (gaDays < 98){         // 14週未満
+        triLabel.textContent = '妊娠初期';
+    } else if (gaDays < 196){        // 28週未満
+        triLabel.textContent = '妊娠中期';
+    } else {
+        triLabel.textContent = '妊娠後期';
+    }
+
+    // 予定日までの残り日数
+    const remain = edd - base;
+    if (remain > 0){
+        remainLabel.textContent = 'あと' + remain + '日';
+    } else if (remain === 0){
+        remainLabel.textContent = '本日が予定日';
+    } else {
+        remainLabel.textContent = '予定日から' + Math.abs(remain) + '日経過';
+    }
+
+    // 受精日の目安（LMP + 14日）
+    concLabel.textContent = fmtDay(lmp + 14);
+
+    // マイルストーン一覧
+    const milestones = [
+        ['妊娠中期の開始（14週0日）', lmp + 14 * 7],
+        ['安定期の目安（16週0日）', lmp + 16 * 7],
+        ['妊娠後期の開始（28週0日）', lmp + 28 * 7],
+        ['正産期の開始（37週0日）', lmp + 37 * 7],
+        ['出産予定日（40週0日）', edd],
+        ['正産期の終了（41週6日）', lmp + 41 * 7 + 6]
+    ];
+    let html = '';
+    milestones.forEach(m=>{
+        html += '<tr><td>' + m[0] + '</td><td class="date">' + fmtDay(m[1]) + '</td></tr>';
+    });
+    body.innerHTML = html;
+}
+
+switchMode();
+calcDue();
+</script>
+</body>
+</html>

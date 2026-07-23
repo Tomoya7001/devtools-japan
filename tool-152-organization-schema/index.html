@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organization構造化データ生成ツール | schema.org JSON-LD を自動作成【無料】</title>
+    <meta name="description" content="会社名・URL・ロゴ・住所・電話・SNSを入力するだけで、schema.orgのOrganization構造化データ（JSON-LD）を自動生成する無料ツール。PostalAddressやsameAsにも対応し、SEO・リッチリザルト対策に。すべてブラウザ内で完結します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select,.row textarea{width:340px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:left}
+        .row textarea{font-family:'JetBrains Mono',monospace;font-size:0.8rem;resize:vertical;min-height:80px}
+        .row input:focus,.row select:focus,.row textarea:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px;align-items:flex-start}.row label{flex:100%}.row input,.row select,.row textarea{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .output-box{position:relative;background:#1e1e35;border:1px solid var(--border);border-radius:var(--radius);padding:0;margin-bottom:16px;overflow:hidden}
+        .output-box .bar{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.08)}
+        .output-box .bar span{font-size:0.72rem;color:#9498b0;text-transform:uppercase;letter-spacing:0.06em}
+        .output-box pre{margin:0;padding:16px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:0.8rem;line-height:1.7;color:#e6e8f2;white-space:pre;-webkit-overflow-scrolling:touch}
+        .copy-btn{padding:6px 16px;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:0.75rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .copy-btn:hover{opacity:0.9}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-152-organization-schema/">
+    <meta property="og:title" content="Organization構造化データ生成ツール | schema.org JSON-LD を自動作成【無料】">
+    <meta property="og:description" content="会社情報を入力するだけでschema.orgのOrganization構造化データ（JSON-LD）を自動生成。SEO・リッチリザルト対策に。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-152-organization-schema/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Organization構造化データ生成ツール【無料】">
+    <meta name="twitter:description" content="会社情報からschema.orgのOrganization JSON-LDを自動生成。住所・SNSにも対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Organization構造化データ生成ツール","description":"会社情報からschema.orgのOrganization構造化データ（JSON-LD）を自動生成する無料ツール","url":"https://www.devtools-japan.com/tool-152-organization-schema/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"Organization構造化データ生成ツール","item":"https://www.devtools-japan.com/tool-152-organization-schema/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Organization構造化データとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"Organization構造化データとは、schema.orgの語彙を使って企業や組織の情報（名称・URL・ロゴ・住所・連絡先・SNSアカウントなど）を検索エンジンが理解できる形式で記述したものです。多くはJSON-LD形式でHTMLの中に埋め込み、Googleなどの検索エンジンに運営組織の正確な情報を伝えることで、ナレッジパネルやリッチリザルトの表示に役立ちます。本ツールはフォームに入力するだけでこのJSON-LDを自動生成します。"}},{"@type":"Question","name":"生成したJSON-LDはどこに貼り付ければいいですか？","acceptedAnswer":{"@type":"Answer","text":"生成された<script type=\"application/ld+json\">…</script>のコードを、対象ページのHTMLの<head>内（または<body>内でも可）に貼り付けます。通常はサイト全体の運営組織を表すため、トップページに1つ設置するのが一般的です。コピーボタンでコード全体をコピーし、テンプレートやCMSの共通ヘッダーに追加してください。"}},{"@type":"Question","name":"sameAsには何を入力すればいいですか？","acceptedAnswer":{"@type":"Answer","text":"sameAsには、その組織を表す公式な別ページのURLを入力します。具体的にはX（旧Twitter）・Facebook・Instagram・YouTube・LinkedInなどの公式SNSアカウントや、Wikipedia・公式プロフィールページのURLです。本ツールでは1行に1つのURLを入力すると、自動的にsameAsの配列として出力されます。組織の同一性を検索エンジンに伝える手がかりになります。"}},{"@type":"Question","name":"入力した情報は外部に送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。本ツールの処理はすべてお使いのブラウザ内（クライアントサイド）のJavaScriptだけで完結します。入力した会社名・住所・電話番号・メールアドレスなどがサーバーへ送信・保存されることはありません。生成結果もその場で表示するだけなので、安心してご利用いただけます。"}},{"@type":"Question","name":"空欄の項目はどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"名称以外の項目は任意です。入力を空欄のままにした項目は、生成されるJSON-LDから自動的に省略されます。たとえばメールアドレスを入力しなければemailプロパティは出力されません。住所も、市区町村や郵便番号など入力した項目だけがPostalAddressの中に含まれます。必要な情報だけを埋めれば、無駄のない構造化データを作成できます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>Organization構造化データ生成</h1><p>schema.org の Organization JSON-LD を自動作成</p></header>
+
+    <div class="card"><h3>組織の基本情報</h3>
+        <div class="row"><label>組織名 / 会社名 <span style="color:var(--red)">*</span></label><input type="text" id="orgName" placeholder="株式会社サンプル" oninput="generate()"></div>
+        <div class="row"><label>公式サイトURL</label><input type="url" id="orgUrl" placeholder="https://example.com" oninput="generate()"></div>
+        <div class="row"><label>ロゴ画像URL</label><input type="url" id="orgLogo" placeholder="https://example.com/logo.png" oninput="generate()"></div>
+        <div class="row"><label>説明</label><input type="text" id="orgDesc" placeholder="事業内容などの簡単な説明" oninput="generate()"></div>
+        <div class="row"><label>電話番号</label><input type="tel" id="orgTel" placeholder="+81-3-1234-5678" oninput="generate()"></div>
+        <div class="row"><label>メールアドレス</label><input type="email" id="orgEmail" placeholder="info@example.com" oninput="generate()"></div>
+    </div>
+
+    <div class="card"><h3>住所（PostalAddress）</h3>
+        <div class="row"><label>番地・建物（streetAddress）</label><input type="text" id="addrStreet" placeholder="千代田1-2-3 サンプルビル4F" oninput="generate()"></div>
+        <div class="row"><label>市区町村（addressLocality）</label><input type="text" id="addrLocality" placeholder="千代田区" oninput="generate()"></div>
+        <div class="row"><label>都道府県（addressRegion）</label><input type="text" id="addrRegion" placeholder="東京都" oninput="generate()"></div>
+        <div class="row"><label>郵便番号（postalCode）</label><input type="text" id="addrPostal" placeholder="100-0001" oninput="generate()"></div>
+        <div class="row"><label>国（addressCountry）</label><input type="text" id="addrCountry" value="JP" oninput="generate()"></div>
+    </div>
+
+    <div class="card"><h3>SNS・プロフィール（sameAs）</h3>
+        <div class="row" style="flex-direction:column;align-items:stretch;gap:8px"><label>1行に1つ、公式SNS・プロフィールのURLを入力</label><textarea id="orgSameAs" placeholder="https://twitter.com/example&#10;https://www.facebook.com/example&#10;https://www.instagram.com/example" oninput="generate()"></textarea></div>
+    </div>
+
+    <div class="output-box">
+        <div class="bar"><span>生成された JSON-LD</span><button class="copy-btn" onclick="copyOutput()" id="copyBtn">コピー</button></div>
+        <pre id="output"><code>組織名を入力すると、ここに JSON-LD が表示されます。</code></pre>
+    </div>
+
+    <div class="note">このツールが生成するのは、あなたの組織を表す schema.org の Organization 構造化データです。処理はすべてお使いのブラウザ内で完結し、入力内容がサーバーへ送信されることはありません。空欄の任意項目は出力から自動的に省略されます。生成コードは対象ページの &lt;head&gt; 内に貼り付けてご利用ください。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>Organization構造化データ生成ツールの使い方</h2>
+        <p>会社名やURL、ロゴ、住所、電話番号、SNSアカウントなどを入力するだけで、schema.orgのOrganization構造化データ（JSON-LD）を自動生成する無料ツールです。インストールや会員登録は不要で、すべての処理はお使いの端末内のブラウザだけで完結します。入力した情報がサーバーに送信・保存されることはありません。</p>
+        <p>使い方はかんたんです。まず必須項目である「組織名 / 会社名」を入力すると、下部の出力ボックスにリアルタイムでJSON-LDが生成されます。続けてURL・ロゴ・説明・電話・メール・住所・SNSなどの任意項目を埋めていくと、その内容がすぐにコードへ反映されます。完成したら「コピー」ボタンでコード全体をクリップボードにコピーし、対象ページのHTMLに貼り付けてください。</p>
+        <h3>こんな用途に</h3>
+        <p>コーポレートサイトやサービスサイトのSEO対策として、運営組織の情報を検索エンジンに正しく伝えたいときに便利です。Googleのナレッジパネルやリッチリザルトでロゴや公式SNSを表示させたい場合、Organization構造化データの設置が推奨されます。手書きでJSON-LDを書くと括弧の対応やプロパティ名を間違えやすいですが、本ツールなら入力するだけで正しい形式のコードが得られます。</p>
+
+        <h2>生成される構造化データの内容</h2>
+        <p>本ツールは、入力内容に応じて @context・@type・name を基本に、url・logo・description・telephone・email などのプロパティを追加します。住所は PostalAddress 型として入れ子で出力し、streetAddress・addressLocality・addressRegion・postalCode・addressCountry のうち入力された項目だけを含めます。SNSやプロフィールのURLは sameAs の配列として出力されます。入力しなかった任意項目は自動的に省略されるため、余計な空プロパティが混ざりません。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>プロパティ</th><th>対応する入力</th><th>説明</th></tr>
+            <tr><td>name</td><td>組織名 / 会社名</td><td>必須。組織の正式名称</td></tr>
+            <tr><td>url</td><td>公式サイトURL</td><td>組織の公式サイトのURL</td></tr>
+            <tr><td>logo</td><td>ロゴ画像URL</td><td>ロゴ画像への直接URL</td></tr>
+            <tr><td>address</td><td>住所各項目</td><td>PostalAddress型として入れ子で出力</td></tr>
+            <tr><td>telephone / email</td><td>電話・メール</td><td>連絡先情報</td></tr>
+            <tr><td>sameAs</td><td>SNS・プロフィール</td><td>公式SNS等のURLを配列で出力</td></tr>
+        </table>
+        </div>
+        <h3>設置場所の目安</h3>
+        <p>Organization構造化データは、通常サイト全体の運営組織を表すため、トップページに1つ設置するのが一般的です。生成された &lt;script type="application/ld+json"&gt; のコードを、対象ページのHTMLの &lt;head&gt; 内（&lt;body&gt; 内でも動作します）に貼り付けてください。設置後は、Googleのリッチリザルトテストやスキーママークアップ検証ツールで、構文エラーがないかを確認することをおすすめします。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">Organization構造化データとは何ですか？</div><div class="a">Organization構造化データとは、schema.orgの語彙を使って企業や組織の情報（名称・URL・ロゴ・住所・連絡先・SNSアカウントなど）を検索エンジンが理解できる形式で記述したものです。多くはJSON-LD形式でHTMLの中に埋め込み、Googleなどの検索エンジンに運営組織の正確な情報を伝えることで、ナレッジパネルやリッチリザルトの表示に役立ちます。本ツールはフォームに入力するだけでこのJSON-LDを自動生成します。</div></div>
+        <div class="faq-item"><div class="q">生成したJSON-LDはどこに貼り付ければいいですか？</div><div class="a">生成された &lt;script type="application/ld+json"&gt;…&lt;/script&gt; のコードを、対象ページのHTMLの &lt;head&gt; 内（または &lt;body&gt; 内でも可）に貼り付けます。通常はサイト全体の運営組織を表すため、トップページに1つ設置するのが一般的です。コピーボタンでコード全体をコピーし、テンプレートやCMSの共通ヘッダーに追加してください。</div></div>
+        <div class="faq-item"><div class="q">sameAsには何を入力すればいいですか？</div><div class="a">sameAsには、その組織を表す公式な別ページのURLを入力します。具体的にはX（旧Twitter）・Facebook・Instagram・YouTube・LinkedInなどの公式SNSアカウントや、Wikipedia・公式プロフィールページのURLです。本ツールでは1行に1つのURLを入力すると、自動的にsameAsの配列として出力されます。組織の同一性を検索エンジンに伝える手がかりになります。</div></div>
+        <div class="faq-item"><div class="q">入力した情報は外部に送信されますか？</div><div class="a">いいえ。本ツールの処理はすべてお使いのブラウザ内（クライアントサイド）のJavaScriptだけで完結します。入力した会社名・住所・電話番号・メールアドレスなどがサーバーへ送信・保存されることはありません。生成結果もその場で表示するだけなので、安心してご利用いただけます。</div></div>
+        <div class="faq-item"><div class="q">空欄の項目はどうなりますか？</div><div class="a">名称以外の項目は任意です。入力を空欄のままにした項目は、生成されるJSON-LDから自動的に省略されます。たとえばメールアドレスを入力しなければemailプロパティは出力されません。住所も、市区町村や郵便番号など入力した項目だけがPostalAddressの中に含まれます。必要な情報だけを埋めれば、無駄のない構造化データを作成できます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+function val(id){ return document.getElementById(id).value.trim(); }
+
+function generate(){
+    const name = val('orgName');
+    const output = document.getElementById('output');
+
+    if (!name){
+        output.innerHTML = '<code>組織名を入力すると、ここに JSON-LD が表示されます。</code>';
+        return;
+    }
+
+    const obj = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": name
+    };
+
+    const url = val('orgUrl');
+    if (url) obj.url = url;
+    const logo = val('orgLogo');
+    if (logo) obj.logo = logo;
+    const desc = val('orgDesc');
+    if (desc) obj.description = desc;
+
+    // PostalAddress（入力された項目だけ入れ子で追加）
+    const street = val('addrStreet');
+    const locality = val('addrLocality');
+    const region = val('addrRegion');
+    const postal = val('addrPostal');
+    const country = val('addrCountry');
+    const addr = {};
+    if (street) addr.streetAddress = street;
+    if (locality) addr.addressLocality = locality;
+    if (region) addr.addressRegion = region;
+    if (postal) addr.postalCode = postal;
+    if (country) addr.addressCountry = country;
+    if (Object.keys(addr).length > 0){
+        addr["@type"] = "PostalAddress";
+        // @type を先頭に置いた順序で再構成
+        const ordered = { "@type": "PostalAddress" };
+        if (addr.streetAddress) ordered.streetAddress = addr.streetAddress;
+        if (addr.addressLocality) ordered.addressLocality = addr.addressLocality;
+        if (addr.addressRegion) ordered.addressRegion = addr.addressRegion;
+        if (addr.postalCode) ordered.postalCode = addr.postalCode;
+        if (addr.addressCountry) ordered.addressCountry = addr.addressCountry;
+        obj.address = ordered;
+    }
+
+    const tel = val('orgTel');
+    if (tel) obj.telephone = tel;
+    const email = val('orgEmail');
+    if (email) obj.email = email;
+
+    // sameAs（1行1URL）
+    const sameAsRaw = document.getElementById('orgSameAs').value;
+    const sameAs = sameAsRaw.split('\n').map(function(s){ return s.trim(); }).filter(function(s){ return s.length > 0; });
+    if (sameAs.length > 0) obj.sameAs = sameAs;
+
+    const json = JSON.stringify(obj, null, 2);
+    var LD_OPEN = '<' + 'script type="application/ld+json">';
+    var LD_CLOSE = '<\/' + 'script>';
+    const script = LD_OPEN + '\n' + json + '\n' + LD_CLOSE;
+    output.textContent = script;
+}
+
+function copyOutput(){
+    const text = document.getElementById('output').textContent;
+    const btn = document.getElementById('copyBtn');
+    if (!text || text.indexOf('組織名を入力') !== -1){ return; }
+    navigator.clipboard.writeText(text).then(function(){
+        btn.textContent = 'コピーしました';
+        setTimeout(function(){ btn.textContent = 'コピー'; }, 1500);
+    }, function(){
+        // フォールバック（古い環境）
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); btn.textContent = 'コピーしました'; setTimeout(function(){ btn.textContent = 'コピー'; }, 1500); } catch(e){}
+        document.body.removeChild(ta);
+    });
+}
+
+// 初期サンプルで動作を示す
+document.getElementById('orgName').value = '株式会社サンプル';
+document.getElementById('orgUrl').value = 'https://example.com';
+document.getElementById('orgLogo').value = 'https://example.com/logo.png';
+generate();
+</script>
+</body>
+</html>

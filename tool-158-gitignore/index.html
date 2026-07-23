@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.gitignore ジェネレーター | Node・Python・macOS など主要スタックのテンプレを一括生成【無料】</title>
+    <meta name="description" content="Node.js・Python・Java・Go・Rust・macOS・Windows・VSCode・JetBrains・Xcode・Unity・Laravel・Next.js など主要スタックの .gitignore を、チェックするだけで重複排除して結合する無料ツール。100%ブラウザ内処理、コピー・ダウンロード対応。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .chip-grid{display:flex;flex-wrap:wrap;gap:8px}
+        .chip{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:20px;color:var(--text2);font-size:0.82rem;cursor:pointer;user-select:none;font-family:'Noto Sans JP',sans-serif;transition:border-color 0.15s,background 0.15s,color 0.15s}
+        .chip:hover{border-color:var(--accent);color:var(--accent)}
+        .chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
+        .chip .dot{width:8px;height:8px;border-radius:50%;background:var(--text3)}
+        .chip.active .dot{background:#fff}
+        .toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+        .btn{padding:10px 22px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.ghost{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.ghost:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+        .count-badge{font-size:0.75rem;color:var(--text3);margin-left:auto}
+        .output-wrap{position:relative}
+        textarea#output{width:100%;min-height:360px;padding:16px;background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.8rem;line-height:1.7;outline:none;resize:vertical;white-space:pre;overflow-wrap:normal;overflow-x:auto}
+        textarea#output:focus{border-color:var(--accent)}
+        .empty-hint{color:var(--text3);font-size:0.85rem;text-align:center;padding:24px 0}
+        .toast{position:fixed;left:50%;bottom:32px;transform:translateX(-50%);background:var(--text);color:#fff;padding:10px 20px;border-radius:8px;font-size:0.82rem;opacity:0;pointer-events:none;transition:opacity 0.2s}
+        .toast.show{opacity:0.95}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-158-gitignore/">
+    <meta property="og:title" content=".gitignore ジェネレーター | 主要スタックのテンプレを一括生成【無料】">
+    <meta property="og:description" content="Node・Python・macOS・VSCode など主要スタックの .gitignore をチェックするだけで重複排除して結合。コピー・ダウンロード対応。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-158-gitignore/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content=".gitignore ジェネレーター【無料】">
+    <meta name="twitter:description" content="主要スタックの .gitignore をチェックするだけで重複排除して結合。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":".gitignore ジェネレーター","description":"主要スタックのテンプレートをチェックするだけで重複排除して結合する無料の .gitignore 生成ツール","url":"https://www.devtools-japan.com/tool-158-gitignore/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":".gitignore ジェネレーター","item":"https://www.devtools-japan.com/tool-158-gitignore/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":".gitignore とは何ですか？","acceptedAnswer":{"@type":"Answer","text":".gitignore は Git にバージョン管理させないファイルやフォルダのパターンを記述する設定ファイルです。ビルド成果物、依存パッケージ（node_modules など）、OSやエディタが生成する一時ファイル、秘密情報を含む .env などを除外することで、リポジトリを軽く安全に保てます。本ツールは主要スタックの推奨パターンをまとめて生成します。"}},{"@type":"Question","name":"複数のスタックを同時に選べますか？","acceptedAnswer":{"@type":"Answer","text":"はい。Node・Python・macOS・VSCode のように複数のチップを選ぶと、それぞれのテンプレートが「# === 名前 ===」の見出し付きで結合されます。同じパターン行は自動的に重複排除されるため、複数選択しても同一の無視ルールが二重に並ぶことはありません。"}},{"@type":"Question","name":"生成した内容はサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。すべてのテンプレートはページ内に埋め込まれており、結合・重複排除・コピー・ダウンロードのすべてがお使いのブラウザ内だけで完結します。外部APIへの通信は行わず、選択内容やファイル内容がサーバーへ送られることはありません。オフラインでも動作します。"}},{"@type":"Question","name":".gitignore はどこに置けばよいですか？","acceptedAnswer":{"@type":"Answer","text":"通常はリポジトリのルートディレクトリに .gitignore という名前で置きます。ルートに置いたルールはリポジトリ全体に適用されます。サブディレクトリ固有の除外をしたい場合は、そのフォルダ内に個別の .gitignore を置くこともできます。既に追跡済みのファイルは .gitignore を追加しても除外されないため、その場合は git rm --cached で追跡を外してください。"}},{"@type":"Question","name":"生成されるパターンはそのまま使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい、代表的で広く使われている無視ルールを収録しているため多くのプロジェクトでそのまま利用できます。ただしプロジェクト固有の生成物や独自のディレクトリ構成は網羅していないため、生成後に必要な行を追記・調整してご利用ください。編集はそのままテキストエリア上で行えます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>.gitignore ジェネレーター</h1><p>主要スタックのテンプレートをチェックするだけで一括生成</p></header>
+
+    <div class="card"><h3>スタックを選択</h3>
+        <div class="chip-grid" id="chipGrid"></div>
+    </div>
+
+    <div class="card"><h3>生成された .gitignore</h3>
+        <div class="toolbar">
+            <button class="btn" onclick="copyOutput()">コピー</button>
+            <button class="btn ghost" onclick="downloadOutput()">ダウンロード</button>
+            <button class="btn ghost" onclick="clearAll()">クリア</button>
+            <span class="count-badge" id="countBadge">0 スタック / 0 行</span>
+        </div>
+        <div class="output-wrap">
+            <textarea id="output" spellcheck="false" placeholder="上のスタックを選ぶと、ここに .gitignore が生成されます。"></textarea>
+        </div>
+    </div>
+
+    <div class="note">すべてのテンプレートはこのページ内に埋め込まれており、結合・重複排除・コピー・ダウンロードはお使いのブラウザ内だけで処理されます。外部へは何も送信されません。選択したスタックは「# === 名前 ===」の見出しごとに結合され、同一のパターン行は自動的に重複排除されます。テキストエリアは直接編集できます。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>.gitignore ジェネレーターの使い方</h2>
+        <p>Node.js・Python・Java・Go・Rust・Ruby・PHP といった言語や、macOS・Windows・Linux などのOS、VSCode・JetBrains・Xcode などのエディタ、Unity・Laravel・Next.js といったフレームワークの .gitignore テンプレートを、チップをクリックして選ぶだけで一括生成できる無料ツールです。インストールや会員登録は不要で、すべての処理はお使いの端末内で完結します。</p>
+        <p>使い方はかんたんです。上部の一覧から使用しているスタックのチップをクリックして選択（複数選択可）すると、下のテキストエリアに .gitignore の内容が即座に生成されます。各スタックは「# === 名前 ===」という見出しごとにまとめられ、複数のスタックで重複するパターン行は自動的に取り除かれます。あとは「コピー」でクリップボードに取り込むか、「ダウンロード」で .gitignore ファイルとして保存してリポジトリのルートに配置するだけです。</p>
+        <h3>こんな場面に</h3>
+        <p>新しいリポジトリを作った直後の初期設定、複数言語を組み合わせたプロジェクトの無視ルールづくり、macOS の .DS_Store や Windows の Thumbs.db といったOS固有ファイルの除外、エディタの設定フォルダやビルド成果物の除外などにお使いいただけます。生成後はテキストエリア上でそのまま行の追記・削除ができるため、プロジェクト固有の生成物にも合わせられます。</p>
+
+        <h2>.gitignore の基本</h2>
+        <p>.gitignore は、Git にバージョン管理させたくないファイルやフォルダのパターンを1行ずつ記述する設定ファイルです。ビルド生成物、依存パッケージのディレクトリ、OSやエディタが自動生成する一時ファイル、API キーやパスワードを含む環境変数ファイルなどを除外することで、リポジトリを軽く・安全に・レビューしやすく保てます。通常はリポジトリのルートに置き、ルール全体がリポジトリ全域に適用されます。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>記法</th><th>意味</th><th>例</th></tr>
+            <tr><td>名前 / パターン</td><td>一致するファイル・フォルダを無視</td><td>node_modules/、*.log</td></tr>
+            <tr><td>末尾スラッシュ</td><td>ディレクトリのみを対象</td><td>build/</td></tr>
+            <tr><td>先頭の !</td><td>直前で無視した対象を除外（再包含）</td><td>!important.log</td></tr>
+            <tr><td>先頭の #</td><td>コメント行（無視ルールではない）</td><td># === Node ===</td></tr>
+        </table>
+        </div>
+        <h3>重複排除の仕組み</h3>
+        <p>複数のスタックを選ぶと、たとえば「.DS_Store」や「*.log」のように複数のテンプレートに共通するパターン行が現れることがあります。本ツールは各見出しを保持したまま、すでに出力済みのパターン行を検出して二重に並ばないよう自動的に重複排除します。これにより見通しの良い、無駄のない .gitignore を得られます。なおコメント行や空行は見出しの区切りとして扱い、重複排除の対象にはしません。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">.gitignore とは何ですか？</div><div class="a">.gitignore は Git にバージョン管理させないファイルやフォルダのパターンを記述する設定ファイルです。ビルド成果物、依存パッケージ（node_modules など）、OSやエディタが生成する一時ファイル、秘密情報を含む .env などを除外することで、リポジトリを軽く安全に保てます。本ツールは主要スタックの推奨パターンをまとめて生成します。</div></div>
+        <div class="faq-item"><div class="q">複数のスタックを同時に選べますか？</div><div class="a">はい。Node・Python・macOS・VSCode のように複数のチップを選ぶと、それぞれのテンプレートが「# === 名前 ===」の見出し付きで結合されます。同じパターン行は自動的に重複排除されるため、複数選択しても同一の無視ルールが二重に並ぶことはありません。</div></div>
+        <div class="faq-item"><div class="q">生成した内容はサーバーに送信されますか？</div><div class="a">いいえ。すべてのテンプレートはページ内に埋め込まれており、結合・重複排除・コピー・ダウンロードのすべてがお使いのブラウザ内だけで完結します。外部APIへの通信は行わず、選択内容やファイル内容がサーバーへ送られることはありません。オフラインでも動作します。</div></div>
+        <div class="faq-item"><div class="q">.gitignore はどこに置けばよいですか？</div><div class="a">通常はリポジトリのルートディレクトリに .gitignore という名前で置きます。ルートに置いたルールはリポジトリ全体に適用されます。サブディレクトリ固有の除外をしたい場合は、そのフォルダ内に個別の .gitignore を置くこともできます。既に追跡済みのファイルは .gitignore を追加しても除外されないため、その場合は git rm --cached で追跡を外してください。</div></div>
+        <div class="faq-item"><div class="q">生成されるパターンはそのまま使えますか？</div><div class="a">はい、代表的で広く使われている無視ルールを収録しているため多くのプロジェクトでそのまま利用できます。ただしプロジェクト固有の生成物や独自のディレクトリ構成は網羅していないため、生成後に必要な行を追記・調整してご利用ください。編集はそのままテキストエリア上で行えます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+// 各スタックの .gitignore テンプレート（すべて埋め込み・依存ゼロ）
+var TEMPLATES = {
+  "Node": [
+    "node_modules/",
+    "npm-debug.log*",
+    "yarn-debug.log*",
+    "yarn-error.log*",
+    "pnpm-debug.log*",
+    ".npm",
+    ".pnp.*",
+    "dist/",
+    "build/",
+    "coverage/",
+    ".env",
+    ".env.local",
+    "*.tgz"
+  ],
+  "Python": [
+    "__pycache__/",
+    "*.py[cod]",
+    "*$py.class",
+    "*.egg-info/",
+    ".eggs/",
+    "build/",
+    "dist/",
+    ".venv/",
+    "venv/",
+    "env/",
+    ".pytest_cache/",
+    ".mypy_cache/",
+    ".coverage",
+    ".env"
+  ],
+  "Java": [
+    "*.class",
+    "*.jar",
+    "*.war",
+    "*.ear",
+    "target/",
+    "build/",
+    ".gradle/",
+    "hs_err_pid*",
+    "*.log"
+  ],
+  "Go": [
+    "*.exe",
+    "*.exe~",
+    "*.dll",
+    "*.so",
+    "*.dylib",
+    "*.test",
+    "*.out",
+    "bin/",
+    "vendor/",
+    "go.work"
+  ],
+  "Rust": [
+    "target/",
+    "Cargo.lock",
+    "**/*.rs.bk",
+    "*.pdb"
+  ],
+  "Ruby": [
+    "*.gem",
+    "*.rbc",
+    "/.bundle/",
+    "/vendor/bundle",
+    "/log/*",
+    "/tmp/*",
+    ".byebug_history",
+    "coverage/"
+  ],
+  "PHP": [
+    "/vendor/",
+    "composer.phar",
+    "*.log",
+    ".env",
+    ".phpunit.result.cache",
+    "/build/"
+  ],
+  "macOS": [
+    ".DS_Store",
+    ".AppleDouble",
+    ".LSOverride",
+    "._*",
+    ".Spotlight-V100",
+    ".Trashes",
+    ".fseventsd",
+    ".DocumentRevisions-V100"
+  ],
+  "Windows": [
+    "Thumbs.db",
+    "Thumbs.db:encryptable",
+    "ehthumbs.db",
+    "Desktop.ini",
+    "$RECYCLE.BIN/",
+    "*.lnk",
+    "*.stackdump"
+  ],
+  "Linux": [
+    "*~",
+    ".fuse_hidden*",
+    ".directory",
+    ".Trash-*",
+    ".nfs*"
+  ],
+  "VSCode": [
+    ".vscode/*",
+    "!.vscode/settings.json",
+    "!.vscode/tasks.json",
+    "!.vscode/launch.json",
+    "!.vscode/extensions.json",
+    "*.code-workspace",
+    ".history/"
+  ],
+  "JetBrains": [
+    ".idea/",
+    "*.iml",
+    "*.ipr",
+    "*.iws",
+    "out/",
+    ".idea_modules/",
+    "cmake-build-*/"
+  ],
+  "Xcode": [
+    "build/",
+    "DerivedData/",
+    "*.pbxuser",
+    "*.xcuserstate",
+    "xcuserdata/",
+    "*.xcscmblueprint",
+    "*.hmap",
+    "*.ipa",
+    "*.dSYM.zip"
+  ],
+  "Unity": [
+    "[Ll]ibrary/",
+    "[Tt]emp/",
+    "[Oo]bj/",
+    "[Bb]uild/",
+    "[Bb]uilds/",
+    "[Ll]ogs/",
+    "[Uu]serSettings/",
+    "*.pidb.meta",
+    "*.pidb",
+    "sysinfo.txt"
+  ],
+  "Laravel": [
+    "/vendor/",
+    "/node_modules/",
+    "/public/build/",
+    "/public/hot",
+    "/storage/*.key",
+    ".env",
+    ".env.backup",
+    "Homestead.yaml",
+    "auth.json"
+  ],
+  "Next.js": [
+    "/.next/",
+    "/out/",
+    "/build/",
+    "node_modules/",
+    ".env*.local",
+    ".vercel",
+    "next-env.d.ts",
+    "*.tsbuildinfo"
+  ]
+};
+// チップ表示順
+var ORDER = ["Node","Python","Java","Go","Rust","Ruby","PHP","macOS","Windows","Linux","VSCode","JetBrains","Xcode","Unity","Laravel","Next.js"];
+var selected = [];
+
+function buildChips(){
+  var grid = document.getElementById('chipGrid');
+  grid.innerHTML = '';
+  ORDER.forEach(function(name){
+    var chip = document.createElement('div');
+    chip.className = 'chip';
+    chip.setAttribute('data-name', name);
+    chip.innerHTML = '<span class="dot"></span>' + name;
+    chip.onclick = function(){ toggle(name, chip); };
+    grid.appendChild(chip);
+  });
+}
+
+function toggle(name, chip){
+  var i = selected.indexOf(name);
+  if (i === -1){ selected.push(name); chip.classList.add('active'); }
+  else { selected.splice(i,1); chip.classList.remove('active'); }
+  render();
+}
+
+// 選択スタックを見出し付きで結合し、パターン行を重複排除
+function render(){
+  var out = [];
+  var seen = {};
+  // 表示順にそろえる
+  var ordered = ORDER.filter(function(n){ return selected.indexOf(n) !== -1; });
+  ordered.forEach(function(name){
+    var lines = TEMPLATES[name] || [];
+    out.push('# === ' + name + ' ===');
+    lines.forEach(function(line){
+      var key = line.trim();
+      if (key === '' || key.charAt(0) === '#'){ out.push(line); return; }
+      if (seen[key]) return;      // 既出のパターン行は重複排除
+      seen[key] = true;
+      out.push(line);
+    });
+    out.push('');                 // セクション間の空行
+  });
+  // 末尾の余分な空行を除去
+  while (out.length && out[out.length-1] === '') out.pop();
+  var text = out.join('\n');
+  document.getElementById('output').value = text;
+  var lineCount = text === '' ? 0 : text.split('\n').length;
+  document.getElementById('countBadge').textContent = ordered.length + ' スタック / ' + lineCount + ' 行';
+}
+
+function showToast(msg){
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 1600);
+}
+
+function copyOutput(){
+  var ta = document.getElementById('output');
+  var text = ta.value;
+  if (!text){ showToast('先にスタックを選択してください'); return; }
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){ showToast('コピーしました'); }, function(){ fallbackCopy(ta); });
+  } else { fallbackCopy(ta); }
+}
+function fallbackCopy(ta){
+  ta.focus(); ta.select();
+  try { document.execCommand('copy'); showToast('コピーしました'); }
+  catch(e){ showToast('コピーに失敗しました'); }
+}
+
+function downloadOutput(){
+  var text = document.getElementById('output').value;
+  if (!text){ showToast('先にスタックを選択してください'); return; }
+  var blob = new Blob([text], {type:'text/plain;charset=utf-8'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = '.gitignore';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('.gitignore をダウンロードしました');
+}
+
+function clearAll(){
+  selected = [];
+  var chips = document.querySelectorAll('.chip');
+  for (var i=0;i<chips.length;i++){ chips[i].classList.remove('active'); }
+  render();
+}
+
+buildChips();
+// 初期選択: Node + macOS + VSCode
+['Node','macOS','VSCode'].forEach(function(name){
+  var chip = document.querySelector('.chip[data-name="' + name + '"]');
+  if (chip){ selected.push(name); chip.classList.add('active'); }
+});
+render();
+</script>
+</body>
+</html>

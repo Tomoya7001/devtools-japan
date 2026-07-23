@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User-Agent 解析ツール | ブラウザ・OS・端末をUA文字列から判定【無料】</title>
+    <meta name="description" content="User-Agent（UA）文字列を貼り付けるだけで、ブラウザ名・バージョン、レンダリングエンジン、OS、端末種別、CPU/アーキテクチャ、ボット判定を自動解析する無料ツール。読み込み時は自分の端末のUAを自動判定。すべてブラウザ内で完結します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        textarea{width:100%;min-height:90px;padding:12px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.82rem;line-height:1.6;outline:none;resize:vertical}
+        textarea:focus{border-color:var(--accent)}
+        .btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+        .btn{padding:10px 20px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.secondary{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.secondary:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.15rem;font-weight:700;color:var(--accent);word-break:break-word}
+        .result-item .sub{font-size:0.72rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:20px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.75rem;color:var(--text2);margin-bottom:6px}
+        .big-result .device{font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--accent);line-height:1.3}
+        .big-result .sub{font-size:0.78rem;color:var(--text3);margin-top:6px}
+        .kv{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--border);font-size:0.83rem}
+        .kv:last-child{border-bottom:none}
+        .kv .k{color:var(--text2);flex-shrink:0}
+        .kv .v{color:var(--text);font-family:'JetBrains Mono',monospace;text-align:right;word-break:break-word}
+        .bot-badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:600}
+        .bot-badge.no{background:rgba(34,197,94,0.12);color:var(--green)}
+        .bot-badge.yes{background:rgba(239,68,68,0.12);color:var(--red)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-159-useragent/">
+    <meta property="og:title" content="User-Agent 解析ツール | ブラウザ・OS・端末をUA文字列から判定【無料】">
+    <meta property="og:description" content="UA文字列を貼り付けるだけでブラウザ・エンジン・OS・端末種別・ボット判定を自動解析。すべてブラウザ内で完結。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-159-useragent/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="User-Agent 解析ツール【無料】">
+    <meta name="twitter:description" content="UA文字列からブラウザ・OS・端末・ボットを自動判定。クライアントサイド完結。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"User-Agent 解析ツール","description":"User-Agent文字列からブラウザ・エンジン・OS・端末種別・ボットを自動解析する無料ツール","url":"https://www.devtools-japan.com/tool-159-useragent/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"User-Agent 解析ツール","item":"https://www.devtools-japan.com/tool-159-useragent/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"User-Agent（UA）とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"User-Agentは、ブラウザやアプリがWebサーバーにアクセスするときにHTTPヘッダーとして送信する自己申告の識別文字列です。ブラウザ名やバージョン、レンダリングエンジン、OS、端末の種類などの情報が1行のテキストにまとめられています。本ツールはこの文字列を正規表現で解析し、各項目に分解して表示します。"}},{"@type":"Question","name":"読み込んだときに自動で表示されるUAは何ですか？","acceptedAnswer":{"@type":"Answer","text":"ページを開くと、お使いのブラウザが送信しているnavigator.userAgentの値を自動でテキストエリアに入力し、その場で解析して表示します。つまり最初に出るのは、いまアクセスしている端末とブラウザ自身のUA情報です。別のUA文字列を貼り付ければ、その内容を解析し直せます。"}},{"@type":"Question","name":"解析はサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。解析はすべてブラウザ内のJavaScriptだけで行われ、入力したUA文字列や端末情報が外部サーバーに送信・保存されることはありません。会員登録も不要で、貼り付けたテキストはあなたの端末から出ません。安心して任意のUA文字列を検証できます。"}},{"@type":"Question","name":"ボット・クローラーの判定はどのくらい正確ですか？","acceptedAnswer":{"@type":"Answer","text":"GooglebotやBingbot、各種クローラーに含まれる代表的なキーワードを正規表現で照合して判定しています。既知のボットは高い精度で検出できますが、UAは自由に詐称できるため、判定はあくまで文字列ベースの目安です。厳密な検証にはIP逆引きなど別の手法と併用してください。"}},{"@type":"Question","name":"バージョンやエンジンが正しく取れないことはありますか？","acceptedAnswer":{"@type":"Answer","text":"あります。近年はプライバシー保護のためUAを簡略化・凍結する動きがあり、正規表現ヒューリスティックでは細かいバージョンやマイナー情報を取得できない場合があります。特にモバイルの一部やUA Client Hints主体の環境では、表示が不明・概算になることがあります。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>User-Agent 解析</h1><p>UA文字列からブラウザ・OS・端末・ボットを判定</p></header>
+
+    <div class="card"><h3>User-Agent 文字列</h3>
+        <textarea id="uaInput" placeholder="ここにUser-Agent文字列を貼り付け（読み込み時は自分の端末のUAを自動入力）" oninput="parseUA()"></textarea>
+        <div class="btn-row">
+            <button class="btn" onclick="copySummary()" id="copyBtn">解析結果をコピー</button>
+            <button class="btn secondary" onclick="useMyUA()">自分のUAに戻す</button>
+            <button class="btn secondary" onclick="clearUA()">クリア</button>
+        </div>
+    </div>
+
+    <div class="big-result">
+        <div class="headline">端末種別</div>
+        <div class="device" id="bigDevice">-</div>
+        <div class="sub" id="bigSub">UA文字列を入力してください</div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">ブラウザ</div><div class="value" id="rBrowser">-</div><div class="sub" id="rBrowserVer"></div></div>
+        <div class="result-item"><div class="label">レンダリングエンジン</div><div class="value" id="rEngine">-</div><div class="sub" id="rEngineVer"></div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">OS</div><div class="value" id="rOS">-</div><div class="sub" id="rOSVer"></div></div>
+        <div class="result-item"><div class="label">CPU / アーキテクチャ</div><div class="value" id="rCPU">-</div></div>
+    </div>
+
+    <div class="card"><h3>ボット / クローラー判定</h3>
+        <div style="text-align:center;padding:6px 0"><span class="bot-badge no" id="botBadge">判定待ち</span><div class="sub" id="botName" style="font-size:0.75rem;color:var(--text3);margin-top:8px"></div></div>
+    </div>
+
+    <div class="card"><h3>この端末の navigator 情報</h3>
+        <div id="navFields"></div>
+    </div>
+
+    <div class="note">解析はすべてブラウザ内のJavaScript（正規表現ヒューリスティック）で行われ、入力内容が外部に送信されることはありません。User-Agentは詐称・簡略化が可能なため、判定はあくまで文字列ベースの目安です。navigator情報はいまアクセスしている端末の値を表示します。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>User-Agent 解析ツールの使い方</h2>
+        <p>User-Agent（UA）解析ツールは、ブラウザやアプリがサーバーへ送信するUser-Agent文字列を貼り付けるだけで、ブラウザ名・バージョン、レンダリングエンジン、OS、端末種別（デスクトップ／モバイル／タブレット）、CPU・アーキテクチャのヒント、そして既知のボット・クローラーかどうかを自動で判定する無料ツールです。ページを開いた瞬間に、お使いのブラウザ自身のUA（navigator.userAgent）を自動で読み込んで解析するため、まず自分の環境が正しく認識されているかをすぐ確認できます。</p>
+        <p>解析したいUAが別にある場合は、テキストエリアの内容を書き換えるか、任意のUA文字列を貼り付けてください。入力と同時にリアルタイムで再解析され、各項目が更新されます。「解析結果をコピー」ボタンを押すと、解析サマリーをまとめてクリップボードにコピーできるので、バグ報告や動作環境の共有、ドキュメント作成にも便利です。すべての処理は端末内で完結し、外部サーバーへの送信は一切ありません。</p>
+        <h3>解析される項目</h3>
+        <p>ブラウザは Chrome / Edge / Firefox / Safari / Opera / Samsung Internet などを、エンジンは Blink / WebKit / Gecko を、OSは Windows / macOS / iOS / Android / Linux / Chrome OS などをキーワードとバージョン番号の正規表現で推定します。端末種別はUA内の「Mobile」「Tablet」「iPad」などのヒントから判定し、CPU欄では x64・ARM・Apple などのアーキテクチャ手がかりを表示します。</p>
+
+        <h2>User-Agent 文字列の構造</h2>
+        <p>User-Agentは歴史的な理由から、複数のトークンが空白やかっこで区切られた1行のテキストになっています。多くのブラウザは互換性のため先頭に「Mozilla/5.0」を付け、その後にプラットフォーム情報、レンダリングエンジン、ブラウザ名とバージョンが続きます。たとえばデスクトップChromeでは、Windowsのバージョン、WebKit互換の表記、そして「Chrome/バージョン Safari/バージョン」という並びが含まれます。本ツールはこうしたトークンを正規表現で切り出して各項目に振り分けています。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>項目</th><th>判定の手がかり</th><th>備考</th></tr>
+            <tr><td>ブラウザ</td><td>Edg / Chrome / Firefox / Version(Safari) など</td><td>Edge・Operaなどは順序を考慮して優先判定</td></tr>
+            <tr><td>エンジン</td><td>AppleWebKit / Gecko / Blink</td><td>ChromiumはWebKit表記でもBlinkと表示</td></tr>
+            <tr><td>OS</td><td>Windows NT / Mac OS X / Android / iPhone OS</td><td>バージョン番号も抽出</td></tr>
+            <tr><td>端末</td><td>Mobile / Tablet / iPad の有無</td><td>手がかりが無ければデスクトップ扱い</td></tr>
+        </table>
+        </div>
+        <h3>UA Client Hints と簡略化の流れ</h3>
+        <p>近年はプライバシー保護のため、ブラウザがUA文字列を簡略化・凍結し、詳細はUA Client Hintsという別の仕組みで提供する流れが進んでいます。そのため、正規表現ベースの解析では細かなバージョンやマイナー情報が取得できないことがあり、結果は「不明」や概算になる場合があります。判定はあくまで文字列に基づく目安として、厳密な用途では複数の手法を併用してください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">User-Agent（UA）とは何ですか？</div><div class="a">User-Agentは、ブラウザやアプリがWebサーバーにアクセスするときにHTTPヘッダーとして送信する自己申告の識別文字列です。ブラウザ名やバージョン、レンダリングエンジン、OS、端末の種類などの情報が1行のテキストにまとめられています。本ツールはこの文字列を正規表現で解析し、各項目に分解して表示します。</div></div>
+        <div class="faq-item"><div class="q">読み込んだときに自動で表示されるUAは何ですか？</div><div class="a">ページを開くと、お使いのブラウザが送信しているnavigator.userAgentの値を自動でテキストエリアに入力し、その場で解析して表示します。つまり最初に出るのは、いまアクセスしている端末とブラウザ自身のUA情報です。別のUA文字列を貼り付ければ、その内容を解析し直せます。</div></div>
+        <div class="faq-item"><div class="q">解析はサーバーに送信されますか？</div><div class="a">いいえ。解析はすべてブラウザ内のJavaScriptだけで行われ、入力したUA文字列や端末情報が外部サーバーに送信・保存されることはありません。会員登録も不要で、貼り付けたテキストはあなたの端末から出ません。安心して任意のUA文字列を検証できます。</div></div>
+        <div class="faq-item"><div class="q">ボット・クローラーの判定はどのくらい正確ですか？</div><div class="a">GooglebotやBingbot、各種クローラーに含まれる代表的なキーワードを正規表現で照合して判定しています。既知のボットは高い精度で検出できますが、UAは自由に詐称できるため、判定はあくまで文字列ベースの目安です。厳密な検証にはIP逆引きなど別の手法と併用してください。</div></div>
+        <div class="faq-item"><div class="q">バージョンやエンジンが正しく取れないことはありますか？</div><div class="a">あります。近年はプライバシー保護のためUAを簡略化・凍結する動きがあり、正規表現ヒューリスティックでは細かいバージョンやマイナー情報を取得できない場合があります。特にモバイルの一部やUA Client Hints主体の環境では、表示が不明・概算になることがあります。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+// 既知ボット/クローラーの照合パターン
+function detectBot(ua){
+    const pats = [
+        ['Googlebot','Googlebot'],['Bingbot','bingbot'],['Yahoo! Slurp','Slurp'],
+        ['DuckDuckBot','DuckDuckBot'],['Baiduspider','Baiduspider'],['YandexBot','YandexBot'],
+        ['Applebot','Applebot'],['facebookexternalhit','facebookexternalhit'],['Twitterbot','Twitterbot'],
+        ['LinkedInBot','LinkedInBot'],['Slackbot','Slackbot'],['Discordbot','Discordbot'],
+        ['TelegramBot','TelegramBot'],['AhrefsBot','AhrefsBot'],['SemrushBot','SemrushBot'],
+        ['PetalBot','PetalBot'],['GPTBot','GPTBot'],['ClaudeBot','ClaudeBot'],
+        ['Google-Extended','Google-Extended'],['CCBot','CCBot'],['curl','curl/'],['wget','Wget'],
+        ['Python-requests','python-requests'],['Headless Chrome','HeadlessChrome']
+    ];
+    for (const [name, kw] of pats){
+        if (ua.toLowerCase().indexOf(kw.toLowerCase()) !== -1) return name;
+    }
+    // 汎用ボットキーワード
+    if (/bot|crawler|spider|crawl|slurp/i.test(ua)) return '一般的なボット（bot/crawler/spider を検出）';
+    return null;
+}
+
+function detectBrowser(ua){
+    let name = '不明', ver = '';
+    const m = function(re){ const r = ua.match(re); return r ? r[1] : ''; };
+    if (/Edg\//.test(ua)){ name='Microsoft Edge'; ver=m(/Edg\/([\d.]+)/); }
+    else if (/EdgA\//.test(ua)){ name='Edge (Android)'; ver=m(/EdgA\/([\d.]+)/); }
+    else if (/EdgiOS\//.test(ua)){ name='Edge (iOS)'; ver=m(/EdgiOS\/([\d.]+)/); }
+    else if (/OPR\/|Opera/.test(ua)){ name='Opera'; ver=m(/(?:OPR|Opera)\/([\d.]+)/); }
+    else if (/SamsungBrowser\//.test(ua)){ name='Samsung Internet'; ver=m(/SamsungBrowser\/([\d.]+)/); }
+    else if (/Firefox\/|FxiOS\//.test(ua)){ name='Mozilla Firefox'; ver=m(/(?:Firefox|FxiOS)\/([\d.]+)/); }
+    else if (/CriOS\//.test(ua)){ name='Chrome (iOS)'; ver=m(/CriOS\/([\d.]+)/); }
+    else if (/Chrome\//.test(ua)){ name='Google Chrome'; ver=m(/Chrome\/([\d.]+)/); }
+    else if (/Version\/.*Safari/.test(ua)){ name='Safari'; ver=m(/Version\/([\d.]+)/); }
+    else if (/Safari\//.test(ua)){ name='Safari'; ver=m(/Safari\/([\d.]+)/); }
+    else if (/MSIE |Trident\//.test(ua)){ name='Internet Explorer'; ver=m(/(?:MSIE |rv:)([\d.]+)/); }
+    return {name:name, ver:ver};
+}
+
+function detectEngine(ua){
+    if (/Gecko\//.test(ua) && /Firefox/.test(ua)) return {name:'Gecko', ver:(ua.match(/rv:([\d.]+)/)||[])[1]||''};
+    if (/Trident\//.test(ua)) return {name:'Trident', ver:(ua.match(/Trident\/([\d.]+)/)||[])[1]||''};
+    if (/Chrome\/|CriOS\/|Edg|OPR\/|SamsungBrowser/.test(ua)){
+        return {name:'Blink', ver:(ua.match(/Chrome\/([\d.]+)/)||[])[1]||''};
+    }
+    if (/AppleWebKit\//.test(ua)){
+        return {name:'WebKit', ver:(ua.match(/AppleWebKit\/([\d.]+)/)||[])[1]||''};
+    }
+    if (/Gecko/.test(ua)) return {name:'Gecko', ver:''};
+    return {name:'不明', ver:''};
+}
+
+function detectOS(ua){
+    let name='不明', ver='';
+    if (/Windows NT/.test(ua)){
+        name='Windows';
+        const v=(ua.match(/Windows NT ([\d.]+)/)||[])[1];
+        const map={'10.0':'10 / 11','6.3':'8.1','6.2':'8','6.1':'7','6.0':'Vista','5.1':'XP'};
+        ver=map[v]||v||'';
+    } else if (/iPhone|iPad|iPod/.test(ua)){
+        name=/iPad/.test(ua)?'iPadOS':'iOS';
+        ver=((ua.match(/OS ([\d_]+)/)||[])[1]||'').replace(/_/g,'.');
+    } else if (/Mac OS X/.test(ua)){
+        name='macOS';
+        ver=((ua.match(/Mac OS X ([\d_]+)/)||[])[1]||'').replace(/_/g,'.');
+    } else if (/Android/.test(ua)){
+        name='Android';
+        ver=(ua.match(/Android ([\d.]+)/)||[])[1]||'';
+    } else if (/CrOS/.test(ua)){
+        name='Chrome OS'; ver=(ua.match(/CrOS \S+ ([\d.]+)/)||[])[1]||'';
+    } else if (/Linux/.test(ua)){
+        name='Linux'; ver='';
+    }
+    return {name:name, ver:ver};
+}
+
+function detectDevice(ua){
+    if (/iPad|Tablet|PlayBook|Silk|(Android(?!.*Mobile))/.test(ua)) return 'タブレット';
+    if (/Mobi|Mobile|iPhone|iPod|Android.*Mobile|Windows Phone|IEMobile/.test(ua)) return 'モバイル';
+    if (detectBot(ua)) return 'ボット / 自動化';
+    return 'デスクトップ';
+}
+
+function detectCPU(ua){
+    if (/Win64|x64|WOW64|x86_64|amd64/i.test(ua)) return 'x86-64 (64bit)';
+    if (/arm64|aarch64/i.test(ua)) return 'ARM64';
+    if (/armv|arm/i.test(ua)) return 'ARM';
+    if (/iPhone|iPad|iPod/.test(ua)) return 'Apple Silicon (ARM)';
+    if (/i686|i386|x86/i.test(ua)) return 'x86 (32bit)';
+    if (/Intel Mac/.test(ua)) return 'Intel x86-64';
+    return '不明';
+}
+
+let lastSummary = '';
+
+function parseUA(){
+    const ua = document.getElementById('uaInput').value.trim();
+    const setV = (id,val,sub)=>{ document.getElementById(id).textContent = val||'不明'; if(sub!==undefined && document.getElementById(id+'Ver')) document.getElementById(id+'Ver').textContent = sub||''; };
+    if (!ua){
+        document.getElementById('bigDevice').textContent='-';
+        document.getElementById('bigSub').textContent='UA文字列を入力してください';
+        ['rBrowser','rEngine','rOS','rCPU'].forEach(id=>document.getElementById(id).textContent='-');
+        ['rBrowserVer','rEngineVer','rOSVer'].forEach(id=>document.getElementById(id).textContent='');
+        const bb=document.getElementById('botBadge'); bb.className='bot-badge no'; bb.textContent='判定待ち';
+        document.getElementById('botName').textContent='';
+        lastSummary='';
+        return;
+    }
+    const br = detectBrowser(ua);
+    const en = detectEngine(ua);
+    const os = detectOS(ua);
+    const dev = detectDevice(ua);
+    const cpu = detectCPU(ua);
+    const bot = detectBot(ua);
+
+    document.getElementById('bigDevice').textContent = dev;
+    document.getElementById('bigSub').textContent = br.name + ' / ' + os.name;
+
+    document.getElementById('rBrowser').textContent = br.name;
+    document.getElementById('rBrowserVer').textContent = br.ver ? 'v' + br.ver : '';
+    document.getElementById('rEngine').textContent = en.name;
+    document.getElementById('rEngineVer').textContent = en.ver ? 'v' + en.ver : '';
+    document.getElementById('rOS').textContent = os.name;
+    document.getElementById('rOSVer').textContent = os.ver ? os.ver : '';
+    document.getElementById('rCPU').textContent = cpu;
+
+    const bb = document.getElementById('botBadge');
+    if (bot){
+        bb.className='bot-badge yes'; bb.textContent='ボットを検出';
+        document.getElementById('botName').textContent = '判定: ' + bot;
+    } else {
+        bb.className='bot-badge no'; bb.textContent='通常のブラウザ（ボット未検出）';
+        document.getElementById('botName').textContent = '既知のボットキーワードは含まれていません';
+    }
+
+    lastSummary =
+        '=== User-Agent 解析結果 ===\n' +
+        'UA: ' + ua + '\n' +
+        'ブラウザ: ' + br.name + (br.ver ? ' v' + br.ver : '') + '\n' +
+        'エンジン: ' + en.name + (en.ver ? ' v' + en.ver : '') + '\n' +
+        'OS: ' + os.name + (os.ver ? ' ' + os.ver : '') + '\n' +
+        '端末種別: ' + dev + '\n' +
+        'CPU/アーキ: ' + cpu + '\n' +
+        'ボット判定: ' + (bot ? bot : 'なし');
+}
+
+function renderNav(){
+    const rows = [];
+    const nav = navigator;
+    const scr = window.screen || {};
+    const langs = nav.languages ? nav.languages.join(', ') : (nav.language||'不明');
+    rows.push(['platform', nav.platform || '不明']);
+    rows.push(['language', nav.language || '不明']);
+    rows.push(['languages', langs]);
+    rows.push(['vendor', nav.vendor || '不明']);
+    rows.push(['hardwareConcurrency', (nav.hardwareConcurrency!=null?nav.hardwareConcurrency+' コア':'不明')]);
+    rows.push(['deviceMemory', (nav.deviceMemory!=null?nav.deviceMemory+' GB':'不明')]);
+    rows.push(['maxTouchPoints', (nav.maxTouchPoints!=null?nav.maxTouchPoints:'不明')]);
+    rows.push(['screen', (scr.width||'?') + ' x ' + (scr.height||'?') + ' px']);
+    rows.push(['viewport', window.innerWidth + ' x ' + window.innerHeight + ' px']);
+    rows.push(['devicePixelRatio', window.devicePixelRatio || '不明']);
+    rows.push(['colorDepth', (scr.colorDepth!=null?scr.colorDepth+' bit':'不明')]);
+    rows.push(['cookieEnabled', String(nav.cookieEnabled)]);
+    rows.push(['online', String(nav.onLine)]);
+    const html = rows.map(r=>'<div class="kv"><span class="k">'+esc(r[0])+'</span><span class="v">'+esc(r[1])+'</span></div>').join('');
+    document.getElementById('navFields').innerHTML = html;
+}
+
+function copySummary(){
+    if (!lastSummary) return;
+    const btn = document.getElementById('copyBtn');
+    navigator.clipboard.writeText(lastSummary).then(()=>{
+        const t = btn.textContent; btn.textContent='コピーしました';
+        setTimeout(()=>{ btn.textContent=t; }, 1500);
+    }).catch(()=>{
+        const ta = document.getElementById('uaInput');
+        ta.focus(); ta.select(); document.execCommand('copy');
+    });
+}
+
+function useMyUA(){
+    document.getElementById('uaInput').value = navigator.userAgent;
+    parseUA();
+}
+function clearUA(){
+    document.getElementById('uaInput').value='';
+    parseUA();
+}
+
+// 初期化: 自分の端末のUAを自動入力して解析
+document.getElementById('uaInput').value = navigator.userAgent;
+renderNav();
+parseUA();
+</script>
+</body>
+</html>

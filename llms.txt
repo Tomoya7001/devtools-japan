@@ -144,6 +144,18 @@
 - PDF→画像変換: https://www.devtools-japan.com/tool-148-pdf-to-image/
 - JSON Schema ジェネレーター: https://www.devtools-japan.com/tool-149-jsonschema-gen/
 - AIプロンプト テンプレート: https://www.devtools-japan.com/tool-150-prompt-template/
+- Article構造化データ生成ツール: https://www.devtools-japan.com/tool-151-article-schema/
+- Organization構造化データ生成ツール: https://www.devtools-japan.com/tool-152-organization-schema/
+- JobPosting 求人 構造化データ生成ツール: https://www.devtools-japan.com/tool-153-jobposting-schema/
+- Course構造化データ生成ツール: https://www.devtools-japan.com/tool-154-course-schema/
+- WebSite構造化データ生成ツール: https://www.devtools-japan.com/tool-155-website-schema/
+- Review / AggregateRating 構造化データ生成ツール: https://www.devtools-japan.com/tool-156-review-schema/
+- URLスラッグ生成ツール（日本語・ローマ字変換対応）: https://www.devtools-japan.com/tool-157-slugify/
+- .gitignore ジェネレーター: https://www.devtools-japan.com/tool-158-gitignore/
+- User-Agent 解析ツール: https://www.devtools-japan.com/tool-159-useragent/
+- 出産予定日計算ツール: https://www.devtools-japan.com/tool-160-due-date/
+- 電気代計算ツール: https://www.devtools-japan.com/tool-161-electricity-bill/
+- ガソリン代・燃費計算ツール: https://www.devtools-japan.com/tool-162-fuel-cost/
 
 ## API
 DevTools Japan APIとして30本以上の無料REST APIを提供。認証不要で即利用可能。

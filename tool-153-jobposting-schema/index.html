@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobPosting 求人 構造化データ生成ツール | schema.org 求人検索(for Jobs) JSON-LD【無料】</title>
+    <meta name="description" content="求人情報のタイトル・会社名・勤務地・給与などを入力するだけで、Googleしごと検索(Google for Jobs)対応のschema.org JobPosting JSON-LD構造化データを自動生成する無料ツール。baseSalaryはMonetaryAmountで出力、空欄項目は自動で省略。完全ブラウザ完結でコピーしてそのまま貼り付けできます。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select,.row textarea{width:280px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:left}
+        .row textarea{resize:vertical;min-height:72px;line-height:1.6}
+        .row input:focus,.row select:focus,.row textarea:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select,.row textarea{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .code-box{position:relative;background:#1e1e35;border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:16px;overflow-x:auto}
+        .code-box pre{font-family:'JetBrains Mono',monospace;font-size:0.8rem;line-height:1.6;color:#e6e6f0;white-space:pre;margin:0}
+        .code-actions{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+        .code-actions .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em}
+        .copy-btn{padding:8px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .copy-btn:hover{opacity:0.9}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-153-jobposting-schema/">
+    <meta property="og:title" content="JobPosting 求人 構造化データ生成ツール | schema.org 求人検索 JSON-LD【無料】">
+    <meta property="og:description" content="タイトル・会社・勤務地・給与を入力するだけでGoogleしごと検索対応のJobPosting JSON-LDを自動生成。空欄項目は省略、完全ブラウザ完結。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-153-jobposting-schema/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="JobPosting 求人 構造化データ生成【無料】">
+    <meta name="twitter:description" content="Googleしごと検索対応のschema.org JobPosting JSON-LDを自動生成。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"JobPosting 求人 構造化データ生成ツール","description":"求人情報からGoogleしごと検索対応のschema.org JobPosting JSON-LD構造化データを自動生成する無料ツール","url":"https://www.devtools-japan.com/tool-153-jobposting-schema/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"JobPosting 求人 構造化データ生成ツール","item":"https://www.devtools-japan.com/tool-153-jobposting-schema/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"JobPosting構造化データとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"JobPostingはschema.orgで定義された求人情報用の構造化データ（マークアップ）の型です。求人ページにJSON-LD形式で埋め込むと、Googleがそのページを求人情報として認識し、Googleしごと検索（Google for Jobs）の専用枠に掲載される候補になります。職種名・仕事内容・雇用形態・勤務地・給与などの項目を機械可読な形で伝えられます。"}},{"@type":"Question","name":"生成したJSON-LDはどこに貼り付ければいいですか？","acceptedAnswer":{"@type":"Answer","text":"生成された内容はscriptタグ（type=application/ld+json）ごとコピーできます。これを求人詳細ページのHTMLのhead内、またはbody内に貼り付けてください。1つの求人ページにつき1つのJobPostingを配置するのが基本です。貼り付け後はGoogleのリッチリザルトテストやSearch Consoleで有効性を確認することをおすすめします。"}},{"@type":"Question","name":"給与（baseSalary）はどう出力されますか？","acceptedAnswer":{"@type":"Answer","text":"給与はschema.orgの推奨に沿ってMonetaryAmount型で出力し、その中のvalueをQuantitativeValueとして記述します。最低額と最高額の両方を入力すると範囲（minValue／maxValue）として、片方だけの場合はその値（value）として出力します。通貨は既定でJPY、単位（unitText）はHOUR／DAY／WEEK／MONTH／YEARから選べ、時給・月給・年収などを正しく表現できます。"}},{"@type":"Question","name":"入力しなかった項目はどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"必須ではない任意項目を空欄のままにした場合、その項目はJSON-LDには出力されず自動的に省略されます。給与・勤務地・掲載日・掲載期限（validThrough）などは空欄なら含まれません。これにより、実際に入力した情報だけを含んだ余分なプロパティのないきれいな構造化データが得られます。"}},{"@type":"Question","name":"このツールで入力した情報はサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。JSON-LDの生成処理はすべてお使いのブラウザ内（クライアントサイド）のJavaScriptだけで完結します。入力した求人タイトルや会社名、給与などの情報が外部サーバーへ送信・保存されることはありません。安心して未公開の求人情報も入力できます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>JobPosting 求人 構造化データ生成</h1><p>Googleしごと検索対応のschema.org JSON-LDを自動生成</p></header>
+
+    <div class="card"><h3>求人の基本情報</h3>
+        <div class="row"><label>職種名（title）</label><input type="text" id="title" placeholder="例: バックエンドエンジニア" oninput="genJsonLd()"></div>
+        <div class="row"><label>仕事内容（description）</label><textarea id="description" placeholder="例: Webアプリのサーバーサイド開発を担当していただきます。" oninput="genJsonLd()"></textarea></div>
+        <div class="row"><label>雇用形態（employmentType）</label><select id="employmentType" onchange="genJsonLd()">
+            <option value="FULL_TIME">FULL_TIME（正社員/常勤）</option>
+            <option value="PART_TIME">PART_TIME（パート）</option>
+            <option value="CONTRACTOR">CONTRACTOR（業務委託）</option>
+            <option value="TEMPORARY">TEMPORARY（臨時）</option>
+            <option value="INTERN">INTERN（インターン）</option>
+            <option value="OTHER">OTHER（その他）</option>
+        </select></div>
+        <div class="row"><label>掲載日（datePosted）</label><input type="date" id="datePosted" oninput="genJsonLd()"></div>
+        <div class="row"><label>掲載期限（validThrough）</label><input type="date" id="validThrough" oninput="genJsonLd()"></div>
+    </div>
+
+    <div class="card"><h3>採用組織（hiringOrganization）</h3>
+        <div class="row"><label>会社名（name）</label><input type="text" id="orgName" placeholder="例: 株式会社サンプル" oninput="genJsonLd()"></div>
+        <div class="row"><label>会社サイトURL（url）</label><input type="text" id="orgUrl" placeholder="例: https://example.co.jp" oninput="genJsonLd()"></div>
+    </div>
+
+    <div class="card"><h3>勤務地（jobLocation / address）</h3>
+        <div class="row"><label>番地・建物（streetAddress）</label><input type="text" id="streetAddress" placeholder="例: 千代田1-1-1 サンプルビル5F" oninput="genJsonLd()"></div>
+        <div class="row"><label>市区町村（addressLocality）</label><input type="text" id="addressLocality" placeholder="例: 千代田区" oninput="genJsonLd()"></div>
+        <div class="row"><label>都道府県（addressRegion）</label><input type="text" id="addressRegion" placeholder="例: 東京都" oninput="genJsonLd()"></div>
+        <div class="row"><label>郵便番号（postalCode）</label><input type="text" id="postalCode" placeholder="例: 100-0001" oninput="genJsonLd()"></div>
+        <div class="row"><label>国（addressCountry）</label><input type="text" id="addressCountry" value="JP" oninput="genJsonLd()"></div>
+    </div>
+
+    <div class="card"><h3>給与（baseSalary）</h3>
+        <div class="row"><label>最低額（minValue）</label><input type="number" id="salaryMin" placeholder="例: 4000000" oninput="genJsonLd()"></div>
+        <div class="row"><label>最高額（maxValue）</label><input type="number" id="salaryMax" placeholder="例: 6000000" oninput="genJsonLd()"></div>
+        <div class="row"><label>通貨（currency）</label><input type="text" id="salaryCurrency" value="JPY" oninput="genJsonLd()"></div>
+        <div class="row"><label>支給単位（unitText）</label><select id="salaryUnit" onchange="genJsonLd()">
+            <option value="YEAR">YEAR（年）</option>
+            <option value="MONTH">MONTH（月）</option>
+            <option value="WEEK">WEEK（週）</option>
+            <option value="DAY">DAY（日）</option>
+            <option value="HOUR">HOUR（時）</option>
+        </select></div>
+    </div>
+
+    <div class="code-box">
+        <div class="code-actions">
+            <span class="label">生成された JSON-LD</span>
+            <button class="copy-btn" id="copyBtn" onclick="copyJsonLd()">コピー</button>
+        </div>
+        <pre id="output"></pre>
+    </div>
+
+    <div class="note">生成されるJSON-LDはこのページ自身の構造化データとは別物で、あなたの求人ページに貼り付けるためのものです。空欄の任意項目は自動的に省略されます。すべての生成処理はお使いのブラウザ内で完結し、入力内容が外部へ送信されることはありません。貼り付け後はGoogleのリッチリザルトテストで検証してください。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>JobPosting 構造化データ生成ツールの使い方</h2>
+        <p>求人情報のタイトル（職種名）・仕事内容・採用組織・勤務地・給与などを入力するだけで、schema.orgのJobPosting型に準拠したJSON-LD構造化データを自動生成する無料ツールです。生成されたコードをあなたの求人詳細ページに貼り付けると、Googleがそのページを求人として認識し、Googleしごと検索（Google for Jobs）の専用枠へ掲載される候補になります。インストールや会員登録は不要で、すべての処理はブラウザ内で完結します。</p>
+        <p>使い方はかんたんです。各フォームに求人の情報を入力すると、下部のコードボックスにJSON-LDがリアルタイムで生成されます。「コピー」ボタンでコード全体をクリップボードにコピーし、求人ページのHTMLのhead内またはbody内に貼り付けてください。給与や勤務地などの任意項目は、空欄のままにするとその項目が出力から自動的に省かれるため、入力した情報だけを含んだきれいなマークアップになります。</p>
+        <h3>主な入力項目</h3>
+        <p>職種名・仕事内容は求人の中身を表す基本項目です。雇用形態はFULL_TIME（正社員）・PART_TIME・CONTRACTOR（業務委託）・TEMPORARY・INTERN・OTHERから選択します。採用組織には会社名と会社サイトのURL、勤務地には番地・市区町村・都道府県・郵便番号・国（既定はJP）を入力します。掲載日（datePosted）と掲載期限（validThrough）は日付で指定できます。</p>
+
+        <h2>給与（baseSalary）の出力仕様</h2>
+        <p>給与はschema.orgの推奨に沿って、baseSalaryをMonetaryAmount型として出力し、その中のvalueをQuantitativeValue型で記述します。最低額と最高額の両方を入力した場合はminValue／maxValueの範囲として、いずれか一方だけの場合はvalueの単一値として出力します。通貨（currency）は既定でJPY、支給単位（unitText）はHOUR・DAY・WEEK・MONTH・YEARから選べるため、時給・日給・週給・月給・年収を正確に表現できます。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>項目</th><th>schema.org プロパティ</th><th>説明</th></tr>
+            <tr><td>職種名</td><td>title</td><td>求人の職種・ポジション名（必須推奨）</td></tr>
+            <tr><td>仕事内容</td><td>description</td><td>業務内容の説明（必須推奨）</td></tr>
+            <tr><td>採用組織</td><td>hiringOrganization</td><td>Organization型。name と url</td></tr>
+            <tr><td>勤務地</td><td>jobLocation</td><td>Place型 → PostalAddress</td></tr>
+            <tr><td>給与</td><td>baseSalary</td><td>MonetaryAmount → QuantitativeValue</td></tr>
+            <tr><td>雇用形態</td><td>employmentType</td><td>FULL_TIME 等の定数</td></tr>
+        </table>
+        </div>
+        <h3>空欄項目の自動省略</h3>
+        <p>本ツールは、入力されなかった任意項目をJSON-LDに含めません。たとえば給与を空欄にすればbaseSalary自体が出力されず、勤務地の一部だけ入力すれば入力した住所要素のみが含まれます。これにより、値が空のプロパティが残らない、Googleの検証を通しやすいクリーンな構造化データを生成できます。生成後はGoogleのリッチリザルトテストやSearch Consoleの拡張レポートで有効性を確認することをおすすめします。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">JobPosting構造化データとは何ですか？</div><div class="a">JobPostingはschema.orgで定義された求人情報用の構造化データ（マークアップ）の型です。求人ページにJSON-LD形式で埋め込むと、Googleがそのページを求人情報として認識し、Googleしごと検索（Google for Jobs）の専用枠に掲載される候補になります。職種名・仕事内容・雇用形態・勤務地・給与などの項目を機械可読な形で伝えられます。</div></div>
+        <div class="faq-item"><div class="q">生成したJSON-LDはどこに貼り付ければいいですか？</div><div class="a">生成された内容はscriptタグ（type=application/ld+json）ごとコピーできます。これを求人詳細ページのHTMLのhead内、またはbody内に貼り付けてください。1つの求人ページにつき1つのJobPostingを配置するのが基本です。貼り付け後はGoogleのリッチリザルトテストやSearch Consoleで有効性を確認することをおすすめします。</div></div>
+        <div class="faq-item"><div class="q">給与（baseSalary）はどう出力されますか？</div><div class="a">給与はschema.orgの推奨に沿ってMonetaryAmount型で出力し、その中のvalueをQuantitativeValueとして記述します。最低額と最高額の両方を入力すると範囲（minValue／maxValue）として、片方だけの場合はその値（value）として出力します。通貨は既定でJPY、単位（unitText）はHOUR／DAY／WEEK／MONTH／YEARから選べ、時給・月給・年収などを正しく表現できます。</div></div>
+        <div class="faq-item"><div class="q">入力しなかった項目はどうなりますか？</div><div class="a">必須ではない任意項目を空欄のままにした場合、その項目はJSON-LDには出力されず自動的に省略されます。給与・勤務地・掲載日・掲載期限（validThrough）などは空欄なら含まれません。これにより、実際に入力した情報だけを含んだ余分なプロパティのないきれいな構造化データが得られます。</div></div>
+        <div class="faq-item"><div class="q">このツールで入力した情報はサーバーに送信されますか？</div><div class="a">いいえ。JSON-LDの生成処理はすべてお使いのブラウザ内（クライアントサイド）のJavaScriptだけで完結します。入力した求人タイトルや会社名、給与などの情報が外部サーバーへ送信・保存されることはありません。安心して未公開の求人情報も入力できます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a><a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+function val(id){ return document.getElementById(id).value.trim(); }
+
+function genJsonLd(){
+    const obj = { "@context":"https://schema.org", "@type":"JobPosting" };
+
+    const title = val('title');
+    if (title) obj.title = title;
+
+    const description = val('description');
+    if (description) obj.description = description;
+
+    const datePosted = val('datePosted');
+    if (datePosted) obj.datePosted = datePosted;
+
+    const validThrough = val('validThrough');
+    if (validThrough) obj.validThrough = validThrough;
+
+    const employmentType = val('employmentType');
+    if (employmentType) obj.employmentType = employmentType;
+
+    // hiringOrganization
+    const orgName = val('orgName');
+    const orgUrl = val('orgUrl');
+    if (orgName || orgUrl){
+        const org = { "@type":"Organization" };
+        if (orgName) org.name = orgName;
+        if (orgUrl) org.url = orgUrl;
+        obj.hiringOrganization = org;
+    }
+
+    // jobLocation / address
+    const streetAddress = val('streetAddress');
+    const addressLocality = val('addressLocality');
+    const addressRegion = val('addressRegion');
+    const postalCode = val('postalCode');
+    const addressCountry = val('addressCountry');
+    if (streetAddress || addressLocality || addressRegion || postalCode || addressCountry){
+        const addr = { "@type":"PostalAddress" };
+        if (streetAddress) addr.streetAddress = streetAddress;
+        if (addressLocality) addr.addressLocality = addressLocality;
+        if (addressRegion) addr.addressRegion = addressRegion;
+        if (postalCode) addr.postalCode = postalCode;
+        if (addressCountry) addr.addressCountry = addressCountry;
+        obj.jobLocation = { "@type":"Place", "address": addr };
+    }
+
+    // baseSalary -> MonetaryAmount -> QuantitativeValue
+    const salaryMin = val('salaryMin');
+    const salaryMax = val('salaryMax');
+    const salaryCurrency = val('salaryCurrency');
+    const salaryUnit = val('salaryUnit');
+    if (salaryMin || salaryMax){
+        const qv = { "@type":"QuantitativeValue" };
+        if (salaryMin && salaryMax){
+            qv.minValue = Number(salaryMin);
+            qv.maxValue = Number(salaryMax);
+        } else if (salaryMin){
+            qv.value = Number(salaryMin);
+        } else {
+            qv.value = Number(salaryMax);
+        }
+        if (salaryUnit) qv.unitText = salaryUnit;
+        obj.baseSalary = {
+            "@type":"MonetaryAmount",
+            "currency": salaryCurrency || "JPY",
+            "value": qv
+        };
+    }
+
+    const json = JSON.stringify(obj, null, 2);
+    // Build the wrapper tag via concatenation so the literal source never
+    // contains a closing tag token that would break this inline block.
+    const openTag = '<' + 'script type="application/ld+json">';
+    const closeTag = '<' + '/' + 'script>';
+    document.getElementById('output').textContent = openTag + '\n' + json + '\n' + closeTag;
+}
+
+function copyJsonLd(){
+    const text = document.getElementById('output').textContent;
+    const btn = document.getElementById('copyBtn');
+    navigator.clipboard.writeText(text).then(function(){
+        btn.textContent = 'コピーしました';
+        setTimeout(function(){ btn.textContent = 'コピー'; }, 1600);
+    }).catch(function(){
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = 'コピーしました';
+        setTimeout(function(){ btn.textContent = 'コピー'; }, 1600);
+    });
+}
+
+genJsonLd();
+</script>
+</body>
+</html>

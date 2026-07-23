@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>電気代計算ツール | 消費電力(W)・使用時間から電気代を自動計算【無料】</title>
+    <meta name="description" content="消費電力(W)と使用時間、電力量単価(円/kWh)を入力するだけで電気代を自動計算する無料ツール。エアコン・冷蔵庫・電子レンジなど家電ごとの1日・1ヶ月・1年の電気代の目安がわかります。kWh直接入力にも対応。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .mode-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+        .mode-row button{flex:1;min-width:140px;padding:12px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.85rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif;font-weight:500}
+        .mode-row button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        table.ref td.click{cursor:pointer;color:var(--accent)}
+        table.ref td.click:hover{text-decoration:underline}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-161-electricity-bill/">
+    <meta property="og:title" content="電気代計算ツール | 消費電力・使用時間から電気代を自動計算【無料】">
+    <meta property="og:description" content="消費電力(W)と使用時間、単価から電気代を自動計算。1日・1ヶ月・1年の目安や家電別ワット数の目安も表示。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-161-electricity-bill/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="電気代計算ツール【無料】">
+    <meta name="twitter:description" content="消費電力・使用時間から電気代を自動計算。1日・1ヶ月・1年の目安を表示。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"電気代計算ツール","description":"消費電力(W)と使用時間、電力量単価から電気代を自動計算する無料ツール","url":"https://www.devtools-japan.com/tool-161-electricity-bill/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"電気代計算ツール","item":"https://www.devtools-japan.com/tool-161-electricity-bill/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"電気代はどうやって計算しますか？","acceptedAnswer":{"@type":"Answer","text":"電気代は「消費電力(kW) × 使用時間(時間) × 電力量単価(円/kWh)」で計算します。本ツールでは家電モードで消費電力(W)・1日の使用時間・日数・単価を入力すると、まず消費電力量(kWh)を求め、それに単価を掛けて電気代を算出します。1日・1ヶ月(30日)・1年(365日)の目安も同時に表示します。"}},{"@type":"Question","name":"電力量単価は何円で計算すればいいですか？","acceptedAnswer":{"@type":"Answer","text":"本ツールの初期値は31円/kWhです。これは家庭用電気料金のおおよその目安ですが、実際の単価は電力会社・料金プラン・契約や使用量によって異なり、燃料費調整額や再エネ賦課金も加わります。正確な金額は検針票やマイページに記載の単価を入力してください。単価欄は自由に書き換えられます。"}},{"@type":"Question","name":"消費電力(W)がわからない場合は？","acceptedAnswer":{"@type":"Answer","text":"家電本体の銘板シールや取扱説明書、メーカーの仕様表に消費電力(W)が記載されています。わからない場合は、ページ内の「家電別の消費電力の目安」表を参考に近い値を入力してください。表の行をクリックすると、その目安ワット数が入力欄に自動でセットされます。"}},{"@type":"Question","name":"kWh(キロワットアワー)だけで計算できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。kWhモードに切り替えると、消費電力量(kWh)と電力量単価(円/kWh)を直接入力して電気代を計算できます。検針票に記載の使用電力量や、電力会社アプリで確認したkWhをそのまま入れて概算したい場合に便利です。"}},{"@type":"Question","name":"計算結果は正確な請求額と一致しますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールの結果はあくまで概算・目安です。実際の請求額には基本料金(または最低料金)、燃料費調整額、再生可能エネルギー発電促進賦課金などが加わり、単価も使用量に応じた段階制の場合があります。おおよその電気代の把握や家電同士の比較にご利用ください。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>電気代計算</h1><p>消費電力・使用時間から電気代を自動計算</p></header>
+
+    <div class="mode-row">
+        <button id="modeApplianceBtn" class="active" onclick="setMode('appliance')">家電モード（W×時間）</button>
+        <button id="modeKwhBtn" onclick="setMode('kwh')">kWh直接入力</button>
+    </div>
+
+    <div class="card" id="applianceCard"><h3>家電の使用条件を入力</h3>
+        <div class="row"><label>消費電力</label><input type="number" id="watt" value="500" min="0" step="1" inputmode="decimal" oninput="calc()"><span class="unit">W</span></div>
+        <div class="row"><label>1日の使用時間</label><input type="number" id="hours" value="8" min="0" step="0.1" inputmode="decimal" oninput="calc()"><span class="unit">時間</span></div>
+        <div class="row"><label>日数</label><input type="number" id="days" value="30" min="0" step="1" inputmode="numeric" oninput="calc()"><span class="unit">日</span></div>
+        <div class="row"><label>電力量単価</label><input type="number" id="rateA" value="31" min="0" step="0.01" inputmode="decimal" oninput="calc()"><span class="unit">円/kWh</span></div>
+    </div>
+
+    <div class="card" id="kwhCard" style="display:none"><h3>消費電力量を直接入力</h3>
+        <div class="row"><label>消費電力量</label><input type="number" id="kwhInput" value="100" min="0" step="0.1" inputmode="decimal" oninput="calc()"><span class="unit">kWh</span></div>
+        <div class="row"><label>電力量単価</label><input type="number" id="rateK" value="31" min="0" step="0.01" inputmode="decimal" oninput="calc()"><span class="unit">円/kWh</span></div>
+    </div>
+
+    <div class="big-result">
+        <div class="headline" id="headline">電気代</div>
+        <div class="days"><span id="bigCost">-</span><span class="unit">円</span></div>
+        <div class="target" id="targetLabel">条件を入力してください</div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">1日</div><div class="value" id="costDay">-</div><div class="sub" id="kwhDay">-</div></div>
+        <div class="result-item"><div class="label">1ヶ月（30日）</div><div class="value" id="costMonth">-</div><div class="sub" id="kwhMonth">-</div></div>
+        <div class="result-item"><div class="label">1年（365日）</div><div class="value" id="costYear">-</div><div class="sub" id="kwhYear">-</div></div>
+    </div>
+
+    <div class="card"><h3>計算まとめ</h3>
+        <div class="row"><label>消費電力量（入力期間）</label><span class="unit" id="kwhTotal" style="min-width:auto;color:var(--text)">-</span></div>
+        <div class="row"><label>電気代（入力期間）</label><span class="unit" id="costTotal" style="min-width:auto;color:var(--text)">-</span></div>
+        <div style="margin-top:14px;text-align:right"><button class="btn" onclick="copySummary()" id="copyBtn">結果をコピー</button></div>
+    </div>
+
+    <div class="note">電気代は「消費電力(kW) × 使用時間 × 電力量単価(円/kWh)」で算出した概算です。初期単価は31円/kWhですが、実際の単価は電力会社・プラン・使用量によって異なり、基本料金・燃料費調整額・再エネ賦課金などは含みません。おおよその目安・家電同士の比較にご利用ください。すべての計算はお使いの端末内で完結します。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="card"><h3>家電別の消費電力の目安（クリックで入力）</h3>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>家電</th><th>消費電力の目安</th><th>使用時間の目安</th></tr>
+            <tr><td>エアコン（冷房・畳数中）</td><td class="click" onclick="setWatt(600,8)">約600W</td><td>1日8時間</td></tr>
+            <tr><td>冷蔵庫</td><td class="click" onclick="setWatt(150,24)">約150W</td><td>24時間常時</td></tr>
+            <tr><td>電子レンジ</td><td class="click" onclick="setWatt(1000,0.2)">約1000W</td><td>1日0.2時間</td></tr>
+            <tr><td>ドライヤー</td><td class="click" onclick="setWatt(1200,0.2)">約1200W</td><td>1日0.2時間</td></tr>
+            <tr><td>こたつ（中）</td><td class="click" onclick="setWatt(300,6)">約300W</td><td>1日6時間</td></tr>
+            <tr><td>電気ケトル</td><td class="click" onclick="setWatt(1200,0.15)">約1200W</td><td>1日0.15時間</td></tr>
+            <tr><td>洗濯機</td><td class="click" onclick="setWatt(500,1)">約500W</td><td>1日1時間</td></tr>
+            <tr><td>テレビ（液晶40型前後）</td><td class="click" onclick="setWatt(120,5)">約120W</td><td>1日5時間</td></tr>
+            <tr><td>照明（LEDシーリング）</td><td class="click" onclick="setWatt(40,6)">約40W</td><td>1日6時間</td></tr>
+            <tr><td>デスクトップPC</td><td class="click" onclick="setWatt(150,6)">約150W</td><td>1日6時間</td></tr>
+        </table>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text3);line-height:1.8">※ 数値は一般的な機種の目安です。実際の消費電力は機種・設定・使用状況により大きく変わります。行の消費電力欄をクリックすると、目安のワット数と使用時間が家電モードに入力されます。</p>
+    </div>
+
+    <div class="seo-content">
+        <h2>電気代計算ツールの使い方</h2>
+        <p>消費電力(W)と使用時間、電力量単価(円/kWh)を入力するだけで、家電の電気代を自動計算する無料ツールです。エアコンや冷蔵庫、電子レンジ、ドライヤーなどが1日・1ヶ月・1年でどのくらいの電気代になるかを、ブラウザだけで瞬時に把握できます。インストールや会員登録は不要で、すべての計算はお使いの端末内で完結します。</p>
+        <p>使い方はかんたんです。「家電モード」では、消費電力(W)・1日の使用時間・日数・電力量単価を入力すると、画面上部に入力期間の電気代が大きく表示され、あわせて1日・1ヶ月・1年の目安も並びます。消費電力がわからないときは、ページ内の「家電別の消費電力の目安」表の行をクリックすると、目安のワット数と使用時間が自動で入力されます。</p>
+        <h3>kWh直接入力モード</h3>
+        <p>検針票や電力会社アプリで消費電力量(kWh)がわかっている場合は、「kWh直接入力」モードに切り替えると便利です。消費電力量と電力量単価を入れるだけで電気代を計算できます。「先月は◯kWh使った」という値から、おおよその電気代を逆算したいときにも役立ちます。</p>
+
+        <h2>電気代の計算式</h2>
+        <p>電気代の基本の計算式は「消費電力(kW) × 使用時間(時間) × 電力量単価(円/kWh)」です。家電の消費電力はワット(W)で表記されることが多いので、1000で割ってキロワット(kW)に直してから計算します。たとえば消費電力500Wの家電を1日8時間、30日使い、単価を31円/kWhとすると、0.5kW × 8時間 × 30日 = 120kWh、120kWh × 31円 = 3,720円が目安になります。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>項目</th><th>意味</th><th>例</th></tr>
+            <tr><td>消費電力</td><td>家電が消費する電力。W→kWは1000で割る</td><td>500W = 0.5kW</td></tr>
+            <tr><td>使用時間</td><td>1日あたりの使用時間 × 日数</td><td>8時間 × 30日</td></tr>
+            <tr><td>電力量単価</td><td>1kWhあたりの電気料金（円）</td><td>31円/kWh</td></tr>
+            <tr><td>電気代</td><td>kWh × 単価</td><td>120kWh × 31円 = 3,720円</td></tr>
+        </table>
+        </div>
+        <h3>電力量単価について</h3>
+        <p>電力量単価(円/kWh)は電力会社や料金プラン、契約内容によって異なります。本ツールの初期値である31円/kWhは家庭用電気料金のおおよその目安です。実際の請求では、この従量料金に加えて基本料金(または最低料金)、燃料費調整額、再生可能エネルギー発電促進賦課金などが加算されます。より正確に計算したい場合は、検針票やマイページに記載の単価を単価欄に入力してください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">電気代はどうやって計算しますか？</div><div class="a">電気代は「消費電力(kW) × 使用時間(時間) × 電力量単価(円/kWh)」で計算します。本ツールでは家電モードで消費電力(W)・1日の使用時間・日数・単価を入力すると、まず消費電力量(kWh)を求め、それに単価を掛けて電気代を算出します。1日・1ヶ月(30日)・1年(365日)の目安も同時に表示します。</div></div>
+        <div class="faq-item"><div class="q">電力量単価は何円で計算すればいいですか？</div><div class="a">本ツールの初期値は31円/kWhです。これは家庭用電気料金のおおよその目安ですが、実際の単価は電力会社・料金プラン・契約や使用量によって異なり、燃料費調整額や再エネ賦課金も加わります。正確な金額は検針票やマイページに記載の単価を入力してください。単価欄は自由に書き換えられます。</div></div>
+        <div class="faq-item"><div class="q">消費電力(W)がわからない場合は？</div><div class="a">家電本体の銘板シールや取扱説明書、メーカーの仕様表に消費電力(W)が記載されています。わからない場合は、ページ内の「家電別の消費電力の目安」表を参考に近い値を入力してください。表の行をクリックすると、その目安ワット数が入力欄に自動でセットされます。</div></div>
+        <div class="faq-item"><div class="q">kWh（キロワットアワー）だけで計算できますか？</div><div class="a">はい。kWhモードに切り替えると、消費電力量(kWh)と電力量単価(円/kWh)を直接入力して電気代を計算できます。検針票に記載の使用電力量や、電力会社アプリで確認したkWhをそのまま入れて概算したい場合に便利です。</div></div>
+        <div class="faq-item"><div class="q">計算結果は正確な請求額と一致しますか？</div><div class="a">本ツールの結果はあくまで概算・目安です。実際の請求額には基本料金(または最低料金)、燃料費調整額、再生可能エネルギー発電促進賦課金などが加わり、単価も使用量に応じた段階制の場合があります。おおよその電気代の把握や家電同士の比較にご利用ください。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-51-business-day-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">営業日計算</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+let mode = 'appliance';
+
+function setMode(m){
+    mode = m;
+    document.getElementById('applianceCard').style.display = (m === 'appliance') ? '' : 'none';
+    document.getElementById('kwhCard').style.display = (m === 'kwh') ? '' : 'none';
+    document.getElementById('modeApplianceBtn').classList.toggle('active', m === 'appliance');
+    document.getElementById('modeKwhBtn').classList.toggle('active', m === 'kwh');
+    calc();
+}
+
+function setWatt(w, h){
+    setMode('appliance');
+    document.getElementById('watt').value = w;
+    document.getElementById('hours').value = h;
+    calc();
+}
+
+function num(id){
+    const v = parseFloat(document.getElementById(id).value);
+    return isNaN(v) ? 0 : v;
+}
+
+function yen(n){
+    return Math.round(n).toLocaleString('ja-JP');
+}
+
+function fmtKwh(n){
+    // 小数第1位まで（必要に応じて第2位）
+    if (n >= 100) return Math.round(n).toLocaleString('ja-JP');
+    return (Math.round(n * 100) / 100).toLocaleString('ja-JP');
+}
+
+function calc(){
+    let kwhPerDay, rate, totalDays, totalKwh;
+
+    if (mode === 'appliance'){
+        const watt = num('watt');
+        const hours = num('hours');
+        totalDays = num('days');
+        rate = num('rateA');
+        kwhPerDay = (watt / 1000) * hours;
+        totalKwh = kwhPerDay * totalDays;
+    } else {
+        totalKwh = num('kwhInput');
+        rate = num('rateK');
+        totalDays = 0;
+        kwhPerDay = 0;
+    }
+
+    // 1日・1ヶ月・1年の目安
+    let dayKwh, monthKwh, yearKwh;
+    if (mode === 'appliance'){
+        dayKwh = kwhPerDay;
+        monthKwh = kwhPerDay * 30;
+        yearKwh = kwhPerDay * 365;
+    } else {
+        // kWhモード: 入力量を1日分とみなさず、入力量そのものを期間量として扱い
+        // 目安は入力量を基準に1日=入力量/30の想定はしない。ここでは入力量を「その期間の総量」とし、
+        // 1ヶ月=入力量、1日=入力量/30、1年=入力量*12 として概算表示する。
+        monthKwh = totalKwh;
+        dayKwh = totalKwh / 30;
+        yearKwh = totalKwh * 12;
+    }
+
+    const dayCost = dayKwh * rate;
+    const monthCost = monthKwh * rate;
+    const yearCost = yearKwh * rate;
+    const totalCost = totalKwh * rate;
+
+    document.getElementById('bigCost').textContent = yen(totalCost);
+    document.getElementById('costDay').textContent = yen(dayCost) + '円';
+    document.getElementById('costMonth').textContent = yen(monthCost) + '円';
+    document.getElementById('costYear').textContent = yen(yearCost) + '円';
+    document.getElementById('kwhDay').textContent = fmtKwh(dayKwh) + ' kWh';
+    document.getElementById('kwhMonth').textContent = fmtKwh(monthKwh) + ' kWh';
+    document.getElementById('kwhYear').textContent = fmtKwh(yearKwh) + ' kWh';
+
+    document.getElementById('kwhTotal').textContent = fmtKwh(totalKwh) + ' kWh';
+    document.getElementById('costTotal').textContent = yen(totalCost) + ' 円';
+
+    if (mode === 'appliance'){
+        document.getElementById('headline').textContent = '入力期間（' + (totalDays || 0) + '日）の電気代';
+        document.getElementById('targetLabel').textContent = '消費電力量 約' + fmtKwh(totalKwh) + ' kWh（単価' + rate + '円/kWh）';
+    } else {
+        document.getElementById('headline').textContent = '入力量の電気代';
+        document.getElementById('targetLabel').textContent = fmtKwh(totalKwh) + ' kWh × ' + rate + '円/kWh';
+    }
+}
+
+function copySummary(){
+    let lines = [];
+    lines.push('【電気代の目安】');
+    if (mode === 'appliance'){
+        lines.push('消費電力: ' + num('watt') + ' W');
+        lines.push('使用時間: 1日' + num('hours') + '時間 × ' + num('days') + '日');
+    }
+    lines.push('電力量単価: ' + (mode === 'appliance' ? num('rateA') : num('rateK')) + ' 円/kWh');
+    lines.push('消費電力量: ' + document.getElementById('kwhTotal').textContent);
+    lines.push('電気代（入力期間）: ' + document.getElementById('costTotal').textContent);
+    lines.push('1日: ' + document.getElementById('costDay').textContent + ' / 1ヶ月: ' + document.getElementById('costMonth').textContent + ' / 1年: ' + document.getElementById('costYear').textContent);
+    lines.push('※ 概算です。基本料金・燃料費調整額・再エネ賦課金は含みません。');
+    const text = lines.join('\n');
+    const btn = document.getElementById('copyBtn');
+    navigator.clipboard.writeText(text).then(function(){
+        btn.textContent = 'コピーしました';
+        setTimeout(function(){ btn.textContent = '結果をコピー'; }, 1600);
+    }).catch(function(){
+        btn.textContent = 'コピーできませんでした';
+        setTimeout(function(){ btn.textContent = '結果をコピー'; }, 1600);
+    });
+}
+
+calc();
+</script>
+</body>
+</html>

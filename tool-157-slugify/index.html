@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URLスラッグ生成ツール（日本語・ローマ字変換対応） | タイトルからURL用スラッグを自動生成【無料】</title>
+    <meta name="description" content="タイトルや見出しを入力するだけで、ひらがな・カタカナをヘボン式ローマ字に変換し、URLに使える安全なスラッグを自動生成する無料ツール。区切り文字・小文字化・最大文字数を指定でき、複数行の一括変換にも対応。すべてブラウザ内で処理され送信されません。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent)}
+        textarea{width:100%;min-height:120px;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.95rem;outline:none;resize:vertical;line-height:1.7}
+        textarea:focus{border-color:var(--accent)}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:10px}
+        .slug-out{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent);line-height:1.4;word-break:break-all;min-height:1.4em}
+        .copy-bar{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+        .lines-wrap{margin-top:8px}
+        .line-item{display:flex;flex-direction:column;gap:2px;padding:10px 0;border-bottom:1px solid var(--border)}
+        .line-item:last-child{border-bottom:none}
+        .line-item .src{font-size:0.75rem;color:var(--text3);word-break:break-all}
+        .line-item .slug{font-family:'JetBrains Mono',monospace;font-size:0.9rem;color:var(--text);word-break:break-all}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.ghost{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.ghost:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-157-slugify/">
+    <meta property="og:title" content="URLスラッグ生成ツール（日本語・ローマ字変換対応）| タイトルからURL用スラッグを自動生成【無料】">
+    <meta property="og:description" content="ひらがな・カタカナをヘボン式ローマ字に変換し、URLに使える安全なスラッグを自動生成。区切り文字・小文字化・最大文字数を指定でき、複数行の一括変換にも対応。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-157-slugify/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="URLスラッグ生成ツール（日本語対応）【無料】">
+    <meta name="twitter:description" content="タイトルからURL用スラッグをローマ字変換で自動生成。区切り文字・最大文字数も指定可能。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"URLスラッグ生成ツール（日本語・ローマ字変換対応）","description":"タイトルや見出しをヘボン式ローマ字に変換し、URLに使える安全なスラッグを自動生成する無料ツール","url":"https://www.devtools-japan.com/tool-157-slugify/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"URLスラッグ生成ツール（日本語・ローマ字変換対応）","item":"https://www.devtools-japan.com/tool-157-slugify/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"日本語のタイトルもスラッグにできる？","acceptedAnswer":{"@type":"Answer","text":"はい。ひらがな・カタカナを含むタイトルを入力すると、内蔵のヘボン式ローマ字対応表を使ってローマ字に変換し、そこからURLに使える半角英数字とハイフン（または下線）だけのスラッグを自動生成します。「新しい記事のタイトル」のような見出しをそのまま貼り付けるだけで、URLに使いやすい文字列が得られます。処理はすべてブラウザ内で行われます。"}},{"@type":"Question","name":"漢字はどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールはひらがな・カタカナのローマ字変換に対応していますが、漢字の読み（読み仮名）辞書は搭載していません。そのためローマ字化できない漢字などの文字は、スラッグ生成時に区切り文字へ置き換えられ、連続分をまとめて詰めることで実質的に取り除かれます。漢字を含めたい場合は、あらかじめタイトルをひらがな・カタカナに直してから入力するか、生成結果を手動で補ってください。"}},{"@type":"Question","name":"区切り文字や大文字小文字は変えられますか？","acceptedAnswer":{"@type":"Answer","text":"はい。区切り文字はハイフン（-）と下線（_）から選べ、単語の区切りに使われます。また「小文字に変換」のオン・オフを切り替えられ、オフにすると英字の大文字はそのまま残ります。さらに最大文字数を指定すると、その長さでスラッグを切り詰め、末尾に区切り文字が残らないよう自動で整えます。"}},{"@type":"Question","name":"入力した文章はサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。このツールは100%クライアントサイド（ブラウザ内）で動作します。入力したタイトルや文章、生成したスラッグがサーバーへ送信・保存されることはありません。ローマ字変換もスラッグ整形もすべてお使いの端末内のJavaScriptだけで完結するため、未公開の記事タイトルや社内資料の見出しでも安心してお使いいただけます。"}},{"@type":"Question","name":"複数行をまとめて変換できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。入力欄に複数行を貼り付けると、1行ごとにスラッグを生成し、各行の元テキストと対応するスラッグを一覧で表示します。記事タイトルの一覧やカテゴリ名などをまとめてスラッグ化したいときに便利です。1行目のスラッグは上部の大きな表示にも出て、コピーボタンでそのままコピーできます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>URLスラッグ生成ツール</h1><p>日本語タイトルをローマ字変換してURL用スラッグを自動生成</p></header>
+
+    <div class="card"><h3>タイトル・テキストを入力</h3>
+        <textarea id="input" placeholder="例：新しい記事のタイトル&#10;（複数行を貼り付けると1行ずつ変換します）" oninput="run()"></textarea>
+        <div style="margin-top:12px">
+            <div style="font-size:0.75rem;color:var(--text3);margin-bottom:6px">入力例</div>
+            <div class="preset-row" id="presetRow"></div>
+        </div>
+    </div>
+
+    <div class="card"><h3>オプション</h3>
+        <div class="row"><label>区切り文字</label>
+            <select id="sep" onchange="run()">
+                <option value="-">ハイフン（-）</option>
+                <option value="_">下線（_）</option>
+            </select>
+        </div>
+        <div class="row"><label>小文字に変換する</label><input type="checkbox" id="lower" checked onchange="run()"></div>
+        <div class="row"><label>最大文字数（0で無制限）</label><input type="number" id="maxLen" value="0" min="0" step="1" oninput="run()"></div>
+        <div class="row"><label>英語のストップワードを除去する</label><input type="checkbox" id="stop" onchange="run()"></div>
+    </div>
+
+    <div class="big-result">
+        <div class="headline">生成されたスラッグ（1行目）</div>
+        <div class="slug-out" id="slugOut">ここに結果が表示されます</div>
+        <div class="copy-bar">
+            <button class="btn" id="copyBtn" onclick="copySlug()">スラッグをコピー</button>
+            <button class="btn ghost" onclick="copyAll()">全行をコピー</button>
+        </div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">スラッグの文字数</div><div class="value" id="slugLen">0</div></div>
+        <div class="result-item"><div class="label">処理した行数</div><div class="value" id="lineCount">0</div></div>
+    </div>
+
+    <div class="card" id="linesCard" style="display:none"><h3>各行のスラッグ</h3>
+        <div class="lines-wrap" id="linesWrap"></div>
+    </div>
+
+    <div class="note">このツールは100%ブラウザ内（クライアントサイド）で動作し、入力内容はサーバーに送信されません。ひらがな・カタカナはヘボン式ローマ字に変換します。漢字の読み辞書は搭載していないため、ローマ字化できない文字は区切り文字に置き換えられ、実質的に取り除かれます。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>URLスラッグ生成ツールの使い方</h2>
+        <p>ブログ記事やページのタイトルを入力するだけで、URLの一部として使える「スラッグ」を自動生成する無料ツールです。ひらがな・カタカナは内蔵のヘボン式ローマ字対応表でローマ字に変換し、半角英数字と区切り文字だけのURLセーフな文字列に整えます。インストールや会員登録は不要で、すべての処理はお使いの端末内（ブラウザ内）で完結するため、未公開のタイトルでも安心して使えます。</p>
+        <p>使い方はかんたんです。上の入力欄にタイトルや見出しを貼り付けると、その場でスラッグが生成され、画面に大きく表示されます。区切り文字（ハイフンまたは下線）、小文字化のオン・オフ、最大文字数を指定でき、必要に応じて英語のストップワード除去も切り替えられます。生成されたスラッグは「スラッグをコピー」ボタンでワンクリックでコピーできます。</p>
+        <h3>スラッグとは</h3>
+        <p>スラッグ（slug）とは、URLの末尾などに使われる、そのページを表す短い文字列のことです。たとえば「https://example.com/blog/<strong>hello-world</strong>/」の太字部分がスラッグにあたります。日本語のタイトルをそのままURLに使うとパーセントエンコードされて長く読みにくくなるため、ローマ字や英語に変換した短いスラッグにしておくと、URLが読みやすくSEO・共有の面でも扱いやすくなります。</p>
+
+        <h2>変換の仕組みとオプション</h2>
+        <p>このツールはまず入力テキストのひらがな・カタカナをヘボン式ローマ字へ変換します。カタカナは内部でひらがなに正規化してから変換し、拗音（きゃ・しゅ・ちょ等）、促音「っ」による子音の重ね、長音符「ー」による母音の伸ばしにも対応しています。続いて、英数字以外の記号・空白・変換できなかった文字を区切り文字に置き換え、連続する区切り文字を1つにまとめ、先頭・末尾の区切り文字を取り除いてスラッグを完成させます。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>オプション</th><th>内容</th><th>初期値</th></tr>
+            <tr><td>区切り文字</td><td>単語の区切りに使う文字。ハイフン（-）または下線（_）</td><td>ハイフン</td></tr>
+            <tr><td>小文字に変換</td><td>英字をすべて小文字にそろえる</td><td>オン</td></tr>
+            <tr><td>最大文字数</td><td>指定した長さで切り詰め（0は無制限）。末尾の区切り文字は除去</td><td>0（無制限）</td></tr>
+            <tr><td>ストップワード除去</td><td>a・the・and などの英語の一般語を除く</td><td>オフ</td></tr>
+        </table>
+        </div>
+        <h3>複数行の一括変換</h3>
+        <p>入力欄に複数行を貼り付けると、1行ごとにスラッグを生成し、各行の元テキストと生成結果を一覧で確認できます。記事タイトルの一覧やカテゴリ名をまとめてスラッグ化したいときに便利です。「全行をコピー」ボタンを押すと、生成した全スラッグを改行区切りでまとめてコピーできます。1行目のスラッグは上部に大きく表示され、単独でもコピーできます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">日本語のタイトルもスラッグにできる？</div><div class="a">はい。ひらがな・カタカナを含むタイトルを入力すると、内蔵のヘボン式ローマ字対応表を使ってローマ字に変換し、そこからURLに使える半角英数字とハイフン（または下線）だけのスラッグを自動生成します。「新しい記事のタイトル」のような見出しをそのまま貼り付けるだけで、URLに使いやすい文字列が得られます。処理はすべてブラウザ内で行われます。</div></div>
+        <div class="faq-item"><div class="q">漢字はどうなりますか？</div><div class="a">本ツールはひらがな・カタカナのローマ字変換に対応していますが、漢字の読み（読み仮名）辞書は搭載していません。そのためローマ字化できない漢字などの文字は、スラッグ生成時に区切り文字へ置き換えられ、連続分をまとめて詰めることで実質的に取り除かれます。漢字を含めたい場合は、あらかじめタイトルをひらがな・カタカナに直してから入力するか、生成結果を手動で補ってください。</div></div>
+        <div class="faq-item"><div class="q">区切り文字や大文字小文字は変えられますか？</div><div class="a">はい。区切り文字はハイフン（-）と下線（_）から選べ、単語の区切りに使われます。また「小文字に変換」のオン・オフを切り替えられ、オフにすると英字の大文字はそのまま残ります。さらに最大文字数を指定すると、その長さでスラッグを切り詰め、末尾に区切り文字が残らないよう自動で整えます。</div></div>
+        <div class="faq-item"><div class="q">入力した文章はサーバーに送信されますか？</div><div class="a">いいえ。このツールは100%クライアントサイド（ブラウザ内）で動作します。入力したタイトルや文章、生成したスラッグがサーバーへ送信・保存されることはありません。ローマ字変換もスラッグ整形もすべてお使いの端末内のJavaScriptだけで完結するため、未公開の記事タイトルや社内資料の見出しでも安心してお使いいただけます。</div></div>
+        <div class="faq-item"><div class="q">複数行をまとめて変換できますか？</div><div class="a">はい。入力欄に複数行を貼り付けると、1行ごとにスラッグを生成し、各行の元テキストと対応するスラッグを一覧で表示します。記事タイトルの一覧やカテゴリ名などをまとめてスラッグ化したいときに便利です。1行目のスラッグは上部の大きな表示にも出て、コピーボタンでそのままコピーできます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ヘボン式ローマ字対応表（拗音）
+var COMBO = {
+    'きゃ':'kya','きゅ':'kyu','きょ':'kyo',
+    'しゃ':'sha','しゅ':'shu','しょ':'sho',
+    'ちゃ':'cha','ちゅ':'chu','ちょ':'cho',
+    'にゃ':'nya','にゅ':'nyu','にょ':'nyo',
+    'ひゃ':'hya','ひゅ':'hyu','ひょ':'hyo',
+    'みゃ':'mya','みゅ':'myu','みょ':'myo',
+    'りゃ':'rya','りゅ':'ryu','りょ':'ryo',
+    'ぎゃ':'gya','ぎゅ':'gyu','ぎょ':'gyo',
+    'じゃ':'ja','じゅ':'ju','じょ':'jo',
+    'ぢゃ':'ja','ぢゅ':'ju','ぢょ':'jo',
+    'びゃ':'bya','びゅ':'byu','びょ':'byo',
+    'ぴゃ':'pya','ぴゅ':'pyu','ぴょ':'pyo'
+};
+// ヘボン式ローマ字対応表（単音）
+var MONO = {
+    'あ':'a','い':'i','う':'u','え':'e','お':'o',
+    'か':'ka','き':'ki','く':'ku','け':'ke','こ':'ko',
+    'が':'ga','ぎ':'gi','ぐ':'gu','げ':'ge','ご':'go',
+    'さ':'sa','し':'shi','す':'su','せ':'se','そ':'so',
+    'ざ':'za','じ':'ji','ず':'zu','ぜ':'ze','ぞ':'zo',
+    'た':'ta','ち':'chi','つ':'tsu','て':'te','と':'to',
+    'だ':'da','ぢ':'ji','づ':'zu','で':'de','ど':'do',
+    'な':'na','に':'ni','ぬ':'nu','ね':'ne','の':'no',
+    'は':'ha','ひ':'hi','ふ':'fu','へ':'he','ほ':'ho',
+    'ば':'ba','び':'bi','ぶ':'bu','べ':'be','ぼ':'bo',
+    'ぱ':'pa','ぴ':'pi','ぷ':'pu','ぺ':'pe','ぽ':'po',
+    'ま':'ma','み':'mi','む':'mu','め':'me','も':'mo',
+    'や':'ya','ゆ':'yu','よ':'yo',
+    'ら':'ra','り':'ri','る':'ru','れ':'re','ろ':'ro',
+    'わ':'wa','ゐ':'i','ゑ':'e','を':'o','ん':'n',
+    'ぁ':'a','ぃ':'i','ぅ':'u','ぇ':'e','ぉ':'o',
+    'ゃ':'ya','ゅ':'yu','ょ':'yo','ゎ':'wa','ゔ':'vu',
+    '　':' '
+};
+var STOP = {'a':1,'an':1,'the':1,'and':1,'or':1,'of':1,'to':1,'in':1,'on':1,'for':1,'with':1,'is':1,'at':1,'by':1};
+
+// カタカナ→ひらがな正規化してからローマ字化
+function toRomaji(str){
+    var s = '';
+    for (var k = 0; k < str.length; k++){
+        var code = str.charCodeAt(k);
+        if (code >= 0x30A1 && code <= 0x30F6){
+            s += String.fromCharCode(code - 0x60);
+        } else {
+            s += str[k];
+        }
+    }
+    var arr = Array.from(s);
+    var out = '';
+    var i = 0;
+    while (i < arr.length){
+        var c = arr[i];
+        // 長音符：直前の母音を伸ばす
+        if (c === 'ー' || c === 'ｰ'){
+            var m = out.match(/[aeiou]$/);
+            if (m) out += m[0];
+            i++; continue;
+        }
+        // 促音「っ」：次の音の子音を重ねる
+        if (c === 'っ' || c === 'ッ'){
+            var n2 = (arr[i+1] || '') + (arr[i+2] || '');
+            var nr = COMBO[n2] || MONO[arr[i+1]] || '';
+            var cm = nr.match(/^[a-z]/);
+            if (cm) out += cm[0];
+            i++; continue;
+        }
+        var two = c + (arr[i+1] || '');
+        if (COMBO[two]){ out += COMBO[two]; i += 2; continue; }
+        if (MONO[c]){ out += MONO[c]; i++; continue; }
+        out += c; i++; // ローマ字化できない文字（漢字など）はそのまま渡す
+    }
+    return out;
+}
+
+function escapeReg(ch){ return ch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+function slugify(text, opt){
+    var s = toRomaji(text);
+    if (opt.lower) s = s.toLowerCase();
+    // 英数字以外を空白へ（漢字などはここで除去される）
+    s = s.replace(/[^a-zA-Z0-9]+/g, ' ').trim();
+    var words = s.split(/\s+/).filter(function(w){ return w.length > 0; });
+    if (opt.stop){
+        words = words.filter(function(w){ return !STOP[w.toLowerCase()]; });
+    }
+    var slug = words.join(opt.sep);
+    if (opt.max > 0 && slug.length > opt.max){
+        slug = slug.slice(0, opt.max);
+        var re = new RegExp(escapeReg(opt.sep) + '+$');
+        slug = slug.replace(re, '');
+    }
+    return slug;
+}
+
+function getOpts(){
+    return {
+        sep: document.getElementById('sep').value,
+        lower: document.getElementById('lower').checked,
+        max: parseInt(document.getElementById('maxLen').value, 10) || 0,
+        stop: document.getElementById('stop').checked
+    };
+}
+
+var lastSlugs = [];
+
+function run(){
+    var raw = document.getElementById('input').value;
+    var opt = getOpts();
+    var lines = raw.split(/\r?\n/);
+    var nonEmpty = lines.filter(function(l){ return l.trim().length > 0; });
+    lastSlugs = nonEmpty.map(function(l){ return slugify(l, opt); });
+
+    var first = lastSlugs.length ? lastSlugs[0] : '';
+    var slugOut = document.getElementById('slugOut');
+    slugOut.textContent = first || (raw.trim() ? '（変換可能な文字がありません）' : 'ここに結果が表示されます');
+    document.getElementById('slugLen').textContent = String(first.length);
+    document.getElementById('lineCount').textContent = String(nonEmpty.length);
+
+    var card = document.getElementById('linesCard');
+    var wrap = document.getElementById('linesWrap');
+    wrap.textContent = '';
+    if (nonEmpty.length > 1){
+        card.style.display = 'block';
+        for (var i = 0; i < nonEmpty.length; i++){
+            var item = document.createElement('div');
+            item.className = 'line-item';
+            var src = document.createElement('div');
+            src.className = 'src';
+            src.textContent = nonEmpty[i];
+            var sl = document.createElement('div');
+            sl.className = 'slug';
+            sl.textContent = lastSlugs[i] || '（変換可能な文字なし）';
+            item.appendChild(src);
+            item.appendChild(sl);
+            wrap.appendChild(item);
+        }
+    } else {
+        card.style.display = 'none';
+    }
+}
+
+function flash(btn, msg){
+    var old = btn.textContent;
+    btn.textContent = msg;
+    setTimeout(function(){ btn.textContent = old; }, 1400);
+}
+
+function copyText(text, btn){
+    if (!text) return;
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){ flash(btn, 'コピーしました'); });
+    } else {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); flash(btn, 'コピーしました'); } catch (e) {}
+        document.body.removeChild(ta);
+    }
+}
+
+function copySlug(){
+    copyText(lastSlugs.length ? lastSlugs[0] : '', document.getElementById('copyBtn'));
+}
+function copyAll(){
+    copyText(lastSlugs.join('\n'), event.target);
+}
+
+// 入力例プリセット
+(function(){
+    var row = document.getElementById('presetRow');
+    var samples = [
+        '新しい記事のタイトル',
+        'コーヒーの淹れ方ガイド',
+        'ベストプラクティス2026'
+    ];
+    samples.forEach(function(sm){
+        var btn = document.createElement('button');
+        btn.textContent = sm;
+        btn.onclick = function(){ document.getElementById('input').value = sm; run(); };
+        row.appendChild(btn);
+    });
+})();
+
+run();
+</script>
+</body>
+</html>

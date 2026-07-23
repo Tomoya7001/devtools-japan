@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ガソリン代・燃費計算ツール | 走行距離と燃費からガソリン代を自動計算【無料】</title>
+    <meta name="description" content="走行距離・燃費・ガソリン単価を入力するだけで、必要なガソリン量とガソリン代を自動計算する無料ツール。実燃費計算や割り勘、往復・片道の切り替えにも対応。ドライブや通勤の費用見積もりに便利です。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .toggle-row{display:flex;gap:8px;margin-top:4px}
+        .toggle-row button{flex:1;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.85rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .toggle-row button.active{background:var(--accent);border-color:var(--accent);color:#fff}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-162-fuel-cost/">
+    <meta property="og:title" content="ガソリン代・燃費計算ツール | 走行距離と燃費からガソリン代を自動計算【無料】">
+    <meta property="og:description" content="走行距離・燃費・単価からガソリン代と必要量を自動計算。実燃費・割り勘・往復にも対応。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-162-fuel-cost/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ガソリン代・燃費計算ツール【無料】">
+    <meta name="twitter:description" content="走行距離・燃費・単価からガソリン代を自動計算。実燃費・割り勘・往復にも対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"ガソリン代・燃費計算ツール","description":"走行距離・燃費・ガソリン単価から必要なガソリン量とガソリン代を自動計算する無料ツール","url":"https://www.devtools-japan.com/tool-162-fuel-cost/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"ガソリン代・燃費計算ツール","item":"https://www.devtools-japan.com/tool-162-fuel-cost/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ガソリン代はどうやって計算する？","acceptedAnswer":{"@type":"Answer","text":"ガソリン代は「走行距離 ÷ 燃費 × ガソリン単価」で求めます。まず走行距離（km）を燃費（km/L）で割って必要なガソリン量（L）を出し、それにガソリン単価（円/L）を掛けると料金になります。本ツールでは数値を入力するだけで、必要量と金額を自動で計算して表示します。"}},{"@type":"Question","name":"実燃費はどうやって計算する？","acceptedAnswer":{"@type":"Answer","text":"実燃費は「走行した距離 ÷ 実際に給油した量」で求めます。満タン法では、満タンにしてから次に満タン給油するまでの走行距離を、そのとき入れた給油量（L）で割ると、その区間の実燃費（km/L）が分かります。本ツールの実燃費モードに走行距離と給油量を入力すれば自動計算できます。"}},{"@type":"Question","name":"ガソリン代の割り勘はできる？","acceptedAnswer":{"@type":"Answer","text":"はい。計算されたガソリン代を人数で割った、1人あたりの負担額を表示します。ドライブや旅行でガソリン代を同乗者と分担するときに便利です。人数欄に参加人数を入力すると、合計金額と1人あたりの金額を同時に確認できます。"}},{"@type":"Question","name":"往復と片道は切り替えられる？","acceptedAnswer":{"@type":"Answer","text":"はい。往復・片道の切り替えボタンを用意しています。片道の距離を入力して「往復」を選ぶと、距離を2倍にして必要量とガソリン代を計算します。目的地までの片道距離しか分からないときでも、往復分の費用をまとめて見積もれます。"}},{"@type":"Question","name":"ガソリン単価はいくらに設定すればいい？","acceptedAnswer":{"@type":"Answer","text":"ガソリン単価は地域や時期、原油価格や為替によって日々変動します。初期値として1リットルあたり175円を入れていますが、実際に利用するスタンドのレギュラー価格に書き換えてお使いください。給油レシートや店頭表示の単価を入力すると、より正確なガソリン代を計算できます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>ガソリン代・燃費計算</h1><p>走行距離と燃費からガソリン代を自動計算</p></header>
+
+    <div class="card"><h3>ガソリン代を計算</h3>
+        <div class="row"><label>走行距離</label><input type="number" id="distance" value="100" min="0" step="1" oninput="calcFuel()"><span class="unit">km</span></div>
+        <div style="margin:12px 0">
+            <div style="font-size:0.75rem;color:var(--text3);margin-bottom:6px">距離の扱い</div>
+            <div class="toggle-row" id="tripToggle">
+                <button type="button" class="active" data-trip="one" onclick="setTrip('one')">片道</button>
+                <button type="button" data-trip="round" onclick="setTrip('round')">往復（距離×2）</button>
+            </div>
+        </div>
+        <div class="row"><label>燃費</label><input type="number" id="mileage" value="15" min="0" step="0.1" oninput="calcFuel()"><span class="unit">km/L</span></div>
+        <div class="row"><label>ガソリン単価</label><input type="number" id="price" value="175" min="0" step="1" oninput="calcFuel()"><span class="unit">円/L</span></div>
+        <div class="row"><label>割り勘の人数</label><input type="number" id="people" value="1" min="1" step="1" oninput="calcFuel()"><span class="unit">人</span></div>
+    </div>
+
+    <div class="big-result">
+        <div class="headline">ガソリン代</div>
+        <div class="days"><span id="bigCost">-</span><span class="unit">円</span></div>
+        <div class="target" id="costDetail">走行距離・燃費・単価を入力してください</div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">必要ガソリン量</div><div class="value" id="fuelLiters">-</div></div>
+        <div class="result-item"><div class="label">1kmあたりの費用</div><div class="value" id="perKm">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">対象距離</div><div class="value" id="usedDistance" style="font-size:1.2rem">-</div></div>
+        <div class="result-item"><div class="label">1人あたり（割り勘）</div><div class="value take" id="perPerson">-</div></div>
+    </div>
+
+    <div style="text-align:center;margin-bottom:16px">
+        <button class="btn" type="button" onclick="copyResult()" id="copyBtn">結果をコピー</button>
+    </div>
+
+    <div class="card"><h3>実燃費を計算（満タン法）</h3>
+        <div class="row"><label>走行距離</label><input type="number" id="rDistance" value="450" min="0" step="1" oninput="calcRealMileage()"><span class="unit">km</span></div>
+        <div class="row"><label>給油量</label><input type="number" id="rFuel" value="30" min="0" step="0.1" oninput="calcRealMileage()"><span class="unit">L</span></div>
+        <div class="row"><label>実燃費</label><span class="value" id="realMileage" style="font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--accent)">-</span><span class="unit">km/L</span></div>
+    </div>
+
+    <div class="note">ガソリン代は「走行距離 ÷ 燃費 × ガソリン単価」で計算します。往復を選ぶと距離を2倍にして計算します。ガソリン単価は地域・時期・原油価格・為替により変動するため、初期値の175円は目安です。実際のスタンドの価格に書き換えてご利用ください。金額は概算で、端数は表示上で丸めています。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>ガソリン代・燃費計算ツールの使い方</h2>
+        <p>走行距離・燃費・ガソリン単価の3つを入力するだけで、必要なガソリン量とガソリン代を自動計算する無料ツールです。通勤やドライブ、旅行、帰省などにかかるガソリン代を、スタンドに行く前や出発前にすばやく見積もれます。インストールや会員登録は不要で、計算はすべてお使いの端末内（ブラウザ）で完結します。</p>
+        <p>使い方はかんたんです。「走行距離」に予定している距離（km）、「燃費」にお車の燃費（km/L）、「ガソリン単価」に1リットルあたりの価格（円）を入力すると、画面上部に「ガソリン代」が大きく表示されます。片道の距離しか分からない場合は「往復」を選ぶと、距離を2倍にして往復分の費用を計算します。さらに割り勘の人数を入れれば、1人あたりの負担額も同時に確認できます。</p>
+        <h3>計算式</h3>
+        <p>基本の計算式は「必要ガソリン量（L）＝ 走行距離（km）÷ 燃費（km/L）」、そして「ガソリン代（円）＝ 必要ガソリン量（L）× ガソリン単価（円/L）」です。まとめると「ガソリン代 ＝ 走行距離 ÷ 燃費 × 単価」となります。たとえば走行距離100km・燃費15km/L・単価175円なら、必要量は約6.67L、ガソリン代は約1,167円と計算できます。</p>
+
+        <h2>実燃費・割り勘・往復の便利機能</h2>
+        <p>本ツールには基本のガソリン代計算に加えて、3つの便利な機能があります。ドライブや日々の給油管理に役立ててください。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>機能</th><th>計算式</th><th>説明</th></tr>
+            <tr><td>ガソリン代</td><td>距離 ÷ 燃費 × 単価</td><td>走行に必要なガソリン量と金額を計算</td></tr>
+            <tr><td>実燃費計算</td><td>走行距離 ÷ 給油量</td><td>満タン法で実際の燃費（km/L）を算出</td></tr>
+            <tr><td>割り勘</td><td>ガソリン代 ÷ 人数</td><td>同乗者で分担した1人あたりの金額</td></tr>
+            <tr><td>往復/片道</td><td>片道時は距離を2倍</td><td>目的地までの片道距離から往復費用を計算</td></tr>
+        </table>
+        </div>
+        <h3>実燃費（満タン法）について</h3>
+        <p>カタログ燃費と実際の燃費（実燃費）は、走り方や道路状況、エアコンの使用などで差が出ます。満タン法では、ガソリンを満タンにしてから次に満タン給油するまでの走行距離を、そのとき入れた給油量で割ることで、その区間の実燃費（km/L）を求められます。本ツールの実燃費計算欄に走行距離と給油量を入力すると、あなたの車の実燃費が分かり、ガソリン代の見積もりもより正確になります。</p>
+        <h3>ガソリン単価の目安</h3>
+        <p>ガソリン単価は地域や時期、原油価格や為替の影響で日々変動します。本ツールでは初期値として1リットル175円を設定していますが、これはあくまで目安です。実際に利用するスタンドのレギュラー価格や、給油レシートに記載された単価を入力すると、より実態に近いガソリン代を計算できます。単価欄は自由に書き換えられます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">ガソリン代はどうやって計算する？</div><div class="a">ガソリン代は「走行距離 ÷ 燃費 × ガソリン単価」で求めます。まず走行距離（km）を燃費（km/L）で割って必要なガソリン量（L）を出し、それにガソリン単価（円/L）を掛けると料金になります。本ツールでは数値を入力するだけで、必要量と金額を自動で計算して表示します。</div></div>
+        <div class="faq-item"><div class="q">実燃費はどうやって計算する？</div><div class="a">実燃費は「走行した距離 ÷ 実際に給油した量」で求めます。満タン法では、満タンにしてから次に満タン給油するまでの走行距離を、そのとき入れた給油量（L）で割ると、その区間の実燃費（km/L）が分かります。本ツールの実燃費モードに走行距離と給油量を入力すれば自動計算できます。</div></div>
+        <div class="faq-item"><div class="q">ガソリン代の割り勘はできる？</div><div class="a">はい。計算されたガソリン代を人数で割った、1人あたりの負担額を表示します。ドライブや旅行でガソリン代を同乗者と分担するときに便利です。人数欄に参加人数を入力すると、合計金額と1人あたりの金額を同時に確認できます。</div></div>
+        <div class="faq-item"><div class="q">往復と片道は切り替えられる？</div><div class="a">はい。往復・片道の切り替えボタンを用意しています。片道の距離を入力して「往復」を選ぶと、距離を2倍にして必要量とガソリン代を計算します。目的地までの片道距離しか分からないときでも、往復分の費用をまとめて見積もれます。</div></div>
+        <div class="faq-item"><div class="q">ガソリン単価はいくらに設定すればいい？</div><div class="a">ガソリン単価は地域や時期、原油価格や為替によって日々変動します。初期値として1リットルあたり175円を入れていますが、実際に利用するスタンドのレギュラー価格に書き換えてお使いください。給油レシートや店頭表示の単価を入力すると、より正確なガソリン代を計算できます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+let tripMode = 'one';
+const yen = n => Math.round(n).toLocaleString('ja-JP');
+
+function setTrip(mode){
+    tripMode = mode;
+    const btns = document.querySelectorAll('#tripToggle button');
+    btns.forEach(b => b.classList.toggle('active', b.getAttribute('data-trip') === mode));
+    calcFuel();
+}
+
+function calcFuel(){
+    const dist = parseFloat(document.getElementById('distance').value);
+    const mpg = parseFloat(document.getElementById('mileage').value);
+    const price = parseFloat(document.getElementById('price').value);
+    let people = parseInt(document.getElementById('people').value, 10);
+    if (!people || people < 1) people = 1;
+
+    const bigCost = document.getElementById('bigCost');
+    const costDetail = document.getElementById('costDetail');
+    const fuelLiters = document.getElementById('fuelLiters');
+    const perKm = document.getElementById('perKm');
+    const usedDistance = document.getElementById('usedDistance');
+    const perPerson = document.getElementById('perPerson');
+
+    if (!(dist >= 0) || !(mpg > 0) || !(price >= 0)){
+        bigCost.textContent = '-';
+        costDetail.textContent = '走行距離・燃費・単価を入力してください';
+        fuelLiters.textContent = '-';
+        perKm.textContent = '-';
+        usedDistance.textContent = '-';
+        perPerson.textContent = '-';
+        return;
+    }
+
+    const usedKm = tripMode === 'round' ? dist * 2 : dist;
+    const liters = usedKm / mpg;
+    const cost = liters * price;
+
+    bigCost.textContent = yen(cost);
+    const modeLabel = tripMode === 'round' ? '往復' : '片道';
+    costDetail.textContent = modeLabel + ' ' + usedKm + 'km ／ 燃費 ' + mpg + 'km/L ／ 単価 ' + price + '円/L';
+    fuelLiters.textContent = liters.toFixed(2) + ' L';
+    perKm.textContent = usedKm > 0 ? (cost / usedKm).toFixed(1) + ' 円' : '- 円';
+    usedDistance.textContent = usedKm + ' km';
+    perPerson.textContent = yen(cost / people) + ' 円';
+}
+
+function calcRealMileage(){
+    const dist = parseFloat(document.getElementById('rDistance').value);
+    const fuel = parseFloat(document.getElementById('rFuel').value);
+    const out = document.getElementById('realMileage');
+    if (!(dist >= 0) || !(fuel > 0)){
+        out.textContent = '-';
+        return;
+    }
+    out.textContent = (dist / fuel).toFixed(2);
+}
+
+function copyResult(){
+    const dist = document.getElementById('usedDistance').textContent;
+    const liters = document.getElementById('fuelLiters').textContent;
+    const cost = document.getElementById('bigCost').textContent;
+    const perPerson = document.getElementById('perPerson').textContent;
+    const text = 'ガソリン代の計算結果\n対象距離: ' + dist + '\n必要ガソリン量: ' + liters + '\nガソリン代: ' + cost + '円\n1人あたり: ' + perPerson;
+    const btn = document.getElementById('copyBtn');
+    const done = () => { btn.textContent = 'コピーしました'; setTimeout(() => { btn.textContent = '結果をコピー'; }, 1500); };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+    } else {
+        fallbackCopy(text, done);
+    }
+}
+
+function fallbackCopy(text, done){
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+    done();
+}
+
+calcFuel();
+calcRealMileage();
+</script>
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review / AggregateRating 構造化データ生成ツール | schema.org レビューJSON-LDを自動作成【無料】</title>
+    <meta name="description" content="レビュー（Review）や集計評価（AggregateRating）の情報を入力するだけで、schema.org 準拠の JSON-LD 構造化データをリアルタイム生成する無料ツール。単一レビューと集計評価のモード切替、評価対象タイプの選択、bestRating/worstRating の指定に対応。空欄フィールドは自動除外。星評価リッチリザルト対策に。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1;padding-right:12px}
+        .row input,.row select,.row textarea{width:260px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .row textarea{resize:vertical;min-height:64px;line-height:1.6}
+        .row input:focus,.row select:focus,.row textarea:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .row.stack{flex-direction:column;align-items:stretch;gap:8px}
+        .row.stack label{padding-right:0}
+        .row.stack input,.row.stack textarea{width:100%}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input,.row select,.row textarea{width:100%}}
+        .mode-toggle{display:flex;gap:8px;margin-bottom:16px}
+        .mode-toggle button{flex:1;padding:12px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.88rem;font-weight:500;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .mode-toggle button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+        .output-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .output-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+        .output-head h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em}
+        .copy-btn{padding:8px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .copy-btn:hover{opacity:0.9}
+        pre.code{background:#1e1e35;color:#e6e6f0;border-radius:8px;padding:16px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:0.78rem;line-height:1.7;white-space:pre;-webkit-overflow-scrolling:touch}
+        .hint-list{list-style:none;margin-top:8px}
+        .hint-list li{font-size:0.8rem;color:var(--text2);padding:6px 0 6px 22px;position:relative;line-height:1.6}
+        .hint-list li::before{content:'';position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+        .hint-list li.warn::before{background:var(--red)}
+        .hint-list li.ok::before{background:var(--green)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        code.inline{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--accent)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-156-review-schema/">
+    <meta property="og:title" content="Review / AggregateRating 構造化データ生成ツール | schema.org レビューJSON-LDを自動作成【無料】">
+    <meta property="og:description" content="単一レビューと集計評価を切り替えて schema.org の Review / AggregateRating JSON-LD をリアルタイム生成。星評価リッチリザルト対策に。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-156-review-schema/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Review / AggregateRating 構造化データ生成ツール【無料】">
+    <meta name="twitter:description" content="schema.org の Review / AggregateRating JSON-LD をリアルタイム生成。空欄は自動除外。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Review / AggregateRating 構造化データ生成ツール","description":"schema.org の Review / AggregateRating JSON-LD 構造化データをリアルタイム生成する無料ツール","url":"https://www.devtools-japan.com/tool-156-review-schema/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"Review / AggregateRating 構造化データ生成ツール","item":"https://www.devtools-japan.com/tool-156-review-schema/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Review と AggregateRating の違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"Review は特定の一人が書いた「単一のレビュー」を表す構造化データで、評価者（author）・評価点（reviewRating）・本文（reviewBody）などを含みます。AggregateRating は複数のレビューを集計した「総合評価」を表し、平均評価点（ratingValue）と件数（reviewCount）を含みます。本ツールは上部のモード切替でどちらのタイプの JSON-LD を生成するかを選べます。星評価つきのリッチリザルトを狙う場合はどちらも対象になり得ますが、対象（itemReviewed）と組み合わせて正しく実装する必要があります。"}},{"@type":"Question","name":"bestRating と worstRating は必ず指定が必要ですか？","acceptedAnswer":{"@type":"Answer","text":"必須ではありません。schema.org では bestRating を省略すると 5、worstRating を省略すると 1 が既定値として扱われます。そのため一般的な5段階評価であれば省略しても問題ありません。ただし10段階評価など尺度が異なる場合は、bestRating・worstRating を明示的に指定することを推奨します。本ツールでは既定で bestRating=5・worstRating=1 を入力欄に用意しており、必要に応じて変更できます。"}},{"@type":"Question","name":"評価対象（itemReviewed）のタイプはどう選べばよいですか？","acceptedAnswer":{"@type":"Answer","text":"評価している対象の種類に合わせて選びます。商品なら Product、店舗・施設なら LocalBusiness、書籍なら Book、映画なら Movie、といった具合です。本ツールではプルダウンから代表的なタイプを選択でき、その @type と対象名（name）が itemReviewed に出力されます。Google が星評価のリッチリザルトを表示する対象タイプには制限があるため、実装前に対象タイプがサポート対象か確認することを推奨します。"}},{"@type":"Question","name":"自社サイトに書いた自社レビューでも星は表示されますか？","acceptedAnswer":{"@type":"Answer","text":"注意が必要です。Google のレビュースニペットのポリシーでは、事業者が自社の商品・サービスについて自ら書いた「自己宣伝的なレビュー（self-serving reviews）」の評価は、リッチリザルトとして表示対象外とされています。つまり自社サイトで自社商品に自分で星をつけて aggregateRating を記述しても、検索結果に星が出るとは限らず、場合によっては手動対策の対象にもなり得ます。星評価は第三者・実ユーザーによる本物のレビューに基づいて記述してください。"}},{"@type":"Question","name":"生成したJSON-LDはどこに貼り付けますか？","acceptedAnswer":{"@type":"Answer","text":"生成された ld+json のスクリプトタグ一式をコピーし、レビュー対象を掲載しているページのHTMLの head 内、または body 内に貼り付けてください。JSON-LD はページの表示位置に影響しないため配置場所は比較的自由ですが、記述した内容がページ上に実際に表示されているレビュー・評価と一致している必要があります。貼り付け後は Google のリッチリザルトテストや schema.org バリデータでエラーや警告がないか確認することを推奨します。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>Review / AggregateRating 構造化データ生成</h1><p>schema.org の Review / AggregateRating JSON-LD をリアルタイム生成</p></header>
+
+    <div class="card"><h3>生成モード</h3>
+        <div class="mode-toggle">
+            <button id="modeReviewBtn" class="active" onclick="setMode('review')">単一レビュー（Review）</button>
+            <button id="modeAggBtn" onclick="setMode('aggregate')">集計評価（AggregateRating）</button>
+        </div>
+        <div class="row"><label>評価対象のタイプ（itemReviewed @type）</label>
+            <select id="f_itemType" onchange="generate()">
+                <option value="Product">Product（商品）</option>
+                <option value="LocalBusiness">LocalBusiness（店舗・施設）</option>
+                <option value="Book">Book（書籍）</option>
+                <option value="Movie">Movie（映画）</option>
+                <option value="Restaurant">Restaurant（飲食店）</option>
+                <option value="Recipe">Recipe（レシピ）</option>
+                <option value="Course">Course（講座）</option>
+                <option value="Event">Event（イベント）</option>
+                <option value="SoftwareApplication">SoftwareApplication（アプリ）</option>
+                <option value="Organization">Organization（組織）</option>
+                <option value="CreativeWork">CreativeWork（作品全般）</option>
+            </select>
+        </div>
+        <div class="row stack"><label>評価対象の名前（itemReviewed name） <span style="color:var(--red)">*</span></label><input type="text" id="f_itemName" placeholder="例: ワイヤレスイヤホン X1" oninput="generate()"></div>
+    </div>
+
+    <div class="card" id="reviewCard"><h3>レビュー内容（Review）</h3>
+        <div class="row stack"><label>評価者名（author）</label><input type="text" id="f_author" placeholder="例: 山田太郎" oninput="generate()"></div>
+        <div class="row"><label>評価点（reviewRating / ratingValue） <span style="color:var(--red)">*</span></label><input type="number" id="f_reviewRating" min="0" step="0.1" placeholder="例: 4.5" oninput="generate()"></div>
+        <div class="row"><label>最高評価（bestRating）</label><input type="number" id="f_reviewBest" min="1" step="1" value="5" oninput="generate()"></div>
+        <div class="row"><label>最低評価（worstRating）</label><input type="number" id="f_reviewWorst" min="0" step="1" value="1" oninput="generate()"></div>
+        <div class="row stack"><label>レビュー本文（reviewBody）</label><textarea id="f_reviewBody" placeholder="レビューの本文" oninput="generate()"></textarea></div>
+        <div class="row"><label>公開日（datePublished）</label><input type="date" id="f_datePublished" style="text-align:left" oninput="generate()"></div>
+    </div>
+
+    <div class="card" id="aggCard" style="display:none"><h3>集計評価（AggregateRating）</h3>
+        <div class="row"><label>平均評価点（ratingValue） <span style="color:var(--red)">*</span></label><input type="number" id="f_aggRating" min="0" step="0.1" placeholder="例: 4.6" oninput="generate()"></div>
+        <div class="row"><label>レビュー件数（reviewCount） <span style="color:var(--red)">*</span></label><input type="number" id="f_reviewCount" min="0" step="1" placeholder="例: 218" oninput="generate()"></div>
+        <div class="row"><label>最高評価（bestRating）</label><input type="number" id="f_aggBest" min="1" step="1" value="5" oninput="generate()"></div>
+        <div class="row"><label>最低評価（worstRating）</label><input type="number" id="f_aggWorst" min="0" step="1" value="1" oninput="generate()"></div>
+    </div>
+
+    <div class="output-card">
+        <div class="output-head"><h3>生成された JSON-LD</h3><button class="copy-btn" onclick="copyOutput()" id="copyBtn">コピー</button></div>
+        <pre class="code" id="output">// 入力するとここに JSON-LD が表示されます</pre>
+    </div>
+
+    <div class="card"><h3>実装のヒント</h3>
+        <ul class="hint-list" id="hints"></ul>
+    </div>
+
+    <div class="note">生成される JSON-LD は schema.org の Review / AggregateRating 型に基づきます。空欄のフィールドは自動的に除外され、bestRating を省略すると 5、worstRating を省略すると 1 が既定値として扱われます。星評価のリッチリザルトには Google のポリシー上の制約（自己宣伝的レビューは対象外など）があります。実装後は Google のリッチリザルトテストで検証してください。すべての処理は端末内で完結し、入力内容は送信されません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>Review / AggregateRating 構造化データ生成ツールの使い方</h2>
+        <p>商品・店舗・書籍・映画などへのレビューや集計評価の情報を入力するだけで、schema.org の Review 型または AggregateRating 型に準拠した JSON-LD 構造化データをリアルタイムに生成する無料ツールです。生成された ld+json のスクリプトタグ一式をコピーして、対象を掲載しているページのHTMLに貼り付けるだけで、検索エンジンに評価情報を正しく伝えられます。インストールや会員登録は不要で、入力した内容はサーバーに送信されず、すべての生成処理がお使いのブラウザ内で完結します。</p>
+        <p>使い方はシンプルです。まず上部のモード切替で「単一レビュー（Review）」か「集計評価（AggregateRating）」のどちらを生成するかを選びます。次に評価対象のタイプ（Product・LocalBusiness・Book・Movie など）と対象名を入力し、選んだモードに応じて評価者・評価点・本文・公開日、または平均評価点・レビュー件数を埋めます。入力を変更するたびに下部の出力エリアの JSON-LD が即座に更新されるので、内容を確認しながら仕上げられます。空欄の任意項目は出力から自動で除外されます。</p>
+        <h3>bestRating / worstRating の既定値</h3>
+        <p>評価尺度を表す <code class="inline">bestRating</code>（最高点）と <code class="inline">worstRating</code>（最低点）は必須ではありません。schema.org では bestRating を省略すると 5、worstRating を省略すると 1 として扱われます。一般的な5段階評価であればそのままで問題ありませんが、10段階評価など尺度が異なる場合は明示的に指定してください。本ツールでは既定値として 5 と 1 を入力欄に用意しています。</p>
+
+        <h2>生成されるプロパティ</h2>
+        <p>本ツールが出力する主なプロパティは次のとおりです。モードによって出力される型が変わります。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>プロパティ</th><th>内容</th><th>モード</th></tr>
+            <tr><td>itemReviewed</td><td>評価対象（@type + name）</td><td>両方</td></tr>
+            <tr><td>author</td><td>レビュー投稿者（Person）</td><td>Review</td></tr>
+            <tr><td>reviewRating</td><td>評価点（Rating 型）</td><td>Review</td></tr>
+            <tr><td>reviewBody</td><td>レビュー本文</td><td>Review</td></tr>
+            <tr><td>datePublished</td><td>公開日</td><td>Review</td></tr>
+            <tr><td>ratingValue</td><td>平均評価点</td><td>AggregateRating</td></tr>
+            <tr><td>reviewCount</td><td>レビュー件数</td><td>AggregateRating</td></tr>
+            <tr><td>bestRating / worstRating</td><td>評価尺度（既定 5 / 1）</td><td>両方</td></tr>
+        </table>
+        </div>
+        <h3>星評価リッチリザルトの注意点</h3>
+        <p>Review や AggregateRating を正しく記述すると、検索結果に星評価つきのリッチリザルトが表示される可能性があります。ただし表示には Google のポリシー上の制約があります。特に、事業者が自社の商品・サービスについて自ら書いた「自己宣伝的なレビュー（self-serving reviews）」の評価は表示対象外とされており、記述しても星が出ないだけでなく、手動対策の対象になり得ます。評価は第三者・実ユーザーによる本物のレビューに基づき、ページ上に実際に表示されている内容と一致させてください。また、Google が星評価をサポートする対象タイプには制限があるため、実装前に対象タイプがサポート対象か確認しましょう。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">Review と AggregateRating の違いは何ですか？</div><div class="a">Review は特定の一人が書いた「単一のレビュー」を表す構造化データで、評価者（author）・評価点（reviewRating）・本文（reviewBody）などを含みます。AggregateRating は複数のレビューを集計した「総合評価」を表し、平均評価点（ratingValue）と件数（reviewCount）を含みます。本ツールは上部のモード切替でどちらのタイプの JSON-LD を生成するかを選べます。星評価つきのリッチリザルトを狙う場合はどちらも対象になり得ますが、対象（itemReviewed）と組み合わせて正しく実装する必要があります。</div></div>
+        <div class="faq-item"><div class="q">bestRating と worstRating は必ず指定が必要ですか？</div><div class="a">必須ではありません。schema.org では bestRating を省略すると 5、worstRating を省略すると 1 が既定値として扱われます。そのため一般的な5段階評価であれば省略しても問題ありません。ただし10段階評価など尺度が異なる場合は、bestRating・worstRating を明示的に指定することを推奨します。本ツールでは既定で bestRating=5・worstRating=1 を入力欄に用意しており、必要に応じて変更できます。</div></div>
+        <div class="faq-item"><div class="q">評価対象（itemReviewed）のタイプはどう選べばよいですか？</div><div class="a">評価している対象の種類に合わせて選びます。商品なら Product、店舗・施設なら LocalBusiness、書籍なら Book、映画なら Movie、といった具合です。本ツールではプルダウンから代表的なタイプを選択でき、その @type と対象名（name）が itemReviewed に出力されます。Google が星評価のリッチリザルトを表示する対象タイプには制限があるため、実装前に対象タイプがサポート対象か確認することを推奨します。</div></div>
+        <div class="faq-item"><div class="q">自社サイトに書いた自社レビューでも星は表示されますか？</div><div class="a">注意が必要です。Google のレビュースニペットのポリシーでは、事業者が自社の商品・サービスについて自ら書いた「自己宣伝的なレビュー（self-serving reviews）」の評価は、リッチリザルトとして表示対象外とされています。つまり自社サイトで自社商品に自分で星をつけて aggregateRating を記述しても、検索結果に星が出るとは限らず、場合によっては手動対策の対象にもなり得ます。星評価は第三者・実ユーザーによる本物のレビューに基づいて記述してください。</div></div>
+        <div class="faq-item"><div class="q">生成したJSON-LDはどこに貼り付けますか？</div><div class="a">生成された ld+json のスクリプトタグ一式をコピーし、レビュー対象を掲載しているページのHTMLの head 内、または body 内に貼り付けてください。JSON-LD はページの表示位置に影響しないため配置場所は比較的自由ですが、記述した内容がページ上に実際に表示されているレビュー・評価と一致している必要があります。貼り付け後は Google のリッチリザルトテストや schema.org バリデータでエラーや警告がないか確認することを推奨します。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-142-recipe-schema/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">Recipe構造化データ生成</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧へ</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ---- script タグ文字列はトークン分割して素書きを避ける ----
+var LD_OPEN = '<' + 'script type="application/ld+json">';
+var LD_CLOSE = '<' + '/' + 'script>';
+
+var currentMode = 'review';
+
+function val(id){
+    var el = document.getElementById(id);
+    return el ? el.value.trim() : '';
+}
+
+function setMode(mode){
+    currentMode = mode;
+    document.getElementById('modeReviewBtn').className = (mode === 'review') ? 'active' : '';
+    document.getElementById('modeAggBtn').className = (mode === 'aggregate') ? 'active' : '';
+    document.getElementById('reviewCard').style.display = (mode === 'review') ? '' : 'none';
+    document.getElementById('aggCard').style.display = (mode === 'aggregate') ? '' : 'none';
+    generate();
+}
+
+// bestRating / worstRating を Rating に付与（既定値 5 / 1 は省略）
+function applyScale(ratingObj, bestId, worstId){
+    var best = val(bestId);
+    var worst = val(worstId);
+    if (best && best !== '5') ratingObj.bestRating = best;
+    if (worst && worst !== '1') ratingObj.worstRating = worst;
+    return ratingObj;
+}
+
+function buildItemReviewed(){
+    var type = val('f_itemType') || 'Product';
+    var name = val('f_itemName');
+    if (!name) return null;
+    return { '@type': type, 'name': name };
+}
+
+function buildReview(){
+    var r = { '@context': 'https://schema.org', '@type': 'Review' };
+
+    var item = buildItemReviewed();
+    if (item) r.itemReviewed = item;
+
+    var author = val('f_author');
+    if (author) r.author = { '@type': 'Person', 'name': author };
+
+    var rv = val('f_reviewRating');
+    if (rv){
+        var rating = { '@type': 'Rating', 'ratingValue': rv };
+        applyScale(rating, 'f_reviewBest', 'f_reviewWorst');
+        r.reviewRating = rating;
+    }
+
+    var body = val('f_reviewBody');
+    if (body) r.reviewBody = body;
+
+    var date = val('f_datePublished');
+    if (date) r.datePublished = date;
+
+    return r;
+}
+
+function buildAggregate(){
+    var r = { '@context': 'https://schema.org', '@type': 'AggregateRating' };
+
+    var item = buildItemReviewed();
+    if (item) r.itemReviewed = item;
+
+    var rv = val('f_aggRating');
+    if (rv) r.ratingValue = rv;
+
+    var rc = val('f_reviewCount');
+    if (rc) r.reviewCount = rc;
+
+    applyScale(r, 'f_aggBest', 'f_aggWorst');
+
+    return r;
+}
+
+function buildHints(obj){
+    var hints = document.getElementById('hints');
+    hints.innerHTML = '';
+    var checks = [];
+    checks.push({ ok: !!obj.itemReviewed, text: '評価対象（itemReviewed）— 対象の @type と name を指定。' });
+    if (currentMode === 'review'){
+        checks.push({ ok: !!obj.reviewRating, text: '評価点（reviewRating）— Rating 型で必須級。' });
+        checks.push({ ok: !!obj.author, text: '評価者（author）— 実在のレビュー投稿者を記述。' });
+        checks.push({ ok: !!obj.reviewBody, text: 'レビュー本文（reviewBody）— 内容の説明に有効。' });
+        checks.push({ ok: !!obj.datePublished, text: '公開日（datePublished）— レビューの日付。' });
+    } else {
+        checks.push({ ok: !!obj.ratingValue, text: '平均評価点（ratingValue）— 必須。' });
+        checks.push({ ok: !!obj.reviewCount, text: 'レビュー件数（reviewCount）— 必須級。' });
+    }
+    checks.push({ ok: false, text: '自己宣伝的レビュー（self-serving reviews）の星評価は Google のポリシー上 表示対象外。実レビューに基づくこと。' });
+    for (var i = 0; i < checks.length; i++){
+        var li = document.createElement('li');
+        li.className = checks[i].ok ? 'ok' : 'warn';
+        var prefix = (i === checks.length - 1) ? '注意: ' : (checks[i].ok ? '設定済み: ' : '未設定: ');
+        li.textContent = prefix + checks[i].text;
+        hints.appendChild(li);
+    }
+}
+
+function generate(){
+    var obj = (currentMode === 'review') ? buildReview() : buildAggregate();
+    var json = JSON.stringify(obj, null, 2);
+    var wrapped = LD_OPEN + '\n' + json + '\n' + LD_CLOSE;
+    document.getElementById('output').textContent = wrapped;
+    buildHints(obj);
+}
+
+function copyOutput(){
+    var text = document.getElementById('output').textContent;
+    var btn = document.getElementById('copyBtn');
+    function done(){ btn.textContent = 'コピー済み'; setTimeout(function(){ btn.textContent = 'コピー'; }, 1400); }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text); done(); });
+    } else {
+        fallbackCopy(text); done();
+    }
+}
+
+function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+}
+
+// 初期サンプル（入力ゼロでもサンプル出力）
+(function init(){
+    document.getElementById('f_itemType').value = 'Product';
+    document.getElementById('f_itemName').value = 'ワイヤレスイヤホン X1';
+    document.getElementById('f_author').value = '山田太郎';
+    document.getElementById('f_reviewRating').value = '4.5';
+    document.getElementById('f_reviewBody').value = '装着感が軽く、通勤で毎日使っています。音質もこの価格帯では十分満足です。';
+    document.getElementById('f_datePublished').value = '2026-06-01';
+    document.getElementById('f_aggRating').value = '4.6';
+    document.getElementById('f_reviewCount').value = '218';
+    generate();
+})();
+</script>
+</body>
+</html>
