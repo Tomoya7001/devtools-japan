@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product・Review・AggregateRating 構造化データ生成 | schema.org JSON-LDをリアルタイム作成【無料】</title>
+    <meta name="description" content="商品名・画像・価格・在庫・ブランド・レビュー・評価を入力するだけで、schema.org Product の JSON-LD 構造化データをリアルタイム生成する無料ツール。Google リッチリザルト（レビュー☆表示・価格表示）対応。空欄は自動除外、コピーしてそのまま貼り付け。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select,.row textarea{width:320px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:left}
+        .row textarea{resize:vertical;min-height:60px;line-height:1.6}
+        .row input:focus,.row select:focus,.row textarea:focus{border-color:var(--accent)}
+        .subgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+        @media(max-width:600px){.subgrid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select,.row textarea{width:100%}}
+        .field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+        .field label{font-size:0.8rem;color:var(--text2)}
+        .field .hint{font-size:0.68rem;color:var(--text3)}
+        .field input,.field select,.field textarea{padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;width:100%}
+        .field textarea{resize:vertical;min-height:64px;line-height:1.6}
+        .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent)}
+        .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        @media(max-width:600px){.grid2{grid-template-columns:1fr}}
+        .review-row{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:14px;margin-bottom:12px}
+        .rev-grid{display:grid;grid-template-columns:2fr 1fr;gap:10px;margin-bottom:10px}
+        @media(max-width:600px){.rev-grid{grid-template-columns:1fr}}
+        .review-row input,.review-row textarea{padding:9px 12px;background:#fff;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.88rem;outline:none;width:100%}
+        .review-row textarea{resize:vertical;min-height:52px;line-height:1.6;margin-bottom:10px}
+        .review-row input:focus,.review-row textarea:focus{border-color:var(--accent)}
+        .rev-del{padding:7px 14px;background:#fff;border:1px solid var(--border);border-radius:8px;color:var(--red);font-size:0.78rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .rev-del:hover{border-color:var(--red)}
+        .output-box{background:#1e1e2e;border:1px solid var(--border);border-radius:var(--radius);padding:18px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;line-height:1.6;color:#d6d9f0;white-space:pre-wrap;word-break:break-all;overflow-x:auto;max-height:480px;overflow-y:auto}
+        .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+        .btn{padding:10px 22px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.ghost{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.ghost:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+        .hints{list-style:none;margin-top:14px}
+        .hints li{display:flex;align-items:flex-start;gap:8px;font-size:0.82rem;color:var(--text2);padding:6px 0;line-height:1.6}
+        .hints li .mark{flex-shrink:0;width:18px;font-weight:700}
+        .hints li.ok .mark{color:var(--green)}
+        .hints li.warn .mark{color:var(--red)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-139-product-schema/">
+    <meta property="og:title" content="Product・Review・AggregateRating 構造化データ生成 | schema.org JSON-LD【無料】">
+    <meta property="og:description" content="商品名・価格・在庫・レビュー・評価を入力すると schema.org Product の JSON-LD をリアルタイム生成。リッチリザルト対応、空欄は自動除外。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-139-product-schema/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Product構造化データ生成（JSON-LD）【無料】">
+    <meta name="twitter:description" content="商品情報を入力するだけで schema.org Product の JSON-LD をリアルタイム生成。リッチリザルト対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Product・Review・AggregateRating 構造化データ生成ツール","description":"商品情報を入力して schema.org Product の JSON-LD 構造化データをリアルタイム生成する無料ツール","url":"https://www.devtools-japan.com/tool-139-product-schema/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"Product構造化データ生成ツール","item":"https://www.devtools-japan.com/tool-139-product-schema/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Product構造化データ（JSON-LD）とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"Product構造化データは、商品名・価格・在庫状況・評価・レビューといった商品情報を、検索エンジンが理解できる形式で記述したものです。schema.org の Product 型を JSON-LD 形式で書くのが Google 推奨で、正しく記述すると検索結果に価格やレビューの星（リッチリザルト）が表示されやすくなります。本ツールはフォームに入力するだけでこの JSON-LD を自動生成します。"}},{"@type":"Question","name":"生成したJSON-LDはどこに貼り付ければいいですか？","acceptedAnswer":{"@type":"Answer","text":"生成された script type=application/ld+json のコード全体をコピーし、対象となる商品ページのHTMLの head 内、または body 内どちらかに貼り付けます。1ページに1つの Product を記述するのが基本です。貼り付け後は Google の「リッチリザルト テスト」で正しく認識されるか確認することをおすすめします。"}},{"@type":"Question","name":"レビューや評価（AggregateRating）は必須ですか？","acceptedAnswer":{"@type":"Answer","text":"必須ではありません。Product 型として最低限 name（商品名）があれば有効で、image・offers（価格）を加えると価格表示のリッチリザルトが得られやすくなります。aggregateRating や review は星評価を表示させるための任意項目です。ただし実際に自社サイトで集めた評価のみを記載し、存在しないレビューを記述するとガイドライン違反になる点に注意してください。"}},{"@type":"Question","name":"入力した情報はサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"送信されません。JSON-LDの生成はすべてお使いのブラウザ内（JavaScript）で完結し、入力した商品名・価格・レビューなどがサーバーへ送られることはありません。会員登録やインストールも不要で、空欄にした項目は出力から自動的に除外されるため、必要な情報だけの無駄のない構造化データを作成できます。"}},{"@type":"Question","name":"貼り付ければ必ずリッチリザルトが表示されますか？","acceptedAnswer":{"@type":"Answer","text":"必ず表示されるわけではありません。構造化データは表示の必要条件であって十分条件ではなく、最終的な表示可否は Google が総合的に判断します。まずは有効な JSON-LD をエラーなく設置し、ページ上に実際の価格・在庫・レビューが表示されていること、ガイドラインに準拠していることが前提になります。本ツールの下部ヒントで必須・推奨項目の充足状況を確認できます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>Product 構造化データ生成</h1><p>Product・Review・AggregateRating の JSON-LD をリアルタイム生成（SEO/リッチリザルト）</p></header>
+
+    <div class="card"><h3>商品情報</h3>
+        <div class="field">
+            <label>商品名 name <span class="hint">（必須・リッチリザルトの前提）</span></label>
+            <input id="p_name" placeholder="例: ワイヤレスノイズキャンセリングヘッドホン X100" oninput="gen()">
+        </div>
+        <div class="field">
+            <label>画像URL image <span class="hint">（推奨・httpsの絶対URL）</span></label>
+            <input id="p_image" placeholder="https://example.com/images/x100.jpg" oninput="gen()">
+        </div>
+        <div class="field">
+            <label>説明 description</label>
+            <textarea id="p_desc" placeholder="商品の説明文を入力" oninput="gen()"></textarea>
+        </div>
+        <div class="grid2">
+            <div class="field"><label>ブランド brand</label><input id="p_brand" placeholder="例: DevAudio" oninput="gen()"></div>
+            <div class="field"><label>SKU</label><input id="p_sku" placeholder="例: X100-BLK" oninput="gen()"></div>
+        </div>
+        <div class="field"><label>GTIN <span class="hint">（JAN/EAN/UPC等）</span></label><input id="p_gtin" placeholder="例: 4901234567894" oninput="gen()"></div>
+    </div>
+
+    <div class="card"><h3>販売情報 offers</h3>
+        <div class="grid2">
+            <div class="field"><label>価格 price</label><input id="o_price" type="text" inputmode="decimal" placeholder="例: 29800" oninput="gen()"></div>
+            <div class="field"><label>通貨 priceCurrency</label>
+                <select id="o_currency" onchange="gen()">
+                    <option value="JPY" selected>JPY（日本円）</option>
+                    <option value="USD">USD（米ドル）</option>
+                    <option value="EUR">EUR（ユーロ）</option>
+                    <option value="GBP">GBP（英ポンド）</option>
+                    <option value="CNY">CNY（人民元）</option>
+                    <option value="KRW">KRW（韓国ウォン）</option>
+                </select>
+            </div>
+        </div>
+        <div class="grid2">
+            <div class="field"><label>在庫状況 availability</label>
+                <select id="o_avail" onchange="gen()">
+                    <option value="InStock" selected>InStock（在庫あり）</option>
+                    <option value="OutOfStock">OutOfStock（在庫切れ）</option>
+                    <option value="PreOrder">PreOrder（予約受付）</option>
+                    <option value="BackOrder">BackOrder（入荷待ち）</option>
+                    <option value="LimitedAvailability">LimitedAvailability（残りわずか）</option>
+                    <option value="Discontinued">Discontinued（販売終了）</option>
+                    <option value="">（指定しない）</option>
+                </select>
+            </div>
+            <div class="field"><label>販売URL url</label><input id="o_url" placeholder="https://example.com/products/x100" oninput="gen()"></div>
+        </div>
+    </div>
+
+    <div class="card"><h3>総合評価 aggregateRating</h3>
+        <div class="grid2">
+            <div class="field"><label>平均評価 ratingValue <span class="hint">（1〜5）</span></label><input id="a_value" type="text" inputmode="decimal" placeholder="例: 4.6" oninput="gen()"></div>
+            <div class="field"><label>レビュー件数 reviewCount</label><input id="a_count" type="text" inputmode="numeric" placeholder="例: 128" oninput="gen()"></div>
+        </div>
+        <div class="hint" style="font-size:0.7rem;color:var(--text3)">※ ratingValue と reviewCount の両方が入力された場合のみ出力に含めます。</div>
+    </div>
+
+    <div class="card"><h3>個別レビュー review（複数可）</h3>
+        <div id="reviewsList"></div>
+        <button class="btn ghost" onclick="addReview()">＋ レビューを追加</button>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="card"><h3>生成された JSON-LD</h3>
+        <div class="toolbar">
+            <button class="btn" onclick="copyOutput()" id="copyBtn">コピー</button>
+            <button class="btn ghost" onclick="clearAll()">クリア</button>
+        </div>
+        <div class="output-box" id="output"></div>
+        <ul class="hints" id="hints"></ul>
+    </div>
+
+    <div class="note">生成された「application/ld+json」のスクリプトタグごとコピーして、商品ページのHTMLに貼り付けてください。空欄の項目は自動的に除外されます。すべての処理はブラウザ内で完結し、入力内容は送信されません。設置後は Google のリッチリザルト テストで検証することをおすすめします。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>Product構造化データ生成ツールの使い方</h2>
+        <p>商品名・画像・価格・在庫・ブランド・レビュー・評価をフォームに入力するだけで、schema.org の Product 型に準拠した JSON-LD 構造化データをリアルタイムで生成する無料ツールです。ECサイトや商品紹介ページに構造化データを設置することで、Google 検索結果に価格やレビューの星（リッチリザルト）が表示されやすくなり、クリック率の向上が期待できます。インストールや会員登録は不要で、入力内容はサーバーに送信されず、すべてブラウザ内で処理されます。</p>
+        <p>使い方はかんたんです。上部のフォームに商品情報を入力すると、下部の出力エリアに JSON-LD がリアルタイムで生成されます。空欄にした項目は出力から自動的に除外されるため、必要な情報だけを記述したシンプルな構造化データが手に入ります。個別のレビューは「レビューを追加」ボタンで何件でも追加でき、不要になった行は「削除」で取り除けます。完成したら「コピー」ボタンでスクリプトタグごとコピーし、そのまま商品ページのHTMLに貼り付けてください。</p>
+        <h3>各項目の意味</h3>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>項目</th><th>schema.orgプロパティ</th><th>説明</th></tr>
+            <tr><td>商品名</td><td>name</td><td>リッチリザルトに必須の中心的な項目。正式な商品名を入力します。</td></tr>
+            <tr><td>画像URL</td><td>image</td><td>推奨。httpsの絶対URLで指定します。高解像度画像が望ましいです。</td></tr>
+            <tr><td>説明</td><td>description</td><td>商品の説明文。ページ内の説明と一致させます。</td></tr>
+            <tr><td>ブランド</td><td>brand</td><td>Brand型として出力されます。メーカー名やブランド名。</td></tr>
+            <tr><td>SKU / GTIN</td><td>sku / gtin</td><td>在庫管理番号と国際的な商品コード。指定すると識別性が高まります。</td></tr>
+            <tr><td>価格・通貨</td><td>offers.price / priceCurrency</td><td>価格表示のリッチリザルトに必要。通貨はISO 4217コード。</td></tr>
+            <tr><td>在庫状況</td><td>offers.availability</td><td>InStock等をschema.orgのURL形式で出力します。</td></tr>
+            <tr><td>平均評価・件数</td><td>aggregateRating</td><td>星評価の表示に使用。両方揃った場合のみ出力されます。</td></tr>
+            <tr><td>個別レビュー</td><td>review</td><td>レビュアー名・評価・本文を持つReview型の配列。</td></tr>
+        </table>
+        </div>
+
+        <h2>リッチリザルトを狙うためのポイント</h2>
+        <p>Google の商品リッチリザルトを狙ううえで最も重要なのは、構造化データに記述した情報がページ上に実際に表示されている本物の情報であることです。ページに存在しない価格やレビューを構造化データにだけ書くことはガイドライン違反となり、手動対策の対象になり得ます。本ツールはあくまで正しい形式の JSON-LD を作る補助であり、記載する内容の正確性はご自身でご確認ください。</p>
+        <p>また、評価（aggregateRating・review）を含める場合は、自社サイトで実際に収集したレビューのみを対象とし、メーカーや第三者から取得した評価をそのまま自社の Product に付与しないよう注意が必要です。価格表示を狙う場合は offers に price と priceCurrency を必ず含め、在庫状況（availability）も併せて記述すると、より豊富な情報が検索結果に反映されやすくなります。</p>
+        <h3>設置後の確認</h3>
+        <p>生成した JSON-LD をページに設置したら、Google の「リッチリザルト テスト」や「スキーマ マークアップ検証ツール」でエラーや警告がないかを確認しましょう。エラーは修正が必須、警告は推奨項目の不足を示すことが多く、可能な範囲で埋めると表示の機会が高まります。本ツールの出力下部にも、必須項目（name）と推奨項目（image・offers・評価）の充足状況を示す簡易ヒントを表示しています。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">Product構造化データ（JSON-LD）とは何ですか？</div><div class="a">Product構造化データは、商品名・価格・在庫状況・評価・レビューといった商品情報を、検索エンジンが理解できる形式で記述したものです。schema.org の Product 型を JSON-LD 形式で書くのが Google 推奨で、正しく記述すると検索結果に価格やレビューの星（リッチリザルト）が表示されやすくなります。本ツールはフォームに入力するだけでこの JSON-LD を自動生成します。</div></div>
+        <div class="faq-item"><div class="q">生成したJSON-LDはどこに貼り付ければいいですか？</div><div class="a">生成された application/ld+json のコード全体をコピーし、対象となる商品ページのHTMLの head 内、または body 内どちらかに貼り付けます。1ページに1つの Product を記述するのが基本です。貼り付け後は Google の「リッチリザルト テスト」で正しく認識されるか確認することをおすすめします。</div></div>
+        <div class="faq-item"><div class="q">レビューや評価（AggregateRating）は必須ですか？</div><div class="a">必須ではありません。Product 型として最低限 name（商品名）があれば有効で、image・offers（価格）を加えると価格表示のリッチリザルトが得られやすくなります。aggregateRating や review は星評価を表示させるための任意項目です。ただし実際に自社サイトで集めた評価のみを記載し、存在しないレビューを記述するとガイドライン違反になる点に注意してください。</div></div>
+        <div class="faq-item"><div class="q">入力した情報はサーバーに送信されますか？</div><div class="a">送信されません。JSON-LDの生成はすべてお使いのブラウザ内（JavaScript）で完結し、入力した商品名・価格・レビューなどがサーバーへ送られることはありません。会員登録やインストールも不要で、空欄にした項目は出力から自動的に除外されるため、必要な情報だけの無駄のない構造化データを作成できます。</div></div>
+        <div class="faq-item"><div class="q">貼り付ければ必ずリッチリザルトが表示されますか？</div><div class="a">必ず表示されるわけではありません。構造化データは表示の必要条件であって十分条件ではなく、最終的な表示可否は Google が総合的に判断します。まずは有効な JSON-LD をエラーなく設置し、ページ上に実際の価格・在庫・レビューが表示されていること、ガイドラインに準拠していることが前提になります。本ツールの下部ヒントで必須・推奨項目の充足状況を確認できます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧へ</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// application/ld+json のスクリプトタグ文字列は、素書きを避けてトークン分割で生成する
+var LD_OPEN = '<' + 'script type="application/ld+json">';
+var LD_CLOSE = '<' + '/' + 'script>';
+
+function val(id){
+    var el = document.getElementById(id);
+    return el ? el.value.trim() : '';
+}
+
+// 個別レビュー行を追加
+function addReview(author, rating, body){
+    var list = document.getElementById('reviewsList');
+    var div = document.createElement('div');
+    div.className = 'review-row';
+    div.innerHTML =
+        '<div class="rev-grid">' +
+            '<input class="rev-author" placeholder="レビュアー名（author）" oninput="gen()">' +
+            '<input class="rev-rating" type="text" inputmode="decimal" placeholder="評価 1-5（ratingValue）" oninput="gen()">' +
+        '</div>' +
+        '<textarea class="rev-body" placeholder="レビュー本文（reviewBody）" oninput="gen()"></textarea>' +
+        '<button class="rev-del" onclick="removeReview(this)">削除</button>';
+    list.appendChild(div);
+    if (author !== undefined) div.querySelector('.rev-author').value = author;
+    if (rating !== undefined) div.querySelector('.rev-rating').value = rating;
+    if (body !== undefined) div.querySelector('.rev-body').value = body;
+    gen();
+}
+
+function removeReview(btn){
+    var row = btn.closest('.review-row');
+    if (row) row.parentNode.removeChild(row);
+    gen();
+}
+
+// フォームから Product オブジェクトを構築（空欄は除外）
+function buildProduct(){
+    var p = {"@context":"https://schema.org","@type":"Product"};
+
+    var name = val('p_name');
+    var image = val('p_image');
+    var desc = val('p_desc');
+    var brand = val('p_brand');
+    var sku = val('p_sku');
+    var gtin = val('p_gtin');
+
+    if (name) p.name = name;
+    if (image) p.image = image;
+    if (desc) p.description = desc;
+    if (brand) p.brand = {"@type":"Brand","name":brand};
+    if (sku) p.sku = sku;
+    if (gtin) p.gtin = gtin;
+
+    // offers
+    var price = val('o_price');
+    var currency = val('o_currency') || 'JPY';
+    var avail = val('o_avail');
+    var offerUrl = val('o_url');
+    if (price || offerUrl){
+        var offer = {"@type":"Offer"};
+        if (price) offer.price = price;
+        offer.priceCurrency = currency;
+        if (avail) offer.availability = 'https://schema.org/' + avail;
+        if (offerUrl) offer.url = offerUrl;
+        p.offers = offer;
+    }
+
+    // aggregateRating（両方揃った場合のみ）
+    var aVal = val('a_value');
+    var aCount = val('a_count');
+    if (aVal && aCount){
+        p.aggregateRating = {"@type":"AggregateRating","ratingValue":aVal,"reviewCount":aCount};
+    }
+
+    // 個別レビュー
+    var reviews = [];
+    var rows = document.querySelectorAll('.review-row');
+    for (var i = 0; i < rows.length; i++){
+        var a = rows[i].querySelector('.rev-author').value.trim();
+        var r = rows[i].querySelector('.rev-rating').value.trim();
+        var b = rows[i].querySelector('.rev-body').value.trim();
+        if (!a && !r && !b) continue;
+        var rev = {"@type":"Review"};
+        if (a) rev.author = {"@type":"Person","name":a};
+        if (r) rev.reviewRating = {"@type":"Rating","ratingValue":r};
+        if (b) rev.reviewBody = b;
+        reviews.push(rev);
+    }
+    if (reviews.length) p.review = reviews;
+
+    return p;
+}
+
+// 入力ゼロ時に返すサンプル Product
+function sampleProduct(){
+    return {
+        "@context":"https://schema.org",
+        "@type":"Product",
+        "name":"ワイヤレスノイズキャンセリングヘッドホン X100",
+        "image":"https://example.com/images/x100.jpg",
+        "description":"最大40時間再生・ハイブリッドノイズキャンセリング搭載のワイヤレスヘッドホン。",
+        "brand":{"@type":"Brand","name":"DevAudio"},
+        "sku":"X100-BLK",
+        "gtin":"4901234567894",
+        "offers":{
+            "@type":"Offer",
+            "price":"29800",
+            "priceCurrency":"JPY",
+            "availability":"https://schema.org/InStock",
+            "url":"https://example.com/products/x100"
+        },
+        "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.6","reviewCount":"128"},
+        "review":[
+            {"@type":"Review","author":{"@type":"Person","name":"山田太郎"},"reviewRating":{"@type":"Rating","ratingValue":"5"},"reviewBody":"ノイズキャンセリングが強力で通勤が快適になりました。"}
+        ]
+    };
+}
+
+// Product に実質的な情報が入っているか
+function hasContent(p){
+    for (var k in p){
+        if (k === '@context' || k === '@type') continue;
+        return true;
+    }
+    return false;
+}
+
+function gen(){
+    var p = buildProduct();
+    var usingSample = false;
+    if (!hasContent(p)){
+        p = sampleProduct();
+        usingSample = true;
+    }
+    var json = JSON.stringify(p, null, 2);
+    var wrapped = LD_OPEN + '\n' + json + '\n' + LD_CLOSE;
+
+    var out = document.getElementById('output');
+    out.textContent = (usingSample ? '// 入力がないためサンプルを表示しています\n' : '') + wrapped;
+
+    renderHints(p, usingSample);
+}
+
+function renderHints(p, usingSample){
+    var ul = document.getElementById('hints');
+    ul.innerHTML = '';
+    var checks = [
+        {ok: !!p.name, label: 'name（商品名）— リッチリザルトに必須'},
+        {ok: !!p.image, label: 'image（画像URL）— 推奨。httpsの絶対URLを指定'},
+        {ok: !!(p.offers && p.offers.price), label: 'offers.price / priceCurrency — 価格表示に推奨'},
+        {ok: !!(p.aggregateRating || p.review), label: 'aggregateRating または review — 星評価の表示に推奨'}
+    ];
+    for (var i = 0; i < checks.length; i++){
+        var li = document.createElement('li');
+        li.className = checks[i].ok ? 'ok' : 'warn';
+        var mark = document.createElement('span');
+        mark.className = 'mark';
+        mark.textContent = checks[i].ok ? '✓' : '!';
+        var txt = document.createElement('span');
+        txt.textContent = checks[i].label;
+        li.appendChild(mark);
+        li.appendChild(txt);
+        ul.appendChild(li);
+    }
+    if (usingSample){
+        var note = document.createElement('li');
+        note.className = 'warn';
+        note.innerHTML = '<span class="mark">i</span><span>これはサンプルです。上のフォームに実際の商品情報を入力してください。</span>';
+        ul.appendChild(note);
+    }
+}
+
+function copyOutput(){
+    var text = document.getElementById('output').textContent;
+    // サンプル注記行を除いてコピー
+    text = text.replace(/^\/\/[^\n]*\n/, '');
+    var btn = document.getElementById('copyBtn');
+    function done(){
+        var old = btn.textContent;
+        btn.textContent = 'コピーしました';
+        setTimeout(function(){ btn.textContent = old; }, 1500);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text); done(); });
+    } else {
+        fallbackCopy(text);
+        done();
+    }
+}
+
+function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+}
+
+function clearAll(){
+    var ids = ['p_name','p_image','p_desc','p_brand','p_sku','p_gtin','o_price','o_url','a_value','a_count'];
+    for (var i = 0; i < ids.length; i++){
+        var el = document.getElementById(id_safe(ids[i]));
+        if (el) el.value = '';
+    }
+    document.getElementById('o_currency').value = 'JPY';
+    document.getElementById('o_avail').value = 'InStock';
+    document.getElementById('reviewsList').innerHTML = '';
+    gen();
+}
+
+function id_safe(x){ return x; }
+
+// 初期表示: サンプル値を投入
+(function(){
+    document.getElementById('p_name').value = 'ワイヤレスノイズキャンセリングヘッドホン X100';
+    document.getElementById('p_image').value = 'https://example.com/images/x100.jpg';
+    document.getElementById('p_desc').value = '最大40時間再生・ハイブリッドノイズキャンセリング搭載のワイヤレスヘッドホン。';
+    document.getElementById('p_brand').value = 'DevAudio';
+    document.getElementById('p_sku').value = 'X100-BLK';
+    document.getElementById('p_gtin').value = '4901234567894';
+    document.getElementById('o_price').value = '29800';
+    document.getElementById('o_url').value = 'https://example.com/products/x100';
+    document.getElementById('a_value').value = '4.6';
+    document.getElementById('a_count').value = '128';
+    addReview('山田太郎', '5', 'ノイズキャンセリングが強力で通勤が快適になりました。');
+    gen();
+})();
+</script>
+</body>
+</html>

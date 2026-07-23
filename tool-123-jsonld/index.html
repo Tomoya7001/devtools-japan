@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON-LD構造化データ ジェネレーター | schema.org対応・無料でSEO/AEOに対応</title>
+    <meta name="description" content="Article・WebPage・Organization・WebSite・PersonのJSON-LD構造化データをフォーム入力からリアルタイム生成する無料ツール。schema.org準拠、script type=application/ld+json込みで整形出力＆ワンクリックコピー。空欄は自動除外。すべてブラウザ内で完結し外部送信なし。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .field{margin-bottom:14px}
+        .field:last-child{margin-bottom:0}
+        .field label{display:block;font-size:0.82rem;color:var(--text2);margin-bottom:6px}
+        .field .hint{font-size:0.72rem;color:var(--text3);margin-top:4px}
+        .field input,.field select,.field textarea{width:100%;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .field textarea{min-height:64px;resize:vertical;font-family:'JetBrains Mono',monospace;font-size:0.8rem;line-height:1.6}
+        .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent)}
+        .type-select{width:100%;padding:12px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.95rem;font-weight:500;outline:none}
+        .type-select:focus{border-color:var(--accent)}
+        .output-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .output-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px}
+        .output-head h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em}
+        pre.output{background:#1e1e35;color:#e8e8f5;border-radius:8px;padding:16px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:0.78rem;line-height:1.7;white-space:pre;margin:0;-webkit-overflow-scrolling:touch}
+        .btn{padding:9px 20px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.copied{background:var(--green)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .seo-content code{font-family:'JetBrains Mono',monospace;font-size:0.8rem;background:var(--accent-dim);padding:2px 6px;border-radius:4px;color:var(--text)}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-123-jsonld/">
+    <meta property="og:title" content="JSON-LD構造化データ ジェネレーター | schema.org対応・無料">
+    <meta property="og:description" content="Article・WebPage・Organization・WebSite・PersonのJSON-LDをフォームからリアルタイム生成。整形出力＆ワンクリックコピー。空欄は自動除外。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-123-jsonld/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="JSON-LD構造化データ ジェネレーター【無料】">
+    <meta name="twitter:description" content="schema.org準拠のJSON-LDをフォームから生成。整形出力＆ワンクリックコピー。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"JSON-LD構造化データ ジェネレーター","description":"Article・WebPage・Organization・WebSite・Personのschema.org準拠JSON-LDをフォーム入力からリアルタイム生成する無料ツール","url":"https://www.devtools-japan.com/tool-123-jsonld/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"JSON-LD構造化データ ジェネレーター","item":"https://www.devtools-japan.com/tool-123-jsonld/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"JSON-LDとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"JSON-LD（JSON for Linked Data）は、検索エンジンやAIにページの内容を機械可読な形で伝えるための構造化データ形式です。schema.orgの語彙を使い、記事の見出し・著者・公開日、企業情報、サイト情報などをJSON形式で記述します。Googleが推奨する記述方式で、HTMLの本文とは独立して script type=application/ld+json のタグ内に埋め込みます。"}},{"@type":"Question","name":"生成したJSON-LDはどこに貼ればいいですか？","acceptedAnswer":{"@type":"Answer","text":"生成された script type=application/ld+json ブロックをそのままHTMLの head 内に貼り付けるのが一般的です。body 内でも問題なく認識されます。1ページに複数の構造化データを置くこともでき、たとえば記事ページにArticleとBreadcrumbListを併記できます。貼り付け後はGoogleのリッチリザルトテストやschema.orgのValidatorで正しく認識されるか確認してください。"}},{"@type":"Question","name":"空欄にした項目はどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"入力しなかった項目は出力されるJSON-LDから自動的に除外されます。schema.orgでは多くのプロパティが任意のため、必要な項目だけを埋めれば、余分な空プロパティのない綺麗な構造化データが得られます。著者やロゴなどの入れ子プロパティも、中身が空であればブロックごと出力されません。"}},{"@type":"Question","name":"@typeはどれを選べばいいですか？","acceptedAnswer":{"@type":"Answer","text":"ページの内容に合わせて選びます。ブログや記事ページはArticle、一般的なコンテンツページはWebPage、会社・団体の紹介はOrganization、サイト全体の情報やサイト内検索はWebSite、著者・人物のプロフィールはPersonが目安です。1ページに複数のtypeを併記することもできるため、記事ページならArticleとOrganizationを両方用意するといった使い方も可能です。"}},{"@type":"Question","name":"構造化データが正しいか確認する方法は？","acceptedAnswer":{"@type":"Answer","text":"Googleの「リッチリザルトテスト」や、schema.org公式の「Schema Markup Validator」にURLまたはコードを貼り付けて検証できます。これらはエラーや推奨項目の不足を指摘してくれます。本ツールはschema.orgの基本構造に沿ったJSON-LDを生成しますが、リッチリザルトの対象となる項目は用途により異なるため、公開前に必ず検証ツールで確認することをおすすめします。"}},{"@type":"Question","name":"JSON-LDはAI検索（AEO）にも効果がありますか？","acceptedAnswer":{"@type":"Answer","text":"構造化データはページの意味を明確に伝えるため、生成AIやAIによる要約・回答（AEO：Answer Engine Optimization）でも情報源として理解されやすくなる利点があります。著者・発行元・公開日などをJSON-LDで明示しておくと、コンテンツの信頼性や出典が機械的に判別しやすくなります。ただしランキングを保証するものではなく、正確で有用な本文とあわせて用いることが前提です。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>JSON-LD構造化データ ジェネレーター</h1><p>schema.org準拠のJSON-LDをフォームからリアルタイム生成</p></header>
+
+    <div class="card"><h3>構造化データの種類（@type）</h3>
+        <select class="type-select" id="typeSelect" onchange="onTypeChange()">
+            <option value="Article">Article（記事・ブログ）</option>
+            <option value="WebPage">WebPage（一般ページ）</option>
+            <option value="Organization">Organization（企業・団体）</option>
+            <option value="WebSite">WebSite（サイト全体・サイト内検索）</option>
+            <option value="Person">Person（人物・著者）</option>
+        </select>
+    </div>
+
+    <div class="card"><h3 id="formTitle">入力項目</h3>
+        <div id="formFields"></div>
+    </div>
+
+    <div class="output-card">
+        <div class="output-head">
+            <h3>生成されたJSON-LD</h3>
+            <button class="btn" id="copyBtn" onclick="copyOutput()">コピー</button>
+        </div>
+        <pre class="output" id="output">&lt;script type="application/ld+json"&gt;</pre>
+    </div>
+
+    <div class="note">すべての生成はお使いのブラウザ内で完結し、入力内容が外部に送信されることはありません。空欄にした項目は出力から自動的に除外されます。生成された <code>&lt;script type="application/ld+json"&gt;</code> ブロックをHTMLの <code>&lt;head&gt;</code> 内に貼り付けてご利用ください。公開前にはGoogleのリッチリザルトテスト等での検証を推奨します。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>JSON-LD構造化データ ジェネレーターの使い方</h2>
+        <p>本ツールは、Webページに埋め込む<strong>JSON-LD形式の構造化データ</strong>を、フォームに入力するだけで自動生成する無料ツールです。難しい記法を覚えなくても、schema.orgの語彙に沿った正しい形式のコードが得られます。インストールや会員登録は不要で、すべての処理はブラウザ内で完結し、入力した内容が外部サーバーへ送信されることはありません。</p>
+        <p>使い方は3ステップです。まず上部のセレクトで作成したい構造化データの種類（<code>@type</code>）を選びます。次に表示されたフォームに、見出し・URL・著者・日付・ロゴなど必要な項目を入力します。入力に応じて下部のコード欄がリアルタイムで更新され、<code>&lt;script type="application/ld+json"&gt;</code> タグ込みの整形済みJSON-LDが表示されます。最後に「コピー」ボタンを押してコードを取得し、ご自身のHTMLの <code>&lt;head&gt;</code> 内に貼り付ければ完了です。</p>
+        <h3>対応している構造化データの種類</h3>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>@type</th><th>主な用途</th><th>代表的な項目</th></tr>
+            <tr><td>Article</td><td>ブログ記事・ニュース記事</td><td>見出し・著者・公開日・画像・発行元</td></tr>
+            <tr><td>WebPage</td><td>一般的なコンテンツページ</td><td>ページ名・URL・説明・言語</td></tr>
+            <tr><td>Organization</td><td>企業・団体・店舗の紹介</td><td>名称・ロゴ・URL・連絡先・SNS</td></tr>
+            <tr><td>WebSite</td><td>サイト全体情報・サイト内検索</td><td>サイト名・URL・検索アクション</td></tr>
+            <tr><td>Person</td><td>人物・著者プロフィール</td><td>氏名・肩書・画像・SNS・所属</td></tr>
+        </table>
+        </div>
+
+        <h2>構造化データとSEO・AEOの関係</h2>
+        <p>構造化データは、検索エンジンやAIに対してページの内容を「機械が理解できる形」で伝える仕組みです。人間が読む本文とは別に、これは記事です・著者は誰です・公開日はいつです、といったメタ情報を明示することで、検索結果でのリッチリザルト（強調表示）の対象になったり、AIによる要約や回答の情報源として扱われやすくなったりします。</p>
+        <p>近年はGoogle検索だけでなく、生成AIによる回答最適化＝<strong>AEO（Answer Engine Optimization）</strong>の文脈でも構造化データの重要性が高まっています。著者・発行元・日付などをJSON-LDで明示しておくと、コンテンツの出典や信頼性がAIにとって判別しやすくなります。ただし構造化データはあくまで補助であり、正確で有用な本文があってはじめて効果を発揮します。順位やリッチリザルト表示を保証するものではない点に注意してください。</p>
+        <h3>貼り付け場所と検証</h3>
+        <p>生成されたコードは、原則としてHTMLの <code>&lt;head&gt;</code> 内に貼り付けます（<code>&lt;body&gt;</code> 内でも認識されます）。1つのページに複数の構造化データを併記することも可能で、たとえば記事ページに Article と BreadcrumbList、Organization を同時に置けます。貼り付けたら、Googleの「リッチリザルトテスト」や schema.org 公式の「Schema Markup Validator」でエラーや不足項目がないかを必ず確認しましょう。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">JSON-LDとは何ですか？</div><div class="a">JSON-LD（JSON for Linked Data）は、検索エンジンやAIにページの内容を機械可読な形で伝えるための構造化データ形式です。schema.orgの語彙を使い、記事の見出し・著者・公開日、企業情報、サイト情報などをJSON形式で記述します。Googleが推奨する記述方式で、HTMLの本文とは独立して <code>script type="application/ld+json"</code> のタグ内に埋め込みます。</div></div>
+        <div class="faq-item"><div class="q">生成したJSON-LDはどこに貼ればいいですか？</div><div class="a">生成された <code>script type="application/ld+json"</code> ブロックをそのままHTMLの <code>head</code> 内に貼り付けるのが一般的です。<code>body</code> 内でも問題なく認識されます。1ページに複数の構造化データを置くこともでき、たとえば記事ページにArticleとBreadcrumbListを併記できます。貼り付け後はGoogleのリッチリザルトテストやschema.orgのValidatorで正しく認識されるか確認してください。</div></div>
+        <div class="faq-item"><div class="q">空欄にした項目はどうなりますか？</div><div class="a">入力しなかった項目は出力されるJSON-LDから自動的に除外されます。schema.orgでは多くのプロパティが任意のため、必要な項目だけを埋めれば、余分な空プロパティのない綺麗な構造化データが得られます。著者やロゴなどの入れ子プロパティも、中身が空であればブロックごと出力されません。</div></div>
+        <div class="faq-item"><div class="q">@typeはどれを選べばいいですか？</div><div class="a">ページの内容に合わせて選びます。ブログや記事ページはArticle、一般的なコンテンツページはWebPage、会社・団体の紹介はOrganization、サイト全体の情報やサイト内検索はWebSite、著者・人物のプロフィールはPersonが目安です。1ページに複数のtypeを併記することもできるため、記事ページならArticleとOrganizationを両方用意するといった使い方も可能です。</div></div>
+        <div class="faq-item"><div class="q">構造化データが正しいか確認する方法は？</div><div class="a">Googleの「リッチリザルトテスト」や、schema.org公式の「Schema Markup Validator」にURLまたはコードを貼り付けて検証できます。これらはエラーや推奨項目の不足を指摘してくれます。本ツールはschema.orgの基本構造に沿ったJSON-LDを生成しますが、リッチリザルトの対象となる項目は用途により異なるため、公開前に必ず検証ツールで確認することをおすすめします。</div></div>
+        <div class="faq-item"><div class="q">JSON-LDはAI検索（AEO）にも効果がありますか？</div><div class="a">構造化データはページの意味を明確に伝えるため、生成AIやAIによる要約・回答（AEO：Answer Engine Optimization）でも情報源として理解されやすくなる利点があります。著者・発行元・公開日などをJSON-LDで明示しておくと、コンテンツの信頼性や出典が機械的に判別しやすくなります。ただしランキングを保証するものではなく、正確で有用な本文とあわせて用いることが前提です。</div></div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">その他のツール一覧</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ---- フィールド定義（@type別に出し分け） ----
+const TYPES = {
+    Article: {
+        title: 'Article（記事）の入力項目',
+        fields: [
+            {id:'headline', label:'見出し（headline）', ph:'記事のタイトル'},
+            {id:'url', label:'ページURL（url）', ph:'https://example.com/article/'},
+            {id:'description', label:'説明（description）', ph:'記事の概要（任意）'},
+            {id:'image', label:'画像URL（image）', ph:'https://example.com/cover.jpg'},
+            {id:'author', label:'著者名（author）', ph:'山田 太郎'},
+            {id:'publisher', label:'発行元名（publisher）', ph:'DevTools Japan'},
+            {id:'logo', label:'発行元ロゴURL（logo）', ph:'https://example.com/logo.png'},
+            {id:'datePublished', label:'公開日（datePublished）', type:'date'},
+            {id:'dateModified', label:'更新日（dateModified）', type:'date'}
+        ],
+        build: (v)=>{
+            const o = {'@context':'https://schema.org','@type':'Article'};
+            add(o,'headline',v.headline);
+            add(o,'description',v.description);
+            if(v.image) o.image = v.image;
+            if(v.url) o.mainEntityOfPage = {'@type':'WebPage','@id':v.url};
+            if(v.url) o.url = v.url;
+            if(v.author) o.author = {'@type':'Person','name':v.author};
+            if(v.publisher || v.logo){
+                const p = {'@type':'Organization'};
+                add(p,'name',v.publisher);
+                if(v.logo) p.logo = {'@type':'ImageObject','url':v.logo};
+                o.publisher = p;
+            }
+            add(o,'datePublished',v.datePublished);
+            add(o,'dateModified',v.dateModified);
+            return o;
+        }
+    },
+    WebPage: {
+        title: 'WebPage（一般ページ）の入力項目',
+        fields: [
+            {id:'name', label:'ページ名（name）', ph:'ページのタイトル'},
+            {id:'url', label:'ページURL（url）', ph:'https://example.com/page/'},
+            {id:'description', label:'説明（description）', ph:'ページの概要'},
+            {id:'inLanguage', label:'言語（inLanguage）', ph:'ja', val:'ja'},
+            {id:'image', label:'画像URL（image）', ph:'https://example.com/image.jpg'},
+            {id:'datePublished', label:'公開日（datePublished）', type:'date'},
+            {id:'dateModified', label:'更新日（dateModified）', type:'date'}
+        ],
+        build: (v)=>{
+            const o = {'@context':'https://schema.org','@type':'WebPage'};
+            add(o,'name',v.name);
+            add(o,'url',v.url);
+            add(o,'description',v.description);
+            add(o,'inLanguage',v.inLanguage);
+            if(v.image) o.image = v.image;
+            add(o,'datePublished',v.datePublished);
+            add(o,'dateModified',v.dateModified);
+            return o;
+        }
+    },
+    Organization: {
+        title: 'Organization（企業・団体）の入力項目',
+        fields: [
+            {id:'name', label:'名称（name）', ph:'株式会社サンプル'},
+            {id:'url', label:'公式サイトURL（url）', ph:'https://example.com/'},
+            {id:'logo', label:'ロゴURL（logo）', ph:'https://example.com/logo.png'},
+            {id:'description', label:'説明（description）', ph:'事業内容などの概要'},
+            {id:'telephone', label:'電話番号（telephone）', ph:'+81-3-1234-5678'},
+            {id:'email', label:'メール（email）', ph:'info@example.com'},
+            {id:'sameAs', label:'SNS・関連URL（sameAs）', type:'textarea', ph:'https://twitter.com/example\nhttps://www.facebook.com/example', hint:'1行に1つ、または半角カンマ区切りで複数入力できます'}
+        ],
+        build: (v)=>{
+            const o = {'@context':'https://schema.org','@type':'Organization'};
+            add(o,'name',v.name);
+            add(o,'url',v.url);
+            if(v.logo) o.logo = v.logo;
+            add(o,'description',v.description);
+            add(o,'telephone',v.telephone);
+            add(o,'email',v.email);
+            const sa = toList(v.sameAs);
+            if(sa.length) o.sameAs = sa;
+            return o;
+        }
+    },
+    WebSite: {
+        title: 'WebSite（サイト全体）の入力項目',
+        fields: [
+            {id:'name', label:'サイト名（name）', ph:'DevTools Japan'},
+            {id:'url', label:'サイトURL（url）', ph:'https://example.com/'},
+            {id:'description', label:'説明（description）', ph:'サイトの概要'},
+            {id:'inLanguage', label:'言語（inLanguage）', ph:'ja', val:'ja'},
+            {id:'publisher', label:'発行元名（publisher）', ph:'運営者・企業名'},
+            {id:'searchUrl', label:'サイト内検索URL（任意）', ph:'https://example.com/search?q=', hint:'入力すると Sitelinks Searchbox 用の SearchAction を追加します。末尾に検索語が付きます'}
+        ],
+        build: (v)=>{
+            const o = {'@context':'https://schema.org','@type':'WebSite'};
+            add(o,'name',v.name);
+            add(o,'url',v.url);
+            add(o,'description',v.description);
+            add(o,'inLanguage',v.inLanguage);
+            if(v.publisher) o.publisher = {'@type':'Organization','name':v.publisher};
+            if(v.searchUrl){
+                o.potentialAction = {
+                    '@type':'SearchAction',
+                    'target':{'@type':'EntryPoint','urlTemplate':v.searchUrl + '{search_term_string}'},
+                    'query-input':'required name=search_term_string'
+                };
+            }
+            return o;
+        }
+    },
+    Person: {
+        title: 'Person（人物・著者）の入力項目',
+        fields: [
+            {id:'name', label:'氏名（name）', ph:'山田 太郎'},
+            {id:'url', label:'プロフィールURL（url）', ph:'https://example.com/author/yamada/'},
+            {id:'jobTitle', label:'肩書き（jobTitle）', ph:'エンジニア'},
+            {id:'image', label:'画像URL（image）', ph:'https://example.com/avatar.jpg'},
+            {id:'email', label:'メール（email）', ph:'yamada@example.com'},
+            {id:'worksFor', label:'所属組織名（worksFor）', ph:'株式会社サンプル'},
+            {id:'sameAs', label:'SNS・関連URL（sameAs）', type:'textarea', ph:'https://twitter.com/yamada\nhttps://github.com/yamada', hint:'1行に1つ、または半角カンマ区切りで複数入力できます'}
+        ],
+        build: (v)=>{
+            const o = {'@context':'https://schema.org','@type':'Person'};
+            add(o,'name',v.name);
+            add(o,'url',v.url);
+            add(o,'jobTitle',v.jobTitle);
+            if(v.image) o.image = v.image;
+            add(o,'email',v.email);
+            if(v.worksFor) o.worksFor = {'@type':'Organization','name':v.worksFor};
+            const sa = toList(v.sameAs);
+            if(sa.length) o.sameAs = sa;
+            return o;
+        }
+    }
+};
+
+// ---- ヘルパー ----
+function add(obj, key, val){
+    if(val !== undefined && val !== null && String(val).trim() !== ''){
+        obj[key] = String(val).trim();
+    }
+}
+function toList(str){
+    if(!str) return [];
+    return str.split(/[\n,]+/).map(s=>s.trim()).filter(s=>s.length > 0);
+}
+function esc(s){
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ---- フォーム描画 ----
+function onTypeChange(){
+    const type = document.getElementById('typeSelect').value;
+    const cfg = TYPES[type];
+    document.getElementById('formTitle').textContent = cfg.title;
+    const wrap = document.getElementById('formFields');
+    wrap.innerHTML = '';
+    cfg.fields.forEach(f=>{
+        const div = document.createElement('div');
+        div.className = 'field';
+        const label = document.createElement('label');
+        label.textContent = f.label;
+        label.setAttribute('for', 'f_' + f.id);
+        div.appendChild(label);
+        let input;
+        if(f.type === 'textarea'){
+            input = document.createElement('textarea');
+        } else {
+            input = document.createElement('input');
+            input.type = f.type || 'text';
+        }
+        input.id = 'f_' + f.id;
+        input.setAttribute('data-key', f.id);
+        if(f.ph) input.placeholder = f.ph;
+        if(f.val) input.value = f.val;
+        input.addEventListener('input', render);
+        div.appendChild(input);
+        if(f.hint){
+            const hint = document.createElement('div');
+            hint.className = 'hint';
+            hint.textContent = f.hint;
+            div.appendChild(hint);
+        }
+        wrap.appendChild(div);
+    });
+    render();
+}
+
+// ---- JSON-LD 生成 ----
+function readValues(){
+    const v = {};
+    document.querySelectorAll('#formFields [data-key]').forEach(el=>{
+        v[el.getAttribute('data-key')] = el.value;
+    });
+    return v;
+}
+function render(){
+    const type = document.getElementById('typeSelect').value;
+    const cfg = TYPES[type];
+    const obj = cfg.build(readValues());
+    const json = JSON.stringify(obj, null, 2);
+    const wrapped = '<scr' + 'ipt type="application/ld+json">\n' + json + '\n<\/script>';
+    document.getElementById('output').innerHTML = esc(wrapped);
+    document.getElementById('output').setAttribute('data-raw', wrapped);
+}
+function copyOutput(){
+    const raw = document.getElementById('output').getAttribute('data-raw') || '';
+    const btn = document.getElementById('copyBtn');
+    const done = ()=>{ btn.textContent = 'コピーしました'; btn.classList.add('copied'); setTimeout(()=>{ btn.textContent='コピー'; btn.classList.remove('copied'); }, 1600); };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(raw).then(done).catch(()=>fallbackCopy(raw, done));
+    } else {
+        fallbackCopy(raw, done);
+    }
+}
+function fallbackCopy(text, done){
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try{ document.execCommand('copy'); done(); }catch(e){}
+    document.body.removeChild(ta);
+}
+
+// 初期化
+onTypeChange();
+</script>
+</body>
+</html>

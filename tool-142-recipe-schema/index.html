@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe構造化データ生成ツール | レシピの schema.org JSON-LD を自動作成【無料】</title>
+    <meta name="description" content="レシピ名・材料・手順・調理時間などを入力するだけで、schema.org Recipe の JSON-LD 構造化データをリアルタイム生成する無料ツール。調理時間は分入力からISO8601へ自動変換、材料・手順は行追加で管理、空欄フィールドは自動除外。レシピのリッチリザルト対策に。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1;padding-right:12px}
+        .row input,.row select,.row textarea{width:260px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .row textarea{resize:vertical;min-height:64px;line-height:1.6}
+        .row input:focus,.row select:focus,.row textarea:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .row.stack{flex-direction:column;align-items:stretch;gap:8px}
+        .row.stack label{padding-right:0}
+        .row.stack input,.row.stack textarea{width:100%}
+        .time-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+        .time-grid .tcell{background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:12px}
+        .time-grid .tcell .tlabel{font-size:0.7rem;color:var(--text3);margin-bottom:6px}
+        .time-grid .tcell input{width:100%;padding:8px 10px;background:#fff;border:1px solid var(--border);border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:0.9rem;outline:none;text-align:right}
+        .time-grid .tcell .iso{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--accent);margin-top:6px;text-align:right;min-height:14px}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input,.row select,.row textarea{width:100%}.time-grid{grid-template-columns:1fr}}
+        .dyn-row{display:flex;gap:8px;align-items:flex-start;margin-bottom:8px}
+        .dyn-row .idx{font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text3);min-width:22px;padding-top:11px}
+        .dyn-row input,.dyn-row textarea{flex:1;padding:10px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.88rem;outline:none}
+        .dyn-row textarea{resize:vertical;min-height:44px;line-height:1.5}
+        .dyn-row input:focus,.dyn-row textarea:focus{border-color:var(--accent)}
+        .dyn-row .del{padding:0 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--red);font-size:1rem;cursor:pointer;align-self:stretch}
+        .dyn-row .del:hover{border-color:var(--red)}
+        .add-btn{margin-top:4px;padding:9px 16px;background:var(--accent-dim);border:1px solid rgba(139,92,246,0.3);border-radius:8px;color:var(--accent);font-size:0.82rem;font-weight:500;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .add-btn:hover{background:rgba(139,92,246,0.14)}
+        .output-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .output-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+        .output-head h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em}
+        .copy-btn{padding:8px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .copy-btn:hover{opacity:0.9}
+        pre.code{background:#1e1e35;color:#e6e6f0;border-radius:8px;padding:16px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:0.78rem;line-height:1.7;white-space:pre;-webkit-overflow-scrolling:touch}
+        .hint-list{list-style:none;margin-top:8px}
+        .hint-list li{font-size:0.8rem;color:var(--text2);padding:6px 0 6px 22px;position:relative;line-height:1.6}
+        .hint-list li::before{content:'';position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+        .hint-list li.warn::before{background:var(--red)}
+        .hint-list li.ok::before{background:var(--green)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        code.inline{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--accent)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-142-recipe-schema/">
+    <meta property="og:title" content="Recipe構造化データ生成ツール | レシピの schema.org JSON-LD を自動作成【無料】">
+    <meta property="og:description" content="レシピ名・材料・手順・調理時間を入力するだけで schema.org Recipe の JSON-LD をリアルタイム生成。リッチリザルト対策に。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-142-recipe-schema/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Recipe構造化データ生成ツール【無料】">
+    <meta name="twitter:description" content="レシピの schema.org Recipe JSON-LD をリアルタイム生成。調理時間はISO8601へ自動変換。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Recipe構造化データ生成ツール","description":"レシピの schema.org Recipe JSON-LD 構造化データをリアルタイム生成する無料ツール","url":"https://www.devtools-japan.com/tool-142-recipe-schema/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"Recipe構造化データ生成ツール","item":"https://www.devtools-japan.com/tool-142-recipe-schema/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Recipeの構造化データとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"Recipe構造化データは、レシピのタイトル・材料・手順・調理時間・評価などの情報を検索エンジンが理解できる形式（schema.org の Recipe 型）で記述したものです。本ツールは入力内容から JSON-LD 形式の構造化データを生成します。これをレシピページのHTMLに埋め込むと、Googleがレシピ内容を正しく認識しやすくなり、検索結果でのレシピリッチリザルト（画像・評価・調理時間つきの表示）の対象になり得ます。"}},{"@type":"Question","name":"調理時間はどう入力すればよいですか？","acceptedAnswer":{"@type":"Answer","text":"準備時間・調理時間・合計時間はそれぞれ「分」で入力してください。ツールが自動的に schema.org が要求する ISO 8601 の期間表記（例: 45分なら PT45M、90分なら PT1H30M）へ変換して JSON-LD に出力します。60分以上は時間と分に分解されます。値が空欄または0の時間フィールドは出力から自動的に除外されます。"}},{"@type":"Question","name":"材料や手順は何行でも追加できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。材料（recipeIngredient）と手順（recipeInstructions）はどちらも「行を追加」ボタンで必要な数だけ増やせ、不要な行は削除できます。材料は1行1項目としてそのまま配列に、手順は各ステップが schema.org の HowToStep 型（@type: HowToStep）のオブジェクトとして順番どおりに出力されます。空欄の行は自動的に除外されます。"}},{"@type":"Question","name":"入力していない項目はどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"空欄のフィールドは JSON-LD に含まれず自動的に除外されます。これにより、値のないプロパティが空文字やnullとして残ることを防ぎ、常に有効な構造化データを生成できます。作者・カテゴリ・料理ジャンル・栄養情報・評価などは任意項目のため、必要なものだけ入力すれば構いません。"}},{"@type":"Question","name":"生成したJSON-LDはどこに貼り付けますか？","acceptedAnswer":{"@type":"Answer","text":"生成された ld+json のスクリプトタグ一式をコピーし、レシピページのHTMLの head 内、または body 内に貼り付けてください。JSON-LD はページの表示位置に影響しないため配置場所は比較的自由です。貼り付け後は Google のリッチリザルトテストや schema.org バリデータで、エラーや警告がないか確認することを推奨します。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>Recipe構造化データ生成</h1><p>レシピの schema.org Recipe JSON-LD をリアルタイム生成</p></header>
+
+    <div class="card"><h3>基本情報</h3>
+        <div class="row stack"><label>レシピ名 <span style="color:var(--red)">*</span></label><input type="text" id="f_name" placeholder="例: 基本の肉じゃが" oninput="generate()"></div>
+        <div class="row stack"><label>画像URL（複数可・1行1URL） <span style="color:var(--red)">*</span></label><textarea id="f_image" placeholder="https://www.example.com/photos/nikujaga.jpg" oninput="generate()"></textarea></div>
+        <div class="row stack"><label>作者名（author）</label><input type="text" id="f_author" placeholder="例: DevTools Japan Kitchen" oninput="generate()"></div>
+        <div class="row stack"><label>説明（description）</label><textarea id="f_desc" placeholder="レシピの短い説明文" oninput="generate()"></textarea></div>
+    </div>
+
+    <div class="card"><h3>調理時間（分で入力 → ISO8601へ自動変換）</h3>
+        <div class="time-grid">
+            <div class="tcell"><div class="tlabel">準備 prepTime</div><input type="number" id="f_prep" min="0" placeholder="15" oninput="generate()"><div class="iso" id="iso_prep"></div></div>
+            <div class="tcell"><div class="tlabel">調理 cookTime</div><input type="number" id="f_cook" min="0" placeholder="30" oninput="generate()"><div class="iso" id="iso_cook"></div></div>
+            <div class="tcell"><div class="tlabel">合計 totalTime</div><input type="number" id="f_total" min="0" placeholder="45" oninput="generate()"><div class="iso" id="iso_total"></div></div>
+        </div>
+    </div>
+
+    <div class="card"><h3>分類・分量</h3>
+        <div class="row"><label>出来上がり分量（recipeYield）</label><input type="text" id="f_yield" placeholder="例: 4人分" oninput="generate()"></div>
+        <div class="row"><label>カテゴリ（recipeCategory）</label><input type="text" id="f_category" placeholder="例: 主菜" oninput="generate()"></div>
+        <div class="row"><label>料理ジャンル（recipeCuisine）</label><input type="text" id="f_cuisine" placeholder="例: 日本料理" oninput="generate()"></div>
+        <div class="row"><label>キーワード（keywords・カンマ区切り）</label><input type="text" id="f_keywords" placeholder="例: 肉じゃが,和食,定番" oninput="generate()"></div>
+    </div>
+
+    <div class="card"><h3>材料（recipeIngredient）</h3>
+        <div id="ingList"></div>
+        <button class="add-btn" onclick="addIngredient('')">＋ 材料の行を追加</button>
+    </div>
+
+    <div class="card"><h3>手順（recipeInstructions → HowToStep）</h3>
+        <div id="stepList"></div>
+        <button class="add-btn" onclick="addStep('')">＋ 手順ステップを追加</button>
+    </div>
+
+    <div class="card"><h3>栄養・評価（任意）</h3>
+        <div class="row"><label>カロリー（nutrition / calories）</label><input type="text" id="f_calories" placeholder="例: 320" oninput="generate()"></div>
+        <div class="row"><label>評価の平均（ratingValue）</label><input type="number" id="f_rating" min="0" max="5" step="0.1" placeholder="例: 4.8" oninput="generate()"></div>
+        <div class="row"><label>評価件数（ratingCount）</label><input type="number" id="f_ratingCount" min="0" placeholder="例: 120" oninput="generate()"></div>
+    </div>
+
+    <div class="output-card">
+        <div class="output-head"><h3>生成された JSON-LD</h3><button class="copy-btn" onclick="copyOutput()" id="copyBtn">コピー</button></div>
+        <pre class="code" id="output">// 入力するとここに JSON-LD が表示されます</pre>
+    </div>
+
+    <div class="card"><h3>レシピ リッチリザルト要件のヒント</h3>
+        <ul class="hint-list" id="hints"></ul>
+    </div>
+
+    <div class="note">生成される JSON-LD は schema.org の Recipe 型に基づきます。空欄のフィールドは自動的に除外され、調理時間は分入力から ISO 8601（PT#H#M）へ変換されます。実装後は Google のリッチリザルトテストで検証することを推奨します。すべての処理は端末内で完結し、入力内容は送信されません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>Recipe構造化データ生成ツールの使い方</h2>
+        <p>レシピ名・画像・材料・手順・調理時間などを入力するだけで、schema.org の Recipe 型に準拠した JSON-LD 構造化データをリアルタイムに生成する無料ツールです。生成された ld+json のスクリプトタグ一式をコピーして、レシピページのHTMLに貼り付けるだけで、検索エンジンにレシピ内容を正しく伝えられます。インストールや会員登録は不要で、入力した内容はサーバーに送信されず、すべての生成処理がお使いのブラウザ内で完結します。</p>
+        <p>使い方はシンプルです。まず必須のレシピ名と画像URLを入力し、続いて作者・説明・調理時間・分量・カテゴリなどを必要な範囲で埋めます。材料と手順は「行を追加」ボタンで項目を増やし、不要な行は削除できます。入力を変更するたびに下部の出力エリアの JSON-LD が即座に更新されるので、内容を確認しながら仕上げられます。空欄の項目は出力から自動で除外されるため、埋めたい項目だけを入力すれば有効な構造化データになります。</p>
+        <h3>調理時間のISO8601変換について</h3>
+        <p>schema.org の Recipe では、準備時間（prepTime）・調理時間（cookTime）・合計時間（totalTime）を ISO 8601 の期間表記で記述する必要があります。本ツールでは調理時間を「分」で入力すると、自動的に <code class="inline">PT#M</code> 形式へ変換します。60分以上の場合は時間と分に分解し、たとえば90分なら <code class="inline">PT1H30M</code> と出力します。入力欄の下に変換後の値がリアルタイムで表示されるので、変換結果をその場で確認できます。</p>
+
+        <h2>生成されるプロパティ</h2>
+        <p>本ツールが出力する主な Recipe プロパティは次のとおりです。必須級の項目と任意項目を区別して、必要なものだけを入力してください。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>プロパティ</th><th>内容</th><th>形式</th></tr>
+            <tr><td>name</td><td>レシピ名</td><td>文字列（必須）</td></tr>
+            <tr><td>image</td><td>料理の画像URL</td><td>文字列または配列（推奨）</td></tr>
+            <tr><td>author</td><td>作者</td><td>Person 型</td></tr>
+            <tr><td>prepTime / cookTime / totalTime</td><td>各調理時間</td><td>ISO 8601（PT#H#M）</td></tr>
+            <tr><td>recipeIngredient</td><td>材料</td><td>文字列の配列</td></tr>
+            <tr><td>recipeInstructions</td><td>手順</td><td>HowToStep の配列</td></tr>
+            <tr><td>nutrition</td><td>栄養情報（カロリー）</td><td>NutritionInformation 型</td></tr>
+            <tr><td>aggregateRating</td><td>評価の平均と件数</td><td>AggregateRating 型</td></tr>
+        </table>
+        </div>
+        <h3>リッチリザルトのための推奨事項</h3>
+        <p>レシピのリッチリザルト表示を狙う場合、少なくともレシピ名と高解像度の画像を用意し、材料・手順・調理時間をできるだけ揃えることが推奨されます。評価（aggregateRating）を含めると、検索結果に星評価が表示される可能性が高まります。ただし評価は実際のユーザーレビューに基づくものである必要があり、実体のない評価の記述はガイドライン違反となる点に注意してください。手順は各ステップを HowToStep として分けて記述すると、内容がより正確に伝わります。実装後は Google のリッチリザルトテストや schema.org バリデータでエラー・警告を確認しましょう。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">Recipeの構造化データとは何ですか？</div><div class="a">Recipe構造化データは、レシピのタイトル・材料・手順・調理時間・評価などの情報を検索エンジンが理解できる形式（schema.org の Recipe 型）で記述したものです。本ツールは入力内容から JSON-LD 形式の構造化データを生成します。これをレシピページのHTMLに埋め込むと、Googleがレシピ内容を正しく認識しやすくなり、検索結果でのレシピリッチリザルト（画像・評価・調理時間つきの表示）の対象になり得ます。</div></div>
+        <div class="faq-item"><div class="q">調理時間はどう入力すればよいですか？</div><div class="a">準備時間・調理時間・合計時間はそれぞれ「分」で入力してください。ツールが自動的に schema.org が要求する ISO 8601 の期間表記（例: 45分なら PT45M、90分なら PT1H30M）へ変換して JSON-LD に出力します。60分以上は時間と分に分解されます。値が空欄または0の時間フィールドは出力から自動的に除外されます。</div></div>
+        <div class="faq-item"><div class="q">材料や手順は何行でも追加できますか？</div><div class="a">はい。材料（recipeIngredient）と手順（recipeInstructions）はどちらも「行を追加」ボタンで必要な数だけ増やせ、不要な行は削除できます。材料は1行1項目としてそのまま配列に、手順は各ステップが schema.org の HowToStep 型（@type: HowToStep）のオブジェクトとして順番どおりに出力されます。空欄の行は自動的に除外されます。</div></div>
+        <div class="faq-item"><div class="q">入力していない項目はどうなりますか？</div><div class="a">空欄のフィールドは JSON-LD に含まれず自動的に除外されます。これにより、値のないプロパティが空文字やnullとして残ることを防ぎ、常に有効な構造化データを生成できます。作者・カテゴリ・料理ジャンル・栄養情報・評価などは任意項目のため、必要なものだけ入力すれば構いません。</div></div>
+        <div class="faq-item"><div class="q">生成したJSON-LDはどこに貼り付けますか？</div><div class="a">生成された ld+json のスクリプトタグ一式をコピーし、レシピページのHTMLの head 内、または body 内に貼り付けてください。JSON-LD はページの表示位置に影響しないため配置場所は比較的自由です。貼り付け後は Google のリッチリザルトテストや schema.org バリデータで、エラーや警告がないか確認することを推奨します。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧へ</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ---- script タグ文字列はトークン分割して素書きを避ける ----
+var LD_OPEN = '<' + 'script type="application/ld+json">';
+var LD_CLOSE = '<' + '/' + 'script>';
+
+// 分 -> ISO8601 期間（PT#H#M）。0/空は null
+function minutesToISO(v){
+    var n = parseInt(v, 10);
+    if (!n || n <= 0 || isNaN(n)) return null;
+    var h = Math.floor(n / 60);
+    var m = n % 60;
+    var out = 'PT';
+    if (h > 0) out += h + 'H';
+    if (m > 0) out += m + 'M';
+    return out;
+}
+
+function val(id){
+    var el = document.getElementById(id);
+    return el ? el.value.trim() : '';
+}
+
+// 材料の行を追加
+function addIngredient(text){
+    var list = document.getElementById('ingList');
+    var row = document.createElement('div');
+    row.className = 'dyn-row';
+    var input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'ing-input';
+    input.placeholder = '例: じゃがいも 3個';
+    input.value = text || '';
+    input.oninput = generate;
+    var del = document.createElement('button');
+    del.className = 'del';
+    del.textContent = '×';
+    del.title = 'この行を削除';
+    del.onclick = function(){ row.parentNode.removeChild(row); generate(); };
+    row.appendChild(input);
+    row.appendChild(del);
+    list.appendChild(row);
+    generate();
+}
+
+// 手順ステップを追加
+function addStep(text){
+    var list = document.getElementById('stepList');
+    var row = document.createElement('div');
+    row.className = 'dyn-row';
+    var idx = document.createElement('span');
+    idx.className = 'idx';
+    var ta = document.createElement('textarea');
+    ta.className = 'step-input';
+    ta.placeholder = '例: 材料を食べやすい大きさに切る';
+    ta.value = text || '';
+    ta.oninput = generate;
+    var del = document.createElement('button');
+    del.className = 'del';
+    del.textContent = '×';
+    del.title = 'この行を削除';
+    del.onclick = function(){ row.parentNode.removeChild(row); generate(); };
+    row.appendChild(idx);
+    row.appendChild(ta);
+    row.appendChild(del);
+    list.appendChild(row);
+    renumberSteps();
+    generate();
+}
+
+function renumberSteps(){
+    var idxs = document.querySelectorAll('#stepList .idx');
+    for (var i = 0; i < idxs.length; i++){ idxs[i].textContent = (i + 1) + '.'; }
+}
+
+function collectIngredients(){
+    var inputs = document.querySelectorAll('#ingList .ing-input');
+    var out = [];
+    for (var i = 0; i < inputs.length; i++){
+        var v = inputs[i].value.trim();
+        if (v) out.push(v);
+    }
+    return out;
+}
+
+function collectSteps(){
+    var inputs = document.querySelectorAll('#stepList .step-input');
+    var out = [];
+    for (var i = 0; i < inputs.length; i++){
+        var v = inputs[i].value.trim();
+        if (v) out.push({ '@type': 'HowToStep', 'text': v });
+    }
+    return out;
+}
+
+function buildRecipe(){
+    var r = { '@context': 'https://schema.org', '@type': 'Recipe' };
+
+    var name = val('f_name');
+    if (name) r.name = name;
+
+    // 画像（1行1URL・複数可）
+    var imgRaw = val('f_image');
+    if (imgRaw){
+        var imgs = imgRaw.split('\n').map(function(s){ return s.trim(); }).filter(function(s){ return s; });
+        if (imgs.length === 1) r.image = imgs[0];
+        else if (imgs.length > 1) r.image = imgs;
+    }
+
+    var author = val('f_author');
+    if (author) r.author = { '@type': 'Person', 'name': author };
+
+    var desc = val('f_desc');
+    if (desc) r.description = desc;
+
+    var prep = minutesToISO(val('f_prep'));
+    if (prep) r.prepTime = prep;
+    var cook = minutesToISO(val('f_cook'));
+    if (cook) r.cookTime = cook;
+    var total = minutesToISO(val('f_total'));
+    if (total) r.totalTime = total;
+
+    var ry = val('f_yield');
+    if (ry) r.recipeYield = ry;
+    var cat = val('f_category');
+    if (cat) r.recipeCategory = cat;
+    var cui = val('f_cuisine');
+    if (cui) r.recipeCuisine = cui;
+
+    var kw = val('f_keywords');
+    if (kw) r.keywords = kw;
+
+    var ings = collectIngredients();
+    if (ings.length) r.recipeIngredient = ings;
+
+    var steps = collectSteps();
+    if (steps.length) r.recipeInstructions = steps;
+
+    var cal = val('f_calories');
+    if (cal){
+        var calText = /^\d+(\.\d+)?$/.test(cal) ? (cal + ' calories') : cal;
+        r.nutrition = { '@type': 'NutritionInformation', 'calories': calText };
+    }
+
+    var rv = val('f_rating');
+    var rc = val('f_ratingCount');
+    if (rv){
+        var ar = { '@type': 'AggregateRating', 'ratingValue': rv };
+        if (rc) ar.ratingCount = rc;
+        r.aggregateRating = ar;
+    }
+
+    return r;
+}
+
+function updateIsoLabels(){
+    var p = minutesToISO(val('f_prep'));
+    var c = minutesToISO(val('f_cook'));
+    var t = minutesToISO(val('f_total'));
+    document.getElementById('iso_prep').textContent = p ? p : '';
+    document.getElementById('iso_cook').textContent = c ? c : '';
+    document.getElementById('iso_total').textContent = t ? t : '';
+}
+
+function buildHints(recipe){
+    var hints = document.getElementById('hints');
+    hints.innerHTML = '';
+    var checks = [
+        { ok: !!recipe.name, text: 'レシピ名（name）— 必須。検索結果の見出しになります。' },
+        { ok: !!recipe.image, text: '画像（image）— リッチリザルトにほぼ必須。高解像度URLを推奨。' },
+        { ok: !!recipe.recipeIngredient, text: '材料（recipeIngredient）— 1材料1行で記述。' },
+        { ok: !!recipe.recipeInstructions, text: '手順（recipeInstructions）— HowToStep で段階的に記述。' },
+        { ok: !!(recipe.prepTime || recipe.cookTime || recipe.totalTime), text: '調理時間 — prep/cook/total のいずれかを ISO8601 で記述。' },
+        { ok: !!recipe.aggregateRating, text: '評価（aggregateRating）— 星表示に有効。実レビューに基づくこと。' }
+    ];
+    for (var i = 0; i < checks.length; i++){
+        var li = document.createElement('li');
+        li.className = checks[i].ok ? 'ok' : 'warn';
+        li.textContent = (checks[i].ok ? '設定済み: ' : '未設定: ') + checks[i].text;
+        hints.appendChild(li);
+    }
+}
+
+function generate(){
+    renumberSteps();
+    updateIsoLabels();
+    var recipe = buildRecipe();
+    var json = JSON.stringify(recipe, null, 2);
+    var wrapped = LD_OPEN + '\n' + json + '\n' + LD_CLOSE;
+    document.getElementById('output').textContent = wrapped;
+    buildHints(recipe);
+}
+
+function copyOutput(){
+    var text = document.getElementById('output').textContent;
+    var btn = document.getElementById('copyBtn');
+    function done(){ btn.textContent = 'コピー済み'; setTimeout(function(){ btn.textContent = 'コピー'; }, 1400); }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text); done(); });
+    } else {
+        fallbackCopy(text); done();
+    }
+}
+
+function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+}
+
+// 初期サンプル（入力ゼロでもサンプル出力）
+(function init(){
+    document.getElementById('f_name').value = '基本の肉じゃが';
+    document.getElementById('f_image').value = 'https://www.example.com/photos/nikujaga.jpg';
+    document.getElementById('f_author').value = 'DevTools Japan Kitchen';
+    document.getElementById('f_desc').value = '定番の和食、肉じゃがの基本レシピ。ほくほくのじゃがいもに味がよくしみます。';
+    document.getElementById('f_prep').value = '15';
+    document.getElementById('f_cook').value = '30';
+    document.getElementById('f_total').value = '45';
+    document.getElementById('f_yield').value = '4人分';
+    document.getElementById('f_category').value = '主菜';
+    document.getElementById('f_cuisine').value = '日本料理';
+    document.getElementById('f_keywords').value = '肉じゃが,和食,定番';
+    document.getElementById('f_calories').value = '320';
+    document.getElementById('f_rating').value = '4.8';
+    document.getElementById('f_ratingCount').value = '120';
+
+    ['じゃがいも 3個','牛薄切り肉 200g','玉ねぎ 1個','だし汁 300ml','醤油 大さじ3','砂糖 大さじ2'].forEach(function(x){ addIngredient(x); });
+    ['じゃがいも・玉ねぎを食べやすい大きさに切る','鍋に油を熱し、牛肉を炒める','野菜とだし汁を加えて煮立たせる','調味料を加え、落し蓋をして20分煮る'].forEach(function(x){ addStep(x); });
+
+    generate();
+})();
+</script>
+</body>
+</html>

@@ -116,6 +116,26 @@
 - ローマ字変換: https://www.devtools-japan.com/tool-120-romaji/
 - 文字コード変換・文字化け判定: https://www.devtools-japan.com/tool-121-encoding/
 - BMI計算: https://www.devtools-japan.com/tool-122-bmi/
+- JSON-LD構造化データ生成: https://www.devtools-japan.com/tool-123-jsonld/
+- FAQ構造化データ生成: https://www.devtools-japan.com/tool-124-faq-schema/
+- パンくず構造化データ生成: https://www.devtools-japan.com/tool-125-breadcrumb-schema/
+- HowTo構造化データ生成: https://www.devtools-japan.com/tool-126-howto-schema/
+- OGP・Twitterカード生成: https://www.devtools-japan.com/tool-127-ogp-meta/
+- robots.txt生成: https://www.devtools-japan.com/tool-128-robots-txt/
+- XMLサイトマップ生成: https://www.devtools-japan.com/tool-129-xml-sitemap/
+- canonical・hreflang生成: https://www.devtools-japan.com/tool-130-canonical-hreflang/
+- title/meta長さチェッカー: https://www.devtools-japan.com/tool-131-meta-length/
+- HTTPステータスコード早見表: https://www.devtools-japan.com/tool-132-http-status/
+- UTMキャンペーンURL生成: https://www.devtools-japan.com/tool-133-utm-builder/
+- Google SERPプレビュー: https://www.devtools-japan.com/tool-134-serp-preview/
+- llms.txt生成: https://www.devtools-japan.com/tool-135-llms-txt/
+- 見出しアウトライン抽出: https://www.devtools-japan.com/tool-136-heading-outline/
+- キーワード出現頻度・密度: https://www.devtools-japan.com/tool-137-keyword-density/
+- LocalBusiness構造化データ生成: https://www.devtools-japan.com/tool-138-localbusiness-schema/
+- Product構造化データ生成: https://www.devtools-japan.com/tool-139-product-schema/
+- VideoObject構造化データ生成: https://www.devtools-japan.com/tool-140-video-schema/
+- Event構造化データ生成: https://www.devtools-japan.com/tool-141-event-schema/
+- Recipe構造化データ生成: https://www.devtools-japan.com/tool-142-recipe-schema/
 
 ## API
 DevTools Japan APIとして30本以上の無料REST APIを提供。認証不要で即利用可能。

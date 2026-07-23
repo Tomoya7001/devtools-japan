@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canonical・hreflang タグ生成ツール | 多言語サイトの正規URL・代替URLタグを自動作成【無料】</title>
+    <meta name="description" content="正規URL（canonical）と言語×地域ごとの代替URLを入力するだけで、link rel=canonical と link rel=alternate hreflang タグ一式（x-default含む）を自動生成する無料ツール。hreflang値の妥当性チェックと双方向参照の注意付き。ブラウザだけで完結。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .field{margin-bottom:14px}
+        .field label{display:block;font-size:0.8rem;color:var(--text2);margin-bottom:6px}
+        .field input,.field select{width:100%;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .field input:focus,.field select:focus{border-color:var(--accent)}
+        .field input.mono{font-family:'JetBrains Mono',monospace;font-size:0.82rem}
+        .alt-row{display:grid;grid-template-columns:150px 1fr 40px;gap:8px;align-items:start;margin-bottom:10px}
+        .alt-row .hint{grid-column:1 / -1;font-size:0.72rem;margin-top:-4px}
+        .hint.ok{color:var(--green)}
+        .hint.warn{color:var(--red)}
+        .hint.muted{color:var(--text3)}
+        @media(max-width:600px){.alt-row{grid-template-columns:1fr 1fr;grid-template-areas:'lang url' 'lang url'}.alt-row input.lang{grid-column:1/2}.alt-row input.url{grid-column:2/3}.alt-row .del{grid-column:1/-1;justify-self:end}}
+        .del-btn{width:100%;padding:10px 0;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--red);font-size:1rem;cursor:pointer;line-height:1}
+        .del-btn:hover{border-color:var(--red)}
+        .row-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.ghost{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.ghost:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+        .toggle-row{display:flex;align-items:center;gap:10px;font-size:0.82rem;color:var(--text2);margin-top:4px}
+        .toggle-row input{width:auto}
+        .output-card{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2)}
+        .output-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+        .output-head h3{margin-bottom:0}
+        textarea.out{width:100%;min-height:180px;padding:14px;background:#0f1020;color:#e6e6f0;border:1px solid var(--border);border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;line-height:1.7;resize:vertical;white-space:pre;overflow:auto}
+        .copied{color:var(--green);font-size:0.75rem;margin-left:8px}
+        .validity{margin-top:12px}
+        .validity .v-item{display:flex;gap:8px;font-size:0.78rem;padding:4px 0;color:var(--text2)}
+        .validity .v-item .tag{font-family:'JetBrains Mono',monospace;color:var(--text)}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px;line-height:1.9}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        table.ref td.mono{font-family:'JetBrains Mono',monospace}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-130-canonical-hreflang/">
+    <meta property="og:title" content="canonical・hreflang タグ生成ツール | 正規URL・代替URLタグを自動作成【無料】">
+    <meta property="og:description" content="正規URLと言語×地域ごとの代替URLから canonical・alternate hreflang タグ一式（x-default含む）を自動生成。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-130-canonical-hreflang/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="canonical・hreflang タグ生成【無料】">
+    <meta name="twitter:description" content="正規URLと代替URLから canonical・hreflang タグ一式を自動生成。x-default対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"canonical・hreflang タグ生成ツール","description":"正規URLと言語×地域ごとの代替URLから canonical・alternate hreflang タグ一式を自動生成する無料ツール","url":"https://www.devtools-japan.com/tool-130-canonical-hreflang/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"canonical・hreflang タグ生成ツール","item":"https://www.devtools-japan.com/tool-130-canonical-hreflang/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"canonicalとhreflangは何が違う？","acceptedAnswer":{"@type":"Answer","text":"canonical（正規URL）は、内容が重複・類似する複数のURLの中で「これが代表URLです」と検索エンジンに伝えるタグです。一方 hreflang は、同じ内容の言語別・地域別バージョンが複数あるときに「この言語・地域のユーザーにはこのURLを表示してほしい」と伝えるタグです。多言語サイトでは両方を併用し、各言語ページは自分自身を指すcanonicalを持ちつつ、全言語版をhreflangで相互にリンクします。"}},{"@type":"Question","name":"hreflangの値はどう書く？","acceptedAnswer":{"@type":"Answer","text":"hreflangの値は「言語コード」または「言語コード-地域コード」で指定します。言語はISO 639-1の2文字小文字（ja, en, zh など）、地域はISO 3166-1 alpha-2の2文字大文字（US, GB, JP など）で、ハイフンでつなぎます。例：ja（日本語）、en-US（アメリカ英語）、en-GB（イギリス英語）、zh-Hans（簡体字中国語）。地域コードは省略可能で、言語だけの指定も有効です。"}},{"@type":"Question","name":"x-defaultとは何？","acceptedAnswer":{"@type":"Answer","text":"x-defaultは、用意したどの言語・地域にも一致しないユーザー向けの既定URLを指定する特別なhreflang値です。言語選択ページや、最も汎用的な言語版のURLを指定するのが一般的です。必須ではありませんが、対象外の言語のユーザーがどのページに案内されるかを明示できるため、多言語サイトでは設定が推奨されます。本ツールでは x-default を含めるかどうかを選べます。"}},{"@type":"Question","name":"hreflangは相互（双方向）に必要？","acceptedAnswer":{"@type":"Answer","text":"はい。hreflangは双方向の参照が必須です。ページAがページBをhreflangで指すなら、ページBもページAを指し返す必要があります。片方向だけの指定は無効とみなされ、Google Search Consoleで「return tag（返しタグ）がない」というエラーになります。本ツールで生成したタグは、全ての言語版ページに同じセットを設置することを前提にしているため、各ページに貼れば自動的に相互参照が成立します。"}},{"@type":"Question","name":"生成したタグはどこに貼る？","acceptedAnswer":{"@type":"Answer","text":"生成された link タグは、各ページのHTMLの head 要素内に設置します。canonicalとhreflangのタグ一式を、対象となる全ての言語・地域版ページの head に同じ内容で貼り付けてください。なお各ページの自分自身を指すcanonicalは、そのページのURLに合わせて個別に調整する必要があります。HTMLのheadに設置できない場合は、HTTPレスポンスヘッダーやサイトマップでhreflangを指定する方法もあります。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>canonical・hreflang タグ生成</h1><p>正規URLと言語別の代替URLからタグ一式を自動生成</p></header>
+
+    <div class="card"><h3>正規URL（canonical）</h3>
+        <div class="field">
+            <label>このページの正規URL（絶対URLで入力）</label>
+            <input type="text" id="canonicalUrl" class="mono" placeholder="https://www.example.com/" oninput="render()">
+        </div>
+        <div class="toggle-row">
+            <input type="checkbox" id="includeCanonical" checked onchange="render()">
+            <label for="includeCanonical" style="margin:0">canonicalタグを出力に含める</label>
+        </div>
+    </div>
+
+    <div class="card"><h3>言語×地域ごとの代替URL（hreflang）</h3>
+        <div id="altList"></div>
+        <div class="row-actions">
+            <button class="btn ghost" onclick="addRow('','')">＋ 言語を追加</button>
+            <button class="btn ghost" onclick="loadSample()">サンプルを読み込む</button>
+        </div>
+        <div class="toggle-row" style="margin-top:14px">
+            <input type="checkbox" id="includeXDefault" checked onchange="render()">
+            <label for="includeXDefault" style="margin:0">x-default を出力に含める</label>
+        </div>
+        <div class="field" id="xDefaultField" style="margin-top:10px">
+            <label>x-default のURL（未入力なら先頭の代替URLを使用）</label>
+            <input type="text" id="xDefaultUrl" class="mono" placeholder="https://www.example.com/" oninput="render()">
+        </div>
+    </div>
+
+    <div class="card output-card">
+        <div class="output-head">
+            <h3>生成されたタグ<span class="copied" id="copiedMsg"></span></h3>
+            <button class="btn" onclick="copyOutput()">コピー</button>
+        </div>
+        <textarea class="out" id="output" readonly spellcheck="false"></textarea>
+        <div class="validity" id="validity"></div>
+    </div>
+
+    <div class="note">生成した link タグは、対象となる全ての言語・地域版ページの &lt;head&gt; 内に同じセットで設置してください。hreflang は双方向（相互参照）が必須です。ページAがBを指すなら、BもAを指し返す必要があります。全ページに同じタグ一式を貼れば自動的に相互参照が成立します。各ページの canonical は、そのページ自身のURLに合わせて個別に調整してください。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>canonical・hreflang タグ生成ツールの使い方</h2>
+        <p>多言語・多地域サイトで必要になる「正規URL（canonical）」と「代替URL（hreflang）」の link タグを、フォームに入力するだけで自動生成する無料ツールです。正規URLと、言語×地域ごとの代替URLを追加していくと、&lt;link rel="canonical"&gt; と &lt;link rel="alternate" hreflang="..."&gt; のタグ一式（x-default 含む）をリアルタイムに生成し、そのままコピーして各ページの &lt;head&gt; に貼り付けられます。インストールや会員登録は不要で、すべての処理はお使いのブラウザ内で完結します。</p>
+        <p>使い方はかんたんです。まず上部の「正規URL」欄に、このページの代表URLを絶対URL（https:// から始まる形式）で入力します。次に「言語を追加」でhreflang値（ja、en-US、zh-Hans など）と、その言語版のURLを入力していきます。x-default を含めるかどうか、canonicalを出力に含めるかどうかも切り替えられます。入力がゼロでもサンプルのタグが表示されるので、まずは形を確認してから自分のURLに書き換えるのもおすすめです。</p>
+
+        <h2>hreflang値の書き方</h2>
+        <p>hreflang属性の値は、「言語コード」単体、または「言語コード-地域コード」の組み合わせで指定します。言語コードはISO 639-1の2文字小文字、地域コードはISO 3166-1 alpha-2の2文字大文字を使い、ハイフンでつなぎます。地域コードは省略でき、言語だけの指定も有効です。本ツールは入力した値がこの形式に沿っているかを簡易チェックし、妥当なら緑、形式に問題がありそうなら赤のヒントを表示します。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>hreflang値</th><th>意味</th><th>種別</th></tr>
+            <tr><td class="mono">ja</td><td>日本語（地域指定なし）</td><td>言語のみ</td></tr>
+            <tr><td class="mono">en</td><td>英語（地域指定なし）</td><td>言語のみ</td></tr>
+            <tr><td class="mono">en-US</td><td>英語（アメリカ）</td><td>言語＋地域</td></tr>
+            <tr><td class="mono">en-GB</td><td>英語（イギリス）</td><td>言語＋地域</td></tr>
+            <tr><td class="mono">zh-Hans</td><td>簡体字中国語</td><td>言語＋表記</td></tr>
+            <tr><td class="mono">zh-Hant</td><td>繁体字中国語</td><td>言語＋表記</td></tr>
+            <tr><td class="mono">x-default</td><td>一致しないユーザー向けの既定</td><td>特別値</td></tr>
+        </table>
+        </div>
+
+        <h2>hreflangは双方向（相互参照）が必須</h2>
+        <p>hreflangの指定で最も間違えやすいのが「相互参照（return tag）」です。ページAが「英語版はB」とhreflangで指すなら、ページBも「日本語版はA」と必ず指し返さなければなりません。片方向だけの指定は無効とみなされ、Google Search Console で「hreflangタグに返しタグがありません」というエラーになります。本ツールが生成するタグ一式は、全ての言語版ページに同じ内容で設置することを前提にしているため、各ページの &lt;head&gt; に貼れば自動的に相互参照が成立します。あわせて、各代替URLも自分自身を指すエントリを含めておくのが正しい形です。</p>
+        <h3>x-default の役割</h3>
+        <p>x-default は、用意したどの言語・地域にも一致しないユーザーに表示する既定URLを指定する特別なhreflang値です。言語選択ページや、最も汎用的な言語版のURLを指定するのが一般的です。必須ではありませんが、対象外の言語のユーザーの案内先を明示できるため設定が推奨されます。本ツールでは x-default を含めるかどうかを選べ、専用URLを入力しない場合は先頭の代替URLを既定として使用します。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">canonicalとhreflangは何が違う？</div><div class="a">canonical（正規URL）は、内容が重複・類似する複数のURLの中で「これが代表URLです」と検索エンジンに伝えるタグです。一方 hreflang は、同じ内容の言語別・地域別バージョンが複数あるときに「この言語・地域のユーザーにはこのURLを表示してほしい」と伝えるタグです。多言語サイトでは両方を併用し、各言語ページは自分自身を指すcanonicalを持ちつつ、全言語版をhreflangで相互にリンクします。</div></div>
+        <div class="faq-item"><div class="q">hreflangの値はどう書く？</div><div class="a">hreflangの値は「言語コード」または「言語コード-地域コード」で指定します。言語はISO 639-1の2文字小文字（ja, en, zh など）、地域はISO 3166-1 alpha-2の2文字大文字（US, GB, JP など）で、ハイフンでつなぎます。例：ja（日本語）、en-US（アメリカ英語）、en-GB（イギリス英語）、zh-Hans（簡体字中国語）。地域コードは省略可能で、言語だけの指定も有効です。</div></div>
+        <div class="faq-item"><div class="q">x-defaultとは何？</div><div class="a">x-defaultは、用意したどの言語・地域にも一致しないユーザー向けの既定URLを指定する特別なhreflang値です。言語選択ページや、最も汎用的な言語版のURLを指定するのが一般的です。必須ではありませんが、対象外の言語のユーザーがどのページに案内されるかを明示できるため、多言語サイトでは設定が推奨されます。本ツールでは x-default を含めるかどうかを選べます。</div></div>
+        <div class="faq-item"><div class="q">hreflangは相互（双方向）に必要？</div><div class="a">はい。hreflangは双方向の参照が必須です。ページAがページBをhreflangで指すなら、ページBもページAを指し返す必要があります。片方向だけの指定は無効とみなされ、Google Search Consoleで「return tag（返しタグ）がない」というエラーになります。本ツールで生成したタグは、全ての言語版ページに同じセットを設置することを前提にしているため、各ページに貼れば自動的に相互参照が成立します。</div></div>
+        <div class="faq-item"><div class="q">生成したタグはどこに貼る？</div><div class="a">生成された link タグは、各ページのHTMLの head 要素内に設置します。canonicalとhreflangのタグ一式を、対象となる全ての言語・地域版ページの head に同じ内容で貼り付けてください。なお各ページの自分自身を指すcanonicalは、そのページのURLに合わせて個別に調整する必要があります。HTMLのheadに設置できない場合は、HTTPレスポンスヘッダーやサイトマップでhreflangを指定する方法もあります。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// サンプルデータ（入力ゼロでも表示する）
+var SAMPLE = {
+    canonical: 'https://www.example.com/',
+    alts: [
+        {lang:'ja', url:'https://www.example.com/'},
+        {lang:'en-US', url:'https://www.example.com/en/'},
+        {lang:'en-GB', url:'https://www.example.com/en-gb/'},
+        {lang:'zh-Hans', url:'https://www.example.com/zh/'}
+    ],
+    xdefault: 'https://www.example.com/'
+};
+
+// HTML特殊文字のエスケープ（属性値用）
+function esc(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// hreflang値の妥当性を判定
+// 形式: 言語(2-3文字小文字) [ - スクリプト(4文字) ] [ - 地域(2文字英字 or 3桁数字) ] または x-default
+function checkHreflang(v){
+    var val = (v||'').trim();
+    if (!val) return {level:'muted', msg:'hreflang値が未入力です'};
+    if (val.toLowerCase() === 'x-default') return {level:'ok', msg:'x-default（既定）として有効です'};
+    var re = /^[a-z]{2,3}(-[A-Z][a-z]{3})?(-([A-Z]{2}|[0-9]{3}))?$/;
+    if (re.test(val)) {
+        var parts = val.split('-');
+        var detail = '言語: ' + parts[0];
+        if (parts.length > 1) detail += ' / 地域・表記: ' + parts.slice(1).join('-');
+        return {level:'ok', msg:'有効な形式です（' + detail + '）'};
+    }
+    // よくある誤り: 大文字小文字の取り違え
+    var reLoose = /^[a-zA-Z]{2,3}(-[a-zA-Z]{2,4})?(-[a-zA-Z0-9]{2,3})?$/;
+    if (reLoose.test(val)) {
+        return {level:'warn', msg:'大文字小文字を確認してください（言語は小文字 ja、地域は大文字 US、例: en-US）'};
+    }
+    return {level:'warn', msg:'形式が不正です。言語コードまたは 言語-地域（例: ja, en-US, zh-Hans）で入力してください'};
+}
+
+// URLの簡易妥当性
+function checkUrl(u){
+    var val = (u||'').trim();
+    if (!val) return {level:'muted', msg:'URL未入力'};
+    if (/^https?:\/\/.+/.test(val)) return {level:'ok', msg:'絶対URL'};
+    return {level:'warn', msg:'絶対URL（https://～）で入力してください'};
+}
+
+function addRow(lang, url){
+    var list = document.getElementById('altList');
+    var row = document.createElement('div');
+    row.className = 'alt-row';
+    var inLang = document.createElement('input');
+    inLang.type = 'text'; inLang.className = 'mono lang'; inLang.placeholder = 'ja, en-US, zh-Hans';
+    inLang.value = lang || '';
+    inLang.oninput = render;
+    var inUrl = document.createElement('input');
+    inUrl.type = 'text'; inUrl.className = 'mono url'; inUrl.placeholder = 'https://www.example.com/en/';
+    inUrl.value = url || '';
+    inUrl.oninput = render;
+    var del = document.createElement('button');
+    del.className = 'del-btn del'; del.textContent = '×'; del.title = 'この行を削除';
+    del.onclick = function(){ list.removeChild(row); render(); };
+    var hint = document.createElement('div');
+    hint.className = 'hint muted';
+    row.appendChild(inLang); row.appendChild(inUrl); row.appendChild(del); row.appendChild(hint);
+    list.appendChild(row);
+    render();
+}
+
+function collectRows(){
+    var rows = document.querySelectorAll('#altList .alt-row');
+    var data = [];
+    rows.forEach(function(r){
+        var lang = r.querySelector('input.lang').value.trim();
+        var url = r.querySelector('input.url').value.trim();
+        data.push({lang:lang, url:url, el:r});
+    });
+    return data;
+}
+
+function render(){
+    var canonical = document.getElementById('canonicalUrl').value.trim();
+    var incCanonical = document.getElementById('includeCanonical').checked;
+    var incXDefault = document.getElementById('includeXDefault').checked;
+    var xdefaultUrl = document.getElementById('xDefaultUrl').value.trim();
+    document.getElementById('xDefaultField').style.display = incXDefault ? '' : 'none';
+
+    var rows = collectRows();
+
+    // 実データが空ならサンプルを使う
+    var usingSample = false;
+    var effCanonical = canonical;
+    var effRows = rows.filter(function(r){ return r.lang || r.url; });
+    var effXDefault = xdefaultUrl;
+    if (!effCanonical && effRows.length === 0) {
+        usingSample = true;
+        effCanonical = SAMPLE.canonical;
+        effRows = SAMPLE.alts.map(function(a){ return {lang:a.lang, url:a.url}; });
+        effXDefault = SAMPLE.xdefault;
+    }
+
+    // 出力の組み立て（link タグは素の文字列で安全に生成できる）
+    var lines = [];
+    if (incCanonical && effCanonical) {
+        lines.push('<link rel="canonical" href="' + esc(effCanonical) + '">');
+    }
+    effRows.forEach(function(r){
+        if (r.lang && r.url) {
+            lines.push('<link rel="alternate" hreflang="' + esc(r.lang) + '" href="' + esc(r.url) + '">');
+        }
+    });
+    if (incXDefault) {
+        var xd = effXDefault;
+        if (!xd) {
+            // 先頭の有効な代替URLを既定に
+            for (var i=0;i<effRows.length;i++){ if (effRows[i].url){ xd = effRows[i].url; break; } }
+        }
+        if (xd) {
+            lines.push('<link rel="alternate" hreflang="x-default" href="' + esc(xd) + '">');
+        }
+    }
+
+    var out = document.getElementById('output');
+    var text = lines.join('\n');
+    if (usingSample) {
+        text = '<!-- 下はサンプルです。上のフォームに入力すると置き換わります -->\n' + text;
+    }
+    out.value = text;
+
+    // 行ごとの妥当性ヒント
+    rows.forEach(function(r){
+        var hint = r.el.querySelector('.hint');
+        if (!r.lang && !r.url) { hint.className = 'hint muted'; hint.textContent = '言語コードとURLを入力してください'; return; }
+        var ch = checkHreflang(r.lang);
+        var cu = checkUrl(r.url);
+        var level = (ch.level === 'warn' || cu.level === 'warn') ? 'warn' : ((ch.level === 'ok' && cu.level === 'ok') ? 'ok' : 'muted');
+        hint.className = 'hint ' + level;
+        hint.textContent = ch.msg + ' ／ ' + cu.msg;
+    });
+
+    // 出力サマリの妥当性表示
+    var vbox = document.getElementById('validity');
+    var vlines = [];
+    var linkCount = lines.length;
+    vlines.push('<div class="v-item">生成タグ数: <span class="tag">' + linkCount + '</span> 件' + (usingSample ? '（サンプル表示中）' : '') + '</div>');
+    // 重複hreflangの検出
+    var seen = {}; var dup = [];
+    effRows.forEach(function(r){ if (r.lang){ var k = r.lang.toLowerCase(); if (seen[k]) { if (dup.indexOf(r.lang)<0) dup.push(r.lang); } seen[k]=true; } });
+    if (dup.length) {
+        vlines.push('<div class="v-item warn" style="color:var(--red)">⚠ 同じhreflang値が重複しています: <span class="tag">' + esc(dup.join(', ')) + '</span></div>');
+    }
+    // self参照の確認（canonicalが代替URLのいずれかと一致すると相互参照が成立しやすい）
+    var selfListed = effRows.some(function(r){ return r.url && effCanonical && r.url === effCanonical; });
+    if (effCanonical && effRows.length && !selfListed) {
+        vlines.push('<div class="v-item muted" style="color:var(--text3)">ヒント: canonicalのURLが代替URL一覧に含まれていません。各言語ページは自分自身をhreflangに含めるのが正しい形です。</div>');
+    }
+    vlines.push('<div class="v-item muted" style="color:var(--text3)">このタグ一式を全言語版ページの &lt;head&gt; に同一内容で設置すると、双方向（相互参照）が成立します。</div>');
+    vbox.innerHTML = vlines.join('');
+}
+
+function loadSample(){
+    document.getElementById('canonicalUrl').value = SAMPLE.canonical;
+    document.getElementById('xDefaultUrl').value = SAMPLE.xdefault;
+    document.getElementById('altList').innerHTML = '';
+    SAMPLE.alts.forEach(function(a){ addRow(a.lang, a.url); });
+    render();
+}
+
+function copyOutput(){
+    var out = document.getElementById('output');
+    out.select();
+    out.setSelectionRange(0, out.value.length);
+    var msg = document.getElementById('copiedMsg');
+    function done(ok){ msg.textContent = ok ? 'コピーしました' : 'コピーできませんでした（手動で選択してください）'; setTimeout(function(){ msg.textContent=''; }, 2000); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(out.value).then(function(){ done(true); }, function(){ try{ done(document.execCommand('copy')); }catch(e){ done(false); } });
+    } else {
+        try{ done(document.execCommand('copy')); }catch(e){ done(false); }
+    }
+}
+
+// 初期化: 空の入力行を2つ用意（入力ゼロでも出力にはサンプルが出る）
+addRow('', '');
+addRow('', '');
+render();
+</script>
+</body>
+</html>

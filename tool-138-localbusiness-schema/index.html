@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalBusiness 構造化データ生成（JSON-LD）| 店舗のローカルSEO・GEO対策【無料】</title>
+    <meta name="description" content="店舗・事業者の名称・住所・電話・営業時間・緯度経度を入力するだけで、schema.org LocalBusiness の JSON-LD 構造化データをリアルタイム生成する無料ツール。業種サブタイプ選択、曜日ごとの営業時間、空欄の自動除外に対応。ローカルSEO・GEO対策に。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:260px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:left}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .hours-row{display:grid;grid-template-columns:1.2fr 1fr 1fr auto;gap:8px;align-items:center;margin-bottom:8px}
+        .hours-row select,.hours-row input{padding:8px 10px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;outline:none;width:100%}
+        .hours-row .del{padding:8px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--red);font-size:0.8rem;cursor:pointer}
+        .hours-row .del:hover{border-color:var(--red)}
+        .add-btn{margin-top:8px;padding:8px 16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--accent);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .add-btn:hover{border-color:var(--accent)}
+        .output-box{position:relative}
+        pre.output{background:#1e1e35;color:#e8e8f5;border-radius:var(--radius);padding:20px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;line-height:1.6;overflow-x:auto;white-space:pre;margin-bottom:0}
+        .copy-btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif;margin-top:12px}
+        .copy-btn:hover{opacity:0.9}
+        .hints{list-style:none;margin-top:8px}
+        .hints li{font-size:0.8rem;padding:6px 0;color:var(--text2);display:flex;gap:8px;align-items:flex-start}
+        .hints li .ic{font-family:'JetBrains Mono',monospace;font-weight:700}
+        .hints li.ok .ic{color:var(--green)}
+        .hints li.warn .ic{color:var(--red)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-138-localbusiness-schema/">
+    <meta property="og:title" content="LocalBusiness 構造化データ生成（JSON-LD）| 店舗のローカルSEO・GEO対策【無料】">
+    <meta property="og:description" content="店舗・事業者情報を入力するだけで schema.org LocalBusiness の JSON-LD をリアルタイム生成。業種サブタイプ・営業時間・緯度経度に対応。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-138-localbusiness-schema/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="LocalBusiness 構造化データ生成（JSON-LD）【無料】">
+    <meta name="twitter:description" content="店舗・事業者情報から LocalBusiness の JSON-LD 構造化データをリアルタイム生成。ローカルSEO・GEO対策に。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"LocalBusiness 構造化データ生成ツール","description":"店舗・事業者情報から schema.org LocalBusiness の JSON-LD 構造化データをリアルタイム生成する無料ツール","url":"https://www.devtools-japan.com/tool-138-localbusiness-schema/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"LocalBusiness 構造化データ生成ツール","item":"https://www.devtools-japan.com/tool-138-localbusiness-schema/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"LocalBusiness 構造化データとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"LocalBusiness は schema.org が定義する、実店舗や地域に根ざした事業者を表す構造化データの型です。店名・住所・電話番号・営業時間・緯度経度などを JSON-LD 形式で記述してページに埋め込むと、検索エンジンが店舗情報を正確に理解しやすくなります。本ツールは入力内容から JSON-LD をリアルタイム生成し、そのままコピーして利用できます。"}},{"@type":"Question","name":"業種サブタイプはどれを選べばよいですか？","acceptedAnswer":{"@type":"Answer","text":"飲食店なら Restaurant、小売店なら Store、士業やコンサルなどのサービス業なら ProfessionalService といったように、事業内容に最も近い型を選びます。該当する具体的な型がない場合は汎用の LocalBusiness を選択すれば問題ありません。より具体的な型を選ぶほど、検索エンジンに業種を明確に伝えられます。"}},{"@type":"Question","name":"営業時間はどのように記述されますか？","acceptedAnswer":{"@type":"Answer","text":"曜日ごとに開始・終了時刻を入力すると、openingHoursSpecification 配列として dayOfWeek・opens・closes を持つオブジェクトが生成されます。同じ営業時間の曜日を複数行に分けて追加でき、定休日は行を追加しないことで表現します。時刻は24時間表記のHH:MM形式で出力されます。"}},{"@type":"Question","name":"空欄のフィールドはどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"入力しなかった項目は生成される JSON-LD から自動的に除外されます。必要な情報だけを埋めれば、余分な空プロパティを含まない綺麗な構造化データが得られます。住所は入力した項目だけで PostalAddress を構成し、緯度・経度は両方が入力された場合にのみ GeoCoordinates として出力されます。"}},{"@type":"Question","name":"生成した JSON-LD はどこに貼り付けますか？","acceptedAnswer":{"@type":"Answer","text":"生成されたコードはscriptタグで囲まれた形で出力されるので、その全体をコピーして対象ページの head 内、または body 内に貼り付けます。設置後は Google のリッチリザルトテストやスキーマ検証ツールで構文エラーがないかを確認することをおすすめします。すべての処理はブラウザ内で完結し、入力情報が外部に送信されることはありません。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>LocalBusiness 構造化データ生成</h1><p>店舗・事業者情報から schema.org LocalBusiness の JSON-LD をリアルタイム生成（ローカルSEO・GEO対策）</p></header>
+
+    <div class="card"><h3>基本情報</h3>
+        <div class="row"><label>店舗・事業者名 name</label><input type="text" id="bizName" placeholder="例: 渋谷カフェ ソレイユ" oninput="generate()"></div>
+        <div class="row"><label>業種サブタイプ @type</label><select id="bizType" onchange="generate()"></select></div>
+        <div class="row"><label>電話番号 telephone</label><input type="text" id="bizTel" placeholder="例: +81-3-1234-5678" oninput="generate()"></div>
+        <div class="row"><label>ウェブサイト url</label><input type="text" id="bizUrl" placeholder="例: https://example.com" oninput="generate()"></div>
+        <div class="row"><label>価格帯 priceRange</label><input type="text" id="bizPrice" placeholder="例: ¥¥ または 1000-3000円" oninput="generate()"></div>
+        <div class="row"><label>画像URL image</label><input type="text" id="bizImage" placeholder="例: https://example.com/photo.jpg" oninput="generate()"></div>
+    </div>
+
+    <div class="card"><h3>住所 address</h3>
+        <div class="row"><label>郵便番号 postalCode</label><input type="text" id="addrPostal" placeholder="例: 150-0002" oninput="generate()"></div>
+        <div class="row"><label>都道府県 addressRegion</label><input type="text" id="addrRegion" placeholder="例: 東京都" oninput="generate()"></div>
+        <div class="row"><label>市区町村 addressLocality</label><input type="text" id="addrLocality" placeholder="例: 渋谷区渋谷" oninput="generate()"></div>
+        <div class="row"><label>番地・建物 streetAddress</label><input type="text" id="addrStreet" placeholder="例: 1-2-3 ソレイユビル1F" oninput="generate()"></div>
+    </div>
+
+    <div class="card"><h3>位置情報 geo</h3>
+        <div class="row"><label>緯度 latitude</label><input type="text" id="geoLat" placeholder="例: 35.658034" oninput="generate()"></div>
+        <div class="row"><label>経度 longitude</label><input type="text" id="geoLng" placeholder="例: 139.701636" oninput="generate()"></div>
+    </div>
+
+    <div class="card"><h3>営業時間 openingHoursSpecification</h3>
+        <div id="hoursList"></div>
+        <button class="add-btn" onclick="addHoursRow()">＋ 営業時間の行を追加</button>
+    </div>
+
+    <div class="card"><h3>生成された JSON-LD 構造化データ</h3>
+        <div class="output-box">
+            <pre class="output" id="output">生成中...</pre>
+        </div>
+        <button class="copy-btn" onclick="copyOutput()" id="copyBtn">JSON-LD をコピー</button>
+        <ul class="hints" id="hints"></ul>
+    </div>
+
+    <div class="note">生成コードは application/ld+json のスクリプトタグで囲まれた形で出力されます。全体をコピーして対象ページの head 内または body 内に貼り付けてください。空欄の項目は自動的に除外され、緯度・経度は両方が入力された場合のみ出力されます。すべての処理はブラウザ内で完結し、入力情報が外部へ送信されることはありません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>LocalBusiness 構造化データ生成ツールの使い方</h2>
+        <p>店舗や事業者の情報を入力するだけで、schema.org が定義する LocalBusiness 型の JSON-LD 構造化データをリアルタイムで生成する無料ツールです。店名・住所・電話番号・営業時間・緯度経度・価格帯・画像といった項目を埋めていくと、検索エンジンが解釈しやすい形のマークアップが自動で組み上がります。インストールや会員登録は不要で、入力から生成・コピーまですべてブラウザ内で完結します。</p>
+        <p>使い方はシンプルです。まず「基本情報」で店名と業種サブタイプを選び、電話番号やウェブサイトを入力します。次に「住所」で郵便番号・都道府県・市区町村・番地を、「位置情報」で緯度と経度を入力します。「営業時間」では曜日ごとに開始・終了時刻を行として追加していきます。入力するたびに下部の JSON-LD が更新されるので、内容を確認しながら仕上げられます。完成したら「JSON-LD をコピー」ボタンで全体をコピーし、対象ページに貼り付けてください。</p>
+        <h3>ローカルSEO・GEO対策に</h3>
+        <p>実店舗や地域密着型のビジネスでは、検索エンジンに店舗情報を正確に伝えることが集客につながります。LocalBusiness 構造化データを設置すると、店名・営業時間・所在地・地図座標などの情報が機械可読な形で提供され、地域検索での可視性向上や、地図・音声アシスタント・生成AIによる回答での引用（いわゆる GEO対策）に役立ちます。まだ入力がない状態でもサンプルの JSON-LD が表示されるので、どんな出力になるかを先に確認できます。</p>
+
+        <h2>各フィールドの意味</h2>
+        <p>業種サブタイプ（@type）は、事業内容に最も近い型を選ぶことで検索エンジンに業種を明確に伝えます。飲食店なら Restaurant、小売店なら Store、士業やコンサルなどは ProfessionalService といった具合です。該当する具体的な型がなければ汎用の LocalBusiness を選べば問題ありません。住所は入力した項目だけで PostalAddress を構成し、addressCountry は日本（JP）として補われます。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>プロパティ</th><th>意味</th><th>例</th></tr>
+            <tr><td>name</td><td>店舗・事業者の名称</td><td>渋谷カフェ ソレイユ</td></tr>
+            <tr><td>address</td><td>所在地（PostalAddress）</td><td>東京都渋谷区渋谷1-2-3</td></tr>
+            <tr><td>telephone</td><td>電話番号（国番号推奨）</td><td>+81-3-1234-5678</td></tr>
+            <tr><td>geo</td><td>緯度・経度（GeoCoordinates）</td><td>35.658034 / 139.701636</td></tr>
+            <tr><td>openingHoursSpecification</td><td>曜日ごとの営業時間</td><td>Monday 09:00-18:00</td></tr>
+            <tr><td>priceRange</td><td>価格帯の目安</td><td>¥¥ / 1000-3000円</td></tr>
+        </table>
+        </div>
+        <h3>営業時間の記述について</h3>
+        <p>営業時間は曜日ごとに1行ずつ追加します。各行で曜日・開始時刻・終了時刻を選ぶと、openingHoursSpecification 配列に dayOfWeek・opens・closes を持つオブジェクトが追加されます。同じ営業時間の曜日は別々の行として追加し、定休日は行を作らないことで表現します。時刻は24時間表記のHH:MM形式で出力されるため、検索エンジンが確実に解釈できます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">LocalBusiness 構造化データとは何ですか？</div><div class="a">LocalBusiness は schema.org が定義する、実店舗や地域に根ざした事業者を表す構造化データの型です。店名・住所・電話番号・営業時間・緯度経度などを JSON-LD 形式で記述してページに埋め込むと、検索エンジンが店舗情報を正確に理解しやすくなります。本ツールは入力内容から JSON-LD をリアルタイム生成し、そのままコピーして利用できます。</div></div>
+        <div class="faq-item"><div class="q">業種サブタイプはどれを選べばよいですか？</div><div class="a">飲食店なら Restaurant、小売店なら Store、士業やコンサルなどのサービス業なら ProfessionalService といったように、事業内容に最も近い型を選びます。該当する具体的な型がない場合は汎用の LocalBusiness を選択すれば問題ありません。より具体的な型を選ぶほど、検索エンジンに業種を明確に伝えられます。</div></div>
+        <div class="faq-item"><div class="q">営業時間はどのように記述されますか？</div><div class="a">曜日ごとに開始・終了時刻を入力すると、openingHoursSpecification 配列として dayOfWeek・opens・closes を持つオブジェクトが生成されます。同じ営業時間の曜日を複数行に分けて追加でき、定休日は行を追加しないことで表現します。時刻は24時間表記のHH:MM形式で出力されます。</div></div>
+        <div class="faq-item"><div class="q">空欄のフィールドはどうなりますか？</div><div class="a">入力しなかった項目は生成される JSON-LD から自動的に除外されます。必要な情報だけを埋めれば、余分な空プロパティを含まない綺麗な構造化データが得られます。住所は入力した項目だけで PostalAddress を構成し、緯度・経度は両方が入力された場合にのみ GeoCoordinates として出力されます。</div></div>
+        <div class="faq-item"><div class="q">生成した JSON-LD はどこに貼り付けますか？</div><div class="a">生成されたコードはスクリプトタグで囲まれた形で出力されるので、その全体をコピーして対象ページの head 内、または body 内に貼り付けます。設置後は Google のリッチリザルトテストやスキーマ検証ツールで構文エラーがないかを確認することをおすすめします。すべての処理はブラウザ内で完結し、入力情報が外部に送信されることはありません。</div></div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧へ</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// 業種サブタイプ一覧
+var TYPES = [
+    'LocalBusiness','Restaurant','CafeOrCoffeeShop','Bakery','BarOrPub','FoodEstablishment',
+    'Store','ClothingStore','GroceryStore','ConvenienceStore','BookStore','HardwareStore',
+    'ProfessionalService','LegalService','FinancialService','AccountingService',
+    'MedicalBusiness','Dentist','Physician','Pharmacy',
+    'BeautySalon','HairSalon','HealthAndBeautyBusiness','DaySpa',
+    'AutomotiveBusiness','AutoRepair','GasStation',
+    'LodgingBusiness','Hotel','RealEstateAgent','TravelAgency',
+    'EducationalOrganization','ChildCare','SportsActivityLocation','EntertainmentBusiness'
+];
+// 曜日一覧
+var DAYS = [
+    {v:'Monday', ja:'月曜'},
+    {v:'Tuesday', ja:'火曜'},
+    {v:'Wednesday', ja:'水曜'},
+    {v:'Thursday', ja:'木曜'},
+    {v:'Friday', ja:'金曜'},
+    {v:'Saturday', ja:'土曜'},
+    {v:'Sunday', ja:'日曜'}
+];
+
+// トークン分割で生のスクリプトタグを素書きしない
+var OPEN_TAG = '<' + 'script type="application/ld+json">';
+var CLOSE_TAG = '</' + 'script>';
+
+// サンプル値（入力ゼロ時の出力に使用）
+var SAMPLE = {
+    type: 'Restaurant',
+    name: '渋谷カフェ ソレイユ',
+    tel: '+81-3-1234-5678',
+    url: 'https://example.com',
+    price: '¥¥',
+    image: 'https://example.com/photo.jpg',
+    postal: '150-0002',
+    region: '東京都',
+    locality: '渋谷区渋谷',
+    street: '1-2-3 ソレイユビル1F',
+    lat: '35.658034',
+    lng: '139.701636',
+    hours: [
+        {day:'Monday', opens:'09:00', closes:'18:00'},
+        {day:'Saturday', opens:'10:00', closes:'20:00'}
+    ]
+};
+
+// 業種セレクトを構築
+(function(){
+    var sel = document.getElementById('bizType');
+    for (var i=0;i<TYPES.length;i++){
+        var o = document.createElement('option');
+        o.value = TYPES[i];
+        o.textContent = TYPES[i];
+        sel.appendChild(o);
+    }
+})();
+
+function addHoursRow(day, opens, closes){
+    var list = document.getElementById('hoursList');
+    var wrap = document.createElement('div');
+    wrap.className = 'hours-row';
+    var sel = document.createElement('select');
+    for (var i=0;i<DAYS.length;i++){
+        var o = document.createElement('option');
+        o.value = DAYS[i].v;
+        o.textContent = DAYS[i].ja;
+        sel.appendChild(o);
+    }
+    if (day) sel.value = day;
+    sel.onchange = generate;
+    var openIn = document.createElement('input');
+    openIn.type = 'time';
+    openIn.value = opens || '09:00';
+    openIn.oninput = generate;
+    var closeIn = document.createElement('input');
+    closeIn.type = 'time';
+    closeIn.value = closes || '18:00';
+    closeIn.oninput = generate;
+    var del = document.createElement('button');
+    del.className = 'del';
+    del.textContent = '削除';
+    del.onclick = function(){ wrap.parentNode.removeChild(wrap); generate(); };
+    wrap.appendChild(sel);
+    wrap.appendChild(openIn);
+    wrap.appendChild(closeIn);
+    wrap.appendChild(del);
+    list.appendChild(wrap);
+    generate();
+}
+
+function collectHours(){
+    var rows = document.querySelectorAll('#hoursList .hours-row');
+    var out = [];
+    for (var i=0;i<rows.length;i++){
+        var sel = rows[i].querySelector('select');
+        var inputs = rows[i].querySelectorAll('input');
+        var day = sel.value;
+        var opens = inputs[0].value;
+        var closes = inputs[1].value;
+        if (day && opens && closes){
+            out.push({day:day, opens:opens, closes:closes});
+        }
+    }
+    return out;
+}
+
+function val(id){ var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+
+function buildObject(){
+    var type = val('bizType') || 'LocalBusiness';
+    var name = val('bizName');
+    var tel = val('bizTel');
+    var url = val('bizUrl');
+    var price = val('bizPrice');
+    var image = val('bizImage');
+    var postal = val('addrPostal');
+    var region = val('addrRegion');
+    var locality = val('addrLocality');
+    var street = val('addrStreet');
+    var lat = val('geoLat');
+    var lng = val('geoLng');
+    var hours = collectHours();
+
+    // 入力がゼロならサンプルを利用
+    var anyInput = name||tel||url||price||image||postal||region||locality||street||lat||lng||hours.length;
+    var usingSample = false;
+    if (!anyInput){
+        usingSample = true;
+        type = SAMPLE.type;
+        name = SAMPLE.name; tel = SAMPLE.tel; url = SAMPLE.url; price = SAMPLE.price; image = SAMPLE.image;
+        postal = SAMPLE.postal; region = SAMPLE.region; locality = SAMPLE.locality; street = SAMPLE.street;
+        lat = SAMPLE.lat; lng = SAMPLE.lng; hours = SAMPLE.hours.slice();
+    }
+
+    var obj = {};
+    obj['@context'] = 'https://schema.org';
+    obj['@type'] = type;
+    if (name) obj.name = name;
+    if (image) obj.image = image;
+    if (url) obj.url = url;
+    if (tel) obj.telephone = tel;
+    if (price) obj.priceRange = price;
+
+    var addr = {};
+    if (street) addr.streetAddress = street;
+    if (locality) addr.addressLocality = locality;
+    if (region) addr.addressRegion = region;
+    if (postal) addr.postalCode = postal;
+    var addrKeys = 0; for (var k in addr){ if (addr.hasOwnProperty(k)) addrKeys++; }
+    if (addrKeys > 0){
+        var address = {'@type':'PostalAddress'};
+        if (addr.streetAddress) address.streetAddress = addr.streetAddress;
+        if (addr.addressLocality) address.addressLocality = addr.addressLocality;
+        if (addr.addressRegion) address.addressRegion = addr.addressRegion;
+        if (addr.postalCode) address.postalCode = addr.postalCode;
+        address.addressCountry = 'JP';
+        obj.address = address;
+    }
+
+    if (lat && lng){
+        obj.geo = {'@type':'GeoCoordinates','latitude':lat,'longitude':lng};
+    }
+
+    if (hours.length){
+        var specs = [];
+        for (var i=0;i<hours.length;i++){
+            specs.push({
+                '@type':'OpeningHoursSpecification',
+                'dayOfWeek':'https://schema.org/' + hours[i].day,
+                'opens':hours[i].opens,
+                'closes':hours[i].closes
+            });
+        }
+        obj.openingHoursSpecification = specs;
+    }
+
+    return {obj:obj, usingSample:usingSample};
+}
+
+function buildHints(obj, usingSample){
+    var hints = [];
+    if (usingSample){
+        hints.push({ok:false,txt:'現在はサンプル出力です。上のフォームに情報を入力すると内容が反映されます。'});
+    }
+    hints.push({ok: !!obj.name, txt: obj.name ? '店名 name が設定されています。' : '店名 name は必須級です。入力を推奨します。'});
+    hints.push({ok: !!obj.address, txt: obj.address ? '住所 address が設定されています。' : '住所 address は店舗の特定に重要です。'});
+    hints.push({ok: !!obj.telephone, txt: obj.telephone ? '電話番号 telephone が設定されています。' : '電話番号 telephone の入力を推奨します（国番号 +81 推奨）。'});
+    hints.push({ok: !!obj.geo, txt: obj.geo ? '緯度・経度 geo が設定されています。' : '緯度・経度 geo は地図表示に有効です（両方入力で出力）。'});
+    hints.push({ok: !!obj.openingHoursSpecification, txt: obj.openingHoursSpecification ? '営業時間 openingHoursSpecification が設定されています。' : '営業時間を追加すると検索での表示が充実します。'});
+    return hints;
+}
+
+function generate(){
+    var res = buildObject();
+    var jsonStr = JSON.stringify(res.obj, null, 2);
+    var wrapped = OPEN_TAG + '\n' + jsonStr + '\n' + CLOSE_TAG;
+    document.getElementById('output').textContent = wrapped;
+
+    var hints = buildHints(res.obj, res.usingSample);
+    var ul = document.getElementById('hints');
+    ul.innerHTML = '';
+    for (var i=0;i<hints.length;i++){
+        var li = document.createElement('li');
+        li.className = hints[i].ok ? 'ok' : 'warn';
+        var ic = document.createElement('span');
+        ic.className = 'ic';
+        ic.textContent = hints[i].ok ? '✓' : '!';
+        var tx = document.createElement('span');
+        tx.textContent = hints[i].txt;
+        li.appendChild(ic);
+        li.appendChild(tx);
+        ul.appendChild(li);
+    }
+}
+
+function copyOutput(){
+    var text = document.getElementById('output').textContent;
+    var btn = document.getElementById('copyBtn');
+    function done(){ var old = btn.textContent; btn.textContent = 'コピーしました！'; setTimeout(function(){ btn.textContent = old; }, 1500); }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text); done(); });
+    } else {
+        fallbackCopy(text); done();
+    }
+}
+function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch(e){}
+    document.body.removeChild(ta);
+}
+
+// 初期営業時間の行を1つ用意
+addHoursRow('Monday','09:00','18:00');
+generate();
+</script>
+</body>
+</html>

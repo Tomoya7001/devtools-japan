@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google SERP（検索結果）プレビュー | タイトル・meta descriptionの見え方を再現【無料】</title>
+    <meta name="description" content="タイトル・URL・meta descriptionを入力するだけで、Google検索結果での見た目をPC・モバイル両方でリアルタイム再現。見切れ（省略記号）やピクセル幅・文字数の目安、パンくず風URL、日付プレフィックスもシミュレーションできる無料ツールです。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .field{margin-bottom:16px}
+        .field:last-child{margin-bottom:0}
+        .field label{display:block;font-size:0.8rem;color:var(--text2);margin-bottom:6px}
+        .field input,.field textarea{width:100%;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;resize:vertical}
+        .field textarea{min-height:78px;line-height:1.6}
+        .field input:focus,.field textarea:focus{border-color:var(--accent)}
+        .meter{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;font-size:0.72rem;color:var(--text3)}
+        .meter .chip{display:inline-flex;align-items:center;gap:5px;background:#f7f8fb;border:1px solid var(--border);border-radius:999px;padding:3px 10px;font-family:'JetBrains Mono',monospace}
+        .meter .chip .dot{width:7px;height:7px;border-radius:50%;background:var(--text3)}
+        .meter .chip.ok .dot{background:var(--green)}
+        .meter .chip.warn .dot{background:var(--red)}
+        .meter .chip.ok{color:var(--green);border-color:rgba(34,197,94,0.35)}
+        .meter .chip.warn{color:var(--red);border-color:rgba(239,68,68,0.35)}
+        .opt-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:4px}
+        .opt-row label{display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--text2);cursor:pointer}
+        .opt-row input[type=checkbox]{width:auto}
+        .tabs{display:flex;gap:8px;margin-bottom:16px}
+        .tabs button{flex:1;padding:9px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.82rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .tabs button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+        .serp-stage{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px 20px}
+        .serp-stage.mobile{max-width:420px;margin:0 auto}
+        .serp-head{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+        .favicon{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;flex-shrink:0;border:1px solid var(--border)}
+        .serp-site{line-height:1.25;min-width:0}
+        .serp-site .name{font-size:0.82rem;color:#202124;font-weight:400}
+        .serp-crumb{font-size:0.75rem;color:#4d5156;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+        .serp-title{color:#1a0dab;font-size:1.28rem;line-height:1.3;margin:3px 0 3px;font-weight:400;font-family:arial,sans-serif}
+        .serp-stage.mobile .serp-title{font-size:1.1rem}
+        .serp-desc{color:#4d5156;font-size:0.9rem;line-height:1.58;font-family:arial,sans-serif}
+        .serp-desc .date{color:#70757a}
+        .serp-empty{color:var(--text3);font-size:0.8rem}
+        .legend{font-size:0.72rem;color:var(--text3);margin-top:12px;line-height:1.7}
+        .share-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+        .share-row button{padding:8px 16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .share-row button:hover{border-color:var(--accent);color:var(--accent)}
+        @media(max-width:600px){.tabs{flex-direction:column}}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-134-serp-preview/">
+    <meta property="og:title" content="Google SERP（検索結果）プレビュー | 検索結果の見え方を再現【無料】">
+    <meta property="og:description" content="タイトル・URL・meta descriptionの検索結果での見え方をPC・モバイル両方で再現。見切れ・ピクセル幅・文字数の目安も表示。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-134-serp-preview/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Google SERPプレビュー【無料】">
+    <meta name="twitter:description" content="検索結果でのタイトル・meta descriptionの見え方をPC・モバイルで再現。見切れやピクセル幅も確認。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Google SERP（検索結果）プレビュー","description":"タイトル・URL・meta descriptionの検索結果での見え方をPC・モバイル両方で再現する無料ツール","url":"https://www.devtools-japan.com/tool-134-serp-preview/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"Google SERP（検索結果）プレビュー","item":"https://www.devtools-japan.com/tool-134-serp-preview/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"SERPプレビューとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"SERPプレビューは、ページのタイトル・URL・meta descriptionがGoogleの検索結果ページ（SERP）でどのように表示されるかを事前に再現して確認するためのツールです。実際に公開する前に、見出しリンクの色や大きさ、スニペット（説明文）の見え方、URLのパンくず表示をブラウザ上でシミュレーションできます。"}},{"@type":"Question","name":"タイトルやdescriptionが見切れる基準は？","acceptedAnswer":{"@type":"Answer","text":"Googleは文字数ではなくピクセル幅で表示を打ち切ります。本ツールではPC表示でタイトルを約600px、meta descriptionを約920pxを目安に、超えた部分を省略記号（…）で切り詰めてシミュレーションします。実際の表示は端末・フォント・検索語によって変動するため、あくまで目安としてご利用ください。"}},{"@type":"Question","name":"PCとモバイルで表示は変わりますか？","acceptedAnswer":{"@type":"Answer","text":"はい。モバイルは表示領域が狭く、タイトルやスニペットが折り返して行数で制限されるなど、PCとは見え方が異なります。本ツールはPC・モバイルの両方のプレビューを切り替えて確認できるため、それぞれで見切れが起きないかをチェックできます。"}},{"@type":"Question","name":"メタ長チェッカー（文字数カウント）との違いは？","acceptedAnswer":{"@type":"Answer","text":"文字数カウンター系のツールは主に長さ（文字数・ピクセル幅）の判定に重点があります。本SERPプレビューは、実際の検索結果に近い見た目の再現に重点を置き、リンク色・URLのパンくず・favicon・日付プレフィックス・見切れの位置までを視覚的に確認できる点が異なります。長さの目安インジケータも補助的に備えています。"}},{"@type":"Question","name":"入力した内容はサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。タイトル・URL・descriptionの処理とプレビュー描画はすべてお使いのブラウザ内（クライアントサイド）で完結し、入力内容がサーバーへ送信・保存されることはありません。共有用にURLのクエリへ内容を保持するオプションを使った場合のみ、生成したURL自体に内容が含まれます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>Google SERPプレビュー</h1><p>検索結果でのタイトル・meta descriptionの見え方を再現</p></header>
+
+    <div class="card"><h3>スニペットを入力</h3>
+        <div class="field">
+            <label for="inTitle">タイトル（title / og:title）</label>
+            <input type="text" id="inTitle" placeholder="ページのタイトルを入力" oninput="render()">
+            <div class="meter" id="mTitle"></div>
+        </div>
+        <div class="field">
+            <label for="inUrl">URL</label>
+            <input type="text" id="inUrl" placeholder="https://example.com/page/" oninput="render()">
+            <div class="meter" id="mUrl"></div>
+        </div>
+        <div class="field">
+            <label for="inDesc">meta description（説明文）</label>
+            <textarea id="inDesc" placeholder="検索結果に表示される説明文を入力" oninput="render()"></textarea>
+            <div class="meter" id="mDesc"></div>
+        </div>
+        <div class="field">
+            <label>オプション</label>
+            <div class="opt-row">
+                <label><input type="checkbox" id="optDate" onchange="render()"> 日付プレフィックスを表示</label>
+                <label><input type="checkbox" id="optSitename" checked onchange="render()"> サイト名・faviconを表示</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="card"><h3>プレビュー</h3>
+        <div class="tabs">
+            <button id="tabPc" class="active" onclick="setDevice('pc')">PC（デスクトップ）</button>
+            <button id="tabMobile" onclick="setDevice('mobile')">モバイル</button>
+        </div>
+        <div class="serp-stage" id="stage">
+            <div class="serp-head" id="serpHead">
+                <div class="favicon" id="favicon">D</div>
+                <div class="serp-site">
+                    <div class="name" id="serpName">example.com</div>
+                    <div class="serp-crumb" id="serpCrumb">https://example.com</div>
+                </div>
+            </div>
+            <div class="serp-title" id="serpTitle">タイトルが入ります</div>
+            <div class="serp-desc" id="serpDesc"><span class="date" id="serpDate"></span><span id="serpDescText">説明文が入ります</span></div>
+        </div>
+        <div class="legend">リンク見出し・URLのパンくず・スニペットの見え方をシミュレーションします。<span style="color:var(--green)">緑</span>のインジケータは目安の範囲内、<span style="color:var(--red)">赤</span>は見切れの可能性を示します。表示は端末・フォント・検索語で変動するため目安です。</div>
+        <div class="share-row">
+            <button onclick="copyShareUrl()" id="shareBtn">共有用URLをコピー</button>
+            <button onclick="loadSample()">サンプルを再読み込み</button>
+        </div>
+    </div>
+
+    <div class="note">見切れの目安：PC表示でタイトルは約600px、meta descriptionは約920pxを超えると省略記号（…）で切り詰められます。Googleは文字数ではなくピクセル幅で表示を打ち切るため、全角・半角の混在で見え方が変わります。モバイルは表示幅が狭く折り返しで制限されます。あくまで概算です。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>SERPプレビューツールの使い方</h2>
+        <p>SERPプレビューは、ページのタイトル・URL・meta descriptionを入力するだけで、Googleの検索結果ページ（SERP）での見た目をPC・モバイルの両方でリアルタイムに再現する無料ツールです。公開前のページや既存ページのスニペットが検索結果でどう見えるかを、青いリンク見出し・URLのパンくず表示・グレーの説明文まで含めて視覚的に確認できます。インストールや会員登録は不要で、入力内容の処理と描画はすべてお使いのブラウザ内で完結します。</p>
+        <p>使い方はかんたんです。「タイトル」「URL」「meta description」の各欄に内容を入力すると、下のプレビュー領域に検索結果の見た目が即座に反映されます。タブでPCとモバイルを切り替えれば、それぞれの表示幅での見切れを確認できます。何も入力していない状態でもサンプルが表示されるので、まず動きを試してから自分の内容に差し替えるとスムーズです。</p>
+        <h3>見切れ（省略記号）のシミュレーション</h3>
+        <p>Googleはタイトルや説明文を文字数ではなくピクセル幅で打ち切ります。本ツールはPC表示でタイトルを約600px、meta descriptionを約920pxを目安に、超えた部分を省略記号（…）に置き換えて表示します。入力欄の下には現在の文字数とおおよそのピクセル幅を示すインジケータがあり、目安の範囲内なら緑、超過していれば赤で表示されるため、見切れを避けたい場合の調整に役立ちます。</p>
+        <h3>URL・パンくず・オプション表示</h3>
+        <p>入力したURLは、実際の検索結果に近いパンくず風の表示（ドメイン › 階層 › 階層）に変換して再現します。サイト名とfaviconの簡易表示、公開日を先頭に付ける日付プレフィックスのオプションも用意しており、ニュース記事やブログのような日付付きスニペットの見え方も確認できます。共有用URLをコピーすると入力内容をクエリに保持でき、チームでのレビューにも便利です。</p>
+
+        <h2>メタ長チェッカーとの違い</h2>
+        <p>文字数をカウントするメタ長チェッカー系のツールは、タイトルやdescriptionが推奨の長さに収まっているかという「長さの判定」が主な目的です。一方このSERPプレビューは、実際の検索結果に近い「見た目の再現」に重点を置いています。リンクの色や大きさ、URLのパンくず、favicon、日付、そして見切れがどの位置で起きるかを目で確認できるため、数値だけでは分かりにくい実際の印象をチェックできます。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>要素</th><th>PC表示の目安</th><th>ポイント</th></tr>
+            <tr><td>タイトル</td><td>約600px</td><td>超過分は省略記号で見切れ。前半に重要語を配置</td></tr>
+            <tr><td>meta description</td><td>約920px</td><td>クリックを促す要約。見切れても意味が通る順序に</td></tr>
+            <tr><td>URL</td><td>パンくず表示</td><td>階層が深いと省略。分かりやすい構造が有利</td></tr>
+            <tr><td>モバイル</td><td>折り返し中心</td><td>幅が狭く行数で制限。PCと別に要確認</td></tr>
+        </table>
+        </div>
+        <p>なお、実際の検索結果はGoogle側の判断でタイトルや説明文が書き換えられたり、検索語に応じてスニペットが動的に生成されたりすることがあります。本ツールの表示はあくまで入力内容に基づく目安であり、実際の表示を保証するものではありません。フォントや端末による幅の差もあるため、余裕を持った設計をおすすめします。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">SERPプレビューとは何ですか？</div><div class="a">SERPプレビューは、ページのタイトル・URL・meta descriptionがGoogleの検索結果ページ（SERP）でどのように表示されるかを事前に再現して確認するためのツールです。実際に公開する前に、見出しリンクの色や大きさ、スニペット（説明文）の見え方、URLのパンくず表示をブラウザ上でシミュレーションできます。</div></div>
+        <div class="faq-item"><div class="q">タイトルやdescriptionが見切れる基準は？</div><div class="a">Googleは文字数ではなくピクセル幅で表示を打ち切ります。本ツールではPC表示でタイトルを約600px、meta descriptionを約920pxを目安に、超えた部分を省略記号（…）で切り詰めてシミュレーションします。実際の表示は端末・フォント・検索語によって変動するため、あくまで目安としてご利用ください。</div></div>
+        <div class="faq-item"><div class="q">PCとモバイルで表示は変わりますか？</div><div class="a">はい。モバイルは表示領域が狭く、タイトルやスニペットが折り返して行数で制限されるなど、PCとは見え方が異なります。本ツールはPC・モバイルの両方のプレビューを切り替えて確認できるため、それぞれで見切れが起きないかをチェックできます。</div></div>
+        <div class="faq-item"><div class="q">メタ長チェッカー（文字数カウント）との違いは？</div><div class="a">文字数カウンター系のツールは主に長さ（文字数・ピクセル幅）の判定に重点があります。本SERPプレビューは、実際の検索結果に近い見た目の再現に重点を置き、リンク色・URLのパンくず・favicon・日付プレフィックス・見切れの位置までを視覚的に確認できる点が異なります。長さの目安インジケータも補助的に備えています。</div></div>
+        <div class="faq-item"><div class="q">入力した内容はサーバーに送信されますか？</div><div class="a">いいえ。タイトル・URL・descriptionの処理とプレビュー描画はすべてお使いのブラウザ内（クライアントサイド）で完結し、入力内容がサーバーへ送信・保存されることはありません。共有用にURLのクエリへ内容を保持するオプションを使った場合のみ、生成したURL自体に内容が含まれます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-131-meta-length/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">メタ長チェッカー</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ===== SERP Preview logic (all client-side) =====
+var device = 'pc';
+var SAMPLE = {
+    title: '無料オンラインツール集 | DevTools Japan（デブツールズ ジャパン）',
+    url: 'https://www.devtools-japan.com/tools/seo/',
+    desc: 'エンジニア・ブロガー・マーケター向けの無料オンラインツールを多数公開。SEO・日付計算・単位変換・テキスト整形などをブラウザだけで手早く利用できます。会員登録は不要です。'
+};
+
+// Pixel-width limits (approx, Google-like)
+var LIMIT = {
+    title: { pc: 600, mobile: 490 },
+    desc:  { pc: 920, mobile: 830 }
+};
+
+// canvas for pixel measurement
+var _cv = document.createElement('canvas');
+var _ctx = _cv.getContext('2d');
+function measure(text, fontPx){
+    _ctx.font = fontPx + 'px arial, "Noto Sans JP", sans-serif';
+    return Math.round(_ctx.measureText(text).width);
+}
+
+// truncate by pixel width, append ellipsis when cut
+function truncatePx(text, fontPx, limitPx){
+    if (measure(text, fontPx) <= limitPx) return { text: text, cut: false };
+    var ell = '…';
+    var lo = 0, hi = text.length;
+    while (lo < hi){
+        var mid = Math.ceil((lo + hi) / 2);
+        if (measure(text.slice(0, mid) + ell, fontPx) <= limitPx) lo = mid; else hi = mid - 1;
+    }
+    return { text: text.slice(0, lo).replace(/\s+$/, '') + ell, cut: true };
+}
+
+function esc(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// parse URL into { host, crumb, letter }
+function parseUrl(raw){
+    var u = (raw || '').trim();
+    if (!u) return null;
+    var clean = u.replace(/^https?:\/\//i, '').replace(/^www\./i, '');
+    var slash = clean.indexOf('/');
+    var host = slash === -1 ? clean : clean.slice(0, slash);
+    var rest = slash === -1 ? '' : clean.slice(slash + 1);
+    host = host.replace(/\/+$/,'');
+    var parts = rest.split('/').filter(function(p){ return p.length > 0; });
+    parts = parts.map(function(p){ try { return decodeURIComponent(p); } catch(e){ return p; } });
+    var crumb = host + (parts.length ? ' › ' + parts.join(' › ') : '');
+    var scheme = /^http:/i.test(u) ? 'http' : 'https';
+    var letter = (host.replace(/^www\./,'')[0] || 'D').toUpperCase();
+    return { host: host, crumb: crumb, scheme: scheme, letter: letter, full: u };
+}
+
+function dateStr(){
+    var d = new Date();
+    var y = d.getFullYear();
+    var m = d.getMonth() + 1;
+    var day = d.getDate();
+    return y + '年' + m + '月' + day + '日';
+}
+
+function setDevice(dev){
+    device = dev;
+    document.getElementById('tabPc').classList.toggle('active', dev === 'pc');
+    document.getElementById('tabMobile').classList.toggle('active', dev === 'mobile');
+    var stage = document.getElementById('stage');
+    stage.classList.toggle('mobile', dev === 'mobile');
+    render();
+}
+
+function chip(label, value, ok){
+    var cls = ok ? 'ok' : 'warn';
+    return '<span class="chip ' + cls + '"><span class="dot"></span>' + esc(label) + ' ' + esc(value) + '</span>';
+}
+
+function render(){
+    var tRaw = document.getElementById('inTitle').value;
+    var uRaw = document.getElementById('inUrl').value;
+    var dRaw = document.getElementById('inDesc').value;
+    var showDate = document.getElementById('optDate').checked;
+    var showSite = document.getElementById('optSitename').checked;
+
+    var usingSample = (!tRaw && !uRaw && !dRaw);
+    var title = tRaw || (usingSample ? SAMPLE.title : '');
+    var url = uRaw || (usingSample ? SAMPLE.url : '');
+    var desc = dRaw || (usingSample ? SAMPLE.desc : '');
+
+    var titleFont = device === 'pc' ? 20 : 18;
+    var descFont = device === 'pc' ? 14 : 13.5;
+    var tLimit = LIMIT.title[device];
+    var dLimit = LIMIT.desc[device];
+
+    // ---- title ----
+    var titleEl = document.getElementById('serpTitle');
+    if (title){
+        var tr = truncatePx(title, titleFont, tLimit);
+        titleEl.textContent = tr.text;
+        titleEl.style.color = '#1a0dab';
+    } else {
+        titleEl.textContent = '（タイトル未入力）';
+        titleEl.style.color = '#9498b0';
+    }
+
+    // ---- url / head ----
+    var head = document.getElementById('serpHead');
+    var parsed = parseUrl(url);
+    if (showSite && parsed){
+        head.style.display = 'flex';
+        document.getElementById('favicon').textContent = parsed.letter;
+        document.getElementById('serpName').textContent = parsed.host;
+        var crumbFull = parsed.scheme + '://' + parsed.crumb;
+        var cr = truncatePx(crumbFull, 12, device === 'pc' ? 560 : 380);
+        document.getElementById('serpCrumb').textContent = cr.text;
+    } else if (parsed){
+        head.style.display = 'flex';
+        document.getElementById('favicon').textContent = parsed.letter;
+        document.getElementById('serpName').textContent = parsed.host;
+        document.getElementById('serpCrumb').textContent = parsed.scheme + '://' + parsed.crumb;
+    } else {
+        head.style.display = 'none';
+    }
+
+    // ---- description ----
+    var dateEl = document.getElementById('serpDate');
+    var descTextEl = document.getElementById('serpDescText');
+    if (showDate){
+        dateEl.textContent = dateStr() + ' — ';
+    } else {
+        dateEl.textContent = '';
+    }
+    if (desc){
+        var prefix = showDate ? (dateStr() + ' — ') : '';
+        var full = prefix + desc;
+        var dr = truncatePx(full, descFont, dLimit);
+        // strip the prefix back out for span separation
+        if (showDate && dr.text.indexOf(prefix) === 0){
+            descTextEl.textContent = dr.text.slice(prefix.length);
+        } else {
+            dateEl.textContent = '';
+            descTextEl.textContent = dr.text;
+        }
+        descTextEl.style.color = '#4d5156';
+    } else {
+        dateEl.textContent = '';
+        descTextEl.textContent = '（説明文未入力）';
+        descTextEl.style.color = '#9498b0';
+    }
+
+    // ---- meters ----
+    var tW = title ? measure(title, 20) : 0;
+    document.getElementById('mTitle').innerHTML =
+        chip('文字数', (title ? title.length : 0) + '字', title.length >= 15 && title.length <= 40) +
+        chip('幅', tW + 'px', tW > 0 && tW <= LIMIT.title.pc);
+
+    var pu = parseUrl(url);
+    document.getElementById('mUrl').innerHTML =
+        chip('ドメイン', pu ? pu.host : '未入力', !!pu);
+
+    var dW = desc ? measure(desc, 14) : 0;
+    document.getElementById('mDesc').innerHTML =
+        chip('文字数', (desc ? desc.length : 0) + '字', desc.length >= 60 && desc.length <= 120) +
+        chip('幅', dW + 'px', dW > 0 && dW <= LIMIT.desc.pc);
+}
+
+function loadSample(){
+    document.getElementById('inTitle').value = '';
+    document.getElementById('inUrl').value = '';
+    document.getElementById('inDesc').value = '';
+    render();
+}
+
+function copyShareUrl(){
+    var params = new URLSearchParams();
+    var t = document.getElementById('inTitle').value;
+    var u = document.getElementById('inUrl').value;
+    var d = document.getElementById('inDesc').value;
+    if (t) params.set('t', t);
+    if (u) params.set('u', u);
+    if (d) params.set('d', d);
+    if (document.getElementById('optDate').checked) params.set('date', '1');
+    var base = location.origin + location.pathname;
+    var shareUrl = params.toString() ? base + '?' + params.toString() : base;
+    var btn = document.getElementById('shareBtn');
+    function done(){ btn.textContent = 'コピーしました'; setTimeout(function(){ btn.textContent = '共有用URLをコピー'; }, 1600); }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(shareUrl).then(done, function(){ window.prompt('共有用URL', shareUrl); });
+    } else {
+        window.prompt('共有用URL', shareUrl);
+    }
+}
+
+// restore from query string
+(function initFromQuery(){
+    var q = new URLSearchParams(location.search);
+    if (q.get('t')) document.getElementById('inTitle').value = q.get('t');
+    if (q.get('u')) document.getElementById('inUrl').value = q.get('u');
+    if (q.get('d')) document.getElementById('inDesc').value = q.get('d');
+    if (q.get('date') === '1') document.getElementById('optDate').checked = true;
+})();
+
+render();
+</script>
+</body>
+</html>

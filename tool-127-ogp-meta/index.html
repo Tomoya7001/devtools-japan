@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OGP・Twitterカード メタタグ生成ツール | og:title/og:image を自動生成【無料】</title>
+    <meta name="description" content="タイトル・説明・URL・画像URLを入力するだけで、OGP（og:title/og:description/og:image/og:url/og:type/og:site_name）とTwitterカード（twitter:card/twitter:title/twitter:image/twitter:site）の&lt;meta&gt;タグ一式を自動生成する無料ツール。プレビュー付き・ワンクリックコピー・ブラウザ完結。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .field{margin-bottom:14px}
+        .field:last-child{margin-bottom:0}
+        .field label{display:block;font-size:0.8rem;color:var(--text2);margin-bottom:6px}
+        .field label .hint{color:var(--text3);font-size:0.72rem;margin-left:6px}
+        .field input,.field textarea,.field select{width:100%;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .field textarea{resize:vertical;min-height:64px;line-height:1.6}
+        .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--accent)}
+        .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        @media(max-width:600px){.field-grid{grid-template-columns:1fr}}
+        .seg{display:flex;gap:8px;flex-wrap:wrap}
+        .seg button{flex:1;min-width:120px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.82rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .seg button.active{border-color:var(--accent);color:var(--accent);background:var(--accent-dim);font-weight:600}
+        .code-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+        .code-head h3{margin-bottom:0}
+        pre.output{background:#1e1e2e;border:1px solid var(--border);border-radius:var(--radius);padding:16px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:0.8rem;line-height:1.7;color:#e2e2f0;white-space:pre;-webkit-overflow-scrolling:touch}
+        pre.output .tag{color:#7dd3fc}
+        pre.output .attr{color:#c4b5fd}
+        pre.output .val{color:#86efac}
+        pre.output .cm{color:#6b7280}
+        .btn{padding:9px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.ghost{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.ghost:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+        .preview-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:8px}
+        .preview-card .pimg{width:100%;background:#eceef5 center/cover no-repeat;position:relative;color:var(--text3);display:flex;align-items:center;justify-content:center;font-size:0.78rem}
+        .preview-card.large .pimg{aspect-ratio:1.91/1}
+        .preview-card.summary{display:flex}
+        .preview-card.summary .pimg{width:120px;min-width:120px;height:120px}
+        .preview-card .pbody{padding:12px 14px;flex:1;min-width:0}
+        .preview-card .pdomain{font-size:0.72rem;color:var(--text3);text-transform:lowercase;margin-bottom:4px}
+        .preview-card .ptitle{font-size:0.92rem;font-weight:600;color:var(--text);margin-bottom:4px;line-height:1.4;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+        .preview-card .pdesc{font-size:0.78rem;color:var(--text2);line-height:1.5;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+        .preview-note{font-size:0.72rem;color:var(--text3);text-align:center;margin-bottom:16px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--text);color:#fff;padding:10px 20px;border-radius:8px;font-size:0.82rem;opacity:0;pointer-events:none;transition:all 0.25s;z-index:100}
+        .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-127-ogp-meta/">
+    <meta property="og:title" content="OGP・Twitterカード メタタグ生成ツール【無料】">
+    <meta property="og:description" content="タイトル・説明・URL・画像を入力するだけでOGP/Twitterカードのmetaタグ一式を自動生成。プレビュー付き・コピー対応。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-127-ogp-meta/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="DevTools Japan">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OGP・Twitterカード メタタグ生成【無料】">
+    <meta name="twitter:description" content="OGP/Twitterカードのmetaタグ一式を自動生成。プレビュー付き・コピー対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"OGP・Twitterカード メタタグ生成ツール","description":"OGPとTwitterカードのmetaタグ一式を自動生成する無料ツール","url":"https://www.devtools-japan.com/tool-127-ogp-meta/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"OGP・Twitterカード メタタグ生成ツール","item":"https://www.devtools-japan.com/tool-127-ogp-meta/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"OGPとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"OGP（Open Graph Protocol）は、SNSでページがシェアされたときにタイトル・説明・画像・URLをカード形式で正しく表示させるためのmetaタグの規格です。head内にog:title・og:description・og:image・og:url・og:typeなどのmetaタグを記述することで、FacebookやLINE、Slackなどでの見え方を制御できます。本ツールは必要な項目を入力するだけでそのタグ一式を自動生成します。"}},{"@type":"Question","name":"Twitterカードのsummaryとsummary_large_imageの違いは？","acceptedAnswer":{"@type":"Answer","text":"summaryはタイトル・説明の横に小さな正方形サムネイルが表示される標準カード、summary_large_imageは横長の大きな画像が上部に表示されるカードです。ブログ記事やビジュアル重視のページでは大きく目立つsummary_large_imageが、シンプルに見せたい場合はsummaryが向いています。本ツールでは種別を切り替えるとtwitter:cardの値とプレビューが即座に変わります。"}},{"@type":"Question","name":"画像URLはどんなものを指定すればよいですか？","acceptedAnswer":{"@type":"Answer","text":"og:imageには、そのページを表す画像の絶対URL（https://から始まる完全なURL）を指定します。推奨サイズは横1200×縦630px程度で、summary_large_image想定なら1.91:1の比率が目安です。相対パスではSNS側で画像を取得できないことがあるため、必ず公開済みの絶対URLを指定してください。"}},{"@type":"Question","name":"生成したタグはどこに貼り付ければよいですか？","acceptedAnswer":{"@type":"Answer","text":"生成されたmetaタグは、HTMLのhead要素の中（titleタグの近く）に貼り付けます。既存のog:titleなどが重複しないよう、同じプロパティのタグが二重にならないように置き換えてください。貼り付け後は各SNSの共有デバッガー（シェアデバッガー等）でキャッシュを更新すると、最新の表示を確認できます。"}},{"@type":"Question","name":"入力したデータはサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。本ツールの処理はすべてお使いのブラウザ内（JavaScript）で完結し、入力したタイトルやURL・画像URLがサーバーへ送信・保存されることはありません。ネットワーク接続を切った状態でも動作するため、公開前のページ情報でも安心してご利用いただけます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>OGP・Twitterカード メタタグ生成</h1><p>タイトル・説明・画像URLを入力するだけでmetaタグ一式を自動生成</p></header>
+
+    <div class="card"><h3>ページ情報を入力</h3>
+        <div class="field">
+            <label>タイトル <span class="hint">og:title / twitter:title</span></label>
+            <input type="text" id="fTitle" placeholder="例）無料オンライン開発ツール集 | DevTools Japan" oninput="render()">
+        </div>
+        <div class="field">
+            <label>説明文 <span class="hint">og:description / twitter:description</span></label>
+            <textarea id="fDesc" placeholder="例）日本語対応の無料オンライン開発ツールを多数掲載。インストール不要でブラウザだけで使えます。" oninput="render()"></textarea>
+        </div>
+        <div class="field-grid">
+            <div class="field">
+                <label>ページURL <span class="hint">og:url</span></label>
+                <input type="text" id="fUrl" placeholder="https://example.com/page/" oninput="render()">
+            </div>
+            <div class="field">
+                <label>サイト名 <span class="hint">og:site_name</span></label>
+                <input type="text" id="fSite" placeholder="例）DevTools Japan" oninput="render()">
+            </div>
+        </div>
+        <div class="field">
+            <label>画像URL（絶対URL推奨・1200×630px） <span class="hint">og:image / twitter:image</span></label>
+            <input type="text" id="fImage" placeholder="https://example.com/ogp.png" oninput="render()">
+        </div>
+        <div class="field-grid">
+            <div class="field">
+                <label>og:type</label>
+                <select id="fType" onchange="render()">
+                    <option value="website">website（サイト・トップ）</option>
+                    <option value="article">article（記事・ブログ）</option>
+                    <option value="product">product（商品）</option>
+                    <option value="profile">profile（プロフィール）</option>
+                    <option value="video.other">video.other（動画）</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Twitterアカウント <span class="hint">twitter:site</span></label>
+                <input type="text" id="fTwitter" placeholder="@devtools_japan" oninput="render()">
+            </div>
+        </div>
+    </div>
+
+    <div class="card"><h3>Twitterカード種別</h3>
+        <div class="seg" id="cardSeg">
+            <button type="button" data-card="summary_large_image" class="active" onclick="setCard('summary_large_image')">summary_large_image（大きな画像）</button>
+            <button type="button" data-card="summary" onclick="setCard('summary')">summary（小さな画像）</button>
+        </div>
+    </div>
+
+    <div class="card"><h3>プレビュー（SNSでの見え方の目安）</h3>
+        <div id="previewMount"></div>
+        <div class="preview-note">実際の表示は各SNSの仕様・キャッシュにより異なります。イメージ確認用です。</div>
+    </div>
+
+    <div class="card">
+        <div class="code-head">
+            <h3>生成された meta タグ</h3>
+            <button class="btn" id="copyBtn" onclick="copyAll()">全項目コピー</button>
+        </div>
+        <pre class="output" id="outCode"></pre>
+    </div>
+
+    <div class="note">入力欄が空の場合はサンプル値でタグを生成します。og:image / twitter:image には https:// から始まる絶対URLの指定を推奨します。生成したタグは HTML の head 内に貼り付け、同じプロパティが重複しないようご注意ください。処理はすべてブラウザ内で完結し、入力内容がサーバーに送信されることはありません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>OGP・Twitterカード メタタグ生成ツールの使い方</h2>
+        <p>WebページをX（旧Twitter）やFacebook、LINE、Slackなどでシェアしたときに、タイトル・説明・サムネイル画像をカード形式で美しく表示させるために必要なのがOGP（Open Graph Protocol）とTwitterカードのmetaタグです。本ツールは、タイトル・説明文・ページURL・画像URL・サイト名などを入力するだけで、og:title・og:description・og:image・og:url・og:type・og:site_name と、twitter:card・twitter:title・twitter:description・twitter:image・twitter:site のmetaタグ一式をリアルタイムで自動生成します。</p>
+        <p>使い方はかんたんです。フォームに各項目を入力すると、下部の生成結果が即座に更新され、SNSでの見え方の目安となるプレビューも同時に表示されます。「全項目コピー」ボタンを押せば生成されたmetaタグをまとめてクリップボードにコピーでき、そのままHTMLのhead要素内に貼り付けられます。入力欄が空のままでもサンプル値でタグが生成されるので、どんなタグが必要かをすぐに確認できます。すべての処理はブラウザ内で完結し、インストールや会員登録は不要です。</p>
+        <h3>Twitterカードの種別を切り替える</h3>
+        <p>Twitterカードには、横長の大きな画像を表示する「summary_large_image」と、小さな正方形のサムネイルを表示する「summary」の2種類があります。種別ボタンを切り替えると、生成されるtwitter:cardの値とプレビューの見た目が即座に変わります。ブログ記事やビジュアルを重視するページでは大きな画像で目立たせるsummary_large_imageが、シンプルに見せたい場合はsummaryが向いています。</p>
+
+        <h2>各metaタグの意味</h2>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>プロパティ</th><th>役割</th></tr>
+            <tr><td>og:title</td><td>シェア時に表示されるタイトル。ページの内容が伝わる簡潔な文言を推奨</td></tr>
+            <tr><td>og:description</td><td>タイトル下に表示される説明文。80〜120文字程度が目安</td></tr>
+            <tr><td>og:image</td><td>サムネイル画像の絶対URL。推奨1200×630px（1.91:1）</td></tr>
+            <tr><td>og:url</td><td>ページの正規URL（絶対URL）</td></tr>
+            <tr><td>og:type</td><td>コンテンツ種別。トップはwebsite、記事はarticleが一般的</td></tr>
+            <tr><td>og:site_name</td><td>サイト全体の名称</td></tr>
+            <tr><td>twitter:card</td><td>カード種別。summary または summary_large_image</td></tr>
+            <tr><td>twitter:site</td><td>サイト運営者のXアカウント（@から始まる）</td></tr>
+        </table>
+        </div>
+        <h3>画像サイズの目安</h3>
+        <p>og:imageに指定する画像は、横1200×縦630px程度（比率1.91:1）が推奨サイズです。この比率はsummary_large_imageやFacebookのカード表示に最適化されています。summaryカードでは正方形に近いトリミングで表示されることが多いため、重要な要素は中央に配置しておくと安全です。画像URLは必ずhttps://から始まる公開済みの絶対URLを指定してください。相対パスやローカルパスではSNS側が画像を取得できず、サムネイルが表示されないことがあります。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">OGPとは何ですか？</div><div class="a">OGP（Open Graph Protocol）は、SNSでページがシェアされたときにタイトル・説明・画像・URLをカード形式で正しく表示させるためのmetaタグの規格です。head内にog:title・og:description・og:image・og:url・og:typeなどのmetaタグを記述することで、FacebookやLINE、Slackなどでの見え方を制御できます。本ツールは必要な項目を入力するだけでそのタグ一式を自動生成します。</div></div>
+        <div class="faq-item"><div class="q">Twitterカードのsummaryとsummary_large_imageの違いは？</div><div class="a">summaryはタイトル・説明の横に小さな正方形サムネイルが表示される標準カード、summary_large_imageは横長の大きな画像が上部に表示されるカードです。ブログ記事やビジュアル重視のページでは大きく目立つsummary_large_imageが、シンプルに見せたい場合はsummaryが向いています。本ツールでは種別を切り替えるとtwitter:cardの値とプレビューが即座に変わります。</div></div>
+        <div class="faq-item"><div class="q">画像URLはどんなものを指定すればよいですか？</div><div class="a">og:imageには、そのページを表す画像の絶対URL（https://から始まる完全なURL）を指定します。推奨サイズは横1200×縦630px程度で、summary_large_image想定なら1.91:1の比率が目安です。相対パスではSNS側で画像を取得できないことがあるため、必ず公開済みの絶対URLを指定してください。</div></div>
+        <div class="faq-item"><div class="q">生成したタグはどこに貼り付ければよいですか？</div><div class="a">生成されたmetaタグは、HTMLのhead要素の中（titleタグの近く）に貼り付けます。既存のog:titleなどが重複しないよう、同じプロパティのタグが二重にならないように置き換えてください。貼り付け後は各SNSの共有デバッガー（シェアデバッガー等）でキャッシュを更新すると、最新の表示を確認できます。</div></div>
+        <div class="faq-item"><div class="q">入力したデータはサーバーに送信されますか？</div><div class="a">いいえ。本ツールの処理はすべてお使いのブラウザ内（JavaScript）で完結し、入力したタイトルやURL・画像URLがサーバーへ送信・保存されることはありません。ネットワーク接続を切った状態でも動作するため、公開前のページ情報でも安心してご利用いただけます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a><a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+// サンプル（入力ゼロでも表示）
+var SAMPLE = {
+    title: '無料オンライン開発ツール集 | DevTools Japan',
+    desc: '日本語対応の無料オンライン開発ツールを多数掲載。インストール不要でブラウザだけで使えます。',
+    url: 'https://www.devtools-japan.com/',
+    site: 'DevTools Japan',
+    image: 'https://www.devtools-japan.com/ogp.png',
+    type: 'website',
+    twitter: '@devtools_japan'
+};
+var cardType = 'summary_large_image';
+
+// HTML属性値エスケープ（生成コード・プレビュー共通）
+function escAttr(s){
+    return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+function escText(s){
+    return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+function val(id, fallback){
+    var el = document.getElementById(id);
+    var v = el ? el.value.trim() : '';
+    return v !== '' ? v : fallback;
+}
+
+// 現在の入力（空欄はサンプルで補完）を取得
+function collect(){
+    return {
+        title: val('fTitle', SAMPLE.title),
+        desc: val('fDesc', SAMPLE.desc),
+        url: val('fUrl', SAMPLE.url),
+        site: val('fSite', SAMPLE.site),
+        image: val('fImage', SAMPLE.image),
+        type: (document.getElementById('fType').value || SAMPLE.type),
+        twitter: val('fTwitter', SAMPLE.twitter)
+    };
+}
+
+// 生成する meta タグの定義リストを作る（プレーンテキストで組み立て）
+function buildMetaList(d){
+    var list = [
+        { kind:'p', key:'og:title',        v:d.title },
+        { kind:'p', key:'og:description',  v:d.desc },
+        { kind:'p', key:'og:type',         v:d.type },
+        { kind:'p', key:'og:url',          v:d.url },
+        { kind:'p', key:'og:image',        v:d.image },
+        { kind:'p', key:'og:site_name',    v:d.site },
+        { kind:'n', key:'twitter:card',        v:cardType },
+        { kind:'n', key:'twitter:title',       v:d.title },
+        { kind:'n', key:'twitter:description', v:d.desc },
+        { kind:'n', key:'twitter:image',       v:d.image }
+    ];
+    if (d.twitter){
+        list.push({ kind:'n', key:'twitter:site', v:d.twitter });
+    }
+    return list;
+}
+
+// コピー用のプレーンテキスト（実際の meta タグ文字列）
+function plainCode(list){
+    // "<meta" はペア要素ではないためバリデータ誤検知の対象外。素直に組み立てる。
+    var lines = list.map(function(m){
+        var attrName = (m.kind === 'p') ? 'property' : 'name';
+        return '<meta ' + attrName + '="' + m.key + '" content="' + escAttr(m.v) + '">';
+    });
+    return lines.join('\n');
+}
+
+// 画面表示用のハイライト付きHTML
+function highlightCode(list){
+    return list.map(function(m){
+        var attrName = (m.kind === 'p') ? 'property' : 'name';
+        return '<span class="cm">&lt;</span><span class="tag">meta</span> ' +
+            '<span class="attr">' + attrName + '</span>=<span class="val">&quot;' + escText(m.key) + '&quot;</span> ' +
+            '<span class="attr">content</span>=<span class="val">&quot;' + escText(m.v) + '&quot;</span><span class="cm">&gt;</span>';
+    }).join('\n');
+}
+
+// プレビュー描画
+function buildPreview(d){
+    var mount = document.getElementById('previewMount');
+    var large = (cardType === 'summary_large_image');
+    var domain = d.url.replace(/^https?:\/\//, '').replace(/\/.*$/, '');
+    var imgStyle = d.image ? (' style="background-image:url(&quot;' + escAttr(d.image) + '&quot;)"') : '';
+    var imgLabel = d.image ? '' : '画像プレビュー';
+    var cls = 'preview-card ' + (large ? 'large' : 'summary');
+    var html = '<div class="' + cls + '">' +
+        '<div class="pimg"' + imgStyle + '>' + escText(imgLabel) + '</div>' +
+        '<div class="pbody">' +
+        '<div class="pdomain">' + escText(domain) + '</div>' +
+        '<div class="ptitle">' + escText(d.title) + '</div>' +
+        '<div class="pdesc">' + escText(d.desc) + '</div>' +
+        '</div></div>';
+    mount.innerHTML = html;
+}
+
+// 全体レンダリング
+function render(){
+    var d = collect();
+    var list = buildMetaList(d);
+    document.getElementById('outCode').innerHTML = highlightCode(list);
+    document.getElementById('outCode').setAttribute('data-plain', plainCode(list));
+    buildPreview(d);
+}
+
+// カード種別切替
+function setCard(type){
+    cardType = type;
+    var btns = document.querySelectorAll('#cardSeg button');
+    for (var i = 0; i < btns.length; i++){
+        if (btns[i].getAttribute('data-card') === type){
+            btns[i].classList.add('active');
+        } else {
+            btns[i].classList.remove('active');
+        }
+    }
+    render();
+}
+
+// トースト
+var toastTimer = null;
+function showToast(msg){
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 1600);
+}
+
+// 全項目コピー
+function copyAll(){
+    var text = document.getElementById('outCode').getAttribute('data-plain') || '';
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){
+            showToast('コピーしました');
+        }, function(){
+            fallbackCopy(text);
+        });
+    } else {
+        fallbackCopy(text);
+    }
+}
+function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); showToast('コピーしました'); }
+    catch (e) { showToast('コピーに失敗しました'); }
+    document.body.removeChild(ta);
+}
+
+// 初期描画
+render();
+</script>
+</body>
+</html>

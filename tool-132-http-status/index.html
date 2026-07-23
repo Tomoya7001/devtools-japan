@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTPステータスコード早見表・検索 | 200/301/404/500の意味を一覧【無料】</title>
+    <meta name="description" content="主要なHTTPステータスコード（1xx〜5xx）を一覧表示し、コード番号や名称・キーワードで即時検索できる無料ツール。200・301・302・304・404・410・429・500・502・503など各コードの英名・日本語の意味・使いどころ・SEO/クローラ観点の注意をまとめました。クリックでコピー。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .search-box{width:100%;padding:12px 16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.95rem;outline:none}
+        .search-box:focus{border-color:var(--accent)}
+        .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+        .tabs button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .tabs button:hover{border-color:var(--accent);color:var(--accent)}
+        .tabs button.active{background:var(--accent);border-color:var(--accent);color:#fff}
+        .count-line{font-size:0.75rem;color:var(--text3);margin:14px 0 4px}
+        .code-list{display:flex;flex-direction:column;gap:10px}
+        .code-item{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;cursor:pointer;transition:border-color 0.15s}
+        .code-item:hover{border-color:var(--accent)}
+        .code-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+        .code-num{font-family:'JetBrains Mono',monospace;font-size:1.2rem;font-weight:700;min-width:52px}
+        .code-num.s1{color:var(--text2)}
+        .code-num.s2{color:var(--green)}
+        .code-num.s3{color:var(--accent)}
+        .code-num.s4{color:var(--red)}
+        .code-num.s5{color:var(--red)}
+        .code-en{font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--text2)}
+        .code-ja{font-size:0.85rem;color:var(--text);font-weight:500}
+        .badge{font-size:0.65rem;padding:2px 8px;border-radius:999px;background:var(--accent-dim);color:var(--text2);border:1px solid var(--border)}
+        .code-use{font-size:0.8rem;color:var(--text2);margin-top:8px;line-height:1.7}
+        .code-note{font-size:0.75rem;color:var(--text3);margin-top:6px;line-height:1.7}
+        .copy-hint{font-size:0.65rem;color:var(--text3);margin-top:8px}
+        .empty{text-align:center;color:var(--text3);font-size:0.85rem;padding:28px 0}
+        .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--text);color:#fff;padding:10px 20px;border-radius:8px;font-size:0.8rem;opacity:0;pointer-events:none;transition:opacity 0.2s;z-index:50}
+        .toast.show{opacity:1}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-132-http-status/">
+    <meta property="og:title" content="HTTPステータスコード早見表・検索 | 200/301/404/500の意味を一覧【無料】">
+    <meta property="og:description" content="主要なHTTPステータスコードを一覧・即時検索。各コードの意味・使いどころ・SEO/クローラ観点の注意をまとめました。クリックでコピー。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-132-http-status/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="HTTPステータスコード早見表・検索【無料】">
+    <meta name="twitter:description" content="主要なHTTPステータスコードを一覧・即時検索。意味・使いどころ・SEO観点の注意つき。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"HTTPステータスコード早見表・検索","description":"主要なHTTPステータスコードを一覧表示し、番号や名称・キーワードで即時検索できる無料ツール","url":"https://www.devtools-japan.com/tool-132-http-status/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"HTTPステータスコード早見表・検索","item":"https://www.devtools-japan.com/tool-132-http-status/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"301と302の違いは？","acceptedAnswer":{"@type":"Answer","text":"301 Moved Permanently は「恒久的な移動」で、URLが今後もずっと変わることを意味します。検索エンジンは新しいURLへ評価（リンク評価）を引き継ぎ、インデックスも新URLへ置き換えていきます。一方 302 Found は「一時的な移動」で、元のURLがそのうち戻る前提です。クローラは元URLをインデックスに残そうとするため、サイト移転やURL統合など恒久的な変更で誤って302を返すと、評価が新URLに移らず検索順位に悪影響が出ることがあります。恒久移転は301、期間限定のリダイレクトは302または307を使い分けます。"}},{"@type":"Question","name":"404と410はどう使い分ける？","acceptedAnswer":{"@type":"Answer","text":"404 Not Found は「今このURLにコンテンツが見つからない」状態で、一時的か恒久的かは示しません。410 Gone は「そのリソースは意図的に削除され、今後も復活しない」という恒久的な消滅を明示します。検索エンジンは410を受け取ると404より速やかにインデックスから削除する傾向があります。キャンペーン終了ページや廃止した商品ページなど、二度と戻さないと確定しているURLは410を返すとクロール整理が早まります。復活の可能性があるものは404のままが無難です。"}},{"@type":"Question","name":"429や503のRetry-Afterとは？","acceptedAnswer":{"@type":"Answer","text":"429 Too Many Requests（レート制限）や 503 Service Unavailable（一時的な過負荷・メンテナンス）を返すとき、Retry-After ヘッダで「何秒後（または何日時）に再試行してよいか」をクライアントやクローラへ伝えられます。Googlebot は503とRetry-Afterを一時的な状態として扱い、インデックスからすぐ削除せず後で再クロールします。メンテナンス時に200で「準備中」ページを返すとその内容がインデックスされてしまうため、必ず503＋Retry-Afterを返すのがSEO上の定石です。"}},{"@type":"Question","name":"200を返しているのに検索に出ないのはなぜ？","acceptedAnswer":{"@type":"Answer","text":"ステータス200はHTTP的に正常というだけで、インデックス可否は別問題です。robotsのnoindex指定、canonicalが別URLを指している、コンテンツが薄い・重複している、JavaScript描画に依存して本文がHTMLに無い、といった要因で200でも検索結果に出ないことがあります。まずステータスが本当に200か（ソフト404になっていないか）を確認し、次にnoindexやcanonical、レンダリング結果を点検します。存在しないページを200で返す「ソフト404」は避け、正しく404/410を返してください。"}},{"@type":"Question","name":"307・308は301・302と何が違う？","acceptedAnswer":{"@type":"Answer","text":"308 Permanent Redirect は301と同じ恒久移転ですが、リクエストメソッド（POSTなど）とボディを変更せずにリダイレクトすることを保証します。307 Temporary Redirect は302の厳密版で、こちらもメソッドを維持したまま一時的に転送します。古い301/302は歴史的にPOSTがGETに変わる実装が多かったため、APIやフォーム送信でメソッドを保ちたい場合は307/308が安全です。SEO上の評価の引き継ぎは301と308が恒久、302と307が一時として扱われます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>HTTPステータスコード早見表・検索</h1><p>主要なコードの意味・使いどころ・SEO観点の注意を即時検索</p></header>
+
+    <div class="card"><h3>検索・絞り込み</h3>
+        <input type="text" class="search-box" id="searchInput" placeholder="コード番号・名称・キーワードで検索（例: 301, Not Found, リダイレクト）" oninput="render()">
+        <div class="tabs" id="tabs">
+            <button data-cat="all" class="active" onclick="setCat('all',this)">すべて</button>
+            <button data-cat="1" onclick="setCat('1',this)">1xx 情報</button>
+            <button data-cat="2" onclick="setCat('2',this)">2xx 成功</button>
+            <button data-cat="3" onclick="setCat('3',this)">3xx リダイレクト</button>
+            <button data-cat="4" onclick="setCat('4',this)">4xx クライアントエラー</button>
+            <button data-cat="5" onclick="setCat('5',this)">5xx サーバエラー</button>
+        </div>
+    </div>
+
+    <div class="count-line" id="countLine"></div>
+    <div class="code-list" id="codeList"></div>
+
+    <div class="note">各項目をクリックすると「コード番号 英名」（例: 404 Not Found）をクリップボードにコピーします。分類タブと検索は組み合わせて絞り込めます。検索欄が空でも全件を表示します。掲載内容はRFC 9110 等の一般的な定義に基づく概説です。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>HTTPステータスコードとは</h2>
+        <p>HTTPステータスコードは、Webサーバがブラウザやクローラからのリクエストに対して「処理がどうなったか」を3桁の数字で返す仕組みです。先頭の数字で大きく5つに分類され、1xxは情報（処理継続中）、2xxは成功、3xxはリダイレクト（別URLへ誘導）、4xxはクライアント側の問題、5xxはサーバ側の問題を表します。開発時のデバッグはもちろん、SEOやクローラ制御の観点でも、どのコードを返すかは非常に重要です。</p>
+        <p>このツールでは、実務でよく使う主要なステータスコードを一覧化し、番号・英名・日本語のキーワードから即座に検索できます。各コードには英名・日本語の意味に加えて、実際の使いどころと、301と302の違いや404と410の使い分け、429・503のRetry-AfterといったSEO・クローラ観点の注意点を簡潔にまとめています。項目をクリックすればコードをコピーでき、ドキュメントやコミットメッセージへの記載にも便利です。</p>
+
+        <h2>分類ごとの意味</h2>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>分類</th><th>意味</th><th>代表的なコード</th></tr>
+            <tr><td>1xx 情報</td><td>リクエストは受理され処理を継続中</td><td>100, 101</td></tr>
+            <tr><td>2xx 成功</td><td>リクエストは正常に処理された</td><td>200, 201, 204</td></tr>
+            <tr><td>3xx リダイレクト</td><td>要求の完了に追加の転送が必要</td><td>301, 302, 304, 307, 308</td></tr>
+            <tr><td>4xx クライアントエラー</td><td>リクエスト側に問題がある</td><td>400, 401, 403, 404, 429</td></tr>
+            <tr><td>5xx サーバエラー</td><td>サーバ側で処理に失敗した</td><td>500, 502, 503, 504</td></tr>
+        </table>
+        </div>
+
+        <h3>SEO・クローラ観点で押さえたい点</h3>
+        <p>サイト運営では、正しいステータスコードを返すことが検索評価の維持に直結します。恒久的なURL移転は301（またはメソッドを保つ308）で評価を引き継ぎ、一時的な転送は302・307を使います。削除して二度と戻さないページは410を返すとインデックスからの削除が速まり、まだ判断がつかないものは404にします。メンテナンス中は200で「準備中」を返さず、必ず503とRetry-Afterで一時的であることを伝えます。存在しないページを200で返す「ソフト404」はクロール効率を下げるため避けましょう。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">301と302の違いは？</div><div class="a">301 Moved Permanently は恒久的な移動で、検索エンジンは新URLへ評価を引き継ぎます。302 Found は一時的な移動で、元URLがそのうち戻る前提です。サイト移転やURL統合など恒久的な変更で誤って302を返すと評価が移らず順位に影響することがあります。恒久移転は301、期間限定は302または307を使い分けます。</div></div>
+        <div class="faq-item"><div class="q">404と410はどう使い分ける？</div><div class="a">404 Not Found は「今見つからない」状態で一時的か恒久的かを示しません。410 Gone は意図的な削除で今後も復活しないことを明示し、検索エンジンは404より速くインデックスから削除する傾向があります。二度と戻さないと確定したURLは410、復活の可能性があるものは404が無難です。</div></div>
+        <div class="faq-item"><div class="q">429や503のRetry-Afterとは？</div><div class="a">429 Too Many Requests や 503 Service Unavailable を返すとき、Retry-After ヘッダで再試行までの秒数や日時を伝えられます。Googlebotは503とRetry-Afterを一時的な状態として扱い、すぐにはインデックスから削除せず後で再クロールします。メンテナンス時は200ではなく503＋Retry-Afterを返すのが定石です。</div></div>
+        <div class="faq-item"><div class="q">200を返しているのに検索に出ないのはなぜ？</div><div class="a">200はHTTP的に正常というだけで、インデックス可否は別問題です。noindex指定、canonicalが別URLを指す、コンテンツが薄い・重複、JavaScript描画依存で本文がHTMLに無い、などで200でも出ないことがあります。ソフト404になっていないかを確認し、noindexやcanonical、レンダリング結果を点検します。</div></div>
+        <div class="faq-item"><div class="q">307・308は301・302と何が違う？</div><div class="a">308 Permanent Redirect は301と同じ恒久移転で、リクエストメソッドとボディを変えずに転送します。307 Temporary Redirect は302の厳密版で、こちらもメソッドを維持したまま一時転送します。APIやフォーム送信でPOSTを保ちたい場合は307/308が安全です。評価の引き継ぎは301と308が恒久、302と307が一時として扱われます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧へ</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+const CODES = [
+    {n:100, en:"Continue", ja:"継続", cat:"1", use:"リクエストの最初の部分を受理し、クライアントは残りの本文を送信してよい状態。大きなボディ送信前の Expect: 100-continue で使われます。", note:"通常はライブラリが自動処理するため、アプリ側で明示的に扱う場面は多くありません。"},
+    {n:101, en:"Switching Protocols", ja:"プロトコル切替", cat:"1", use:"サーバがクライアントの要求に応じて通信プロトコルを切り替える。WebSocket 接続確立時（Upgrade: websocket）に返されます。", note:"Upgrade ヘッダとセットで用います。HTTPからWebSocketへ移行する合図です。"},
+    {n:200, en:"OK", ja:"成功", cat:"2", use:"リクエストが正常に処理され、レスポンス本文に結果が含まれる。GET でのページ・API取得の標準的な成功応答です。", note:"存在しないページを200で返す「ソフト404」は避け、無いものは404/410を返してください。"},
+    {n:201, en:"Created", ja:"作成完了", cat:"2", use:"リクエストが成功し、新しいリソースが作成された。POST でのレコード作成成功時に返し、Location ヘッダで新URLを示します。", note:"REST API のPOST成功では200より201が意味を正確に伝えます。"},
+    {n:202, en:"Accepted", ja:"受理", cat:"2", use:"リクエストは受理されたが処理は完了していない。非同期のジョブ投入やキュー登録で使われます。", note:"完了を保証しないため、進捗確認用のエンドポイントを併せて設計します。"},
+    {n:204, en:"No Content", ja:"内容なし", cat:"2", use:"処理は成功したが返す本文が無い。DELETE 成功や、フォーム送信後に画面を更新しないケースで使われます。", note:"本文が空である点が特徴。JSON の空応答が不要なAPIで有効です。"},
+    {n:206, en:"Partial Content", ja:"部分的な内容", cat:"2", use:"Range リクエストに応じてリソースの一部だけを返す。動画のシークやダウンロードの再開で使われます。", note:"Accept-Ranges や Content-Range ヘッダと組み合わせます。"},
+    {n:301, en:"Moved Permanently", ja:"恒久的に移動", cat:"3", use:"リソースが新しいURLへ恒久的に移動した。サイト移転・URL正規化・httpsへの統一で使います。", note:"検索評価を新URLへ引き継ぐ標準手段。恒久移転では302ではなく301を使います。"},
+    {n:302, en:"Found", ja:"一時的に移動", cat:"3", use:"リソースが一時的に別URLにある。ログイン後の遷移など、元URLが後で戻る前提の転送で使います。", note:"恒久移転に302を誤用すると評価が移らず順位低下の原因に。恒久なら301へ。"},
+    {n:303, en:"See Other", ja:"他を参照", cat:"3", use:"POST 後に結果ページへGETでリダイレクトさせる。二重送信を防ぐ PRG パターンで使われます。", note:"メソッドをGETに変える点が307との違いです。"},
+    {n:304, en:"Not Modified", ja:"未更新", cat:"3", use:"前回取得後にリソースが変わっていない。キャッシュ検証（If-None-Match / If-Modified-Since）で返します。", note:"本文を送らず帯域を節約。クローラの再クロール効率にも寄与します。"},
+    {n:307, en:"Temporary Redirect", ja:"一時的リダイレクト", cat:"3", use:"302の厳密版で、メソッド（POST等）を変えずに一時的に別URLへ転送する。", note:"フォームやAPIでメソッドを保ちたい一時転送に安全。評価は一時扱いです。"},
+    {n:308, en:"Permanent Redirect", ja:"恒久的リダイレクト", cat:"3", use:"301の厳密版で、メソッドとボディを保ったまま恒久的に転送する。", note:"POSTを維持したい恒久移転向け。評価の引き継ぎは301と同じ恒久扱いです。"},
+    {n:400, en:"Bad Request", ja:"不正なリクエスト", cat:"4", use:"構文エラーやパラメータ不備でサーバがリクエストを解釈できない。バリデーション失敗の汎用エラーです。", note:"原因をレスポンス本文で具体的に示すとクライアント側のデバッグが楽になります。"},
+    {n:401, en:"Unauthorized", ja:"認証が必要", cat:"4", use:"認証されていない、または認証情報が無効。ログインやトークンが必要なリソースへの未認証アクセスで返します。", note:"名前は Unauthorized ですが実質は「未認証」。権限不足は403を使います。"},
+    {n:403, en:"Forbidden", ja:"アクセス禁止", cat:"4", use:"認証は済んでいるが権限が無くアクセスが許可されない。管理者専用ページへの一般ユーザーアクセスなど。", note:"存在自体を隠したい場合は404を返す設計もあります。クローラには非公開の合図。"},
+    {n:404, en:"Not Found", ja:"見つからない", cat:"4", use:"指定URLにリソースが存在しない。削除・URL変更・タイプミスなどで発生します。", note:"一時的か恒久的かは示さない。恒久削除を明示するなら410を使います。"},
+    {n:405, en:"Method Not Allowed", ja:"メソッド不許可", cat:"4", use:"URLは存在するが、そのメソッド（GET/POST等）が許可されていない。読み取り専用にPOSTした場合など。", note:"Allow ヘッダで許可メソッドを示すのが親切です。"},
+    {n:406, en:"Not Acceptable", ja:"受理不可", cat:"4", use:"Accept ヘッダで要求された形式をサーバが提供できない。コンテンツネゴシエーション失敗時に返します。", note:"提供可能な形式を本文で案内すると親切です。"},
+    {n:408, en:"Request Timeout", ja:"リクエストタイムアウト", cat:"4", use:"クライアントが規定時間内にリクエストを完了しなかった。接続が遅い・途中で止まった場合など。", note:"クライアントは再試行してよいことを示します。"},
+    {n:409, en:"Conflict", ja:"競合", cat:"4", use:"現在のリソース状態と矛盾して処理できない。編集の競合や重複登録（同名リソース作成）で使われます。", note:"楽観ロックの衝突通知にも使われます。解決方法を本文で示すと親切です。"},
+    {n:410, en:"Gone", ja:"消滅", cat:"4", use:"リソースが意図的に削除され、今後も復活しない。廃止した商品・終了キャンペーンのURLに使います。", note:"検索エンジンは404より速くインデックス削除する傾向。恒久削除の明示に有効。"},
+    {n:415, en:"Unsupported Media Type", ja:"未対応のメディア形式", cat:"4", use:"リクエストの Content-Type をサーバが扱えない。JSON以外を送った、対応外の画像形式など。", note:"APIで許可するメディア形式をドキュメント化しておくと混乱を防げます。"},
+    {n:418, en:"I'm a teapot", ja:"私はティーポット", cat:"4", use:"エイプリルフール由来のジョーク的コード。コーヒーを淹れる要求をティーポットが断るという設定です。", note:"一部サービスがボット除けやイースターエッグとして返すことがあります。"},
+    {n:422, en:"Unprocessable Entity", ja:"処理できないエンティティ", cat:"4", use:"構文は正しいが意味的に処理できない。バリデーションエラー（必須項目不足・形式違反）で広く使われます。", note:"400より詳細に「内容の妥当性」の問題であることを表せます。"},
+    {n:429, en:"Too Many Requests", ja:"リクエスト過多", cat:"4", use:"一定時間内のリクエストが多すぎる（レート制限超過）。API の過剰アクセス抑制で返します。", note:"Retry-After ヘッダで再試行までの秒数を伝えると、クライアントやクローラが適切に待機できます。"},
+    {n:451, en:"Unavailable For Legal Reasons", ja:"法的理由により利用不可", cat:"4", use:"法令・裁判所命令などによりコンテンツを提供できない。地域制限や削除要請への対応で使われます。", note:"何の要請で遮断したかを本文で示すことが推奨されます。"},
+    {n:500, en:"Internal Server Error", ja:"サーバ内部エラー", cat:"5", use:"サーバ側で予期しない例外が発生し処理を完了できない。未捕捉の例外・設定不備などの汎用エラーです。", note:"詳細はログに残し、利用者には情報を出し過ぎないよう注意します。"},
+    {n:501, en:"Not Implemented", ja:"未実装", cat:"5", use:"サーバがそのリクエストメソッドや機能に対応していない。未対応の操作を要求された場合です。", note:"405（許可されていない）と違い、機能自体が無いことを表します。"},
+    {n:502, en:"Bad Gateway", ja:"不正なゲートウェイ", cat:"5", use:"プロキシやロードバランサが上流サーバから無効な応答を受け取った。バックエンド停止時などに発生します。", note:"リバースプロキシ構成でよく見ます。上流の稼働とネットワークを確認します。"},
+    {n:503, en:"Service Unavailable", ja:"サービス利用不可", cat:"5", use:"一時的な過負荷やメンテナンスでサーバが応答できない。計画停止やスパイク時に返します。", note:"Retry-After と併用し一時的だと伝えるのが定石。メンテ中に200を返すのは避けます。"},
+    {n:504, en:"Gateway Timeout", ja:"ゲートウェイタイムアウト", cat:"5", use:"プロキシが上流サーバからの応答を時間内に得られなかった。バックエンド処理が遅い場合に発生します。", note:"タイムアウト値と上流処理時間の見直しが対処の起点になります。"},
+    {n:505, en:"HTTP Version Not Supported", ja:"HTTPバージョン未対応", cat:"5", use:"リクエストの HTTP バージョンをサーバが扱えない。古い・特殊なバージョン指定で発生します。", note:"通常運用ではまれ。クライアントやプロキシの設定を確認します。"}
+];
+
+let currentCat = "all";
+
+function setCat(cat, btn){
+    currentCat = cat;
+    document.querySelectorAll("#tabs button").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    render();
+}
+
+function matches(item, q){
+    if(!q) return true;
+    const hay = (item.n + " " + item.en + " " + item.ja + " " + item.use + " " + item.note).toLowerCase();
+    return hay.indexOf(q) !== -1;
+}
+
+function render(){
+    const q = document.getElementById("searchInput").value.trim().toLowerCase();
+    const list = document.getElementById("codeList");
+    const countLine = document.getElementById("countLine");
+    const filtered = CODES.filter(c => (currentCat === "all" || c.cat === currentCat) && matches(c, q));
+    countLine.textContent = filtered.length + " 件を表示中（全 " + CODES.length + " 件）";
+    if(filtered.length === 0){
+        list.innerHTML = '<div class="empty">該当するステータスコードが見つかりませんでした。キーワードや分類を変えてお試しください。</div>';
+        return;
+    }
+    list.innerHTML = filtered.map(c => {
+        const label = "s" + c.cat;
+        const copyText = c.n + " " + c.en;
+        return '<div class="code-item" onclick="copyCode(\'' + copyText.replace(/'/g,"\\'") + '\')">' +
+            '<div class="code-head">' +
+                '<span class="code-num ' + label + '">' + c.n + '</span>' +
+                '<span class="code-en">' + c.en + '</span>' +
+                '<span class="code-ja">' + c.ja + '</span>' +
+                '<span class="badge">' + c.cat + 'xx</span>' +
+            '</div>' +
+            '<div class="code-use">' + c.use + '</div>' +
+            '<div class="code-note">SEO/クローラ: ' + c.note + '</div>' +
+            '<div class="copy-hint">クリックで「' + copyText + '」をコピー</div>' +
+        '</div>';
+    }).join("");
+}
+
+function copyCode(text){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(showToast, fallbackCopy.bind(null, text));
+    } else {
+        fallbackCopy(text);
+    }
+}
+
+function fallbackCopy(text){
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); showToast(); } catch(e) {}
+    document.body.removeChild(ta);
+}
+
+let toastTimer = null;
+function showToast(){
+    const t = document.getElementById("toast");
+    t.classList.add("show");
+    if(toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(()=>t.classList.remove("show"), 1600);
+}
+
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event 構造化データ生成（イベントSEO）| schema.org Event JSON-LD 作成ツール【無料】</title>
+    <meta name="description" content="イベント名・日時・開催形態・会場・チケット情報などを入力するだけで、schema.org Event の JSON-LD 構造化データを自動生成する無料ツール。オフライン/オンライン/ハイブリッド開催に対応し、イベントのリッチリザルト（Google 検索のイベント表示）要件に沿ったコードをコピーできます。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1;padding-right:12px}
+        .row input,.row select,.row textarea{width:340px;max-width:60%;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .row textarea{min-height:64px;resize:vertical;line-height:1.6}
+        .row input:focus,.row select:focus,.row textarea:focus{border-color:var(--accent)}
+        .hint-sm{font-size:0.7rem;color:var(--text3);margin-top:4px}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input,.row select,.row textarea{width:100%;max-width:100%}}
+        .output-card{background:#1e1e35;border:1px solid var(--border);border-radius:var(--radius);padding:0;margin-bottom:16px;overflow:hidden}
+        .output-head{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.08)}
+        .output-head .label{font-size:0.7rem;color:#9498b0;text-transform:uppercase;letter-spacing:0.06em}
+        .output-card pre{margin:0;padding:16px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:0.8rem;line-height:1.6;color:#e6e6f0;white-space:pre;-webkit-overflow-scrolling:touch}
+        .copy-btn{padding:7px 16px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.78rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .copy-btn:hover{opacity:0.9}
+        .hint-list{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:16px 20px;margin-bottom:16px}
+        .hint-list .t{font-size:0.78rem;font-weight:600;color:var(--text);margin-bottom:8px}
+        .hint-list ul{list-style:none;font-size:0.78rem;color:var(--text2);line-height:1.9}
+        .hint-list li{padding-left:18px;position:relative}
+        .hint-list li::before{content:'';position:absolute;left:2px;top:9px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+        .hint-list li.ok::before{background:var(--green)}
+        .hint-list li.warn::before{background:var(--red)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .seo-content code{font-family:'JetBrains Mono',monospace;font-size:0.78rem;background:var(--bg);padding:2px 6px;border-radius:4px;color:var(--accent)}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-141-event-schema/">
+    <meta property="og:title" content="Event 構造化データ生成（イベントSEO）| schema.org Event JSON-LD 作成【無料】">
+    <meta property="og:description" content="イベント情報を入力するだけで schema.org Event の JSON-LD を自動生成。オフライン/オンライン/ハイブリッド対応、リッチリザルト要件のヒント付き。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-141-event-schema/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Event 構造化データ生成（イベントSEO）【無料】">
+    <meta name="twitter:description" content="イベント情報から schema.org Event の JSON-LD を自動生成。リッチリザルト要件のヒント付き。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Event 構造化データ生成（イベントSEO）","description":"イベント情報から schema.org Event の JSON-LD 構造化データを自動生成する無料ツール","url":"https://www.devtools-japan.com/tool-141-event-schema/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"Event 構造化データ生成（イベントSEO）","item":"https://www.devtools-japan.com/tool-141-event-schema/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Event 構造化データとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"Event 構造化データは、コンサート・セミナー・展示会・ワークショップなどのイベント情報を検索エンジンが理解できる形式で記述する schema.org のマークアップです。JSON-LD 形式でページに埋め込むと、Google 検索やイベント表示枠でイベント名・日時・開催地がリッチリザルトとして表示されやすくなります。本ツールは入力内容から Event の JSON-LD をリアルタイムに生成します。"}},{"@type":"Question","name":"オンラインイベントにも対応していますか？","acceptedAnswer":{"@type":"Answer","text":"はい。開催形態のセレクトで「オンライン」を選ぶと location が VirtualLocation 型に切り替わり、視聴ページの URL を指定できます。「オフライン（会場）」では Place 型で会場名と住所を、「ハイブリッド」では VirtualLocation と Place の両方を location の配列として出力します。eventAttendanceMode も選択に応じて OfflineEventAttendanceMode / OnlineEventAttendanceMode / MixedEventAttendanceMode を自動で設定します。"}},{"@type":"Question","name":"日時はどの形式で出力されますか？","acceptedAnswer":{"@type":"Answer","text":"開始日時・終了日時は日時入力（datetime-local）で受け取り、schema.org が推奨する ISO 8601 形式で出力します。お使いの端末のタイムゾーンオフセット（例：+09:00）を自動付与するため、たとえば 2026-08-01T19:00:00+09:00 のように、地域を含んだ正確な日時としてマークアップされます。終了日時を空欄にした場合は endDate を出力しません。"}},{"@type":"Question","name":"入力を空欄にするとどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"空欄のフィールドは JSON-LD から自動的に除外されます。必要な項目だけを埋めればよく、不要な空の値が出力されることはありません。すべて空欄の場合でも、構造を確認できるようにサンプルのイベント情報を使った出力を表示します。実際に使用する際は、ご自身のイベント情報に置き換えてください。"}},{"@type":"Question","name":"リッチリザルトに表示されるために必須の項目は？","acceptedAnswer":{"@type":"Answer","text":"Google のイベント リッチリザルトでは name（イベント名）、startDate（開始日時）、location（開催地。オンラインの場合は VirtualLocation と URL）が必須です。image や description、offers（チケット情報）、performer、organizer は推奨項目で、埋めるほど表示が充実します。本ツールは必須項目の充足状況を画面下部のヒントで色分け表示するので、公開前のチェックにご活用ください。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>Event 構造化データ生成</h1><p>イベント情報から schema.org Event の JSON-LD を自動生成（イベントSEO）</p></header>
+
+    <div class="card"><h3>イベント基本情報</h3>
+        <div class="row"><label>イベント名 <span style="color:var(--red)">*</span><br><span class="hint-sm">name（必須）</span></label><input type="text" id="f_name" placeholder="例：DevTools Japan 開発者カンファレンス 2026" oninput="gen()"></div>
+        <div class="row"><label>説明<br><span class="hint-sm">description（推奨）</span></label><textarea id="f_desc" placeholder="イベントの概要を入力" oninput="gen()"></textarea></div>
+        <div class="row"><label>開始日時 <span style="color:var(--red)">*</span><br><span class="hint-sm">startDate（必須・ISO8601 に変換）</span></label><input type="datetime-local" id="f_start" oninput="gen()"></div>
+        <div class="row"><label>終了日時<br><span class="hint-sm">endDate（推奨・ISO8601 に変換）</span></label><input type="datetime-local" id="f_end" oninput="gen()"></div>
+        <div class="row"><label>画像 URL<br><span class="hint-sm">image（推奨）</span></label><input type="url" id="f_image" placeholder="https://example.com/event.jpg" oninput="gen()"></div>
+    </div>
+
+    <div class="card"><h3>開催形態・開催地</h3>
+        <div class="row"><label>開催形態<br><span class="hint-sm">eventAttendanceMode</span></label>
+            <select id="f_mode" onchange="toggleLocation();gen()">
+                <option value="offline">オフライン（会場）</option>
+                <option value="online">オンライン</option>
+                <option value="mixed">ハイブリッド（会場＋オンライン）</option>
+            </select>
+        </div>
+        <div class="row"><label>開催ステータス<br><span class="hint-sm">eventStatus</span></label>
+            <select id="f_status" onchange="gen()">
+                <option value="EventScheduled">予定どおり開催（Scheduled）</option>
+                <option value="EventRescheduled">日程変更（Rescheduled）</option>
+                <option value="EventPostponed">延期（Postponed）</option>
+                <option value="EventCancelled">中止（Cancelled）</option>
+                <option value="EventMovedOnline">オンライン開催へ変更（MovedOnline）</option>
+            </select>
+        </div>
+        <div id="placeFields">
+            <div class="row"><label>会場名<br><span class="hint-sm">location.name（Place）</span></label><input type="text" id="f_venue" placeholder="例：東京国際フォーラム" oninput="gen()"></div>
+            <div class="row"><label>会場住所<br><span class="hint-sm">location.address</span></label><input type="text" id="f_address" placeholder="例：東京都千代田区丸の内3-5-1" oninput="gen()"></div>
+        </div>
+        <div id="virtualFields" style="display:none">
+            <div class="row"><label>オンライン視聴 URL<br><span class="hint-sm">location.url（VirtualLocation）</span></label><input type="url" id="f_vurl" placeholder="https://example.com/live" oninput="gen()"></div>
+        </div>
+    </div>
+
+    <div class="card"><h3>チケット（offers）</h3>
+        <div class="row"><label>価格<br><span class="hint-sm">offers.price</span></label><input type="text" id="f_price" placeholder="例：3000（無料は 0）" oninput="gen()"></div>
+        <div class="row"><label>通貨<br><span class="hint-sm">offers.priceCurrency</span></label>
+            <select id="f_currency" onchange="gen()">
+                <option value="JPY">JPY（日本円）</option>
+                <option value="USD">USD（米ドル）</option>
+                <option value="EUR">EUR（ユーロ）</option>
+            </select>
+        </div>
+        <div class="row"><label>在庫状況<br><span class="hint-sm">offers.availability</span></label>
+            <select id="f_avail" onchange="gen()">
+                <option value="">指定しない</option>
+                <option value="InStock">販売中（InStock）</option>
+                <option value="SoldOut">完売（SoldOut）</option>
+                <option value="PreOrder">先行予約（PreOrder）</option>
+            </select>
+        </div>
+        <div class="row"><label>チケット URL<br><span class="hint-sm">offers.url</span></label><input type="url" id="f_offerurl" placeholder="https://example.com/tickets" oninput="gen()"></div>
+        <div class="row"><label>販売開始日時<br><span class="hint-sm">offers.validFrom（ISO8601 に変換）</span></label><input type="datetime-local" id="f_validfrom" oninput="gen()"></div>
+    </div>
+
+    <div class="card"><h3>出演者・主催者</h3>
+        <div class="row"><label>出演者・登壇者<br><span class="hint-sm">performer.name</span></label><input type="text" id="f_performer" placeholder="例：山田太郎" oninput="gen()"></div>
+        <div class="row"><label>主催者名<br><span class="hint-sm">organizer.name</span></label><input type="text" id="f_organizer" placeholder="例：DevTools Japan 実行委員会" oninput="gen()"></div>
+        <div class="row"><label>主催者 URL<br><span class="hint-sm">organizer.url</span></label><input type="url" id="f_orgurl" placeholder="https://example.com" oninput="gen()"></div>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="output-card">
+        <div class="output-head"><span class="label">生成された JSON-LD（HTML にそのまま貼り付け）</span><button class="copy-btn" id="copyBtn" onclick="copyOut()">コピー</button></div>
+        <pre id="output"><code>...</code></pre>
+    </div>
+
+    <div class="hint-list">
+        <div class="t">イベント リッチリザルト 要件チェック</div>
+        <ul id="hintList"></ul>
+    </div>
+
+    <div class="note">生成される JSON-LD はページの &lt;head&gt; または &lt;body&gt; 内に貼り付けてください。開始日時・終了日時・販売開始日時はお使いの端末のタイムゾーンオフセットを付けた ISO 8601 形式で出力します。空欄のフィールドは自動的に除外されます。公開後は Google のリッチリザルト テストで検証することをおすすめします。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>Event 構造化データ生成ツールの使い方</h2>
+        <p>イベント名・日時・開催形態・会場・チケットなどの情報を入力するだけで、<code>schema.org</code> の Event タイプに対応した JSON-LD 構造化データを自動生成する無料ツールです。生成したコードをイベントページの HTML に貼り付けると、Google 検索のイベント表示（リッチリザルト）にイベント名・日時・開催地などが表示されやすくなり、集客とクリック率の向上が期待できます。インストールや会員登録は不要で、入力と生成はすべてお使いの端末内で完結します。</p>
+        <p>使い方はシンプルです。上から順にイベントの基本情報を入力していくと、下部のコード欄にリアルタイムで JSON-LD が生成されます。「開催形態」を切り替えると、会場（Place）とオンライン（VirtualLocation）の入力欄が自動で切り替わります。入力を空欄にしたフィールドは出力から自動的に除外されるため、必要な項目だけを埋めれば整った構造化データが得られます。完成したら「コピー」ボタンでクリップボードにコピーし、そのままページに貼り付けてください。</p>
+        <h3>オフライン・オンライン・ハイブリッドに対応</h3>
+        <p>開催形態のセレクトで「オフライン（会場）」を選ぶと会場名と住所から Place を、「オンライン」を選ぶと視聴 URL から VirtualLocation を生成します。「ハイブリッド」では両方を location の配列として出力し、<code>eventAttendanceMode</code> にも MixedEventAttendanceMode を自動設定します。オンライン開催が増えた近年のイベント SEO に合わせ、開催形態と location の型を常に整合させて出力します。</p>
+
+        <h2>Event 構造化データの主なプロパティ</h2>
+        <p>Google のイベント リッチリザルトで扱われる代表的なプロパティは次のとおりです。必須項目を満たしたうえで、推奨項目を充実させるほど検索結果での表示が豊かになります。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>プロパティ</th><th>区分</th><th>説明</th></tr>
+            <tr><td>name</td><td>必須</td><td>イベントの名称</td></tr>
+            <tr><td>startDate</td><td>必須</td><td>開始日時。ISO 8601（タイムゾーン付き）で記述</td></tr>
+            <tr><td>location</td><td>必須</td><td>開催地。会場は Place、オンラインは VirtualLocation（url 必須）</td></tr>
+            <tr><td>endDate</td><td>推奨</td><td>終了日時。ISO 8601 で記述</td></tr>
+            <tr><td>image</td><td>推奨</td><td>イベントの画像 URL</td></tr>
+            <tr><td>description</td><td>推奨</td><td>イベントの説明文</td></tr>
+            <tr><td>offers</td><td>推奨</td><td>チケット情報。price / priceCurrency / availability / url / validFrom</td></tr>
+            <tr><td>performer</td><td>推奨</td><td>出演者・登壇者</td></tr>
+            <tr><td>organizer</td><td>推奨</td><td>主催者（name / url）</td></tr>
+            <tr><td>eventAttendanceMode</td><td>推奨</td><td>開催形態（オフライン / オンライン / ハイブリッド）</td></tr>
+            <tr><td>eventStatus</td><td>推奨</td><td>開催ステータス（予定 / 延期 / 中止 / 日程変更 など）</td></tr>
+        </table>
+        </div>
+        <h3>日時は ISO 8601 で出力</h3>
+        <p>開始日時・終了日時・チケットの販売開始日時は、日時入力から <code>2026-08-01T19:00:00+09:00</code> のような ISO 8601 形式へ変換して出力します。末尾のタイムゾーンオフセットはお使いの端末の設定（日本なら +09:00）を自動付与するため、地域を含んだ曖昧さのない日時としてマークアップされます。中止・延期などのステータス変更を反映したい場合は、開催ステータスのセレクトを切り替えてください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">Event 構造化データとは何ですか？</div><div class="a">Event 構造化データは、コンサート・セミナー・展示会・ワークショップなどのイベント情報を検索エンジンが理解できる形式で記述する schema.org のマークアップです。JSON-LD 形式でページに埋め込むと、Google 検索やイベント表示枠でイベント名・日時・開催地がリッチリザルトとして表示されやすくなります。本ツールは入力内容から Event の JSON-LD をリアルタイムに生成します。</div></div>
+        <div class="faq-item"><div class="q">オンラインイベントにも対応していますか？</div><div class="a">はい。開催形態のセレクトで「オンライン」を選ぶと location が VirtualLocation 型に切り替わり、視聴ページの URL を指定できます。「オフライン（会場）」では Place 型で会場名と住所を、「ハイブリッド」では VirtualLocation と Place の両方を location の配列として出力します。eventAttendanceMode も選択に応じて自動で設定します。</div></div>
+        <div class="faq-item"><div class="q">日時はどの形式で出力されますか？</div><div class="a">開始日時・終了日時は日時入力で受け取り、schema.org が推奨する ISO 8601 形式で出力します。お使いの端末のタイムゾーンオフセット（例：+09:00）を自動付与するため、たとえば 2026-08-01T19:00:00+09:00 のように、地域を含んだ正確な日時としてマークアップされます。終了日時を空欄にした場合は endDate を出力しません。</div></div>
+        <div class="faq-item"><div class="q">入力を空欄にするとどうなりますか？</div><div class="a">空欄のフィールドは JSON-LD から自動的に除外されます。必要な項目だけを埋めればよく、不要な空の値が出力されることはありません。すべて空欄の場合でも、構造を確認できるようにサンプルのイベント情報を使った出力を表示します。実際に使用する際は、ご自身のイベント情報に置き換えてください。</div></div>
+        <div class="faq-item"><div class="q">リッチリザルトに表示されるために必須の項目は？</div><div class="a">Google のイベント リッチリザルトでは name（イベント名）、startDate（開始日時）、location（開催地。オンラインの場合は VirtualLocation と URL）が必須です。image や description、offers、performer、organizer は推奨項目で、埋めるほど表示が充実します。本ツールは必須項目の充足状況を画面のヒントで色分け表示するので、公開前のチェックにご活用ください。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ld+json スクリプトタグ文字列はトークン分割して組み立てる（生の開閉タグを素書きしない）
+var TAG_OPEN = '<' + 'script type="application/ld+json">';
+var TAG_CLOSE = '<' + '/' + 'script>';
+
+var SAMPLE = {
+    name: 'DevTools Japan 開発者カンファレンス 2026',
+    desc: 'フロントエンドからインフラまでを扱う開発者向けの技術カンファレンス。',
+    start: '2026-08-01T10:00',
+    end: '2026-08-01T18:00',
+    image: 'https://www.devtools-japan.com/sample-event.jpg',
+    mode: 'offline',
+    status: 'EventScheduled',
+    venue: '東京国際フォーラム',
+    address: '東京都千代田区丸の内3-5-1',
+    vurl: '',
+    price: '3000',
+    currency: 'JPY',
+    avail: 'InStock',
+    offerurl: 'https://www.devtools-japan.com/tickets',
+    validfrom: '2026-06-01T10:00',
+    performer: '山田 太郎',
+    organizer: 'DevTools Japan 実行委員会',
+    orgurl: 'https://www.devtools-japan.com'
+};
+
+var MODE_MAP = {
+    offline: 'https://schema.org/OfflineEventAttendanceMode',
+    online: 'https://schema.org/OnlineEventAttendanceMode',
+    mixed: 'https://schema.org/MixedEventAttendanceMode'
+};
+
+function val(id){ var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+
+// datetime-local 値をタイムゾーンオフセット付き ISO8601 に変換
+function toISO(v){
+    if(!v){ return ''; }
+    var parts = v.split('T');
+    if(parts.length < 2){ return ''; }
+    var d = parts[0].split('-').map(Number);
+    var t = parts[1].split(':').map(Number);
+    var hh = t[0] || 0, mm = t[1] || 0, ss = t[2] || 0;
+    var dateObj = new Date(d[0], d[1]-1, d[2], hh, mm, ss);
+    if(isNaN(dateObj.getTime())){ return ''; }
+    var off = -dateObj.getTimezoneOffset(); // minutes east of UTC
+    var sign = off >= 0 ? '+' : '-';
+    var ao = Math.abs(off);
+    var oh = String(Math.floor(ao/60)).padStart(2,'0');
+    var om = String(ao%60).padStart(2,'0');
+    var pad = function(n){ return String(n).padStart(2,'0'); };
+    return parts[0] + 'T' + pad(hh) + ':' + pad(mm) + ':' + pad(ss) + sign + oh + ':' + om;
+}
+
+function toggleLocation(){
+    var mode = val('f_mode');
+    var pf = document.getElementById('placeFields');
+    var vf = document.getElementById('virtualFields');
+    pf.style.display = (mode === 'online') ? 'none' : 'block';
+    vf.style.display = (mode === 'offline') ? 'none' : 'block';
+}
+
+// 現在のフォーム入力を収集。すべて空ならサンプルを使う
+function collect(){
+    var data = {
+        name: val('f_name'), desc: val('f_desc'), start: val('f_start'), end: val('f_end'),
+        image: val('f_image'), mode: val('f_mode'), status: val('f_status'),
+        venue: val('f_venue'), address: val('f_address'), vurl: val('f_vurl'),
+        price: val('f_price'), currency: val('f_currency'), avail: val('f_avail'),
+        offerurl: val('f_offerurl'), validfrom: val('f_validfrom'),
+        performer: val('f_performer'), organizer: val('f_organizer'), orgurl: val('f_orgurl')
+    };
+    var meaningful = ['name','desc','start','end','image','venue','address','vurl','price','offerurl','validfrom','performer','organizer','orgurl'];
+    var anyInput = meaningful.some(function(k){ return data[k]; }) || data.avail;
+    return anyInput ? { data: data, sample: false } : { data: SAMPLE, sample: true };
+}
+
+function buildLocation(d){
+    var place = null, virt = null;
+    if(d.venue || d.address){
+        place = { '@type': 'Place' };
+        if(d.venue){ place.name = d.venue; }
+        if(d.address){ place.address = d.address; }
+    }
+    if(d.vurl){
+        virt = { '@type': 'VirtualLocation', url: d.vurl };
+    }
+    if(d.mode === 'online'){ return virt; }
+    if(d.mode === 'mixed'){
+        var arr = [];
+        if(virt){ arr.push(virt); }
+        if(place){ arr.push(place); }
+        if(arr.length === 0){ return null; }
+        return arr.length === 1 ? arr[0] : arr;
+    }
+    return place; // offline
+}
+
+function buildOffers(d){
+    if(!d.price && !d.offerurl && !d.avail && !d.validfrom){ return null; }
+    var o = { '@type': 'Offer' };
+    if(d.price !== ''){ o.price = d.price; o.priceCurrency = d.currency || 'JPY'; }
+    if(d.avail){ o.availability = 'https://schema.org/' + d.avail; }
+    if(d.offerurl){ o.url = d.offerurl; }
+    var vf = toISO(d.validfrom);
+    if(vf){ o.validFrom = vf; }
+    return o;
+}
+
+function buildSchema(d){
+    var obj = { '@context': 'https://schema.org', '@type': 'Event' };
+    if(d.name){ obj.name = d.name; }
+    if(d.desc){ obj.description = d.desc; }
+    var s = toISO(d.start); if(s){ obj.startDate = s; }
+    var e = toISO(d.end); if(e){ obj.endDate = e; }
+    if(d.mode && MODE_MAP[d.mode]){ obj.eventAttendanceMode = MODE_MAP[d.mode]; }
+    if(d.status){ obj.eventStatus = 'https://schema.org/' + d.status; }
+    var loc = buildLocation(d); if(loc){ obj.location = loc; }
+    if(d.image){ obj.image = d.image; }
+    var off = buildOffers(d); if(off){ obj.offers = off; }
+    if(d.performer){ obj.performer = { '@type': 'PerformingGroup', name: d.performer }; }
+    if(d.organizer || d.orgurl){
+        var org = { '@type': 'Organization' };
+        if(d.organizer){ org.name = d.organizer; }
+        if(d.orgurl){ org.url = d.orgurl; }
+        obj.organizer = org;
+    }
+    return obj;
+}
+
+function updateHints(d, sample){
+    var list = document.getElementById('hintList');
+    var hasName = !!d.name;
+    var hasStart = !!toISO(d.start);
+    var loc = buildLocation(d);
+    var hasLoc = !!loc;
+    var items = [];
+    items.push({ ok: hasName, txt: 'name（イベント名）：必須' });
+    items.push({ ok: hasStart, txt: 'startDate（開始日時）：必須・ISO8601' });
+    items.push({ ok: hasLoc, txt: 'location（開催地 / オンラインは URL）：必須' });
+    items.push({ ok: !!d.image, txt: 'image（画像 URL）：推奨' });
+    items.push({ ok: !!d.desc, txt: 'description（説明）：推奨' });
+    items.push({ ok: !!buildOffers(d), txt: 'offers（チケット情報）：推奨' });
+    var html = '';
+    items.forEach(function(it){
+        var cls = it.ok ? 'ok' : 'warn';
+        var mark = it.ok ? '✓ ' : '未入力：';
+        html += '<li class="' + cls + '">' + mark + it.txt + '</li>';
+    });
+    if(sample){
+        html += '<li>（現在はサンプル表示中。実際のイベント情報を入力してください）</li>';
+    }
+    list.innerHTML = html;
+}
+
+function esc(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+var lastOutput = '';
+
+function gen(){
+    var c = collect();
+    var obj = buildSchema(c.data);
+    var json = JSON.stringify(obj, null, 2);
+    var full = TAG_OPEN + '\n' + json + '\n' + TAG_CLOSE;
+    lastOutput = full;
+    document.getElementById('output').innerHTML = '<code>' + esc(full) + '</code>';
+    updateHints(c.data, c.sample);
+}
+
+function copyOut(){
+    var btn = document.getElementById('copyBtn');
+    var done = function(){ btn.textContent = 'コピー済み'; setTimeout(function(){ btn.textContent = 'コピー'; }, 1500); };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(lastOutput).then(done, function(){ fallbackCopy(done); });
+    } else {
+        fallbackCopy(done);
+    }
+}
+
+function fallbackCopy(done){
+    var ta = document.createElement('textarea');
+    ta.value = lastOutput;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); done(); } catch(e){}
+    document.body.removeChild(ta);
+}
+
+toggleLocation();
+gen();
+</script>
+</body>
+</html>

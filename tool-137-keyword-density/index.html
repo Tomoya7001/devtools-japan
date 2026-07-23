@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>キーワード出現頻度・密度チェッカー（SEO） | 単語の回数と密度を自動集計【無料】</title>
+    <meta name="description" content="記事本文を貼り付けるだけで、単語やフレーズの出現回数とキーワード密度(%)を降順で表示する無料SEOツール。1語・2語・3語（n-gram）の切替、日本語の指定キーワード集計、ストップワード除外、過剰密度の警告に対応。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        textarea{width:100%;min-height:180px;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;line-height:1.8;outline:none;resize:vertical}
+        textarea:focus{border-color:var(--accent)}
+        .seg{display:inline-flex;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+        .seg button{padding:8px 16px;background:#f7f8fb;border:none;color:var(--text2);font-size:0.85rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif;border-right:1px solid var(--border)}
+        .seg button:last-child{border-right:none}
+        .seg button.active{background:var(--accent);color:#fff}
+        .switch{display:flex;align-items:center;gap:8px}
+        .switch input{width:auto}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .warn{border-radius:8px;padding:12px 16px;font-size:0.8rem;margin-bottom:16px;display:none}
+        .warn.show{display:block}
+        .warn.danger{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);color:var(--red)}
+        .warn.ok{background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.3);color:var(--green)}
+        table.freq{width:100%;border-collapse:collapse;font-size:0.85rem}
+        table.freq th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text);position:sticky;top:0}
+        table.freq td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        table.freq td.num{font-family:'JetBrains Mono',monospace;text-align:right;color:var(--text)}
+        table.freq tr.hit td{background:var(--accent-dim)}
+        .bar{height:6px;background:var(--accent);border-radius:3px;min-width:2px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-height:420px;overflow-y:auto}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.ghost{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-137-keyword-density/">
+    <meta property="og:title" content="キーワード出現頻度・密度チェッカー（SEO）【無料】">
+    <meta property="og:description" content="記事本文を貼り付けるだけで単語・フレーズの出現回数とキーワード密度(%)を降順表示。n-gram切替・日本語対応・ストップワード除外。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-137-keyword-density/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="キーワード出現頻度・密度チェッカー（SEO）【無料】">
+    <meta name="twitter:description" content="単語・フレーズの出現回数とキーワード密度(%)を自動集計。n-gram切替・日本語対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"キーワード出現頻度・密度チェッカー（SEO）","description":"記事本文の単語・フレーズの出現回数とキーワード密度を自動集計する無料SEOツール","url":"https://www.devtools-japan.com/tool-137-keyword-density/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"キーワード出現頻度・密度チェッカー（SEO）","item":"https://www.devtools-japan.com/tool-137-keyword-density/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"キーワード密度とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"キーワード密度とは、文章全体の総単語数に対して特定のキーワードが何回出現したかを百分率で表した指標です。本ツールでは、出現回数を総単語数で割って100を掛けた値を密度(%)として表示します。一般的にはひとつのキーワードで数%程度が自然とされ、極端に高い密度は不自然な詰め込み（キーワードスタッフィング）と見なされる場合があります。"}},{"@type":"Question","name":"日本語の文章でも使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。英語などの単語は空白で自動的に分割してトークン化しますが、日本語は空白で区切られないため、上部の「指定キーワード」欄に数えたい語句をカンマ区切りで入力してください。入力した語句の出現回数と密度を重点的に集計し、テーブルの先頭でハイライト表示します。形態素解析は行わない簡易方式のため、複合語や助詞の扱いは目安としてご利用ください。"}},{"@type":"Question","name":"1語・2語・3語の切替は何のためですか？","acceptedAnswer":{"@type":"Answer","text":"n-gram（エヌグラム）の切替です。1語は単一の単語の頻度、2語・3語は連続する2つ・3つの単語をまとめたフレーズの頻度を集計します。「無料 ツール」「オンライン 変換 ツール」のような複数語からなる検索キーワード（ロングテール）の出現状況を確認したいときに、2語や3語へ切り替えると便利です。"}},{"@type":"Question","name":"ストップワード除外とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"「は」「を」「the」「of」など、それ自体では意味の薄い頻出語（ストップワード）を集計から除外する機能です。トグルをオンにすると、これらの語を頻度テーブルから外し、内容を表す実質的なキーワードだけを見やすくします。指定キーワードとして明示した語句は除外の対象にはならず、常に集計されます。"}},{"@type":"Question","name":"入力したテキストは外部に送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。すべての集計処理はお使いのブラウザ内（JavaScript）で完結し、入力した記事本文やキーワードがサーバーへ送信・保存されることはありません。会員登録やインストールも不要で、未入力の場合はサンプル文章の集計結果を表示するため、動作をすぐに試せます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>キーワード出現頻度・密度チェッカー</h1><p>記事本文の単語・フレーズの出現回数と密度(%)をSEO向けに自動集計</p></header>
+
+    <div class="card"><h3>文章を貼り付け</h3>
+        <textarea id="inputText" placeholder="ここに記事本文を貼り付けてください（未入力の場合はサンプルを表示します）" oninput="analyze()"></textarea>
+        <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+            <button class="btn ghost" onclick="loadSample()">サンプルを読み込む</button>
+            <button class="btn ghost" onclick="clearText()">クリア</button>
+        </div>
+    </div>
+
+    <div class="card"><h3>集計オプション</h3>
+        <div class="row"><label>集計単位（n-gram）</label>
+            <div class="seg" id="ngramSeg">
+                <button data-n="1" class="active" onclick="setNgram(1)">1語</button>
+                <button data-n="2" onclick="setNgram(2)">2語</button>
+                <button data-n="3" onclick="setNgram(3)">3語</button>
+            </div>
+        </div>
+        <div class="row"><label>ストップワードを除外</label>
+            <label class="switch"><input type="checkbox" id="stopToggle" onchange="analyze()"> 除外する</label>
+        </div>
+        <div class="row" style="border-bottom:none"><label>指定キーワード（カンマ区切り／日本語推奨）</label>
+            <input type="text" id="keywords" placeholder="例: SEO, キーワード密度" style="text-align:left;width:260px" oninput="analyze()">
+        </div>
+    </div>
+
+    <div class="warn" id="warnBox"></div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">総文字数</div><div class="value" id="charCount">-</div></div>
+        <div class="result-item"><div class="label">総単語数</div><div class="value" id="wordCount">-</div></div>
+        <div class="result-item"><div class="label">ユニーク数</div><div class="value" id="uniqueCount">-</div></div>
+    </div>
+
+    <div class="card"><h3>指定キーワードの密度</h3>
+        <div id="kwSummary" style="font-size:0.85rem;color:var(--text2)">上の「指定キーワード」欄に語句を入力すると、ここに出現回数と密度を表示します。</div>
+    </div>
+
+    <div class="card"><h3 id="tableTitle">出現頻度ランキング（1語）</h3>
+        <div class="table-wrap">
+            <table class="freq">
+                <thead><tr><th>#</th><th>キーワード</th><th style="text-align:right">回数</th><th style="text-align:right">密度</th><th style="width:120px">割合</th></tr></thead>
+                <tbody id="freqBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="note">密度(%) は「出現回数 ÷ 総単語数 × 100」で算出したおおよその目安です。英単語は空白で自動分割し、日本語は指定キーワードの部分一致で回数を数えます。形態素解析は行わない簡易方式のため、正確な自然文解析ではなく、記事チェックの補助としてご利用ください。過剰な密度は不自然な詰め込みと判断される場合があるため、読みやすさを優先してください。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>キーワード密度チェッカーの使い方</h2>
+        <p>記事の本文を上のテキスト欄に貼り付けるだけで、含まれている単語やフレーズが何回出てくるか、そして総単語数に対してどのくらいの割合（キーワード密度）を占めているかを、多い順のランキングで自動集計する無料のSEOツールです。インストールや会員登録は不要で、入力した文章はブラウザの中だけで処理され、外部のサーバーには送信されません。未入力のときはサンプル文章の集計結果を表示するので、動作をすぐに確認できます。</p>
+        <p>使い方はかんたんです。本文を貼り付けると、総文字数・総単語数・ユニークな単語数がすぐに表示され、その下に出現頻度ランキングが並びます。「1語・2語・3語」のボタンで集計単位を切り替えると、単一の単語だけでなく、連続する2語・3語のフレーズ（複合キーワード）の出現状況も確認できます。狙いたいキーワードがある場合は「指定キーワード」欄に入力すると、その語句の回数と密度を重点的に表示します。</p>
+        <h3>こんな用途に</h3>
+        <p>ブログ記事やコラムを公開する前のキーワード確認、狙ったキーワードが十分に含まれているか・逆に詰め込みすぎていないかの点検、競合記事の本文を貼り付けての語句傾向の把握などに使えます。ストップワード除外をオンにすると、助詞や冠詞のような意味の薄い頻出語を集計から外し、内容を表す実質的な語句だけを見やすく確認できます。</p>
+
+        <h2>キーワード密度の考え方</h2>
+        <p>キーワード密度は、狙ったキーワードが文章内でどれくらいの比率を占めるかを示す指標で、本ツールでは「そのキーワードの出現回数 ÷ 総単語数 × 100」で計算しています。かつては密度を一定の数値に合わせることが重視された時期もありましたが、現在の検索エンジンは文脈や意味を評価するため、数値そのものを追いかける必要はありません。あくまで自然な文章のなかでキーワードが極端に不足・過剰になっていないかを確認する目安として活用してください。</p>
+        <div class="table-wrap" style="max-height:none;overflow:visible">
+        <table class="ref">
+            <tr><th>密度の目安</th><th>評価</th><th>説明</th></tr>
+            <tr><td>0%（未出現）</td><td>不足の可能性</td><td>狙うキーワードが本文に含まれていない状態。見出しや本文への自然な追加を検討</td></tr>
+            <tr><td>おおむね1〜4%</td><td>自然な範囲</td><td>読みやすさを保ちながらキーワードが含まれている一般的な状態</td></tr>
+            <tr><td>5%以上</td><td>過剰の可能性</td><td>同じ語句の繰り返しが目立ち、詰め込み（スタッフィング）と見なされる場合がある</td></tr>
+        </table>
+        </div>
+        <h3>日本語とn-gramについて</h3>
+        <p>英語は単語が空白で区切られるため自動でトークンに分割できますが、日本語は空白で区切られないため、本ツールでは「指定キーワード」欄に入力した語句の部分一致で出現回数を数える方式を採用しています。狙いたい語句を明示することで、日本語の本文でも密度を確認できます。n-gram（1語・2語・3語）は連続する単語をまとめて数える仕組みで、複数の語からなる検索フレーズの傾向を見たいときに役立ちます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">キーワード密度とは何ですか？</div><div class="a">キーワード密度とは、文章全体の総単語数に対して特定のキーワードが何回出現したかを百分率で表した指標です。本ツールでは、出現回数を総単語数で割って100を掛けた値を密度(%)として表示します。一般的にはひとつのキーワードで数%程度が自然とされ、極端に高い密度は不自然な詰め込み（キーワードスタッフィング）と見なされる場合があります。</div></div>
+        <div class="faq-item"><div class="q">日本語の文章でも使えますか？</div><div class="a">はい。英語などの単語は空白で自動的に分割してトークン化しますが、日本語は空白で区切られないため、上部の「指定キーワード」欄に数えたい語句をカンマ区切りで入力してください。入力した語句の出現回数と密度を重点的に集計し、テーブルの先頭でハイライト表示します。形態素解析は行わない簡易方式のため、複合語や助詞の扱いは目安としてご利用ください。</div></div>
+        <div class="faq-item"><div class="q">1語・2語・3語の切替は何のためですか？</div><div class="a">n-gram（エヌグラム）の切替です。1語は単一の単語の頻度、2語・3語は連続する2つ・3つの単語をまとめたフレーズの頻度を集計します。「無料 ツール」「オンライン 変換 ツール」のような複数語からなる検索キーワード（ロングテール）の出現状況を確認したいときに、2語や3語へ切り替えると便利です。</div></div>
+        <div class="faq-item"><div class="q">ストップワード除外とは何ですか？</div><div class="a">「は」「を」「the」「of」など、それ自体では意味の薄い頻出語（ストップワード）を集計から除外する機能です。トグルをオンにすると、これらの語を頻度テーブルから外し、内容を表す実質的なキーワードだけを見やすくします。指定キーワードとして明示した語句は除外の対象にはならず、常に集計されます。</div></div>
+        <div class="faq-item"><div class="q">入力したテキストは外部に送信されますか？</div><div class="a">いいえ。すべての集計処理はお使いのブラウザ内（JavaScript）で完結し、入力した記事本文やキーワードがサーバーへ送信・保存されることはありません。会員登録やインストールも不要で、未入力の場合はサンプル文章の集計結果を表示するため、動作をすぐに試せます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+var SAMPLE = "無料のオンラインツールを探しているなら、このSEOツールが便利です。キーワード密度チェッカーは、記事本文を貼り付けるだけで単語の出現回数と密度を集計します。SEO対策では、狙ったキーワードが本文に自然に含まれているかを確認することが大切です。キーワードの詰め込みは逆効果になるため、密度は適度に保ちましょう。This free SEO tool analyzes keyword frequency and density in your text. Enter your article and the tool shows the count and density of each word. Good SEO keeps keyword density natural and readable for users.";
+
+var STOPWORDS = new Set([
+    "the","a","an","and","or","but","of","to","in","on","at","for","with","by","from","as","is","are","was","were","be","been","being","this","that","these","those","it","its","you","your","we","our","they","their","he","she","his","her","i","me","my","not","no","so","if","then","than","too","very","can","will","would","should","could","has","have","had","do","does","did","up","out","about","into","over","after","and",
+    "は","が","を","に","へ","と","も","や","の","で","から","まで","より","など","して","する","した","です","ます","ある","いる","この","その","あの","これ","それ","こと","もの","ため","よう","なる","なり","れる","られる","そして","しかし","また"
+]);
+
+var state = { n: 1 };
+
+function tokenize(text){
+    var out = [];
+    var re = /[A-Za-z][A-Za-z0-9'\-]*|[0-9]+/g;
+    var m;
+    while ((m = re.exec(text)) !== null){ out.push(m[0].toLowerCase()); }
+    return out;
+}
+
+function buildNgrams(tokens, n, useStop){
+    var counts = {};
+    for (var i = 0; i + n <= tokens.length; i++){
+        var parts = tokens.slice(i, i + n);
+        if (useStop){
+            var skip = false;
+            for (var j = 0; j < parts.length; j++){ if (STOPWORDS.has(parts[j])) { skip = true; break; } }
+            if (skip) continue;
+        }
+        var key = parts.join(' ');
+        counts[key] = (counts[key] || 0) + 1;
+    }
+    return counts;
+}
+
+function countOccurrences(haystack, needle){
+    if (!needle) return 0;
+    var c = 0, idx = 0;
+    while (true){
+        var p = haystack.indexOf(needle, idx);
+        if (p === -1) break;
+        c++;
+        idx = p + needle.length;
+    }
+    return c;
+}
+
+function esc(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function setNgram(n){
+    state.n = n;
+    var btns = document.querySelectorAll('#ngramSeg button');
+    for (var i = 0; i < btns.length; i++){
+        btns[i].classList.toggle('active', parseInt(btns[i].getAttribute('data-n'),10) === n);
+    }
+    document.getElementById('tableTitle').textContent = '出現頻度ランキング（' + n + '語）';
+    analyze();
+}
+
+function analyze(){
+    var raw = document.getElementById('inputText').value;
+    var text = raw.trim().length ? raw : SAMPLE;
+    var useStop = document.getElementById('stopToggle').checked;
+
+    var charCount = text.replace(/\s/g,'').length;
+    var tokens = tokenize(text);
+    var totalWords = tokens.length;
+
+    var counts = buildNgrams(tokens, state.n, useStop);
+    var rows = [];
+    for (var k in counts){ if (counts.hasOwnProperty(k)) rows.push([k, counts[k]]); }
+    rows.sort(function(a,b){ return b[1] - a[1] || (a[0] < b[0] ? -1 : 1); });
+
+    document.getElementById('charCount').textContent = charCount.toLocaleString();
+    document.getElementById('wordCount').textContent = totalWords.toLocaleString();
+    document.getElementById('uniqueCount').textContent = (new Set(tokens)).size.toLocaleString();
+
+    // 指定キーワード集計
+    var kwRaw = document.getElementById('keywords').value;
+    var kws = kwRaw.split(',').map(function(s){ return s.trim(); }).filter(function(s){ return s.length; });
+    var hitSet = new Set();
+    var denom = totalWords || 1;
+    var maxDensity = 0;
+    if (kws.length){
+        var html = '';
+        for (var i = 0; i < kws.length; i++){
+            var kw = kws[i];
+            var cnt = countOccurrences(text, kw);
+            var dens = (cnt / denom) * 100;
+            if (dens > maxDensity) maxDensity = dens;
+            hitSet.add(kw.toLowerCase());
+            var densStr = dens.toFixed(2) + '%';
+            html += '<div class="row"><label>「' + esc(kw) + '」</label><div><span style="font-family:JetBrains Mono,monospace;color:var(--text)">' + cnt + '回</span> <span style="color:var(--accent);font-weight:600;margin-left:10px">' + densStr + '</span></div></div>';
+        }
+        document.getElementById('kwSummary').innerHTML = html;
+    } else {
+        document.getElementById('kwSummary').innerHTML = '上の「指定キーワード」欄に語句を入力すると、ここに出現回数と密度を表示します。日本語のキーワードはこちらで集計してください。';
+    }
+
+    // 警告
+    var warn = document.getElementById('warnBox');
+    var topDensity = rows.length ? (rows[0][1] / denom) * 100 : 0;
+    var peak = Math.max(maxDensity, topDensity);
+    warn.className = 'warn';
+    if (kws.length && maxDensity === 0){
+        warn.className = 'warn show danger';
+        warn.textContent = '⚠ 指定キーワードが本文に見つかりませんでした。見出しや本文への自然な追加を検討してください。';
+    } else if (peak >= 5){
+        warn.className = 'warn show danger';
+        warn.textContent = '⚠ 最大密度が ' + peak.toFixed(2) + '% と高めです。同じ語句の詰め込み（キーワードスタッフィング）と見なされる場合があるため、表現の言い換えをおすすめします。';
+    } else if (peak > 0){
+        warn.className = 'warn show ok';
+        warn.textContent = '✓ 最大密度は ' + peak.toFixed(2) + '% で自然な範囲です。読みやすさを保てています。';
+    }
+
+    // テーブル描画
+    var body = document.getElementById('freqBody');
+    body.innerHTML = '';
+    var top = rows.slice(0, 50);
+    var maxCnt = top.length ? top[0][1] : 1;
+    if (!top.length){
+        body.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--text3)">英単語のトークンが見つかりませんでした。日本語は「指定キーワード」で集計してください。</td></tr>';
+        return;
+    }
+    for (var r = 0; r < top.length; r++){
+        var word = top[r][0];
+        var cnt2 = top[r][1];
+        var dens2 = ((cnt2 / denom) * 100).toFixed(2) + '%';
+        var w = Math.max(2, Math.round((cnt2 / maxCnt) * 100));
+        var isHit = hitSet.has(word);
+        var tr = document.createElement('tr');
+        if (isHit) tr.className = 'hit';
+        tr.innerHTML = '<td class="num">' + (r + 1) + '</td><td>' + esc(word) + '</td><td class="num">' + cnt2 + '</td><td class="num">' + dens2 + '</td><td><div class="bar" style="width:' + w + '%"></div></td>';
+        body.appendChild(tr);
+    }
+}
+
+function loadSample(){
+    document.getElementById('inputText').value = SAMPLE;
+    document.getElementById('keywords').value = 'SEO, キーワード密度';
+    analyze();
+}
+function clearText(){
+    document.getElementById('inputText').value = '';
+    document.getElementById('keywords').value = '';
+    analyze();
+}
+
+analyze();
+</script>
+</body>
+</html>

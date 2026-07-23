@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>パンくずリスト構造化データ（BreadcrumbList）ジェネレーター | JSON-LD自動生成【無料】</title>
+    <meta name="description" content="階層項目の名前とURLを入力するだけで、schema.orgのBreadcrumbList構造化データ（JSON-LD）をposition自動採番でリアルタイム生成する無料ツール。項目の追加・並べ替え・削除に対応し、script type=application/ld+jsonタグ込みでコピーできます。SEO効果とパンくずの検索結果表示も解説。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .item-row{display:flex;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--border)}
+        .item-row:last-child{border-bottom:none}
+        .item-pos{font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--accent);font-weight:700;min-width:22px;text-align:center}
+        .item-fields{flex:1;display:flex;flex-direction:column;gap:6px}
+        .item-fields input{width:100%;padding:9px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;outline:none}
+        .item-fields input:focus{border-color:var(--accent)}
+        .item-fields input.url-in{font-family:'JetBrains Mono',monospace;font-size:0.78rem}
+        .item-actions{display:flex;flex-direction:column;gap:4px}
+        .icon-btn{width:30px;height:26px;background:#f7f8fb;border:1px solid var(--border);border-radius:6px;color:var(--text2);font-size:0.85rem;cursor:pointer;line-height:1;display:flex;align-items:center;justify-content:center}
+        .icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+        .icon-btn:disabled{opacity:0.3;cursor:not-allowed}
+        .icon-btn.del:hover{border-color:var(--red);color:var(--red)}
+        .add-btn{margin-top:14px;padding:10px 18px;background:var(--accent-dim);border:1px dashed var(--accent);border-radius:8px;color:var(--accent);font-size:0.85rem;font-weight:500;cursor:pointer;font-family:'Noto Sans JP',sans-serif;width:100%}
+        .add-btn:hover{background:rgba(139,92,246,0.14)}
+        .crumb-preview{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:0.82rem;color:var(--text2);margin-bottom:16px;padding:14px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius)}
+        .crumb-preview .sep{color:var(--text3)}
+        .crumb-preview .crumb{color:var(--accent);font-weight:500}
+        .crumb-preview .crumb.last{color:var(--text2);font-weight:400}
+        .output-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+        .output-head h3{margin-bottom:0}
+        .copy-btn{padding:8px 16px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .copy-btn:hover{opacity:0.9}
+        .copy-btn.copied{background:var(--green)}
+        pre.code-out{background:#1e1e35;border:1px solid var(--border);border-radius:var(--radius);padding:18px;overflow-x:auto;color:#e8e8f4;font-family:'JetBrains Mono',monospace;font-size:0.78rem;line-height:1.7;white-space:pre;-webkit-overflow-scrolling:touch}
+        .toggle-row{display:flex;align-items:center;gap:8px;margin-bottom:14px;font-size:0.82rem;color:var(--text2)}
+        .toggle-row input{width:16px;height:16px;accent-color:var(--accent)}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        @media(max-width:600px){.item-fields input.url-in{font-size:0.72rem}}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-125-breadcrumb-schema/">
+    <meta property="og:title" content="パンくずリスト構造化データ（BreadcrumbList）ジェネレーター【無料】">
+    <meta property="og:description" content="階層項目を入力するだけでschema.orgのBreadcrumbList JSON-LDをposition自動採番でリアルタイム生成。並べ替え・削除対応でタグ込みコピー可能。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-125-breadcrumb-schema/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="BreadcrumbList構造化データ ジェネレーター【無料】">
+    <meta name="twitter:description" content="パンくずリストのJSON-LDをposition自動採番でリアルタイム生成。タグ込みでコピーできます。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"パンくずリスト構造化データ（BreadcrumbList）ジェネレーター","description":"schema.orgのBreadcrumbList構造化データ（JSON-LD）をposition自動採番でリアルタイム生成する無料ツール","url":"https://www.devtools-japan.com/tool-125-breadcrumb-schema/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"パンくずリスト構造化データ（BreadcrumbList）ジェネレーター","item":"https://www.devtools-japan.com/tool-125-breadcrumb-schema/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"パンくずリストの構造化データとは？","acceptedAnswer":{"@type":"Answer","text":"パンくずリスト（BreadcrumbList）の構造化データは、そのページがサイト階層のどこに位置するかを検索エンジンに伝えるためのマークアップです。schema.orgのBreadcrumbList型をJSON-LD形式で記述し、各階層をListItemとしてposition（順番）・name（表示名）・item（URL）で表します。Googleはこの情報を使い、検索結果のタイトル下にサイト内の階層パス（パンくず）を表示することがあります。"}},{"@type":"Question","name":"positionは自分で振る必要がある？","acceptedAnswer":{"@type":"Answer","text":"本ツールでは不要です。項目を追加・並べ替え・削除するたびに、上から順に1・2・3…とpositionを自動で採番し直してJSON-LDを再生成します。positionは1から始まる連番である必要があり、手作業だと抜け番や重複が起きやすいため、自動採番によりエラーを防げます。"}},{"@type":"Question","name":"最後の項目（現在のページ）にもURLは必要？","acceptedAnswer":{"@type":"Answer","text":"Googleは末尾の項目（現在表示中のページ自身）についてはitem（URL）を省略しても認識できます。本ツールでは「最後の項目のURLを省略」オプションを用意しており、オンにすると末尾のListItemからitemを外した形式で出力できます。基本的にはすべての項目にURLを入れておくと、他の検索エンジンでも解釈しやすくなります。"}},{"@type":"Question","name":"生成したJSON-LDはどこに貼ればいい？","acceptedAnswer":{"@type":"Answer","text":"出力される <scr\u0069pt type=\"application/ld+json\"> タグごと、対象ページのHTMLの<head>内（<body>内でも可）に貼り付けます。パンくずリストの構造化データは、実際に画面に表示しているパンくずと内容が一致している必要があります。表示していない階層を構造化データにだけ記載するのはガイドライン違反となるため注意してください。"}},{"@type":"Question","name":"構造化データを入れると検索順位は上がる？","acceptedAnswer":{"@type":"Answer","text":"BreadcrumbListの構造化データ自体が直接の順位上昇要因になるわけではありません。ただし検索結果にサイト階層のパスが表示されることで、ページの位置づけが伝わりクリック率（CTR）の改善が期待できます。またサイト構造をクローラーが理解しやすくなる副次効果もあります。まずは正しくマークアップし、表示内容と一致させることが重要です。"}},{"@type":"Question","name":"入力した内容はサーバーに送信される？","acceptedAnswer":{"@type":"Answer","text":"いいえ。本ツールはすべてブラウザ内（お使いの端末内）だけで動作し、入力した名前やURLが外部サーバーに送信・保存されることはありません。会員登録も不要で、ネットワークに接続していなくても利用できます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>パンくずリスト構造化データ生成</h1><p>schema.org BreadcrumbList のJSON-LDをリアルタイム生成</p></header>
+
+    <div class="card"><h3>階層項目を入力</h3>
+        <div id="itemList"></div>
+        <button class="add-btn" id="addBtn" onclick="addItem()">＋ 階層を追加</button>
+    </div>
+
+    <div class="crumb-preview" id="crumbPreview"></div>
+
+    <div class="card">
+        <div class="output-head">
+            <h3>生成されたJSON-LD</h3>
+            <button class="copy-btn" id="copyBtn" onclick="copyOutput()">コピー</button>
+        </div>
+        <div class="toggle-row">
+            <input type="checkbox" id="omitLast" onchange="render()">
+            <label for="omitLast">最後の項目（現在のページ）のURL(item)を省略する</label>
+        </div>
+        <div class="toggle-row">
+            <input type="checkbox" id="withTag" checked onchange="render()">
+            <label for="withTag">&lt;script type="application/ld+json"&gt; タグ込みで出力</label>
+        </div>
+        <pre class="code-out" id="codeOut"></pre>
+    </div>
+
+    <div class="note">すべての処理はブラウザ内で完結し、入力した名前・URLが外部に送信されることはありません。positionは上から順に自動採番されます。構造化データは実際に画面表示しているパンくずと内容を一致させてください。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>パンくずリスト構造化データ ジェネレーターの使い方</h2>
+        <p>ページの階層（パンくずリスト）を「名前」と「URL」で順に入力するだけで、schema.orgの<strong>BreadcrumbList</strong>形式の構造化データ（JSON-LD）を自動生成する無料ツールです。項目の追加・上下の並べ替え・削除に対応し、変更するたびに<strong>position（順番）を自動で採番</strong>してコードをリアルタイムに再生成します。会員登録やインストールは不要で、すべての計算・生成はお使いの端末内（ブラウザ）で完結し、入力内容が外部に送信されることはありません。</p>
+        <p>使い方はかんたんです。「ホーム」を先頭に、カテゴリ・サブカテゴリ・現在のページと、上の階層から順に「表示名」と「URL」を入力します。「＋ 階層を追加」で行を増やし、各行の「↑」「↓」で並べ替え、「×」で削除できます。入力に応じて画面中央にパンくずのプレビューが表示され、下部の黒い枠に完成したJSON-LDが表示されます。「コピー」ボタンを押せば、<code>&lt;script type="application/ld+json"&gt;</code>タグごとクリップボードにコピーできるので、そのまま対象ページのHTMLに貼り付けられます。</p>
+
+        <h3>BreadcrumbListの基本構造</h3>
+        <p>BreadcrumbListは、サイト内の階層パスを表す構造化データの型です。全体を<code>BreadcrumbList</code>で囲み、各階層を<code>itemListElement</code>の<code>ListItem</code>として並べます。ListItemは次の3つのプロパティを持ちます。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>プロパティ</th><th>意味</th><th>例</th></tr>
+            <tr><td>position</td><td>階層の順番（1から始まる連番）</td><td>1, 2, 3 …</td></tr>
+            <tr><td>name</td><td>その階層の表示名（パンくずの文字）</td><td>ホーム、料理、レシピ名</td></tr>
+            <tr><td>item</td><td>その階層のページURL（絶対URL推奨）</td><td>https://example.com/food/</td></tr>
+        </table>
+        </div>
+        <p>positionは必ず1から始まる連番でなければならず、抜け番や重複があるとエラーの原因になります。本ツールは並べ替えや削除のたびに自動で振り直すため、番号を意識せずに正しいコードを得られます。</p>
+
+        <h2>パンくずリストのSEO効果と検索結果への影響</h2>
+        <p>パンくずリストの構造化データを設置すると、Googleがそのページのサイト内での位置づけを理解しやすくなります。もっとも分かりやすい効果は<strong>検索結果の表示</strong>です。通常、検索結果にはページのURLが表示されますが、BreadcrumbListを正しくマークアップしていると、URLの代わりに「example.com › 料理 › レシピ」のような<strong>階層パス（パンくず）</strong>が表示されることがあります。これにより、ユーザーはクリック前にそのページがサイトのどのカテゴリに属するかを把握でき、クリック率（CTR）の改善が期待できます。</p>
+        <p>ただし、構造化データそのものが検索順位（ランキング）を直接押し上げる要因になるわけではありません。あくまで検索結果の見え方の改善や、クローラーによるサイト構造の理解を助ける補助的な役割です。効果を得るための前提として、<strong>構造化データの内容と、実際にページ上に表示しているパンくずの内容が一致している</strong>必要があります。画面に表示していない階層を構造化データにだけ書くことはガイドライン違反となり、リッチリザルトの対象外になる可能性があります。</p>
+
+        <h3>設置時のポイント</h3>
+        <p>生成された<code>&lt;script type="application/ld+json"&gt;</code>ブロックは、対象ページのHTMLの<code>&lt;head&gt;</code>内（<code>&lt;body&gt;</code>内でも可）に貼り付けます。URLは<code>https://</code>から始まる絶対URLで指定するのが確実です。末尾の項目（現在表示しているページ自身）については、GoogleはURL(item)の省略を許容しているため、本ツールの「最後の項目のURLを省略」オプションで対応できます。設置後は、Googleの「リッチリザルト テスト」やSearch Consoleの拡張レポートで、正しく認識されているかを確認するとよいでしょう。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">パンくずリストの構造化データとは？</div><div class="a">パンくずリスト（BreadcrumbList）の構造化データは、そのページがサイト階層のどこに位置するかを検索エンジンに伝えるためのマークアップです。schema.orgのBreadcrumbList型をJSON-LD形式で記述し、各階層をListItemとしてposition（順番）・name（表示名）・item（URL）で表します。Googleはこの情報を使い、検索結果のタイトル下にサイト内の階層パス（パンくず）を表示することがあります。</div></div>
+        <div class="faq-item"><div class="q">positionは自分で振る必要がある？</div><div class="a">本ツールでは不要です。項目を追加・並べ替え・削除するたびに、上から順に1・2・3…とpositionを自動で採番し直してJSON-LDを再生成します。positionは1から始まる連番である必要があり、手作業だと抜け番や重複が起きやすいため、自動採番によりエラーを防げます。</div></div>
+        <div class="faq-item"><div class="q">最後の項目（現在のページ）にもURLは必要？</div><div class="a">Googleは末尾の項目（現在表示中のページ自身）についてはitem（URL）を省略しても認識できます。本ツールでは「最後の項目のURLを省略」オプションを用意しており、オンにすると末尾のListItemからitemを外した形式で出力できます。基本的にはすべての項目にURLを入れておくと、他の検索エンジンでも解釈しやすくなります。</div></div>
+        <div class="faq-item"><div class="q">生成したJSON-LDはどこに貼ればいい？</div><div class="a">出力される &lt;script type="application/ld+json"&gt; タグごと、対象ページのHTMLの&lt;head&gt;内（&lt;body&gt;内でも可）に貼り付けます。パンくずリストの構造化データは、実際に画面に表示しているパンくずと内容が一致している必要があります。表示していない階層を構造化データにだけ記載するのはガイドライン違反となるため注意してください。</div></div>
+        <div class="faq-item"><div class="q">構造化データを入れると検索順位は上がる？</div><div class="a">BreadcrumbListの構造化データ自体が直接の順位上昇要因になるわけではありません。ただし検索結果にサイト階層のパスが表示されることで、ページの位置づけが伝わりクリック率（CTR）の改善が期待できます。またサイト構造をクローラーが理解しやすくなる副次効果もあります。まずは正しくマークアップし、表示内容と一致させることが重要です。</div></div>
+        <div class="faq-item"><div class="q">入力した内容はサーバーに送信される？</div><div class="a">いいえ。本ツールはすべてブラウザ内（お使いの端末内）だけで動作し、入力した名前やURLが外部サーバーに送信・保存されることはありません。会員登録も不要で、ネットワークに接続していなくても利用できます。</div></div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// 初期データ（サンプル）
+let items = [
+    {name:'ホーム', url:'https://example.com/'},
+    {name:'ブログ', url:'https://example.com/blog/'},
+    {name:'この記事のタイトル', url:'https://example.com/blog/article/'}
+];
+
+function esc(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// 項目の描画
+function renderItems(){
+    const list = document.getElementById('itemList');
+    list.innerHTML = '';
+    items.forEach((it, i)=>{
+        const row = document.createElement('div');
+        row.className = 'item-row';
+
+        const pos = document.createElement('div');
+        pos.className = 'item-pos';
+        pos.textContent = (i+1);
+
+        const fields = document.createElement('div');
+        fields.className = 'item-fields';
+        const nameIn = document.createElement('input');
+        nameIn.type = 'text';
+        nameIn.placeholder = '表示名（例：ホーム）';
+        nameIn.value = it.name;
+        nameIn.oninput = (e)=>{ items[i].name = e.target.value; render(); };
+        const urlIn = document.createElement('input');
+        urlIn.type = 'text';
+        urlIn.className = 'url-in';
+        urlIn.placeholder = 'URL（例：https://example.com/）';
+        urlIn.value = it.url;
+        urlIn.oninput = (e)=>{ items[i].url = e.target.value; render(); };
+        fields.appendChild(nameIn);
+        fields.appendChild(urlIn);
+
+        const actions = document.createElement('div');
+        actions.className = 'item-actions';
+        const up = document.createElement('button');
+        up.className = 'icon-btn';
+        up.textContent = '↑';
+        up.title = '上へ移動';
+        up.disabled = (i === 0);
+        up.onclick = ()=>move(i, -1);
+        const down = document.createElement('button');
+        down.className = 'icon-btn';
+        down.textContent = '↓';
+        down.title = '下へ移動';
+        down.disabled = (i === items.length - 1);
+        down.onclick = ()=>move(i, 1);
+        const del = document.createElement('button');
+        del.className = 'icon-btn del';
+        del.textContent = '×';
+        del.title = '削除';
+        del.onclick = ()=>removeItem(i);
+        actions.appendChild(up);
+        actions.appendChild(down);
+        actions.appendChild(del);
+
+        row.appendChild(pos);
+        row.appendChild(fields);
+        row.appendChild(actions);
+        list.appendChild(row);
+    });
+}
+
+function addItem(){
+    items.push({name:'', url:''});
+    renderItems();
+    render();
+}
+
+function removeItem(i){
+    items.splice(i, 1);
+    renderItems();
+    render();
+}
+
+function move(i, dir){
+    const j = i + dir;
+    if (j < 0 || j >= items.length) return;
+    const tmp = items[i];
+    items[i] = items[j];
+    items[j] = tmp;
+    renderItems();
+    render();
+}
+
+// パンくずプレビュー
+function renderPreview(){
+    const box = document.getElementById('crumbPreview');
+    box.innerHTML = '';
+    const valid = items.filter(it => (it.name || '').trim() !== '');
+    if (valid.length === 0){
+        box.innerHTML = '<span style="color:var(--text3)">項目を入力するとプレビューが表示されます</span>';
+        return;
+    }
+    valid.forEach((it, i)=>{
+        if (i > 0){
+            const sep = document.createElement('span');
+            sep.className = 'sep';
+            sep.textContent = '›';
+            box.appendChild(sep);
+        }
+        const c = document.createElement('span');
+        c.className = 'crumb' + (i === valid.length - 1 ? ' last' : '');
+        c.textContent = it.name;
+        box.appendChild(c);
+    });
+}
+
+// JSON-LD生成（position自動採番）
+function buildJsonLd(){
+    const valid = items.filter(it => (it.name || '').trim() !== '');
+    const omitLast = document.getElementById('omitLast').checked;
+    const elements = valid.map((it, i)=>{
+        const li = {
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": it.name
+        };
+        const isLast = (i === valid.length - 1);
+        const url = (it.url || '').trim();
+        if (!(isLast && omitLast) && url !== ''){
+            li.item = url;
+        }
+        return li;
+    });
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": elements
+    };
+}
+
+function render(){
+    renderPreview();
+    const out = document.getElementById('codeOut');
+    const valid = items.filter(it => (it.name || '').trim() !== '');
+    if (valid.length === 0){
+        out.textContent = '// 表示名を1つ以上入力してください';
+        return;
+    }
+    const json = JSON.stringify(buildJsonLd(), null, 2);
+    const withTag = document.getElementById('withTag').checked;
+    if (withTag){
+        out.textContent = '<scr' + 'ipt type="application/ld+json">\n' + json + '\n<\/script>';
+    } else {
+        out.textContent = json;
+    }
+}
+
+function copyOutput(){
+    const text = document.getElementById('codeOut').textContent;
+    const btn = document.getElementById('copyBtn');
+    const done = ()=>{
+        btn.textContent = 'コピーしました';
+        btn.classList.add('copied');
+        setTimeout(()=>{ btn.textContent = 'コピー'; btn.classList.remove('copied'); }, 1600);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done).catch(()=>fallbackCopy(text, done));
+    } else {
+        fallbackCopy(text, done);
+    }
+}
+
+function fallbackCopy(text, done){
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try{ document.execCommand('copy'); done(); }catch(e){}
+    document.body.removeChild(ta);
+}
+
+renderItems();
+render();
+</script>
+</body>
+</html>

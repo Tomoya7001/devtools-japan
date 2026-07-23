@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLサイトマップ生成ツール | URLリストからsitemap.xmlを無料作成</title>
+    <meta name="description" content="URLを複数行貼り付けるだけで、検索エンジン向けのXMLサイトマップ（sitemap.xml）を自動生成する無料ツール。lastmod・changefreq・priorityを一括または個別に設定でき、コピー・ダウンロードも可能。完全ブラウザ完結で安全。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        textarea{width:100%;min-height:150px;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.82rem;line-height:1.7;outline:none;resize:vertical}
+        textarea:focus{border-color:var(--accent)}
+        .output-box{width:100%;min-height:180px;padding:14px;background:#f4f5f9;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.78rem;line-height:1.6;outline:none;resize:vertical;white-space:pre;overflow:auto}
+        .checkgroup{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px}
+        .checkgroup label{display:flex;align-items:center;gap:6px;font-size:0.82rem;color:var(--text2);cursor:pointer}
+        .checkgroup input{width:auto}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .count-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+        .count-bar .cnt{font-family:'JetBrains Mono',monospace;font-size:1.1rem;font-weight:700;color:var(--accent)}
+        .count-bar .cnt.over{color:var(--red)}
+        .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        .warn{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.25);border-radius:8px;padding:12px 16px;font-size:0.78rem;color:var(--text2);margin-top:12px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.sec{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.sec:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-129-xml-sitemap/">
+    <meta property="og:title" content="XMLサイトマップ生成ツール | URLリストからsitemap.xmlを無料作成">
+    <meta property="og:description" content="URLを貼り付けるだけでsitemap.xmlを自動生成。lastmod・changefreq・priority対応。コピー/ダウンロード可。完全ブラウザ完結。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-129-xml-sitemap/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="XMLサイトマップ生成ツール【無料】">
+    <meta name="twitter:description" content="URLリストからsitemap.xmlを自動生成。lastmod・changefreq・priority対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"XMLサイトマップ生成ツール","description":"URLリストから検索エンジン向けのXMLサイトマップ（sitemap.xml）を自動生成する無料ツール","url":"https://www.devtools-japan.com/tool-129-xml-sitemap/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"XMLサイトマップ生成ツール","item":"https://www.devtools-japan.com/tool-129-xml-sitemap/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"XMLサイトマップとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"XMLサイトマップは、サイト内のページURL一覧を検索エンジンに伝えるためのXML形式のファイルです。一般的にsitemap.xmlというファイル名でサイトのルートに設置し、Google Search Consoleなどに登録します。各URLに最終更新日（lastmod）、更新頻度（changefreq）、優先度（priority）を付与でき、クローラーが効率よくページを発見・巡回する助けになります。"}},{"@type":"Question","name":"生成したsitemapはどこに置けばよいですか？","acceptedAnswer":{"@type":"Answer","text":"通常はサイトのルートディレクトリに sitemap.xml として設置し、https://example.com/sitemap.xml でアクセスできるようにします。その後Google Search ConsoleのサイトマップメニューからURLを送信すると、検索エンジンに認識されやすくなります。robots.txtにSitemapのURLを記載しておくのも効果的です。"}},{"@type":"Question","name":"URLは何件まで登録できますか？","acceptedAnswer":{"@type":"Answer","text":"1つのXMLサイトマップに含められるURLは最大50,000件、ファイルサイズは非圧縮で50MBまでとサイトマッププロトコルで定められています。これを超える場合は複数のサイトマップに分割し、サイトマップインデックスファイルでまとめる必要があります。本ツールでは50,000件を超えると画面上に注意を表示します。"}},{"@type":"Question","name":"changefreqやpriorityは必須ですか？","acceptedAnswer":{"@type":"Answer","text":"必須ではありません。必要なのは各URLを示す<loc>要素のみで、lastmod・changefreq・priorityは任意です。本ツールではチェックボックスでこれらの出力有無を切り替えられます。なおchangefreqとpriorityはあくまでヒントであり、検索エンジンが必ずその通りにクロールするわけではない点に注意してください。"}},{"@type":"Question","name":"入力したURLは外部に送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。本ツールの処理はすべてお使いのブラウザ内（JavaScript）で完結し、入力したURLやサイトマップの内容がサーバーに送信・保存されることはありません。社内向けサイトや公開前のURLでも安心してご利用いただけます。生成結果はコピーまたはファイルとしてダウンロードできます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>XMLサイトマップ生成</h1><p>URLリストから sitemap.xml を自動生成</p></header>
+
+    <div class="card"><h3>URLリストを入力（1行に1URL）</h3>
+        <textarea id="urlInput" oninput="generate()" placeholder="https://www.example.com/&#10;https://www.example.com/about/&#10;https://www.example.com/contact/"></textarea>
+        <div class="note" style="margin:12px 0 0">1行に1つのURLを入力してください。個別に設定したい場合は <code>URL | lastmod | changefreq | priority</code> のように <code>|</code> で区切って指定できます（省略した項目は下の共通設定が使われます）。</div>
+    </div>
+
+    <div class="card"><h3>共通設定（一括適用）</h3>
+        <div class="row"><label>最終更新日 lastmod</label><input type="date" id="defLastmod" style="text-align:left" oninput="generate()"></div>
+        <div class="row"><label>更新頻度 changefreq</label>
+            <select id="defChangefreq" oninput="generate()">
+                <option value="always">always（常に）</option>
+                <option value="hourly">hourly（毎時）</option>
+                <option value="daily">daily（毎日）</option>
+                <option value="weekly" selected>weekly（毎週）</option>
+                <option value="monthly">monthly（毎月）</option>
+                <option value="yearly">yearly（毎年）</option>
+                <option value="never">never（更新なし）</option>
+            </select>
+        </div>
+        <div class="row"><label>優先度 priority（0.0〜1.0）</label><input type="number" id="defPriority" min="0" max="1" step="0.1" value="0.5" oninput="generate()"></div>
+        <div style="margin-top:14px">
+            <div style="font-size:0.75rem;color:var(--text3);margin-bottom:6px">出力に含める要素</div>
+            <div class="checkgroup">
+                <label><input type="checkbox" id="incLastmod" checked onchange="generate()"> lastmod</label>
+                <label><input type="checkbox" id="incChangefreq" checked onchange="generate()"> changefreq</label>
+                <label><input type="checkbox" id="incPriority" checked onchange="generate()"> priority</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="card"><h3>生成された sitemap.xml</h3>
+        <div class="count-bar">
+            <div style="font-size:0.8rem;color:var(--text2)">登録URL数</div>
+            <div class="cnt" id="urlCount">0</div>
+        </div>
+        <textarea class="output-box" id="output" readonly></textarea>
+        <div id="limitWarn" class="warn" style="display:none">⚠ URLが50,000件を超えています。1つのXMLサイトマップに含められるURLは最大50,000件（非圧縮50MBまで）です。複数ファイルに分割し、サイトマップインデックスでまとめてください。</div>
+        <div class="btn-row">
+            <button class="btn" onclick="copyOut()">コピー</button>
+            <button class="btn sec" onclick="downloadOut()">sitemap.xml をダウンロード</button>
+        </div>
+    </div>
+
+    <div class="note">入力ゼロの場合はサンプルURLでプレビューを表示します。処理はすべてブラウザ内で完結し、入力したURLが外部に送信されることはありません。1サイトマップの上限は最大50,000URL・非圧縮50MBです。</div>
+
+    <div class="seo-content">
+        <h2>XMLサイトマップ生成ツールの使い方</h2>
+        <p>サイト内のページURLを1行に1つずつ貼り付けるだけで、検索エンジン向けの<strong>XMLサイトマップ（sitemap.xml）</strong>を自動生成する無料ツールです。生成結果はリアルタイムで更新され、そのままコピーしたり、sitemap.xml ファイルとしてダウンロードできます。インストールや会員登録は不要で、入力したURLはお使いの端末内だけで処理されます。</p>
+        <p>使い方は簡単です。上のテキスト欄にURLを改行区切りで入力すると、下の欄に <code>&lt;urlset&gt;</code> 形式のXMLが表示されます。共通設定で最終更新日（lastmod）・更新頻度（changefreq）・優先度（priority）をまとめて指定でき、チェックボックスでそれぞれの要素を出力に含めるかどうかを切り替えられます。URLごとに値を変えたい場合は、行末に <code>|</code> で区切って個別値を指定してください。</p>
+        <h3>個別設定の書き方</h3>
+        <p>各行は「URLのみ」または「<code>URL | lastmod | changefreq | priority</code>」の形式で記述できます。パイプ（<code>|</code>）で区切り、指定しなかった項目には共通設定の値が自動的に補われます。たとえば <code>https://example.com/news/ | 2026-07-23 | daily | 0.9</code> のように書くと、その行だけ更新頻度と優先度を高く設定できます。</p>
+
+        <h2>XMLサイトマップの各要素</h2>
+        <p>サイトマップはサイトマッププロトコルに基づいたXMLファイルで、各ページを <code>&lt;url&gt;</code> 要素で表します。必須なのはページのアドレスを示す <code>&lt;loc&gt;</code> のみで、その他は任意です。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>要素</th><th>必須</th><th>説明</th></tr>
+            <tr><td>loc</td><td>必須</td><td>ページの完全なURL（http〜から始まる絶対URL）</td></tr>
+            <tr><td>lastmod</td><td>任意</td><td>最終更新日。YYYY-MM-DD 形式（W3C日付形式）</td></tr>
+            <tr><td>changefreq</td><td>任意</td><td>更新頻度の目安。always / hourly / daily / weekly / monthly / yearly / never</td></tr>
+            <tr><td>priority</td><td>任意</td><td>サイト内での相対的な優先度。0.0〜1.0（既定は0.5）</td></tr>
+        </table>
+        </div>
+        <h3>設置と登録の流れ</h3>
+        <p>生成した sitemap.xml はサイトのルートに設置し、<code>https://example.com/sitemap.xml</code> でアクセスできるようにします。次にGoogle Search Consoleの「サイトマップ」からURLを送信すると、検索エンジンがページを発見しやすくなります。あわせて robots.txt に <code>Sitemap: https://example.com/sitemap.xml</code> の行を追加しておくと、より確実です。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">XMLサイトマップとは何ですか？</div><div class="a">XMLサイトマップは、サイト内のページURL一覧を検索エンジンに伝えるためのXML形式のファイルです。一般的にsitemap.xmlというファイル名でサイトのルートに設置し、Google Search Consoleなどに登録します。各URLに最終更新日（lastmod）、更新頻度（changefreq）、優先度（priority）を付与でき、クローラーが効率よくページを発見・巡回する助けになります。</div></div>
+        <div class="faq-item"><div class="q">生成したsitemapはどこに置けばよいですか？</div><div class="a">通常はサイトのルートディレクトリに sitemap.xml として設置し、https://example.com/sitemap.xml でアクセスできるようにします。その後Google Search ConsoleのサイトマップメニューからURLを送信すると、検索エンジンに認識されやすくなります。robots.txtにSitemapのURLを記載しておくのも効果的です。</div></div>
+        <div class="faq-item"><div class="q">URLは何件まで登録できますか？</div><div class="a">1つのXMLサイトマップに含められるURLは最大50,000件、ファイルサイズは非圧縮で50MBまでとサイトマッププロトコルで定められています。これを超える場合は複数のサイトマップに分割し、サイトマップインデックスファイルでまとめる必要があります。本ツールでは50,000件を超えると画面上に注意を表示します。</div></div>
+        <div class="faq-item"><div class="q">changefreqやpriorityは必須ですか？</div><div class="a">必須ではありません。必要なのは各URLを示すloc要素のみで、lastmod・changefreq・priorityは任意です。本ツールではチェックボックスでこれらの出力有無を切り替えられます。なおchangefreqとpriorityはあくまでヒントであり、検索エンジンが必ずその通りにクロールするわけではない点に注意してください。</div></div>
+        <div class="faq-item"><div class="q">入力したURLは外部に送信されますか？</div><div class="a">いいえ。本ツールの処理はすべてお使いのブラウザ内（JavaScript）で完結し、入力したURLやサイトマップの内容がサーバーに送信・保存されることはありません。社内向けサイトや公開前のURLでも安心してご利用いただけます。生成結果はコピーまたはファイルとしてダウンロードできます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// 今日の日付（ローカル）を YYYY-MM-DD で
+function ymd(d){
+    const y = d.getFullYear();
+    const m = String(d.getMonth()+1).padStart(2,'0');
+    const day = String(d.getDate()).padStart(2,'0');
+    return y+'-'+m+'-'+day;
+}
+document.getElementById('defLastmod').value = ymd(new Date());
+
+const SAMPLE = [
+    'https://www.example.com/',
+    'https://www.example.com/about/',
+    'https://www.example.com/products/',
+    'https://www.example.com/contact/'
+];
+const VALID_FREQ = ['always','hourly','daily','weekly','monthly','yearly','never'];
+
+// XML特殊文字のエスケープ
+function xmlEscape(s){
+    return String(s)
+        .replace(/&/g,'&amp;')
+        .replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;')
+        .replace(/"/g,'&quot;')
+        .replace(/'/g,'&apos;');
+}
+
+function clampPriority(v){
+    let n = parseFloat(v);
+    if (isNaN(n)) return null;
+    if (n < 0) n = 0;
+    if (n > 1) n = 1;
+    return n.toFixed(1);
+}
+
+function generate(){
+    const raw = document.getElementById('urlInput').value;
+    const defLastmod = document.getElementById('defLastmod').value;
+    const defFreq = document.getElementById('defChangefreq').value;
+    const defPriority = document.getElementById('defPriority').value;
+    const incLastmod = document.getElementById('incLastmod').checked;
+    const incFreq = document.getElementById('incChangefreq').checked;
+    const incPriority = document.getElementById('incPriority').checked;
+
+    let lines = raw.split(/\r?\n/).map(l=>l.trim()).filter(l=>l.length>0);
+    let usingSample = false;
+    if (lines.length === 0){
+        lines = SAMPLE.slice();
+        usingSample = true;
+    }
+
+    const items = [];
+    lines.forEach(line=>{
+        const parts = line.split('|').map(p=>p.trim());
+        const url = parts[0];
+        if (!url) return;
+        const lastmod = (parts[1] && parts[1].length) ? parts[1] : defLastmod;
+        let freq = (parts[2] && parts[2].length) ? parts[2].toLowerCase() : defFreq;
+        if (VALID_FREQ.indexOf(freq) === -1) freq = defFreq;
+        const priority = (parts[3] && parts[3].length) ? parts[3] : defPriority;
+        items.push({url:url, lastmod:lastmod, freq:freq, priority:priority});
+    });
+
+    // XML組み立て
+    const NL = '\n';
+    let xml = '<?xml version="1.0" encoding="UTF-8"?>' + NL;
+    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + NL;
+    items.forEach(it=>{
+        xml += '  <url>' + NL;
+        xml += '    <loc>' + xmlEscape(it.url) + '</loc>' + NL;
+        if (incLastmod && it.lastmod){
+            xml += '    <lastmod>' + xmlEscape(it.lastmod) + '</lastmod>' + NL;
+        }
+        if (incFreq && it.freq){
+            xml += '    <changefreq>' + xmlEscape(it.freq) + '</changefreq>' + NL;
+        }
+        if (incPriority){
+            const p = clampPriority(it.priority);
+            if (p !== null){
+                xml += '    <priority>' + p + '</priority>' + NL;
+            }
+        }
+        xml += '  </url>' + NL;
+    });
+    xml += '</urlset>' + NL;
+
+    document.getElementById('output').value = xml;
+
+    // カウント表示
+    const cntEl = document.getElementById('urlCount');
+    cntEl.textContent = items.length.toLocaleString('en-US') + (usingSample ? '（サンプル）' : '');
+    const over = items.length > 50000;
+    cntEl.classList.toggle('over', over);
+    document.getElementById('limitWarn').style.display = over ? 'block' : 'none';
+}
+
+function copyOut(){
+    const ta = document.getElementById('output');
+    ta.select();
+    ta.setSelectionRange(0, 999999);
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(ta.value).then(showCopied).catch(()=>{ document.execCommand('copy'); showCopied(); });
+    } else {
+        document.execCommand('copy');
+        showCopied();
+    }
+}
+function showCopied(){
+    const b = event && event.target ? event.target : null;
+    if (!b) return;
+    const orig = b.textContent;
+    b.textContent = 'コピーしました';
+    setTimeout(()=>{ b.textContent = orig; }, 1500);
+}
+
+function downloadOut(){
+    const content = document.getElementById('output').value;
+    const blob = new Blob([content], {type:'application/xml'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'sitemap.xml';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+generate();
+</script>
+</body>
+</html>

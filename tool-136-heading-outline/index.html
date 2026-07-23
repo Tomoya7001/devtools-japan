@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>見出し(Hタグ)アウトライン抽出・構造チェッカー | h1〜h6の目次ツリーとSEO構造診断【無料】</title>
+    <meta name="description" content="HTMLソースを貼り付けるだけで、h1〜h6の見出しをインデント付きアウトライン（目次ツリー）に抽出。h1の複数・欠落、見出しレベルのスキップ、空見出しを警告し、各見出しの文字数も表示。テキスト目次としてコピー可能。DOMParserで安全に解析します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--amber:#f59e0b;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        textarea{width:100%;min-height:180px;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.82rem;line-height:1.6;outline:none;resize:vertical}
+        textarea:focus{border-color:var(--accent)}
+        .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.ghost{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.ghost:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+        .result-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr 1fr}.actions .btn{flex:1}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.warn{color:var(--amber)}
+        .result-item .value.ok{color:var(--green)}
+        .outline-tree{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:12px;margin-bottom:16px}
+        .h-row{display:flex;align-items:flex-start;gap:10px;padding:8px 10px;border-bottom:1px solid var(--border)}
+        .h-row:last-child{border-bottom:none}
+        .h-badge{flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:700;color:#fff;background:var(--accent);border-radius:5px;padding:2px 7px;line-height:1.6}
+        .h-badge.l1{background:#8b5cf6}.h-badge.l2{background:#6366f1}.h-badge.l3{background:#0ea5e9}.h-badge.l4{background:#14b8a6}.h-badge.l5{background:#84cc16}.h-badge.l6{background:#a1a1aa}
+        .h-body{flex:1;min-width:0}
+        .h-text{font-size:0.9rem;color:var(--text);word-break:break-word}
+        .h-text.empty{color:var(--red);font-style:italic}
+        .h-meta{font-size:0.7rem;color:var(--text3);margin-top:2px;font-family:'JetBrains Mono',monospace}
+        .h-flag{display:inline-block;font-size:0.68rem;color:var(--amber);margin-left:6px}
+        .warnings{list-style:none;margin-bottom:16px}
+        .warnings li{display:flex;gap:8px;align-items:flex-start;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.25);border-radius:8px;padding:10px 14px;margin-bottom:8px;font-size:0.82rem;color:var(--text2)}
+        .warnings li.good{background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.25)}
+        .warnings li .ic{flex-shrink:0}
+        .empty-state{color:var(--text3);font-size:0.85rem;text-align:center;padding:24px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-136-heading-outline/">
+    <meta property="og:title" content="見出し(Hタグ)アウトライン抽出・構造チェッカー | h1〜h6の目次ツリーとSEO構造診断【無料】">
+    <meta property="og:description" content="HTMLソースからh1〜h6を抽出してアウトライン表示。h1の複数・欠落、レベルスキップ、空見出しを警告。テキスト目次コピー対応。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-136-heading-outline/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="見出し(Hタグ)アウトライン抽出・構造チェッカー【無料】">
+    <meta name="twitter:description" content="HTMLソースからh1〜h6を抽出しアウトライン化。構造の問題を警告します。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"見出し(Hタグ)アウトライン抽出・構造チェッカー","description":"HTMLソースからh1〜h6を抽出してアウトライン表示し、見出し構造の問題を診断する無料ツール","url":"https://www.devtools-japan.com/tool-136-heading-outline/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"見出し(Hタグ)アウトライン抽出・構造チェッカー","item":"https://www.devtools-japan.com/tool-136-heading-outline/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"見出しアウトラインの抽出とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"HTMLソースに含まれるh1〜h6の見出しタグを上から順に取り出し、階層の深さに応じてインデントを付けた目次ツリーとして表示することです。記事やページの論理構造を一目で把握でき、SEOの観点で見出しの入れ子が適切かを確認できます。本ツールはHTMLを貼り付けるだけで自動的にアウトラインを生成します。"}},{"@type":"Question","name":"h1は1ページに1つが良いのですか？","acceptedAnswer":{"@type":"Answer","text":"一般的なSEOのベストプラクティスでは、ページの主題を表すh1は1つに絞ることが推奨されてきました。h1が欠落しているとページの主題が伝わりにくく、複数あると主題が分散する可能性があります。本ツールはh1が0個または2個以上の場合に警告を表示します。HTML5では文書構造によって複数h1も許容されますが、明確さのため1つを基本とするのが無難です。"}},{"@type":"Question","name":"見出しレベルのスキップとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"h2の直後にh4が来るなど、見出しレベルを1段ずつではなく飛ばして深くしてしまう構造のことです。例えばh2→h4はh3を飛ばしており、アクセシビリティや構造の明確さの観点で望ましくありません。本ツールは前の見出しより2段以上深くなった箇所を検出して警告します。見た目の大きさではなく論理階層でレベルを選ぶことが大切です。"}},{"@type":"Question","name":"貼り付けたHTMLのスクリプトは実行されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。本ツールはブラウザのDOMParserを使ってHTMLを文字列として解析します。DOMParserで生成した文書はページに接続されないため、含まれるスクリプトや画像・外部リソースの読み込みは実行・発火しません。見出しのテキストだけを取り出して表示するので、安全にソースを貼り付けて構造を確認できます。処理はすべて端末内で完結し、サーバーに送信されません。"}},{"@type":"Question","name":"抽出した目次はどう使えますか？","acceptedAnswer":{"@type":"Answer","text":"抽出結果はインデント付きのテキスト目次としてワンクリックでコピーできます。記事構成のレビュー、ドキュメントの目次作成、リライト時の構成整理、他ページとの見出し構造の比較などに活用できます。各見出しには文字数も表示されるため、長すぎる・短すぎる見出しの発見にも役立ちます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>見出し(Hタグ)アウトライン抽出</h1><p>h1〜h6の目次ツリー抽出とSEO構造チェック</p></header>
+
+    <div class="card"><h3>HTMLソースを貼り付け</h3>
+        <textarea id="src" placeholder="ここにHTMLソースを貼り付けてください（空のままでもサンプルで表示します）" oninput="analyze()"></textarea>
+        <div class="actions">
+            <button class="btn" onclick="analyze()">アウトライン抽出</button>
+            <button class="btn ghost" onclick="copyOutline()" id="copyBtn">目次をコピー</button>
+            <button class="btn ghost" onclick="loadSample()">サンプルを入力</button>
+            <button class="btn ghost" onclick="clearInput()">クリア</button>
+        </div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">見出し総数</div><div class="value" id="statTotal">-</div></div>
+        <div class="result-item"><div class="label">h1の数</div><div class="value" id="statH1">-</div></div>
+        <div class="result-item"><div class="label">最大の深さ</div><div class="value" id="statDepth">-</div></div>
+        <div class="result-item"><div class="label">問題の数</div><div class="value" id="statIssues">-</div></div>
+    </div>
+
+    <div class="card"><h3>構造チェック</h3>
+        <ul class="warnings" id="warnings"></ul>
+    </div>
+
+    <div class="card"><h3>アウトライン（目次ツリー）</h3>
+        <div class="outline-tree" id="tree"><div class="empty-state">解析結果がここに表示されます</div></div>
+    </div>
+
+    <div class="note">解析はブラウザのDOMParserで行い、貼り付けたHTMLはページに接続されないためスクリプトや外部リソースは実行・読み込みされません。処理はすべて端末内で完結し、入力内容がサーバーに送信されることはありません。文字数は空白を除いた見出しテキストの長さです。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>見出しアウトライン抽出ツールの使い方</h2>
+        <p>記事やWebページのHTMLソースを貼り付けるだけで、h1〜h6の見出しタグを抽出し、階層の深さに応じてインデントを付けた目次ツリーとして表示する無料ツールです。ページ全体の論理構造を一目で把握でき、見出しの入れ子が適切かどうかをSEOやアクセシビリティの観点から素早く点検できます。インストールや会員登録は不要で、解析はすべてお使いの端末内で完結します。</p>
+        <p>使い方はかんたんです。上部のテキストエリアにHTMLソース（ページ全体でも本文の一部でも可）を貼り付けると、自動的に見出しが抽出されてアウトラインが表示されます。入力が空のままでもサンプルのHTMLで表示するので、動作をすぐに確認できます。「目次をコピー」を押すと、インデント付きのテキスト目次をクリップボードにコピーできます。</p>
+        <h3>抽出される情報</h3>
+        <p>各見出しについて、タグの種類（h1〜h6）、見出しのテキスト、空白を除いた文字数を表示します。ページ全体では、見出しの総数、h1の数、最も深い階層のレベル、検出した問題の数をまとめて確認できます。見出しが長すぎたり短すぎたりする箇所や、階層が深くなりすぎている構成の発見に役立ちます。</p>
+
+        <h2>チェックされる構造の問題</h2>
+        <p>本ツールは、見出し構造でよく問題になる次のポイントを自動で診断し、該当する場合に警告として表示します。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>チェック項目</th><th>内容</th><th>なぜ問題か</th></tr>
+            <tr><td>h1の欠落</td><td>ページにh1が1つも無い</td><td>ページの主題が伝わりにくくなる</td></tr>
+            <tr><td>h1の複数</td><td>h1が2つ以上ある</td><td>主題が分散し、構造が曖昧になりやすい</td></tr>
+            <tr><td>レベルのスキップ</td><td>h2の次にh4など段を飛ばす</td><td>階層が不明瞭になり読み上げ順序が乱れる</td></tr>
+            <tr><td>空の見出し</td><td>テキストが空の見出しタグ</td><td>目次に意味を持たない項目が生まれる</td></tr>
+        </table>
+        </div>
+        <h3>見出しレベルは論理で選ぶ</h3>
+        <p>見出しのレベルは、文字の見た目の大きさではなく文書の論理的な階層で選ぶことが大切です。大見出しの下に中見出し、その下に小見出しという入れ子を1段ずつ深くしていくことで、検索エンジンや支援技術がページの構造を正しく理解できます。デザイン上の理由でサイズを変えたい場合は、見出しレベルを変えるのではなくCSSで調整するのが望ましい方法です。</p>
+
+        <h2>安全な解析について</h2>
+        <p>貼り付けたHTMLは、ブラウザに組み込まれたDOMParserで文字列として解析します。DOMParserが生成する文書は表示中のページに接続されないため、HTMLに含まれるスクリプトや画像・外部リソースの読み込みは実行・発火しません。取り出すのは見出しのテキストだけで、外部への通信も行わないため、他人のページのソースでも安心して構造を確認できます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">見出しアウトラインの抽出とは何ですか？</div><div class="a">HTMLソースに含まれるh1〜h6の見出しタグを上から順に取り出し、階層の深さに応じてインデントを付けた目次ツリーとして表示することです。記事やページの論理構造を一目で把握でき、SEOの観点で見出しの入れ子が適切かを確認できます。本ツールはHTMLを貼り付けるだけで自動的にアウトラインを生成します。</div></div>
+        <div class="faq-item"><div class="q">h1は1ページに1つが良いのですか？</div><div class="a">一般的なSEOのベストプラクティスでは、ページの主題を表すh1は1つに絞ることが推奨されてきました。h1が欠落しているとページの主題が伝わりにくく、複数あると主題が分散する可能性があります。本ツールはh1が0個または2個以上の場合に警告を表示します。HTML5では文書構造によって複数h1も許容されますが、明確さのため1つを基本とするのが無難です。</div></div>
+        <div class="faq-item"><div class="q">見出しレベルのスキップとは何ですか？</div><div class="a">h2の直後にh4が来るなど、見出しレベルを1段ずつではなく飛ばして深くしてしまう構造のことです。例えばh2→h4はh3を飛ばしており、アクセシビリティや構造の明確さの観点で望ましくありません。本ツールは前の見出しより2段以上深くなった箇所を検出して警告します。見た目の大きさではなく論理階層でレベルを選ぶことが大切です。</div></div>
+        <div class="faq-item"><div class="q">貼り付けたHTMLのスクリプトは実行されますか？</div><div class="a">いいえ。本ツールはブラウザのDOMParserを使ってHTMLを文字列として解析します。DOMParserで生成した文書はページに接続されないため、含まれるスクリプトや画像・外部リソースの読み込みは実行・発火しません。見出しのテキストだけを取り出して表示するので、安全にソースを貼り付けて構造を確認できます。処理はすべて端末内で完結し、サーバーに送信されません。</div></div>
+        <div class="faq-item"><div class="q">抽出した目次はどう使えますか？</div><div class="a">抽出結果はインデント付きのテキスト目次としてワンクリックでコピーできます。記事構成のレビュー、ドキュメントの目次作成、リライト時の構成整理、他ページとの見出し構造の比較などに活用できます。各見出しには文字数も表示されるため、長すぎる・短すぎる見出しの発見にも役立ちます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧へ</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+var SAMPLE = [
+    '<article>',
+    '  <h1>Webアクセシビリティ入門ガイド</h1>',
+    '  <h2>はじめに</h2>',
+    '  <p>アクセシビリティの概要を説明します。</p>',
+    '  <h2>基本の考え方</h2>',
+    '  <h3>知覚できること</h3>',
+    '  <h3>操作できること</h3>',
+    '  <h2>実装のポイント</h2>',
+    '  <h3>見出しの階層</h3>',
+    '  <h4>レベルを飛ばさない</h4>',
+    '  <h2>まとめ</h2>',
+    '</article>'
+].join('\n');
+
+var lastOutlineText = '';
+
+function esc(s){
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function collectHeadings(html){
+    var doc = new DOMParser().parseFromString(html, 'text/html');
+    var nodes = doc.querySelectorAll('h1,h2,h3,h4,h5,h6');
+    var list = [];
+    for (var i=0;i<nodes.length;i++){
+        var el = nodes[i];
+        var level = parseInt(el.tagName.substring(1),10);
+        var raw = (el.textContent || '').replace(/\s+/g,' ').trim();
+        list.push({level:level, text:raw, chars:raw.replace(/\s/g,'').length, empty:raw.length===0});
+    }
+    return list;
+}
+
+function buildWarnings(list){
+    var out = [];
+    var h1count = 0;
+    for (var i=0;i<list.length;i++){ if(list[i].level===1) h1count++; }
+
+    if (h1count === 0){
+        out.push({type:'warn', flag:'h1', msg:'h1（大見出し）がありません。ページの主題を示すh1を1つ設けることを推奨します。'});
+    } else if (h1count > 1){
+        out.push({type:'warn', flag:'h1', msg:'h1が' + h1count + '個あります。主題を明確にするため、h1は1つに絞ることを推奨します。'});
+    }
+
+    var prev = 0;
+    for (var j=0;j<list.length;j++){
+        var lv = list[j].level;
+        if (prev > 0 && lv > prev + 1){
+            out.push({type:'warn', flag:'skip', msg:(j+1) + '番目「' + (list[j].empty ? '(空)' : list[j].text) + '」で h' + prev + ' → h' + lv + ' とレベルを飛ばしています。1段ずつ深くするのが望ましい構成です。'});
+        }
+        prev = lv;
+    }
+
+    for (var k=0;k<list.length;k++){
+        if (list[k].empty){
+            out.push({type:'warn', flag:'empty', msg:(k+1) + '番目に空の見出し（h' + list[k].level + '）があります。テキストの無い見出しは削除するか内容を入れてください。'});
+        }
+    }
+    return out;
+}
+
+function render(list){
+    var tree = document.getElementById('tree');
+    var warnBox = document.getElementById('warnings');
+    var lines = [];
+
+    if (list.length === 0){
+        tree.innerHTML = '<div class="empty-state">見出し（h1〜h6）が見つかりませんでした。</div>';
+        warnBox.innerHTML = '<li class="good"><span class="ic">i</span><span>見出しが検出されなかったため、構造チェックはありません。</span></li>';
+        document.getElementById('statTotal').textContent = '0';
+        document.getElementById('statH1').textContent = '0';
+        document.getElementById('statDepth').textContent = '-';
+        document.getElementById('statIssues').textContent = '0';
+        lastOutlineText = '';
+        return;
+    }
+
+    var maxLevel = 0, h1c = 0;
+    var html = '';
+    for (var i=0;i<list.length;i++){
+        var it = list[i];
+        if (it.level > maxLevel) maxLevel = it.level;
+        if (it.level === 1) h1c++;
+        var indent = (it.level - 1) * 22;
+        var label = it.empty ? '(空の見出し)' : esc(it.text);
+        var textCls = it.empty ? 'h-text empty' : 'h-text';
+        html += '<div class="h-row" style="padding-left:' + (10 + indent) + 'px">';
+        html += '<span class="h-badge l' + it.level + '">H' + it.level + '</span>';
+        html += '<div class="h-body"><div class="' + textCls + '">' + label + '</div>';
+        html += '<div class="h-meta">' + it.chars + '文字' + (it.empty ? '<span class="h-flag">空</span>' : '') + '</div></div>';
+        html += '</div>';
+
+        var pad = new Array(it.level).join('    ');
+        lines.push(pad + (it.empty ? '(空の見出し)' : it.text) + '  [H' + it.level + ' / ' + it.chars + '文字]');
+    }
+    tree.innerHTML = html;
+    lastOutlineText = lines.join('\n');
+
+    var warns = buildWarnings(list);
+    document.getElementById('statTotal').textContent = list.length;
+    var h1el = document.getElementById('statH1');
+    h1el.textContent = h1c;
+    h1el.className = 'value' + (h1c === 1 ? ' ok' : ' warn');
+    document.getElementById('statDepth').textContent = 'H' + maxLevel;
+    var issEl = document.getElementById('statIssues');
+    issEl.textContent = warns.length;
+    issEl.className = 'value' + (warns.length === 0 ? ' ok' : ' warn');
+
+    if (warns.length === 0){
+        warnBox.innerHTML = '<li class="good"><span class="ic">OK</span><span>見出し構造に目立った問題は見つかりませんでした。h1は1つ、レベルの飛びや空見出しもありません。</span></li>';
+    } else {
+        var w = '';
+        for (var m=0;m<warns.length;m++){
+            w += '<li><span class="ic">!</span><span>' + esc(warns[m].msg) + '</span></li>';
+        }
+        warnBox.innerHTML = w;
+    }
+}
+
+function analyze(){
+    var input = document.getElementById('src').value;
+    var html = input.trim() === '' ? SAMPLE : input;
+    render(collectHeadings(html));
+}
+
+function copyOutline(){
+    if (!lastOutlineText){ analyze(); }
+    var text = lastOutlineText || '';
+    var btn = document.getElementById('copyBtn');
+    function done(){ var old = btn.textContent; btn.textContent = 'コピーしました'; setTimeout(function(){ btn.textContent = old; }, 1400); }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text); done(); });
+    } else {
+        fallbackCopy(text); done();
+    }
+}
+
+function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+}
+
+function loadSample(){
+    document.getElementById('src').value = SAMPLE;
+    analyze();
+}
+
+function clearInput(){
+    document.getElementById('src').value = '';
+    analyze();
+}
+
+analyze();
+</script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title/meta description 最適長チェッカー | SEOの文字数・ピクセル幅を判定【無料】</title>
+    <meta name="description" content="titleタグとmeta descriptionを入力するだけで、文字数（全角2/半角1）とピクセル幅の目安をリアルタイム判定する無料SEOツール。推奨長の範囲を色バーで表示し、Google検索結果のSERP風プレビューをPC/モバイル切替で確認できます。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--yellow:#eab308;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .field-label{display:flex;align-items:center;justify-content:space-between;font-size:0.85rem;color:var(--text2);margin-bottom:8px}
+        .field-label .copy-btn{padding:5px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.72rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .field-label .copy-btn:hover{border-color:var(--accent);color:var(--accent)}
+        textarea{width:100%;padding:12px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.92rem;outline:none;resize:vertical;line-height:1.6}
+        textarea:focus{border-color:var(--accent)}
+        .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+        @media(max-width:600px){.metrics{grid-template-columns:1fr}}
+        .metric{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-align:center}
+        .metric .label{font-size:0.68rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px}
+        .metric .value{font-family:'JetBrains Mono',monospace;font-size:1.25rem;font-weight:700;color:var(--accent)}
+        .metric .sub{font-size:0.7rem;color:var(--text3);margin-top:2px}
+        .bar-wrap{margin-top:14px}
+        .bar-head{display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;color:var(--text2);margin-bottom:6px}
+        .bar-head .status{font-weight:600}
+        .bar-track{height:12px;background:#eceef5;border-radius:999px;overflow:hidden;position:relative}
+        .bar-fill{height:100%;width:0;border-radius:999px;transition:width 0.2s,background 0.2s}
+        .bar-fill.ok{background:var(--green)}.bar-fill.warn{background:var(--yellow)}.bar-fill.over{background:var(--red)}
+        .bar-range{font-size:0.68rem;color:var(--text3);margin-top:5px}
+        .toggle-row{display:flex;gap:8px;margin-bottom:14px}
+        .toggle-row button{flex:1;padding:9px 0;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.82rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .toggle-row button.active{background:var(--accent);border-color:var(--accent);color:#fff}
+        .serp{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px 18px}
+        .serp.pc{max-width:600px}
+        .serp.mobile{max-width:400px}
+        .serp .breadcrumb{font-size:0.78rem;color:#202124;margin-bottom:2px;display:flex;align-items:center;gap:6px}
+        .serp .breadcrumb .site{color:#4d5156}
+        .serp .breadcrumb .url{color:#4d5156;font-size:0.72rem}
+        .serp .serp-title{color:#1a0dab;font-size:1.25rem;line-height:1.3;margin:2px 0 3px;font-weight:400;overflow-wrap:anywhere}
+        .serp.mobile .serp-title{font-size:1.05rem}
+        .serp .serp-desc{color:#4d5156;font-size:0.88rem;line-height:1.58;overflow-wrap:anywhere}
+        .serp.mobile .serp-desc{font-size:0.82rem}
+        .serp .cut{color:#9498b0}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .toast{position:fixed;left:50%;bottom:32px;transform:translateX(-50%);background:#1e1e35;color:#fff;padding:10px 20px;border-radius:8px;font-size:0.8rem;opacity:0;pointer-events:none;transition:opacity 0.2s}
+        .toast.show{opacity:1}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-131-meta-length/">
+    <meta property="og:title" content="title/meta description 最適長チェッカー | SEOの文字数・ピクセル幅を判定【無料】">
+    <meta property="og:description" content="titleとmeta descriptionの文字数・ピクセル幅をリアルタイム判定。SERP風プレビューで見切れをシミュレーション。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-131-meta-length/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="title/meta description 最適長チェッカー【無料】">
+    <meta name="twitter:description" content="titleとmeta descriptionの文字数・ピクセル幅を判定し、SERP風プレビューで見切れを確認。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"title/meta description 最適長チェッカー","description":"titleタグとmeta descriptionの文字数・ピクセル幅の目安を判定し、SERP風プレビューで見切れを確認できる無料SEOツール","url":"https://www.devtools-japan.com/tool-131-meta-length/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"title/meta description 最適長チェッカー","item":"https://www.devtools-japan.com/tool-131-meta-length/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"titleタグは何文字が最適ですか？","acceptedAnswer":{"@type":"Answer","text":"日本語のtitleは全角で約28〜32文字、半角換算で約60文字（おおよそ600ピクセル幅）が目安です。Google検索結果ではピクセル幅で見切れが決まるため、文字数だけでなく本ツールが表示するピクセル幅の目安も合わせて確認するのがおすすめです。範囲内なら緑、超過は赤のバーで判定できます。"}},{"@type":"Question","name":"meta descriptionは何文字が最適ですか？","acceptedAnswer":{"@type":"Answer","text":"日本語のmeta descriptionは全角で約80〜120文字、おおよそ920ピクセル幅までが目安です。長すぎると検索結果で末尾が省略され、短すぎると情報量が不足します。本ツールでは推奨範囲を色バーで示し、SERP風プレビューでどこまで表示されるかを確認できます。"}},{"@type":"Question","name":"文字数はどう数えていますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールは実際の文字数に加えて、全角を2・半角を1として数えた「カウント」も表示します。日本語のひらがな・漢字・全角記号は2、半角英数字や半角スペースは1として計算します。あわせてピクセル幅の目安も推定するため、和文と欧文が混在するタイトルでも見え方を把握しやすくなっています。"}},{"@type":"Question","name":"ピクセル幅の判定は正確ですか？","acceptedAnswer":{"@type":"Answer","text":"ピクセル幅はブラウザのcanvas機能で文字の描画幅を測る簡易推定です。Google検索側の実際のフォントや環境とは差が出るため、あくまで見切れの目安としてご利用ください。絵文字や記号も概算で幅を計算しますが、環境により表示幅は前後します。最終的な見え方は実際の検索結果でご確認ください。"}},{"@type":"Question","name":"入力したデータはサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。titleやmeta descriptionの文字数・ピクセル幅の計算、SERPプレビューの生成はすべてお使いのブラウザ内で完結し、入力内容が外部サーバーへ送信されることはありません。公開前の下書きやクライアントワークのタイトル案も安心してチェックできます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>title/meta description 最適長チェッカー</h1><p>SEOの文字数・ピクセル幅をリアルタイム判定</p></header>
+
+    <div class="card"><h3>title タグ</h3>
+        <div class="field-label"><span>ページタイトルを入力</span><button class="copy-btn" onclick="copyField('title')">コピー</button></div>
+        <textarea id="titleInput" rows="2" placeholder="例：無料で使えるオンラインSEOツール集 | DevTools Japan" oninput="update()"></textarea>
+        <div class="metrics">
+            <div class="metric"><div class="label">文字数</div><div class="value" id="titleChars">0</div><div class="sub">実際の文字数</div></div>
+            <div class="metric"><div class="label">カウント</div><div class="value" id="titleCount">0</div><div class="sub">全角2 / 半角1</div></div>
+            <div class="metric"><div class="label">ピクセル幅</div><div class="value" id="titlePx">0</div><div class="sub">目安 (px)</div></div>
+        </div>
+        <div class="bar-wrap">
+            <div class="bar-head"><span>推奨長の判定</span><span class="status" id="titleStatus">—</span></div>
+            <div class="bar-track"><div class="bar-fill" id="titleBar"></div></div>
+            <div class="bar-range">推奨：全角 約28〜32文字（半角約60字 / 約600px）</div>
+        </div>
+    </div>
+
+    <div class="card"><h3>meta description</h3>
+        <div class="field-label"><span>ページ説明文を入力</span><button class="copy-btn" onclick="copyField('desc')">コピー</button></div>
+        <textarea id="descInput" rows="3" placeholder="例：会員登録不要で使える無料オンラインツール集。日付計算・単位変換・文字数カウントなど、ブラウザだけで完結する便利ツールをまとめています。" oninput="update()"></textarea>
+        <div class="metrics">
+            <div class="metric"><div class="label">文字数</div><div class="value" id="descChars">0</div><div class="sub">実際の文字数</div></div>
+            <div class="metric"><div class="label">カウント</div><div class="value" id="descCount">0</div><div class="sub">全角2 / 半角1</div></div>
+            <div class="metric"><div class="label">ピクセル幅</div><div class="value" id="descPx">0</div><div class="sub">目安 (px)</div></div>
+        </div>
+        <div class="bar-wrap">
+            <div class="bar-head"><span>推奨長の判定</span><span class="status" id="descStatus">—</span></div>
+            <div class="bar-track"><div class="bar-fill" id="descBar"></div></div>
+            <div class="bar-range">推奨：全角 約80〜120文字（約920px目安）</div>
+        </div>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="card"><h3>SERP プレビュー（Google検索風）</h3>
+        <div class="toggle-row">
+            <button id="pcBtn" class="active" onclick="setDevice('pc')">PC</button>
+            <button id="mobileBtn" onclick="setDevice('mobile')">モバイル</button>
+        </div>
+        <div class="serp pc" id="serp">
+            <div class="breadcrumb"><span class="site">DevTools Japan</span><span class="url">https://www.devtools-japan.com › ...</span></div>
+            <div class="serp-title" id="serpTitle"></div>
+            <div class="serp-desc" id="serpDesc"></div>
+        </div>
+    </div>
+
+    <div class="note">ピクセル幅はブラウザのcanvas描画幅による簡易推定です。Google検索の実際のフォント・環境とは差が出るため、見切れの目安としてご利用ください。文字数の「カウント」は全角を2・半角を1として数えた値です。入力が空のときはサンプルを表示します。</div>
+
+    <div class="seo-content">
+        <h2>title/meta description チェッカーの使い方</h2>
+        <p>SEOで重要なtitleタグとmeta descriptionの「長さ」を、ブラウザだけでリアルタイムに確認できる無料ツールです。入力欄にタイトルと説明文を打ち込むと、実際の文字数、全角2・半角1で数えたカウント、そして表示ピクセル幅の目安を即座に表示します。推奨範囲に収まっているかは色付きバーで判定でき、緑なら適正、黄色は不足ぎみ、赤は超過を表します。</p>
+        <p>さらにGoogle検索結果を模したSERP風プレビューを備えており、PC表示とモバイル表示を切り替えて、実際にどこまで表示されどこで見切れる（省略される）かをシミュレーションできます。公開前のタイトル案や、リライト時の説明文調整に役立ちます。入力内容はすべて端末内で処理され、外部に送信されません。</p>
+        <h3>推奨される長さの目安</h3>
+        <p>日本語のtitleは全角で約28〜32文字、半角換算で約60文字、ピクセル幅にしておおよそ600pxまでが目安です。これを超えると検索結果でタイトル末尾が省略されやすくなります。meta descriptionは全角で約80〜120文字、おおよそ920pxまでが目安で、長すぎると末尾が切られ、短すぎると訴求力が下がります。</p>
+
+        <h2>なぜ文字数だけでなくピクセル幅が大切か</h2>
+        <p>Google検索結果のタイトルや説明文は「文字数」ではなく「表示ピクセル幅」で見切れるかどうかが決まります。同じ文字数でも、幅の広い漢字や全角記号が多いタイトルと、細い半角英数字が多いタイトルでは実際の表示幅が変わります。そのため本ツールでは文字数カウントに加えてピクセル幅の目安も推定し、両方の観点から適正な長さを判断できるようにしています。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>項目</th><th>推奨（全角）</th><th>ピクセル目安</th></tr>
+            <tr><td>title タグ</td><td>約28〜32文字</td><td>約600px まで</td></tr>
+            <tr><td>meta description</td><td>約80〜120文字</td><td>約920px まで</td></tr>
+            <tr><td>判定バー</td><td>緑=適正 / 黄=不足 / 赤=超過</td><td>範囲外は色で警告</td></tr>
+        </table>
+        </div>
+        <h3>絵文字・記号の扱い</h3>
+        <p>絵文字や特殊記号も概算で幅を計算します。ただし環境によって表示幅は前後し、検索結果で絵文字が表示されない場合もあります。装飾記号を多用すると本文の情報量が削られるため、キーワードを優先しつつ、見え方は最終的に実際の検索結果で確認することをおすすめします。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">titleタグは何文字が最適ですか？</div><div class="a">日本語のtitleは全角で約28〜32文字、半角換算で約60文字（おおよそ600ピクセル幅）が目安です。Google検索結果ではピクセル幅で見切れが決まるため、文字数だけでなく本ツールが表示するピクセル幅の目安も合わせて確認するのがおすすめです。範囲内なら緑、超過は赤のバーで判定できます。</div></div>
+        <div class="faq-item"><div class="q">meta descriptionは何文字が最適ですか？</div><div class="a">日本語のmeta descriptionは全角で約80〜120文字、おおよそ920ピクセル幅までが目安です。長すぎると検索結果で末尾が省略され、短すぎると情報量が不足します。本ツールでは推奨範囲を色バーで示し、SERP風プレビューでどこまで表示されるかを確認できます。</div></div>
+        <div class="faq-item"><div class="q">文字数はどう数えていますか？</div><div class="a">本ツールは実際の文字数に加えて、全角を2・半角を1として数えた「カウント」も表示します。日本語のひらがな・漢字・全角記号は2、半角英数字や半角スペースは1として計算します。あわせてピクセル幅の目安も推定するため、和文と欧文が混在するタイトルでも見え方を把握しやすくなっています。</div></div>
+        <div class="faq-item"><div class="q">ピクセル幅の判定は正確ですか？</div><div class="a">ピクセル幅はブラウザのcanvas機能で文字の描画幅を測る簡易推定です。Google検索側の実際のフォントや環境とは差が出るため、あくまで見切れの目安としてご利用ください。絵文字や記号も概算で幅を計算しますが、環境により表示幅は前後します。最終的な見え方は実際の検索結果でご確認ください。</div></div>
+        <div class="faq-item"><div class="q">入力したデータはサーバーに送信されますか？</div><div class="a">いいえ。titleやmeta descriptionの文字数・ピクセル幅の計算、SERPプレビューの生成はすべてお使いのブラウザ内で完結し、入力内容が外部サーバーへ送信されることはありません。公開前の下書きやクライアントワークのタイトル案も安心してチェックできます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-1-char-count/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">文字数カウント</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+// サンプル（入力ゼロのときの表示）
+var SAMPLE_TITLE = '無料で使えるオンラインSEOツール集 | DevTools Japan';
+var SAMPLE_DESC  = '会員登録不要で使える無料オンラインツール集。日付計算・単位変換・文字数カウントなど、ブラウザだけで完結する便利ツールをまとめています。';
+
+// 推奨レンジ（ピクセル幅ベース）
+var TITLE_MIN_PX = 285, TITLE_MAX_PX = 600;
+var DESC_MIN_PX = 430, DESC_MAX_PX = 920;
+
+// canvas で描画幅を測る簡易ピクセル推定
+var _cv = document.createElement('canvas');
+var _ctx = _cv.getContext('2d');
+function measurePx(text, font){
+    _ctx.font = font;
+    return Math.round(_ctx.measureText(text).width);
+}
+
+// 全角=2 / 半角=1 のカウント
+function countWidth(text){
+    var n = 0;
+    for (var i = 0; i < text.length; i++){
+        var code = text.charCodeAt(i);
+        // ASCII 範囲・半角カナ・半角記号は 1、それ以外は 2 とみなす簡易判定
+        if (code <= 0x7f || (code >= 0xff61 && code <= 0xff9f)){
+            n += 1;
+        } else {
+            n += 2;
+        }
+    }
+    return n;
+}
+
+// 実際の文字数（サロゲートペアを1文字として数える）
+function realLength(text){
+    return Array.from(text).length;
+}
+
+// 推奨判定：ok / warn(不足) / over(超過)
+function judge(px, minPx, maxPx){
+    if (px === 0) return {cls:'warn', label:'未入力', pct:0};
+    if (px > maxPx) return {cls:'over', label:'超過（長い）', pct:100};
+    if (px < minPx) return {cls:'warn', label:'不足（短い）', pct:Math.round(px/maxPx*100)};
+    return {cls:'ok', label:'適正', pct:Math.round(px/maxPx*100)};
+}
+
+// 指定ピクセル幅を超える箇所で末尾を省略（…付与）
+function truncateToWidth(text, font, maxWidth){
+    _ctx.font = font;
+    if (_ctx.measureText(text).width <= maxWidth) return {shown:text, cut:false};
+    var ell = '…';
+    var ellW = _ctx.measureText(ell).width;
+    var chars = Array.from(text);
+    var out = '';
+    for (var i = 0; i < chars.length; i++){
+        var next = out + chars[i];
+        if (_ctx.measureText(next).width + ellW > maxWidth){
+            return {shown:out, cut:true};
+        }
+        out = next;
+    }
+    return {shown:out, cut:false};
+}
+
+var TITLE_FONT = "400 20px 'Noto Sans JP', Arial, sans-serif";
+var DESC_FONT  = "400 14px 'Noto Sans JP', Arial, sans-serif";
+var device = 'pc';
+
+function setDevice(d){
+    device = d;
+    document.getElementById('pcBtn').classList.toggle('active', d === 'pc');
+    document.getElementById('mobileBtn').classList.toggle('active', d === 'mobile');
+    var serp = document.getElementById('serp');
+    serp.className = 'serp ' + d;
+    renderSerp();
+}
+
+function currentTitle(){
+    var v = document.getElementById('titleInput').value;
+    return v.length ? v : SAMPLE_TITLE;
+}
+function currentDesc(){
+    var v = document.getElementById('descInput').value;
+    return v.length ? v : SAMPLE_DESC;
+}
+
+function renderSerp(){
+    var titleMax = device === 'pc' ? 600 : 400;
+    var descMax  = device === 'pc' ? 920 : 760;
+    var t = truncateToWidth(currentTitle(), TITLE_FONT, titleMax);
+    var d = truncateToWidth(currentDesc(), DESC_FONT, descMax);
+    var tEl = document.getElementById('serpTitle');
+    var dEl = document.getElementById('serpDesc');
+    tEl.textContent = t.shown;
+    if (t.cut){ var s1 = document.createElement('span'); s1.className = 'cut'; s1.textContent = '…'; tEl.appendChild(s1); }
+    dEl.textContent = d.shown;
+    if (d.cut){ var s2 = document.createElement('span'); s2.className = 'cut'; s2.textContent = '…'; dEl.appendChild(s2); }
+}
+
+function applyBar(prefix, text, font, minPx, maxPx){
+    var real = realLength(text);
+    var cnt = countWidth(text);
+    var px = text.length ? measurePx(text, font) : 0;
+    document.getElementById(prefix + 'Chars').textContent = real;
+    document.getElementById(prefix + 'Count').textContent = cnt;
+    document.getElementById(prefix + 'Px').textContent = px;
+    var j = judge(px, minPx, maxPx);
+    var bar = document.getElementById(prefix + 'Bar');
+    bar.className = 'bar-fill ' + j.cls;
+    bar.style.width = j.pct + '%';
+    document.getElementById(prefix + 'Status').textContent = j.label;
+    document.getElementById(prefix + 'Status').style.color =
+        j.cls === 'ok' ? 'var(--green)' : (j.cls === 'over' ? 'var(--red)' : 'var(--yellow)');
+}
+
+function update(){
+    var titleVal = document.getElementById('titleInput').value;
+    var descVal = document.getElementById('descInput').value;
+    applyBar('title', titleVal, TITLE_FONT, TITLE_MIN_PX, TITLE_MAX_PX);
+    applyBar('desc', descVal, DESC_FONT, DESC_MIN_PX, DESC_MAX_PX);
+    renderSerp();
+}
+
+function copyField(which){
+    var el = document.getElementById(which === 'title' ? 'titleInput' : 'descInput');
+    var text = el.value.length ? el.value : (which === 'title' ? SAMPLE_TITLE : SAMPLE_DESC);
+    var done = function(){
+        var toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(function(){ toast.classList.remove('show'); }, 1400);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text); done(); });
+    } else {
+        fallbackCopy(text); done();
+    }
+}
+function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+}
+
+// フォント読み込み後に幅が変わるため再計算
+if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(update);
+}
+update();
+</script>
+</body>
+</html>

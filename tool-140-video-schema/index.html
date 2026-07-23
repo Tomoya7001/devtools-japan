@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoObject 構造化データ生成（動画SEO） | schema.org JSON-LD を無料作成</title>
+    <meta name="description" content="動画のタイトル・説明・サムネイル・公開日・再生時間などを入力するだけで schema.org VideoObject の JSON-LD をリアルタイム生成する無料ツール。再生時間は分秒からISO8601へ自動変換、空欄は自動除外。動画リッチリザルト対応。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1;padding-right:12px}
+        .row input,.row select,.row textarea{width:320px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .row textarea{resize:vertical;min-height:60px;line-height:1.5}
+        .row input:focus,.row select:focus,.row textarea:focus{border-color:var(--accent)}
+        .dur-group{display:flex;align-items:center;gap:8px;width:320px;justify-content:flex-end}
+        .dur-group input{width:90px;text-align:right}
+        .dur-group .unit{font-size:0.8rem;color:var(--text3)}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input,.row select,.row textarea,.dur-group{width:100%}.dur-group{justify-content:flex-start}}
+        .output-box{background:#1e1e35;border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:12px;overflow-x:auto}
+        .output-box pre{font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:#d6d8ea;line-height:1.6;white-space:pre;margin:0}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.copied{background:var(--green)}
+        .hint-list{list-style:none;margin-top:4px}
+        .hint-list li{display:flex;align-items:flex-start;gap:8px;padding:6px 0;font-size:0.82rem;color:var(--text2)}
+        .hint-list li .mark{font-family:'JetBrains Mono',monospace;font-weight:700;min-width:18px}
+        .hint-list li.ok .mark{color:var(--green)}
+        .hint-list li.ng .mark{color:var(--red)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-140-video-schema/">
+    <meta property="og:title" content="VideoObject 構造化データ生成（動画SEO）| schema.org JSON-LD を無料作成">
+    <meta property="og:description" content="動画情報を入力するだけで VideoObject の JSON-LD をリアルタイム生成。再生時間はISO8601へ自動変換、空欄は自動除外。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-140-video-schema/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="VideoObject 構造化データ生成（動画SEO）【無料】">
+    <meta name="twitter:description" content="動画情報から VideoObject の JSON-LD をリアルタイム生成。ISO8601変換・空欄除外対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"VideoObject 構造化データ生成（動画SEO）","description":"動画情報から schema.org VideoObject の JSON-LD をリアルタイム生成する無料ツール","url":"https://www.devtools-japan.com/tool-140-video-schema/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"VideoObject 構造化データ生成（動画SEO）","item":"https://www.devtools-japan.com/tool-140-video-schema/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"VideoObject 構造化データとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"VideoObject は schema.org が定義する動画向けの構造化データ（スキーマ）で、動画のタイトル・説明・サムネイル・公開日・再生時間などを検索エンジンに機械可読な形で伝えるための仕様です。ページに JSON-LD として埋め込むと、Google の検索結果や動画タブでサムネイル付きのリッチリザルトとして表示される可能性が高まり、動画コンテンツの発見性向上につながります。"}},{"@type":"Question","name":"再生時間はどう入力すればよいですか？","acceptedAnswer":{"@type":"Answer","text":"本ツールでは再生時間を「分」と「秒」の数値で入力すると、schema.org が求める ISO 8601 の期間形式（例：8分30秒なら PT8M30S）へ自動変換して出力します。分だけ・秒だけの入力にも対応し、どちらも0の場合は duration 項目そのものを出力から除外します。手動で PT 表記を組み立てる必要はありません。"}},{"@type":"Question","name":"入力を空欄にしたフィールドはどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"空欄のフィールドは JSON-LD の出力から自動的に除外されます。不要な項目に空文字やダミー値が残らないため、そのままコピーしてページに貼り付けられます。何も入力していない状態でも、構造を確認できるようサンプルの VideoObject を表示するので、必要な項目を上書きしながら完成させられます。"}},{"@type":"Question","name":"サムネイルは複数指定できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。サムネイルURL欄は改行区切りで複数のURLを入力でき、出力では thumbnailUrl が配列として生成されます。Google は 16:9・4:3・1:1 など複数のアスペクト比のサムネイル提供を推奨しているため、解像度やアスペクト比の異なる画像URLを複数登録しておくと、リッチリザルトでの表示に有利になります。"}},{"@type":"Question","name":"生成した JSON-LD はどこに貼り付ければよいですか？","acceptedAnswer":{"@type":"Answer","text":"出力された script type=application/ld+json のコードブロックをそのままコピーし、対象ページの head 内、または body 内に貼り付けてください。VideoObject は動画を実際に埋め込んでいるページに設置するのが基本です。貼り付け後は Google のリッチリザルトテストや Search Console のURL検査で、正しく認識されるかを確認することをおすすめします。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>VideoObject 構造化データ生成</h1><p>動画情報から schema.org VideoObject の JSON-LD をリアルタイム生成</p></header>
+
+    <div class="card"><h3>動画情報を入力</h3>
+        <div class="row"><label>動画タイトル（name）</label><input type="text" id="vName" placeholder="動画のタイトル" oninput="render()"></div>
+        <div class="row"><label>説明（description）</label><textarea id="vDesc" placeholder="動画の内容の説明" oninput="render()"></textarea></div>
+        <div class="row"><label>サムネイルURL（改行で複数可）</label><textarea id="vThumb" placeholder="https://example.com/thumb-16x9.jpg&#10;https://example.com/thumb-1x1.jpg" oninput="render()"></textarea></div>
+        <div class="row"><label>公開日（uploadDate）</label><input type="date" id="vUpload" style="width:200px" oninput="render()"></div>
+        <div class="row"><label>再生時間（duration）</label>
+            <div class="dur-group">
+                <input type="number" id="vMin" min="0" placeholder="0" oninput="render()"><span class="unit">分</span>
+                <input type="number" id="vSec" min="0" max="59" placeholder="0" oninput="render()"><span class="unit">秒</span>
+            </div>
+        </div>
+        <div class="row"><label>動画ファイルURL（contentUrl）</label><input type="text" id="vContent" placeholder="https://example.com/video.mp4" oninput="render()"></div>
+        <div class="row"><label>埋め込みURL（embedUrl）</label><input type="text" id="vEmbed" placeholder="https://example.com/embed/123" oninput="render()"></div>
+        <div class="row"><label>公開地域（regionsAllowed・カンマ区切り）</label><input type="text" id="vRegions" placeholder="JP, US" oninput="render()"></div>
+        <div class="row"><label>公開者（publisher）</label><input type="text" id="vPub" placeholder="チャンネル名・会社名" oninput="render()"></div>
+    </div>
+
+    <div class="card"><h3>生成された JSON-LD</h3>
+        <div class="output-box"><pre id="output"></pre></div>
+        <button class="btn" id="copyBtn" onclick="copyOutput()">コードをコピー</button>
+    </div>
+
+    <div class="card"><h3>動画リッチリザルト要件チェック</h3>
+        <ul class="hint-list" id="hintList"></ul>
+        <div class="note" style="margin-bottom:0;margin-top:12px">Google が必須とするのは name・description・thumbnailUrl・uploadDate です。contentUrl または embedUrl のいずれかの指定も強く推奨されます。上のチェックはあくまで簡易的な目安で、最終確認は Google のリッチリザルトテストで行ってください。</div>
+    </div>
+
+    <div class="note">再生時間は「分」「秒」から ISO 8601 期間（例：PT8M30S）へ自動変換し、公開日は YYYY-MM-DD の ISO 8601 形式で出力します。空欄のフィールドは自動的に除外され、何も入力していない場合はサンプルの VideoObject を表示します。生成結果はすべてお使いの端末内で処理され、サーバーには送信されません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>VideoObject 構造化データ生成ツールの使い方</h2>
+        <p>動画のタイトルや説明、サムネイル、公開日、再生時間などを入力するだけで、schema.org の VideoObject に準拠した JSON-LD をリアルタイムに生成する無料ツールです。生成されたコードをコピーして動画ページに貼り付ければ、Google の検索結果や動画タブでサムネイル付きのリッチリザルトとして表示される可能性が高まります。インストールや会員登録は不要で、入力内容はすべて端末内で処理されます。</p>
+        <p>使い方はかんたんです。上のフォームに動画の情報を入力すると、下の「生成された JSON-LD」に結果が即座に反映されます。再生時間は「分」と「秒」の数値を入れるだけで、schema.org が求める ISO 8601 の期間形式へ自動変換されます。入力しなかった項目は出力から自動で除外されるため、必要な情報だけを含んだクリーンなコードが得られます。完成したら「コードをコピー」ボタンでクリップボードにコピーできます。</p>
+        <h3>各フィールドの意味</h3>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>フィールド</th><th>意味</th><th>必須/推奨</th></tr>
+            <tr><td>name</td><td>動画のタイトル</td><td>必須</td></tr>
+            <tr><td>description</td><td>動画内容の説明文</td><td>必須</td></tr>
+            <tr><td>thumbnailUrl</td><td>サムネイル画像のURL（複数可）</td><td>必須</td></tr>
+            <tr><td>uploadDate</td><td>動画の公開日（ISO 8601）</td><td>必須</td></tr>
+            <tr><td>duration</td><td>再生時間（ISO 8601 期間・PT#M#S）</td><td>推奨</td></tr>
+            <tr><td>contentUrl</td><td>動画ファイルの直接URL</td><td>推奨</td></tr>
+            <tr><td>embedUrl</td><td>プレーヤーの埋め込みURL</td><td>推奨</td></tr>
+            <tr><td>regionsAllowed</td><td>視聴を許可する地域コード</td><td>任意</td></tr>
+            <tr><td>publisher</td><td>公開者（Organization）</td><td>任意</td></tr>
+        </table>
+        </div>
+
+        <h2>再生時間の ISO 8601 変換について</h2>
+        <p>schema.org の VideoObject では、再生時間（duration）を ISO 8601 の期間形式で指定します。これは「PT」で始まり、続けて時間・分・秒をそれぞれ H・M・S の記号で表す書き方です。たとえば8分30秒なら PT8M30S、1分ちょうどなら PT1M、45秒なら PT45S となります。本ツールでは分と秒の数値を入力するだけで、この形式へ自動変換するため、記号の組み立てを覚える必要はありません。分と秒がどちらも0の場合は、duration 項目自体を出力から除外します。</p>
+        <h3>サムネイルとリッチリザルト要件</h3>
+        <p>動画のリッチリザルトを狙う場合、Google は name・description・thumbnailUrl・uploadDate を必須項目としています。特にサムネイルは、16:9・4:3・1:1 など複数のアスペクト比の画像を提供することが推奨されているため、本ツールのサムネイルURL欄では改行区切りで複数のURLを登録でき、出力では配列として生成されます。また、動画本体を示す contentUrl か、プレーヤーの embedUrl のいずれかを併せて指定しておくと、Google が動画を正しく認識しやすくなります。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">VideoObject 構造化データとは何ですか？</div><div class="a">VideoObject は schema.org が定義する動画向けの構造化データ（スキーマ）で、動画のタイトル・説明・サムネイル・公開日・再生時間などを検索エンジンに機械可読な形で伝えるための仕様です。ページに JSON-LD として埋め込むと、Google の検索結果や動画タブでサムネイル付きのリッチリザルトとして表示される可能性が高まり、動画コンテンツの発見性向上につながります。</div></div>
+        <div class="faq-item"><div class="q">再生時間はどう入力すればよいですか？</div><div class="a">本ツールでは再生時間を「分」と「秒」の数値で入力すると、schema.org が求める ISO 8601 の期間形式（例：8分30秒なら PT8M30S）へ自動変換して出力します。分だけ・秒だけの入力にも対応し、どちらも0の場合は duration 項目そのものを出力から除外します。手動で PT 表記を組み立てる必要はありません。</div></div>
+        <div class="faq-item"><div class="q">入力を空欄にしたフィールドはどうなりますか？</div><div class="a">空欄のフィールドは JSON-LD の出力から自動的に除外されます。不要な項目に空文字やダミー値が残らないため、そのままコピーしてページに貼り付けられます。何も入力していない状態でも、構造を確認できるようサンプルの VideoObject を表示するので、必要な項目を上書きしながら完成させられます。</div></div>
+        <div class="faq-item"><div class="q">サムネイルは複数指定できますか？</div><div class="a">はい。サムネイルURL欄は改行区切りで複数のURLを入力でき、出力では thumbnailUrl が配列として生成されます。Google は 16:9・4:3・1:1 など複数のアスペクト比のサムネイル提供を推奨しているため、解像度やアスペクト比の異なる画像URLを複数登録しておくと、リッチリザルトでの表示に有利になります。</div></div>
+        <div class="faq-item"><div class="q">生成した JSON-LD はどこに貼り付ければよいですか？</div><div class="a">出力された script type=application/ld+json のコードブロックをそのままコピーし、対象ページの head 内、または body 内に貼り付けてください。VideoObject は動画を実際に埋め込んでいるページに設置するのが基本です。貼り付け後は Google のリッチリザルトテストや Search Console のURL検査で、正しく認識されるかを確認することをおすすめします。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ID属性 "application/ld+json" のスクリプトタグ文字列はトークン分割して組み立てる
+var LD_OPEN = '<' + 'script type="application/ld+json">';
+var LD_CLOSE = '<' + '/' + 'script>';
+
+function getVal(id){ return document.getElementById(id).value.trim(); }
+
+// 分・秒 -> ISO8601 期間 (PT#M#S)。どちらも0なら空文字
+function isoDuration(minStr, secStr){
+    var m = parseInt(minStr, 10); if (isNaN(m) || m < 0) m = 0;
+    var s = parseInt(secStr, 10); if (isNaN(s) || s < 0) s = 0;
+    if (m === 0 && s === 0) return '';
+    var out = 'PT';
+    if (m > 0) out += m + 'M';
+    if (s > 0) out += s + 'S';
+    return out;
+}
+
+// 何も入力が無いとき用のサンプル VideoObject
+function sampleObj(){
+    return {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "サンプル動画：初心者向けギター講座",
+        "description": "はじめてギターに触れる方向けに、基本のコードと練習方法をわかりやすく解説した動画です。",
+        "thumbnailUrl": [
+            "https://example.com/thumbnail-16x9.jpg",
+            "https://example.com/thumbnail-1x1.jpg"
+        ],
+        "uploadDate": "2026-01-15",
+        "duration": "PT8M30S",
+        "contentUrl": "https://example.com/video.mp4",
+        "embedUrl": "https://example.com/embed/sample-123",
+        "publisher": {
+            "@type": "Organization",
+            "name": "サンプルチャンネル"
+        }
+    };
+}
+
+function buildObj(){
+    var name = getVal('vName');
+    var desc = getVal('vDesc');
+    var thumbs = getVal('vThumb').split('\n').map(function(x){ return x.trim(); }).filter(Boolean);
+    var upload = getVal('vUpload');
+    var dur = isoDuration(getVal('vMin'), getVal('vSec'));
+    var content = getVal('vContent');
+    var embed = getVal('vEmbed');
+    var regions = getVal('vRegions').split(',').map(function(x){ return x.trim(); }).filter(Boolean);
+    var pub = getVal('vPub');
+
+    var empty = !name && !desc && !thumbs.length && !upload && !dur && !content && !embed && !regions.length && !pub;
+    if (empty) return sampleObj();
+
+    var o = { "@context": "https://schema.org", "@type": "VideoObject" };
+    if (name) o.name = name;
+    if (desc) o.description = desc;
+    if (thumbs.length) o.thumbnailUrl = thumbs;
+    if (upload) o.uploadDate = upload;
+    if (dur) o.duration = dur;
+    if (content) o.contentUrl = content;
+    if (embed) o.embedUrl = embed;
+    if (regions.length) o.regionsAllowed = regions;
+    if (pub) o.publisher = { "@type": "Organization", "name": pub };
+    return o;
+}
+
+function renderHints(){
+    var checks = [
+        { label: 'タイトル（name）', ok: !!getVal('vName') },
+        { label: '説明（description）', ok: !!getVal('vDesc') },
+        { label: 'サムネイルURL（thumbnailUrl）', ok: getVal('vThumb').split('\n').map(function(x){return x.trim();}).filter(Boolean).length > 0 },
+        { label: '公開日（uploadDate）', ok: !!getVal('vUpload') },
+        { label: '動画URL（contentUrl または embedUrl）', ok: !!(getVal('vContent') || getVal('vEmbed')) }
+    ];
+    var ul = document.getElementById('hintList');
+    ul.innerHTML = '';
+    checks.forEach(function(c){
+        var li = document.createElement('li');
+        li.className = c.ok ? 'ok' : 'ng';
+        var mark = document.createElement('span');
+        mark.className = 'mark';
+        mark.textContent = c.ok ? 'OK' : '--';
+        var txt = document.createElement('span');
+        txt.textContent = c.label;
+        li.appendChild(mark);
+        li.appendChild(txt);
+        ul.appendChild(li);
+    });
+}
+
+function render(){
+    var obj = buildObj();
+    var json = JSON.stringify(obj, null, 2);
+    // textContent を使うため DOM への挿入は安全。表示は開始/終了タグで囲む
+    document.getElementById('output').textContent = LD_OPEN + '\n' + json + '\n' + LD_CLOSE;
+    renderHints();
+}
+
+function copyOutput(){
+    var text = document.getElementById('output').textContent;
+    var btn = document.getElementById('copyBtn');
+    function done(){
+        btn.textContent = 'コピーしました';
+        btn.classList.add('copied');
+        setTimeout(function(){ btn.textContent = 'コードをコピー'; btn.classList.remove('copied'); }, 1600);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text, done); });
+    } else {
+        fallbackCopy(text, done);
+    }
+}
+
+function fallbackCopy(text, cb){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+    if (cb) cb();
+}
+
+render();
+</script>
+</body>
+</html>

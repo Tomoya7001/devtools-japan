@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>robots.txt ジェネレーター | AIクローラ制御対応の無料作成ツール【GPTBot/CCBot対応】</title>
+    <meta name="description" content="User-agent別のAllow/Disallow・Crawl-delay・Sitemapを指定して robots.txt をリアルタイム生成する無料ツール。Googlebot/BingbotやGPTBot・CCBot・Google-Extended・ClaudeBotなどAI学習クローラの許可/拒否をワンクリックで制御。コピー・ダウンロード対応、ブラウザ完結。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .card .card-desc{font-size:0.78rem;color:var(--text2);margin:-8px 0 16px;line-height:1.7}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:260px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        textarea{width:100%;padding:12px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.82rem;line-height:1.7;outline:none;resize:vertical}
+        textarea:focus{border-color:var(--accent)}
+        .field{margin-bottom:14px}
+        .field:last-child{margin-bottom:0}
+        .field .flabel{font-size:0.8rem;color:var(--text2);margin-bottom:6px;display:block}
+        .field .fhint{font-size:0.72rem;color:var(--text3);margin-top:4px;line-height:1.6}
+        .bot-item{padding:12px 0;border-bottom:1px solid var(--border)}
+        .bot-item:last-child{border-bottom:none}
+        .bot-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+        .bot-info{flex:1;min-width:180px}
+        .bot-name{font-size:0.9rem;font-weight:500;color:var(--text)}
+        .bot-name code{font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--accent);background:var(--accent-dim);padding:1px 6px;border-radius:5px;margin-left:6px}
+        .bot-desc{font-size:0.74rem;color:var(--text3);margin-top:4px;line-height:1.6}
+        .toggle{display:inline-flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;flex-shrink:0}
+        .toggle button{padding:7px 12px;background:#f7f8fb;border:none;border-right:1px solid var(--border);color:var(--text2);font-size:0.76rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .toggle button:last-child{border-right:none}
+        .toggle button.active-allow{background:var(--green);color:#fff}
+        .toggle button.active-block{background:var(--red);color:#fff}
+        .toggle button.active-none{background:var(--text3);color:#fff}
+        .out-wrap{position:relative}
+        .out-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+        .btn{padding:10px 20px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.sec{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.sec:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+        .copied{font-size:0.75rem;color:var(--green);align-self:center}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        table.ref td code{font-family:'JetBrains Mono',monospace;font-size:0.76rem;color:var(--accent)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-128-robots-txt/">
+    <meta property="og:title" content="robots.txt ジェネレーター | AIクローラ制御対応の無料作成ツール">
+    <meta property="og:description" content="User-agent別のAllow/Disallow・Crawl-delay・Sitemapを指定し、GPTBot・CCBotなどAI学習クローラの許可/拒否も選んで robots.txt をリアルタイム生成。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-128-robots-txt/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="robots.txt ジェネレーター【無料・AIクローラ制御対応】">
+    <meta name="twitter:description" content="Allow/Disallow・Sitemap・AI学習クローラの許可/拒否を選んで robots.txt を自動生成。コピー・ダウンロード対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"robots.txt ジェネレーター","description":"User-agent別のAllow/Disallow・Crawl-delay・Sitemap指定とAI学習クローラの許可/拒否制御に対応した robots.txt を自動生成する無料ツール","url":"https://www.devtools-japan.com/tool-128-robots-txt/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"robots.txt ジェネレーター","item":"https://www.devtools-japan.com/tool-128-robots-txt/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"robots.txtとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"robots.txtは、検索エンジンやAIのクローラ（ボット）に対して、サイト内のどのページをクロールしてよいか・してほしくないかを伝えるテキストファイルです。サイトのルート（例: https://example.com/robots.txt）に置きます。User-agentでボットを指定し、Disallowでクロールを避けてほしいパス、Allowで許可するパスを記述します。あくまでクローラへの指示（お願い）であり、非公開にしたいページはrobots.txtだけでなく認証などで保護してください。"}},{"@type":"Question","name":"GPTBotやCCBotなどAI学習クローラをブロックできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。本ツールではGPTBot（OpenAI）、CCBot（Common Crawl）、Google-Extended（Gemini/Vertex AIの学習制御）、anthropic-ai・ClaudeBot（Anthropic）、PerplexityBot、Bytespiderなど主要なAIクローラを一覧から選び、許可（Allow: /）か拒否（Disallow: /）をワンクリックで切り替えて robots.txt を生成できます。学習利用を避けたい場合はブロック、生成AIに引用・参照されたい場合（LLMO/AEO）は許可を選びます。"}},{"@type":"Question","name":"入力せずにサンプルは表示されますか？","acceptedAnswer":{"@type":"Answer","text":"はい。ページを開いた時点で、検索エンジンは許可しつつ主要なAI学習クローラをブロックする一般的なサンプル robots.txt が生成済みで表示されます。設定を変更すると即座に反映されるため、そのままコピーして使うことも、雛形として編集することもできます。すべての生成はブラウザ内で完結し、入力内容が外部に送信されることはありません。"}},{"@type":"Question","name":"Crawl-delayやSitemapも設定できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。全ボット共通（User-agent: *）のCrawl-delay（クロール間隔の秒数）を指定でき、Sitemapの絶対URLも1行ずつ追加できます。なおCrawl-delayはGooglebotには無視されますが、BingbotやYandexなど一部のクローラは参照します。SitemapのURLはhttpsから始まる絶対URLで記述してください。"}},{"@type":"Question","name":"生成した robots.txt はどこに置けばいいですか？","acceptedAnswer":{"@type":"Answer","text":"生成した内容をrobots.txtというファイル名で保存し、サイトのドキュメントルート直下に配置します。公開URLは必ず https://あなたのドメイン/robots.txt になる必要があり、サブディレクトリに置いても認識されません。設置後はSearch Consoleのrobots.txtテスターなどで意図どおりに読み込まれるか確認することをおすすめします。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>robots.txt ジェネレーター</h1><p>AIクローラ制御に対応した robots.txt をブラウザだけで自動生成</p></header>
+
+    <div class="card"><h3>クイックプリセット</h3>
+        <div class="preset-row" id="presetRow">
+            <button onclick="applyPreset('open')">全ボット許可</button>
+            <button onclick="applyPreset('ai-block')">検索OK・AI学習ブロック</button>
+            <button onclick="applyPreset('closed')">全ボット拒否（開発中）</button>
+        </div>
+    </div>
+
+    <div class="card"><h3>AI学習クローラの制御（LLMO / AEO）</h3>
+        <p class="card-desc">生成AIの学習・参照に使われるクローラです。<b>ブロック</b>すると学習データへの利用を避けられます。<b>許可</b>すると生成AIやAI検索に引用・参照されやすくなります（LLMO/AEO観点）。「指定なし」は robots.txt に記載せず、既定挙動に任せます。</p>
+        <div id="aiBots"></div>
+    </div>
+
+    <div class="card"><h3>検索エンジンのクローラ</h3>
+        <p class="card-desc">個別に指定したいボットだけ「許可」または「ブロック」に設定します。多くのサイトは「指定なし」のまま、下の共通ルールで全体を制御すれば十分です。</p>
+        <div id="searchBots"></div>
+    </div>
+
+    <div class="card"><h3>共通ルール（User-agent: *）</h3>
+        <div class="field">
+            <label class="flabel">Disallow（クロールを避けるパス・1行に1つ）</label>
+            <textarea id="disallowPaths" rows="4" oninput="generate()" placeholder="/admin/&#10;/cgi-bin/&#10;/tmp/"></textarea>
+            <div class="fhint">例: <code>/admin/</code> のように記述します。空欄の場合は「Disallow:（全て許可）」として出力します。</div>
+        </div>
+        <div class="field">
+            <label class="flabel">Allow（Disallow内で例外的に許可するパス・任意）</label>
+            <textarea id="allowPaths" rows="2" oninput="generate()" placeholder="/admin/public/"></textarea>
+        </div>
+        <div class="row" style="border-bottom:none;padding-bottom:0">
+            <label>Crawl-delay（秒・任意）</label>
+            <input type="number" id="crawlDelay" min="0" step="1" oninput="generate()" placeholder="例: 10" style="width:140px;text-align:right">
+        </div>
+    </div>
+
+    <div class="card"><h3>Sitemap</h3>
+        <div class="field">
+            <label class="flabel">Sitemap の絶対URL（1行に1つ・任意）</label>
+            <textarea id="sitemaps" rows="2" oninput="generate()" placeholder="https://www.example.com/sitemap.xml"></textarea>
+            <div class="fhint">httpsから始まる絶対URLで記述してください。</div>
+        </div>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="card"><h3>生成された robots.txt</h3>
+        <div class="out-wrap">
+            <textarea id="output" rows="14" spellcheck="false" readonly></textarea>
+            <div class="out-actions">
+                <button class="btn" onclick="copyOutput()">コピー</button>
+                <button class="btn sec" onclick="downloadOutput()">robots.txt をダウンロード</button>
+                <span class="copied" id="copiedMsg" style="display:none">コピーしました</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="note">robots.txt はクローラへの指示（お願い）であり、アクセス制御ではありません。非公開にしたいコンテンツは robots.txt に頼らず、認証やサーバー側の制限で保護してください。すべての生成はお使いのブラウザ内で完結し、入力内容が外部に送信されることはありません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>robots.txt ジェネレーターの使い方</h2>
+        <p>User-agent（ボット）別のAllow / Disallowルール、Crawl-delay、Sitemap URL、そしてGPTBotやCCBotなどAI学習クローラの許可/拒否を指定するだけで、正しい書式の robots.txt をリアルタイムに自動生成する無料ツールです。ページを開いた瞬間からサンプルが表示されるので、トグルを切り替えたり共通ルールを入力したりすると、その場で下部の出力が更新されます。完成したら「コピー」または「robots.txt をダウンロード」で取得し、サイトのルート直下（<code>https://あなたのドメイン/robots.txt</code>）に配置してください。</p>
+        <p>操作はすべてブラウザ内で完結し、サーバーに何も送信しません。会員登録もインストールも不要です。よく使う設定はクイックプリセット（全ボット許可 / 検索OK・AI学習ブロック / 全ボット拒否）からワンクリックで呼び出せます。</p>
+
+        <h2>AI学習クローラの制御（LLMO / AEO）</h2>
+        <p>近年は検索エンジンだけでなく、生成AIの学習や回答生成のためにサイトを巡回するクローラが増えています。これらを許可するか拒否するかは、コンテンツ戦略上の重要な判断です。学習データとしての利用を避けたい場合はブロック、生成AIやAI検索エンジンに自社コンテンツを引用・参照してもらいたい場合（LLMO: Large Language Model Optimization / AEO: Answer Engine Optimization）は許可を選びます。本ツールでは主要なAIクローラを一覧化し、それぞれ許可 / ブロック / 指定なしをワンクリックで切り替えられます。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>User-agent</th><th>運営</th><th>役割</th></tr>
+            <tr><td><code>GPTBot</code></td><td>OpenAI</td><td>ChatGPTなどのモデル学習用クローラ</td></tr>
+            <tr><td><code>OAI-SearchBot</code></td><td>OpenAI</td><td>ChatGPTの検索機能で参照するためのクローラ</td></tr>
+            <tr><td><code>ChatGPT-User</code></td><td>OpenAI</td><td>ユーザー操作によるブラウジングのアクセス</td></tr>
+            <tr><td><code>Google-Extended</code></td><td>Google</td><td>Gemini / Vertex AIの学習利用の可否を制御</td></tr>
+            <tr><td><code>CCBot</code></td><td>Common Crawl</td><td>多くのLLMの学習元となる大規模クロール</td></tr>
+            <tr><td><code>anthropic-ai</code> / <code>ClaudeBot</code></td><td>Anthropic</td><td>Claude関連のクロール</td></tr>
+            <tr><td><code>PerplexityBot</code></td><td>Perplexity</td><td>AI検索エンジンのクローラ</td></tr>
+            <tr><td><code>Bytespider</code></td><td>ByteDance</td><td>AI学習向けの大規模クローラ</td></tr>
+        </table>
+        </div>
+        <p>なお、robots.txt はあくまでクローラへの指示であり、すべてのボットが必ず従う保証はありません。学習利用を厳密に制限したい場合は、robots.txtに加えて利用規約やサーバー側の対策も併用してください。</p>
+
+        <h2>robots.txt の基本文法</h2>
+        <p>robots.txt は数行のシンプルなテキストで構成されます。<code>User-agent</code> で対象のボットを指定し、その下に <code>Disallow</code>（クロールを避けるパス）や <code>Allow</code>（例外的に許可するパス）を並べます。<code>User-agent: *</code> はすべてのボットを対象にする指定です。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>ディレクティブ</th><th>意味</th><th>例</th></tr>
+            <tr><td><code>User-agent</code></td><td>対象ボットの指定</td><td><code>User-agent: Googlebot</code></td></tr>
+            <tr><td><code>Disallow</code></td><td>クロールを避けるパス</td><td><code>Disallow: /admin/</code></td></tr>
+            <tr><td><code>Allow</code></td><td>例外的に許可するパス</td><td><code>Allow: /admin/public/</code></td></tr>
+            <tr><td><code>Crawl-delay</code></td><td>クロール間隔（秒）</td><td><code>Crawl-delay: 10</code></td></tr>
+            <tr><td><code>Sitemap</code></td><td>サイトマップの絶対URL</td><td><code>Sitemap: https://example.com/sitemap.xml</code></td></tr>
+        </table>
+        </div>
+        <p><code>Disallow: /</code> はサイト全体のクロール拒否、<code>Disallow:</code>（空欄）はすべて許可を意味します。<code>Crawl-delay</code> はGooglebotには無視されますが、BingbotやYandexなど一部のクローラは参照します。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">robots.txtとは何ですか？</div><div class="a">robots.txtは、検索エンジンやAIのクローラ（ボット）に対して、サイト内のどのページをクロールしてよいか・してほしくないかを伝えるテキストファイルです。サイトのルート（例: https://example.com/robots.txt）に置きます。User-agentでボットを指定し、Disallowでクロールを避けてほしいパス、Allowで許可するパスを記述します。あくまでクローラへの指示（お願い）であり、非公開にしたいページはrobots.txtだけでなく認証などで保護してください。</div></div>
+        <div class="faq-item"><div class="q">GPTBotやCCBotなどAI学習クローラをブロックできますか？</div><div class="a">はい。本ツールではGPTBot（OpenAI）、CCBot（Common Crawl）、Google-Extended（Gemini/Vertex AIの学習制御）、anthropic-ai・ClaudeBot（Anthropic）、PerplexityBot、Bytespiderなど主要なAIクローラを一覧から選び、許可（Allow: /）か拒否（Disallow: /）をワンクリックで切り替えて robots.txt を生成できます。学習利用を避けたい場合はブロック、生成AIに引用・参照されたい場合（LLMO/AEO）は許可を選びます。</div></div>
+        <div class="faq-item"><div class="q">入力せずにサンプルは表示されますか？</div><div class="a">はい。ページを開いた時点で、検索エンジンは許可しつつ主要なAI学習クローラをブロックする一般的なサンプル robots.txt が生成済みで表示されます。設定を変更すると即座に反映されるため、そのままコピーして使うことも、雛形として編集することもできます。すべての生成はブラウザ内で完結し、入力内容が外部に送信されることはありません。</div></div>
+        <div class="faq-item"><div class="q">Crawl-delayやSitemapも設定できますか？</div><div class="a">はい。全ボット共通（User-agent: *）のCrawl-delay（クロール間隔の秒数）を指定でき、Sitemapの絶対URLも1行ずつ追加できます。なおCrawl-delayはGooglebotには無視されますが、BingbotやYandexなど一部のクローラは参照します。SitemapのURLはhttpsから始まる絶対URLで記述してください。</div></div>
+        <div class="faq-item"><div class="q">生成した robots.txt はどこに置けばいいですか？</div><div class="a">生成した内容をrobots.txtというファイル名で保存し、サイトのドキュメントルート直下に配置します。公開URLは必ず https://あなたのドメイン/robots.txt になる必要があり、サブディレクトリに置いても認識されません。設置後はSearch Consoleのrobots.txtテスターなどで意図どおりに読み込まれるか確認することをおすすめします。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧へ</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ボット定義（category: 'ai' | 'search'、state: 'none' | 'allow' | 'block'）
+const BOTS = [
+    {ua:'GPTBot', cat:'ai', desc:'OpenAI — ChatGPTなどのモデル学習用クローラ', state:'block'},
+    {ua:'OAI-SearchBot', cat:'ai', desc:'OpenAI — ChatGPT検索が参照するクローラ', state:'none'},
+    {ua:'ChatGPT-User', cat:'ai', desc:'OpenAI — ユーザー操作によるブラウジング', state:'none'},
+    {ua:'Google-Extended', cat:'ai', desc:'Google — Gemini / Vertex AIの学習利用を制御', state:'block'},
+    {ua:'CCBot', cat:'ai', desc:'Common Crawl — 多くのLLMの学習元となる大規模クロール', state:'block'},
+    {ua:'anthropic-ai', cat:'ai', desc:'Anthropic — Claude関連のクロール（旧UA）', state:'block'},
+    {ua:'ClaudeBot', cat:'ai', desc:'Anthropic — Claudeの学習向けクローラ', state:'block'},
+    {ua:'PerplexityBot', cat:'ai', desc:'Perplexity — AI検索エンジンのクローラ', state:'none'},
+    {ua:'Bytespider', cat:'ai', desc:'ByteDance — AI学習向けの大規模クローラ', state:'block'},
+    {ua:'Amazonbot', cat:'ai', desc:'Amazon — Alexa等が参照するクローラ', state:'none'},
+    {ua:'Applebot-Extended', cat:'ai', desc:'Apple — Apple Intelligenceの学習利用を制御', state:'none'},
+    {ua:'Googlebot', cat:'search', desc:'Google — ウェブ検索の主要クローラ', state:'none'},
+    {ua:'Bingbot', cat:'search', desc:'Microsoft — Bing検索のクローラ', state:'none'},
+    {ua:'DuckDuckBot', cat:'search', desc:'DuckDuckGo — 検索クローラ', state:'none'},
+    {ua:'Yandex', cat:'search', desc:'Yandex — ロシア圏の検索クローラ', state:'none'},
+    {ua:'Baiduspider', cat:'search', desc:'Baidu — 中国圏の検索クローラ', state:'none'}
+];
+
+function botIndexByUa(ua){ return BOTS.findIndex(b=>b.ua===ua); }
+
+function renderBots(){
+    const aiWrap = document.getElementById('aiBots');
+    const searchWrap = document.getElementById('searchBots');
+    aiWrap.innerHTML = '';
+    searchWrap.innerHTML = '';
+    BOTS.forEach((b, i)=>{
+        const item = document.createElement('div');
+        item.className = 'bot-item';
+        const head = document.createElement('div');
+        head.className = 'bot-head';
+        const info = document.createElement('div');
+        info.className = 'bot-info';
+        const nameEl = document.createElement('div');
+        nameEl.className = 'bot-name';
+        nameEl.innerHTML = '<code></code>';
+        nameEl.querySelector('code').textContent = b.ua;
+        const descEl = document.createElement('div');
+        descEl.className = 'bot-desc';
+        descEl.textContent = b.desc;
+        info.appendChild(nameEl);
+        info.appendChild(descEl);
+        const toggle = document.createElement('div');
+        toggle.className = 'toggle';
+        [['none','指定なし'],['allow','許可'],['block','ブロック']].forEach(([val,label])=>{
+            const btn = document.createElement('button');
+            btn.textContent = label;
+            btn.dataset.val = val;
+            btn.dataset.idx = i;
+            btn.onclick = ()=>{ BOTS[i].state = val; syncToggle(i); generate(); };
+            toggle.appendChild(btn);
+        });
+        head.appendChild(info);
+        head.appendChild(toggle);
+        item.appendChild(head);
+        item.dataset.idx = i;
+        (b.cat === 'ai' ? aiWrap : searchWrap).appendChild(item);
+        syncToggle(i);
+    });
+}
+
+function syncToggle(i){
+    const item = document.querySelector('.bot-item[data-idx="'+i+'"]');
+    if (!item) return;
+    const state = BOTS[i].state;
+    item.querySelectorAll('.toggle button').forEach(btn=>{
+        btn.className = '';
+        if (btn.dataset.val === state){
+            btn.className = 'active-' + state;
+        }
+    });
+}
+
+function splitLines(text){
+    return text.split('\n').map(s=>s.trim()).filter(s=>s.length > 0);
+}
+
+function generate(){
+    const lines = [];
+    lines.push('# robots.txt');
+    lines.push('# Generated by DevTools Japan - robots.txt Generator');
+    lines.push('# https://www.devtools-japan.com/tool-128-robots-txt/');
+    lines.push('');
+
+    // 共通ルール（User-agent: *）
+    const disallow = splitLines(document.getElementById('disallowPaths').value);
+    const allow = splitLines(document.getElementById('allowPaths').value);
+    const crawlDelay = document.getElementById('crawlDelay').value.trim();
+
+    lines.push('User-agent: *');
+    allow.forEach(p=>lines.push('Allow: ' + normalizePath(p)));
+    if (disallow.length === 0){
+        lines.push('Disallow:');
+    } else {
+        disallow.forEach(p=>lines.push('Disallow: ' + normalizePath(p)));
+    }
+    if (crawlDelay !== '' && !isNaN(Number(crawlDelay)) && Number(crawlDelay) >= 0){
+        lines.push('Crawl-delay: ' + parseInt(crawlDelay, 10));
+    }
+
+    // 個別ボット（指定ありのみ）
+    BOTS.forEach(b=>{
+        if (b.state === 'allow'){
+            lines.push('');
+            lines.push('User-agent: ' + b.ua);
+            lines.push('Allow: /');
+        } else if (b.state === 'block'){
+            lines.push('');
+            lines.push('User-agent: ' + b.ua);
+            lines.push('Disallow: /');
+        }
+    });
+
+    // Sitemap
+    const sitemaps = splitLines(document.getElementById('sitemaps').value);
+    if (sitemaps.length > 0){
+        lines.push('');
+        sitemaps.forEach(u=>lines.push('Sitemap: ' + u));
+    }
+
+    document.getElementById('output').value = lines.join('\n') + '\n';
+}
+
+function normalizePath(p){
+    if (p === '') return '/';
+    if (p[0] !== '/' && !/^https?:/i.test(p)) return '/' + p;
+    return p;
+}
+
+function applyPreset(kind){
+    const dis = document.getElementById('disallowPaths');
+    const allw = document.getElementById('allowPaths');
+    const cd = document.getElementById('crawlDelay');
+    if (kind === 'open'){
+        BOTS.forEach(b=>b.state = 'none');
+        dis.value = '';
+        allw.value = '';
+        cd.value = '';
+    } else if (kind === 'ai-block'){
+        BOTS.forEach(b=>{
+            if (b.cat === 'ai' && ['GPTBot','Google-Extended','CCBot','anthropic-ai','ClaudeBot','Bytespider'].includes(b.ua)){
+                b.state = 'block';
+            } else {
+                b.state = 'none';
+            }
+        });
+        dis.value = '';
+        allw.value = '';
+        cd.value = '';
+    } else if (kind === 'closed'){
+        BOTS.forEach(b=>b.state = 'none');
+        dis.value = '/';
+        allw.value = '';
+        cd.value = '';
+    }
+    BOTS.forEach((b,i)=>syncToggle(i));
+    generate();
+}
+
+function copyOutput(){
+    const out = document.getElementById('output');
+    const text = out.value;
+    const done = ()=>{
+        const msg = document.getElementById('copiedMsg');
+        msg.style.display = 'inline';
+        setTimeout(()=>{ msg.style.display = 'none'; }, 1600);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done).catch(()=>{ out.select(); document.execCommand('copy'); done(); });
+    } else {
+        out.select();
+        document.execCommand('copy');
+        done();
+    }
+}
+
+function downloadOutput(){
+    const text = document.getElementById('output').value;
+    const blob = new Blob([text], {type:'text/plain;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'robots.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+// 初期表示: 検索OK・AI学習ブロックのサンプル（入力ゼロでも生成される）
+renderBots();
+generate();
+</script>
+</body>
+</html>
