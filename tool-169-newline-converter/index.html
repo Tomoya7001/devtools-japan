@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>改行コード・空白 変換ツール | CRLF/LF/CR 相互変換・タブ・空白整形【無料】</title>
+    <meta name="description" content="テキストの改行コード（CRLF/LF/CR）を相互変換できる無料ツール。タブ⇔スペース、全角スペース→半角、行末の空白削除、連続する空行を1行に整形。現在の改行コードの自動判定と件数表示にも対応。すべてブラウザ内で完結し安全です。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input[type=number]{width:120px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .chk{display:flex;align-items:center;gap:8px;cursor:pointer}
+        .row .chk input{width:18px;height:18px;accent-color:var(--accent);cursor:pointer}
+        textarea{width:100%;min-height:180px;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.85rem;line-height:1.6;outline:none;resize:vertical}
+        textarea:focus{border-color:var(--accent)}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row select,.row input[type=number]{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .detect-box{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:16px 20px;text-align:center;margin-bottom:16px}
+        .detect-box .headline{font-size:0.8rem;color:var(--text2);margin-bottom:6px}
+        .detect-box .kind{font-family:'JetBrains Mono',monospace;font-size:1.6rem;font-weight:700;color:var(--accent)}
+        .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.sec{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.sec:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-169-newline-converter/">
+    <meta property="og:title" content="改行コード・空白 変換ツール | CRLF/LF/CR 相互変換・空白整形【無料】">
+    <meta property="og:description" content="改行コード（CRLF/LF/CR）を相互変換。タブ⇔スペース、全角スペース→半角、行末空白削除、連続空行の圧縮にも対応。改行コードの自動判定つき。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-169-newline-converter/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="改行コード・空白 変換ツール【無料】">
+    <meta name="twitter:description" content="CRLF/LF/CRの相互変換とタブ・空白整形。改行コードの自動判定つき。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"改行コード・空白 変換ツール","description":"改行コード（CRLF/LF/CR）を相互変換し、タブ・空白を整形する無料ツール","url":"https://www.devtools-japan.com/tool-169-newline-converter/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"改行コード・空白 変換ツール","item":"https://www.devtools-japan.com/tool-169-newline-converter/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"CRLF・LF・CRの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"改行コードは行末を表す制御文字です。CRLF（キャリッジリターン＋ラインフィード、\\r\\n）は主にWindowsで、LF（ラインフィード、\\n）はmacOS・Linux・多くのプログラミング環境で、CR（キャリッジリターン、\\r）は古いMac OSで使われてきました。同じ見た目のテキストでも改行コードが異なると、環境によって表示崩れや差分の誤検出が起きることがあります。"}},{"@type":"Question","name":"現在の改行コードは自動で判定されますか？","acceptedAnswer":{"@type":"Answer","text":"はい。入力欄にテキストを貼り付けると、含まれるCRLF・LF・CRの件数を自動でカウントし、主要な改行コードを判定して表示します。3種類が混在している場合はそのことも分かるよう件数を個別に表示するため、どの改行コードが混ざっているかを一目で確認できます。"}},{"@type":"Question","name":"タブとスペースの相互変換はできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。タブ→スペースでは、指定した桁数（デフォルト4）の半角スペースにタブを置き換えます。スペース→タブでは、指定桁数ぶんの連続した半角スペースを1つのタブに戻します。インデントの統一やコード整形、貼り付け時に混ざったタブ・スペースの調整にご利用いただけます。"}},{"@type":"Question","name":"入力したテキストはサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。本ツールの変換処理はすべてお使いのブラウザ内（クライアントサイド）で完結し、入力したテキストが外部サーバーへ送信・保存されることはありません。ソースコードや業務文書など、外部に出したくないテキストも安心して変換できます。"}},{"@type":"Question","name":"変換結果はコピーや保存ができますか？","acceptedAnswer":{"@type":"Answer","text":"はい。変換後のテキストはワンクリックでクリップボードにコピーできるほか、テキストファイル（.txt）としてダウンロードすることもできます。ダウンロード時は選択した改行コードがそのまま保存されるため、目的の環境に合わせたファイルをそのまま出力できます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>改行コード・空白 変換ツール</h1><p>CRLF / LF / CR の相互変換とタブ・空白の整形</p></header>
+
+    <div class="card"><h3>入力テキスト</h3>
+        <textarea id="input" placeholder="ここに変換したいテキストを貼り付けてください" oninput="detectAndConvert()"></textarea>
+    </div>
+
+    <div class="detect-box">
+        <div class="headline">検出された改行コード</div>
+        <div class="kind" id="detectKind">-</div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">CRLF 件数</div><div class="value" id="cntCRLF">0</div></div>
+        <div class="result-item"><div class="label">LF 件数</div><div class="value" id="cntLF">0</div></div>
+        <div class="result-item"><div class="label">CR 件数</div><div class="value" id="cntCR">0</div></div>
+    </div>
+
+    <div class="card"><h3>変換オプション</h3>
+        <div class="row"><label>変換後の改行コード</label>
+            <select id="target" onchange="detectAndConvert()">
+                <option value="LF">LF（\n / Unix・macOS・Linux）</option>
+                <option value="CRLF">CRLF（\r\n / Windows）</option>
+                <option value="CR">CR（\r / 旧Mac）</option>
+            </select>
+        </div>
+        <div class="row"><label class="chk"><input type="checkbox" id="tabToSpace" onchange="detectAndConvert()"> タブ → スペースに変換</label>
+            <span style="display:flex;align-items:center;gap:8px"><input type="number" id="tabWidth" value="4" min="1" max="16" onchange="detectAndConvert()"><span style="font-size:0.8rem;color:var(--text3)">桁</span></span>
+        </div>
+        <div class="row"><label class="chk"><input type="checkbox" id="spaceToTab" onchange="detectAndConvert()"> スペース → タブに変換（上記桁数）</label></div>
+        <div class="row"><label class="chk"><input type="checkbox" id="fullToHalf" onchange="detectAndConvert()"> 全角スペース → 半角スペース</label></div>
+        <div class="row"><label class="chk"><input type="checkbox" id="trimEol" onchange="detectAndConvert()"> 行末の空白を削除</label></div>
+        <div class="row"><label class="chk"><input type="checkbox" id="squeeze" onchange="detectAndConvert()"> 連続する空行を1行にまとめる</label></div>
+    </div>
+
+    <div class="card"><h3>変換結果</h3>
+        <textarea id="output" readonly placeholder="変換結果がここに表示されます"></textarea>
+        <div class="btn-row">
+            <button class="btn" onclick="copyOutput()" id="copyBtn">結果をコピー</button>
+            <button class="btn sec" onclick="downloadOutput()">テキストをダウンロード</button>
+            <button class="btn sec" onclick="clearAll()">クリア</button>
+        </div>
+    </div>
+
+    <div class="note">すべての変換処理はお使いのブラウザ内（クライアントサイド）で行われ、入力したテキストが外部に送信されることはありません。改行コードの件数は入力テキストから自動で判定して表示します。ダウンロードしたファイルには選択中の改行コードがそのまま反映されます。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>改行コード・空白 変換ツールの使い方</h2>
+        <p>テキストの改行コードを CRLF / LF / CR の間で相互変換し、あわせてタブとスペースの整形も行える無料ツールです。入力欄にテキストを貼り付けると、その中に含まれる改行コードの種類と件数を自動で判定して表示します。変換後の改行コードを選び、必要なオプションにチェックを入れるだけで、結果がリアルタイムに更新されます。インストールや会員登録は不要で、処理はすべて端末内で完結します。</p>
+        <p>Windows で作成したファイルを macOS や Linux、Git 環境で扱うときや、逆に Unix 系のテキストを Windows のメモ帳で開くときなど、改行コードの違いが原因で「1行に繋がって表示される」「差分が全行変更として検出される」といったトラブルが起きがちです。本ツールで改行コードを目的の環境に合わせて統一しておけば、こうした表示崩れや不要な差分を防げます。</p>
+        <h3>タブ・空白の整形オプション</h3>
+        <p>改行コードの変換に加えて、タブ→スペース（桁数指定）、スペース→タブ、全角スペース→半角スペース、行末の空白削除、連続する空行を1行にまとめる、といった整形を組み合わせて実行できます。コードのインデント統一、コピー時に混入した全角スペースの除去、余分な空行の圧縮などにお使いください。複数のオプションは同時に有効化でき、上から順に適用されます。</p>
+
+        <h2>改行コードの種類と対応環境</h2>
+        <p>改行コードは「行の終わり」を表す制御文字で、歴史的な経緯から複数の種類があります。代表的なものは次の3つです。混在したテキストでも、本ツールは選択した1種類の改行コードにすべて統一します。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>名称</th><th>記号</th><th>主な環境</th></tr>
+            <tr><td>CRLF</td><td>\r\n</td><td>Windows のメモ帳・多くのWindowsアプリ</td></tr>
+            <tr><td>LF</td><td>\n</td><td>macOS・Linux・Unix・多くのプログラミング言語やGit</td></tr>
+            <tr><td>CR</td><td>\r</td><td>Mac OS 9 以前などの古い環境</td></tr>
+        </table>
+        </div>
+        <h3>変換の仕組み</h3>
+        <p>本ツールはまず入力テキスト内の CRLF・CR・LF をすべて一度 LF に正規化し、選択された改行コードへ一括で置き換えます。この方式により、複数の改行コードが混在していても取りこぼしなく統一できます。タブや空白の整形は改行コードの統一後に適用されるため、インデントや行末の判定が改行コードの違いに左右されません。処理結果はコピーまたは .txt ファイルとしてダウンロードでき、ダウンロード時のファイルにも選択中の改行コードがそのまま保存されます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">CRLF・LF・CRの違いは何ですか？</div><div class="a">改行コードは行末を表す制御文字です。CRLF（\r\n）は主にWindows、LF（\n）はmacOS・Linux・多くのプログラミング環境、CR（\r）は古いMac OSで使われてきました。同じ見た目のテキストでも改行コードが異なると、環境によって表示崩れや差分の誤検出が起きることがあります。</div></div>
+        <div class="faq-item"><div class="q">現在の改行コードは自動で判定されますか？</div><div class="a">はい。入力欄にテキストを貼り付けると、含まれるCRLF・LF・CRの件数を自動でカウントし、主要な改行コードを判定して表示します。3種類が混在している場合も件数を個別に表示するため、どの改行コードが混ざっているかを一目で確認できます。</div></div>
+        <div class="faq-item"><div class="q">タブとスペースの相互変換はできますか？</div><div class="a">はい。タブ→スペースでは指定した桁数（デフォルト4）の半角スペースにタブを置き換えます。スペース→タブでは指定桁数ぶんの連続した半角スペースを1つのタブに戻します。インデントの統一やコード整形にご利用いただけます。</div></div>
+        <div class="faq-item"><div class="q">入力したテキストはサーバーに送信されますか？</div><div class="a">いいえ。変換処理はすべてお使いのブラウザ内（クライアントサイド）で完結し、入力したテキストが外部サーバーへ送信・保存されることはありません。ソースコードや業務文書など、外部に出したくないテキストも安心して変換できます。</div></div>
+        <div class="faq-item"><div class="q">変換結果はコピーや保存ができますか？</div><div class="a">はい。変換後のテキストはワンクリックでクリップボードにコピーできるほか、テキストファイル（.txt）としてダウンロードできます。ダウンロード時は選択した改行コードがそのまま保存されるため、目的の環境に合わせたファイルをそのまま出力できます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+const CR = String.fromCharCode(13);
+const LF = String.fromCharCode(10);
+const CRLF = CR + LF;
+
+function el(id){ return document.getElementById(id); }
+
+// 入力テキストの改行コードを判定して件数を表示
+function detectNewlines(text){
+    let crlf = 0, cr = 0, lf = 0;
+    for (let i = 0; i < text.length; i++){
+        const c = text.charCodeAt(i);
+        if (c === 13){
+            if (i + 1 < text.length && text.charCodeAt(i + 1) === 10){ crlf++; i++; }
+            else { cr++; }
+        } else if (c === 10){
+            lf++;
+        }
+    }
+    return { crlf, cr, lf };
+}
+
+function detectAndConvert(){
+    const text = el('input').value;
+    const d = detectNewlines(text);
+    el('cntCRLF').textContent = d.crlf;
+    el('cntLF').textContent = d.lf;
+    el('cntCR').textContent = d.cr;
+
+    const kinds = [];
+    if (d.crlf > 0) kinds.push('CRLF');
+    if (d.lf > 0) kinds.push('LF');
+    if (d.cr > 0) kinds.push('CR');
+    let kindLabel;
+    if (text.length === 0) kindLabel = '-';
+    else if (kinds.length === 0) kindLabel = '改行なし';
+    else if (kinds.length === 1) kindLabel = kinds[0];
+    else kindLabel = '混在（' + kinds.join(' + ') + '）';
+    el('detectKind').textContent = kindLabel;
+
+    el('output').value = convert(text);
+}
+
+function convert(text){
+    if (text.length === 0) return '';
+    // すべての改行を一度 LF に正規化
+    let out = text.split(CRLF).join(LF).split(CR).join(LF);
+
+    const width = Math.max(1, Math.min(16, parseInt(el('tabWidth').value, 10) || 4));
+
+    // 全角スペース → 半角スペース
+    if (el('fullToHalf').checked){
+        out = out.split(String.fromCharCode(0x3000)).join(' ');
+    }
+    // タブ → スペース
+    if (el('tabToSpace').checked){
+        const spaces = ' '.repeat(width);
+        out = out.split(String.fromCharCode(9)).join(spaces);
+    }
+    // スペース → タブ（桁数ぶんの連続スペースを1タブに）
+    if (el('spaceToTab').checked){
+        const tab = String.fromCharCode(9);
+        const re = new RegExp(' {' + width + '}', 'g');
+        out = out.split(LF).map(function(line){ return line.replace(re, tab); }).join(LF);
+    }
+    // 行末の空白を削除
+    if (el('trimEol').checked){
+        out = out.split(LF).map(function(line){ return line.replace(/[\t 　]+$/, ''); }).join(LF);
+    }
+    // 連続する空行を1行にまとめる
+    if (el('squeeze').checked){
+        const lines = out.split(LF);
+        const res = [];
+        let prevEmpty = false;
+        for (let i = 0; i < lines.length; i++){
+            const empty = lines[i].trim() === '';
+            if (empty && prevEmpty) continue;
+            res.push(lines[i]);
+            prevEmpty = empty;
+        }
+        out = res.join(LF);
+    }
+
+    // 目的の改行コードへ変換
+    const target = el('target').value;
+    if (target === 'CRLF') out = out.split(LF).join(CRLF);
+    else if (target === 'CR') out = out.split(LF).join(CR);
+    return out;
+}
+
+function copyOutput(){
+    const val = el('output').value;
+    if (!val){ return; }
+    navigator.clipboard.writeText(val).then(function(){
+        const b = el('copyBtn');
+        const prev = b.textContent;
+        b.textContent = 'コピーしました';
+        setTimeout(function(){ b.textContent = prev; }, 1400);
+    }).catch(function(){
+        el('output').select();
+        document.execCommand('copy');
+    });
+}
+
+function downloadOutput(){
+    const val = el('output').value;
+    if (!val){ return; }
+    const blob = new Blob([val], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'converted.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+function clearAll(){
+    el('input').value = '';
+    detectAndConvert();
+}
+
+detectAndConvert();
+</script>
+</body>
+</html>

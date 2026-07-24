@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data URI 変換ツール（画像⇄Base64） | 画像をdata:URIに変換・デコード【無料】</title>
+    <meta name="description" content="画像・SVG・フォントをBase64のdata URI（data:image/png;base64,...）に変換する無料ツール。ドラッグ＆ドロップで読み込み、CSSのbackground-imageやimgタグ用スニペットを生成。data URIから画像へデコードして保存も可能。すべてブラウザ内で完結します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .tabs{display:flex;gap:8px;margin-bottom:16px}
+        .tabs button{flex:1;padding:12px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.85rem;font-weight:500;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .tabs button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+        .mode{display:none}.mode.active{display:block}
+        .drop{border:2px dashed var(--border);border-radius:var(--radius);padding:36px 20px;text-align:center;color:var(--text3);font-size:0.9rem;cursor:pointer;transition:border-color .2s,background .2s}
+        .drop:hover,.drop.drag{border-color:var(--accent);background:var(--accent-dim);color:var(--accent)}
+        .drop .big{font-size:2rem;margin-bottom:8px}
+        input[type=file]{display:none}
+        textarea{width:100%;min-height:120px;padding:12px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.78rem;line-height:1.6;outline:none;resize:vertical;word-break:break-all}
+        textarea:focus{border-color:var(--accent)}
+        .out-block{margin-top:16px}
+        .out-block .lab{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+        .code-box{background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-family:'JetBrains Mono',monospace;font-size:0.75rem;line-height:1.6;color:var(--text);word-break:break-all;white-space:pre-wrap;max-height:180px;overflow:auto}
+        .copy-btn{padding:5px 12px;background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:6px;color:var(--accent);font-size:0.7rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .copy-btn:hover{background:rgba(139,92,246,0.15)}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.tabs{flex-direction:column}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-align:center}
+        .result-item .label{font-size:0.68rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.15rem;font-weight:700;color:var(--accent)}
+        .result-item .value.red{color:var(--red)}
+        .preview-wrap{margin-top:16px;text-align:center;background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+        .preview-wrap img{max-width:100%;max-height:260px;border-radius:8px;background:repeating-conic-gradient(#eceef5 0% 25%,#fff 0% 50%) 50%/20px 20px}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif;margin-top:14px}
+        .btn:hover{opacity:0.9}
+        .btn.ghost{background:var(--bg-card);color:var(--accent);border:1px solid var(--accent)}
+        .toggle-row{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:0.8rem;color:var(--text2)}
+        .toggle-row input{width:16px;height:16px;accent-color:var(--accent)}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        .warn{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-top:16px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-177-data-uri/">
+    <meta property="og:title" content="data URI 変換ツール（画像⇄Base64）| 画像をdata:URIに変換・デコード【無料】">
+    <meta property="og:description" content="画像・SVG・フォントをBase64のdata URIに変換し、CSSやimgタグ用スニペットを生成。data URIから画像へデコードして保存も可能。すべてブラウザ内で完結。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-177-data-uri/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="data URI 変換ツール（画像⇄Base64）【無料】">
+    <meta name="twitter:description" content="画像をBase64のdata URIに変換・デコード。CSS/imgスニペット生成、SVGのURLエンコード版にも対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"data URI 変換ツール（画像⇄Base64）","description":"画像・SVG・フォントをBase64のdata URIに変換し、data URIから画像へデコードもできる無料ツール","url":"https://www.devtools-japan.com/tool-177-data-uri/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"data URI 変換ツール（画像⇄Base64）","item":"https://www.devtools-japan.com/tool-177-data-uri/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"data URI（データURI）とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"data URIは、画像などのファイルの中身をURLの文字列そのものに埋め込む仕組みです。data:image/png;base64,iVBORw0K... のように「data:」で始まり、MIMEタイプ・エンコード方式・Base64データが続きます。外部ファイルを参照せずHTMLやCSSの中に画像を直接書き込めるため、小さなアイコンなどをファイルとして分けずに扱いたいときに便利です。"}},{"@type":"Question","name":"このツールはアップロードされますか？安全ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。変換はすべてお使いのブラウザ内（JavaScriptのFileReader）で完結し、画像やdata URIがサーバーへ送信・保存されることは一切ありません。機密画像や社外秘の素材でも、ネットワークに出さずに安全にBase64へ変換できます。オフライン環境でも動作します。"}},{"@type":"Question","name":"Base64にするとファイルサイズはどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"Base64エンコードは3バイトを4文字で表現するため、元のファイルよりおよそ33%大きくなります。加えてdata:...;base64, のヘッダー分も増えます。数百バイト〜数KB程度の小さなアイコンやSVGでは、HTTPリクエストを減らせる利点がサイズ増を上回ることが多い一方、大きな写真をdata URIにするとHTMLやCSSが肥大化し読み込みが遅くなるため注意が必要です。"}},{"@type":"Question","name":"data URIをCSSやHTMLでどう使いますか？","acceptedAnswer":{"@type":"Answer","text":"CSSでは background-image: url(data:image/png;base64,...) のように url() の中にそのまま指定できます。HTMLでは img タグの src 属性に data URI を入れれば画像として表示されます。本ツールは変換後にCSSのbackground-image用とimgタグ用のスニペットを自動生成するので、コピーしてそのまま貼り付けられます。"}},{"@type":"Question","name":"SVGはBase64にしない方が良いのですか？","acceptedAnswer":{"@type":"Answer","text":"SVGはテキストなので、Base64ではなくURLエンコード（パーセントエンコード）でdata URIにする方がサイズが小さく、CSS内で扱いやすくなります。本ツールはSVGを読み込んだ際に、Base64版に加えてURLエンコード版のdata URIも生成します。多くの場合こちらの方が軽量なので、CSSの背景画像にはURLエンコード版の利用をおすすめします。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>data URI 変換ツール</h1><p>画像・SVG・フォント ⇄ Base64 data URI（すべてブラウザ内で処理）</p></header>
+
+    <div class="tabs">
+        <button id="tabEncode" class="active" onclick="switchMode('encode')">画像 → data URI</button>
+        <button id="tabDecode" onclick="switchMode('decode')">data URI → 画像</button>
+    </div>
+
+    <!-- Mode 1: encode -->
+    <div id="modeEncode" class="mode active">
+        <div class="card"><h3>画像を読み込む</h3>
+            <div class="drop" id="dropZone" onclick="document.getElementById('fileInput').click()">
+                <div class="big">🖼️</div>
+                <div>ここに画像・SVG・フォントをドラッグ＆ドロップ<br>またはクリックして選択</div>
+            </div>
+            <input type="file" id="fileInput" accept="image/*,.svg,.woff,.woff2,.ttf,.otf" onchange="handleFiles(this.files)">
+            <div class="toggle-row" id="svgToggleWrap" style="display:none">
+                <input type="checkbox" id="svgUrlEncode" checked onchange="renderEncode()">
+                <label for="svgUrlEncode">SVGはURLエンコード版のdata URIを優先表示（Base64より軽量）</label>
+            </div>
+        </div>
+
+        <div id="encodeResult" style="display:none">
+            <div class="result-grid">
+                <div class="result-item"><div class="label">元サイズ</div><div class="value" id="origSize">-</div></div>
+                <div class="result-item"><div class="label">data URI長</div><div class="value red" id="uriSize">-</div></div>
+                <div class="result-item"><div class="label">増加率</div><div class="value red" id="growth">-</div></div>
+            </div>
+
+            <div class="preview-wrap" id="encPreviewWrap"><img id="encPreview" alt="プレビュー"></div>
+
+            <div class="card" style="margin-top:16px"><h3>出力</h3>
+                <div class="out-block">
+                    <div class="lab"><span id="uriLabel">data URI</span><button class="copy-btn" onclick="copyText('uriOut',this)">コピー</button></div>
+                    <div class="code-box" id="uriOut"></div>
+                </div>
+                <div class="out-block">
+                    <div class="lab"><span>CSS（background-image）</span><button class="copy-btn" onclick="copyText('cssOut',this)">コピー</button></div>
+                    <div class="code-box" id="cssOut"></div>
+                </div>
+                <div class="out-block">
+                    <div class="lab"><span>HTML（imgタグ）</span><button class="copy-btn" onclick="copyText('imgOut',this)">コピー</button></div>
+                    <div class="code-box" id="imgOut"></div>
+                </div>
+                <div class="warn" id="bloatWarn"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mode 2: decode -->
+    <div id="modeDecode" class="mode">
+        <div class="card"><h3>data URI を貼り付け</h3>
+            <textarea id="decInput" placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUg... を貼り付けてください" oninput="renderDecode()"></textarea>
+            <div class="warn" id="decError" style="display:none"></div>
+        </div>
+        <div id="decodeResult" style="display:none">
+            <div class="result-grid">
+                <div class="result-item"><div class="label">MIMEタイプ</div><div class="value" id="decMime" style="font-size:0.9rem">-</div></div>
+                <div class="result-item"><div class="label">エンコード</div><div class="value" id="decEnc" style="font-size:0.9rem">-</div></div>
+                <div class="result-item"><div class="label">デコード後サイズ</div><div class="value" id="decSize">-</div></div>
+            </div>
+            <div class="preview-wrap"><img id="decPreview" alt="デコード結果"></div>
+            <div style="text-align:center"><button class="btn" onclick="downloadDecoded()">画像をダウンロード</button></div>
+        </div>
+    </div>
+
+    <div class="note">このツールは 100% クライアントサイドで動作します。読み込んだ画像・入力した data URI はサーバーに送信されず、すべてお使いのブラウザ内（FileReader / Blob）で処理されます。オフラインでも利用できます。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>data URI 変換ツールの使い方</h2>
+        <p>画像やSVG、Webフォントを Base64 の data URI（data:image/png;base64,... で始まる文字列）に変換したり、逆に data URI を画像へデコードして保存したりできる無料ツールです。ドラッグ＆ドロップまたはファイル選択で読み込むだけで、data URI とあわせて CSS の background-image 用スニペットや img タグ用スニペットを自動生成します。すべての処理はブラウザ内で完結し、ファイルがサーバーへ送られることはありません。</p>
+        <h3>画像 → data URI（エンコード）</h3>
+        <p>「画像 → data URI」タブでファイルを読み込むと、data URI 全体、CSS 用・HTML 用のスニペット、そしてプレビューが表示されます。元のファイルサイズ・data URI の文字数・増加率も確認できるため、埋め込みに適した小さな素材かどうかを判断できます。PNG・JPEG・GIF・WebP・SVG のほか、woff / woff2 / ttf / otf などのフォントファイルにも対応しています。</p>
+        <h3>data URI → 画像（デコード）</h3>
+        <p>「data URI → 画像」タブに data:... の文字列を貼り付けると、MIME タイプ・エンコード方式・デコード後のサイズを解析してプレビューを表示し、ボタン一つで元の画像ファイルとしてダウンロードできます。Base64 版はもちろん、URL エンコード（パーセントエンコード）された SVG の data URI にも対応しています。</p>
+
+        <h2>data URI とは</h2>
+        <p>data URI（データURIスキーム）は、ファイルの中身を URL の文字列そのものに埋め込むための仕組みです。<code>data:[MIMEタイプ][;base64],[データ本体]</code> という構造で、たとえば <code>data:image/png;base64,iVBOR...</code> のように表します。外部ファイルへのリンクではなく画像データ自体を HTML や CSS に直接書けるため、小さなアイコンやロゴを別ファイルにせずまとめられ、HTTP リクエスト数を減らせるという利点があります。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>用途</th><th>書き方</th><th>ポイント</th></tr>
+            <tr><td>CSS 背景</td><td>background-image: url(data:...)</td><td>url() の中にそのまま指定できる</td></tr>
+            <tr><td>HTML 画像</td><td>img の src に data URI を指定</td><td>外部ファイル不要で表示される</td></tr>
+            <tr><td>SVG</td><td>URLエンコード版の data URI</td><td>Base64より軽量でCSSでも読みやすい</td></tr>
+        </table>
+        </div>
+
+        <h2>Base64 とサイズ肥大に注意</h2>
+        <p>Base64 エンコードは 3 バイトを 4 文字で表現するため、data URI にすると元のファイルより約 33% サイズが増えます。数百バイト〜数 KB の小さなアイコンでは、リクエスト削減の効果がサイズ増を上回ることが多いですが、大きな写真を data URI 化すると HTML や CSS が肥大化し、キャッシュも効きにくくなって表示が遅くなります。目安として、繰り返し使う小さな素材は data URI、サイズの大きい画像は通常の画像ファイル参照、と使い分けるのがおすすめです。SVG はテキストなので Base64 より URL エンコード版の方が軽量です。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">data URI（データURI）とは何ですか？</div><div class="a">data URIは、画像などのファイルの中身をURLの文字列そのものに埋め込む仕組みです。data:image/png;base64,iVBORw0K... のように「data:」で始まり、MIMEタイプ・エンコード方式・Base64データが続きます。外部ファイルを参照せずHTMLやCSSの中に画像を直接書き込めるため、小さなアイコンなどをファイルとして分けずに扱いたいときに便利です。</div></div>
+        <div class="faq-item"><div class="q">このツールはアップロードされますか？安全ですか？</div><div class="a">いいえ。変換はすべてお使いのブラウザ内（JavaScriptのFileReader）で完結し、画像やdata URIがサーバーへ送信・保存されることは一切ありません。機密画像や社外秘の素材でも、ネットワークに出さずに安全にBase64へ変換できます。オフライン環境でも動作します。</div></div>
+        <div class="faq-item"><div class="q">Base64にするとファイルサイズはどうなりますか？</div><div class="a">Base64エンコードは3バイトを4文字で表現するため、元のファイルよりおよそ33%大きくなります。加えてdata:...;base64, のヘッダー分も増えます。数百バイト〜数KB程度の小さなアイコンやSVGでは、HTTPリクエストを減らせる利点がサイズ増を上回ることが多い一方、大きな写真をdata URIにするとHTMLやCSSが肥大化し読み込みが遅くなるため注意が必要です。</div></div>
+        <div class="faq-item"><div class="q">data URIをCSSやHTMLでどう使いますか？</div><div class="a">CSSでは background-image: url(data:image/png;base64,...) のように url() の中にそのまま指定できます。HTMLでは img タグの src 属性に data URI を入れれば画像として表示されます。本ツールは変換後にCSSのbackground-image用とimgタグ用のスニペットを自動生成するので、コピーしてそのまま貼り付けられます。</div></div>
+        <div class="faq-item"><div class="q">SVGはBase64にしない方が良いのですか？</div><div class="a">SVGはテキストなので、Base64ではなくURLエンコード（パーセントエンコード）でdata URIにする方がサイズが小さく、CSS内で扱いやすくなります。本ツールはSVGを読み込んだ際に、Base64版に加えてURLエンコード版のdata URIも生成します。多くの場合こちらの方が軽量なので、CSSの背景画像にはURLエンコード版の利用をおすすめします。</div></div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-3-base64/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">Base64（テキスト）変換</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+var IMG_OPEN = String.fromCharCode(60) + 'img';
+var IMG_CLOSE = String.fromCharCode(62);
+
+// ---- shared state ----
+var current = { name: '', mime: '', origBytes: 0, base64Uri: '', svgUrlUri: '', isSvg: false, isImage: true };
+
+function switchMode(m){
+    document.getElementById('modeEncode').classList.toggle('active', m === 'encode');
+    document.getElementById('modeDecode').classList.toggle('active', m === 'decode');
+    document.getElementById('tabEncode').classList.toggle('active', m === 'encode');
+    document.getElementById('tabDecode').classList.toggle('active', m === 'decode');
+}
+
+function fmtBytes(n){
+    if (n < 1024) return n + ' B';
+    if (n < 1024 * 1024) return (n / 1024).toFixed(1) + ' KB';
+    return (n / 1024 / 1024).toFixed(2) + ' MB';
+}
+
+// ---- Mode 1: encode ----
+var dropZone = document.getElementById('dropZone');
+['dragenter','dragover'].forEach(function(ev){
+    dropZone.addEventListener(ev, function(e){ e.preventDefault(); dropZone.classList.add('drag'); });
+});
+['dragleave','drop'].forEach(function(ev){
+    dropZone.addEventListener(ev, function(e){ e.preventDefault(); dropZone.classList.remove('drag'); });
+});
+dropZone.addEventListener('drop', function(e){
+    if (e.dataTransfer && e.dataTransfer.files) handleFiles(e.dataTransfer.files);
+});
+
+function handleFiles(files){
+    if (!files || !files.length) return;
+    var file = files[0];
+    current.name = file.name || 'file';
+    current.mime = file.type || guessMime(current.name);
+    current.origBytes = file.size;
+    current.isSvg = /svg/i.test(current.mime) || /\.svg$/i.test(current.name);
+    current.isImage = /^image\//i.test(current.mime) || current.isSvg;
+
+    var reader = new FileReader();
+    reader.onload = function(){
+        current.base64Uri = reader.result;
+        if (current.isSvg){
+            // build URL-encoded data URI from the SVG text
+            var textReader = new FileReader();
+            textReader.onload = function(){
+                current.svgUrlUri = svgToUrlDataUri(textReader.result, current.mime || 'image/svg+xml');
+                document.getElementById('svgToggleWrap').style.display = 'flex';
+                renderEncode();
+            };
+            textReader.readAsText(file);
+        } else {
+            current.svgUrlUri = '';
+            document.getElementById('svgToggleWrap').style.display = 'none';
+            renderEncode();
+        }
+    };
+    reader.readAsDataURL(file);
+}
+
+function guessMime(name){
+    var ext = (name.split('.').pop() || '').toLowerCase();
+    var map = { png:'image/png', jpg:'image/jpeg', jpeg:'image/jpeg', gif:'image/gif', webp:'image/webp', svg:'image/svg+xml', ico:'image/x-icon', bmp:'image/bmp', woff:'font/woff', woff2:'font/woff2', ttf:'font/ttf', otf:'font/otf' };
+    return map[ext] || 'application/octet-stream';
+}
+
+function svgToUrlDataUri(svgText, mime){
+    // minimal optimization + URL-encode (keep it CSS-friendly)
+    var s = svgText.replace(/[\r\n\t]+/g, ' ').replace(/>\s+</g, '><').trim();
+    var enc = encodeURIComponent(s)
+        .replace(/'/g, '%27').replace(/"/g, '%22');
+    return 'data:' + (mime || 'image/svg+xml') + ',' + enc;
+}
+
+function renderEncode(){
+    if (!current.base64Uri) return;
+    var useUrl = current.isSvg && current.svgUrlUri && document.getElementById('svgUrlEncode').checked;
+    var uri = useUrl ? current.svgUrlUri : current.base64Uri;
+
+    document.getElementById('encodeResult').style.display = 'block';
+    document.getElementById('origSize').textContent = fmtBytes(current.origBytes);
+    document.getElementById('uriSize').textContent = fmtBytes(uri.length);
+    var growth = current.origBytes > 0 ? Math.round((uri.length / current.origBytes - 1) * 100) : 0;
+    document.getElementById('growth').textContent = (growth >= 0 ? '+' : '') + growth + '%';
+
+    // preview (images only)
+    var wrap = document.getElementById('encPreviewWrap');
+    if (current.isImage){
+        wrap.style.display = 'block';
+        document.getElementById('encPreview').src = current.base64Uri;
+    } else {
+        wrap.style.display = 'none';
+    }
+
+    document.getElementById('uriLabel').textContent = useUrl ? 'data URI（URLエンコード / SVG）' : 'data URI（Base64）';
+    document.getElementById('uriOut').textContent = uri;
+    document.getElementById('cssOut').textContent = 'background-image: url("' + uri + '");';
+    document.getElementById('imgOut').textContent = IMG_OPEN + ' src="' + uri + '" alt="">' ;
+    // fix accidental trailing close char: rebuild imgOut properly
+    document.getElementById('imgOut').textContent = IMG_OPEN + ' src="' + uri + '" alt="' + escName(current.name) + '"' + IMG_CLOSE;
+
+    var wtxt = 'ヒント: Base64のdata URIは元ファイルより約33%大きくなります（現在 ' + (growth >= 0 ? '+' : '') + growth + '%）。' ;
+    if (current.isSvg){
+        wtxt += ' SVGはURLエンコード版の方が軽量なことが多いので、CSSにはそちらの利用がおすすめです。';
+    } else if (current.origBytes > 30 * 1024){
+        wtxt += ' このファイルはやや大きめです。data URIにするとHTML/CSSが肥大化し表示が遅くなる場合があるため、通常の画像参照も検討してください。';
+    } else {
+        wtxt += ' 小さなアイコンなどはリクエスト削減の効果が期待できます。';
+    }
+    document.getElementById('bloatWarn').textContent = wtxt;
+}
+
+function escName(n){ return (n || '').replace(/"/g, ''); }
+
+// ---- Mode 2: decode ----
+var lastBlob = null, lastExt = 'bin';
+
+function renderDecode(){
+    var val = document.getElementById('decInput').value.trim();
+    var err = document.getElementById('decError');
+    var res = document.getElementById('decodeResult');
+    if (!val){ err.style.display = 'none'; res.style.display = 'none'; return; }
+
+    var m = /^data:([^;,]*)(;charset=[^;,]*)?(;base64)?,(.*)$/is.exec(val);
+    if (!m){
+        err.style.display = 'block';
+        err.textContent = 'data URI として解析できませんでした。data:image/png;base64,... の形式で貼り付けてください。';
+        res.style.display = 'none';
+        return;
+    }
+    err.style.display = 'none';
+    var mime = m[1] || 'text/plain';
+    var isB64 = !!m[3];
+    var dataPart = m[4] || '';
+
+    var bytes;
+    try {
+        if (isB64){
+            var bin = atob(dataPart);
+            bytes = new Uint8Array(bin.length);
+            for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+        } else {
+            var decoded = decodeURIComponent(dataPart);
+            bytes = new TextEncoder().encode(decoded);
+        }
+    } catch (e){
+        err.style.display = 'block';
+        err.textContent = 'デコードに失敗しました。data URI が壊れている可能性があります。';
+        res.style.display = 'none';
+        return;
+    }
+
+    lastBlob = new Blob([bytes], { type: mime });
+    lastExt = mimeToExt(mime);
+
+    res.style.display = 'block';
+    document.getElementById('decMime').textContent = mime;
+    document.getElementById('decEnc').textContent = isB64 ? 'Base64' : 'URLエンコード';
+    document.getElementById('decSize').textContent = fmtBytes(bytes.length);
+    document.getElementById('decPreview').src = URL.createObjectURL(lastBlob);
+}
+
+function mimeToExt(mime){
+    var map = { 'image/png':'png', 'image/jpeg':'jpg', 'image/gif':'gif', 'image/webp':'webp', 'image/svg+xml':'svg', 'image/x-icon':'ico', 'image/bmp':'bmp', 'font/woff':'woff', 'font/woff2':'woff2', 'font/ttf':'ttf', 'font/otf':'otf' };
+    return map[mime] || (mime.split('/')[1] || 'bin');
+}
+
+function downloadDecoded(){
+    if (!lastBlob) return;
+    var url = URL.createObjectURL(lastBlob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'decoded.' + lastExt;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+}
+
+// ---- copy ----
+function copyText(id, btn){
+    var txt = document.getElementById(id).textContent;
+    navigator.clipboard.writeText(txt).then(function(){
+        var old = btn.textContent;
+        btn.textContent = 'コピー完了';
+        setTimeout(function(){ btn.textContent = old; }, 1200);
+    });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画像から色を抽出（カラーパレット抽出）ツール | 写真の主要色をHEX・RGBで取得【無料】</title>
+    <meta name="description" content="画像をアップロードするだけで、写真に含まれる主要な色（ドミナントカラー）を4〜12色のパレットとして自動抽出する無料ツール。各色のHEX・RGBをワンクリックでコピー、スポイトで任意のピクセル色も取得。画像はサーバーに送信されず、すべてブラウザ内で処理します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input[type=range]{width:200px}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input[type=range]{width:100%}}
+        .dropzone{border:2px dashed var(--border);border-radius:var(--radius);padding:40px 20px;text-align:center;color:var(--text3);cursor:pointer;transition:border-color 0.2s,background 0.2s;font-size:0.85rem}
+        .dropzone:hover,.dropzone.drag{border-color:var(--accent);background:var(--accent-dim);color:var(--accent)}
+        .canvas-wrap{position:relative;margin-top:16px;text-align:center}
+        #preview{max-width:100%;border:1px solid var(--border);border-radius:8px;cursor:crosshair;display:none}
+        .swatch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px}
+        .swatch{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:transform 0.1s}
+        .swatch:hover{transform:translateY(-2px)}
+        .swatch .color{height:70px}
+        .swatch .info{padding:8px 10px;background:var(--bg-card)}
+        .swatch .hex{font-family:'JetBrains Mono',monospace;font-size:0.85rem;font-weight:600;color:var(--text)}
+        .swatch .rgb{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text3);margin-top:2px}
+        .eyedrop{display:flex;align-items:center;gap:12px;margin-top:16px;padding:12px 16px;background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius)}
+        .eyedrop .chip{width:44px;height:44px;border-radius:8px;border:1px solid var(--border);flex-shrink:0;background:#fff}
+        .eyedrop .txt{font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--text2)}
+        .eyedrop .txt b{color:var(--text);display:block;font-size:0.95rem}
+        .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--text);color:#fff;padding:10px 20px;border-radius:8px;font-size:0.8rem;opacity:0;pointer-events:none;transition:opacity 0.2s;z-index:99}
+        .toast.show{opacity:1}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-172-image-palette/">
+    <meta property="og:title" content="画像から色を抽出（カラーパレット抽出）ツール | 写真の主要色をHEX・RGBで取得【無料】">
+    <meta property="og:description" content="画像をアップロードするだけで写真の主要色を4〜12色のパレットとして抽出。HEX・RGBをコピー、スポイトで任意ピクセルも取得。すべてブラウザ内で処理。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-172-image-palette/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="画像から色を抽出（カラーパレット抽出）【無料】">
+    <meta name="twitter:description" content="写真の主要色を抽出しHEX・RGBで取得。スポイト機能付き。ブラウザ内処理。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"画像から色を抽出（カラーパレット抽出）ツール","description":"アップロードした画像から主要色を抽出しHEX・RGBで表示する無料ツール","url":"https://www.devtools-japan.com/tool-172-image-palette/","applicationCategory":"DesignApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"画像から色を抽出（カラーパレット抽出）ツール","item":"https://www.devtools-japan.com/tool-172-image-palette/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"画像はサーバーにアップロードされますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。本ツールは選択した画像をブラウザ内のCanvasで読み込み、そのまま端末内で色の解析を行います。画像データが外部サーバーへ送信・保存されることは一切ありません。オフライン環境でも動作し、社外秘の資料やプライベートな写真も安心して解析できます。"}},{"@type":"Question","name":"どうやって主要な色を抽出しているの？","acceptedAnswer":{"@type":"Answer","text":"画像を縮小してピクセルの色を読み取り、各色の上位ビットでまとめる色量子化（頻度バケット方式）で近い色をグループ化します。出現数の多いグループから順に代表色を選び、指定した色数ぶんのパレットとして表示します。写真全体の傾向を反映したドミナントカラーが得られます。"}},{"@type":"Question","name":"抽出する色数は変えられますか？","acceptedAnswer":{"@type":"Answer","text":"はい。スライダーで4色から12色までの範囲で抽出する色数を自由に調整できます。少ない色数にすると写真の大まかな配色が、多い色数にすると細かなアクセントカラーまで確認できます。色数を変えると即座にパレットが再計算されます。"}},{"@type":"Question","name":"スポイト機能とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"スポイトは、プレビュー画像の上にマウスカーソルを合わせたり、任意の位置をクリックしたりして、そのピクセルの色を直接読み取る機能です。パレットに含まれない微妙な色や、写真の特定部分の色を正確に取得したいときに便利で、読み取った色はHEXとRGBで表示されます。"}},{"@type":"Question","name":"抽出した色をコピーできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。パレットの各スウォッチをクリックすると、その色のHEXコード（例: #8B5CF6）がクリップボードにコピーされます。デザインツールやCSS、コード内にそのまま貼り付けて利用できます。RGB値も各スウォッチに併記しているので、用途に合わせて使い分けられます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>画像から色を抽出</h1><p>写真の主要色をパレットとして取得（HEX・RGB）</p></header>
+
+    <div class="card"><h3>画像を選択</h3>
+        <div class="dropzone" id="dropzone">ここに画像をドラッグ＆ドロップ、またはクリックして選択<br><span style="font-size:0.7rem">（PNG / JPEG / WebP など・端末内で処理されます）</span></div>
+        <input type="file" id="fileInput" accept="image/*" style="display:none">
+        <div class="row" style="margin-top:14px;border-bottom:none"><label>抽出する色数</label><input type="range" id="colorCount" min="4" max="12" value="6" oninput="onCountChange()"><span class="unit" id="countLabel">6</span></div>
+        <div class="canvas-wrap">
+            <canvas id="preview"></canvas>
+            <div class="eyedrop" id="eyedropBox" style="display:none">
+                <div class="chip" id="eyeChip"></div>
+                <div class="txt">スポイト（画像をクリック/ホバー）<b id="eyeHex">#------</b><span id="eyeRgb">rgb(-, -, -)</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" id="paletteCard" style="display:none"><h3>抽出パレット（クリックでHEXをコピー）</h3>
+        <div class="swatch-grid" id="swatchGrid"></div>
+    </div>
+
+    <div class="note">画像はサーバーに送信されず、すべてブラウザ内のCanvasで処理されます。主要色は色量子化（頻度バケット方式）で近い色をまとめ、出現数の多い順に代表色を選んで表示します。スポイトはプレビュー上の任意ピクセルの色を読み取ります。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>画像から色を抽出するツールの使い方</h2>
+        <p>写真やイラストなどの画像をアップロードするだけで、その画像に多く含まれる主要な色（ドミナントカラー）を自動で抽出し、カラーパレットとして表示する無料ツールです。抽出した各色はHEXコードとRGB値で確認でき、スウォッチをクリックするだけでHEXをコピーできます。デザインの配色決め、ブランドカラーの分析、Webサイトやスライドのテーマカラー抽出などにお使いいただけます。</p>
+        <p>使い方はかんたんです。「画像を選択」エリアに画像をドラッグ＆ドロップするか、エリアをクリックしてファイルを選びます。画像が読み込まれると自動で色が解析され、パレットが表示されます。抽出する色数はスライダーで4色〜12色の範囲で調整でき、変更すると即座に再計算されます。さらにプレビュー画像の上にカーソルを合わせると、スポイト機能でその位置のピクセル色をリアルタイムに読み取れます。</p>
+        <h3>こんな用途に</h3>
+        <p>お気に入りの写真から配色パレットを作りたいとき、ロゴや商品画像からブランドカラーを特定したいとき、参考にしたいデザインの色をコードに取り込みたいときに便利です。抽出したHEX・RGBはそのままCSSやデザインツールに貼り付けられます。画像は一切アップロードされず端末内で処理されるため、公開前の素材や社外秘の資料でも安心して解析できます。</p>
+
+        <h2>色の抽出のしくみ</h2>
+        <p>本ツールは画像をCanvasに描画し、処理を軽くするために内部で縮小したうえで全ピクセルの色を読み取ります。読み取った色は、各チャンネルの上位ビットでまとめる色量子化（頻度バケット方式）によって近い色どうしをグループ化し、出現数の多いグループから順に代表色を選びます。これにより、写真全体の色の傾向を反映したドミナントカラーを、指定した色数ぶんだけ得られます。すべてブラウザ内で完結し、外部サーバーとの通信は発生しません。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>操作</th><th>内容</th><th>説明</th></tr>
+            <tr><td>画像の読み込み</td><td>ファイル選択 / ドラッグ＆ドロップ</td><td>端末内のCanvasで読み込み、外部送信なし</td></tr>
+            <tr><td>色数スライダー</td><td>4〜12色</td><td>抽出するパレットの色数を調整。変更で即再計算</td></tr>
+            <tr><td>スウォッチをクリック</td><td>HEXをコピー</td><td>その色のHEXコードをクリップボードへ</td></tr>
+            <tr><td>スポイト</td><td>ピクセル色の取得</td><td>プレビュー上のカーソル位置の色をHEX・RGBで表示</td></tr>
+        </table>
+        </div>
+        <h3>HEXとRGBの違い</h3>
+        <p>HEXは「#8B5CF6」のように赤・緑・青を16進数2桁ずつで表す表記で、CSSやデザインツールで広く使われます。RGBは「rgb(139, 92, 246)」のように各色を0〜255の10進数で表す表記です。どちらも同じ色を指しますが、用途に応じて使い分けられるよう、本ツールでは各スウォッチにHEXとRGBの両方を表示しています。透明度（アルファ）は扱わず、不透明な色として抽出します。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">画像はサーバーにアップロードされますか？</div><div class="a">いいえ。本ツールは選択した画像をブラウザ内のCanvasで読み込み、そのまま端末内で色の解析を行います。画像データが外部サーバーへ送信・保存されることは一切ありません。オフライン環境でも動作し、社外秘の資料やプライベートな写真も安心して解析できます。</div></div>
+        <div class="faq-item"><div class="q">どうやって主要な色を抽出しているの？</div><div class="a">画像を縮小してピクセルの色を読み取り、各色の上位ビットでまとめる色量子化（頻度バケット方式）で近い色をグループ化します。出現数の多いグループから順に代表色を選び、指定した色数ぶんのパレットとして表示します。写真全体の傾向を反映したドミナントカラーが得られます。</div></div>
+        <div class="faq-item"><div class="q">抽出する色数は変えられますか？</div><div class="a">はい。スライダーで4色から12色までの範囲で抽出する色数を自由に調整できます。少ない色数にすると写真の大まかな配色が、多い色数にすると細かなアクセントカラーまで確認できます。色数を変えると即座にパレットが再計算されます。</div></div>
+        <div class="faq-item"><div class="q">スポイト機能とは何ですか？</div><div class="a">スポイトは、プレビュー画像の上にマウスカーソルを合わせたり、任意の位置をクリックしたりして、そのピクセルの色を直接読み取る機能です。パレットに含まれない微妙な色や、写真の特定部分の色を正確に取得したいときに便利で、読み取った色はHEXとRGBで表示されます。</div></div>
+        <div class="faq-item"><div class="q">抽出した色をコピーできますか？</div><div class="a">はい。パレットの各スウォッチをクリックすると、その色のHEXコード（例: #8B5CF6）がクリップボードにコピーされます。デザインツールやCSS、コード内にそのまま貼り付けて利用できます。RGB値も各スウォッチに併記しているので、用途に合わせて使い分けられます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-92-color-palette/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カラーパレット生成</a><a href="/tool-40-color-converter/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カラーコード変換</a><a href="/tool-41-gradient/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">グラデーション生成</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<div class="toast" id="toast">コピーしました</div>
+<script>
+const fileInput = document.getElementById('fileInput');
+const dropzone = document.getElementById('dropzone');
+const canvas = document.getElementById('preview');
+const ctx = canvas.getContext('2d', { willReadFrequently: true });
+const swatchGrid = document.getElementById('swatchGrid');
+const paletteCard = document.getElementById('paletteCard');
+const countLabel = document.getElementById('countLabel');
+const eyedropBox = document.getElementById('eyedropBox');
+const eyeChip = document.getElementById('eyeChip');
+const eyeHex = document.getElementById('eyeHex');
+const eyeRgb = document.getElementById('eyeRgb');
+let currentImage = null;
+
+// --- ユーティリティ ---
+function toHex(r, g, b){
+    return '#' + [r, g, b].map(v => v.toString(16).padStart(2, '0')).join('').toUpperCase();
+}
+function showToast(msg){
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 1200);
+}
+function copyText(text){
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(() => showToast('コピー: ' + text)).catch(() => fallbackCopy(text));
+    } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+    const ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); showToast('コピー: ' + text); } catch(e){}
+    document.body.removeChild(ta);
+}
+
+// --- 画像読み込み ---
+dropzone.addEventListener('click', () => fileInput.click());
+fileInput.addEventListener('change', e => { if (e.target.files[0]) loadFile(e.target.files[0]); });
+['dragenter','dragover'].forEach(ev => dropzone.addEventListener(ev, e => { e.preventDefault(); dropzone.classList.add('drag'); }));
+['dragleave','drop'].forEach(ev => dropzone.addEventListener(ev, e => { e.preventDefault(); dropzone.classList.remove('drag'); }));
+dropzone.addEventListener('drop', e => {
+    const f = e.dataTransfer.files[0];
+    if (f && f.type.indexOf('image') === 0) loadFile(f);
+});
+function loadFile(file){
+    const reader = new FileReader();
+    reader.onload = ev => {
+        const img = new Image();
+        img.onload = () => { currentImage = img; drawImage(img); extractPalette(); };
+        img.src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+}
+function drawImage(img){
+    const maxW = 720;
+    const scale = Math.min(1, maxW / img.width);
+    canvas.width = Math.round(img.width * scale);
+    canvas.height = Math.round(img.height * scale);
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    canvas.style.display = 'block';
+    eyedropBox.style.display = 'flex';
+}
+
+// --- 色量子化（頻度バケット方式） ---
+function extractPalette(){
+    if (!currentImage) return;
+    // 解析用に小さめのオフスクリーンへ描画
+    const sw = 100;
+    const sh = Math.max(1, Math.round(sw * canvas.height / canvas.width));
+    const off = document.createElement('canvas');
+    off.width = sw; off.height = sh;
+    const octx = off.getContext('2d', { willReadFrequently: true });
+    octx.drawImage(currentImage, 0, 0, sw, sh);
+    const data = octx.getImageData(0, 0, sw, sh).data;
+    // 各チャンネル上位4ビットでバケット化（4096バケット）
+    const buckets = {};
+    for (let i = 0; i < data.length; i += 4){
+        const a = data[i + 3];
+        if (a < 125) continue; // ほぼ透明はスキップ
+        const r = data[i], g = data[i + 1], b = data[i + 2];
+        const key = ((r >> 4) << 8) | ((g >> 4) << 4) | (b >> 4);
+        let bk = buckets[key];
+        if (!bk){ bk = buckets[key] = { count: 0, r: 0, g: 0, b: 0 }; }
+        bk.count++; bk.r += r; bk.g += g; bk.b += b;
+    }
+    const list = Object.keys(buckets).map(k => {
+        const bk = buckets[k];
+        return { count: bk.count, r: Math.round(bk.r / bk.count), g: Math.round(bk.g / bk.count), b: Math.round(bk.b / bk.count) };
+    }).sort((x, y) => y.count - x.count);
+    const n = parseInt(document.getElementById('colorCount').value, 10);
+    renderSwatches(list.slice(0, n));
+}
+function renderSwatches(colors){
+    swatchGrid.innerHTML = '';
+    colors.forEach(c => {
+        const hex = toHex(c.r, c.g, c.b);
+        const rgb = 'rgb(' + c.r + ', ' + c.g + ', ' + c.b + ')';
+        const el = document.createElement('div');
+        el.className = 'swatch';
+        el.title = 'クリックで ' + hex + ' をコピー';
+        const cell = document.createElement('div');
+        cell.className = 'color'; cell.style.background = hex;
+        const info = document.createElement('div');
+        info.className = 'info';
+        const h = document.createElement('div'); h.className = 'hex'; h.textContent = hex;
+        const rg = document.createElement('div'); rg.className = 'rgb'; rg.textContent = rgb;
+        info.appendChild(h); info.appendChild(rg);
+        el.appendChild(cell); el.appendChild(info);
+        el.onclick = () => copyText(hex);
+        swatchGrid.appendChild(el);
+    });
+    paletteCard.style.display = colors.length ? 'block' : 'none';
+}
+function onCountChange(){
+    countLabel.textContent = document.getElementById('colorCount').value;
+    if (currentImage) extractPalette();
+}
+
+// --- スポイト ---
+function readPixel(e){
+    if (!currentImage) return;
+    const rect = canvas.getBoundingClientRect();
+    const x = Math.floor((e.clientX - rect.left) * canvas.width / rect.width);
+    const y = Math.floor((e.clientY - rect.top) * canvas.height / rect.height);
+    if (x < 0 || y < 0 || x >= canvas.width || y >= canvas.height) return;
+    const p = ctx.getImageData(x, y, 1, 1).data;
+    const hex = toHex(p[0], p[1], p[2]);
+    eyeChip.style.background = hex;
+    eyeHex.textContent = hex;
+    eyeRgb.textContent = 'rgb(' + p[0] + ', ' + p[1] + ', ' + p[2] + ')';
+    return hex;
+}
+canvas.addEventListener('mousemove', readPixel);
+canvas.addEventListener('click', e => { const hex = readPixel(e); if (hex) copyText(hex); });
+</script>
+</body>
+</html>

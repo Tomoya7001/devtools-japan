@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行の重複削除・並べ替えツール | 重複行の削除・ソート・空行削除【無料】</title>
+    <meta name="description" content="複数行のテキストから重複行を削除（ユニーク化）し、昇順・降順・数値・逆順で並べ替えできる無料ツール。空行削除・前後の空白trim・大文字小文字を無視した重複判定にも対応。すべてブラウザ内で処理し、データは送信しません。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        textarea{width:100%;min-height:200px;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.85rem;line-height:1.6;outline:none;resize:vertical}
+        textarea:focus{border-color:var(--accent)}
+        .opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+        @media(max-width:600px){.opt-grid{grid-template-columns:1fr}}
+        .opt{display:flex;align-items:center;gap:8px;padding:10px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;font-size:0.82rem;color:var(--text2);cursor:pointer}
+        .opt input{width:16px;height:16px;accent-color:var(--accent);cursor:pointer}
+        .sort-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+        .sort-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .sort-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .sort-row button.active{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.ghost{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.ghost:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-168-dedupe-lines/">
+    <meta property="og:title" content="行の重複削除・並べ替えツール | 重複行の削除・ソート・空行削除【無料】">
+    <meta property="og:description" content="複数行のテキストから重複行を削除し、昇順・降順・数値・逆順で並べ替え。空行削除やtrimにも対応した無料ツール。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-168-dedupe-lines/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="行の重複削除・並べ替えツール【無料】">
+    <meta name="twitter:description" content="重複行の削除・ソート・空行削除をブラウザ内で処理。データは送信しません。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"行の重複削除・並べ替えツール","description":"複数行のテキストから重複行を削除し、昇順・降順・数値・逆順で並べ替えできる無料ツール","url":"https://www.devtools-japan.com/tool-168-dedupe-lines/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"行の重複削除・並べ替えツール","item":"https://www.devtools-japan.com/tool-168-dedupe-lines/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"重複行の削除はどんな仕組み？","acceptedAnswer":{"@type":"Answer","text":"入力されたテキストを改行で1行ずつに分け、同じ内容の行が2回目以降に現れたら取り除きます。最初に登場した行の順序はそのまま保たれ、以降に現れる重複だけが削除されるため、元の並び順を崩さずにユニーク化できます。大文字小文字を無視して重複判定するオプションを併用すると、Appleとappleのようなケースもまとめられます。"}},{"@type":"Question","name":"並べ替えの種類は？","acceptedAnswer":{"@type":"Answer","text":"昇順ソート（あいうえお順・ABC順）、降順ソート、数値としてソート、逆順（reverse）の4種類に対応しています。昇順・降順はJavaScriptの文字列比較（ロケール準拠）で並べ替え、数値ソートは各行を数値として解釈して小さい順に並べます。逆順は今の行の並びをそのまま上下反転します。"}},{"@type":"Question","name":"データはサーバーに送信される？","acceptedAnswer":{"@type":"Answer","text":"いいえ。すべての処理はお使いのブラウザ内（クライアントサイド）で完結し、入力したテキストが外部サーバーへ送信されることはありません。ライブラリや外部通信も使用していないため、社外秘のリストや個人情報を含むデータでも安心してご利用いただけます。"}},{"@type":"Question","name":"操作を組み合わせられる？","acceptedAnswer":{"@type":"Answer","text":"はい。trim・空行削除・重複削除・ソートは同時に有効にでき、trim→空行削除→重複削除→並べ替えの順に適用されます。たとえば前後の空白を除いてから重複を判定したい場合は、trimと重複削除の両方をオンにすれば意図した結果が得られます。処理結果はいつでも下の出力欄で確認できます。"}},{"@type":"Question","name":"行数はどこで確認できる？","acceptedAnswer":{"@type":"Answer","text":"処理前（入力）の行数と処理後（出力）の行数を、それぞれ画面のカウンターに表示します。重複削除や空行削除でどれだけ行が減ったかがひと目で分かるため、リストの精査やデータクレンジングの確認に便利です。出力はコピーボタンでクリップボードにそのまま貼り付けられます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>行の重複削除・並べ替え</h1><p>重複行の削除・ソート・空行削除をブラウザ内で処理</p></header>
+
+    <div class="card"><h3>入力テキスト</h3>
+        <textarea id="input" placeholder="1行に1項目を入力（またはリストを貼り付け）&#10;apple&#10;banana&#10;apple&#10;Cherry" oninput="process()"></textarea>
+    </div>
+
+    <div class="card"><h3>オプション</h3>
+        <div class="opt-grid">
+            <label class="opt"><input type="checkbox" id="optTrim" onchange="process()">前後の空白をtrim</label>
+            <label class="opt"><input type="checkbox" id="optBlank" onchange="process()">空行を削除</label>
+            <label class="opt"><input type="checkbox" id="optDedupe" checked onchange="process()">重複行を削除（ユニーク化）</label>
+            <label class="opt"><input type="checkbox" id="optIgnoreCase" onchange="process()">大文字小文字を無視して重複判定</label>
+        </div>
+        <div style="margin-top:14px">
+            <div style="font-size:0.75rem;color:var(--text3);margin-bottom:6px">並べ替え</div>
+            <div class="sort-row" id="sortRow">
+                <button data-sort="none" class="active" onclick="setSort('none')">並べ替えなし</button>
+                <button data-sort="asc" onclick="setSort('asc')">昇順（あいうえお/ABC）</button>
+                <button data-sort="desc" onclick="setSort('desc')">降順</button>
+                <button data-sort="num" onclick="setSort('num')">数値としてソート</button>
+                <button data-sort="reverse" onclick="setSort('reverse')">逆順（reverse）</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">処理前の行数</div><div class="value" id="beforeCount">0</div></div>
+        <div class="result-item"><div class="label">処理後の行数</div><div class="value" id="afterCount">0</div></div>
+    </div>
+
+    <div class="card"><h3>出力テキスト</h3>
+        <textarea id="output" readonly placeholder="結果がここに表示されます"></textarea>
+        <div class="actions">
+            <button class="btn" onclick="copyOutput()" id="copyBtn">コピー</button>
+            <button class="btn ghost" onclick="clearAll()">クリア</button>
+        </div>
+    </div>
+
+    <div class="note">すべての処理はお使いのブラウザ内で行われ、入力したテキストが外部へ送信されることはありません。適用順は trim → 空行削除 → 重複削除 → 並べ替え です。重複判定は「大文字小文字を無視」オプションで挙動を変えられます。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>行の重複削除・並べ替えツールの使い方</h2>
+        <p>複数行のテキストから重複した行を削除（ユニーク化）し、昇順・降順・数値・逆順で並べ替えできる無料ツールです。メールアドレスや商品コードのリスト、ログの行、CSVの1列を貼り付けたデータなど、1行1項目のリストを整理・クレンジングするのに役立ちます。インストールや会員登録は不要で、すべての処理はお使いの端末のブラウザ内で完結します。</p>
+        <p>使い方はかんたんです。上の入力欄にテキストを貼り付けると、下の出力欄にリアルタイムで結果が表示されます。「重複行を削除」は初期状態でオンになっており、必要に応じて「前後の空白をtrim」「空行を削除」「大文字小文字を無視して重複判定」を組み合わせられます。並べ替えボタンで、あいうえお/ABC順の昇順、降順、数値としてのソート、逆順を選べます。処理前と処理後の行数も表示されるので、どれだけ行が減ったかがひと目で分かります。</p>
+        <h3>こんな用途に</h3>
+        <p>メールアドレスやユーザーIDの一覧から重複を除きたいとき、アンケートの自由記述を集計する前に同じ回答をまとめたいとき、ログやアクセス履歴から一意の値だけを抜き出したいとき、単語リストをアルファベット順・五十音順に並べ替えたいときなどに便利です。逆順ボタンを使えば、時系列で並んだログを新しい順に反転することもできます。</p>
+
+        <h2>各操作の説明</h2>
+        <p>このツールは複数の操作を組み合わせて適用できます。適用順は trim → 空行削除 → 重複削除 → 並べ替え の順で、意図した結果になるよう設計されています。たとえば前後の空白を除いてから重複を判定したい場合は、trim と重複削除の両方をオンにしてください。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>操作</th><th>内容</th></tr>
+            <tr><td>前後の空白をtrim</td><td>各行の先頭と末尾のスペース・タブを取り除く</td></tr>
+            <tr><td>空行を削除</td><td>内容が空（または空白のみ）の行を除去する</td></tr>
+            <tr><td>重複行を削除</td><td>2回目以降に現れた同じ行を削除し、最初の1つだけ残す</td></tr>
+            <tr><td>大文字小文字を無視</td><td>AppleとappleなどをONにすると同じ行として重複判定する</td></tr>
+            <tr><td>昇順ソート</td><td>あいうえお順・ABC順（ロケール準拠の文字列比較）で並べ替え</td></tr>
+            <tr><td>降順ソート</td><td>昇順の逆順で並べ替え</td></tr>
+            <tr><td>数値としてソート</td><td>各行を数値として解釈し小さい順に並べ替え</td></tr>
+            <tr><td>逆順（reverse）</td><td>現在の行の並びをそのまま上下反転する</td></tr>
+        </table>
+        </div>
+        <h3>重複削除の並び順について</h3>
+        <p>重複行の削除では、最初に登場した行の順序を保持したまま、以降に現れる重複だけを取り除きます（安定した挙動）。並べ替えを選んでいない場合は元の順序がそのまま残り、昇順・降順・数値ソートを選ぶとユニーク化した後の行がその基準で並べ替えられます。数値ソートでは数値として解釈できない行は末尾側にまとめられます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">重複行の削除はどんな仕組み？</div><div class="a">入力されたテキストを改行で1行ずつに分け、同じ内容の行が2回目以降に現れたら取り除きます。最初に登場した行の順序はそのまま保たれ、以降に現れる重複だけが削除されるため、元の並び順を崩さずにユニーク化できます。大文字小文字を無視して重複判定するオプションを併用すると、Appleとappleのようなケースもまとめられます。</div></div>
+        <div class="faq-item"><div class="q">並べ替えの種類は？</div><div class="a">昇順ソート（あいうえお順・ABC順）、降順ソート、数値としてソート、逆順（reverse）の4種類に対応しています。昇順・降順はJavaScriptの文字列比較（ロケール準拠）で並べ替え、数値ソートは各行を数値として解釈して小さい順に並べます。逆順は今の行の並びをそのまま上下反転します。</div></div>
+        <div class="faq-item"><div class="q">データはサーバーに送信される？</div><div class="a">いいえ。すべての処理はお使いのブラウザ内（クライアントサイド）で完結し、入力したテキストが外部サーバーへ送信されることはありません。ライブラリや外部通信も使用していないため、社外秘のリストや個人情報を含むデータでも安心してご利用いただけます。</div></div>
+        <div class="faq-item"><div class="q">操作を組み合わせられる？</div><div class="a">はい。trim・空行削除・重複削除・ソートは同時に有効にでき、trim→空行削除→重複削除→並べ替えの順に適用されます。たとえば前後の空白を除いてから重複を判定したい場合は、trimと重複削除の両方をオンにすれば意図した結果が得られます。処理結果はいつでも下の出力欄で確認できます。</div></div>
+        <div class="faq-item"><div class="q">行数はどこで確認できる？</div><div class="a">処理前（入力）の行数と処理後（出力）の行数を、それぞれ画面のカウンターに表示します。重複削除や空行削除でどれだけ行が減ったかがひと目で分かるため、リストの精査やデータクレンジングの確認に便利です。出力はコピーボタンでクリップボードにそのまま貼り付けられます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a><a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+let sortMode = 'none';
+
+function setSort(mode){
+    sortMode = mode;
+    document.querySelectorAll('#sortRow button').forEach(b=>{
+        b.classList.toggle('active', b.getAttribute('data-sort') === mode);
+    });
+    process();
+}
+
+function process(){
+    const raw = document.getElementById('input').value;
+    const trim = document.getElementById('optTrim').checked;
+    const dropBlank = document.getElementById('optBlank').checked;
+    const dedupe = document.getElementById('optDedupe').checked;
+    const ignoreCase = document.getElementById('optIgnoreCase').checked;
+
+    // 入力を行に分割（末尾の余分な空行はカウント対象として扱う）
+    let lines = raw.length ? raw.split(/\r\n|\r|\n/) : [];
+    const beforeCount = lines.length;
+
+    // 1) trim
+    if (trim){
+        lines = lines.map(l => l.trim());
+    }
+    // 2) 空行削除
+    if (dropBlank){
+        lines = lines.filter(l => l.trim().length > 0);
+    }
+    // 3) 重複削除（初出の順序を保持）
+    if (dedupe){
+        const seen = new Set();
+        const out = [];
+        for (const l of lines){
+            const key = ignoreCase ? l.toLowerCase() : l;
+            if (!seen.has(key)){
+                seen.add(key);
+                out.push(l);
+            }
+        }
+        lines = out;
+    }
+    // 4) 並べ替え
+    if (sortMode === 'asc'){
+        lines = lines.slice().sort((a,b) => a.localeCompare(b, 'ja'));
+    } else if (sortMode === 'desc'){
+        lines = lines.slice().sort((a,b) => b.localeCompare(a, 'ja'));
+    } else if (sortMode === 'num'){
+        lines = lines.slice().sort((a,b) => {
+            const na = parseFloat(a), nb = parseFloat(b);
+            const va = isNaN(na), vb = isNaN(nb);
+            if (va && vb) return 0;
+            if (va) return 1;
+            if (vb) return -1;
+            return na - nb;
+        });
+    } else if (sortMode === 'reverse'){
+        lines = lines.slice().reverse();
+    }
+
+    const result = lines.join('\n');
+    document.getElementById('output').value = result;
+    document.getElementById('beforeCount').textContent = beforeCount;
+    document.getElementById('afterCount').textContent = lines.length;
+}
+
+function copyOutput(){
+    const out = document.getElementById('output');
+    if (!out.value){ return; }
+    navigator.clipboard.writeText(out.value).then(()=>{
+        const btn = document.getElementById('copyBtn');
+        const orig = btn.textContent;
+        btn.textContent = 'コピーしました';
+        setTimeout(()=>{ btn.textContent = orig; }, 1500);
+    }).catch(()=>{
+        out.select();
+        document.execCommand('copy');
+    });
+}
+
+function clearAll(){
+    document.getElementById('input').value = '';
+    process();
+}
+
+process();
+</script>
+</body>
+</html>

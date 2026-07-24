@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>睡眠時間・最適起床/就寝時刻 計算ツール | 90分サイクルでスッキリ起きる時刻を自動計算【無料】</title>
+    <meta name="description" content="睡眠は約90分周期。今から寝る場合の最適な起床時刻、起きたい時刻から逆算した最適な就寝時刻を4/5/6サイクル（6時間・7.5時間・9時間）で自動計算。入眠バッファ（寝つき時間）も調整でき、深夜またぎの時刻計算にも対応した無料ツール。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .mode-tabs{display:flex;gap:8px;margin-bottom:16px}
+        .mode-tabs button{flex:1;padding:12px 10px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.85rem;font-weight:500;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:all 0.15s}
+        .mode-tabs button.active{background:var(--accent);border-color:var(--accent);color:#fff}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .opt-card{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+        .opt-card.recommended{background:var(--accent-dim);border-color:rgba(139,92,246,0.35);box-shadow:0 0 0 1px rgba(139,92,246,0.15)}
+        .opt-card .opt-time{font-family:'JetBrains Mono',monospace;font-size:1.9rem;font-weight:700;color:var(--accent);line-height:1.1}
+        .opt-card .opt-meta{text-align:right}
+        .opt-card .opt-cycles{font-size:0.9rem;font-weight:600;color:var(--text)}
+        .opt-card .opt-hours{font-size:0.8rem;color:var(--text2);margin-top:2px}
+        .opt-card .badge{display:inline-block;margin-top:6px;padding:2px 10px;background:var(--accent);color:#fff;border-radius:20px;font-size:0.68rem;font-weight:600}
+        .opt-card .badge.plain{background:#e0e2ed;color:var(--text2)}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:20px 24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:6px}
+        .big-result .mono{font-family:'JetBrains Mono',monospace;font-size:1.1rem;font-weight:500;color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-163-sleep-cycle/">
+    <meta property="og:title" content="睡眠時間・最適起床/就寝時刻 計算 | 90分サイクルで自動計算【無料】">
+    <meta property="og:description" content="今から寝る場合の最適な起床時刻、起きたい時刻から逆算した最適な就寝時刻を90分サイクルで自動計算。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-163-sleep-cycle/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="睡眠時間・最適起床/就寝時刻 計算【無料】">
+    <meta name="twitter:description" content="90分サイクルでスッキリ起きられる起床・就寝時刻を自動計算。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"睡眠時間・最適起床/就寝時刻 計算ツール","description":"睡眠の約90分周期をもとに、最適な起床時刻・就寝時刻を4/5/6サイクルで自動計算する無料ツール","url":"https://www.devtools-japan.com/tool-163-sleep-cycle/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"睡眠時間・最適起床/就寝時刻 計算ツール","item":"https://www.devtools-japan.com/tool-163-sleep-cycle/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"なぜ90分単位で起床時刻を計算するの？","acceptedAnswer":{"@type":"Answer","text":"人の睡眠は浅い眠り（レム睡眠）と深い眠り（ノンレム睡眠）が約90分周期で繰り返されると考えられています。サイクルの切れ目、つまり眠りが浅くなったタイミングで起きると比較的スッキリ目覚めやすいとされています。本ツールは1サイクルを90分として、その区切りにあたる起床・就寝時刻を提案します。ただし周期には80〜110分ほどの個人差があるため、あくまで目安としてご利用ください。"}},{"@type":"Question","name":"入眠バッファ（寝つき時間）とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"布団に入ってから実際に眠りに落ちるまでにかかる時間のことです。多くの人は横になってから10〜20分程度で入眠すると言われ、本ツールでは初期値を14分に設定しています。「今から寝る」モードではこの時間を足してから睡眠サイクルを数え、「逆算」モードでは就寝時刻にこの時間を上乗せします。寝つきが早い・遅いと感じる場合は数値を編集してください。"}},{"@type":"Question","name":"何サイクル（何時間）眠るのがおすすめ？","acceptedAnswer":{"@type":"Answer","text":"一般的な成人には5〜6サイクル、つまり約7.5〜9時間の睡眠が目安とされ、本ツールでも5・6サイクルをおすすめ候補としてハイライト表示します。4サイクル（約6時間）は短時間睡眠になりますが、どうしても睡眠時間が取れないときの選択肢です。必要な睡眠時間には個人差があるため、翌日の眠気や体調も見ながら自分に合うサイクル数を見つけてください。"}},{"@type":"Question","name":"日付をまたぐ深夜の時刻でも正しく計算されますか？","acceptedAnswer":{"@type":"Answer","text":"はい。時刻計算は24時間（1440分）を1日として剰余で処理しているため、23時就寝で翌朝6時起床のように日付をまたぐ場合でも正しい時刻を表示します。表示上は「翌日」の候補には翌日である旨を付記し、深夜0時をまたいでも起床・就寝時刻がずれないよう配慮しています。"}},{"@type":"Question","name":"計算結果はサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。すべての計算はお使いのブラウザ内（クライアントサイド）だけで完結し、入力した時刻や睡眠に関する情報が外部サーバーへ送信されることはありません。会員登録やインストールも不要で、外部ライブラリにも依存しないため、オフラインでも動作します。安心してご利用いただけます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>睡眠時間・最適起床/就寝時刻 計算</h1><p>90分サイクルでスッキリ起きられる時刻を自動計算</p></header>
+
+    <div class="card"><h3>モードを選択</h3>
+        <div class="mode-tabs">
+            <button id="tabNow" class="active" onclick="setMode('now')">今から寝る → 起床時刻</button>
+            <button id="tabWake" onclick="setMode('wake')">起きたい時刻 → 就寝時刻</button>
+        </div>
+
+        <div id="nowInputs">
+            <div class="row"><label>就寝する時刻（今から）</label><input type="time" id="sleepNow" style="text-align:left" oninput="calc()"></div>
+        </div>
+        <div id="wakeInputs" style="display:none">
+            <div class="row"><label>起きたい時刻</label><input type="time" id="wakeAt" style="text-align:left" value="07:00" oninput="calc()"></div>
+        </div>
+
+        <div class="row"><label>1サイクルの長さ</label><input type="number" id="cycleLen" value="90" min="60" max="120" oninput="calc()"><span class="unit">分</span></div>
+        <div class="row"><label>入眠バッファ（寝つき時間）</label><input type="number" id="buffer" value="14" min="0" max="60" oninput="calc()"><span class="unit">分</span></div>
+    </div>
+
+    <div class="big-result">
+        <div class="headline" id="bigHeadline">計算結果</div>
+        <div class="mono" id="bigMono">時刻を入力してください</div>
+    </div>
+
+    <div class="card"><h3 id="optsTitle">おすすめの起床時刻</h3>
+        <div id="options"></div>
+    </div>
+
+    <div class="note">睡眠サイクルは1周期約90分という一般的なモデルに基づく目安です。周期には80〜110分ほどの個人差があり、必ずしもスッキリ起きられることを保証するものではありません。5〜6サイクル（約7.5〜9時間）をおすすめとしてハイライトしています。すべての計算はブラウザ内で完結し、外部に送信されません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>睡眠サイクル計算ツールの使い方</h2>
+        <p>人の睡眠は、浅い眠りと深い眠りが約90分の周期で繰り返されると言われています。眠りが浅くなるサイクルの切れ目で目覚めると比較的スッキリ起きやすいという考え方をもとに、本ツールは最適な起床時刻・就寝時刻を自動で計算します。インストールや会員登録は不要、すべての計算はお使いの端末内（クライアントサイド）で完結し、外部ライブラリにも依存しません。</p>
+        <p>使い方は2つのモードから選ぶだけです。「今から寝る → 起床時刻」モードでは、これから寝る時刻を入力すると、4・5・6サイクル（約6時間・7.5時間・9時間）眠った場合のおすすめ起床時刻を一覧表示します。「起きたい時刻 → 就寝時刻」モードでは、起きたい時刻を入力すると、そこから逆算した最適な就寝時刻を提案します。どちらのモードでも、布団に入ってから眠りに落ちるまでの「入眠バッファ（寝つき時間）」を考慮し、初期値は14分に設定しています。寝つきの早さに合わせて自由に編集できます。</p>
+        <h3>サイクル数と睡眠時間の目安</h3>
+        <p>1サイクルを90分とした場合、4サイクルで約6時間、5サイクルで約7.5時間、6サイクルで約9時間の睡眠になります。一般的な成人には5〜6サイクルが推奨されることが多いため、本ツールではこの2つをおすすめ候補としてハイライト表示します。4サイクルはどうしても睡眠時間が確保できないときの短時間睡眠の選択肢です。1サイクルの長さは60〜120分の範囲で変更できるので、自分に合う周期がわかっている場合は調整してください。</p>
+
+        <h2>スッキリ起きるための時刻計算の仕組み</h2>
+        <p>「今から寝る」モードでは、入力した就寝時刻にまず入眠バッファを加え、そこから90分×サイクル数を足した時刻を起床時刻として算出します。「逆算」モードでは、起きたい時刻から90分×サイクル数と入眠バッファを引いて、布団に入るべき就寝時刻を求めます。時刻の計算は24時間（1440分）を1日として剰余で処理しているため、23時就寝で翌朝6時起床のように日付をまたぐケースでも正しい時刻を表示します。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>サイクル数</th><th>睡眠時間の目安</th><th>おすすめ度</th></tr>
+            <tr><td>4サイクル</td><td>約6時間</td><td>短時間睡眠（時間が取れないとき）</td></tr>
+            <tr><td>5サイクル</td><td>約7.5時間</td><td>おすすめ</td></tr>
+            <tr><td>6サイクル</td><td>約9時間</td><td>おすすめ（しっかり休みたいとき）</td></tr>
+        </table>
+        </div>
+        <h3>入眠バッファ（寝つき時間）について</h3>
+        <p>布団に入ってすぐに眠りに落ちる人は少なく、多くの場合10〜20分ほどの寝つき時間があります。本ツールはこの時間を「入眠バッファ」として計算に含めており、初期値は14分です。この値を無視して就寝時刻ちょうどから90分周期を数えると、実際にはまだ眠っていない時間まで睡眠サイクルに含めてしまい、起床時刻がずれてしまいます。より正確な目覚めのために、自分の寝つきの早さに合わせてバッファを調整することをおすすめします。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">なぜ90分単位で起床時刻を計算するの？</div><div class="a">人の睡眠は浅い眠り（レム睡眠）と深い眠り（ノンレム睡眠）が約90分周期で繰り返されると考えられています。サイクルの切れ目、つまり眠りが浅くなったタイミングで起きると比較的スッキリ目覚めやすいとされています。本ツールは1サイクルを90分として、その区切りにあたる起床・就寝時刻を提案します。ただし周期には80〜110分ほどの個人差があるため、あくまで目安としてご利用ください。</div></div>
+        <div class="faq-item"><div class="q">入眠バッファ（寝つき時間）とは何ですか？</div><div class="a">布団に入ってから実際に眠りに落ちるまでにかかる時間のことです。多くの人は横になってから10〜20分程度で入眠すると言われ、本ツールでは初期値を14分に設定しています。「今から寝る」モードではこの時間を足してから睡眠サイクルを数え、「逆算」モードでは就寝時刻にこの時間を上乗せします。寝つきが早い・遅いと感じる場合は数値を編集してください。</div></div>
+        <div class="faq-item"><div class="q">何サイクル（何時間）眠るのがおすすめ？</div><div class="a">一般的な成人には5〜6サイクル、つまり約7.5〜9時間の睡眠が目安とされ、本ツールでも5・6サイクルをおすすめ候補としてハイライト表示します。4サイクル（約6時間）は短時間睡眠になりますが、どうしても睡眠時間が取れないときの選択肢です。必要な睡眠時間には個人差があるため、翌日の眠気や体調も見ながら自分に合うサイクル数を見つけてください。</div></div>
+        <div class="faq-item"><div class="q">日付をまたぐ深夜の時刻でも正しく計算されますか？</div><div class="a">はい。時刻計算は24時間（1440分）を1日として剰余で処理しているため、23時就寝で翌朝6時起床のように日付をまたぐ場合でも正しい時刻を表示します。表示上は「翌日」の候補には翌日である旨を付記し、深夜0時をまたいでも起床・就寝時刻がずれないよう配慮しています。</div></div>
+        <div class="faq-item"><div class="q">計算結果はサーバーに送信されますか？</div><div class="a">いいえ。すべての計算はお使いのブラウザ内（クライアントサイド）だけで完結し、入力した時刻や睡眠に関する情報が外部サーバーへ送信されることはありません。会員登録やインストールも不要で、外部ライブラリにも依存しないため、オフラインでも動作します。安心してご利用いただけます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-51-business-day-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">営業日計算</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+var mode = 'now';
+
+// 現在時刻を HH:MM で（就寝の初期値用）
+function nowHM(){
+    var d = new Date();
+    var h = String(d.getHours()).padStart(2,'0');
+    var m = String(d.getMinutes()).padStart(2,'0');
+    return h+':'+m;
+}
+
+// "HH:MM" -> 0..1439 の分
+function toMin(hm){
+    var p = hm.split(':');
+    return (parseInt(p[0],10)*60 + parseInt(p[1],10));
+}
+// 分（負や1440超も可）-> "HH:MM"（1日で剰余）と翌日フラグ
+function toHM(min){
+    var dayOffset = Math.floor(min/1440);
+    var m = ((min % 1440) + 1440) % 1440;
+    var h = Math.floor(m/60);
+    var mm = m % 60;
+    return {
+        hm: String(h).padStart(2,'0')+':'+String(mm).padStart(2,'0'),
+        dayOffset: dayOffset
+    };
+}
+// 総分数 -> "◯時間◯分"
+function hoursLabel(totalMin){
+    var h = Math.floor(totalMin/60);
+    var m = totalMin % 60;
+    return m === 0 ? (h+'時間') : (h+'時間'+m+'分');
+}
+
+function setMode(m){
+    mode = m;
+    document.getElementById('tabNow').classList.toggle('active', m==='now');
+    document.getElementById('tabWake').classList.toggle('active', m==='wake');
+    document.getElementById('nowInputs').style.display = (m==='now') ? '' : 'none';
+    document.getElementById('wakeInputs').style.display = (m==='wake') ? '' : 'none';
+    document.getElementById('optsTitle').textContent = (m==='now') ? 'おすすめの起床時刻' : 'おすすめの就寝時刻';
+    calc();
+}
+
+var CYCLES = [4,5,6];
+
+function calc(){
+    var cycleLen = parseInt(document.getElementById('cycleLen').value,10);
+    var buffer = parseInt(document.getElementById('buffer').value,10);
+    if (isNaN(cycleLen) || cycleLen < 30) cycleLen = 90;
+    if (isNaN(buffer) || buffer < 0) buffer = 0;
+
+    var box = document.getElementById('options');
+    box.innerHTML = '';
+    var headline = document.getElementById('bigHeadline');
+    var monoEl = document.getElementById('bigMono');
+
+    if (mode === 'now'){
+        var sv = document.getElementById('sleepNow').value;
+        if (!sv){ monoEl.textContent = '就寝時刻を入力してください'; return; }
+        var base = toMin(sv);
+        headline.textContent = sv + ' に寝る場合のおすすめ起床時刻';
+        // 眠りに落ちる時刻 = 就寝 + バッファ
+        var asleep = base + buffer;
+        var recWake = null;
+        CYCLES.forEach(function(c){
+            var totalSleep = cycleLen * c; // 実睡眠時間（分）
+            var wakeMin = asleep + totalSleep;
+            var r = toHM(wakeMin);
+            var rec = (c === 5 || c === 6);
+            if (rec && recWake === null) recWake = r.hm;
+            box.appendChild(makeCard(r, c, totalSleep, rec, true));
+        });
+        monoEl.textContent = 'おすすめ（5〜6サイクル）は ' + (recWake || '-') + ' ごろの起床です';
+    } else {
+        var wv = document.getElementById('wakeAt').value;
+        if (!wv){ monoEl.textContent = '起きたい時刻を入力してください'; return; }
+        var wake = toMin(wv);
+        headline.textContent = wv + ' に起きる場合のおすすめ就寝時刻';
+        var recBed = null;
+        CYCLES.forEach(function(c){
+            var totalSleep = cycleLen * c;
+            // 就寝時刻 = 起床 - 睡眠時間 - バッファ
+            var bedMin = wake - totalSleep - buffer;
+            var r = toHM(bedMin);
+            var rec = (c === 5 || c === 6);
+            if (rec && recBed === null) recBed = r.hm;
+            box.appendChild(makeCard(r, c, totalSleep, rec, false));
+        });
+        monoEl.textContent = 'おすすめ（5〜6サイクル）は ' + (recBed || '-') + ' ごろの就寝です';
+    }
+}
+
+// 結果カードを DOM で生成（時刻・サイクル数・睡眠時間・推奨）
+function makeCard(r, cycles, totalSleep, recommended, isWake){
+    var card = document.createElement('div');
+    card.className = 'opt-card' + (recommended ? ' recommended' : '');
+
+    var left = document.createElement('div');
+    var t = document.createElement('div');
+    t.className = 'opt-time';
+    t.textContent = r.hm;
+    left.appendChild(t);
+    if (r.dayOffset > 0){
+        var nd = document.createElement('div');
+        nd.style.fontSize = '0.72rem';
+        nd.style.color = 'var(--text3)';
+        nd.style.marginTop = '2px';
+        nd.textContent = '翌日';
+        left.appendChild(nd);
+    } else if (r.dayOffset < 0){
+        var pd = document.createElement('div');
+        pd.style.fontSize = '0.72rem';
+        pd.style.color = 'var(--text3)';
+        pd.style.marginTop = '2px';
+        pd.textContent = '前日';
+        left.appendChild(pd);
+    }
+
+    var meta = document.createElement('div');
+    meta.className = 'opt-meta';
+    var cy = document.createElement('div');
+    cy.className = 'opt-cycles';
+    cy.textContent = cycles + 'サイクル';
+    var hr = document.createElement('div');
+    hr.className = 'opt-hours';
+    hr.textContent = '睡眠 約' + hoursLabel(totalSleep) + (isWake ? '（起床）' : '（就寝）');
+    meta.appendChild(cy);
+    meta.appendChild(hr);
+    var badge = document.createElement('span');
+    badge.className = 'badge' + (recommended ? '' : ' plain');
+    badge.textContent = recommended ? 'おすすめ' : (cycles === 4 ? '短時間' : '');
+    if (badge.textContent) meta.appendChild(badge);
+
+    card.appendChild(left);
+    card.appendChild(meta);
+    return card;
+}
+
+// 初期表示
+document.getElementById('sleepNow').value = nowHM();
+calc();
+</script>
+</body>
+</html>

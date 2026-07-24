@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画像に文字入れ・透かしツール | 画像へテキストやウォーターマークを合成【無料】</title>
+    <meta name="description" content="画像に文字や透かし（ウォーターマーク）を入れられる無料ツール。フォントサイズ・色・不透明度・位置・回転・繰り返し（タイル）配置、縁取りに対応。すべてブラウザ内で処理し画像はアップロードしません。PNG/JPEGでダウンロード可能。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input[type=text],.row input[type=number],.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .row input[type=range]{width:200px}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .val{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:52px;text-align:right;font-family:'JetBrains Mono',monospace}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input[type=text],.row input[type=number],.row select,.row input[type=range]{width:100%}}
+        .dropzone{border:2px dashed var(--border);border-radius:var(--radius);padding:36px 20px;text-align:center;color:var(--text2);cursor:pointer;transition:border-color 0.2s,background 0.2s}
+        .dropzone.drag{border-color:var(--accent);background:var(--accent-dim)}
+        .dropzone strong{color:var(--accent)}
+        .dropzone p{font-size:0.8rem;color:var(--text3);margin-top:6px}
+        .canvas-wrap{text-align:center;margin-bottom:16px;overflow:auto}
+        canvas{max-width:100%;height:auto;border:1px solid var(--border);border-radius:8px;background:repeating-conic-gradient(#eceef5 0% 25%,#fff 0% 50%) 50%/20px 20px}
+        .grid9{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;width:150px}
+        .grid9 button{aspect-ratio:1;background:#f7f8fb;border:1px solid var(--border);border-radius:6px;cursor:pointer;font-size:0;padding:0}
+        .grid9 button.on{background:var(--accent);border-color:var(--accent)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.ghost{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+        .swatch{width:44px;height:38px;padding:0;border:1px solid var(--border);border-radius:8px;background:#fff;cursor:pointer}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-173-image-watermark/">
+    <meta property="og:title" content="画像に文字入れ・透かしツール | 画像へテキストやウォーターマークを合成【無料】">
+    <meta property="og:description" content="画像に文字や透かしを入れる無料ツール。サイズ・色・不透明度・位置・回転・繰り返し配置・縁取りに対応。画像はアップロードせずブラウザ内で処理。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-173-image-watermark/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="画像に文字入れ・透かしツール【無料】">
+    <meta name="twitter:description" content="画像へテキストや透かしを合成。位置・回転・繰り返し・縁取り対応。ブラウザ内処理でアップロード不要。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"画像に文字入れ・透かしツール","description":"画像に文字や透かし（ウォーターマーク）を入れて合成できる無料ツール。位置・回転・繰り返し配置・縁取りに対応し、すべてブラウザ内で処理します。","url":"https://www.devtools-japan.com/tool-173-image-watermark/","applicationCategory":"MultimediaApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"画像に文字入れ・透かしツール","item":"https://www.devtools-japan.com/tool-173-image-watermark/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"画像はサーバーにアップロードされますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。本ツールの処理はすべてお使いのブラウザ内（クライアントサイド）で完結します。読み込んだ画像や入力した文字がインターネット経由でサーバーへ送信されることはなく、Canvasを使って端末内で合成・書き出しを行います。機密資料や個人写真への透かし入れでも安心してご利用いただけます。"}},{"@type":"Question","name":"透かしを画像全体に繰り返し入れられますか？","acceptedAnswer":{"@type":"Answer","text":"はい。「繰り返し（タイル）」モードをオンにすると、指定した文字を斜めに傾けながら画像全体に敷き詰めるように配置できます。無断転載の抑止や資料の管理用ウォーターマークに適しています。文字の間隔は不透明度・フォントサイズ・回転角度の調整で見た目を細かく変えられます。"}},{"@type":"Question","name":"文字の位置や角度は自由に決められますか？","acceptedAnswer":{"@type":"Answer","text":"はい。9分割グリッド（上下左右・中央の9か所）から位置を選べるほか、プレビュー上で文字をドラッグして自由な位置へ移動できます。回転角度のスライダーで斜めの透かしも作成でき、フォントサイズ・色・不透明度と組み合わせて思いどおりのデザインに仕上げられます。"}},{"@type":"Question","name":"文字が背景に埋もれて読みにくいときは？","acceptedAnswer":{"@type":"Answer","text":"縁取り（アウトライン）を有効にすると、文字のまわりに指定した色の輪郭が付き、明るい背景でも暗い背景でも視認性が高まります。縁取りの太さと色を調整できるので、白文字＋黒縁のように背景と対照的な組み合わせにすると読みやすくなります。"}},{"@type":"Question","name":"保存できる画像の形式は？","acceptedAnswer":{"@type":"Answer","text":"PNGとJPEGのどちらでもダウンロードできます。透過を保ちたい場合や文字をくっきり保存したい場合はPNG、写真でファイルサイズを抑えたい場合はJPEGがおすすめです。書き出しは読み込んだ画像の元の解像度で行うため、プレビューの見た目のまま高画質で保存できます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>画像に文字入れ・透かし</h1><p>画像へテキストやウォーターマークを合成（ブラウザ内処理・アップロード不要）</p></header>
+
+    <div class="card"><h3>画像を読み込む</h3>
+        <div class="dropzone" id="dropzone">
+            <div><strong>クリックして画像を選択</strong> またはドラッグ＆ドロップ</div>
+            <p>PNG / JPEG / WebP などに対応・画像は端末内でのみ処理されます</p>
+            <input type="file" id="fileInput" accept="image/*" style="display:none">
+        </div>
+    </div>
+
+    <div class="card"><h3>プレビュー</h3>
+        <div class="canvas-wrap"><canvas id="canvas" width="480" height="320"></canvas></div>
+        <p style="font-size:0.75rem;color:var(--text3);text-align:center">※ 繰り返しモードがオフのとき、プレビュー上で文字をドラッグして位置を移動できます</p>
+    </div>
+
+    <div class="card"><h3>文字の設定</h3>
+        <div class="row"><label>透かしテキスト</label><input type="text" id="wmText" value="SAMPLE" oninput="draw()"></div>
+        <div class="row"><label>フォントサイズ</label><input type="range" id="fontSize" min="8" max="200" value="48" oninput="draw()"><span class="val" id="fontSizeVal">48px</span></div>
+        <div class="row"><label>文字色</label><input type="color" id="color" class="swatch" value="#ffffff" oninput="draw()"></div>
+        <div class="row"><label>不透明度</label><input type="range" id="opacity" min="0" max="100" value="50" oninput="draw()"><span class="val" id="opacityVal">50%</span></div>
+        <div class="row"><label>回転角度</label><input type="range" id="rotate" min="-90" max="90" value="0" oninput="draw()"><span class="val" id="rotateVal">0°</span></div>
+        <div class="row"><label>フォント</label>
+            <select id="fontFamily" onchange="draw()">
+                <option value="'Noto Sans JP',sans-serif">ゴシック（Noto Sans JP）</option>
+                <option value="serif">明朝（serif）</option>
+                <option value="'JetBrains Mono',monospace">等幅（Monospace）</option>
+                <option value="Arial,sans-serif">Arial</option>
+            </select>
+        </div>
+        <div class="row"><label>太字にする</label><input type="checkbox" id="bold" onchange="draw()"></div>
+    </div>
+
+    <div class="card"><h3>配置</h3>
+        <div class="row"><label>繰り返し（タイル）で全体に敷く</label><input type="checkbox" id="tile" onchange="draw()"></div>
+        <div class="row"><label>タイル間隔</label><input type="range" id="tileGap" min="60" max="400" value="160" oninput="draw()"><span class="val" id="tileGapVal">160px</span></div>
+        <div class="row" style="align-items:flex-start"><label>位置（9分割グリッド）<br><span style="font-size:0.7rem;color:var(--text3)">※ 繰り返しオフ時のみ</span></label>
+            <div class="grid9" id="grid9">
+                <button data-pos="tl" title="左上"></button><button data-pos="tc" title="上中央"></button><button data-pos="tr" title="右上"></button>
+                <button data-pos="ml" title="左中央"></button><button data-pos="mc" class="on" title="中央"></button><button data-pos="mr" title="右中央"></button>
+                <button data-pos="bl" title="左下"></button><button data-pos="bc" title="下中央"></button><button data-pos="br" title="右下"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card"><h3>縁取り（アウトライン）</h3>
+        <div class="row"><label>縁取りを付ける</label><input type="checkbox" id="stroke" onchange="draw()"></div>
+        <div class="row"><label>縁取りの色</label><input type="color" id="strokeColor" class="swatch" value="#000000" oninput="draw()"></div>
+        <div class="row"><label>縁取りの太さ</label><input type="range" id="strokeWidth" min="1" max="20" value="4" oninput="draw()"><span class="val" id="strokeWidthVal">4px</span></div>
+    </div>
+
+    <div class="btn-row">
+        <button class="btn" id="dlPng">PNGでダウンロード</button>
+        <button class="btn ghost" id="dlJpeg">JPEGでダウンロード</button>
+        <button class="btn ghost" id="resetBtn">位置をリセット</button>
+    </div>
+
+    <div class="note">読み込んだ画像・入力した文字は一切サーバーへ送信されません。すべてお使いのブラウザ内（Canvas）で合成・書き出しを行います。書き出しは元画像の解像度で行われます。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>画像に文字入れ・透かしツールの使い方</h2>
+        <p>写真や画像に文字（テキスト）や透かし（ウォーターマーク）を入れて合成できる無料ツールです。読み込んだ画像はサーバーへアップロードされず、すべてお使いのブラウザ内で処理されるため、社内資料や個人の写真でも安心して利用できます。インストールや会員登録は不要で、Canvasを使ってリアルタイムにプレビューしながら仕上げられます。</p>
+        <p>使い方はかんたんです。まず「画像を読み込む」エリアに画像をドラッグ＆ドロップするか、クリックしてファイルを選びます。次に「文字の設定」で透かしにしたいテキストを入力し、フォントサイズ・色・不透明度・回転角度を調整します。「配置」で位置を9分割グリッドから選ぶか、繰り返しモードで画像全体に敷き詰めます。仕上がったらPNGまたはJPEGでダウンロードするだけです。</p>
+        <h3>こんな用途に</h3>
+        <p>ブログやSNSに載せる写真へのクレジット・署名入れ、資料やスクリーンショットの無断転載を防ぐためのウォーターマーク、商品写真へのブランド名の刻印、社内文書の「社外秘」「見本」表示などに使えます。ドラッグでの自由配置や斜めの繰り返し配置に対応しているので、目的に合わせた見た目に調整できます。</p>
+
+        <h2>主な機能</h2>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>機能</th><th>説明</th></tr>
+            <tr><td>テキスト入力</td><td>任意の文字を透かしとして入力（日本語・英数字対応）</td></tr>
+            <tr><td>サイズ・色・不透明度</td><td>フォントサイズ、文字色、透け具合（0〜100%）を調整</td></tr>
+            <tr><td>位置（9分割）</td><td>上下左右・中央の9か所から配置を選択</td></tr>
+            <tr><td>ドラッグ移動</td><td>プレビュー上で文字を掴んで自由な位置へ移動</td></tr>
+            <tr><td>回転</td><td>-90°〜+90°で斜めの透かしを作成</td></tr>
+            <tr><td>繰り返し（タイル）</td><td>画像全体に文字を斜めに敷き詰める</td></tr>
+            <tr><td>縁取り</td><td>文字の輪郭に色を付けて背景に埋もれにくくする</td></tr>
+            <tr><td>書き出し</td><td>PNG / JPEG で元解像度のままダウンロード</td></tr>
+        </table>
+        </div>
+        <h3>透かし（ウォーターマーク）のコツ</h3>
+        <p>無断転載を防ぎたいときは、繰り返しモードで不透明度を20〜40%程度に下げ、画像全体へ薄く敷き詰めると、写真の内容を大きく損なわずに転載を抑止できます。一方でクレジット表記のように控えめに入れたいときは、右下や左下に小さめのサイズで配置するのがおすすめです。背景が明るい写真では黒系、暗い写真では白系の文字にし、縁取りを併用すると視認性が高まります。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">画像はサーバーにアップロードされますか？</div><div class="a">いいえ。本ツールの処理はすべてお使いのブラウザ内（クライアントサイド）で完結します。読み込んだ画像や入力した文字がインターネット経由でサーバーへ送信されることはなく、Canvasを使って端末内で合成・書き出しを行います。機密資料や個人写真への透かし入れでも安心してご利用いただけます。</div></div>
+        <div class="faq-item"><div class="q">透かしを画像全体に繰り返し入れられますか？</div><div class="a">はい。「繰り返し（タイル）」モードをオンにすると、指定した文字を斜めに傾けながら画像全体に敷き詰めるように配置できます。無断転載の抑止や資料の管理用ウォーターマークに適しています。文字の間隔は不透明度・フォントサイズ・回転角度の調整で見た目を細かく変えられます。</div></div>
+        <div class="faq-item"><div class="q">文字の位置や角度は自由に決められますか？</div><div class="a">はい。9分割グリッド（上下左右・中央の9か所）から位置を選べるほか、プレビュー上で文字をドラッグして自由な位置へ移動できます。回転角度のスライダーで斜めの透かしも作成でき、フォントサイズ・色・不透明度と組み合わせて思いどおりのデザインに仕上げられます。</div></div>
+        <div class="faq-item"><div class="q">文字が背景に埋もれて読みにくいときは？</div><div class="a">縁取り（アウトライン）を有効にすると、文字のまわりに指定した色の輪郭が付き、明るい背景でも暗い背景でも視認性が高まります。縁取りの太さと色を調整できるので、白文字＋黒縁のように背景と対照的な組み合わせにすると読みやすくなります。</div></div>
+        <div class="faq-item"><div class="q">保存できる画像の形式は？</div><div class="a">PNGとJPEGのどちらでもダウンロードできます。透過を保ちたい場合や文字をくっきり保存したい場合はPNG、写真でファイルサイズを抑えたい場合はJPEGがおすすめです。書き出しは読み込んだ画像の元の解像度で行うため、プレビューの見た目のまま高画質で保存できます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧へ</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+'use strict';
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+var img = null;
+var pos = 'mc';
+var custom = null; // {rx, ry} relative 0..1 position when dragged
+var dragging = false;
+
+function $(id){ return document.getElementById(id); }
+
+// ---- file loading ----
+var fileInput = $('fileInput');
+var dropzone = $('dropzone');
+dropzone.addEventListener('click', function(){ fileInput.click(); });
+fileInput.addEventListener('change', function(e){
+    if (e.target.files && e.target.files[0]) loadFile(e.target.files[0]);
+});
+['dragenter','dragover'].forEach(function(ev){
+    dropzone.addEventListener(ev, function(e){ e.preventDefault(); dropzone.classList.add('drag'); });
+});
+['dragleave','drop'].forEach(function(ev){
+    dropzone.addEventListener(ev, function(e){ e.preventDefault(); dropzone.classList.remove('drag'); });
+});
+dropzone.addEventListener('drop', function(e){
+    var dt = e.dataTransfer;
+    if (dt && dt.files && dt.files[0]) loadFile(dt.files[0]);
+});
+
+function loadFile(file){
+    if (!/^image\//.test(file.type)) { alert('画像ファイルを選択してください'); return; }
+    var reader = new FileReader();
+    reader.onload = function(ev){
+        var im = new Image();
+        im.onload = function(){
+            img = im;
+            custom = null;
+            draw();
+        };
+        im.src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+}
+
+// ---- 9-grid selection ----
+Array.prototype.slice.call(document.querySelectorAll('#grid9 button')).forEach(function(b){
+    b.addEventListener('click', function(){
+        document.querySelectorAll('#grid9 button').forEach(function(x){ x.classList.remove('on'); });
+        b.classList.add('on');
+        pos = b.getAttribute('data-pos');
+        custom = null;
+        draw();
+    });
+});
+
+$('resetBtn').addEventListener('click', function(){ custom = null; draw(); });
+
+// ---- value labels ----
+function updateLabels(){
+    $('fontSizeVal').textContent = $('fontSize').value + 'px';
+    $('opacityVal').textContent = $('opacity').value + '%';
+    $('rotateVal').textContent = $('rotate').value + '°';
+    $('tileGapVal').textContent = $('tileGap').value + 'px';
+    $('strokeWidthVal').textContent = $('strokeWidth').value + 'px';
+}
+
+// ---- anchor point for 9-grid ----
+function anchorPoint(w, h, fs){
+    var m = Math.round(fs * 0.4) + 10;
+    var xs = { l: m, c: w/2, r: w - m };
+    var ys = { t: m + fs*0.4, m: h/2, b: h - m - fs*0.4 };
+    var cx = pos[1] === 'l' ? xs.l : (pos[1] === 'r' ? xs.r : xs.c);
+    var cy = pos[0] === 't' ? ys.t : (pos[0] === 'b' ? ys.b : ys.m);
+    var align = pos[1] === 'l' ? 'left' : (pos[1] === 'r' ? 'right' : 'center');
+    return { x: cx, y: cy, align: align };
+}
+
+function buildFont(fs){
+    var weight = $('bold').checked ? '700 ' : '400 ';
+    return weight + fs + 'px ' + $('fontFamily').value;
+}
+
+function draw(){
+    updateLabels();
+    var w = img ? img.naturalWidth : 480;
+    var h = img ? img.naturalHeight : 320;
+    canvas.width = w;
+    canvas.height = h;
+
+    ctx.clearRect(0, 0, w, h);
+    if (img){
+        ctx.drawImage(img, 0, 0, w, h);
+    } else {
+        ctx.fillStyle = '#eceef5';
+        ctx.fillRect(0, 0, w, h);
+        ctx.fillStyle = '#9498b0';
+        ctx.font = "20px 'Noto Sans JP',sans-serif";
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('画像を読み込んでください', w/2, h/2);
+    }
+
+    var text = $('wmText').value;
+    if (!text) return;
+
+    var fs = parseInt($('fontSize').value, 10);
+    var opacity = parseInt($('opacity').value, 10) / 100;
+    var rot = parseInt($('rotate').value, 10) * Math.PI / 180;
+    var useStroke = $('stroke').checked;
+    var strokeW = parseInt($('strokeWidth').value, 10);
+
+    ctx.save();
+    ctx.globalAlpha = opacity;
+    ctx.font = buildFont(fs);
+    ctx.fillStyle = $('color').value;
+    ctx.strokeStyle = $('strokeColor').value;
+    ctx.lineWidth = strokeW;
+    ctx.lineJoin = 'round';
+    ctx.textBaseline = 'middle';
+
+    if ($('tile').checked){
+        drawTile(text, fs, rot, useStroke, w, h);
+    } else {
+        var ap;
+        if (custom){
+            ap = { x: custom.rx * w, y: custom.ry * h, align: 'center' };
+        } else {
+            ap = anchorPoint(w, h, fs);
+        }
+        ctx.textAlign = ap.align;
+        ctx.translate(ap.x, ap.y);
+        ctx.rotate(rot);
+        if (useStroke) ctx.strokeText(text, 0, 0);
+        ctx.fillText(text, 0, 0);
+    }
+    ctx.restore();
+}
+
+function drawTile(text, fs, rot, useStroke, w, h){
+    var gap = parseInt($('tileGap').value, 10);
+    ctx.textAlign = 'center';
+    var metrics = ctx.measureText(text);
+    var tw = metrics.width;
+    var diag = Math.sqrt(w*w + h*h);
+    var stepX = Math.max(tw + gap * 0.6, gap);
+    var stepY = gap;
+    ctx.save();
+    ctx.translate(w/2, h/2);
+    ctx.rotate(rot);
+    for (var y = -diag; y < diag; y += stepY){
+        for (var x = -diag; x < diag; x += stepX){
+            if (useStroke) ctx.strokeText(text, x, y);
+            ctx.fillText(text, x, y);
+        }
+    }
+    ctx.restore();
+}
+
+// ---- drag to move ----
+function canvasPoint(e){
+    var rect = canvas.getBoundingClientRect();
+    var cx = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+    var cy = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
+    return { rx: cx / rect.width, ry: cy / rect.height };
+}
+function startDrag(e){
+    if ($('tile').checked || !img) return;
+    dragging = true;
+    var p = canvasPoint(e);
+    custom = p;
+    draw();
+    e.preventDefault();
+}
+function moveDrag(e){
+    if (!dragging) return;
+    custom = canvasPoint(e);
+    draw();
+    e.preventDefault();
+}
+function endDrag(){ dragging = false; }
+canvas.addEventListener('mousedown', startDrag);
+window.addEventListener('mousemove', moveDrag);
+window.addEventListener('mouseup', endDrag);
+canvas.addEventListener('touchstart', startDrag, { passive: false });
+window.addEventListener('touchmove', moveDrag, { passive: false });
+window.addEventListener('touchend', endDrag);
+
+// ---- download ----
+function download(type, ext){
+    if (!img){ alert('先に画像を読み込んでください'); return; }
+    draw();
+    var url;
+    if (type === 'image/jpeg'){
+        // JPEG has no alpha; composite onto white
+        var tmp = document.createElement('canvas');
+        tmp.width = canvas.width; tmp.height = canvas.height;
+        var tctx = tmp.getContext('2d');
+        tctx.fillStyle = '#ffffff';
+        tctx.fillRect(0, 0, tmp.width, tmp.height);
+        tctx.drawImage(canvas, 0, 0);
+        url = tmp.toDataURL('image/jpeg', 0.92);
+    } else {
+        url = canvas.toDataURL('image/png');
+    }
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'watermark.' + ext;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+$('dlPng').addEventListener('click', function(){ download('image/png', 'png'); });
+$('dlJpeg').addEventListener('click', function(){ download('image/jpeg', 'jpg'); });
+
+updateLabels();
+draw();
+</script>
+</body>
+</html>

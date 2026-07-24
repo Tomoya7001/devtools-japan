@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON-LD 構造化データ 検証・プレビューツール | 貼り付けて構文チェック【無料】</title>
+    <meta name="description" content="JSON-LD 構造化データを貼り付けるだけで、構文エラーを行番号付きで検出し、整形（pretty-print）。script タグは自動除去、@type を検出し、Article・FAQPage・Product などGoogleリッチリザルト向けの必須項目もチェックする無料の検証ツール。すべてブラウザ内で完結します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        textarea{width:100%;min-height:200px;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.82rem;line-height:1.6;outline:none;resize:vertical}
+        textarea:focus{border-color:var(--accent)}
+        .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+        .btn{padding:10px 22px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.secondary{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.secondary:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+        .summary{border-radius:var(--radius);padding:16px 18px;margin-bottom:16px;font-size:0.9rem;line-height:1.7}
+        .summary.ok{background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.3);color:#15803d}
+        .summary.err{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);color:#b91c1c}
+        .summary.warn{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.25);color:var(--text)}
+        .type-badge{display:inline-block;background:var(--accent-dim);border:1px solid rgba(139,92,246,0.3);color:var(--accent);border-radius:6px;padding:3px 10px;font-size:0.78rem;font-weight:600;margin:3px 4px 3px 0;font-family:'JetBrains Mono',monospace}
+        .checklist{list-style:none;margin:8px 0 0}
+        .checklist li{padding:6px 0 6px 24px;position:relative;font-size:0.85rem;color:var(--text2);line-height:1.6}
+        .checklist li:before{position:absolute;left:0;top:5px;font-size:0.9rem}
+        .checklist li.pass:before{content:'\2714';color:var(--green)}
+        .checklist li.fail:before{content:'\26A0';color:var(--red)}
+        .checklist li.info:before{content:'\2139';color:var(--accent)}
+        .out-pre{background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:14px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;line-height:1.6;white-space:pre;overflow-x:auto;color:var(--text);max-height:420px;overflow-y:auto}
+        .label-sm{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin:16px 0 8px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .seo-content code{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--accent)}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-174-jsonld-validator/">
+    <meta property="og:title" content="JSON-LD 構造化データ 検証・プレビューツール【無料】">
+    <meta property="og:description" content="JSON-LD を貼り付けるだけで構文チェック・整形・@type 検出・リッチリザルト必須項目チェック。すべてブラウザ内で完結。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-174-jsonld-validator/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="JSON-LD 構造化データ 検証ツール【無料】">
+    <meta name="twitter:description" content="JSON-LD を貼り付けて構文チェック・整形・@type 検出・必須項目チェック。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"JSON-LD 構造化データ 検証・プレビューツール","description":"JSON-LD 構造化データを貼り付けて構文エラーの検出・整形・@type 検出・リッチリザルト向け必須項目チェックを行う無料ツール","url":"https://www.devtools-japan.com/tool-174-jsonld-validator/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"JSON-LD 構造化データ 検証・プレビューツール","item":"https://www.devtools-japan.com/tool-174-jsonld-validator/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"このツールは何を検証しますか？","acceptedAnswer":{"@type":"Answer","text":"貼り付けた JSON-LD 構造化データの構文チェック（正しい JSON かどうか）を行い、エラーがあれば発生した行番号とともに表示します。あわせて整形（pretty-print）、@type の検出、Article・FAQPage・Product・Recipe・BreadcrumbList・Organization などGoogleリッチリザルト向けの主要タイプについて、必須項目・推奨項目が揃っているかの簡易チェックを行い、わかりやすい要約を表示します。"}},{"@type":"Question","name":"&lt;script type=&quot;application/ld+json&quot;&gt; タグごと貼り付けても大丈夫ですか？","acceptedAnswer":{"@type":"Answer","text":"はい。HTML の script 開始タグと終了タグで囲まれた状態のまま貼り付けても、ツールが自動でタグ部分を取り除いて中身の JSON だけを検証します。ページのソースからコピーしたコードをそのまま貼り付けられるので便利です。取り除かれたあとの整形済み JSON はコピーして再利用できます。"}},{"@type":"Question","name":"エラーの場所は分かりますか？","acceptedAnswer":{"@type":"Answer","text":"はい。JSON の構文エラーが見つかった場合、可能な範囲でエラーが発生したおおよその行番号・列を表示します。カンマの付け忘れ、末尾カンマ、閉じ括弧の不足、ダブルクォートの誤りなど、構造化データでよくあるミスの発見に役立ちます。エラー箇所を直して再度チェックすれば、修正できたかすぐに確認できます。"}},{"@type":"Question","name":"データは外部に送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。このツールの処理はすべてお使いのブラウザ内（クライアントサイド）で完結し、貼り付けた JSON-LD がサーバーや外部サービスへ送信されることはありません。外部ライブラリにも依存しないゼロ依存の設計のため、社内限定のページ用データや公開前の構造化データも安心して検証できます。"}},{"@type":"Question","name":"このツールで合格すればリッチリザルトに必ず表示されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。本ツールは構文チェックと主要タイプの必須項目に関する簡易的な確認を行うもので、Googleの公式なリッチリザルト保証ではありません。実際の表示可否はコンテンツの品質やGoogle側のガイドライン、審査状況によって決まります。公開前にはGoogleのリッチリザルトテストやSearch Consoleの拡張レポートもあわせてご確認ください。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>JSON-LD 構造化データ 検証・プレビュー</h1><p>貼り付けるだけで構文チェック・整形・@type 検出・必須項目チェック</p></header>
+
+    <div class="card"><h3>JSON-LD を貼り付け</h3>
+        <textarea id="input" placeholder="JSON-LD をそのまま貼り付けてください。&#10;script タグごと貼り付けても自動で取り除きます。&#10;&#10;例:&#10;{&#10;  &quot;@context&quot;: &quot;https://schema.org&quot;,&#10;  &quot;@type&quot;: &quot;Article&quot;,&#10;  &quot;headline&quot;: &quot;記事タイトル&quot;&#10;}"></textarea>
+        <div class="btn-row">
+            <button class="btn" onclick="validate()">検証・整形する</button>
+            <button class="btn secondary" onclick="loadSample()">サンプルを入力</button>
+            <button class="btn secondary" onclick="clearAll()">クリア</button>
+        </div>
+    </div>
+
+    <div id="summary" class="summary warn" style="display:none"></div>
+
+    <div class="card" id="typeCard" style="display:none"><h3>検出された @type</h3>
+        <div id="typeList"></div>
+        <div class="label-sm">必須・推奨項目チェック</div>
+        <ul class="checklist" id="ruleList"></ul>
+    </div>
+
+    <div class="card" id="outputCard" style="display:none"><h3>整形済み JSON（クリーン）</h3>
+        <div class="out-pre" id="output"></div>
+        <div class="btn-row">
+            <button class="btn" onclick="copyOut()" id="copyBtn">クリーンJSONをコピー</button>
+        </div>
+    </div>
+
+    <div class="note">このツールはブラウザ内だけで動作し、貼り付けたデータを外部に送信しません。必須項目チェックは主要なリッチリザルトタイプに対する簡易的な目安であり、Googleの公式な保証ではありません。公開前はリッチリザルトテストもあわせてご確認ください。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>JSON-LD 検証ツールの使い方</h2>
+        <p>ウェブページの構造化データ（schema.org）を JSON-LD 形式で記述したものを、貼り付けるだけでチェック・整形できる無料ツールです。ページのソースからコピーしたコードを <code>&lt;script type=&quot;application/ld+json&quot;&gt;</code> タグごと貼り付けても、自動でタグを取り除いて中身の JSON だけを検証します。インストールや会員登録は不要で、すべての処理はお使いの端末内（クライアントサイド）で完結します。</p>
+        <p>使い方はかんたんです。上部のテキストエリアに JSON-LD を貼り付けて「検証・整形する」を押すと、まず JSON として正しいかどうかの構文チェックが走り、問題があればおおよその行番号とともにエラーを表示します。構文が正しければ、読みやすく整形（インデント付き pretty-print）した「クリーンJSON」を表示し、含まれている <code>@type</code> を一覧します。整形済みの JSON はワンクリックでコピーして、そのままページに貼り戻せます。</p>
+        <h3>こんな用途に</h3>
+        <p>構造化データを実装したあとの動作確認、カンマ抜けや閉じ括弧不足といった JSON のケアレスミス探し、既存ページから抜き出した JSON-LD の整形・見やすい状態への変換、Article・FAQPage・Product などリッチリザルト向けタイプの必須項目が揃っているかの下チェックに。公開前の最終確認や、他ツールで生成した構造化データの検算にも使えます。</p>
+
+        <h2>チェックする主なリッチリザルトタイプ</h2>
+        <p>検出した <code>@type</code> ごとに、Googleのリッチリザルトでよく使われる主要タイプについて、必須・推奨項目が入っているかの簡易チェックを行います。あくまで代表的な項目を対象にした目安であり、すべての要件を網羅するものではありません。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>タイプ</th><th>主な必須・推奨項目</th></tr>
+            <tr><td>Article / NewsArticle / BlogPosting</td><td>headline（必須）、author・datePublished・image（推奨）</td></tr>
+            <tr><td>Product</td><td>name（必須）、image・offers（推奨）。review には reviewRating が必要</td></tr>
+            <tr><td>FAQPage</td><td>mainEntity（必須）。各 Question に name と acceptedAnswer.text</td></tr>
+            <tr><td>Recipe</td><td>name（必須）、image・recipeIngredient・recipeInstructions（推奨）</td></tr>
+            <tr><td>BreadcrumbList</td><td>itemListElement（必須）。各 ListItem に position・name・item</td></tr>
+            <tr><td>Organization</td><td>name（必須）、url・logo（推奨）</td></tr>
+        </table>
+        </div>
+        <h3>よくある JSON の書き間違い</h3>
+        <p>構造化データのエラーで多いのは、要素の区切りのカンマ抜けや、最後の要素のあとに余分なカンマを付けてしまう「末尾カンマ」、閉じ波括弧・角括弧の不足、キーや文字列を囲むダブルクォートの付け忘れ（全角クォートの混入）などです。このツールはこうした構文エラーを検出し、可能な範囲で発生位置を示すので、どこを直せばよいかの手がかりになります。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">このツールは何を検証しますか？</div><div class="a">貼り付けた JSON-LD 構造化データの構文チェック（正しい JSON かどうか）を行い、エラーがあれば発生した行番号とともに表示します。あわせて整形（pretty-print）、@type の検出、Article・FAQPage・Product・Recipe・BreadcrumbList・Organization などGoogleリッチリザルト向けの主要タイプについて、必須項目・推奨項目が揃っているかの簡易チェックを行い、わかりやすい要約を表示します。</div></div>
+        <div class="faq-item"><div class="q">&lt;script type=&quot;application/ld+json&quot;&gt; タグごと貼り付けても大丈夫ですか？</div><div class="a">はい。HTML の script 開始タグと終了タグで囲まれた状態のまま貼り付けても、ツールが自動でタグ部分を取り除いて中身の JSON だけを検証します。ページのソースからコピーしたコードをそのまま貼り付けられるので便利です。取り除かれたあとの整形済み JSON はコピーして再利用できます。</div></div>
+        <div class="faq-item"><div class="q">エラーの場所は分かりますか？</div><div class="a">はい。JSON の構文エラーが見つかった場合、可能な範囲でエラーが発生したおおよその行番号・列を表示します。カンマの付け忘れ、末尾カンマ、閉じ括弧の不足、ダブルクォートの誤りなど、構造化データでよくあるミスの発見に役立ちます。エラー箇所を直して再度チェックすれば、修正できたかすぐに確認できます。</div></div>
+        <div class="faq-item"><div class="q">データは外部に送信されますか？</div><div class="a">いいえ。このツールの処理はすべてお使いのブラウザ内（クライアントサイド）で完結し、貼り付けた JSON-LD がサーバーや外部サービスへ送信されることはありません。外部ライブラリにも依存しないゼロ依存の設計のため、社内限定のページ用データや公開前の構造化データも安心して検証できます。</div></div>
+        <div class="faq-item"><div class="q">このツールで合格すればリッチリザルトに必ず表示されますか？</div><div class="a">いいえ。本ツールは構文チェックと主要タイプの必須項目に関する簡易的な確認を行うもので、Googleの公式なリッチリザルト保証ではありません。実際の表示可否はコンテンツの品質やGoogle側のガイドライン、審査状況によって決まります。公開前にはGoogleのリッチリザルトテストやSearch Consoleの拡張レポートもあわせてご確認ください。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-123-jsonld-generator/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">JSON-LD 生成</a><a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢計算</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// script タグ用の文字列は必ず部品を連結して組み立てる（生の script リテラルを書かない）
+var SCRIPT_TAG_RE = new RegExp('<' + '\\/?script\\b[^>]*>', 'gi');
+
+function escapeHtml(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// 前後を囲む script タグ（あれば）を取り除く
+function stripScriptTag(text){
+    return text.replace(SCRIPT_TAG_RE, '').trim();
+}
+
+// エラー文字列から position / line / column を推定して行番号を出す
+function errorPosition(msg, text){
+    var m = msg.match(/line\s+(\d+)\s+column\s+(\d+)/i);
+    if (m){ return '（' + m[1] + '行目 ' + m[2] + '列目付近）'; }
+    m = msg.match(/position\s+(\d+)/i);
+    if (m){
+        var pos = parseInt(m[1], 10);
+        var line = 1, col = 1;
+        for (var i = 0; i < pos && i < text.length; i++){
+            if (text.charAt(i) === '\n'){ line++; col = 1; } else { col++; }
+        }
+        return '（' + line + '行目 ' + col + '列目付近）';
+    }
+    return '';
+}
+
+// @type を再帰収集
+function collectTypes(node, acc){
+    if (Array.isArray(node)){ node.forEach(function(n){ collectTypes(n, acc); }); return; }
+    if (node && typeof node === 'object'){
+        if (node['@type']){
+            var t = node['@type'];
+            if (Array.isArray(t)) t.forEach(function(x){ acc.push(String(x)); });
+            else acc.push(String(t));
+        }
+        Object.keys(node).forEach(function(k){
+            if (k === '@context') return;
+            collectTypes(node[k], acc);
+        });
+    }
+}
+
+// @type を持つノードを再帰収集
+function collectNodes(node, acc){
+    if (Array.isArray(node)){ node.forEach(function(n){ collectNodes(n, acc); }); return; }
+    if (node && typeof node === 'object'){
+        if (node['@type']) acc.push(node);
+        Object.keys(node).forEach(function(k){
+            if (k === '@context') return;
+            collectNodes(node[k], acc);
+        });
+    }
+}
+
+function typeOf(node){
+    var t = node['@type'];
+    if (Array.isArray(t)) return t.map(String);
+    return [String(t)];
+}
+function has(node, key){
+    return node[key] !== undefined && node[key] !== null && node[key] !== '';
+}
+
+var RULES = {
+    Article: {req:['headline'], rec:['author','datePublished','image']},
+    NewsArticle: {req:['headline'], rec:['author','datePublished','image']},
+    BlogPosting: {req:['headline'], rec:['author','datePublished','image']},
+    Product: {req:['name'], rec:['image','offers']},
+    Recipe: {req:['name'], rec:['image','recipeIngredient','recipeInstructions']},
+    BreadcrumbList: {req:['itemListElement'], rec:[]},
+    Organization: {req:['name'], rec:['url','logo']},
+    LocalBusiness: {req:['name'], rec:['address','telephone']},
+    Event: {req:['name','startDate'], rec:['location']},
+    FAQPage: {req:['mainEntity'], rec:[]},
+    Review: {req:['reviewRating'], rec:['author','itemReviewed']},
+    VideoObject: {req:['name','thumbnailUrl','uploadDate'], rec:['description']},
+    JobPosting: {req:['title','description','hiringOrganization'], rec:['datePosted']}
+};
+
+// ノード単位のルールチェック → メッセージ配列
+function checkNode(node, out){
+    var types = typeOf(node);
+    types.forEach(function(tp){
+        var rule = RULES[tp];
+        if (!rule) return;
+        rule.req.forEach(function(f){
+            if (has(node, f)) out.push({cls:'pass', msg:tp + ': 必須項目「' + f + '」あり'});
+            else out.push({cls:'fail', msg:tp + ': 必須項目「' + f + '」が不足しています'});
+        });
+        rule.rec.forEach(function(f){
+            if (has(node, f)) out.push({cls:'pass', msg:tp + ': 推奨項目「' + f + '」あり'});
+            else out.push({cls:'info', msg:tp + ': 推奨項目「' + f + '」があると望ましい'});
+        });
+        // 個別ルール
+        if (tp === 'FAQPage'){
+            var me = node.mainEntity;
+            var arr = Array.isArray(me) ? me : (me ? [me] : []);
+            if (arr.length === 0){ out.push({cls:'fail', msg:'FAQPage: mainEntity に Question が見つかりません'}); }
+            else {
+                var bad = 0;
+                arr.forEach(function(q){
+                    var ans = q && q.acceptedAnswer;
+                    if (!q || !has(q,'name') || !ans || !has(ans,'text')) bad++;
+                });
+                if (bad > 0) out.push({cls:'fail', msg:'FAQPage: ' + bad + '件の Question に name か acceptedAnswer.text が不足'});
+                else out.push({cls:'pass', msg:'FAQPage: ' + arr.length + '件のQ&Aが揃っています'});
+            }
+        }
+        if (tp === 'Product'){
+            var rv = node.review;
+            var rvs = Array.isArray(rv) ? rv : (rv ? [rv] : []);
+            rvs.forEach(function(r){
+                if (!r || !has(r,'reviewRating')) out.push({cls:'fail', msg:'Product: review に reviewRating がありません'});
+            });
+            if (has(node,'aggregateRating') && !has(node.aggregateRating,'ratingValue')){
+                out.push({cls:'fail', msg:'Product: aggregateRating に ratingValue がありません'});
+            }
+        }
+        if (tp === 'BreadcrumbList'){
+            var il = node.itemListElement;
+            var items = Array.isArray(il) ? il : (il ? [il] : []);
+            var miss = 0;
+            items.forEach(function(it){
+                if (!it || !has(it,'position') || !has(it,'name')) miss++;
+            });
+            if (items.length && miss > 0) out.push({cls:'fail', msg:'BreadcrumbList: ' + miss + '件の ListItem に position か name が不足'});
+            else if (items.length) out.push({cls:'pass', msg:'BreadcrumbList: ' + items.length + '件のパンくずが揃っています'});
+        }
+    });
+}
+
+function validate(){
+    var raw = document.getElementById('input').value;
+    var summary = document.getElementById('summary');
+    var typeCard = document.getElementById('typeCard');
+    var outputCard = document.getElementById('outputCard');
+    summary.style.display = 'block';
+
+    if (!raw.trim()){
+        summary.className = 'summary warn';
+        summary.textContent = 'JSON-LD を貼り付けてから「検証・整形する」を押してください。';
+        typeCard.style.display = 'none';
+        outputCard.style.display = 'none';
+        return;
+    }
+
+    var stripped = stripScriptTag(raw);
+    var hadTag = stripped.length !== raw.trim().length;
+
+    var data;
+    try {
+        data = JSON.parse(stripped);
+    } catch (e){
+        summary.className = 'summary err';
+        var pos = errorPosition(e.message, stripped);
+        summary.innerHTML = '❌ 構文エラー：正しい JSON として読み取れませんでした。' + escapeHtml(pos) +
+            '<br><span style="font-size:0.8rem;opacity:0.85">' + escapeHtml(e.message) + '</span>' +
+            '<br><span style="font-size:0.8rem;opacity:0.85">カンマ抜け・末尾カンマ・閉じ括弧不足・全角クォートなどをご確認ください。</span>';
+        typeCard.style.display = 'none';
+        outputCard.style.display = 'none';
+        return;
+    }
+
+    // 整形出力
+    var pretty = JSON.stringify(data, null, 2);
+    document.getElementById('output').textContent = pretty;
+    outputCard.style.display = 'block';
+    window._cleanJson = pretty;
+
+    // @type 検出
+    var types = [];
+    collectTypes(data, types);
+    var uniq = types.filter(function(v, i){ return types.indexOf(v) === i; });
+    var typeList = document.getElementById('typeList');
+    if (uniq.length){
+        typeList.innerHTML = uniq.map(function(t){ return '<span class="type-badge">' + escapeHtml(t) + '</span>'; }).join('');
+    } else {
+        typeList.innerHTML = '<span style="font-size:0.85rem;color:var(--text2)">@type が見つかりませんでした。schema.org のタイプ指定をご確認ください。</span>';
+    }
+
+    // ルールチェック
+    var nodes = [];
+    collectNodes(data, nodes);
+    var results = [];
+    nodes.forEach(function(n){ checkNode(n, results); });
+    var ruleList = document.getElementById('ruleList');
+    if (results.length){
+        ruleList.innerHTML = results.map(function(r){
+            return '<li class="' + r.cls + '">' + escapeHtml(r.msg) + '</li>';
+        }).join('');
+    } else {
+        ruleList.innerHTML = '<li class="info">主要リッチリザルトタイプに該当する項目チェックはありませんでした（構文は有効です）。</li>';
+    }
+    typeCard.style.display = 'block';
+
+    // 要約
+    var fails = results.filter(function(r){ return r.cls === 'fail'; }).length;
+    var tagNote = hadTag ? ' script タグを自動で取り除きました。' : '';
+    if (fails > 0){
+        summary.className = 'summary warn';
+        summary.innerHTML = '⚠ JSON の構文は有効です。' + escapeHtml(tagNote) +
+            ' 検出タイプ: ' + uniq.length + '件 / 要確認項目: ' + fails + '件。下のチェック結果をご確認ください。';
+    } else {
+        summary.className = 'summary ok';
+        summary.innerHTML = '✔ JSON の構文は有効です。' + escapeHtml(tagNote) +
+            ' 検出タイプ: ' + uniq.length + '件。主要な必須項目チェックは問題ありませんでした。';
+    }
+}
+
+function copyOut(){
+    var txt = window._cleanJson || document.getElementById('output').textContent;
+    if (!txt) return;
+    navigator.clipboard.writeText(txt).then(function(){
+        var b = document.getElementById('copyBtn');
+        var o = b.textContent;
+        b.textContent = 'コピーしました';
+        setTimeout(function(){ b.textContent = o; }, 1500);
+    });
+}
+
+function clearAll(){
+    document.getElementById('input').value = '';
+    document.getElementById('summary').style.display = 'none';
+    document.getElementById('typeCard').style.display = 'none';
+    document.getElementById('outputCard').style.display = 'none';
+}
+
+function loadSample(){
+    var sample = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "構造化データ入門",
+        "author": {"@type": "Person", "name": "山田太郎"},
+        "datePublished": "2026-01-15"
+    };
+    // script タグで囲んだ例を、部品連結でタグ文字列を作って提示
+    var open = '<' + 'script type="application/ld+json">';
+    var close = '<' + '/script>';
+    document.getElementById('input').value = open + '\n' + JSON.stringify(sample, null, 2) + '\n' + close;
+    validate();
+}
+</script>
+</body>
+</html>

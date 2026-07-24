@@ -156,6 +156,21 @@
 - 出産予定日計算ツール: https://www.devtools-japan.com/tool-160-due-date/
 - 電気代計算ツール: https://www.devtools-japan.com/tool-161-electricity-bill/
 - ガソリン代・燃費計算ツール: https://www.devtools-japan.com/tool-162-fuel-cost/
+- 睡眠時間・最適起床/就寝時刻 計算ツール: https://www.devtools-japan.com/tool-163-sleep-cycle/
+- ランニング／ウォーキング ペース計算ツール: https://www.devtools-japan.com/tool-164-running-pace/
+- 基礎代謝(BMR)・消費カロリー(TDEE)計算ツール: https://www.devtools-japan.com/tool-165-bmr/
+- 複利・積立シミュレーター: https://www.devtools-japan.com/tool-166-compound-interest/
+- 日付計算ツール（日数差・日付の加減算）: https://www.devtools-japan.com/tool-167-date-calc/
+- 行の重複削除・並べ替えツール: https://www.devtools-japan.com/tool-168-dedupe-lines/
+- 改行コード・空白 変換ツール: https://www.devtools-japan.com/tool-169-newline-converter/
+- 文字列 一括置換ツール: https://www.devtools-japan.com/tool-170-find-replace/
+- 画像モザイク・ぼかしツール: https://www.devtools-japan.com/tool-171-image-mosaic/
+- 画像から色を抽出（カラーパレット抽出）ツール: https://www.devtools-japan.com/tool-172-image-palette/
+- 画像に文字入れ・透かしツール: https://www.devtools-japan.com/tool-173-image-watermark/
+- JSON-LD 構造化データ 検証・プレビューツール: https://www.devtools-japan.com/tool-174-jsonld-validator/
+- Person構造化データ生成ツール: https://www.devtools-japan.com/tool-175-person-schema/
+- URLクエリ文字列 パーサ／ビルダー: https://www.devtools-japan.com/tool-176-url-query/
+- data URI 変換ツール（画像⇄Base64）: https://www.devtools-japan.com/tool-177-data-uri/
 
 ## API
 DevTools Japan APIとして30本以上の無料REST APIを提供。認証不要で即利用可能。

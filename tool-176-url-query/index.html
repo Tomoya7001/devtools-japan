@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URLクエリ文字列 パーサ／ビルダー | パラメータを分解・編集して再構築【無料】</title>
+    <meta name="description" content="URLを貼り付けるだけで、プロトコル・ホスト・ポート・パス・ハッシュとクエリパラメータをキー／値の表に分解する無料ツール。パラメータの追加・編集・削除でURLをその場で再構築（正しくエンコード）。逆に表を編集してURLを組み立てることもでき、重複キーや配列形式のパラメータ、ホスト無しのクエリ文字列だけのモードにも対応。すべてブラウザ内で完結します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.85rem;outline:none}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        textarea.url-in{width:100%;min-height:80px;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.85rem;outline:none;resize:vertical;line-height:1.6}
+        textarea.url-in:focus{border-color:var(--accent)}
+        .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center}
+        .btn{padding:10px 20px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.ghost{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.ghost:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+        .chk{display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--text2);cursor:pointer;user-select:none}
+        .chk input{width:auto}
+        .params-table{width:100%;border-collapse:collapse;font-size:0.85rem}
+        .params-table th{text-align:left;font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;padding:0 8px 8px 0;font-weight:600}
+        .params-table td{padding:4px 8px 4px 0;vertical-align:middle}
+        .params-table td.k{width:38%}
+        .params-table td.v{width:52%}
+        .params-table input{width:100%;padding:9px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.82rem;outline:none}
+        .params-table input:focus{border-color:var(--accent)}
+        .del-btn{width:32px;height:32px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--red);cursor:pointer;font-size:1rem;line-height:1;display:flex;align-items:center;justify-content:center}
+        .del-btn:hover{border-color:var(--red)}
+        .empty{color:var(--text3);font-size:0.8rem;padding:8px 0}
+        .output-box{background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:14px;font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--accent);word-break:break-all;line-height:1.7;min-height:48px}
+        .comp-hint{font-size:0.7rem;color:var(--text3);width:200px;text-align:right;margin-top:2px}
+        .err{color:var(--red);font-size:0.8rem;margin-top:8px}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}.comp-hint{width:100%;text-align:left}.params-table td.k,.params-table td.v{width:auto}}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-176-url-query/">
+    <meta property="og:title" content="URLクエリ文字列 パーサ／ビルダー | パラメータを分解・編集して再構築【無料】">
+    <meta property="og:description" content="URLを貼り付けてクエリパラメータをキー／値の表に分解。追加・編集・削除でURLをその場で再構築。重複キーや配列形式、クエリ文字列だけのモードにも対応。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-176-url-query/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="URLクエリ文字列 パーサ／ビルダー【無料】">
+    <meta name="twitter:description" content="URLを貼り付けてクエリパラメータを分解・編集し、正しいエンコードで再構築。ブラウザ内で完結。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"URLクエリ文字列 パーサ／ビルダー","description":"URLを貼り付けてプロトコル・ホスト・パスとクエリパラメータをキー／値の表に分解し、追加・編集・削除で正しくエンコードして再構築する無料ツール","url":"https://www.devtools-japan.com/tool-176-url-query/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"URLクエリ文字列 パーサ／ビルダー","item":"https://www.devtools-japan.com/tool-176-url-query/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"このツールは何ができますか？","acceptedAnswer":{"@type":"Answer","text":"URLを貼り付けると、プロトコル・ホスト・ポート・パス・ハッシュといった構成要素と、クエリ文字列（?以降）のパラメータをキーと値の表に分解します。値はURLデコードして読みやすく表示し、パラメータの追加・編集・削除を行うとURLがその場で正しいエンコードで再構築されます。逆に表や構成要素を編集してURLを組み立てることもできます。すべての処理はお使いのブラウザ内（クライアントサイド）で完結し、入力したURLがサーバーへ送信されることはありません。"}},{"@type":"Question","name":"同じキーが複数回あるURLはどう扱われますか？","acceptedAnswer":{"@type":"Answer","text":"tag=a&tag=b のように同じキーが繰り返されるクエリ文字列も、それぞれ別の行として表に展開します。ブラウザ標準のURLSearchParams APIを使っているため出現順が保持され、再構築時も同じキーを複数回出力します。key[]=1&key[]=2 のような配列形式のパラメータも、キー名に[]を含んだ通常のパラメータとしてそのまま扱えます。"}},{"@type":"Question","name":"日本語や記号を含む値もエンコードされますか？","acceptedAnswer":{"@type":"Answer","text":"はい。表示上はデコード済みの読みやすい値（日本語やスペースなど）を扱いますが、URLを再構築する際にはUTF-8のパーセントエンコーディングで自動的にエンコードします。スペースは+、日本語や記号は%XX形式に変換されるため、そのままコピーして安全に使えるURLになります。逆に貼り付けたURL内の%20や%E3%81%82といったエンコード済みの値は、表ではデコードして表示します。"}},{"@type":"Question","name":"ホストのないクエリ文字列だけでも使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。「クエリ文字列のみモード」を有効にすると、?a=1&b=2 のようなホストやパスを含まない文字列だけをキー／値の表に分解し、編集結果をクエリ文字列として組み立て直せます。先頭の?は付けても付けなくても解釈します。フォームの送信内容やログに残ったクエリ部分だけを整理・確認したいときに便利です。"}},{"@type":"Question","name":"入力したURLはどこかに保存・送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。このツールは100%クライアントサイドで動作し、URLの解析・再構築はすべてブラウザ内のJavaScript（URLおよびURLSearchParams API）で行います。入力内容がサーバーに送信・保存されることはなく、外部ライブラリにも依存していません。社外に出せない内部URLやトークンを含むURLの確認にも安心してお使いいただけます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>URLクエリ文字列 パーサ／ビルダー</h1><p>URLを分解してパラメータを編集・再構築</p></header>
+
+    <div class="card"><h3>URLを貼り付け</h3>
+        <textarea class="url-in" id="urlIn" placeholder="https://example.com/search?q=%E6%97%A5%E6%9C%AC&tag=a&tag=b&page=2#top" oninput="onInputChange()"></textarea>
+        <div class="toolbar">
+            <button class="btn" onclick="parseInput()">解析する</button>
+            <button class="btn ghost" onclick="loadSample()">サンプル</button>
+            <button class="btn ghost" onclick="clearAll()">クリア</button>
+            <label class="chk"><input type="checkbox" id="qsOnly" onchange="toggleMode()"> クエリ文字列のみモード（ホストなし）</label>
+        </div>
+        <div class="err" id="errMsg" style="display:none"></div>
+    </div>
+
+    <div class="card" id="compCard"><h3>URLの構成要素</h3>
+        <div class="row"><label>プロトコル</label><input id="cProtocol" placeholder="https" oninput="rebuild()"></div>
+        <div class="row"><label>ホスト</label><input id="cHost" placeholder="example.com" oninput="rebuild()"></div>
+        <div class="row"><label>ポート</label><input id="cPort" placeholder="（空 = 既定）" oninput="rebuild()"></div>
+        <div class="row"><label>パス</label><input id="cPath" placeholder="/search" oninput="rebuild()"></div>
+        <div class="row"><label>ハッシュ（#）</label><input id="cHash" placeholder="top" oninput="rebuild()"></div>
+    </div>
+
+    <div class="card"><h3>クエリパラメータ（キー／値）</h3>
+        <table class="params-table">
+            <thead><tr><th>キー</th><th>値（デコード済み）</th><th></th></tr></thead>
+            <tbody id="paramBody"></tbody>
+        </table>
+        <div class="empty" id="paramEmpty">パラメータはありません。「行を追加」から追加できます。</div>
+        <div class="toolbar">
+            <button class="btn ghost" onclick="addRow('','',true)">＋ 行を追加</button>
+        </div>
+    </div>
+
+    <div class="card"><h3>再構築されたURL</h3>
+        <div class="output-box" id="output">-</div>
+        <div class="toolbar">
+            <button class="btn" onclick="copyOut()" id="copyBtn">コピー</button>
+        </div>
+    </div>
+
+    <div class="note">解析・再構築はすべてブラウザ内（クライアントサイド）で行われ、入力したURLが外部へ送信されることはありません。値は表示時にURLデコードし、再構築時にUTF-8のパーセントエンコーディングで自動エンコードします。標準のURL / URLSearchParams APIを使用しています。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>URLクエリ文字列 パーサ／ビルダーの使い方</h2>
+        <p>URLを貼り付けるだけで、プロトコル・ホスト・ポート・パス・ハッシュといった構成要素と、クエリ文字列（?以降）のパラメータをキーと値の表に自動で分解する無料ツールです。表示される値はURLデコード済みなので、%E3%81%82 のようなパーセントエンコード文字列も日本語で読みやすく確認できます。パラメータの追加・編集・削除を行うと、下部の「再構築されたURL」がその場で正しいエンコードのまま組み立て直されます。逆に表や構成要素を書き換えてURLをゼロから作ることもできる、双方向のパーサ／ビルダーです。</p>
+        <p>使い方はシンプルです。上部の入力欄にURLを貼り付けて「解析する」を押すと、構成要素とパラメータ表が埋まります。あとは表のキー・値を編集したり、「行を追加」で新しいパラメータを足したり、ゴミ箱ボタンで不要なパラメータを消したりするだけ。編集するたびに再構築URLが更新されるので、「コピー」ボタンで完成したURLをそのまま貼り付けられます。インストールや会員登録は不要で、外部ライブラリにも依存していません。</p>
+        <h3>クエリ文字列のみモード</h3>
+        <p>「クエリ文字列のみモード（ホストなし）」にチェックを入れると、?a=1&amp;b=2 のようにホストやパスを含まないクエリ部分だけを解析・再構築できます。先頭の ? は付けても付けなくても解釈します。フォーム送信の中身や、ログに残ったクエリ部分だけを整理したいときに便利です。マーケティング用のUTMパラメータ専用ビルダーとは異なり、任意のパラメータ名で汎用的にURLを分解・組み立てできるのが特長です。</p>
+
+        <h2>URLとクエリ文字列の基礎</h2>
+        <p>URLは「プロトコル://ホスト:ポート/パス?クエリ#ハッシュ」という構造を持ちます。クエリ文字列は ? から始まり、key=value の組を &amp; でつないだものです。同じキーが複数回現れたり（例: tag=a&amp;tag=b）、配列を表すために key[]=1&amp;key[]=2 のような書き方をすることもあります。本ツールは標準のURLSearchParams APIを使うため、これらの重複キーや配列形式もそれぞれ別々の行として順序を保ったまま扱えます。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>構成要素</th><th>例</th><th>説明</th></tr>
+            <tr><td>プロトコル</td><td>https</td><td>通信方式。http / https など</td></tr>
+            <tr><td>ホスト</td><td>example.com</td><td>ドメイン名またはIPアドレス</td></tr>
+            <tr><td>ポート</td><td>8080</td><td>省略時はプロトコルの既定ポート</td></tr>
+            <tr><td>パス</td><td>/search</td><td>サーバー上のリソースの位置</td></tr>
+            <tr><td>クエリ</td><td>?q=abc&amp;page=2</td><td>キー=値の組。&amp;で連結</td></tr>
+            <tr><td>ハッシュ</td><td>#top</td><td>ページ内の位置。サーバーには送られない</td></tr>
+        </table>
+        </div>
+        <h3>エンコードとデコード</h3>
+        <p>URLにはスペースや日本語、記号など、そのままでは使えない文字があります。これらは %XX 形式（パーセントエンコーディング）で表現されます。本ツールは表に表示する際は読みやすいデコード済みの値にし、URLを再構築する際はUTF-8でエンコードし直すため、手作業でのエンコード／デコードは不要です。安全に共有できるURLがそのまま得られます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">このツールは何ができますか？</div><div class="a">URLを貼り付けると、プロトコル・ホスト・ポート・パス・ハッシュといった構成要素と、クエリ文字列（?以降）のパラメータをキーと値の表に分解します。値はURLデコードして読みやすく表示し、パラメータの追加・編集・削除を行うとURLがその場で正しいエンコードで再構築されます。逆に表や構成要素を編集してURLを組み立てることもできます。すべての処理はお使いのブラウザ内（クライアントサイド）で完結し、入力したURLがサーバーへ送信されることはありません。</div></div>
+        <div class="faq-item"><div class="q">同じキーが複数回あるURLはどう扱われますか？</div><div class="a">tag=a&amp;tag=b のように同じキーが繰り返されるクエリ文字列も、それぞれ別の行として表に展開します。ブラウザ標準のURLSearchParams APIを使っているため出現順が保持され、再構築時も同じキーを複数回出力します。key[]=1&amp;key[]=2 のような配列形式のパラメータも、キー名に[]を含んだ通常のパラメータとしてそのまま扱えます。</div></div>
+        <div class="faq-item"><div class="q">日本語や記号を含む値もエンコードされますか？</div><div class="a">はい。表示上はデコード済みの読みやすい値（日本語やスペースなど）を扱いますが、URLを再構築する際にはUTF-8のパーセントエンコーディングで自動的にエンコードします。スペースは+、日本語や記号は%XX形式に変換されるため、そのままコピーして安全に使えるURLになります。逆に貼り付けたURL内の%20や%E3%81%82といったエンコード済みの値は、表ではデコードして表示します。</div></div>
+        <div class="faq-item"><div class="q">ホストのないクエリ文字列だけでも使えますか？</div><div class="a">はい。「クエリ文字列のみモード」を有効にすると、?a=1&amp;b=2 のようなホストやパスを含まない文字列だけをキー／値の表に分解し、編集結果をクエリ文字列として組み立て直せます。先頭の?は付けても付けなくても解釈します。フォームの送信内容やログに残ったクエリ部分だけを整理・確認したいときに便利です。</div></div>
+        <div class="faq-item"><div class="q">入力したURLはどこかに保存・送信されますか？</div><div class="a">いいえ。このツールは100%クライアントサイドで動作し、URLの解析・再構築はすべてブラウザ内のJavaScript（URLおよびURLSearchParams API）で行います。入力内容がサーバーに送信・保存されることはなく、外部ライブラリにも依存していません。社外に出せない内部URLやトークンを含むURLの確認にも安心してお使いいただけます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-133-utm-builder/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">UTMパラメータ作成</a><a href="/tool-2-url-encode/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">URLエンコード／デコード</a><a href="/tool-5-json-format/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">JSON整形</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+var SAMPLE = 'https://example.com/search?q=%E6%97%A5%E6%9C%AC%E8%AA%9E&tag=a&tag=b&page=2#top';
+var qsMode = false;
+
+function el(id){ return document.getElementById(id); }
+
+function showErr(msg){
+    var e = el('errMsg');
+    if(msg){ e.textContent = msg; e.style.display = 'block'; }
+    else { e.textContent = ''; e.style.display = 'none'; }
+}
+
+// 表に1行追加（rebuildNow=trueなら追加後に再構築）
+function addRow(key, value, rebuildNow){
+    var tb = el('paramBody');
+    var tr = document.createElement('tr');
+
+    var tdK = document.createElement('td'); tdK.className = 'k';
+    var inK = document.createElement('input'); inK.value = key || ''; inK.placeholder = 'key';
+    inK.addEventListener('input', rebuild);
+    tdK.appendChild(inK);
+
+    var tdV = document.createElement('td'); tdV.className = 'v';
+    var inV = document.createElement('input'); inV.value = value || ''; inV.placeholder = 'value';
+    inV.addEventListener('input', rebuild);
+    tdV.appendChild(inV);
+
+    var tdD = document.createElement('td');
+    var btn = document.createElement('button'); btn.className = 'del-btn'; btn.type = 'button';
+    btn.textContent = '×'; btn.title = 'この行を削除';
+    btn.onclick = function(){ tr.parentNode.removeChild(tr); refreshEmpty(); rebuild(); };
+    tdD.appendChild(btn);
+
+    tr.appendChild(tdK); tr.appendChild(tdV); tr.appendChild(tdD);
+    tb.appendChild(tr);
+    refreshEmpty();
+    if(rebuildNow) rebuild();
+}
+
+function refreshEmpty(){
+    var has = el('paramBody').children.length > 0;
+    el('paramEmpty').style.display = has ? 'none' : 'block';
+}
+
+function clearRows(){ el('paramBody').innerHTML = ''; refreshEmpty(); }
+
+// 表からキー／値の配列を集める
+function collectParams(){
+    var out = [];
+    var rows = el('paramBody').children;
+    for(var i=0; i<rows.length; i++){
+        var inputs = rows[i].getElementsByTagName('input');
+        var k = inputs[0].value;
+        var v = inputs[1].value;
+        if(k === '' && v === '') continue;
+        out.push([k, v]);
+    }
+    return out;
+}
+
+// 入力を解析して構成要素・パラメータ表を埋める
+function parseInput(){
+    var raw = el('urlIn').value.trim();
+    showErr('');
+    if(!raw){ clearRows(); rebuild(); return; }
+
+    if(qsMode){
+        var qs = raw.charAt(0) === '?' ? raw.slice(1) : raw;
+        var sp;
+        try { sp = new URLSearchParams(qs); }
+        catch(e){ showErr('クエリ文字列を解析できませんでした。'); return; }
+        fillParams(sp);
+        rebuild();
+        return;
+    }
+
+    var u;
+    try { u = new URL(raw); }
+    catch(e){
+        showErr('URLとして解析できませんでした。プロトコル（https:// など）から始まる完全なURLを入力するか、「クエリ文字列のみモード」をお試しください。');
+        return;
+    }
+    el('cProtocol').value = u.protocol.replace(/:$/, '');
+    el('cHost').value = u.hostname;
+    el('cPort').value = u.port;
+    el('cPath').value = u.pathname;
+    el('cHash').value = u.hash.replace(/^#/, '');
+    fillParams(u.searchParams);
+    rebuild();
+}
+
+// URLSearchParams から表を再構築（重複キー・配列形式も順序保持）
+function fillParams(sp){
+    clearRows();
+    var entries = [];
+    sp.forEach(function(value, key){ entries.push([key, value]); });
+    for(var i=0; i<entries.length; i++){ addRow(entries[i][0], entries[i][1], false); }
+    refreshEmpty();
+}
+
+// 構成要素＋表からURLを組み立てる
+function rebuild(){
+    var params = collectParams();
+    var sp = new URLSearchParams();
+    for(var i=0; i<params.length; i++){ sp.append(params[i][0], params[i][1]); }
+    var query = sp.toString();
+
+    if(qsMode){
+        el('output').textContent = query ? ('?' + query) : '（パラメータなし）';
+        return;
+    }
+
+    var protocol = el('cProtocol').value.trim().replace(/:$/, '') || 'https';
+    var host = el('cHost').value.trim();
+    var port = el('cPort').value.trim();
+    var path = el('cPath').value;
+    var hash = el('cHash').value.trim().replace(/^#/, '');
+
+    if(!host){ el('output').textContent = 'ホストを入力してください。'; return; }
+    if(path && path.charAt(0) !== '/') path = '/' + path;
+
+    var url = protocol + '://' + host;
+    if(port) url += ':' + port;
+    url += path;
+    if(query) url += '?' + query;
+    if(hash) url += '#' + hash;
+    el('output').textContent = url;
+}
+
+function toggleMode(){
+    qsMode = el('qsOnly').checked;
+    el('compCard').style.display = qsMode ? 'none' : 'block';
+    el('urlIn').placeholder = qsMode
+        ? 'q=%E6%97%A5%E6%9C%AC&tag=a&tag=b&page=2'
+        : 'https://example.com/search?q=%E6%97%A5%E6%9C%AC&tag=a&tag=b&page=2#top';
+    parseInput();
+}
+
+function onInputChange(){
+    // 入力が空になったら表もクリア
+    if(el('urlIn').value.trim() === ''){ showErr(''); }
+}
+
+function loadSample(){
+    el('qsOnly').checked = false;
+    qsMode = false;
+    el('compCard').style.display = 'block';
+    el('urlIn').value = SAMPLE;
+    parseInput();
+}
+
+function clearAll(){
+    el('urlIn').value = '';
+    el('cProtocol').value = ''; el('cHost').value = ''; el('cPort').value = '';
+    el('cPath').value = ''; el('cHash').value = '';
+    clearRows();
+    showErr('');
+    rebuild();
+}
+
+function copyOut(){
+    var text = el('output').textContent;
+    if(!text || text === '-') return;
+    navigator.clipboard.writeText(text).then(function(){
+        var b = el('copyBtn'); var old = b.textContent;
+        b.textContent = 'コピーしました';
+        setTimeout(function(){ b.textContent = old; }, 1400);
+    });
+}
+
+// 初期表示
+loadSample();
+</script>
+</body>
+</html>

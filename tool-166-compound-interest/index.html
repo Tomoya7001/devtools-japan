@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>複利・積立シミュレーター | 毎月の積立と年利で将来の資産額を自動計算【無料】</title>
+    <meta name="description" content="初期投資額・毎月の積立額・年利・積立期間を入力するだけで、複利で運用した将来の評価額を自動計算する無料ツール。元本合計・運用収益・最終評価額に加え、年ごとの資産推移も表で表示。NISAやつみたて投資の目安に。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.2rem;font-weight:700;color:var(--accent)}
+        .result-item .value.principal{color:var(--text)}
+        .result-item .value.profit{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.4rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        table.data{width:100%;border-collapse:collapse;margin:0;font-size:0.8rem;font-family:'JetBrains Mono',monospace}
+        table.data th{background:var(--bg);border:1px solid var(--border);padding:8px 10px;text-align:right;font-weight:600;color:var(--text);white-space:nowrap}
+        table.data th:first-child{text-align:center}
+        table.data td{border:1px solid var(--border);padding:7px 10px;color:var(--text2);text-align:right;white-space:nowrap}
+        table.data td:first-child{text-align:center;color:var(--text)}
+        table.data td .bar{display:inline-block;height:8px;background:var(--accent);border-radius:2px;min-width:1px;vertical-align:middle}
+        table.data td.barcell{text-align:left;width:120px}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-166-compound-interest/">
+    <meta property="og:title" content="複利・積立シミュレーター | 将来の資産額を自動計算【無料】">
+    <meta property="og:description" content="初期投資・毎月の積立・年利・期間から複利運用後の評価額を自動計算。年ごとの資産推移も表示。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-166-compound-interest/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="複利・積立シミュレーター【無料】">
+    <meta name="twitter:description" content="毎月の積立と年利から将来の評価額を複利で自動計算。年ごとの推移も表示。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"複利・積立シミュレーター","description":"初期投資額・毎月の積立額・年利・積立期間から複利運用後の将来評価額を自動計算する無料ツール","url":"https://www.devtools-japan.com/tool-166-compound-interest/","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"複利・積立シミュレーター","item":"https://www.devtools-japan.com/tool-166-compound-interest/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"複利の計算式はどうなっていますか？","acceptedAnswer":{"@type":"Answer","text":"初期投資は将来価値の式 FV = P(1+r)^n で計算し、毎月の積立は積立の将来価値 PMT×(((1+r)^n − 1)/r) で計算して合算します。ここで P は初期投資額、PMT は1回あたりの積立額、r は1期あたりの利率、n は期数です。複利頻度が毎月の場合は r=年利/12、n=年数×12 として月ごとに利息が元本へ組み入れられ、複利効果が働きます。"}},{"@type":"Question","name":"元本合計と運用収益、最終評価額の違いは？","acceptedAnswer":{"@type":"Answer","text":"元本合計は自分で投じたお金の総額で、初期投資額に毎月の積立額×積立月数を足したものです。最終評価額は複利で運用した結果の資産総額です。運用収益は最終評価額から元本合計を差し引いた、利息・値上がりによって増えた分を指します。元本合計＋運用収益＝最終評価額の関係になります。"}},{"@type":"Question","name":"複利頻度を毎月と毎年で変えると結果は変わりますか？","acceptedAnswer":{"@type":"Answer","text":"はい。同じ年利でも複利頻度が高いほど利息が元本に組み入れられる回数が増え、最終評価額はわずかに大きくなります。毎月複利では利息が毎月再投資され、毎年複利では年1回まとめて再投資されます。積立額も、毎月複利では毎月末に、毎年複利では簡易的に年ごとにまとめて反映して計算しています。"}},{"@type":"Question","name":"この計算結果は将来の利益を保証しますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。本ツールは入力した年利で一定に運用できたと仮定した数学的な試算であり、将来の運用成果を保証するものではありません。実際の投資では価格変動リスクがあり、年ごとの利回りは上下します。元本割れの可能性もあります。あくまで積立計画を考えるうえでの目安としてご利用ください。"}},{"@type":"Question","name":"税金やNISAは考慮されていますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールは税金・手数料・信託報酬などのコストを一切考慮していません。通常、運用益には約20%の税金がかかりますが、NISA（つみたて投資枠など）を利用すると非課税になる場合があります。表示される評価額は非課税・コストゼロを前提とした概算です。実際の手取りは税・手数料の分だけ少なくなる点にご留意ください。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>複利・積立シミュレーター</h1><p>毎月の積立と年利で将来の資産額を複利計算</p></header>
+
+    <div class="card"><h3>条件を入力</h3>
+        <div class="row"><label>初期投資額</label><input type="number" id="principal" value="1000000" min="0" step="10000" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>毎月の積立額</label><input type="number" id="monthly" value="30000" min="0" step="1000" oninput="calc()"><span class="unit">円</span></div>
+        <div class="row"><label>年利（想定利回り）</label><input type="number" id="rate" value="5" min="0" step="0.1" oninput="calc()"><span class="unit">%</span></div>
+        <div class="row"><label>積立期間</label><input type="number" id="years" value="20" min="1" max="60" step="1" oninput="calc()"><span class="unit">年</span></div>
+        <div class="row"><label>複利頻度</label><select id="freq" onchange="calc()"><option value="12">毎月</option><option value="1">毎年</option></select></div>
+    </div>
+
+    <div class="big-result">
+        <div class="headline">最終評価額</div>
+        <div class="days"><span id="bigValue">-</span><span class="unit">円</span></div>
+        <div class="target" id="targetLabel">条件を入力してください</div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">元本合計</div><div class="value principal" id="totalPrincipal">-</div></div>
+        <div class="result-item"><div class="label">運用収益</div><div class="value profit" id="totalProfit">-</div></div>
+        <div class="result-item"><div class="label">最終評価額</div><div class="value" id="totalValue">-</div></div>
+    </div>
+
+    <div class="note">本シミュレーターは入力した年利で一定に運用できたと仮定した概算です。税金・手数料・信託報酬・価格変動リスクは考慮していません。NISA（つみたて投資枠など）を利用した非課税・コストゼロを前提とした目安であり、将来の運用成果を保証するものではありません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="card"><h3>年ごとの推移</h3>
+        <div class="table-wrap">
+            <table class="data" id="yearTable">
+                <thead><tr><th>年</th><th>元本合計</th><th>評価額</th><th>運用収益</th><th class="barcell">評価額の伸び</th></tr></thead>
+                <tbody id="yearBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="seo-content">
+        <h2>複利・積立シミュレーターの使い方</h2>
+        <p>初期投資額・毎月の積立額・年利（想定利回り）・積立期間・複利頻度を入力するだけで、複利で運用したときの将来の資産額を自動計算する無料ツールです。NISAのつみたて投資や投資信託、iDeCoなど、毎月コツコツ積み立てる資産形成のイメージをつかむのに役立ちます。インストールや会員登録は不要で、すべての計算はお使いの端末内（ブラウザ上）で完結します。入力した金額がサーバーに送信されることはありません。</p>
+        <p>結果は「最終評価額」を大きく表示し、その内訳として「元本合計（自分で投じたお金）」「運用収益（複利で増えた分）」を並べて確認できます。さらに年ごとの資産推移を表で示すので、複利効果によって後半になるほど資産の伸びが大きくなる様子を視覚的に把握できます。金額や年利、複利頻度を変えると即座に再計算されるので、いろいろな条件を試してみてください。</p>
+
+        <h2>複利計算のしくみと計算式</h2>
+        <p>本ツールは、初期投資と毎月の積立を分けて計算し、それらを合算しています。初期投資は将来価値の式で、毎月の積立は積立（年金現価に対する将来価値）の式で求めます。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>項目</th><th>計算式</th><th>説明</th></tr>
+            <tr><td>初期投資の将来価値</td><td>FV = P × (1 + r)<sup>n</sup></td><td>P：初期投資額、r：1期あたり利率、n：期数</td></tr>
+            <tr><td>積立の将来価値</td><td>FV = PMT × ((1 + r)<sup>n</sup> − 1) / r</td><td>PMT：1回あたりの積立額</td></tr>
+            <tr><td>最終評価額</td><td>初期投資FV ＋ 積立FV</td><td>両者を合算した資産総額</td></tr>
+        </table>
+        </div>
+        <p>複利頻度が「毎月」の場合、1期あたり利率 r は年利÷12、期数 n は積立年数×12 として計算します。利息が毎月元本に組み入れられ、次の月はその増えた元本に対して利息がつくため、時間が経つほど雪だるま式に資産が増えていきます。これが複利効果です。「毎年」を選んだ場合は、年1回の複利として簡易的に計算します。</p>
+
+        <h3>元本合計・運用収益・最終評価額の関係</h3>
+        <p>元本合計は、初期投資額に「毎月の積立額×積立月数」を足した、自分が実際に投じたお金の総額です。最終評価額は複利運用後の資産総額で、運用収益は「最終評価額 − 元本合計」で求まる、利息や値上がりによって増えた分を指します。積立期間の前半は元本の割合が大きく、後半になるほど運用収益の割合が大きくなっていくのが複利の特徴です。</p>
+
+        <h2>利用上の注意点</h2>
+        <p>本ツールは入力した年利で毎年一定に運用できたと仮定した数学的な試算です。実際の投資では価格が日々変動し、年ごとの利回りは想定通りにはなりません。相場の下落局面では元本割れとなる可能性もあります。また、税金・購入手数料・信託報酬などのコストは一切考慮していません。通常、運用益には約20%（復興特別所得税を含め20.315%）の税金がかかりますが、NISAの非課税枠を活用すると運用益が非課税になる場合があります。表示される金額はあくまで目安として、実際の投資判断はご自身の責任で、必要に応じて専門家にご相談のうえ行ってください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">複利の計算式はどうなっていますか？</div><div class="a">初期投資は将来価値の式 FV = P(1+r)^n で計算し、毎月の積立は積立の将来価値 PMT×(((1+r)^n − 1)/r) で計算して合算します。ここで P は初期投資額、PMT は1回あたりの積立額、r は1期あたりの利率、n は期数です。複利頻度が毎月の場合は r=年利/12、n=年数×12 として月ごとに利息が元本へ組み入れられ、複利効果が働きます。</div></div>
+        <div class="faq-item"><div class="q">元本合計と運用収益、最終評価額の違いは？</div><div class="a">元本合計は自分で投じたお金の総額で、初期投資額に毎月の積立額×積立月数を足したものです。最終評価額は複利で運用した結果の資産総額です。運用収益は最終評価額から元本合計を差し引いた、利息・値上がりによって増えた分を指します。元本合計＋運用収益＝最終評価額の関係になります。</div></div>
+        <div class="faq-item"><div class="q">複利頻度を毎月と毎年で変えると結果は変わりますか？</div><div class="a">はい。同じ年利でも複利頻度が高いほど利息が元本に組み入れられる回数が増え、最終評価額はわずかに大きくなります。毎月複利では利息が毎月再投資され、毎年複利では年1回まとめて再投資されます。積立額も、毎月複利では毎月末に、毎年複利では簡易的に年ごとにまとめて反映して計算しています。</div></div>
+        <div class="faq-item"><div class="q">この計算結果は将来の利益を保証しますか？</div><div class="a">いいえ。本ツールは入力した年利で一定に運用できたと仮定した数学的な試算であり、将来の運用成果を保証するものではありません。実際の投資では価格変動リスクがあり、年ごとの利回りは上下します。元本割れの可能性もあります。あくまで積立計画を考えるうえでの目安としてご利用ください。</div></div>
+        <div class="faq-item"><div class="q">税金やNISAは考慮されていますか？</div><div class="a">本ツールは税金・手数料・信託報酬などのコストを一切考慮していません。通常、運用益には約20%の税金がかかりますが、NISA（つみたて投資枠など）を利用すると非課税になる場合があります。表示される評価額は非課税・コストゼロを前提とした概算です。実際の手取りは税・手数料の分だけ少なくなる点にご留意ください。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// 円のフォーマット（整数に丸めてカンマ区切り）
+function yen(n){
+    return Math.round(n).toLocaleString('ja-JP');
+}
+
+function calc(){
+    const P = Math.max(0, parseFloat(document.getElementById('principal').value) || 0);
+    const PMT = Math.max(0, parseFloat(document.getElementById('monthly').value) || 0);
+    const annual = Math.max(0, parseFloat(document.getElementById('rate').value) || 0) / 100;
+    const years = Math.max(1, Math.floor(parseFloat(document.getElementById('years').value) || 1));
+    const freq = parseInt(document.getElementById('freq').value, 10); // 12=毎月, 1=毎年
+
+    // 1期あたり利率と、1期あたりの積立額
+    const r = annual / freq;
+    // 毎月積立なので、毎年複利の場合は年間積立（PMT*12）を1期の積立として扱う簡易計算
+    const pmtPerPeriod = (freq === 12) ? PMT : PMT * 12;
+
+    // FV(初期投資) = P*(1+r)^n , FV(積立) = PMT*(((1+r)^n - 1)/r)
+    function fvAt(periods){
+        const growth = Math.pow(1 + r, periods);
+        const fvPrincipal = P * growth;
+        let fvContrib;
+        if (r === 0){
+            fvContrib = pmtPerPeriod * periods;
+        } else {
+            fvContrib = pmtPerPeriod * ((growth - 1) / r);
+        }
+        return fvPrincipal + fvContrib;
+    }
+
+    const totalPeriods = years * freq;
+    const finalValue = fvAt(totalPeriods);
+    const totalPrincipal = P + PMT * 12 * years; // 実際に投じた元本（毎月PMTをyears年）
+    const profit = finalValue - totalPrincipal;
+
+    document.getElementById('bigValue').textContent = yen(finalValue);
+    document.getElementById('totalValue').textContent = yen(finalValue) + '円';
+    document.getElementById('totalPrincipal').textContent = yen(totalPrincipal) + '円';
+    document.getElementById('totalProfit').textContent = yen(profit) + '円';
+    document.getElementById('targetLabel').textContent =
+        '年利' + (annual * 100).toFixed(1) + '％・' + years + '年・' +
+        (freq === 12 ? '毎月複利' : '毎年複利');
+
+    // 年ごとのテーブル
+    const body = document.getElementById('yearBody');
+    body.innerHTML = '';
+    for (let y = 1; y <= years; y++){
+        const periods = y * freq;
+        const value = fvAt(periods);
+        const principal = P + PMT * 12 * y;
+        const yProfit = value - principal;
+        const barWidth = Math.max(1, Math.round((value / finalValue) * 100));
+
+        const tr = document.createElement('tr');
+        const cells = [
+            y + '年目',
+            yen(principal),
+            yen(value),
+            yen(yProfit)
+        ];
+        cells.forEach((txt, i) => {
+            const td = document.createElement('td');
+            td.textContent = txt;
+            tr.appendChild(td);
+        });
+        const barTd = document.createElement('td');
+        barTd.className = 'barcell';
+        const bar = document.createElement('span');
+        bar.className = 'bar';
+        bar.style.width = barWidth + '%';
+        barTd.appendChild(bar);
+        tr.appendChild(barTd);
+        body.appendChild(tr);
+    }
+}
+
+calc();
+</script>
+</body>
+</html>

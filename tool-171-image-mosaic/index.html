@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画像モザイク・ぼかしツール | 写真の一部をモザイク/ぼかし加工【無料・アップロード不要】</title>
+    <meta name="description" content="写真の顔・ナンバープレート・個人情報などを、ドラッグで範囲選択してモザイク（ピクセル化）またはぼかし加工できる無料ツール。すべてブラウザ内で処理し画像は一切アップロードされません。PNG/JPEGで保存可能。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input[type=range]{width:200px}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px;font-family:'JetBrains Mono',monospace}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input[type=range]{width:100%}}
+        .dropzone{border:2px dashed var(--border);border-radius:var(--radius);padding:36px 20px;text-align:center;color:var(--text3);font-size:0.85rem;cursor:pointer;transition:border-color 0.2s,background 0.2s}
+        .dropzone.over{border-color:var(--accent);background:var(--accent-dim)}
+        .dropzone strong{color:var(--accent);font-weight:600}
+        .canvas-wrap{text-align:center;margin-top:16px;overflow:auto}
+        canvas{max-width:100%;height:auto;border:1px solid var(--border);border-radius:8px;touch-action:none;cursor:crosshair;background:#fff}
+        .mode-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+        .mode-row label{display:flex;align-items:center;gap:6px;padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;font-size:0.85rem;color:var(--text2);cursor:pointer}
+        .mode-row input{accent-color:var(--accent)}
+        .btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+        .btn{padding:10px 20px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.sec{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.sec:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+        .btn:disabled{opacity:0.4;cursor:not-allowed}
+        .fmt-row{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:0.8rem;color:var(--text2)}
+        .fmt-row select{padding:8px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem}
+        .status{font-size:0.75rem;color:var(--text3);margin-top:10px;min-height:1em}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-171-image-mosaic/">
+    <meta property="og:title" content="画像モザイク・ぼかしツール | 写真の一部をモザイク/ぼかし加工【無料】">
+    <meta property="og:description" content="ドラッグで範囲を選び、顔やナンバープレートをモザイク・ぼかし加工。すべてブラウザ内で処理、アップロード不要。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-171-image-mosaic/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="画像モザイク・ぼかしツール【無料・アップロード不要】">
+    <meta name="twitter:description" content="写真の一部をドラッグ選択してモザイク・ぼかし加工。ブラウザ内処理で画像は送信しません。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"画像モザイク・ぼかしツール","description":"写真の一部をドラッグで選択し、モザイク（ピクセル化）またはぼかし加工できる無料ツール。すべてブラウザ内で処理し画像はアップロードされません。","url":"https://www.devtools-japan.com/tool-171-image-mosaic/","applicationCategory":"MultimediaApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"画像モザイク・ぼかしツール","item":"https://www.devtools-japan.com/tool-171-image-mosaic/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"画像はサーバーにアップロードされますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。このツールはすべての処理をお使いのブラウザ内（JavaScriptとCanvas）で完結させており、選択した画像がサーバーやインターネット上に送信されることは一切ありません。読み込んだ画像も加工後の画像も端末の外に出ないため、顔写真や書類などプライバシーに関わる画像も安心して加工できます。"}},{"@type":"Question","name":"モザイクとぼかしの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"モザイクは選択範囲を四角いブロック単位で平均色に塗りつぶし、ピクセル化して元の情報を判読できなくする加工です。ぼかしは周囲の色を混ぜ合わせて輪郭をなめらかに消す加工です。個人情報を確実に隠したい場合はブロックサイズを大きめにしたモザイク、自然な仕上がりにしたい場合はぼかしが向いています。"}},{"@type":"Question","name":"複数の場所を一度に加工できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。画像上をドラッグすると加工したい範囲を四角で選択でき、複数の範囲をまとめて選択してから「適用」を押すと、選択したすべての範囲に同時にモザイクまたはぼかしを適用します。顔とナンバープレートなど、離れた複数箇所を効率よく隠せます。"}},{"@type":"Question","name":"加工をやり直したり元に戻せますか？","acceptedAnswer":{"@type":"Answer","text":"はい。「やり直し（元に戻す）」ボタンで直前の加工を一段階ずつ取り消せます。「リセット」を押せば読み込んだ直後の元画像に戻ります。強さが足りなければ同じ範囲に繰り返し適用でき、加工しすぎた場合もすぐ戻せるので、納得のいくまで調整できます。"}},{"@type":"Question","name":"加工した画像はどの形式で保存できますか？","acceptedAnswer":{"@type":"Answer","text":"PNGとJPEGのいずれかを選んでダウンロードできます。透過や画質の劣化を避けたい場合はPNG、ファイルサイズを小さくしたい写真はJPEGがおすすめです。ダウンロード時は選択範囲の枠線が入らない加工後の画像のみが保存されます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>画像モザイク・ぼかしツール</h1><p>写真の一部をドラッグで選んでモザイク／ぼかし加工（アップロード不要）</p></header>
+
+    <div class="card"><h3>画像を読み込む</h3>
+        <div class="dropzone" id="dropzone">
+            <p><strong>クリックして画像を選択</strong>／ここにドラッグ＆ドロップ／貼り付け（Ctrl+V）</p>
+            <p style="margin-top:6px;font-size:0.75rem">JPEG・PNG・WebPなどに対応。画像は端末内だけで処理されます。</p>
+        </div>
+        <input type="file" id="fileInput" accept="image/*" style="display:none">
+    </div>
+
+    <div class="card" id="editCard" style="display:none">
+        <h3>加工する</h3>
+        <div class="mode-row">
+            <label><input type="radio" name="mode" value="mosaic" checked> モザイク（ピクセル化）</label>
+            <label><input type="radio" name="mode" value="blur"> ぼかし</label>
+        </div>
+        <div class="row" id="mosaicRow"><label>モザイクのブロックサイズ</label><input type="range" id="blockSize" min="4" max="48" value="16" oninput="document.getElementById('blockVal').textContent=this.value"><span class="unit" id="blockVal">16</span></div>
+        <div class="row" id="blurRow" style="display:none"><label>ぼかしの強さ（半径）</label><input type="range" id="blurRadius" min="1" max="24" value="8" oninput="document.getElementById('blurVal').textContent=this.value"><span class="unit" id="blurVal">8</span></div>
+
+        <div class="canvas-wrap"><canvas id="cv"></canvas></div>
+        <div class="status" id="status">画像上をドラッグして加工する範囲を選択してください。</div>
+
+        <div class="btn-row">
+            <button class="btn" id="applyBtn" onclick="applyEffect()">適用</button>
+            <button class="btn sec" id="undoBtn" onclick="undo()">やり直し（元に戻す）</button>
+            <button class="btn sec" id="clearSelBtn" onclick="clearSelection()">選択解除</button>
+            <button class="btn sec" id="resetBtn" onclick="resetImage()">リセット</button>
+        </div>
+        <div class="fmt-row">
+            <span>保存形式</span>
+            <select id="fmt"><option value="png">PNG</option><option value="jpeg">JPEG</option></select>
+            <button class="btn" id="dlBtn" onclick="download()">ダウンロード</button>
+        </div>
+    </div>
+
+    <div class="note">画像は一切アップロードされません。ファイルの読み込み・モザイク／ぼかし処理・保存まで、すべてお使いのブラウザ内（JavaScript / Canvas）で完結します。顔・ナンバープレート・住所・氏名などの機微な情報を安全に隠せます。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>画像モザイク・ぼかしツールの使い方</h2>
+        <p>写真の一部を「モザイク（ピクセル化）」または「ぼかし」で加工し、顔・ナンバープレート・住所・氏名・メールアドレスといった個人情報を隠せる無料ツールです。SNSやブログに写真を投稿する前のプライバシー保護、フリマ出品写真の個人情報消し、資料スクリーンショットの機密部分マスクなどに使えます。インストールや会員登録は不要で、画像は一切サーバーに送信されません。</p>
+        <p>使い方はかんたんです。まず「クリックして画像を選択」またはドラッグ＆ドロップ、あるいはクリップボードから貼り付け（Ctrl+V）で画像を読み込みます。次に加工モード（モザイク／ぼかし）と強さを選び、画像の上をドラッグして隠したい範囲を四角で囲みます。複数の範囲を選んでから「適用」を押すと、選択したすべての箇所に一度に加工がかかります。仕上がりを確認しながら「やり直し」で戻したり、同じ範囲に重ねて適用して強めたりできます。</p>
+        <h3>モザイクとぼかしの使い分け</h3>
+        <p>モザイクは選択範囲を四角いブロックに区切り、それぞれを平均色で塗りつぶしてピクセル化します。ブロックサイズを大きくするほど粗くなり、元の情報を判読しにくくなります。ぼかしは周囲のピクセルを混ぜ合わせて輪郭をなめらかに消す加工で、半径を大きくするほど強くぼけます。文字やナンバーを確実に読めなくしたい場合は大きめのモザイク、背景や人物を自然に目立たなくしたい場合はぼかしが向いています。</p>
+
+        <h2>加工の種類とおすすめ設定</h2>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>加工</th><th>仕組み</th><th>おすすめ用途</th></tr>
+            <tr><td>モザイク（ピクセル化）</td><td>範囲をブロック単位で平均色に塗りつぶす</td><td>顔・ナンバー・文字など確実に隠したい情報</td></tr>
+            <tr><td>ぼかし（ブラー）</td><td>周囲の色を混ぜて輪郭をなめらかに消す</td><td>背景の人物・看板など自然に目立たなくしたい部分</td></tr>
+        </table>
+        </div>
+        <h3>個人情報を確実に隠すコツ</h3>
+        <p>プライバシー保護が目的の場合は、モザイクのブロックサイズやぼかしの半径を十分に大きくすることが大切です。弱い加工は拡大すると元の情報が推測できてしまうことがあります。特に文字・数字・顔などは、判読できないレベルまでブロックを大きくし、必要なら同じ範囲に複数回「適用」して強めてください。加工後は保存前にプレビューを拡大して、情報が読み取れないか必ず確認しましょう。</p>
+
+        <h2>安全性・プライバシーについて</h2>
+        <p>本ツールは完全にクライアントサイド（ブラウザ内）で動作します。読み込んだ画像はメモリ上のCanvasで処理され、外部サーバーへのアップロードや保存は行いません。そのため、機密書類や顔写真など外部に出したくない画像も安心して加工できます。オフライン環境でもページを開いていれば動作します。加工した画像はPNGまたはJPEG形式でお使いの端末にダウンロードして保存できます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">画像はサーバーにアップロードされますか？</div><div class="a">いいえ。このツールはすべての処理をお使いのブラウザ内（JavaScriptとCanvas）で完結させており、選択した画像がサーバーやインターネット上に送信されることは一切ありません。読み込んだ画像も加工後の画像も端末の外に出ないため、顔写真や書類などプライバシーに関わる画像も安心して加工できます。</div></div>
+        <div class="faq-item"><div class="q">モザイクとぼかしの違いは何ですか？</div><div class="a">モザイクは選択範囲を四角いブロック単位で平均色に塗りつぶし、ピクセル化して元の情報を判読できなくする加工です。ぼかしは周囲の色を混ぜ合わせて輪郭をなめらかに消す加工です。個人情報を確実に隠したい場合はブロックサイズを大きめにしたモザイク、自然な仕上がりにしたい場合はぼかしが向いています。</div></div>
+        <div class="faq-item"><div class="q">複数の場所を一度に加工できますか？</div><div class="a">はい。画像上をドラッグすると加工したい範囲を四角で選択でき、複数の範囲をまとめて選択してから「適用」を押すと、選択したすべての範囲に同時にモザイクまたはぼかしを適用します。顔とナンバープレートなど、離れた複数箇所を効率よく隠せます。</div></div>
+        <div class="faq-item"><div class="q">加工をやり直したり元に戻せますか？</div><div class="a">はい。「やり直し（元に戻す）」ボタンで直前の加工を一段階ずつ取り消せます。「リセット」を押せば読み込んだ直後の元画像に戻ります。強さが足りなければ同じ範囲に繰り返し適用でき、加工しすぎた場合もすぐ戻せるので、納得のいくまで調整できます。</div></div>
+        <div class="faq-item"><div class="q">加工した画像はどの形式で保存できますか？</div><div class="a">PNGとJPEGのいずれかを選んでダウンロードできます。透過や画質の劣化を避けたい場合はPNG、ファイルサイズを小さくしたい写真はJPEGがおすすめです。ダウンロード時は選択範囲の枠線が入らない加工後の画像のみが保存されます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-170-image-resize/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">画像リサイズ</a><a href="/tool-172-image-crop/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">画像トリミング</a><a href="/tool-173-image-convert/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">画像形式変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+(function(){
+    var fileInput = document.getElementById('fileInput');
+    var dropzone = document.getElementById('dropzone');
+    var editCard = document.getElementById('editCard');
+    var canvas = document.getElementById('cv');
+    var ctx = canvas.getContext('2d', {willReadFrequently:true});
+    var statusEl = document.getElementById('status');
+
+    var originalData = null; // 読み込み直後の元画像 ImageData
+    var baseData = null;     // 現在の確定画像 ImageData
+    var history = [];        // undo 用 ImageData スタック
+    var rects = [];          // 選択中の矩形（キャンバス画素座標）
+    var cur = null;          // ドラッグ中の矩形
+    var dragging = false;
+    var start = null;
+
+    function setStatus(msg){ statusEl.textContent = msg; }
+
+    function cloneData(d){
+        return new ImageData(new Uint8ClampedArray(d.data), d.width, d.height);
+    }
+
+    function loadImage(src){
+        var img = new Image();
+        img.onload = function(){
+            canvas.width = img.naturalWidth;
+            canvas.height = img.naturalHeight;
+            ctx.drawImage(img, 0, 0);
+            originalData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            baseData = cloneData(originalData);
+            history = [];
+            rects = [];
+            cur = null;
+            editCard.style.display = 'block';
+            redraw();
+            setStatus('画像上をドラッグして加工する範囲を選択してください。');
+        };
+        img.onerror = function(){ setStatus('画像を読み込めませんでした。別のファイルをお試しください。'); };
+        img.src = src;
+    }
+
+    function handleFile(file){
+        if(!file || file.type.indexOf('image/') !== 0){ setStatus('画像ファイルを選択してください。'); return; }
+        var reader = new FileReader();
+        reader.onload = function(e){ loadImage(e.target.result); };
+        reader.readAsDataURL(file);
+    }
+
+    // ---- 入力: ファイル選択 / ドラッグ&ドロップ / 貼り付け ----
+    dropzone.addEventListener('click', function(){ fileInput.click(); });
+    fileInput.addEventListener('change', function(){ if(fileInput.files[0]) handleFile(fileInput.files[0]); });
+
+    dropzone.addEventListener('dragover', function(e){ e.preventDefault(); dropzone.classList.add('over'); });
+    dropzone.addEventListener('dragleave', function(){ dropzone.classList.remove('over'); });
+    dropzone.addEventListener('drop', function(e){
+        e.preventDefault();
+        dropzone.classList.remove('over');
+        if(e.dataTransfer.files && e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+    });
+    document.addEventListener('paste', function(e){
+        var items = (e.clipboardData || {}).items || [];
+        for(var i=0;i<items.length;i++){
+            if(items[i].type.indexOf('image/') === 0){ handleFile(items[i].getAsFile()); break; }
+        }
+    });
+
+    // ---- モード切り替え ----
+    var modeRadios = document.getElementsByName('mode');
+    for(var i=0;i<modeRadios.length;i++){
+        modeRadios[i].addEventListener('change', function(){
+            var m = getMode();
+            document.getElementById('mosaicRow').style.display = (m === 'mosaic') ? 'flex' : 'none';
+            document.getElementById('blurRow').style.display = (m === 'blur') ? 'flex' : 'none';
+        });
+    }
+    function getMode(){
+        for(var i=0;i<modeRadios.length;i++){ if(modeRadios[i].checked) return modeRadios[i].value; }
+        return 'mosaic';
+    }
+
+    // ---- 選択矩形の描画 ----
+    function redraw(){
+        if(!baseData) return;
+        ctx.putImageData(baseData, 0, 0);
+        ctx.save();
+        ctx.lineWidth = Math.max(2, canvas.width/400);
+        ctx.setLineDash([8, 5]);
+        for(var i=0;i<rects.length;i++){
+            var r = rects[i];
+            ctx.strokeStyle = '#8b5cf6';
+            ctx.strokeRect(r.x + 0.5, r.y + 0.5, r.w, r.h);
+        }
+        if(cur){
+            ctx.strokeStyle = '#ef4444';
+            ctx.strokeRect(cur.x + 0.5, cur.y + 0.5, cur.w, cur.h);
+        }
+        ctx.restore();
+    }
+
+    function eventPos(e){
+        var rect = canvas.getBoundingClientRect();
+        var cx = (e.touches ? e.touches[0].clientX : e.clientX);
+        var cy = (e.touches ? e.touches[0].clientY : e.clientY);
+        var sx = canvas.width / rect.width;
+        var sy = canvas.height / rect.height;
+        return {
+            x: Math.max(0, Math.min(canvas.width, (cx - rect.left) * sx)),
+            y: Math.max(0, Math.min(canvas.height, (cy - rect.top) * sy))
+        };
+    }
+
+    function normRect(a, b){
+        var x = Math.round(Math.min(a.x, b.x));
+        var y = Math.round(Math.min(a.y, b.y));
+        var w = Math.round(Math.abs(a.x - b.x));
+        var h = Math.round(Math.abs(a.y - b.y));
+        if(x + w > canvas.width) w = canvas.width - x;
+        if(y + h > canvas.height) h = canvas.height - y;
+        return {x:x, y:y, w:w, h:h};
+    }
+
+    function onDown(e){
+        if(!baseData) return;
+        e.preventDefault();
+        dragging = true;
+        start = eventPos(e);
+        cur = {x:start.x, y:start.y, w:0, h:0};
+    }
+    function onMove(e){
+        if(!dragging) return;
+        e.preventDefault();
+        cur = normRect(start, eventPos(e));
+        redraw();
+    }
+    function onUp(e){
+        if(!dragging) return;
+        dragging = false;
+        if(cur && cur.w > 3 && cur.h > 3){
+            rects.push(cur);
+            setStatus('選択範囲: ' + rects.length + ' 個。「適用」で加工、または続けて範囲を追加できます。');
+        }
+        cur = null;
+        redraw();
+    }
+
+    canvas.addEventListener('mousedown', onDown);
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+    canvas.addEventListener('touchstart', onDown, {passive:false});
+    canvas.addEventListener('touchmove', onMove, {passive:false});
+    canvas.addEventListener('touchend', onUp);
+
+    // ---- モザイク（ピクセル化） ----
+    function pixelate(x, y, w, h, block){
+        if(w <= 0 || h <= 0) return;
+        var imgd = ctx.getImageData(x, y, w, h);
+        var d = imgd.data;
+        for(var by=0; by<h; by+=block){
+            for(var bx=0; bx<w; bx+=block){
+                var bw = Math.min(block, w - bx);
+                var bh = Math.min(block, h - by);
+                var r=0,g=0,b=0,a=0,cnt=0;
+                for(var yy=0; yy<bh; yy++){
+                    for(var xx=0; xx<bw; xx++){
+                        var idx = ((by+yy)*w + (bx+xx)) * 4;
+                        r += d[idx]; g += d[idx+1]; b += d[idx+2]; a += d[idx+3]; cnt++;
+                    }
+                }
+                r = r/cnt; g = g/cnt; b = b/cnt; a = a/cnt;
+                for(var yy2=0; yy2<bh; yy2++){
+                    for(var xx2=0; xx2<bw; xx2++){
+                        var idx2 = ((by+yy2)*w + (bx+xx2)) * 4;
+                        d[idx2] = r; d[idx2+1] = g; d[idx2+2] = b; d[idx2+3] = a;
+                    }
+                }
+            }
+        }
+        ctx.putImageData(imgd, x, y);
+    }
+
+    // ---- ぼかし（分離ボックスブラー） ----
+    function boxBlur(x, y, w, h, radius){
+        if(w <= 0 || h <= 0) return;
+        var imgd = ctx.getImageData(x, y, w, h);
+        var src = imgd.data;
+        var tmp = new Uint8ClampedArray(src.length);
+        var row, col, k, cc, rr, idx, o, cnt, r, g, b, a;
+        // 横方向
+        for(row=0; row<h; row++){
+            for(col=0; col<w; col++){
+                r=0;g=0;b=0;a=0;cnt=0;
+                for(k=-radius; k<=radius; k++){
+                    cc = col + k; if(cc<0) cc=0; if(cc>=w) cc=w-1;
+                    idx = (row*w + cc) * 4;
+                    r+=src[idx]; g+=src[idx+1]; b+=src[idx+2]; a+=src[idx+3]; cnt++;
+                }
+                o = (row*w + col) * 4;
+                tmp[o]=r/cnt; tmp[o+1]=g/cnt; tmp[o+2]=b/cnt; tmp[o+3]=a/cnt;
+            }
+        }
+        // 縦方向
+        for(col=0; col<w; col++){
+            for(row=0; row<h; row++){
+                r=0;g=0;b=0;a=0;cnt=0;
+                for(k=-radius; k<=radius; k++){
+                    rr = row + k; if(rr<0) rr=0; if(rr>=h) rr=h-1;
+                    idx = (rr*w + col) * 4;
+                    r+=tmp[idx]; g+=tmp[idx+1]; b+=tmp[idx+2]; a+=tmp[idx+3]; cnt++;
+                }
+                o = (row*w + col) * 4;
+                src[o]=r/cnt; src[o+1]=g/cnt; src[o+2]=b/cnt; src[o+3]=a/cnt;
+            }
+        }
+        ctx.putImageData(imgd, x, y);
+    }
+
+    // ---- 適用 ----
+    window.applyEffect = function(){
+        if(!baseData){ setStatus('先に画像を読み込んでください。'); return; }
+        if(rects.length === 0){ setStatus('先に画像をドラッグして加工範囲を選択してください。'); return; }
+        history.push(cloneData(baseData));
+        ctx.putImageData(baseData, 0, 0); // 枠線なしの状態に戻す
+        var mode = getMode();
+        var block = parseInt(document.getElementById('blockSize').value, 10);
+        var radius = parseInt(document.getElementById('blurRadius').value, 10);
+        for(var i=0;i<rects.length;i++){
+            var r = rects[i];
+            if(r.w <= 0 || r.h <= 0) continue;
+            if(mode === 'mosaic') pixelate(r.x, r.y, r.w, r.h, block);
+            else boxBlur(r.x, r.y, r.w, r.h, radius);
+        }
+        baseData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        rects = [];
+        redraw();
+        setStatus('加工を適用しました。続けて範囲を選択して重ねがけできます。');
+    };
+
+    window.undo = function(){
+        if(history.length === 0){ setStatus('これ以上元に戻せる操作はありません。'); return; }
+        baseData = history.pop();
+        rects = [];
+        cur = null;
+        redraw();
+        setStatus('直前の加工を取り消しました。');
+    };
+
+    window.clearSelection = function(){
+        rects = [];
+        cur = null;
+        redraw();
+        setStatus('選択範囲を解除しました。');
+    };
+
+    window.resetImage = function(){
+        if(!originalData) return;
+        baseData = cloneData(originalData);
+        history = [];
+        rects = [];
+        cur = null;
+        redraw();
+        setStatus('元の画像に戻しました。');
+    };
+
+    window.download = function(){
+        if(!baseData){ setStatus('先に画像を読み込んでください。'); return; }
+        ctx.putImageData(baseData, 0, 0); // 枠線を除いた加工後画像のみ保存
+        var fmt = document.getElementById('fmt').value;
+        var mime = (fmt === 'jpeg') ? 'image/jpeg' : 'image/png';
+        var quality = (fmt === 'jpeg') ? 0.92 : undefined;
+        var url = canvas.toDataURL(mime, quality);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'mosaic.' + (fmt === 'jpeg' ? 'jpg' : 'png');
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        redraw();
+        setStatus('加工後の画像をダウンロードしました。');
+    };
+})();
+</script>
+</body>
+</html>
