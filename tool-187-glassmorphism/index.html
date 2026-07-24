@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphism CSS ジェネレーター | すりガラス風＆border-radiusブロブ生成【無料】</title>
+    <meta name="description" content="スライダーを動かすだけで、backdrop-filterを使ったすりガラス（グラスモーフィズム）風カードのCSSと、8ハンドルで作る有機的なblob形状のborder-radiusを生成する無料ツール。ライブプレビュー付きでCSSをワンクリックコピー。すべてブラウザ内で完結します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input[type=range]{width:200px;accent-color:var(--accent)}
+        .row input[type=color]{width:52px;height:34px;padding:2px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;cursor:pointer}
+        .row input[type=number]{width:96px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.85rem;outline:none;text-align:right}
+        .row input:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:52px;text-align:right;font-family:'JetBrains Mono',monospace}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input[type=range]{width:100%}}
+        .preview-stage{border:1px solid var(--border);border-radius:var(--radius);padding:40px 20px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;min-height:240px;background:linear-gradient(135deg,#ff6ec4 0%,#7873f5 40%,#4ade80 75%,#facc15 100%);position:relative;overflow:hidden}
+        .preview-stage::before{content:"";position:absolute;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,0.35);top:-30px;left:30px;filter:blur(6px)}
+        .preview-stage::after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;background:rgba(255,80,180,0.5);bottom:10px;right:40px;filter:blur(4px)}
+        #glassCard{position:relative;z-index:2;width:240px;height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,0.25);font-size:0.85rem;text-align:center;padding:16px}
+        #glassCard strong{font-size:1.05rem;font-weight:700;display:block;margin-bottom:4px}
+        #blobStage{border:1px solid var(--border);border-radius:var(--radius);padding:40px 20px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;min-height:260px;background:var(--accent-dim)}
+        #blobShape{width:200px;height:200px;background:linear-gradient(135deg,#8b5cf6,#ec4899);box-shadow:0 10px 30px rgba(139,92,246,0.35)}
+        .radius-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+        @media(max-width:600px){.radius-grid{grid-template-columns:1fr}}
+        .handle-box{background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:12px}
+        .handle-box .hlabel{font-size:0.72rem;color:var(--text3);margin-bottom:8px;font-weight:500}
+        .handle-box .sub{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+        .handle-box .sub:last-child{margin-bottom:0}
+        .handle-box .sub span{font-size:0.68rem;color:var(--text3);width:18px;font-family:'JetBrains Mono',monospace}
+        .handle-box input[type=range]{flex:1;accent-color:var(--accent)}
+        .handle-box .val{font-size:0.68rem;color:var(--text2);width:36px;text-align:right;font-family:'JetBrains Mono',monospace}
+        .output{background:#1e1e35;border-radius:var(--radius);padding:16px;margin-bottom:16px;position:relative}
+        .output pre{font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#e6e6f0;white-space:pre-wrap;word-break:break-all;line-height:1.7;overflow-x:auto}
+        .output .tk-prop{color:#c4b5fd}.output .tk-val{color:#86efac}
+        .copy-btn{position:absolute;top:12px;right:12px;padding:6px 14px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.75rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .copy-btn:hover{opacity:0.9}
+        .copy-btn.done{background:var(--green)}
+        .actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+        .actions button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .actions button:hover{border-color:var(--accent);color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .section-title{font-size:1.05rem;font-weight:700;color:var(--text);margin:32px 0 12px}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-187-glassmorphism/">
+    <meta property="og:title" content="Glassmorphism CSS ジェネレーター | すりガラス風＆border-radiusブロブ生成【無料】">
+    <meta property="og:description" content="backdrop-filterのすりガラス風CSSと、8ハンドルで作る有機的なblob形状のborder-radiusをライブプレビュー付きで生成。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-187-glassmorphism/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Glassmorphism CSS ジェネレーター【無料】">
+    <meta name="twitter:description" content="すりガラス風カードと有機的なblob形状のCSSをワンクリックコピー。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Glassmorphism CSS ジェネレーター","description":"すりガラス風カードと高度なborder-radius（blob）のCSSを生成する無料ツール","url":"https://www.devtools-japan.com/tool-187-glassmorphism/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"Glassmorphism CSS ジェネレーター","item":"https://www.devtools-japan.com/tool-187-glassmorphism/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"グラスモーフィズム（すりガラス風）はどうやって作る？","acceptedAnswer":{"@type":"Answer","text":"半透明の背景色（rgba）に backdrop-filter: blur() を組み合わせ、背後の要素をぼかして透けさせるのが基本です。本ツールではブラー量・透明度・色・彩度（saturate）・ボーダー・アウトラインをスライダーで調整でき、カラフルな背景の上に置いたカードでその見え方をリアルタイムにプレビューできます。生成されたCSSはコピーボタンでそのまま利用できます。"}},{"@type":"Question","name":"backdrop-filterはすべてのブラウザで使える？","acceptedAnswer":{"@type":"Answer","text":"主要なモダンブラウザ（Chrome・Edge・Firefox・Safari）で利用できますが、環境によっては -webkit-backdrop-filter のベンダープレフィックスが必要です。本ツールが出力するCSSには -webkit- 付きのプロパティも含めているため、そのまま貼り付けるだけでSafariなどにも対応しやすくなっています。背後に透ける要素がない場合、ぼかし効果は見えない点に注意してください。"}},{"@type":"Question","name":"8ハンドルのborder-radiusとは？","acceptedAnswer":{"@type":"Answer","text":"border-radiusは各角に対して水平方向と垂直方向の半径を別々に指定でき、合計8つの値を持てます。スラッシュ区切りの「上左 上右 下右 下左 / 上左 上右 下右 下左」という書式です。8つを独立して動かすことで、円や角丸だけでなく、有機的で非対称な「blob（ブロブ）」形状を作れます。本ツールの高度なborder-radiusセクションで8ハンドルを操作できます。"}},{"@type":"Question","name":"生成したCSSは商用利用できる？","acceptedAnswer":{"@type":"Answer","text":"はい。本ツールが生成するのは標準的なCSSプロパティの記述だけで、ライセンスや帰属表示は不要です。個人・商用のWebサイトやアプリ、学習用途など自由にお使いいただけます。生成処理はすべてお使いのブラウザ内（クライアントサイド）で完結し、入力内容や生成結果がサーバーへ送信されることはありません。"}},{"@type":"Question","name":"入力した設定はサーバーに送信される？","acceptedAnswer":{"@type":"Answer","text":"いいえ。このツールは100%クライアントサイドで動作し、スライダーの値や色、生成されたCSSはすべてブラウザ内だけで処理されます。外部サーバーへの送信や保存は一切行いません。オフラインでも読み込み後は動作し、プライバシーを気にせず安心してご利用いただけます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>Glassmorphism CSS ジェネレーター</h1><p>すりガラス風カードと有機的なborder-radiusを生成</p></header>
+
+    <div class="section-title">1. グラスモーフィズム（すりガラス風）</div>
+    <div class="preview-stage">
+        <div id="glassCard"><strong>Glass Card</strong><span>backdrop-filter プレビュー</span></div>
+    </div>
+
+    <div class="card"><h3>パラメータ</h3>
+        <div class="row"><label>ブラー（blur）</label><input type="range" id="gBlur" min="0" max="40" step="1" value="10" oninput="updateGlass()"><span class="unit" id="gBlurV">10px</span></div>
+        <div class="row"><label>透明度（alpha）</label><input type="range" id="gAlpha" min="0" max="1" step="0.01" value="0.25" oninput="updateGlass()"><span class="unit" id="gAlphaV">0.25</span></div>
+        <div class="row"><label>ベースカラー</label><input type="color" id="gColor" value="#ffffff" oninput="updateGlass()"><span class="unit" id="gColorV">#ffffff</span></div>
+        <div class="row"><label>彩度（saturate）</label><input type="range" id="gSat" min="100" max="300" step="10" value="180" oninput="updateGlass()"><span class="unit" id="gSatV">180%</span></div>
+        <div class="row"><label>ボーダー太さ</label><input type="range" id="gBorder" min="0" max="6" step="1" value="1" oninput="updateGlass()"><span class="unit" id="gBorderV">1px</span></div>
+        <div class="row"><label>ボーダー角丸</label><input type="range" id="gGRad" min="0" max="40" step="1" value="16" oninput="updateGlass()"><span class="unit" id="gGRadV">16px</span></div>
+        <div class="row"><label>アウトライン太さ</label><input type="range" id="gOutline" min="0" max="6" step="1" value="0" oninput="updateGlass()"><span class="unit" id="gOutlineV">0px</span></div>
+    </div>
+
+    <div class="output">
+        <button class="copy-btn" id="copyGlass" onclick="copyGlass()">CSSをコピー</button>
+        <pre id="glassOut"></pre>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="section-title">2. 高度なborder-radius（blob形状）</div>
+    <div id="blobStage">
+        <div id="blobShape"></div>
+    </div>
+
+    <div class="card"><h3>8ハンドル（各角の水平・垂直半径）</h3>
+        <div class="radius-grid" id="radiusGrid"></div>
+        <div class="actions" style="margin-top:14px">
+            <button onclick="randomBlob()">ランダム生成</button>
+            <button onclick="resetBlob()">リセット（円）</button>
+            <button onclick="squareBlob()">正方形（0）</button>
+        </div>
+    </div>
+
+    <div class="output">
+        <button class="copy-btn" id="copyBlob" onclick="copyBlob()">CSSをコピー</button>
+        <pre id="blobOut"></pre>
+    </div>
+
+    <div class="note">生成されるCSSはすべてお使いのブラウザ内で計算されます。入力値や結果が外部サーバーへ送信されることはありません。すりガラス効果は背後に透ける要素がある場合にのみ見えます。Safari対応のため -webkit-backdrop-filter も併せて出力しています。</div>
+
+    <div class="seo-content">
+        <h2>Glassmorphism / border-radius ジェネレーターの使い方</h2>
+        <p>スライダーを動かすだけで、モダンなUIで人気の「グラスモーフィズム（すりガラス風）」デザインのCSSと、有機的で柔らかい「blob（ブロブ）」形状を作る高度なborder-radiusのCSSを生成できる無料ツールです。インストールや会員登録は不要で、すべての計算はお使いの端末内（クライアントサイド）で完結します。生成したCSSは各セクションのコピーボタンでワンクリックコピーできます。</p>
+        <p>グラデーションや影を作る他のツールとは異なり、本ツールは「背後をぼかして透けさせるガラス表現」と「非対称な角丸によるユニークな形状」に特化しています。カラフルな背景の上にカードを重ねたプレビューで、透明感やぼかしの強さがどう見えるかをその場で確認しながら調整できます。</p>
+        <h3>1. グラスモーフィズムの調整</h3>
+        <p>ブラー（blur）でぼかしの強さ、透明度（alpha）で背景の透け具合、ベースカラーでガラスの色味、彩度（saturate）で背後の色の鮮やかさ、ボーダー太さ・角丸・アウトラインで縁取りを調整します。半透明の背景色（rgba）と backdrop-filter を組み合わせることで、背後の要素がぼやけて透けるガラスのような質感が生まれます。</p>
+        <h3>2. 高度なborder-radiusでblobを作る</h3>
+        <p>border-radiusは各角に水平・垂直の半径を別々に指定でき、合計8つの値を独立して操作できます。8つのハンドルを動かすことで、単なる角丸ではない有機的で非対称な形状を作れます。ランダム生成ボタンで思いがけない形状の発見も可能です。ヒーローセクションの装飾やアバター、アクセント図形などに活用できます。</p>
+
+        <h2>グラスモーフィズムの仕組み</h2>
+        <p>グラスモーフィズムは、半透明の背景・背後のぼかし・繊細なボーダーの3要素で「曇りガラス越しに見る」質感を再現するデザイン手法です。中心となるのが backdrop-filter プロパティで、要素の「背後」にあるコンテンツにフィルタ（ぼかしや彩度調整）を適用します。要素自体ではなく背後に効くため、背景がカラフルなほど効果が際立ちます。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>プロパティ</th><th>役割</th><th>目安</th></tr>
+            <tr><td>background: rgba()</td><td>ガラスの色と透明度</td><td>alpha 0.1〜0.3 が上品</td></tr>
+            <tr><td>backdrop-filter: blur()</td><td>背後のぼかし</td><td>8〜20px 程度</td></tr>
+            <tr><td>backdrop-filter: saturate()</td><td>背後の彩度強調</td><td>150〜200%</td></tr>
+            <tr><td>border</td><td>ガラスの縁のハイライト</td><td>半透明の白 1px</td></tr>
+            <tr><td>border-radius</td><td>角の丸み</td><td>12〜20px</td></tr>
+        </table>
+        </div>
+        <h3>border-radius の8値書式</h3>
+        <p>border-radius は「水平半径 / 垂直半径」の形で、それぞれ4角分（上左・上右・下右・下左）を指定できます。たとえば <code>border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%</code> のように書くと、各角ごとに水平・垂直の膨らみが変わり、雫のような有機的な形状になります。パーセント指定は要素サイズに追従するため、レスポンシブな形状表現に向いています。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">グラスモーフィズム（すりガラス風）はどうやって作る？</div><div class="a">半透明の背景色（rgba）に backdrop-filter: blur() を組み合わせ、背後の要素をぼかして透けさせるのが基本です。本ツールではブラー量・透明度・色・彩度（saturate）・ボーダー・アウトラインをスライダーで調整でき、カラフルな背景の上に置いたカードでその見え方をリアルタイムにプレビューできます。生成されたCSSはコピーボタンでそのまま利用できます。</div></div>
+        <div class="faq-item"><div class="q">backdrop-filterはすべてのブラウザで使える？</div><div class="a">主要なモダンブラウザ（Chrome・Edge・Firefox・Safari）で利用できますが、環境によっては -webkit-backdrop-filter のベンダープレフィックスが必要です。本ツールが出力するCSSには -webkit- 付きのプロパティも含めているため、そのまま貼り付けるだけでSafariなどにも対応しやすくなっています。背後に透ける要素がない場合、ぼかし効果は見えない点に注意してください。</div></div>
+        <div class="faq-item"><div class="q">8ハンドルのborder-radiusとは？</div><div class="a">border-radiusは各角に対して水平方向と垂直方向の半径を別々に指定でき、合計8つの値を持てます。スラッシュ区切りの「上左 上右 下右 下左 / 上左 上右 下右 下左」という書式です。8つを独立して動かすことで、円や角丸だけでなく、有機的で非対称な「blob（ブロブ）」形状を作れます。本ツールの高度なborder-radiusセクションで8ハンドルを操作できます。</div></div>
+        <div class="faq-item"><div class="q">生成したCSSは商用利用できる？</div><div class="a">はい。本ツールが生成するのは標準的なCSSプロパティの記述だけで、ライセンスや帰属表示は不要です。個人・商用のWebサイトやアプリ、学習用途など自由にお使いいただけます。生成処理はすべてお使いのブラウザ内（クライアントサイド）で完結し、入力内容や生成結果がサーバーへ送信されることはありません。</div></div>
+        <div class="faq-item"><div class="q">入力した設定はサーバーに送信される？</div><div class="a">いいえ。このツールは100%クライアントサイドで動作し、スライダーの値や色、生成されたCSSはすべてブラウザ内だけで処理されます。外部サーバーへの送信や保存は一切行いません。オフラインでも読み込み後は動作し、プライバシーを気にせず安心してご利用いただけます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-90-gradient-gen/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">グラデーション生成</a><a href="/tool-89-shadow-gen/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">box-shadow生成</a><a href="/tool-88-color-picker/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カラーピッカー</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ===== 1. グラスモーフィズム =====
+function hexToRgb(hex){
+    const h = hex.replace('#','');
+    return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)];
+}
+function updateGlass(){
+    const blur = +document.getElementById('gBlur').value;
+    const alpha = +document.getElementById('gAlpha').value;
+    const color = document.getElementById('gColor').value;
+    const sat = +document.getElementById('gSat').value;
+    const bw = +document.getElementById('gBorder').value;
+    const grad = +document.getElementById('gGRad').value;
+    const ow = +document.getElementById('gOutline').value;
+
+    document.getElementById('gBlurV').textContent = blur + 'px';
+    document.getElementById('gAlphaV').textContent = alpha.toFixed(2);
+    document.getElementById('gColorV').textContent = color;
+    document.getElementById('gSatV').textContent = sat + '%';
+    document.getElementById('gBorderV').textContent = bw + 'px';
+    document.getElementById('gGRadV').textContent = grad + 'px';
+    document.getElementById('gOutlineV').textContent = ow + 'px';
+
+    const rgb = hexToRgb(color);
+    const bg = 'rgba(' + rgb[0] + ', ' + rgb[1] + ', ' + rgb[2] + ', ' + alpha.toFixed(2) + ')';
+    const filt = 'blur(' + blur + 'px) saturate(' + sat + '%)';
+    const borderCss = bw + 'px solid rgba(255, 255, 255, 0.35)';
+    const outlineCss = ow > 0 ? ('rgba(255, 255, 255, 0.25) solid ' + ow + 'px') : 'none';
+    const shadow = '0 8px 32px rgba(0, 0, 0, 0.18)';
+
+    // ライブプレビューへ適用
+    const card = document.getElementById('glassCard');
+    card.style.background = bg;
+    card.style.backdropFilter = filt;
+    card.style.webkitBackdropFilter = filt;
+    card.style.border = borderCss;
+    card.style.borderRadius = grad + 'px';
+    card.style.boxShadow = shadow;
+    card.style.outline = ow > 0 ? ('rgba(255,255,255,0.25) solid ' + ow + 'px') : 'none';
+    card.style.outlineOffset = ow > 0 ? '3px' : '0';
+
+    // CSS出力
+    const lines = [
+        '.glass-card {',
+        '  background: ' + bg + ';',
+        '  -webkit-backdrop-filter: ' + filt + ';',
+        '  backdrop-filter: ' + filt + ';',
+        '  border: ' + borderCss + ';',
+        '  border-radius: ' + grad + 'px;',
+        '  box-shadow: ' + shadow + ';'
+    ];
+    if (ow > 0){
+        lines.push('  outline: ' + outlineCss + ';');
+        lines.push('  outline-offset: 3px;');
+    }
+    lines.push('}');
+    document.getElementById('glassOut').textContent = lines.join('\n');
+}
+function copyGlass(){
+    const txt = document.getElementById('glassOut').textContent;
+    const btn = document.getElementById('copyGlass');
+    navigator.clipboard.writeText(txt).then(function(){
+        btn.textContent = 'コピーしました';
+        btn.classList.add('done');
+        setTimeout(function(){ btn.textContent = 'CSSをコピー'; btn.classList.remove('done'); }, 1500);
+    });
+}
+
+// ===== 2. 高度なborder-radius（blob） =====
+var CORNERS = [
+    {key:'tl', label:'上左（top-left）'},
+    {key:'tr', label:'上右（top-right）'},
+    {key:'br', label:'下右（bottom-right）'},
+    {key:'bl', label:'下左（bottom-left）'}
+];
+// 各角: [水平%, 垂直%]  デフォルトは円（全て50）
+var rad = {
+    tl:[50,50], tr:[50,50], br:[50,50], bl:[50,50]
+};
+
+function buildRadiusUI(){
+    const grid = document.getElementById('radiusGrid');
+    grid.innerHTML = '';
+    CORNERS.forEach(function(c){
+        const box = document.createElement('div');
+        box.className = 'handle-box';
+        const lbl = document.createElement('div');
+        lbl.className = 'hlabel';
+        lbl.textContent = c.label;
+        box.appendChild(lbl);
+        ['h','v'].forEach(function(axis, ai){
+            const sub = document.createElement('div');
+            sub.className = 'sub';
+            const tag = document.createElement('span');
+            tag.textContent = axis === 'h' ? '水平' : '垂直';
+            tag.style.width = '32px';
+            const range = document.createElement('input');
+            range.type = 'range';
+            range.min = '0'; range.max = '100'; range.step = '1';
+            range.value = String(rad[c.key][ai]);
+            const val = document.createElement('span');
+            val.className = 'val';
+            val.textContent = rad[c.key][ai] + '%';
+            range.oninput = function(){
+                rad[c.key][ai] = +range.value;
+                val.textContent = range.value + '%';
+                updateBlob();
+            };
+            sub.appendChild(tag);
+            sub.appendChild(range);
+            sub.appendChild(val);
+            box.appendChild(sub);
+        });
+        grid.appendChild(box);
+    });
+}
+
+function radiusShorthand(){
+    const h = rad.tl[0] + '% ' + rad.tr[0] + '% ' + rad.br[0] + '% ' + rad.bl[0] + '%';
+    const v = rad.tl[1] + '% ' + rad.tr[1] + '% ' + rad.br[1] + '% ' + rad.bl[1] + '%';
+    return h + ' / ' + v;
+}
+function updateBlob(){
+    const value = radiusShorthand();
+    document.getElementById('blobShape').style.borderRadius = value;
+    const lines = [
+        '.blob {',
+        '  border-radius: ' + value + ';',
+        '}'
+    ];
+    document.getElementById('blobOut').textContent = lines.join('\n');
+}
+function copyBlob(){
+    const txt = document.getElementById('blobOut').textContent;
+    const btn = document.getElementById('copyBlob');
+    navigator.clipboard.writeText(txt).then(function(){
+        btn.textContent = 'コピーしました';
+        btn.classList.add('done');
+        setTimeout(function(){ btn.textContent = 'CSSをコピー'; btn.classList.remove('done'); }, 1500);
+    });
+}
+// 疑似乱数（Math.random非依存: 時刻シードで散らす）
+var seedState = 123456789;
+function rnd(){
+    seedState = (seedState * 1103515245 + 12345) & 0x7fffffff;
+    return seedState / 0x7fffffff;
+}
+function randomBlob(){
+    seedState = (seedState + (new Date().getMilliseconds() + 1) * 7919) & 0x7fffffff;
+    CORNERS.forEach(function(c){
+        rad[c.key][0] = 20 + Math.floor(rnd() * 60);
+        rad[c.key][1] = 20 + Math.floor(rnd() * 60);
+    });
+    buildRadiusUI();
+    updateBlob();
+}
+function resetBlob(){
+    CORNERS.forEach(function(c){ rad[c.key][0] = 50; rad[c.key][1] = 50; });
+    buildRadiusUI();
+    updateBlob();
+}
+function squareBlob(){
+    CORNERS.forEach(function(c){ rad[c.key][0] = 0; rad[c.key][1] = 0; });
+    buildRadiusUI();
+    updateBlob();
+}
+
+// 初期化
+updateGlass();
+buildRadiusUI();
+updateBlob();
+</script>
+</body>
+</html>

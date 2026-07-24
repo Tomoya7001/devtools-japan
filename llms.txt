@@ -171,6 +171,18 @@
 - Person構造化データ生成ツール: https://www.devtools-japan.com/tool-175-person-schema/
 - URLクエリ文字列 パーサ／ビルダー: https://www.devtools-japan.com/tool-176-url-query/
 - data URI 変換ツール（画像⇄Base64）: https://www.devtools-japan.com/tool-177-data-uri/
+- 坪・平米・畳 面積変換ツール: https://www.devtools-japan.com/tool-178-tsubo/
+- 単価・コスパ比較計算ツール: https://www.devtools-japan.com/tool-179-unit-price/
+- 六曜カレンダー・計算ツール: https://www.devtools-japan.com/tool-180-rokuyo/
+- 誕生日から星座・干支・誕生花: https://www.devtools-japan.com/tool-181-zodiac/
+- パスワード強度チェッカー: https://www.devtools-japan.com/tool-182-password-strength/
+- Unicode 文字インスペクター: https://www.devtools-japan.com/tool-183-unicode-inspector/
+- バーコード生成ツール: https://www.devtools-japan.com/tool-184-barcode/
+- Markdown テーブル生成ツール: https://www.devtools-japan.com/tool-185-markdown-table/
+- テキスト読み上げツール: https://www.devtools-japan.com/tool-186-text-to-speech/
+- Glassmorphism CSS ジェネレーター: https://www.devtools-japan.com/tool-187-glassmorphism/
+- SoftwareApplication構造化データ生成ツール: https://www.devtools-japan.com/tool-188-softwareapplication-schema/
+- QAPage構造化データ生成ツール: https://www.devtools-japan.com/tool-189-qapage-schema/
 
 ## API
 DevTools Japan APIとして30本以上の無料REST APIを提供。認証不要で即利用可能。

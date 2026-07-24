@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>坪・平米・畳 面積変換ツール | 坪↔㎡↔畳を自動計算・坪単価も【無料】</title>
+    <meta name="description" content="坪・平米(㎡)・畳(帖)・アール・ヘクタールを相互変換できる無料ツール。1坪=400/121≈3.305785㎡、1畳=1.62㎡を基準に、いずれか1つを入力すると他の単位が自動更新。中京間・江戸間・団地間の畳サイズ切替、坪単価・賃料坪単価の計算にも対応。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-178-tsubo/">
+    <meta property="og:title" content="坪・平米・畳 面積変換ツール | 坪↔㎡↔畳を自動計算・坪単価も【無料】">
+    <meta property="og:description" content="坪・平米(㎡)・畳・アール・ヘクタールを相互変換。いずれか1つ入力で全単位を自動更新。畳サイズ切替・坪単価計算にも対応。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-178-tsubo/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="坪・平米・畳 面積変換ツール【無料】">
+    <meta name="twitter:description" content="坪↔㎡↔畳を自動変換。中京間・江戸間・団地間の切替や坪単価計算も。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"坪・平米・畳 面積変換ツール","description":"坪・平米(㎡)・畳・アール・ヘクタールを相互変換し、坪単価も計算できる無料ツール","url":"https://www.devtools-japan.com/tool-178-tsubo/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"坪・平米・畳 面積変換ツール","item":"https://www.devtools-japan.com/tool-178-tsubo/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"1坪は何平米（㎡）ですか？","acceptedAnswer":{"@type":"Answer","text":"1坪は正確には400/121平方メートルで、約3.305785㎡です。これは1坪＝6尺×6尺（約1.818m×1.818m）に由来する尺貫法の面積単位で、1平米は約0.3025坪に相当します。本ツールは分数400/121で計算するため、四捨五入による誤差を抑えた変換ができます。"}},{"@type":"Question","name":"1畳は何平米ですか？地域で違うのはなぜ？","acceptedAnswer":{"@type":"Answer","text":"本ツールの標準では1畳＝1.62㎡としています。これは不動産の広告表示で用いられる目安で、実際の畳の大きさは地域によって異なります。京間・中京間・江戸間・団地間で畳の寸法が違うため、同じ畳数でも実面積は変わります。ツールでは中京間（約1.6562㎡）・江戸間（約1.5488㎡）・団地間（約1.445㎡）などの畳サイズを選んで計算できます。"}},{"@type":"Question","name":"坪数から平米・畳への計算方法は？","acceptedAnswer":{"@type":"Answer","text":"平米は坪数×400/121（約3.305785）で求められます。例えば30坪は約99.17㎡です。畳数は平米を1畳あたりの面積で割って求めます。標準の1.62㎡なら30坪≒約61.2畳です。本ツールはいずれか1つの単位に数値を入力すると、坪・平米・畳・アール・ヘクタールを同時に自動計算します。"}},{"@type":"Question","name":"坪単価とは何ですか？どう計算しますか？","acceptedAnswer":{"@type":"Answer","text":"坪単価とは1坪あたりの価格のことで、物件価格を坪数で割って求めます。例えば3000万円で40坪の物件なら、坪単価は75万円/坪です。土地や建物の価格を比較する目安として使われます。本ツールの坪単価計算では物件価格と坪数を入力すると、坪単価と平米単価を同時に表示します。"}},{"@type":"Question","name":"賃料の坪単価はどう求めますか？","acceptedAnswer":{"@type":"Answer","text":"賃料の坪単価は、月額賃料を坪数で割って求めます。オフィスや店舗などの事業用物件で、面積あたりの家賃を比較する際によく使われます。例えば月額賃料30万円で20坪なら、賃料坪単価は1.5万円/坪です。本ツールでは月額賃料と坪数を入力すると賃料坪単価を自動計算します。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>坪・平米・畳 面積変換ツール</h1><p>坪・㎡・畳・アール・ヘクタールを相互変換／坪単価も計算</p></header>
+
+    <div class="card"><h3>面積を変換</h3>
+        <div class="row"><label>坪</label><input type="number" id="inTsubo" inputmode="decimal" placeholder="0" oninput="convertFrom('tsubo')"><span class="unit">坪</span></div>
+        <div class="row"><label>平米</label><input type="number" id="inSqm" inputmode="decimal" placeholder="0" oninput="convertFrom('sqm')"><span class="unit">㎡</span></div>
+        <div class="row"><label>畳（帖）</label><input type="number" id="inJo" inputmode="decimal" placeholder="0" oninput="convertFrom('jo')"><span class="unit">畳</span></div>
+        <div class="row"><label>アール</label><input type="number" id="inAre" inputmode="decimal" placeholder="0" oninput="convertFrom('are')"><span class="unit">a</span></div>
+        <div class="row"><label>ヘクタール</label><input type="number" id="inHa" inputmode="decimal" placeholder="0" oninput="convertFrom('ha')"><span class="unit">ha</span></div>
+        <div class="row"><label>畳のサイズ（地域）</label><select id="joPreset" onchange="changeJoPreset()" style="text-align:left">
+            <option value="1.62">標準（不動産表示 1.62㎡）</option>
+            <option value="1.6562">中京間（約1.6562㎡）</option>
+            <option value="1.5488">江戸間（約1.5488㎡）</option>
+            <option value="1.445">団地間（約1.445㎡）</option>
+            <option value="1.8241">京間・本間（約1.8241㎡）</option>
+        </select></div>
+        <div style="margin-top:14px">
+            <div style="font-size:0.75rem;color:var(--text3);margin-bottom:6px">よく使う坪数</div>
+            <div class="preset-row" id="presetRow"></div>
+        </div>
+    </div>
+
+    <div class="big-result">
+        <div class="headline">入力した面積</div>
+        <div class="days"><span id="bigSqm">-</span><span class="unit">㎡</span></div>
+        <div class="target" id="bigSub">数値を入力してください</div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">坪</div><div class="value" id="outTsubo">-</div></div>
+        <div class="result-item"><div class="label">畳（帖）</div><div class="value" id="outJo">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">アール</div><div class="value" id="outAre">-</div></div>
+        <div class="result-item"><div class="label">ヘクタール</div><div class="value" id="outHa">-</div></div>
+    </div>
+
+    <div class="note">1坪＝400/121≈3.305785㎡（尺貫法）で計算します。畳（帖）は1畳あたりの面積で割った目安で、実際の畳の大きさは地域や物件で異なります（京間・中京間・江戸間・団地間）。標準は不動産広告表示で用いられる1畳＝1.62㎡です。畳サイズはプルダウンで切り替えられます。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="card"><h3>坪単価の計算</h3>
+        <div class="row"><label>物件価格</label><input type="number" id="priceMan" inputmode="decimal" placeholder="0" oninput="calcTsuboPrice()"><span class="unit">万円</span></div>
+        <div class="row"><label>坪数</label><input type="number" id="priceTsubo" inputmode="decimal" placeholder="0" oninput="calcTsuboPrice()"><span class="unit">坪</span></div>
+        <div class="result-grid" style="margin-top:16px">
+            <div class="result-item"><div class="label">坪単価</div><div class="value" id="outTsuboPrice">-</div><div class="sub">万円 / 坪</div></div>
+            <div class="result-item"><div class="label">平米単価</div><div class="value" id="outSqmPrice">-</div><div class="sub">万円 / ㎡</div></div>
+        </div>
+    </div>
+
+    <div class="card"><h3>賃料の坪単価の計算</h3>
+        <div class="row"><label>月額賃料</label><input type="number" id="rentYen" inputmode="decimal" placeholder="0" oninput="calcRentPrice()"><span class="unit">円</span></div>
+        <div class="row"><label>坪数</label><input type="number" id="rentTsubo" inputmode="decimal" placeholder="0" oninput="calcRentPrice()"><span class="unit">坪</span></div>
+        <div class="result-grid" style="margin-top:16px">
+            <div class="result-item"><div class="label">賃料坪単価</div><div class="value" id="outRentTsubo">-</div><div class="sub">円 / 坪</div></div>
+            <div class="result-item"><div class="label">賃料平米単価</div><div class="value" id="outRentSqm">-</div><div class="sub">円 / ㎡</div></div>
+        </div>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>坪・平米・畳 面積変換ツールの使い方</h2>
+        <p>坪（つぼ）・平米（㎡）・畳（帖）・アール・ヘクタールを相互に変換できる無料ツールです。5つの単位のうちいずれか1つに数値を入力すると、残りの単位が自動で計算・更新されます。不動産の物件情報を見比べるときや、間取り図の広さをイメージするとき、土地の面積を確認するときに、ブラウザだけで瞬時に単位換算ができます。インストールや会員登録は不要で、すべての計算はお使いの端末内で完結します。</p>
+        <p>坪の変換には尺貫法に基づく正確な換算係数 1坪＝400/121（約3.305785）㎡ を使用しています。畳（帖）は1畳あたりの面積で割ったおおよその目安で表示し、標準では不動産広告でよく使われる1畳＝1.62㎡を採用しています。畳の大きさは地域によって異なるため、「畳のサイズ（地域）」のプルダウンから中京間・江戸間・団地間・京間などを選んで再計算できます。</p>
+        <h3>坪単価・賃料坪単価の計算</h3>
+        <p>面積変換に加えて、坪単価と賃料の坪単価も計算できます。坪単価は物件価格（万円）を坪数で割った1坪あたりの価格で、土地や中古住宅などの価格比較に使われます。賃料坪単価は月額賃料（円）を坪数で割った値で、オフィスや店舗など事業用物件の家賃比較でよく用いられます。それぞれ価格・賃料と坪数を入力するだけで、平米あたりの単価も同時に表示します。</p>
+
+        <h2>単位の換算早見表</h2>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>単位</th><th>平米（㎡）換算</th><th>説明</th></tr>
+            <tr><td>1坪</td><td>約3.305785㎡</td><td>400/121㎡。1坪＝6尺×6尺（約1.818m四方）</td></tr>
+            <tr><td>1平米</td><td>1㎡</td><td>1辺1mの正方形の面積。約0.3025坪</td></tr>
+            <tr><td>1畳（標準）</td><td>1.62㎡</td><td>不動産広告表示の目安。約0.49坪</td></tr>
+            <tr><td>1アール</td><td>100㎡</td><td>1辺10mの正方形。約30.25坪</td></tr>
+            <tr><td>1ヘクタール</td><td>10,000㎡</td><td>1辺100mの正方形。約3025坪＝100アール</td></tr>
+        </table>
+        </div>
+        <h3>畳のサイズは地域で異なります</h3>
+        <p>同じ「6畳」でも、使われている畳の規格によって実際の面積は変わります。代表的な畳の1畳あたりの寸法・面積は次の通りです。物件の実面積を正確に知りたい場合は、平米（㎡）表示を基準に確認するのがおすすめです。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>畳の種類</th><th>1畳あたり</th><th>主な地域・用途</th></tr>
+            <tr><td>京間・本間</td><td>約1.8241㎡（191×95.5cm）</td><td>主に関西・西日本</td></tr>
+            <tr><td>中京間</td><td>約1.6562㎡（182×91cm）</td><td>主に中部・東海</td></tr>
+            <tr><td>江戸間</td><td>約1.5488㎡（176×88cm）</td><td>主に関東・東日本</td></tr>
+            <tr><td>団地間</td><td>約1.445㎡（170×85cm）</td><td>集合住宅・アパートなど</td></tr>
+            <tr><td>不動産表示（標準）</td><td>1.62㎡</td><td>広告のㇷ帖・畳数表示の目安</td></tr>
+        </table>
+        </div>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">1坪は何平米（㎡）ですか？</div><div class="a">1坪は正確には400/121平方メートルで、約3.305785㎡です。これは1坪＝6尺×6尺（約1.818m×1.818m）に由来する尺貫法の面積単位で、1平米は約0.3025坪に相当します。本ツールは分数400/121で計算するため、四捨五入による誤差を抑えた変換ができます。</div></div>
+        <div class="faq-item"><div class="q">1畳は何平米ですか？地域で違うのはなぜ？</div><div class="a">本ツールの標準では1畳＝1.62㎡としています。これは不動産の広告表示で用いられる目安で、実際の畳の大きさは地域によって異なります。京間・中京間・江戸間・団地間で畳の寸法が違うため、同じ畳数でも実面積は変わります。ツールでは中京間（約1.6562㎡）・江戸間（約1.5488㎡）・団地間（約1.445㎡）などの畳サイズを選んで計算できます。</div></div>
+        <div class="faq-item"><div class="q">坪数から平米・畳への計算方法は？</div><div class="a">平米は坪数×400/121（約3.305785）で求められます。例えば30坪は約99.17㎡です。畳数は平米を1畳あたりの面積で割って求めます。標準の1.62㎡なら30坪≒約61.2畳です。本ツールはいずれか1つの単位に数値を入力すると、坪・平米・畳・アール・ヘクタールを同時に自動計算します。</div></div>
+        <div class="faq-item"><div class="q">坪単価とは何ですか？どう計算しますか？</div><div class="a">坪単価とは1坪あたりの価格のことで、物件価格を坪数で割って求めます。例えば3000万円で40坪の物件なら、坪単価は75万円/坪です。土地や建物の価格を比較する目安として使われます。本ツールの坪単価計算では物件価格と坪数を入力すると、坪単価と平米単価を同時に表示します。</div></div>
+        <div class="faq-item"><div class="q">賃料の坪単価はどう求めますか？</div><div class="a">賃料の坪単価は、月額賃料を坪数で割って求めます。オフィスや店舗などの事業用物件で、面積あたりの家賃を比較する際によく使われます。例えば月額賃料30万円で20坪なら、賃料坪単価は1.5万円/坪です。本ツールでは月額賃料と坪数を入力すると賃料坪単価を自動計算します。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// 換算係数
+var SQM_PER_TSUBO = 400 / 121; // 1坪 = 400/121 ㎡ ≈ 3.305785
+var joSqm = 1.62;              // 1畳あたりの面積（㎡）。プルダウンで変更
+var baseSqm = null;           // 現在の基準面積（㎡）
+
+// 数値を読みやすい文字列に（最大6桁の有効数字・末尾ゼロ除去）
+function fmt(n){
+    if (!isFinite(n)) return '-';
+    if (n === 0) return '0';
+    var abs = Math.abs(n);
+    var digits;
+    if (abs >= 1000) digits = 2;
+    else if (abs >= 1) digits = 4;
+    else digits = 6;
+    var s = n.toFixed(digits);
+    if (s.indexOf('.') !== -1){
+        s = s.replace(/0+$/,'').replace(/\.$/,'');
+    }
+    return s;
+}
+function fmtComma(n){
+    var s = fmt(n);
+    var parts = s.split('.');
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return parts.join('.');
+}
+
+// 基準面積(㎡)から全単位を再描画（引数のフィールドは触らない）
+function render(skip){
+    if (baseSqm === null || !isFinite(baseSqm)){
+        document.getElementById('bigSqm').textContent = '-';
+        document.getElementById('bigSub').textContent = '数値を入力してください';
+        document.getElementById('outTsubo').textContent = '-';
+        document.getElementById('outJo').textContent = '-';
+        document.getElementById('outAre').textContent = '-';
+        document.getElementById('outHa').textContent = '-';
+        return;
+    }
+    var tsubo = baseSqm / SQM_PER_TSUBO;
+    var jo = baseSqm / joSqm;
+    var are = baseSqm / 100;
+    var ha = baseSqm / 10000;
+
+    if (skip !== 'tsubo') document.getElementById('inTsubo').value = fmt(tsubo);
+    if (skip !== 'sqm')   document.getElementById('inSqm').value = fmt(baseSqm);
+    if (skip !== 'jo')    document.getElementById('inJo').value = fmt(jo);
+    if (skip !== 'are')   document.getElementById('inAre').value = fmt(are);
+    if (skip !== 'ha')    document.getElementById('inHa').value = fmt(ha);
+
+    document.getElementById('bigSqm').textContent = fmtComma(baseSqm);
+    document.getElementById('bigSub').textContent = '約 ' + fmt(tsubo) + ' 坪 / 約 ' + fmt(jo) + ' 畳';
+    document.getElementById('outTsubo').textContent = fmt(tsubo);
+    document.getElementById('outJo').textContent = fmt(jo);
+    document.getElementById('outAre').textContent = fmt(are);
+    document.getElementById('outHa').textContent = fmt(ha);
+}
+
+function convertFrom(unit){
+    var id = {tsubo:'inTsubo', sqm:'inSqm', jo:'inJo', are:'inAre', ha:'inHa'}[unit];
+    var raw = document.getElementById(id).value;
+    if (raw === '' || raw === null){
+        baseSqm = null;
+        // 他フィールドもクリア
+        ['inTsubo','inSqm','inJo','inAre','inHa'].forEach(function(f){ if (f !== id) document.getElementById(f).value = ''; });
+        render(unit);
+        return;
+    }
+    var v = parseFloat(raw);
+    if (!isFinite(v)){ render(unit); return; }
+    if (unit === 'tsubo') baseSqm = v * SQM_PER_TSUBO;
+    else if (unit === 'sqm') baseSqm = v;
+    else if (unit === 'jo') baseSqm = v * joSqm;
+    else if (unit === 'are') baseSqm = v * 100;
+    else if (unit === 'ha') baseSqm = v * 10000;
+    render(unit);
+}
+
+function changeJoPreset(){
+    joSqm = parseFloat(document.getElementById('joPreset').value) || 1.62;
+    // 基準面積は維持し、畳の表示だけ更新
+    render(null);
+}
+
+// よく使う坪数プリセット
+function buildPresets(){
+    var row = document.getElementById('presetRow');
+    row.innerHTML = '';
+    var list = [10, 15, 20, 25, 30, 40, 50, 100];
+    list.forEach(function(t){
+        var btn = document.createElement('button');
+        btn.textContent = t + '坪';
+        btn.onclick = function(){
+            document.getElementById('inTsubo').value = t;
+            convertFrom('tsubo');
+        };
+        row.appendChild(btn);
+    });
+}
+
+// 坪単価計算（物件価格[万円] ÷ 坪数）
+function calcTsuboPrice(){
+    var price = parseFloat(document.getElementById('priceMan').value);
+    var tsubo = parseFloat(document.getElementById('priceTsubo').value);
+    var elT = document.getElementById('outTsuboPrice');
+    var elS = document.getElementById('outSqmPrice');
+    if (!isFinite(price) || !isFinite(tsubo) || tsubo === 0){
+        elT.textContent = '-';
+        elS.textContent = '-';
+        return;
+    }
+    var perTsubo = price / tsubo;
+    var sqm = tsubo * SQM_PER_TSUBO;
+    var perSqm = price / sqm;
+    elT.textContent = fmtComma(perTsubo);
+    elS.textContent = fmtComma(perSqm);
+}
+
+// 賃料坪単価計算（月額賃料[円] ÷ 坪数）
+function calcRentPrice(){
+    var rent = parseFloat(document.getElementById('rentYen').value);
+    var tsubo = parseFloat(document.getElementById('rentTsubo').value);
+    var elT = document.getElementById('outRentTsubo');
+    var elS = document.getElementById('outRentSqm');
+    if (!isFinite(rent) || !isFinite(tsubo) || tsubo === 0){
+        elT.textContent = '-';
+        elS.textContent = '-';
+        return;
+    }
+    var perTsubo = rent / tsubo;
+    var sqm = tsubo * SQM_PER_TSUBO;
+    var perSqm = rent / sqm;
+    elT.textContent = fmtComma(perTsubo);
+    elS.textContent = fmtComma(perSqm);
+}
+
+buildPresets();
+// 初期表示: 30坪の例
+(function(){
+    document.getElementById('inTsubo').value = 30;
+    convertFrom('tsubo');
+})();
+</script>
+</body>
+</html>

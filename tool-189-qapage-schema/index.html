@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QAPage構造化データ生成ツール | 質問と回答の schema.org JSON-LD を自動作成【無料】</title>
+    <meta name="description" content="ユーザーが投稿した1つの質問と、採用回答・その他の回答を入力するだけで、schema.org QAPage の JSON-LD 構造化データをリアルタイム生成する無料ツール。知恵袋・Q&A・フォーラム形式のページ向け。upvoteCount・回答者・投稿日に対応し、空欄フィールドは自動除外。FAQPageとの違いも解説。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1;padding-right:12px}
+        .row input,.row select,.row textarea{width:260px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .row textarea{resize:vertical;min-height:64px;line-height:1.6}
+        .row input:focus,.row select:focus,.row textarea:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .row.stack{flex-direction:column;align-items:stretch;gap:8px}
+        .row.stack label{padding-right:0}
+        .row.stack input,.row.stack textarea{width:100%}
+        .mini-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+        .mini-grid .mcell{background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:12px}
+        .mini-grid .mcell .mlabel{font-size:0.7rem;color:var(--text3);margin-bottom:6px}
+        .mini-grid .mcell input{width:100%;padding:8px 10px;background:#fff;border:1px solid var(--border);border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:0.85rem;outline:none;text-align:right}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input,.row select,.row textarea{width:100%}.mini-grid{grid-template-columns:1fr}}
+        .ans-block{background:#f7f8fb;border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:10px}
+        .ans-block .ahead{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+        .ans-block .ahead .atitle{font-size:0.78rem;font-weight:600;color:var(--text2)}
+        .ans-block .del{padding:4px 12px;background:#fff;border:1px solid var(--border);border-radius:8px;color:var(--red);font-size:0.85rem;cursor:pointer}
+        .ans-block .del:hover{border-color:var(--red)}
+        .ans-block textarea{width:100%;padding:10px 12px;background:#fff;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.88rem;outline:none;resize:vertical;min-height:52px;line-height:1.5;margin-bottom:8px}
+        .ans-block textarea:focus{border-color:var(--accent)}
+        .ans-block .meta2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+        .ans-block .meta2 input{width:100%;padding:8px 10px;background:#fff;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;outline:none}
+        .ans-block .meta2 input:focus{border-color:var(--accent)}
+        @media(max-width:600px){.ans-block .meta2{grid-template-columns:1fr}}
+        .add-btn{margin-top:4px;padding:9px 16px;background:var(--accent-dim);border:1px solid rgba(139,92,246,0.3);border-radius:8px;color:var(--accent);font-size:0.82rem;font-weight:500;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .add-btn:hover{background:rgba(139,92,246,0.14)}
+        .output-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .output-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+        .output-head h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em}
+        .copy-btn{padding:8px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .copy-btn:hover{opacity:0.9}
+        pre.code{background:#1e1e35;color:#e6e6f0;border-radius:8px;padding:16px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:0.78rem;line-height:1.7;white-space:pre;-webkit-overflow-scrolling:touch}
+        .hint-list{list-style:none;margin-top:8px}
+        .hint-list li{font-size:0.8rem;color:var(--text2);padding:6px 0 6px 22px;position:relative;line-height:1.6}
+        .hint-list li::before{content:'';position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+        .hint-list li.warn::before{background:var(--red)}
+        .hint-list li.ok::before{background:var(--green)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        code.inline{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--accent)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-189-qapage-schema/">
+    <meta property="og:title" content="QAPage構造化データ生成ツール | 質問と回答の schema.org JSON-LD を自動作成【無料】">
+    <meta property="og:description" content="1つの質問と採用回答・その他の回答を入力するだけで schema.org QAPage の JSON-LD をリアルタイム生成。知恵袋・Q&Aページ向け。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-189-qapage-schema/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="QAPage構造化データ生成ツール【無料】">
+    <meta name="twitter:description" content="質問と回答の schema.org QAPage JSON-LD をリアルタイム生成。FAQPageとの違いも解説。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"QAPage構造化データ生成ツール","description":"ユーザーの質問と回答から schema.org QAPage JSON-LD 構造化データをリアルタイム生成する無料ツール","url":"https://www.devtools-japan.com/tool-189-qapage-schema/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"QAPage構造化データ生成ツール","item":"https://www.devtools-japan.com/tool-189-qapage-schema/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"QAPageの構造化データとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"QAPage構造化データは、ユーザーが投稿した1つの質問と、それに寄せられた複数の回答を検索エンジンが理解できる形式（schema.org の QAPage 型）で記述したものです。知恵袋・Q&Aサイト・フォーラム・掲示板のように、ユーザー同士が質問し回答し合うページを対象とします。本ツールは質問文・採用回答・その他の回答を入力するだけで JSON-LD 形式の構造化データをリアルタイム生成し、Q&Aリッチリザルトの対策に役立ちます。"}},{"@type":"Question","name":"QAPageとFAQPageの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"QAPageは「1つの質問に対してユーザーから複数の回答が寄せられるページ」を表します。知恵袋やフォーラムのスレッドのように、質問者が困りごとを投稿し、他のユーザーが回答する形式です。一方 FAQPage は「サイト運営者があらかじめ用意した想定質問と公式の答え」を並べたページで、回答は1つの質問につき1つだけです。ユーザー投稿の複数回答があるなら QAPage、運営側が用意したよくある質問集なら FAQPage を使い分けます。"}},{"@type":"Question","name":"acceptedAnswerとsuggestedAnswerの違いは？","acceptedAnswer":{"@type":"Answer","text":"acceptedAnswer はその質問に対する採用回答（ベストアンサー）で、質問1つにつき最大1件です。suggestedAnswer はそれ以外にユーザーから寄せられた回答で、複数登録できます。本ツールでは採用回答を1つ、その他の回答（suggestedAnswer）を必要な数だけ「回答を追加」ボタンで登録でき、それぞれ回答本文・回答者名・upvoteCount（高評価数）を設定できます。採用回答が未入力の場合はその他の回答のみで出力されます。"}},{"@type":"Question","name":"upvoteCountや投稿日は必須ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ、任意項目です。upvoteCount（高評価・賛成の数）、answerCount（回答総数）、dateCreated（質問の投稿日）、回答者名（author）はいずれも空欄のまま出力できます。空欄のフィールドは JSON-LD から自動的に除外されるため、実際に値があるものだけを入力すれば有効な構造化データになります。ただし upvoteCount や投稿日は回答の信頼性を検索エンジンに伝える手がかりになるため、実データがあれば含めることを推奨します。"}},{"@type":"Question","name":"生成したJSON-LDはどこに貼り付けますか？","acceptedAnswer":{"@type":"Answer","text":"生成された ld+json のスクリプトタグ一式をコピーし、該当するQ&AページのHTMLの head 内、または body 内に貼り付けてください。JSON-LD はページの表示位置に影響しないため配置場所は比較的自由です。1ページにつき1つの QAPage（1つの質問）を記述するのが原則で、複数の質問を1ページにまとめる場合はガイドラインに沿わない可能性があります。貼り付け後は Google のリッチリザルトテストや schema.org バリデータでエラーや警告を確認することを推奨します。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>QAPage構造化データ生成</h1><p>ユーザーの質問と回答の schema.org QAPage JSON-LD をリアルタイム生成</p></header>
+
+    <div class="card"><h3>質問（mainEntity / Question）</h3>
+        <div class="row stack"><label>質問のタイトル（name） <span style="color:var(--red)">*</span></label><input type="text" id="q_name" placeholder="例: CSSでdivを中央寄せする一番簡単な方法は？" oninput="generate()"></div>
+        <div class="row stack"><label>質問の本文（text）</label><textarea id="q_text" placeholder="例: 横方向・縦方向どちらも中央にしたいです。flexboxとgrid以外の方法もありますか？" oninput="generate()"></textarea></div>
+        <div class="mini-grid" style="margin-top:8px">
+            <div class="mcell"><div class="mlabel">高評価数 upvoteCount</div><input type="number" id="q_upvote" min="0" placeholder="12" oninput="generate()"></div>
+            <div class="mcell"><div class="mlabel">回答総数 answerCount</div><input type="number" id="q_answerCount" min="0" placeholder="3" oninput="generate()"></div>
+            <div class="mcell"><div class="mlabel">投稿日 dateCreated</div><input type="date" id="q_date" style="text-align:left" oninput="generate()"></div>
+        </div>
+    </div>
+
+    <div class="card"><h3>採用回答（acceptedAnswer / ベストアンサー）</h3>
+        <div class="row stack"><label>回答本文（text）</label><textarea id="acc_text" placeholder="例: 親要素に display:flex; justify-content:center; align-items:center; を指定すれば縦横中央になります。" oninput="generate()"></textarea></div>
+        <div class="ans-block" style="margin-bottom:0">
+            <div class="meta2">
+                <input type="text" id="acc_author" placeholder="回答者名（author）例: yamada" oninput="generate()">
+                <input type="number" id="acc_upvote" min="0" placeholder="高評価数 upvoteCount 例: 25" oninput="generate()">
+            </div>
+        </div>
+    </div>
+
+    <div class="card"><h3>その他の回答（suggestedAnswer・複数可）</h3>
+        <div id="sugList"></div>
+        <button class="add-btn" onclick="addSuggested('','','')">＋ 回答を追加</button>
+    </div>
+
+    <div class="output-card">
+        <div class="output-head"><h3>生成された JSON-LD</h3><button class="copy-btn" onclick="copyOutput()" id="copyBtn">コピー</button></div>
+        <pre class="code" id="output">// 入力するとここに JSON-LD が表示されます</pre>
+    </div>
+
+    <div class="card"><h3>QAPage リッチリザルト要件のヒント</h3>
+        <ul class="hint-list" id="hints"></ul>
+    </div>
+
+    <div class="note">生成される JSON-LD は schema.org の QAPage 型に基づきます。mainEntity は1つの Question で、acceptedAnswer（採用回答）と suggestedAnswer（その他の回答）を持ちます。空欄のフィールドは自動的に除外されます。QAPage は「1つの質問にユーザーから複数の回答が付くページ」向けで、運営側の想定Q&A集には FAQPage を使ってください。すべての処理は端末内で完結し、入力内容は送信されません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>QAPage構造化データ生成ツールの使い方</h2>
+        <p>ユーザーが投稿した1つの質問と、それに寄せられた回答を入力するだけで、schema.org の QAPage 型に準拠した JSON-LD 構造化データをリアルタイムに生成する無料ツールです。生成された ld+json のスクリプトタグ一式をコピーして、知恵袋・Q&Aサイト・フォーラム・掲示板のようなページのHTMLに貼り付けるだけで、検索エンジンに質問と回答の内容を正しく伝えられます。インストールや会員登録は不要で、入力した内容はサーバーに送信されず、すべての生成処理がお使いのブラウザ内で完結します。</p>
+        <p>使い方はシンプルです。まず質問のタイトル（name）を入力し、必要に応じて質問本文・高評価数・回答総数・投稿日を埋めます。次に採用回答（acceptedAnswer）の本文・回答者名・高評価数を入力し、さらにその他の回答（suggestedAnswer）を「回答を追加」ボタンで必要な数だけ登録します。入力を変更するたびに下部の出力エリアの JSON-LD が即座に更新されるので、内容を確認しながら仕上げられます。空欄の項目は出力から自動で除外されるため、値のある項目だけを入力すれば有効な構造化データになります。</p>
+        <h3>QAPageの構造</h3>
+        <p>QAPage は、ページ全体を表す <code class="inline">QAPage</code> の中に、質問を表す <code class="inline">mainEntity</code>（<code class="inline">Question</code> 型）を1つ持つ構造です。Question は、採用回答を表す <code class="inline">acceptedAnswer</code>（<code class="inline">Answer</code> 型・最大1件）と、その他の回答を表す <code class="inline">suggestedAnswer</code>（<code class="inline">Answer</code> 型の配列・複数可）を持ちます。各 Answer には回答本文（<code class="inline">text</code>）に加え、回答者（<code class="inline">author</code>）や高評価数（<code class="inline">upvoteCount</code>）を任意で付与できます。</p>
+
+        <h2>QAPageとFAQPageの違い</h2>
+        <p>よく混同されますが、QAPage と FAQPage は用途がはっきり異なります。<strong>QAPage は「1つの質問に対して、ユーザーから複数の回答が寄せられるページ」</strong>です。知恵袋やStack Overflow、フォーラムのスレッドのように、質問者が困りごとを投稿し、他のユーザーがそれぞれ回答する形式が該当します。<strong>FAQPage は「サイト運営者があらかじめ用意した、よくある質問とその公式の答え」</strong>を並べたページで、1つの質問につき答えは1つだけです。ユーザー投稿による複数回答があるかどうかが、両者を使い分ける最大のポイントです。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>観点</th><th>QAPage</th><th>FAQPage</th></tr>
+            <tr><td>想定ページ</td><td>知恵袋・Q&A・フォーラム・掲示板</td><td>製品/サービスのよくある質問ページ</td></tr>
+            <tr><td>質問の投稿者</td><td>ユーザー</td><td>サイト運営者</td></tr>
+            <tr><td>1問あたりの回答</td><td>複数（採用回答＋その他の回答）</td><td>1つのみ</td></tr>
+            <tr><td>回答の主体</td><td>ユーザー（コミュニティ）</td><td>サイト運営者</td></tr>
+            <tr><td>主なプロパティ</td><td>acceptedAnswer / suggestedAnswer / upvoteCount</td><td>acceptedAnswer のみ</td></tr>
+        </table>
+        </div>
+        <h3>使い分けの目安</h3>
+        <p>そのページで、ユーザーが自由に質問を投稿し、他のユーザーが複数の回答を寄せられるなら QAPage です。逆に、運営側が「お客様からよく寄せられる質問」を想定して質問と答えをセットで用意しているだけなら FAQPage を使います。誤って FAQPage を使うべきページに QAPage を適用したり、その逆をすると、Google のガイドライン違反となりリッチリザルトの対象外になることがあります。ユーザー生成コンテンツ（UGC）のQ&Aかどうかを基準に選びましょう。</p>
+
+        <h2>生成されるプロパティ</h2>
+        <p>本ツールが出力する主な QAPage / Question / Answer のプロパティは次のとおりです。必須級の項目と任意項目を区別して、必要なものだけを入力してください。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>プロパティ</th><th>内容</th><th>形式</th></tr>
+            <tr><td>mainEntity</td><td>ページの中心となる質問</td><td>Question 型（必須）</td></tr>
+            <tr><td>name</td><td>質問のタイトル</td><td>文字列（必須）</td></tr>
+            <tr><td>text</td><td>質問/回答の本文</td><td>文字列</td></tr>
+            <tr><td>answerCount</td><td>回答の総数</td><td>整数</td></tr>
+            <tr><td>upvoteCount</td><td>高評価（賛成）の数</td><td>整数</td></tr>
+            <tr><td>dateCreated</td><td>質問の投稿日</td><td>ISO 8601（日付）</td></tr>
+            <tr><td>acceptedAnswer</td><td>採用回答（ベストアンサー）</td><td>Answer 型（最大1件）</td></tr>
+            <tr><td>suggestedAnswer</td><td>その他の回答</td><td>Answer 型の配列</td></tr>
+            <tr><td>author</td><td>質問者・回答者</td><td>Person 型</td></tr>
+        </table>
+        </div>
+        <h3>実装時の注意点</h3>
+        <p>QAPage は1ページにつき1つの質問（mainEntity）を記述するのが原則です。回答は実際にユーザーが投稿したものである必要があり、運営側が創作した回答を並べることはガイドライン違反となります。upvoteCount や dateCreated は実データがあれば含めることで回答の信頼性を伝えられますが、実体のない数値の記述は避けてください。実装後は Google のリッチリザルトテストや schema.org バリデータで、エラー・警告がないか確認しましょう。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">QAPageの構造化データとは何ですか？</div><div class="a">QAPage構造化データは、ユーザーが投稿した1つの質問と、それに寄せられた複数の回答を検索エンジンが理解できる形式（schema.org の QAPage 型）で記述したものです。知恵袋・Q&Aサイト・フォーラム・掲示板のように、ユーザー同士が質問し回答し合うページを対象とします。本ツールは質問文・採用回答・その他の回答を入力するだけで JSON-LD 形式の構造化データをリアルタイム生成し、Q&Aリッチリザルトの対策に役立ちます。</div></div>
+        <div class="faq-item"><div class="q">QAPageとFAQPageの違いは何ですか？</div><div class="a">QAPageは「1つの質問に対してユーザーから複数の回答が寄せられるページ」を表します。知恵袋やフォーラムのスレッドのように、質問者が困りごとを投稿し、他のユーザーが回答する形式です。一方 FAQPage は「サイト運営者があらかじめ用意した想定質問と公式の答え」を並べたページで、回答は1つの質問につき1つだけです。ユーザー投稿の複数回答があるなら QAPage、運営側が用意したよくある質問集なら FAQPage を使い分けます。</div></div>
+        <div class="faq-item"><div class="q">acceptedAnswerとsuggestedAnswerの違いは？</div><div class="a">acceptedAnswer はその質問に対する採用回答（ベストアンサー）で、質問1つにつき最大1件です。suggestedAnswer はそれ以外にユーザーから寄せられた回答で、複数登録できます。本ツールでは採用回答を1つ、その他の回答（suggestedAnswer）を必要な数だけ「回答を追加」ボタンで登録でき、それぞれ回答本文・回答者名・upvoteCount（高評価数）を設定できます。採用回答が未入力の場合はその他の回答のみで出力されます。</div></div>
+        <div class="faq-item"><div class="q">upvoteCountや投稿日は必須ですか？</div><div class="a">いいえ、任意項目です。upvoteCount（高評価・賛成の数）、answerCount（回答総数）、dateCreated（質問の投稿日）、回答者名（author）はいずれも空欄のまま出力できます。空欄のフィールドは JSON-LD から自動的に除外されるため、実際に値があるものだけを入力すれば有効な構造化データになります。ただし upvoteCount や投稿日は回答の信頼性を検索エンジンに伝える手がかりになるため、実データがあれば含めることを推奨します。</div></div>
+        <div class="faq-item"><div class="q">生成したJSON-LDはどこに貼り付けますか？</div><div class="a">生成された ld+json のスクリプトタグ一式をコピーし、該当するQ&AページのHTMLの head 内、または body 内に貼り付けてください。JSON-LD はページの表示位置に影響しないため配置場所は比較的自由です。1ページにつき1つの QAPage（1つの質問）を記述するのが原則で、複数の質問を1ページにまとめる場合はガイドラインに沿わない可能性があります。貼り付け後は Google のリッチリザルトテストや schema.org バリデータでエラーや警告を確認することを推奨します。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-124-faq-schema/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">FAQPage構造化データ生成</a><a href="/tool-142-recipe-schema/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">Recipe構造化データ生成</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧へ</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ---- script タグ文字列はトークン分割して素書きを避ける ----
+var LD_OPEN = '<' + 'script type="application/ld+json">';
+var LD_CLOSE = '<' + '/' + 'script>';
+
+function val(id){
+    var el = document.getElementById(id);
+    return el ? el.value.trim() : '';
+}
+
+function toInt(v){
+    if (v === '' || v === null || v === undefined) return null;
+    var n = parseInt(v, 10);
+    if (isNaN(n) || n < 0) return null;
+    return n;
+}
+
+// Answer オブジェクトを組み立て（本文がなければ null）
+function buildAnswer(text, author, upvote){
+    text = (text || '').trim();
+    if (!text) return null;
+    var a = { '@type': 'Answer', 'text': text };
+    var up = toInt(upvote);
+    if (up !== null) a.upvoteCount = up;
+    author = (author || '').trim();
+    if (author) a.author = { '@type': 'Person', 'name': author };
+    return a;
+}
+
+// その他の回答（suggestedAnswer）の行を追加
+function addSuggested(text, author, upvote){
+    var list = document.getElementById('sugList');
+    var block = document.createElement('div');
+    block.className = 'ans-block';
+
+    var head = document.createElement('div');
+    head.className = 'ahead';
+    var title = document.createElement('span');
+    title.className = 'atitle';
+    title.textContent = 'その他の回答';
+    var del = document.createElement('button');
+    del.className = 'del';
+    del.textContent = '× 削除';
+    del.title = 'この回答を削除';
+    del.onclick = function(){ block.parentNode.removeChild(block); renumberSuggested(); generate(); };
+    head.appendChild(title);
+    head.appendChild(del);
+
+    var ta = document.createElement('textarea');
+    ta.className = 'sug-text';
+    ta.placeholder = '回答の本文';
+    ta.value = text || '';
+    ta.oninput = generate;
+
+    var meta = document.createElement('div');
+    meta.className = 'meta2';
+    var inAuthor = document.createElement('input');
+    inAuthor.type = 'text';
+    inAuthor.className = 'sug-author';
+    inAuthor.placeholder = '回答者名（author）例: suzuki';
+    inAuthor.value = author || '';
+    inAuthor.oninput = generate;
+    var inUp = document.createElement('input');
+    inUp.type = 'number';
+    inUp.min = '0';
+    inUp.className = 'sug-upvote';
+    inUp.placeholder = '高評価数 upvoteCount 例: 8';
+    inUp.value = (upvote === 0 || upvote) ? upvote : '';
+    inUp.oninput = generate;
+    meta.appendChild(inAuthor);
+    meta.appendChild(inUp);
+
+    block.appendChild(head);
+    block.appendChild(ta);
+    block.appendChild(meta);
+    list.appendChild(block);
+    renumberSuggested();
+    generate();
+}
+
+function renumberSuggested(){
+    var titles = document.querySelectorAll('#sugList .atitle');
+    for (var i = 0; i < titles.length; i++){ titles[i].textContent = 'その他の回答 ' + (i + 1); }
+}
+
+function collectSuggested(){
+    var blocks = document.querySelectorAll('#sugList .ans-block');
+    var out = [];
+    for (var i = 0; i < blocks.length; i++){
+        var t = blocks[i].querySelector('.sug-text');
+        var au = blocks[i].querySelector('.sug-author');
+        var up = blocks[i].querySelector('.sug-upvote');
+        var ans = buildAnswer(t ? t.value : '', au ? au.value : '', up ? up.value : '');
+        if (ans) out.push(ans);
+    }
+    return out;
+}
+
+function buildQAPage(){
+    var page = { '@context': 'https://schema.org', '@type': 'QAPage' };
+    var q = { '@type': 'Question' };
+
+    var name = val('q_name');
+    if (name) q.name = name;
+
+    var qtext = val('q_text');
+    if (qtext) q.text = qtext;
+
+    var qup = toInt(val('q_upvote'));
+    if (qup !== null) q.upvoteCount = qup;
+
+    var qac = toInt(val('q_answerCount'));
+    if (qac !== null) q.answerCount = qac;
+
+    var qdate = val('q_date');
+    if (qdate) q.dateCreated = qdate;
+
+    var accepted = buildAnswer(val('acc_text'), val('acc_author'), val('acc_upvote'));
+    if (accepted) q.acceptedAnswer = accepted;
+
+    var suggested = collectSuggested();
+    if (suggested.length) q.suggestedAnswer = suggested;
+
+    page.mainEntity = q;
+    return page;
+}
+
+function buildHints(page){
+    var hints = document.getElementById('hints');
+    hints.innerHTML = '';
+    var q = page.mainEntity || {};
+    var sugCount = q.suggestedAnswer ? q.suggestedAnswer.length : 0;
+    var checks = [
+        { ok: !!q.name, text: '質問のタイトル（name）— 必須。Q&Aリッチリザルトの見出しになります。' },
+        { ok: !!q.acceptedAnswer, text: '採用回答（acceptedAnswer）— ベストアンサー。質問1つにつき最大1件。' },
+        { ok: sugCount > 0, text: 'その他の回答（suggestedAnswer）— ユーザーの複数回答を登録すると QAPage らしくなります。' },
+        { ok: (q.acceptedAnswer && typeof q.acceptedAnswer.upvoteCount === 'number') || sugCount > 0, text: '高評価数（upvoteCount）— 回答の信頼性を伝える手がかり。実データがあれば設定。' },
+        { ok: typeof q.answerCount === 'number', text: '回答総数（answerCount）— ページ上の回答の合計数を整数で。' },
+        { ok: !!q.dateCreated, text: '投稿日（dateCreated）— 質問が投稿された日付。' }
+    ];
+    for (var i = 0; i < checks.length; i++){
+        var li = document.createElement('li');
+        li.className = checks[i].ok ? 'ok' : 'warn';
+        li.textContent = (checks[i].ok ? '設定済み: ' : '未設定: ') + checks[i].text;
+        hints.appendChild(li);
+    }
+}
+
+function generate(){
+    renumberSuggested();
+    var page = buildQAPage();
+    var json = JSON.stringify(page, null, 2);
+    var wrapped = LD_OPEN + '\n' + json + '\n' + LD_CLOSE;
+    document.getElementById('output').textContent = wrapped;
+    buildHints(page);
+}
+
+function copyOutput(){
+    var text = document.getElementById('output').textContent;
+    var btn = document.getElementById('copyBtn');
+    function done(){ btn.textContent = 'コピー済み'; setTimeout(function(){ btn.textContent = 'コピー'; }, 1400); }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text); done(); });
+    } else {
+        fallbackCopy(text); done();
+    }
+}
+
+function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+}
+
+// 初期サンプル（入力ゼロでもサンプル出力）
+(function init(){
+    document.getElementById('q_name').value = 'CSSでdivを画面の中央に配置する一番簡単な方法は？';
+    document.getElementById('q_text').value = '横方向・縦方向どちらも中央にしたいです。flexboxを使う方法以外にもありますか？初心者にも分かる形で教えてください。';
+    document.getElementById('q_upvote').value = '12';
+    document.getElementById('q_answerCount').value = '3';
+    document.getElementById('q_date').value = '2026-05-10';
+    document.getElementById('acc_text').value = '親要素に display:flex; justify-content:center; align-items:center; を指定すれば、子要素は横も縦も中央に配置されます。高さも忘れずに指定してください。';
+    document.getElementById('acc_author').value = 'yamada';
+    document.getElementById('acc_upvote').value = '25';
+
+    addSuggested('CSS Grid なら place-items:center; の1行だけで縦横中央にできて手軽です。', 'suzuki', '8');
+    addSuggested('絶対配置と transform:translate(-50%,-50%); を使う昔ながらの方法もあります。', 'tanaka', '3');
+
+    generate();
+})();
+</script>
+</body>
+</html>

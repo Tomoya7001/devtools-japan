@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>バーコード生成ツール | JAN/EAN-13・EAN-8・Code128を無料作成【PNG/SVGダウンロード】</title>
+    <meta name="description" content="JAN/EAN-13・EAN-8・Code128バーコードを無料生成。チェックデジット自動計算・検証、モジュール幅/高さ/クワイエットゾーン調整、数字表示のON/OFF、PNG・SVGダウンロードに対応。完全ブラウザ内処理で外部送信なし・依存ライブラリなし。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input[type=text],.row select{width:260px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.9rem;outline:none}
+        .row input[type=text]:focus,.row select:focus{border-color:var(--accent)}
+        .row input[type=range]{width:200px}
+        .row input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent)}
+        .row .val{font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--text3);min-width:56px;text-align:right}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input[type=text],.row select,.row input[type=range]{width:100%}}
+        .canvas-wrap{background:#ffffff;border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;overflow-x:auto}
+        canvas{max-width:100%;height:auto}
+        .msg{border-radius:8px;padding:10px 14px;font-size:0.82rem;margin-top:12px}
+        .msg.ok{background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.3);color:#15803d}
+        .msg.err{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);color:#b91c1c}
+        .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;justify-content:center}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn.sub{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn:hover{opacity:0.9}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-184-barcode/">
+    <meta property="og:title" content="バーコード生成ツール | JAN/EAN-13・EAN-8・Code128【無料・PNG/SVG】">
+    <meta property="og:description" content="JAN/EAN-13・EAN-8・Code128を無料生成。チェックデジット自動計算、PNG・SVGダウンロード対応。完全ブラウザ内処理。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-184-barcode/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="バーコード生成ツール【無料】">
+    <meta name="twitter:description" content="JAN/EAN-13・EAN-8・Code128を無料生成。PNG・SVGダウンロード対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"バーコード生成ツール","description":"JAN/EAN-13・EAN-8・Code128バーコードをブラウザ内で生成し、PNG・SVGでダウンロードできる無料ツール","url":"https://www.devtools-japan.com/tool-184-barcode/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"バーコード生成ツール","item":"https://www.devtools-japan.com/tool-184-barcode/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"どのバーコードの種類に対応していますか？","acceptedAnswer":{"@type":"Answer","text":"JAN/EAN-13（13桁）、EAN-8（8桁）、Code128（ASCII文字対応・自動でコードセットBを使用）の3種類に対応しています。JANコードは日本の商品識別に広く使われるEAN-13と同じ規格です。用途に合わせて種類を選び、数字や文字を入力するだけでバーコードが生成されます。"}},{"@type":"Question","name":"チェックデジットは自動で計算されますか？","acceptedAnswer":{"@type":"Answer","text":"はい。EAN-13は12桁、EAN-8は7桁を入力すると、末尾のチェックデジット（検査数字）を自動計算して付与します。13桁・8桁をすべて入力した場合はチェックデジットが正しいかを検証し、誤っていればエラーとして知らせます。モジュラス10ウェイト3の計算方式に基づいています。"}},{"@type":"Question","name":"生成したバーコードは商用利用できますか？","acceptedAnswer":{"@type":"Answer","text":"生成した画像自体は自由に利用できますが、JAN/EANコードを商品に付けて販売するには、GS1 Japanへの事業者登録で取得した正規のGS1事業者コードを使う必要があります。本ツールは入力した番号をそのまま図案化するもので、番号の割り当てや登録は行いません。社内管理やテスト、Code128による任意ラベルなどにご利用ください。"}},{"@type":"Question","name":"入力したデータは外部に送信されますか？","acceptedAnswer":{"@type":"Answer","text":"送信されません。バーコードのエンコードと描画はすべてお使いのブラウザ内（クライアントサイド）で完結し、入力した番号や文字がサーバーへ送られることはありません。外部のライブラリやCDNも読み込まず、エンコーダーをページ内に実装しているため、オフラインでも動作します。"}},{"@type":"Question","name":"PNGとSVGのどちらでダウンロードできますか？","acceptedAnswer":{"@type":"Answer","text":"両方に対応しています。PNGはそのまま資料や画像として使いやすいラスター形式、SVGは拡大しても劣化しないベクター形式で、印刷や大きな表示に適しています。モジュール幅・高さ・クワイエットゾーン・数字表示の設定は、PNG・SVGどちらの出力にも反映されます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>バーコード生成ツール</h1><p>JAN/EAN-13・EAN-8・Code128 を無料生成（PNG/SVG）</p></header>
+
+    <div class="card"><h3>入力</h3>
+        <div class="row"><label>バーコードの種類</label>
+            <select id="symbology" onchange="onSymChange()">
+                <option value="ean13">JAN / EAN-13（13桁）</option>
+                <option value="ean8">EAN-8（8桁）</option>
+                <option value="code128">Code128（ASCII文字）</option>
+            </select>
+        </div>
+        <div class="row"><label id="dataLabel">データ（12〜13桁の数字）</label><input type="text" id="dataInput" oninput="render()" placeholder="例: 490123456789"></div>
+        <div style="margin-top:12px">
+            <div style="font-size:0.75rem;color:var(--text3);margin-bottom:6px">入力例</div>
+            <div class="preset-row" id="presetRow"></div>
+        </div>
+    </div>
+
+    <div class="card"><h3>表示設定</h3>
+        <div class="row"><label>モジュール幅（細バーの太さ）</label><input type="range" id="moduleW" min="1" max="6" step="1" value="2" oninput="render()"><span class="val" id="moduleWVal">2px</span></div>
+        <div class="row"><label>バーの高さ</label><input type="range" id="barH" min="40" max="220" step="5" value="120" oninput="render()"><span class="val" id="barHVal">120px</span></div>
+        <div class="row"><label>クワイエットゾーン（余白）</label><input type="range" id="quiet" min="0" max="24" step="1" value="10" oninput="render()"><span class="val" id="quietVal">10</span></div>
+        <div class="row"><label>読み取り数字（下の文字）を表示</label><input type="checkbox" id="showText" checked onchange="render()"></div>
+    </div>
+
+    <div class="canvas-wrap">
+        <canvas id="barcode" width="300" height="150"></canvas>
+        <div id="msg"></div>
+        <div class="btn-row">
+            <button class="btn" onclick="downloadPNG()">PNGをダウンロード</button>
+            <button class="btn sub" onclick="downloadSVG()">SVGをダウンロード</button>
+        </div>
+    </div>
+
+    <div class="note">エンコードと描画はすべてブラウザ内で完結します。入力データが外部サーバーへ送信されることはなく、外部ライブラリ・CDNも一切読み込みません（依存ゼロ）。EAN-13は12桁でチェックデジット自動計算、13桁で検証します。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>バーコード生成ツールの使い方</h2>
+        <p>JAN/EAN-13・EAN-8・Code128 の3種類のバーコードを、ブラウザだけで無料生成できるツールです。バーコードの種類を選び、数字や文字を入力するだけでリアルタイムに図案が描画され、PNG（ラスター）とSVG（ベクター）の両方でダウンロードできます。インストールや会員登録は不要で、エンコード処理はすべてお使いの端末内で完結します。外部ライブラリを読み込まない依存ゼロ構成のため、通信を切った状態でも動作します。</p>
+        <p>使い方はかんたんです。まず「バーコードの種類」でJAN/EAN-13、EAN-8、Code128のいずれかを選びます。次に「データ」欄に番号や文字を入力すると、下のキャンバスにバーコードが表示されます。モジュール幅（細バー1本の太さ）、バーの高さ、クワイエットゾーン（左右の余白）、読み取り用の数字表示のON/OFFを調整して、用途に合った見た目に整えられます。仕上がったら「PNGをダウンロード」または「SVGをダウンロード」で保存してください。</p>
+        <h3>種類ごとの入力ルール</h3>
+        <p>JAN/EAN-13は12桁または13桁の数字を入力します。12桁の場合は末尾のチェックデジットを自動計算して13桁に補完し、13桁の場合は入力されたチェックデジットが正しいかを検証します。EAN-8は7桁または8桁で、同様に自動計算・検証を行います。Code128はスペースからチルダ（~）までの標準ASCII文字に対応し、英数字と記号を含む任意の文字列を、自動的にコードセットBでエンコードします。</p>
+
+        <h2>JAN・EAN・Code128の違い</h2>
+        <p>JANコードは日本国内での呼び名で、国際規格のEAN-13と同一のものです。13桁の数字で商品を識別し、スーパーやコンビニのレジで広く使われています。EAN-8は桁数の少ない短縮版で、小さなパッケージ向けです。Code128は数字だけでなくアルファベットや記号を含むASCII文字を高密度に符号化でき、物流ラベルや社内の在庫・書類管理などに向いています。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>種類</th><th>入力できるデータ</th><th>桁数・特徴</th></tr>
+            <tr><td>JAN / EAN-13</td><td>数字のみ</td><td>12桁入力で自動計算 / 13桁で検証。商品識別の標準</td></tr>
+            <tr><td>EAN-8</td><td>数字のみ</td><td>7桁入力で自動計算 / 8桁で検証。小型パッケージ向け</td></tr>
+            <tr><td>Code128</td><td>ASCII文字（英数字・記号）</td><td>可変長。自動でコードセットBを使用。物流・管理向け</td></tr>
+        </table>
+        </div>
+        <h3>チェックデジットの仕組み</h3>
+        <p>EAN-13・EAN-8のチェックデジットは、モジュラス10・ウェイト3という方式で計算します。右端から交互に各桁へ重み1と3を掛けて合計し、その和を10で割った余りを10から引いた値（余りが0なら0）が検査数字になります。この1桁により、読み取り時に数字の取り違えを検出できます。本ツールでは末尾を除く桁を入力すると自動でこの計算を行い、全桁を入力した場合は正しいかどうかを検証します。</p>
+        <h3>クワイエットゾーンとモジュール幅</h3>
+        <p>クワイエットゾーンはバーコードの左右に必要な余白で、これが不足するとスキャナが読み取れないことがあります。EANでは細バーの約9〜11本分が推奨されるため、余白は十分に確保してください。モジュール幅は細いバー1本の太さで、値を大きくするとバーコード全体が横に広がり、印刷時の読み取り精度が上がりやすくなります。印刷サイズや解像度に合わせて調整してください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">どのバーコードの種類に対応していますか？</div><div class="a">JAN/EAN-13（13桁）、EAN-8（8桁）、Code128（ASCII文字対応・自動でコードセットBを使用）の3種類に対応しています。JANコードは日本の商品識別に広く使われるEAN-13と同じ規格です。用途に合わせて種類を選び、数字や文字を入力するだけでバーコードが生成されます。</div></div>
+        <div class="faq-item"><div class="q">チェックデジットは自動で計算されますか？</div><div class="a">はい。EAN-13は12桁、EAN-8は7桁を入力すると、末尾のチェックデジット（検査数字）を自動計算して付与します。13桁・8桁をすべて入力した場合はチェックデジットが正しいかを検証し、誤っていればエラーとして知らせます。モジュラス10ウェイト3の計算方式に基づいています。</div></div>
+        <div class="faq-item"><div class="q">生成したバーコードは商用利用できますか？</div><div class="a">生成した画像自体は自由に利用できますが、JAN/EANコードを商品に付けて販売するには、GS1 Japanへの事業者登録で取得した正規のGS1事業者コードを使う必要があります。本ツールは入力した番号をそのまま図案化するもので、番号の割り当てや登録は行いません。社内管理やテスト、Code128による任意ラベルなどにご利用ください。</div></div>
+        <div class="faq-item"><div class="q">入力したデータは外部に送信されますか？</div><div class="a">送信されません。バーコードのエンコードと描画はすべてお使いのブラウザ内（クライアントサイド）で完結し、入力した番号や文字がサーバーへ送られることはありません。外部のライブラリやCDNも読み込まず、エンコーダーをページ内に実装しているため、オフラインでも動作します。</div></div>
+        <div class="faq-item"><div class="q">PNGとSVGのどちらでダウンロードできますか？</div><div class="a">両方に対応しています。PNGはそのまま資料や画像として使いやすいラスター形式、SVGは拡大しても劣化しないベクター形式で、印刷や大きな表示に適しています。モジュール幅・高さ・クワイエットゾーン・数字表示の設定は、PNG・SVGどちらの出力にも反映されます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/qr-generator/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">QRコード生成</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ===== EAN-13 / EAN-8 digit patterns (7 modules each) =====
+var EAN_L = ["0001101","0011001","0010011","0111101","0100011","0110001","0101111","0111011","0110111","0001011"];
+var EAN_G = ["0100111","0110011","0011011","0100001","0011101","0111001","0000101","0010001","0001001","0010111"];
+var EAN_R = ["1110010","1100110","1101100","1000010","1011100","1001110","1010000","1000100","1001000","1110100"];
+// left-6 parity selection by first digit (L=odd, G=even)
+var EAN_FIRST = ["LLLLLL","LLGLGG","LLGGLG","LLGGGL","LGLLGG","LGGLLG","LGGGLL","LGLGLG","LGLGGL","LGGLGL"];
+
+// ===== Code128 pattern width table (index 0..106), 6 elements each, stop=7 =====
+var C128 = ("212222 222122 222221 121223 121322 131222 122213 122312 132212 221213 "+
+"221312 231212 112232 122132 122231 113222 123122 123221 223211 221132 "+
+"221231 213212 223112 312131 311222 321122 321221 312212 322112 322211 "+
+"212123 212321 232121 111323 131123 131321 112313 132113 132311 211313 "+
+"231113 231311 112133 112331 132131 113123 113321 133121 313121 211331 "+
+"231131 213113 213311 213131 311123 311321 331121 312113 312311 332111 "+
+"314111 221411 431111 111224 111422 121124 121421 141122 141221 112214 "+
+"112412 122114 122411 142112 142211 241211 221114 413111 241112 134111 "+
+"111242 121142 121241 114212 124112 124211 411212 421112 421211 212141 "+
+"214121 412121 111143 111341 131141 114113 114311 411113 411311 113141 "+
+"114131 311141 411131 211412 211214 211232 2331112").split(/\s+/);
+
+function eanCheck(digits){
+    // digits: array of ints excluding the check digit; weighting alternates 3,1 from the right of the full code
+    var n = digits.length; // 12 for EAN-13, 7 for EAN-8
+    var sum = 0;
+    for (var i=0;i<n;i++){
+        // position from left; rightmost data digit gets weight 3
+        var weightThree = ((n - i) % 2) === 1;
+        sum += digits[i] * (weightThree ? 3 : 1);
+    }
+    return (10 - (sum % 10)) % 10;
+}
+
+function pushBits(arr, str, guardArr, isGuard){
+    for (var i=0;i<str.length;i++){ arr.push(str.charAt(i)==='1'?1:0); guardArr.push(!!isGuard); }
+}
+
+function buildEAN13(input){
+    var s = input.replace(/\D/g,'');
+    if (s.length !== 12 && s.length !== 13) throw new Error('EAN-13は12桁または13桁の数字を入力してください（現在'+s.length+'桁）。');
+    var d = s.split('').map(Number);
+    if (s.length === 12){
+        d.push(eanCheck(d.slice(0,12)));
+    } else {
+        var cd = eanCheck(d.slice(0,12));
+        if (cd !== d[12]) throw new Error('チェックデジットが不正です。13桁目は '+cd+' が正しい値です。');
+    }
+    var bits=[], guard=[];
+    var first = d[0], left = d.slice(1,7), right = d.slice(7,13);
+    pushBits(bits,'101',guard,true);
+    var parity = EAN_FIRST[first];
+    for (var i=0;i<6;i++){ pushBits(bits, parity.charAt(i)==='L'?EAN_L[left[i]]:EAN_G[left[i]], guard, false); }
+    pushBits(bits,'01010',guard,true);
+    for (var j=0;j<6;j++){ pushBits(bits, EAN_R[right[j]], guard, false); }
+    pushBits(bits,'101',guard,true);
+    return {bits:bits, guard:guard, hri:d.join(''), type:'ean'};
+}
+
+function buildEAN8(input){
+    var s = input.replace(/\D/g,'');
+    if (s.length !== 7 && s.length !== 8) throw new Error('EAN-8は7桁または8桁の数字を入力してください（現在'+s.length+'桁）。');
+    var d = s.split('').map(Number);
+    if (s.length === 7){
+        d.push(eanCheck(d.slice(0,7)));
+    } else {
+        var cd = eanCheck(d.slice(0,7));
+        if (cd !== d[7]) throw new Error('チェックデジットが不正です。8桁目は '+cd+' が正しい値です。');
+    }
+    var bits=[], guard=[];
+    var left = d.slice(0,4), right = d.slice(4,8);
+    pushBits(bits,'101',guard,true);
+    for (var i=0;i<4;i++){ pushBits(bits, EAN_L[left[i]], guard, false); }
+    pushBits(bits,'01010',guard,true);
+    for (var j=0;j<4;j++){ pushBits(bits, EAN_R[right[j]], guard, false); }
+    pushBits(bits,'101',guard,true);
+    return {bits:bits, guard:guard, hri:d.join(''), type:'ean'};
+}
+
+function widthsToBits(widthStr){
+    // starts with a bar; alternate bar/space
+    var out='';
+    var bar=true;
+    for (var i=0;i<widthStr.length;i++){
+        var w = parseInt(widthStr.charAt(i),10);
+        for (var k=0;k<w;k++){ out += bar?'1':'0'; }
+        bar = !bar;
+    }
+    return out;
+}
+
+function buildCode128(input){
+    if (input.length === 0) throw new Error('Code128にはASCII文字を1文字以上入力してください。');
+    var values=[];
+    for (var i=0;i<input.length;i++){
+        var c = input.charCodeAt(i);
+        if (c < 32 || c > 126) throw new Error('Code128（コードセットB）は半角スペース〜チルダ（~）のASCII文字のみ対応です。');
+        values.push(c - 32);
+    }
+    var start = 104; // Start B
+    var sum = start;
+    for (var p=0;p<values.length;p++){ sum += values[p] * (p+1); }
+    var check = sum % 103;
+    var seq = [start].concat(values, [check, 106]); // 106 = stop
+    var bits=[], guard=[];
+    for (var q=0;q<seq.length;q++){ pushBits(bits, widthsToBits(C128[seq[q]]), guard, false); }
+    return {bits:bits, guard:guard, hri:input, type:'code128'};
+}
+
+function encode(){
+    var sym = document.getElementById('symbology').value;
+    var data = document.getElementById('dataInput').value;
+    if (sym === 'ean13') return buildEAN13(data);
+    if (sym === 'ean8') return buildEAN8(data);
+    return buildCode128(data);
+}
+
+var lastModel = null; // {bits,guard,W,H,mw,barH,quiet,textH,hri}
+
+function computeModel(enc){
+    var mw = parseInt(document.getElementById('moduleW').value,10);
+    var barH = parseInt(document.getElementById('barH').value,10);
+    var quiet = parseInt(document.getElementById('quiet').value,10);
+    var showText = document.getElementById('showText').checked;
+    var textH = showText ? 22 : 0;
+    var guardExtend = (enc.type === 'ean' && showText) ? 8 : 0;
+    var total = quiet + enc.bits.length + quiet;
+    var W = total * mw;
+    var pad = 6;
+    var H = barH + guardExtend + textH + pad;
+    return {enc:enc, mw:mw, barH:barH, quiet:quiet, showText:showText, textH:textH, guardExtend:guardExtend, W:W, H:H, pad:pad};
+}
+
+function draw(model){
+    var cv = document.getElementById('barcode');
+    cv.width = model.W;
+    cv.height = model.H;
+    var ctx = cv.getContext('2d');
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0,0,model.W,model.H);
+    ctx.fillStyle = '#000000';
+    var bits = model.enc.bits, guard = model.enc.guard;
+    for (var i=0;i<bits.length;i++){
+        if (bits[i] === 1){
+            var x = (model.quiet + i) * model.mw;
+            var h = model.barH + (guard[i] ? model.guardExtend : 0);
+            ctx.fillRect(x, 0, model.mw, h);
+        }
+    }
+    if (model.showText){
+        ctx.fillStyle = '#000000';
+        var fs = Math.max(12, Math.min(20, model.mw*7));
+        ctx.font = fs + "px 'JetBrains Mono', monospace";
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom';
+        ctx.fillText(model.enc.hri, model.W/2, model.H - 2);
+    }
+}
+
+function xmlEscape(s){
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function buildSVG(model){
+    var parts = [];
+    parts.push('<svg xmlns="http://www.w3.org/2000/svg" width="'+model.W+'" height="'+model.H+'" viewBox="0 0 '+model.W+' '+model.H+'">');
+    parts.push('<rect width="'+model.W+'" height="'+model.H+'" fill="#ffffff"/>');
+    var bits = model.enc.bits, guard = model.enc.guard;
+    for (var i=0;i<bits.length;i++){
+        if (bits[i] === 1){
+            var x = (model.quiet + i) * model.mw;
+            var h = model.barH + (guard[i] ? model.guardExtend : 0);
+            parts.push('<rect x="'+x+'" y="0" width="'+model.mw+'" height="'+h+'" fill="#000000"/>');
+        }
+    }
+    if (model.showText){
+        var fs = Math.max(12, Math.min(20, model.mw*7));
+        parts.push('<text x="'+(model.W/2)+'" y="'+(model.H-4)+'" font-family="monospace" font-size="'+fs+'" text-anchor="middle" fill="#000000">'+xmlEscape(model.enc.hri)+'</text>');
+    }
+    parts.push('</svg>');
+    return parts.join('');
+}
+
+function setMsg(kind, text){
+    var el = document.getElementById('msg');
+    if (!text){ el.className=''; el.textContent=''; return; }
+    el.className = 'msg ' + kind;
+    el.textContent = text;
+}
+
+function render(){
+    document.getElementById('moduleWVal').textContent = document.getElementById('moduleW').value + 'px';
+    document.getElementById('barHVal').textContent = document.getElementById('barH').value + 'px';
+    document.getElementById('quietVal').textContent = document.getElementById('quiet').value;
+    try {
+        var enc = encode();
+        var model = computeModel(enc);
+        draw(model);
+        lastModel = model;
+        setMsg('ok', '生成しました（' + enc.hri + '）。PNG / SVG でダウンロードできます。');
+    } catch (e){
+        lastModel = null;
+        setMsg('err', e.message);
+    }
+}
+
+function downloadBlob(blob, filename){
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+function currentName(){
+    if (lastModel) return lastModel.enc.hri.replace(/[^0-9A-Za-z]/g,'_') || 'barcode';
+    return 'barcode';
+}
+
+function downloadPNG(){
+    if (!lastModel){ setMsg('err','有効なバーコードがありません。入力を確認してください。'); return; }
+    var cv = document.getElementById('barcode');
+    cv.toBlob(function(blob){ downloadBlob(blob, currentName()+'.png'); });
+}
+
+function downloadSVG(){
+    if (!lastModel){ setMsg('err','有効なバーコードがありません。入力を確認してください。'); return; }
+    var svg = buildSVG(lastModel);
+    downloadBlob(new Blob([svg], {type:'image/svg+xml'}), currentName()+'.svg');
+}
+
+var PRESETS = {
+    ean13: [{name:'490123456789', v:'490123456789'}, {name:'4006381333931', v:'4006381333931'}, {name:'978491234567', v:'978491234567'}],
+    ean8: [{name:'9638507', v:'9638507'}, {name:'96385074', v:'96385074'}, {name:'2012345', v:'2012345'}],
+    code128: [{name:'ABC-1234', v:'ABC-1234'}, {name:'DevTools Japan', v:'DevTools Japan'}, {name:'SKU-00591', v:'SKU-00591'}]
+};
+
+function buildPresets(){
+    var sym = document.getElementById('symbology').value;
+    var row = document.getElementById('presetRow');
+    row.innerHTML = '';
+    PRESETS[sym].forEach(function(p){
+        var b = document.createElement('button');
+        b.textContent = p.name;
+        b.onclick = function(){ document.getElementById('dataInput').value = p.v; render(); };
+        row.appendChild(b);
+    });
+}
+
+function onSymChange(){
+    var sym = document.getElementById('symbology').value;
+    var label = document.getElementById('dataLabel');
+    var input = document.getElementById('dataInput');
+    if (sym === 'ean13'){ label.textContent='データ（12〜13桁の数字）'; input.placeholder='例: 490123456789'; input.value='490123456789'; }
+    else if (sym === 'ean8'){ label.textContent='データ（7〜8桁の数字）'; input.placeholder='例: 9638507'; input.value='9638507'; }
+    else { label.textContent='データ（ASCII文字：英数字・記号）'; input.placeholder='例: ABC-1234'; input.value='ABC-1234'; }
+    buildPresets();
+    render();
+}
+
+// init
+buildPresets();
+render();
+</script>
+</body>
+</html>

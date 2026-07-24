@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>誕生日から星座・干支・誕生花を調べるツール | 生年月日プロフィール【無料】</title>
+    <meta name="description" content="生年月日を入力するだけで、西洋12星座・干支（十二支）・十干十二支（60干支）・誕生花・誕生石・生まれ年の和暦・生まれた曜日・次の誕生日までの残り日数をまとめて表示する無料ツール。占いではなく一般的な情報としてお楽しみください。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.jp{font-family:'Noto Sans JP',sans-serif;font-size:1.2rem}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'Noto Sans JP',sans-serif;font-size:2.2rem;font-weight:700;color:var(--accent);line-height:1.3}
+        .big-result .days .unit{font-size:1.1rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-181-zodiac/">
+    <meta property="og:title" content="誕生日から星座・干支・誕生花を調べるツール【無料】">
+    <meta property="og:description" content="生年月日から星座・干支・誕生花・誕生石・和暦・曜日・次の誕生日までの残り日数をまとめて表示。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-181-zodiac/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="誕生日から星座・干支・誕生花【無料】">
+    <meta name="twitter:description" content="生年月日から星座・干支・誕生花・和暦・次の誕生日までの残り日数を表示。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"誕生日から星座・干支・誕生花を調べるツール","description":"生年月日から西洋12星座・干支・十干十二支・誕生花・誕生石・和暦・曜日・次の誕生日までの残り日数を表示する無料ツール","url":"https://www.devtools-japan.com/tool-181-zodiac/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"誕生日から星座・干支・誕生花を調べるツール","item":"https://www.devtools-japan.com/tool-181-zodiac/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"星座はどうやって判定していますか？","acceptedAnswer":{"@type":"Answer","text":"西洋占星術で一般的に使われる12星座の日付範囲（サン・サイン）にもとづき、入力された生年月日の月と日から自動判定しています。たとえば3月21日〜4月19日は牡羊座、4月20日〜5月20日は牡牛座といった区切りです。星座の境界日は流派や年によって1日程度前後することがあり、本ツールは代表的な区分を採用した一般的な情報としてご利用ください。"}},{"@type":"Question","name":"干支（十二支）はどう計算していますか？","acceptedAnswer":{"@type":"Answer","text":"干支の十二支は、生まれた西暦年を12で割った余りから求めています。子・丑・寅・卯・辰・巳・午・未・申・酉・戌・亥の順で循環し、たとえば2020年は子年、2024年は辰年になります。あわせて十干（甲乙丙丁戊己庚辛壬癸）と組み合わせた六十干支（例：2024年は甲辰）も表示します。ここでは元日を年の区切りとする一般的な西暦ベースで計算しています。"}},{"@type":"Question","name":"誕生花・誕生石は正確なものですか？","acceptedAnswer":{"@type":"Answer","text":"誕生花・誕生石は月ごとに広く知られている代表的なものを1つずつ表示しています。誕生花や誕生石は国・団体・時代によって複数の説があり、日ごとに異なる誕生花を割り当てる場合もあります。本ツールの表示は一例であり、正式な唯一の答えではない点をご了承ください。"}},{"@type":"Question","name":"生まれ年の和暦は正しく出ますか？","acceptedAnswer":{"@type":"Answer","text":"和暦は生年月日そのものを日本の元号カレンダーに変換して表示するため、元号が切り替わる年（昭和・平成・令和の境目など）でも、その日付に対応した正しい元号と年で表示します。ブラウザの日本語カレンダー機能を利用しており、明治以降の日付に対応しています。"}},{"@type":"Question","name":"占いとして使えますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。本ツールは占いや運勢の鑑定を行うものではなく、星座・干支・誕生花などをまとめて表示する一般的なプロフィール情報ツールです。相性診断や運勢判断といった占術的な精度を保証するものではありません。話のきっかけや自己紹介の一言として、気軽にお楽しみください。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>誕生日から星座・干支・誕生花</h1><p>生年月日でわかるプロフィールまとめ</p></header>
+
+    <div class="card"><h3>生年月日を入力</h3>
+        <div class="row"><label>生年月日</label><input type="date" id="birthDate" style="text-align:left" oninput="calcProfile()"></div>
+    </div>
+
+    <div class="big-result">
+        <div class="headline" id="headline">星座</div>
+        <div class="days"><span id="bigSign">-</span></div>
+        <div class="target" id="signRange">生年月日を入力してください</div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">干支（十二支）</div><div class="value jp" id="etoValue">-</div><div class="sub" id="etoSub">&nbsp;</div></div>
+        <div class="result-item"><div class="label">十干十二支（60干支）</div><div class="value jp" id="kanshiValue">-</div><div class="sub" id="kanshiSub">&nbsp;</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">誕生花</div><div class="value jp" id="flowerValue">-</div></div>
+        <div class="result-item"><div class="label">誕生石</div><div class="value jp" id="stoneValue">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">生まれ年の和暦</div><div class="value jp" id="warekiValue">-</div></div>
+        <div class="result-item"><div class="label">生まれた曜日</div><div class="value jp" id="weekdayValue">-</div></div>
+    </div>
+    <div class="big-result">
+        <div class="headline">次の誕生日まで</div>
+        <div class="days"><span id="nextDays">-</span><span class="unit" id="nextUnit">日</span></div>
+        <div class="target" id="nextLabel">&nbsp;</div>
+    </div>
+
+    <div class="note">星座・干支・誕生花・誕生石は代表的な一般情報として表示するもので、占いや運勢の鑑定・相性診断ではありません。星座の境界日や誕生花・誕生石は流派や地域によって異なる場合があります。すべての計算はお使いの端末内で完結し、入力した生年月日は送信されません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>誕生日プロフィールツールの使い方</h2>
+        <p>生年月日を入力するだけで、西洋12星座・干支（十二支）・十干十二支（六十干支）・誕生花・誕生石・生まれ年の和暦・生まれた曜日・次の誕生日までの残り日数を、まとめて一覧表示する無料ツールです。インストールや会員登録は不要で、すべての計算はお使いのブラウザ内で完結するため、入力した生年月日が外部に送信されることはありません。</p>
+        <p>使い方は「生年月日」欄に日付を入れるだけです。入力した瞬間に星座が画面上部に大きく表示され、その下に干支や誕生花などの情報が並びます。自己紹介やプロフィール作成、話のきっかけ、家族や友人の誕生日を調べたいときなどに気軽にお使いください。なお本ツールは占い・運勢鑑定ではなく、一般的に知られている情報をまとめて表示するものです。</p>
+        <h3>今日だけを表示する和暦ツールや年齢計算との違い</h3>
+        <p>「今日の和暦」を表示するツールは当日の日付だけ、年齢計算ツールは満年齢だけを求めるものですが、本ツールは生年月日から星座・干支・誕生花といった複数の情報をまとめて表示する点が異なります。ちょっとしたプロフィールカードのように、誕生日にまつわる情報を一度に確認できます。</p>
+
+        <h2>それぞれの項目について</h2>
+        <h3>西洋12星座（サン・サイン）</h3>
+        <p>星座は、西洋占星術で一般的に使われる12星座の日付範囲にもとづき、生年月日の月と日から判定しています。星座の境界となる日付は流派や年によって1日ほど前後することがあるため、境界日付近の方は参考程度にご覧ください。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>星座</th><th>期間</th><th>星座</th><th>期間</th></tr>
+            <tr><td>牡羊座</td><td>3/21〜4/19</td><td>天秤座</td><td>9/23〜10/23</td></tr>
+            <tr><td>牡牛座</td><td>4/20〜5/20</td><td>蠍座</td><td>10/24〜11/21</td></tr>
+            <tr><td>双子座</td><td>5/21〜6/21</td><td>射手座</td><td>11/22〜12/21</td></tr>
+            <tr><td>蟹座</td><td>6/22〜7/22</td><td>山羊座</td><td>12/22〜1/19</td></tr>
+            <tr><td>獅子座</td><td>7/23〜8/22</td><td>水瓶座</td><td>1/20〜2/18</td></tr>
+            <tr><td>乙女座</td><td>8/23〜9/22</td><td>魚座</td><td>2/19〜3/20</td></tr>
+        </table>
+        </div>
+        <h3>干支（十二支）と十干十二支</h3>
+        <p>干支の十二支は、生まれた西暦年を12で割った余りから求めます。子・丑・寅・卯・辰・巳・午・未・申・酉・戌・亥の順に循環し、たとえば2020年は子年です。さらに十干（甲乙丙丁戊己庚辛壬癸）と組み合わせると六十干支となり、60年で一巡します。1984年や2044年の甲子（きのえね）が周期の始まりです。本ツールでは元日を年の区切りとする西暦ベースで計算しています（旧暦・節分を境とする流派とは異なる場合があります）。</p>
+        <h3>誕生花・誕生石・和暦・曜日</h3>
+        <p>誕生花・誕生石は月ごとに広く知られる代表的なものを表示します。和暦は生年月日を日本の元号カレンダーに変換して表示するため、元号が切り替わる年でもその日に対応した元号で表示されます。生まれた曜日はカレンダー上の実際の曜日です。次の誕生日までの残り日数は、今日を基準に次に来る誕生日（うるう年生まれの場合を含む）までの日数を数えます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">星座はどうやって判定していますか？</div><div class="a">西洋占星術で一般的に使われる12星座の日付範囲（サン・サイン）にもとづき、入力された生年月日の月と日から自動判定しています。たとえば3月21日〜4月19日は牡羊座、4月20日〜5月20日は牡牛座といった区切りです。星座の境界日は流派や年によって1日程度前後することがあり、本ツールは代表的な区分を採用した一般的な情報としてご利用ください。</div></div>
+        <div class="faq-item"><div class="q">干支（十二支）はどう計算していますか？</div><div class="a">干支の十二支は、生まれた西暦年を12で割った余りから求めています。子・丑・寅・卯・辰・巳・午・未・申・酉・戌・亥の順で循環し、たとえば2020年は子年、2024年は辰年になります。あわせて十干（甲乙丙丁戊己庚辛壬癸）と組み合わせた六十干支（例：2024年は甲辰）も表示します。ここでは元日を年の区切りとする一般的な西暦ベースで計算しています。</div></div>
+        <div class="faq-item"><div class="q">誕生花・誕生石は正確なものですか？</div><div class="a">誕生花・誕生石は月ごとに広く知られている代表的なものを1つずつ表示しています。誕生花や誕生石は国・団体・時代によって複数の説があり、日ごとに異なる誕生花を割り当てる場合もあります。本ツールの表示は一例であり、正式な唯一の答えではない点をご了承ください。</div></div>
+        <div class="faq-item"><div class="q">生まれ年の和暦は正しく出ますか？</div><div class="a">和暦は生年月日そのものを日本の元号カレンダーに変換して表示するため、元号が切り替わる年（昭和・平成・令和の境目など）でも、その日付に対応した正しい元号と年で表示します。ブラウザの日本語カレンダー機能を利用しており、明治以降の日付に対応しています。</div></div>
+        <div class="faq-item"><div class="q">占いとして使えますか？</div><div class="a">いいえ。本ツールは占いや運勢の鑑定を行うものではなく、星座・干支・誕生花などをまとめて表示する一般的なプロフィール情報ツールです。相性診断や運勢判断といった占術的な精度を保証するものではありません。話のきっかけや自己紹介の一言として、気軽にお楽しみください。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// 星座（サン・サイン）。境界日で判定
+function getSign(m, d){
+    const signs = [
+        {name:'山羊座', range:'12/22〜1/19'},
+        {name:'水瓶座', range:'1/20〜2/18'},
+        {name:'魚座', range:'2/19〜3/20'},
+        {name:'牡羊座', range:'3/21〜4/19'},
+        {name:'牡牛座', range:'4/20〜5/20'},
+        {name:'双子座', range:'5/21〜6/21'},
+        {name:'蟹座', range:'6/22〜7/22'},
+        {name:'獅子座', range:'7/23〜8/22'},
+        {name:'乙女座', range:'8/23〜9/22'},
+        {name:'天秤座', range:'9/23〜10/23'},
+        {name:'蠍座', range:'10/24〜11/21'},
+        {name:'射手座', range:'11/22〜12/21'}
+    ];
+    // 各星座の開始日（山羊座は前年12/22から）
+    const starts = [
+        [12,22],[1,20],[2,19],[3,21],[4,20],[5,21],
+        [6,22],[7,23],[8,23],[9,23],[10,24],[11,22]
+    ];
+    // 山羊座(12/22〜1/19)の判定
+    if ((m===12 && d>=22) || (m===1 && d<=19)) return signs[0];
+    for (let i=1; i<12; i++){
+        const s = starts[i];
+        const next = (i===11) ? [12,21] : starts[i+1];
+        if (m===s[0] && d>=s[1]) return signs[i];
+        if (m===next[0] && d<=next[1]) return signs[i];
+    }
+    return signs[0];
+}
+
+const JUNISHI = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+const JUNISHI_YOMI = ['ね','うし','とら','う','たつ','み','うま','ひつじ','さる','とり','いぬ','い'];
+const JIKKAN = ['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+
+// 誕生花・誕生石（月ごとの代表）
+const FLOWERS = ['スイセン','ウメ・フリージア','チューリップ','サクラ','スズラン','バラ','ユリ','ヒマワリ','リンドウ','コスモス','キク','ポインセチア'];
+const STONES = ['ガーネット','アメジスト','アクアマリン','ダイヤモンド','エメラルド','真珠（パール）','ルビー','ペリドット','サファイア','オパール','トパーズ','ターコイズ'];
+const WEEKDAYS = ['日曜日','月曜日','火曜日','水曜日','木曜日','金曜日','土曜日'];
+
+function calcProfile(){
+    const v = document.getElementById('birthDate').value;
+    if (!v) return;
+    const p = v.split('-').map(Number);
+    const y = p[0], m = p[1], d = p[2];
+
+    // 星座
+    const sign = getSign(m, d);
+    document.getElementById('bigSign').textContent = sign.name;
+    document.getElementById('signRange').textContent = sign.range + ' 生まれ';
+
+    // 干支（十二支）: 西暦年ベース、2020年=子
+    const jIdx = ((y - 4) % 12 + 12) % 12;
+    document.getElementById('etoValue').textContent = JUNISHI[jIdx] + '年';
+    document.getElementById('etoSub').textContent = '（' + JUNISHI_YOMI[jIdx] + '）';
+
+    // 十干十二支（60干支）: 1984年=甲子
+    const kIdx = ((y - 4) % 10 + 10) % 10;
+    document.getElementById('kanshiValue').textContent = JIKKAN[kIdx] + JUNISHI[jIdx];
+    document.getElementById('kanshiSub').textContent = '西暦' + y + '年';
+
+    // 誕生花・誕生石
+    document.getElementById('flowerValue').textContent = FLOWERS[m - 1];
+    document.getElementById('stoneValue').textContent = STONES[m - 1];
+
+    // 和暦（元号カレンダーへ変換）
+    let wareki = '—';
+    try {
+        wareki = new Intl.DateTimeFormat('ja-JP-u-ca-japanese', {era:'long', year:'numeric'}).format(new Date(y, m - 1, d));
+    } catch(e){ wareki = '—'; }
+    document.getElementById('warekiValue').textContent = wareki;
+
+    // 生まれた曜日
+    const born = new Date(y, m - 1, d);
+    document.getElementById('weekdayValue').textContent = WEEKDAYS[born.getDay()];
+
+    // 次の誕生日までの残り日数
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    let ny = today.getFullYear();
+    let next = new Date(ny, m - 1, d);
+    // うるう年の2/29生まれで平年の場合、その年に日付が繰り上がるため補正しつつ計算
+    if (next < today){ ny += 1; next = new Date(ny, m - 1, d); }
+    const nextUTC = Date.UTC(next.getFullYear(), next.getMonth(), next.getDate());
+    const todayUTC = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+    const remain = Math.round((nextUTC - todayUTC) / 86400000);
+    const nextDaysEl = document.getElementById('nextDays');
+    const nextUnitEl = document.getElementById('nextUnit');
+    const nextLabelEl = document.getElementById('nextLabel');
+    if (remain === 0){
+        nextDaysEl.textContent = '本日';
+        nextUnitEl.textContent = 'が誕生日';
+        nextLabelEl.textContent = 'お誕生日おめでとうございます！';
+    } else {
+        nextDaysEl.textContent = remain;
+        nextUnitEl.textContent = '日';
+        nextLabelEl.textContent = next.getFullYear() + '年' + m + '月' + d + '日';
+    }
+}
+</script>
+</body>
+</html>

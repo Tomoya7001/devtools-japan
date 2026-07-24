@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テキスト読み上げツール | 文章を音声で読み上げる無料の音声合成【日本語対応】</title>
+    <meta name="description" content="入力した日本語テキストをブラウザだけで音声読み上げする無料ツール。音声・速度・ピッチ・音量を調整でき、再生／一時停止／停止に対応。読み上げ中の文をハイライト。インストール不要・完全ブラウザ内処理で安全です。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .row input[type=range]{padding:0}
+        .row select{text-align:left}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:44px;text-align:right;font-family:'JetBrains Mono',monospace}
+        textarea{width:100%;min-height:160px;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.95rem;line-height:1.9;outline:none;resize:vertical}
+        textarea:focus{border-color:var(--accent)}
+        .btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+        .btn{padding:11px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.sec{background:#f7f8fb;color:var(--text2);border:1px solid var(--border)}
+        .btn.sec:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+        .btn:disabled{opacity:0.4;cursor:not-allowed}
+        .preview{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:20px;margin-bottom:16px;font-size:1rem;line-height:2;min-height:60px;color:var(--text)}
+        .preview .sent{transition:background 0.15s}
+        .preview .sent.active{background:rgba(139,92,246,0.25);border-radius:4px;box-shadow:0 0 0 2px rgba(139,92,246,0.25)}
+        .preview .ph{color:var(--text3)}
+        .status{font-size:0.8rem;color:var(--text2);margin-top:8px;font-family:'JetBrains Mono',monospace}
+        .warn{background:#fff4f4;border:1px solid rgba(239,68,68,0.25);color:var(--red);border-radius:8px;padding:12px 16px;font-size:0.8rem;margin-bottom:16px;display:none}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-186-text-to-speech/">
+    <meta property="og:title" content="テキスト読み上げツール | 文章を音声で読み上げる無料の音声合成【日本語対応】">
+    <meta property="og:description" content="入力した日本語テキストをブラウザだけで音声読み上げ。音声・速度・ピッチ・音量を調整でき、読み上げ中の文をハイライト。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-186-text-to-speech/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="テキスト読み上げツール【無料・日本語対応】">
+    <meta name="twitter:description" content="入力した文章をブラウザだけで音声読み上げ。速度・ピッチ・音量を調整可能。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"テキスト読み上げツール","description":"入力したテキストをブラウザの音声合成API（Web Speech API）で読み上げる無料ツール。音声・速度・ピッチ・音量を調整可能。","url":"https://www.devtools-japan.com/tool-186-text-to-speech/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"テキスト読み上げツール","item":"https://www.devtools-japan.com/tool-186-text-to-speech/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"音声ファイル（MP3）としてダウンロードできる？","acceptedAnswer":{"@type":"Answer","text":"いいえ。本ツールはブラウザ標準の音声合成API（Web Speech API）を利用しており、この仕組みはスピーカーから音声を再生することはできても、生成された音声データをMP3やWAVなどのファイルとして取り出す機能を提供していません。そのため技術的な制約上、読み上げ音声をファイル保存・ダウンロードすることはできず、あくまでその場での読み上げ（読み上げ再生）専用です。"}},{"@type":"Question","name":"日本語の読み上げに対応している？","acceptedAnswer":{"@type":"Answer","text":"はい。日本語（ja-JP）の音声がインストールされている端末では日本語テキストを自然に読み上げできます。利用できる音声はOSやブラウザによって異なり、音声選択メニューには端末に入っている音声の一覧が表示されます。日本語音声が見つからない場合は、OS側の音声設定から日本語の音声を追加してください。"}},{"@type":"Question","name":"速度やピッチ、音量は調整できる？","acceptedAnswer":{"@type":"Answer","text":"はい。速度（0.5〜2倍）、ピッチ（声の高さ）、音量をスライダーで自由に調整できます。速度を上げれば早口の確認に、下げればゆっくりとした聞き取りやすい読み上げになります。設定を変更したあとに再生し直すと、新しい設定が反映されます。"}},{"@type":"Question","name":"入力したテキストは外部に送信される？","acceptedAnswer":{"@type":"Answer","text":"本ツールのJavaScriptはテキストをサーバーへ送信しません。読み上げ処理はブラウザの音声合成APIに直接渡して端末内で完結します。ただし一部のブラウザやOSでは、音声合成そのものがOS・ブラウザの実装によりクラウド処理される場合があります。機密性の高い文章の取り扱いには各ブラウザの仕様もご確認ください。"}},{"@type":"Question","name":"読み上げ中の文がハイライトされるのはなぜ？","acceptedAnswer":{"@type":"Answer","text":"音声合成APIの読み上げ位置イベント（onboundary）を利用して、今読み上げている位置を推定し、その文をハイライト表示しています。文章のどこを読んでいるかが視覚的にわかるため、原稿の確認や語学学習に便利です。なお端末や音声によってはこの位置イベントに対応しておらず、ハイライトが動作しない場合があります。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>テキスト読み上げ</h1><p>入力した文章をブラウザだけで音声読み上げ</p></header>
+
+    <div class="warn" id="warnBox">お使いのブラウザは音声合成API（Web Speech API）に対応していないため、読み上げを利用できません。最新のChrome・Edge・Safariなどをお試しください。</div>
+
+    <div class="card"><h3>読み上げるテキスト</h3>
+        <textarea id="text" placeholder="ここに読み上げたい文章を入力してください。句点（。）や改行で文が区切られ、読み上げ中の文がハイライトされます。">こんにちは。これはブラウザだけで動くテキスト読み上げツールです。速度・ピッチ・音量を調整して、再生ボタンで読み上げを開始できます。</textarea>
+        <div class="btn-row">
+            <button class="btn" id="playBtn" onclick="play()">再生</button>
+            <button class="btn sec" id="pauseBtn" onclick="togglePause()" disabled>一時停止</button>
+            <button class="btn sec" id="stopBtn" onclick="stop()" disabled>停止</button>
+        </div>
+        <div class="status" id="status">準備完了</div>
+    </div>
+
+    <div class="card"><h3>音声設定</h3>
+        <div class="row"><label>音声（ボイス）</label><select id="voice"></select></div>
+        <div class="row"><label>速度</label><input type="range" id="rate" min="0.5" max="2" step="0.1" value="1" oninput="updateVals()"><span class="unit" id="rateVal">1.0x</span></div>
+        <div class="row"><label>ピッチ（声の高さ）</label><input type="range" id="pitch" min="0" max="2" step="0.1" value="1" oninput="updateVals()"><span class="unit" id="pitchVal">1.0</span></div>
+        <div class="row"><label>音量</label><input type="range" id="volume" min="0" max="1" step="0.05" value="1" oninput="updateVals()"><span class="unit" id="volVal">100%</span></div>
+    </div>
+
+    <div class="card"><h3>読み上げプレビュー</h3>
+        <div class="preview" id="preview"><span class="ph">再生すると、読み上げ中の文がここでハイライト表示されます。</span></div>
+    </div>
+
+    <div class="note">この読み上げはブラウザ標準の音声合成API（Web Speech API / window.speechSynthesis）を使って端末内で処理します。利用できる音声はOS・ブラウザに依存し、日本語音声（ja-JP）を優先して初期選択します。音声のMP3ダウンロードはAPIの制約上できず、その場での読み上げ専用です。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>テキスト読み上げツールの使い方</h2>
+        <p>入力した文章を、ブラウザだけで音声に変換して読み上げる無料ツールです。原稿やメール、学習用の英文・和文、ナレーションの下読みなどを、目で追う代わりに耳で確認できます。インストールや会員登録は不要で、読み上げ処理はすべてお使いの端末内で完結します。テキストを入力し、必要に応じて音声・速度・ピッチ・音量を調整したうえで「再生」ボタンを押すだけで、すぐに読み上げが始まります。</p>
+        <p>読み上げ中は、今どの文を読んでいるかがプレビュー欄でハイライト表示されるため、原稿のどこを読んでいるかが一目でわかります。「一時停止」で途中で止めて再開したり、「停止」で最初からやり直したりも可能です。速度は0.5倍のゆっくりから2倍の早口まで、ピッチ（声の高さ）や音量とあわせて細かく調整できます。</p>
+        <h3>こんな用途に</h3>
+        <p>書いた文章を音で聞いて誤字脱字や言い回しをチェックする校正・推敲に、プレゼンやナレーション原稿の読み上げリハーサルに、語学学習での発音・イントネーションの確認に、長文を耳で聞いて「ながら読み」したいときに。日本語だけでなく、端末に入っている音声によっては英語など他言語の読み上げにも対応します。</p>
+
+        <h2>仕組みと注意点</h2>
+        <p>本ツールは、ブラウザに標準搭載されている音声合成API（Web Speech API）を利用しています。テキストをこのAPIに渡すと、端末側の音声エンジンが読み上げ音声を生成してスピーカーから再生します。JavaScript側で独自にテキストを外部サーバーへ送信することはありません。利用できる音声（ボイス）はOSやブラウザによって異なり、音声メニューには端末にインストールされている音声の一覧が表示されます。日本語音声（ja-JP）があれば初期状態で優先的に選択します。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>項目</th><th>内容</th></tr>
+            <tr><td>音声</td><td>端末にインストール済みの音声から選択。日本語（ja-JP）を優先表示</td></tr>
+            <tr><td>速度</td><td>0.5〜2.0倍で調整。1.0が標準</td></tr>
+            <tr><td>ピッチ</td><td>0〜2で声の高さを調整。1.0が標準</td></tr>
+            <tr><td>音量</td><td>0〜100%で調整</td></tr>
+            <tr><td>MP3保存</td><td>API仕様上できない（読み上げ再生専用）</td></tr>
+        </table>
+        </div>
+        <h3>音声が表示されない・読み上げされないとき</h3>
+        <p>音声メニューが空になる場合、ブラウザが音声一覧をまだ読み込んでいない可能性があります。本ツールは音声一覧が更新されるタイミング（voiceschangedイベント）を監視して自動で反映しますが、ページを再読み込みすると改善することがあります。日本語音声が一つも見つからない場合は、OSの音声設定・アクセシビリティ設定から日本語の音声を追加してください。また、他のツールと異なり、これは音声合成（テキスト→音声）専用で、音声からテキストを起こす文字起こしや、読み上げ時間の目安を計算する機能とは役割が異なります。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">音声ファイル（MP3）としてダウンロードできる？</div><div class="a">いいえ。本ツールはブラウザ標準の音声合成API（Web Speech API）を利用しており、この仕組みはスピーカーから音声を再生することはできても、生成された音声データをMP3やWAVなどのファイルとして取り出す機能を提供していません。そのため技術的な制約上、読み上げ音声をファイル保存・ダウンロードすることはできず、あくまでその場での読み上げ（読み上げ再生）専用です。</div></div>
+        <div class="faq-item"><div class="q">日本語の読み上げに対応している？</div><div class="a">はい。日本語（ja-JP）の音声がインストールされている端末では日本語テキストを自然に読み上げできます。利用できる音声はOSやブラウザによって異なり、音声選択メニューには端末に入っている音声の一覧が表示されます。日本語音声が見つからない場合は、OS側の音声設定から日本語の音声を追加してください。</div></div>
+        <div class="faq-item"><div class="q">速度やピッチ、音量は調整できる？</div><div class="a">はい。速度（0.5〜2倍）、ピッチ（声の高さ）、音量をスライダーで自由に調整できます。速度を上げれば早口の確認に、下げればゆっくりとした聞き取りやすい読み上げになります。設定を変更したあとに再生し直すと、新しい設定が反映されます。</div></div>
+        <div class="faq-item"><div class="q">入力したテキストは外部に送信される？</div><div class="a">本ツールのJavaScriptはテキストをサーバーへ送信しません。読み上げ処理はブラウザの音声合成APIに直接渡して端末内で完結します。ただし一部のブラウザやOSでは、音声合成そのものがOS・ブラウザの実装によりクラウド処理される場合があります。機密性の高い文章の取り扱いには各ブラウザの仕様もご確認ください。</div></div>
+        <div class="faq-item"><div class="q">読み上げ中の文がハイライトされるのはなぜ？</div><div class="a">音声合成APIの読み上げ位置イベント（onboundary）を利用して、今読み上げている位置を推定し、その文をハイライト表示しています。文章のどこを読んでいるかが視覚的にわかるため、原稿の確認や語学学習に便利です。なお端末や音声によってはこの位置イベントに対応しておらず、ハイライトが動作しない場合があります。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-185-speech-time/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">スピーチ時間計算</a><a href="/tool-59-char-count/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">文字数カウント</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+const synth = window.speechSynthesis;
+const supported = typeof synth !== 'undefined' && typeof window.SpeechSynthesisUtterance !== 'undefined';
+let voices = [];
+let sentences = [];   // {text, start, end}
+let currentUtter = null;
+let activeIndex = -1;
+
+function updateVals(){
+    document.getElementById('rateVal').textContent = parseFloat(document.getElementById('rate').value).toFixed(1) + 'x';
+    document.getElementById('pitchVal').textContent = parseFloat(document.getElementById('pitch').value).toFixed(1);
+    document.getElementById('volVal').textContent = Math.round(parseFloat(document.getElementById('volume').value)*100) + '%';
+}
+
+function populateVoices(){
+    if (!supported) return;
+    voices = synth.getVoices() || [];
+    const sel = document.getElementById('voice');
+    const prev = sel.value;
+    sel.innerHTML = '';
+    voices.forEach((v, i) => {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = v.name + ' (' + v.lang + ')' + (v.default ? ' — 既定' : '');
+        sel.appendChild(opt);
+    });
+    // 日本語音声を優先選択
+    let jaIndex = voices.findIndex(v => (v.lang || '').toLowerCase().indexOf('ja') === 0);
+    if (prev !== '' && voices[prev]) {
+        sel.value = prev;
+    } else if (jaIndex >= 0) {
+        sel.value = jaIndex;
+    }
+    if (voices.length === 0) {
+        const opt = document.createElement('option');
+        opt.textContent = '利用可能な音声が見つかりません';
+        sel.appendChild(opt);
+    }
+}
+
+// 文単位に分割（句点・改行・?!。区切り、位置情報を保持）
+function splitSentences(text){
+    const result = [];
+    const re = /[^。．.!?！？\n]*[。．.!?！？\n]|[^。．.!?！？\n]+$/g;
+    let m;
+    while ((m = re.exec(text)) !== null) {
+        if (m[0].length === 0) { re.lastIndex++; continue; }
+        const t = m[0];
+        if (t.trim().length === 0) continue;
+        result.push({ text: t, start: m.index, end: m.index + t.length });
+    }
+    if (result.length === 0 && text.length > 0) {
+        result.push({ text: text, start: 0, end: text.length });
+    }
+    return result;
+}
+
+function renderPreview(){
+    const preview = document.getElementById('preview');
+    if (sentences.length === 0) {
+        preview.innerHTML = '<span class="ph">再生すると、読み上げ中の文がここでハイライト表示されます。</span>';
+        return;
+    }
+    preview.innerHTML = '';
+    sentences.forEach((s, i) => {
+        const span = document.createElement('span');
+        span.className = 'sent' + (i === activeIndex ? ' active' : '');
+        span.id = 'sent-' + i;
+        span.textContent = s.text;
+        preview.appendChild(span);
+    });
+}
+
+function setActive(i){
+    const prev = document.getElementById('sent-' + activeIndex);
+    if (prev) prev.className = 'sent';
+    activeIndex = i;
+    const cur = document.getElementById('sent-' + i);
+    if (cur) {
+        cur.className = 'sent active';
+        cur.scrollIntoView({block:'nearest', behavior:'smooth'});
+    }
+}
+
+function setStatus(t){ document.getElementById('status').textContent = t; }
+
+function speakFrom(index){
+    if (index >= sentences.length) { finish(); return; }
+    const s = sentences[index];
+    const u = new SpeechSynthesisUtterance(s.text);
+    const vi = parseInt(document.getElementById('voice').value, 10);
+    if (!isNaN(vi) && voices[vi]) { u.voice = voices[vi]; u.lang = voices[vi].lang; }
+    u.rate = parseFloat(document.getElementById('rate').value);
+    u.pitch = parseFloat(document.getElementById('pitch').value);
+    u.volume = parseFloat(document.getElementById('volume').value);
+    u.onstart = () => { setActive(index); setStatus('読み上げ中… (' + (index+1) + '/' + sentences.length + ')'); };
+    u.onend = () => { if (currentUtter === u) { speakFrom(index + 1); } };
+    u.onerror = (e) => { if (e.error !== 'interrupted' && e.error !== 'canceled') { setStatus('エラー: ' + e.error); finish(); } };
+    currentUtter = u;
+    synth.speak(u);
+}
+
+function play(){
+    if (!supported) return;
+    if (synth.paused && synth.speaking) { // 一時停止からの再開
+        synth.resume();
+        document.getElementById('pauseBtn').textContent = '一時停止';
+        setStatus('読み上げを再開しました');
+        return;
+    }
+    const text = document.getElementById('text').value;
+    if (text.trim().length === 0) { setStatus('テキストを入力してください'); return; }
+    synth.cancel();
+    sentences = splitSentences(text);
+    activeIndex = -1;
+    renderPreview();
+    document.getElementById('pauseBtn').disabled = false;
+    document.getElementById('stopBtn').disabled = false;
+    document.getElementById('pauseBtn').textContent = '一時停止';
+    speakFrom(0);
+}
+
+function togglePause(){
+    if (!supported) return;
+    if (synth.paused) {
+        synth.resume();
+        document.getElementById('pauseBtn').textContent = '一時停止';
+        setStatus('読み上げを再開しました');
+    } else if (synth.speaking) {
+        synth.pause();
+        document.getElementById('pauseBtn').textContent = '再開';
+        setStatus('一時停止中');
+    }
+}
+
+function stop(){
+    if (!supported) return;
+    currentUtter = null;
+    synth.cancel();
+    finish();
+    setStatus('停止しました');
+}
+
+function finish(){
+    currentUtter = null;
+    const prev = document.getElementById('sent-' + activeIndex);
+    if (prev) prev.className = 'sent';
+    activeIndex = -1;
+    document.getElementById('pauseBtn').disabled = true;
+    document.getElementById('stopBtn').disabled = true;
+    document.getElementById('pauseBtn').textContent = '一時停止';
+    if (synth && !synth.speaking) setStatus('読み上げ完了');
+}
+
+// 初期化
+if (!supported) {
+    document.getElementById('warnBox').style.display = 'block';
+    document.getElementById('playBtn').disabled = true;
+} else {
+    populateVoices();
+    if (typeof synth.onvoiceschanged !== 'undefined') {
+        synth.onvoiceschanged = populateVoices;
+    }
+    // 一部ブラウザ対策: 少し遅れて再取得
+    setTimeout(populateVoices, 250);
+    window.addEventListener('beforeunload', () => { synth.cancel(); });
+}
+updateVals();
+</script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>単価・コスパ比較計算ツール | 内容量あたりの価格を比較して最安を自動判定【無料】</title>
+    <meta name="description" content="複数の商品の価格と内容量を入力するだけで、100gあたり・1個あたりなど基準単位あたりの単価を自動計算し、コスパ最良（最安）の商品をランキング表示する無料ツール。割引後価格（％オフ）にも対応。g/ml/個/枚/L/kgの単位換算に対応し、すべてブラウザ内で完結します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .prod-card{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:12px;position:relative}
+        .prod-card .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+        .prod-card .field{display:flex;flex-direction:column;gap:4px}
+        .prod-card .field.full{grid-column:1 / -1}
+        .prod-card .field label{font-size:0.72rem;color:var(--text3)}
+        .prod-card input,.prod-card select{width:100%;padding:9px 12px;background:#fff;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .prod-card input:focus,.prod-card select:focus{border-color:var(--accent)}
+        .qty-wrap{display:flex;gap:8px}
+        .qty-wrap input{flex:2}.qty-wrap select{flex:1}
+        .remove-btn{position:absolute;top:10px;right:10px;width:26px;height:26px;border:1px solid var(--border);background:#fff;border-radius:6px;color:var(--text3);cursor:pointer;font-size:0.9rem;line-height:1;font-family:'Noto Sans JP',sans-serif}
+        .remove-btn:hover{border-color:var(--red);color:var(--red)}
+        .action-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+        .btn-sub{padding:10px 18px;background:#fff;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.85rem;font-weight:500;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn-sub:hover{border-color:var(--accent);color:var(--accent)}
+        table.cmp{width:100%;border-collapse:collapse;font-size:0.82rem;margin-top:4px}
+        table.cmp th{background:var(--bg);border:1px solid var(--border);padding:9px 10px;text-align:right;font-weight:600;color:var(--text);white-space:nowrap}
+        table.cmp th:first-child,table.cmp td:first-child{text-align:center}
+        table.cmp th:nth-child(2),table.cmp td:nth-child(2){text-align:left}
+        table.cmp td{border:1px solid var(--border);padding:9px 10px;color:var(--text2);text-align:right;white-space:nowrap}
+        table.cmp tr.best td{background:rgba(34,197,94,0.10);color:var(--text);font-weight:600}
+        table.cmp .rank{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--accent)}
+        table.cmp .best-tag{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:99px;background:var(--green);color:#fff;font-size:0.68rem;font-weight:700}
+        table.cmp .unitprice{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--text)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-179-unit-price/">
+    <meta property="og:title" content="単価・コスパ比較計算ツール | 内容量あたりの価格を比較して最安を自動判定【無料】">
+    <meta property="og:description" content="複数商品の価格と内容量から100gあたり・1個あたりの単価を自動計算し、コスパ最良の商品をランキング表示。割引後価格にも対応。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-179-unit-price/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="単価・コスパ比較計算ツール【無料】">
+    <meta name="twitter:description" content="複数商品の単価を自動計算してコスパ最良をランキング表示。割引後価格にも対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"単価・コスパ比較計算ツール","description":"複数商品の価格と内容量から基準単位あたりの単価を計算し、コスパ最良の商品をランキング表示する無料ツール","url":"https://www.devtools-japan.com/tool-179-unit-price/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"単価・コスパ比較計算ツール","item":"https://www.devtools-japan.com/tool-179-unit-price/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"単価はどうやって計算していますか？","acceptedAnswer":{"@type":"Answer","text":"各商品の価格を内容量で割り、基準単位あたりの価格として求めています。重さ（g・kg）はすべてグラムに換算して100gあたりの価格、容量（ml・L）はミリリットルに換算して100mlあたりの価格、個・枚は1個（1枚）あたりの価格として表示します。割引後価格を入力した場合は、割引後の実売価格をもとに単価を計算します。"}},{"@type":"Question","name":"単位が違う商品も比較できますか？","acceptedAnswer":{"@type":"Answer","text":"同じ種類の単位（重さ同士・容量同士・個数同士）であれば、kgとg、Lとmlのように単位が異なっていても自動で換算して比較できます。ただし重さ（g）と容量（ml）のように種類が異なる単位どうしは、そのまま比較すると意味が変わるため、比較の際は同じ種類の単位に揃えることをおすすめします。"}},{"@type":"Question","name":"最安・コスパ最良はどう判定していますか？","acceptedAnswer":{"@type":"Answer","text":"入力されたすべての商品について基準単位あたりの単価を計算し、その単価が最も安い商品を「最安（コスパ最良）」として緑色でハイライトし、単価の安い順にランキング表示します。価格の総額ではなく1単位あたりのコストで比較するため、内容量が違う商品どうしでも本当にお得な方を見つけられます。"}},{"@type":"Question","name":"割引後価格（％オフ）はどう使いますか？","acceptedAnswer":{"@type":"Answer","text":"各商品の割引率（％オフ）を任意で入力できます。例えば20と入力すると、その商品の価格から20％を差し引いた割引後価格を実売価格とみなし、その価格をもとに単価を計算します。セール品と通常品を並べて、値引き後に本当にどちらが安くなるかを比較したいときに便利です。空欄の場合は割引なし（表示価格そのまま）として計算します。"}},{"@type":"Question","name":"入力したデータはどこかに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。この単価・コスパ比較計算ツールはすべての計算をお使いのブラウザ内（クライアントサイド）で行います。入力した商品名・価格・内容量などの情報がサーバーへ送信されたり保存されたりすることはありません。通信は発生せず、オフラインでも動作するため安心してご利用いただけます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>単価・コスパ比較計算ツール</h1><p>内容量あたりの単価を計算して最安・コスパ最良を自動判定</p></header>
+
+    <div class="card"><h3>商品を入力</h3>
+        <div id="productList"></div>
+        <div class="action-row">
+            <button class="btn-sub" onclick="addRow()">＋ 商品を追加</button>
+            <button class="btn-sub" onclick="clearAll()">すべてクリア</button>
+        </div>
+        <div style="font-size:0.72rem;color:var(--text3);line-height:1.9">価格・内容量を入力すると自動で単価を計算します。割引率（％オフ）は任意です。重さはg/kg、容量はml/L、その他は個/枚で入力してください。</div>
+    </div>
+
+    <div class="big-result">
+        <div class="headline" id="headline">最安・コスパ最良</div>
+        <div class="days"><span id="bestName">-</span></div>
+        <div class="target" id="bestDetail">価格と内容量を入力してください</div>
+    </div>
+
+    <div class="card"><h3>比較結果（単価の安い順）</h3>
+        <div class="table-wrap">
+            <table class="cmp">
+                <thead>
+                    <tr><th>順位</th><th>商品名</th><th>実売価格</th><th>内容量</th><th>単価</th></tr>
+                </thead>
+                <tbody id="cmpBody">
+                    <tr><td colspan="5" style="text-align:center;color:var(--text3)">データがありません</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="note">単価は「実売価格 ÷ 内容量」で計算します。重さ(g/kg)は100gあたり、容量(ml/L)は100mlあたり、個・枚・その他は1個あたりの価格として表示します。割引率を入力した商品は、割引後の実売価格をもとに単価を求めます。すべての計算はブラウザ内で完結し、外部に送信されません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>単価・コスパ比較ツールの使い方</h2>
+        <p>スーパーやドラッグストア、ネット通販で「どっちが本当にお得なのか」を判断するには、値札の価格そのものではなく、内容量あたりの単価で比べる必要があります。この無料ツールは、複数の商品の商品名・価格・内容量・単位を入力するだけで、100gあたり・100mlあたり・1個あたりといった基準単位あたりの単価を自動計算し、最もコスパの良い（単価が最も安い）商品をランキング形式で表示します。インストールや会員登録は不要で、すべての計算はお使いの端末内で完結します。</p>
+        <p>使い方はかんたんです。各商品カードに「商品名」「価格（円）」「内容量」を入力し、内容量の単位（g・kg・ml・L・個・枚）を選ぶだけで、単価が自動で計算されます。商品を追加したいときは「＋ 商品を追加」ボタン、不要な行は右上の×ボタンで削除できます。セール品を比較したい場合は「割引率（％オフ）」欄に数値を入力すると、値引き後の実売価格で単価を計算し直します。</p>
+        <h3>こんな用途に</h3>
+        <p>大容量パックと少量パックのどちらがお得かの比較、詰め替え用と本体ボトルの単価比較、まとめ買いセールと通常価格の実質単価の比較、日用品・食品・飲料・お米・洗剤などあらゆる買い物の値段くらべに使えます。「量が多いほうが割高だった」「セールでも実は割高だった」といった思わぬ逆転も、単価で並べれば一目で分かります。</p>
+
+        <h2>単価の計算方法</h2>
+        <p>このツールでは、まず割引率が入力されていればその分を価格から差し引いて「実売価格」を求め、次に内容量で割って単位あたりの単価を計算します。単位は種類ごとに正規化しており、重さは1kg=1000gとしてグラムに、容量は1L=1000mlとしてミリリットルに換算したうえで、重さは100gあたり、容量は100mlあたりの価格として表示します。個・枚・その他の単位は1個（1枚）あたりの価格です。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>入力単位</th><th>換算</th><th>単価の表示基準</th></tr>
+            <tr><td>g（グラム）</td><td>そのまま</td><td>100gあたりの価格</td></tr>
+            <tr><td>kg（キログラム）</td><td>×1000でg換算</td><td>100gあたりの価格</td></tr>
+            <tr><td>ml（ミリリットル）</td><td>そのまま</td><td>100mlあたりの価格</td></tr>
+            <tr><td>L（リットル）</td><td>×1000でml換算</td><td>100mlあたりの価格</td></tr>
+            <tr><td>個 / 枚</td><td>そのまま</td><td>1個（1枚）あたりの価格</td></tr>
+        </table>
+        </div>
+        <h3>割引後価格（％オフ）の考え方</h3>
+        <p>割引率欄に「20」と入力すると、価格から20％を引いた金額（価格×0.8）を実売価格として扱い、その価格で単価を計算します。セール品と通常品を並べたときに、値引き後に本当にどちらが安くなるのかを正しく比較できます。割引率は0〜100の範囲で入力してください。空欄または0の場合は、表示価格そのままで計算します。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">単価はどうやって計算していますか？</div><div class="a">各商品の価格を内容量で割り、基準単位あたりの価格として求めています。重さ（g・kg）はすべてグラムに換算して100gあたりの価格、容量（ml・L）はミリリットルに換算して100mlあたりの価格、個・枚は1個（1枚）あたりの価格として表示します。割引後価格を入力した場合は、割引後の実売価格をもとに単価を計算します。</div></div>
+        <div class="faq-item"><div class="q">単位が違う商品も比較できますか？</div><div class="a">同じ種類の単位（重さ同士・容量同士・個数同士）であれば、kgとg、Lとmlのように単位が異なっていても自動で換算して比較できます。ただし重さ（g）と容量（ml）のように種類が異なる単位どうしは、そのまま比較すると意味が変わるため、比較の際は同じ種類の単位に揃えることをおすすめします。</div></div>
+        <div class="faq-item"><div class="q">最安・コスパ最良はどう判定していますか？</div><div class="a">入力されたすべての商品について基準単位あたりの単価を計算し、その単価が最も安い商品を「最安（コスパ最良）」として緑色でハイライトし、単価の安い順にランキング表示します。価格の総額ではなく1単位あたりのコストで比較するため、内容量が違う商品どうしでも本当にお得な方を見つけられます。</div></div>
+        <div class="faq-item"><div class="q">割引後価格（％オフ）はどう使いますか？</div><div class="a">各商品の割引率（％オフ）を任意で入力できます。例えば20と入力すると、その商品の価格から20％を差し引いた割引後価格を実売価格とみなし、その価格をもとに単価を計算します。セール品と通常品を並べて、値引き後に本当にどちらが安くなるかを比較したいときに便利です。空欄の場合は割引なし（表示価格そのまま）として計算します。</div></div>
+        <div class="faq-item"><div class="q">入力したデータはどこかに送信されますか？</div><div class="a">いいえ。この単価・コスパ比較計算ツールはすべての計算をお使いのブラウザ内（クライアントサイド）で行います。入力した商品名・価格・内容量などの情報がサーバーへ送信されたり保存されたりすることはありません。通信は発生せず、オフラインでも動作するため安心してご利用いただけます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// 単位定義: type(種類) と base(基準単位あたりの表示係数・ラベル)
+const UNITS = {
+    'g':  {type:'weight', toBase:1,    per:100, unitLabel:'100gあたり'},
+    'kg': {type:'weight', toBase:1000, per:100, unitLabel:'100gあたり'},
+    'ml': {type:'volume', toBase:1,    per:100, unitLabel:'100mlあたり'},
+    'L':  {type:'volume', toBase:1000, per:100, unitLabel:'100mlあたり'},
+    '個': {type:'count',  toBase:1,    per:1,   unitLabel:'1個あたり'},
+    '枚': {type:'count',  toBase:1,    per:1,   unitLabel:'1枚あたり'}
+};
+
+let rowSeq = 0;
+
+function unitOptions(sel){
+    return Object.keys(UNITS).map(function(u){
+        const s = (u === sel) ? ' selected' : '';
+        return '<option value="' + u + '"' + s + '>' + u + '</option>';
+    }).join('');
+}
+
+function addRow(name, price, qty, unit, discount){
+    const id = ++rowSeq;
+    const list = document.getElementById('productList');
+    const card = document.createElement('div');
+    card.className = 'prod-card';
+    card.dataset.id = id;
+    const nameV = name != null ? name : '';
+    const priceV = price != null ? price : '';
+    const qtyV = qty != null ? qty : '';
+    const unitV = unit || 'g';
+    const discV = discount != null ? discount : '';
+    card.innerHTML =
+        '<button class="remove-btn" title="削除" onclick="removeRow(' + id + ')">&times;</button>' +
+        '<div class="grid">' +
+            '<div class="field full"><label>商品名</label>' +
+                '<input type="text" class="f-name" placeholder="商品A" value="' + escAttr(nameV) + '" oninput="recalc()"></div>' +
+            '<div class="field"><label>価格（円）</label>' +
+                '<input type="number" class="f-price" inputmode="decimal" min="0" placeholder="298" value="' + escAttr(priceV) + '" oninput="recalc()"></div>' +
+            '<div class="field"><label>割引率（％オフ・任意）</label>' +
+                '<input type="number" class="f-disc" inputmode="decimal" min="0" max="100" placeholder="0" value="' + escAttr(discV) + '" oninput="recalc()"></div>' +
+            '<div class="field full"><label>内容量・単位</label>' +
+                '<div class="qty-wrap">' +
+                    '<input type="number" class="f-qty" inputmode="decimal" min="0" placeholder="500" value="' + escAttr(qtyV) + '" oninput="recalc()">' +
+                    '<select class="f-unit" onchange="recalc()">' + unitOptions(unitV) + '</select>' +
+                '</div></div>' +
+        '</div>';
+    list.appendChild(card);
+    recalc();
+}
+
+function removeRow(id){
+    const card = document.querySelector('.prod-card[data-id="' + id + '"]');
+    if (card) card.remove();
+    if (!document.querySelector('.prod-card')) addRow();
+    recalc();
+}
+
+function clearAll(){
+    document.getElementById('productList').innerHTML = '';
+    addRow();
+    addRow();
+    recalc();
+}
+
+function escAttr(v){
+    return String(v).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function fmtYen(n){
+    return n.toLocaleString('ja-JP', {maximumFractionDigits: 2});
+}
+
+function recalc(){
+    const cards = Array.prototype.slice.call(document.querySelectorAll('.prod-card'));
+    const rows = [];
+    cards.forEach(function(card){
+        const name = card.querySelector('.f-name').value.trim();
+        const price = parseFloat(card.querySelector('.f-price').value);
+        const qty = parseFloat(card.querySelector('.f-qty').value);
+        const unit = card.querySelector('.f-unit').value;
+        let disc = parseFloat(card.querySelector('.f-disc').value);
+        if (isNaN(disc) || disc < 0) disc = 0;
+        if (disc > 100) disc = 100;
+        if (isNaN(price) || price < 0 || isNaN(qty) || qty <= 0) return;
+        const u = UNITS[unit];
+        const realPrice = price * (1 - disc / 100);
+        const baseQty = qty * u.toBase;           // 正規化した数量(g/ml/個)
+        const unitPrice = realPrice / baseQty * u.per; // 基準単位あたりの価格
+        rows.push({
+            name: name || '(名称未設定)',
+            realPrice: realPrice,
+            price: price,
+            disc: disc,
+            qty: qty,
+            unit: unit,
+            unitPrice: unitPrice,
+            unitLabel: u.unitLabel
+        });
+    });
+
+    const body = document.getElementById('cmpBody');
+    const bestName = document.getElementById('bestName');
+    const bestDetail = document.getElementById('bestDetail');
+
+    if (rows.length === 0){
+        body.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--text3)">価格と内容量を入力してください</td></tr>';
+        bestName.textContent = '-';
+        bestDetail.textContent = '価格と内容量を入力してください';
+        return;
+    }
+
+    rows.sort(function(a, b){ return a.unitPrice - b.unitPrice; });
+    const best = rows[0];
+
+    let html = '';
+    rows.forEach(function(r, i){
+        const isBest = (i === 0);
+        const tag = isBest ? '<span class="best-tag">最安</span>' : '';
+        const priceCell = r.disc > 0
+            ? fmtYen(r.realPrice) + '円<div style="font-size:0.68rem;color:var(--text3)">(' + fmtYen(r.price) + '円の' + r.disc + '%オフ)</div>'
+            : fmtYen(r.realPrice) + '円';
+        html +=
+            '<tr class="' + (isBest ? 'best' : '') + '">' +
+                '<td class="rank">' + (i + 1) + '</td>' +
+                '<td>' + escAttr(r.name) + tag + '</td>' +
+                '<td>' + priceCell + '</td>' +
+                '<td>' + fmtYen(r.qty) + r.unit + '</td>' +
+                '<td class="unitprice">' + fmtYen(r.unitPrice) + '円<div style="font-size:0.68rem;color:var(--text3)">' + r.unitLabel + '</div></td>' +
+            '</tr>';
+    });
+    body.innerHTML = html;
+
+    bestName.textContent = best.name;
+    bestDetail.textContent = best.unitLabel + ' ' + fmtYen(best.unitPrice) + '円 が最もお得です';
+}
+
+// 初期表示: サンプル2商品
+addRow('商品A（大容量）', 498, 750, 'g', '');
+addRow('商品B（通常）', 198, 250, 'g', '');
+recalc();
+</script>
+</body>
+</html>

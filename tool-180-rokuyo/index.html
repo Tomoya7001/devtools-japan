@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>六曜カレンダー・六曜計算ツール | 大安・友引・仏滅を日付から自動計算【無料】</title>
+    <meta name="description" content="日付を入力するだけで、その日の六曜（大安・友引・先勝・先負・赤口・仏滅）を自動計算する無料ツール。旧暦（旧暦月＋旧暦日）から六曜を算出し、今日の六曜・月間カレンダー・冠婚葬祭の目安まで表示。すべてブラウザ内で完結し登録不要です。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .rk{font-size:2.8rem;font-weight:700;color:var(--accent);line-height:1.2}
+        .big-result .sub{font-size:0.8rem;color:var(--text3);margin-top:10px}
+        .big-result .meaning{font-size:0.82rem;color:var(--text2);margin-top:10px;line-height:1.8}
+        .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+        .cal-head button{padding:6px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.85rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .cal-head button:hover{border-color:var(--accent);color:var(--accent)}
+        .cal-title{font-size:1rem;font-weight:700;color:var(--text)}
+        table.cal{width:100%;border-collapse:collapse;table-layout:fixed}
+        table.cal th{font-size:0.7rem;color:var(--text3);padding:6px 0;font-weight:500}
+        table.cal td{border:1px solid var(--border);height:56px;vertical-align:top;padding:4px;text-align:center}
+        table.cal td.empty{background:#fbfbfd;border-color:#f0f1f5}
+        table.cal .dnum{font-size:0.85rem;font-weight:500;color:var(--text)}
+        table.cal .drk{font-size:0.6rem;margin-top:2px;display:inline-block;padding:1px 4px;border-radius:4px}
+        table.cal td.sun .dnum{color:var(--red)}
+        table.cal td.sat .dnum{color:#3b82f6}
+        table.cal td.sel{outline:2px solid var(--accent);outline-offset:-2px}
+        .rk-taian{background:rgba(34,197,94,0.14);color:#15803d}
+        .rk-butsu{background:rgba(239,68,68,0.12);color:#b91c1c}
+        .rk-neutral{background:rgba(148,152,176,0.14);color:#5a5f78}
+        .legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;font-size:0.72rem;color:var(--text2)}
+        .legend span{display:inline-flex;align-items:center;gap:4px}
+        .legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+        .mean-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+        @media(max-width:600px){.mean-grid{grid-template-columns:1fr}}
+        .mean-item{background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:12px 14px}
+        .mean-item .mt{font-weight:700;font-size:0.95rem;margin-bottom:4px}
+        .mean-item .md{font-size:0.75rem;color:var(--text2);line-height:1.7}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-180-rokuyo/">
+    <meta property="og:title" content="六曜カレンダー・六曜計算ツール | 大安・友引・仏滅を日付から自動計算【無料】">
+    <meta property="og:description" content="日付を入力するだけで、その日の六曜（大安・友引・先勝・先負・赤口・仏滅）を旧暦から自動計算。今日の六曜・月間カレンダー付き。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-180-rokuyo/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="六曜カレンダー・六曜計算ツール【無料】">
+    <meta name="twitter:description" content="日付からその日の六曜（大安・友引・仏滅ほか）を自動計算。月間カレンダー付き。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"六曜カレンダー・六曜計算ツール","description":"日付を入力すると、その日の六曜（大安・友引・先勝・先負・赤口・仏滅）を旧暦から自動計算する無料ツール","url":"https://www.devtools-japan.com/tool-180-rokuyo/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"六曜カレンダー・六曜計算ツール","item":"https://www.devtools-japan.com/tool-180-rokuyo/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"六曜はどうやって計算されるの？","acceptedAnswer":{"@type":"Answer","text":"六曜は旧暦（太陰太陽暦）の日付から機械的に決まります。本ツールでは、その日の旧暦の月と日を足した値を6で割った余りで六曜を求めます。余り0=大安、1=赤口、2=先勝、3=友引、4=先負、5=仏滅の順に対応します。そのため旧暦の各月は必ず「先勝→友引→先負→仏滅→大安→赤口」の同じ順番で始まり、月替わりで六曜の並びがリセットされるのが特徴です。"}},{"@type":"Question","name":"対応している期間はいつからいつまで？","acceptedAnswer":{"@type":"Answer","text":"本ツールは西暦1900年から2100年ごろまでを対象としています。六曜の計算にはグレゴリオ暦から旧暦への変換が必要で、当ツールでは1900〜2100年をカバーする旧暦変換テーブルを内蔵しています。この範囲を外れる日付は正しく計算できないため、対応範囲内でご利用ください。無理に範囲外を推測して表示することはしていません。"}},{"@type":"Question","name":"六曜の順番と意味を教えて","acceptedAnswer":{"@type":"Answer","text":"六曜は先勝・友引・先負・仏滅・大安・赤口の6種類です。一般的な目安として、大安は万事に吉で結婚や開店に好まれ、友引は「友を引く」ため葬儀を避け慶事に用いられます。先勝は午前が吉、先負は午後が吉、赤口は正午前後のみ吉、仏滅は万事に慎むとされます。あくまで暦注（歴史的な風習）であり、科学的な根拠を示すものではありません。"}},{"@type":"Question","name":"計算はどこで行われるの？データは送信される？","acceptedAnswer":{"@type":"Answer","text":"すべての計算はお使いのブラウザ内（クライアントサイド）で完結します。入力した日付や計算結果がサーバーへ送信されることはありません。旧暦変換テーブルと計算処理をページ内に内蔵しているため、外部の暦APIに問い合わせることなく、その日の六曜と月間カレンダーを瞬時に表示します。"}},{"@type":"Question","name":"市販の暦やカレンダーと結果がずれることはある？","acceptedAnswer":{"@type":"Answer","text":"まれにずれる可能性があります。六曜は旧暦の日付に基づくため、旧暦の朔日（新月）の扱いや過去の改暦の影響で、資料によって1日程度異なる場合があります。本ツールは一般的な旧暦変換テーブルを用いた参考用途向けです。冠婚葬祭など重要な日取りを最終決定する際は、市販のカレンダーや専門家の情報と併せてご確認ください。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>六曜カレンダー・六曜計算</h1><p>日付から大安・友引・仏滅などの六曜を自動計算</p></header>
+
+    <div class="big-result">
+        <div class="headline" id="headline">今日の六曜</div>
+        <div class="rk" id="bigRokuyo">-</div>
+        <div class="sub" id="bigSub">-</div>
+        <div class="meaning" id="bigMeaning">-</div>
+    </div>
+
+    <div class="card"><h3>日付を選ぶ</h3>
+        <div class="row"><label>調べたい日付</label><input type="date" id="pickDate" style="text-align:left" oninput="onPick()"></div>
+    </div>
+
+    <div class="card"><h3>月間六曜カレンダー</h3>
+        <div class="cal-head">
+            <button onclick="shiftMonth(-1)">‹ 前月</button>
+            <div class="cal-title" id="calTitle">-</div>
+            <button onclick="shiftMonth(1)">翌月 ›</button>
+        </div>
+        <table class="cal">
+            <thead><tr><th style="color:var(--red)">日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th style="color:#3b82f6">土</th></tr></thead>
+            <tbody id="calBody"></tbody>
+        </table>
+        <div class="legend">
+            <span><i class="rk-taian" style="background:rgba(34,197,94,0.5)"></i>大安（吉）</span>
+            <span><i class="rk-butsu" style="background:rgba(239,68,68,0.5)"></i>仏滅（凶）</span>
+            <span><i class="rk-neutral" style="background:rgba(148,152,176,0.5)"></i>その他</span>
+        </div>
+    </div>
+
+    <div class="note">六曜は旧暦の月と日から「(旧暦月＋旧暦日) を 6 で割った余り」で決まります（0=大安, 1=赤口, 2=先勝, 3=友引, 4=先負, 5=仏滅）。旧暦変換テーブルは西暦1900〜2100年に対応。計算はすべてブラウザ内で行われ、日付は送信されません。冠婚葬祭の目安であり、暦注（風習）に基づく参考情報です。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="card"><h3>六曜それぞれの意味（冠婚葬祭の目安）</h3>
+        <div class="mean-grid" id="meanGrid"></div>
+    </div>
+
+    <div class="seo-content">
+        <h2>六曜カレンダー・六曜計算ツールの使い方</h2>
+        <p>日付を入力するだけで、その日の六曜（大安・友引・先勝・先負・赤口・仏滅）を自動で判定する無料ツールです。ページを開くと「今日の六曜」が大きく表示され、その意味もあわせて確認できます。結婚式・入籍・結納・地鎮祭・引越し・開店・お葬式・法事など、日取りが気になる場面で、候補日が縁起の良い日かどうかをすぐに調べられます。インストールや会員登録は不要で、計算はすべてお使いの端末内（ブラウザ内）で完結します。</p>
+        <p>「調べたい日付」欄に知りたい日を入力すると、その日の六曜と意味が上部に表示され、月間カレンダーもその月に切り替わります。カレンダーは日曜始まりで、各日のマス目に六曜を表示します。大安は緑、仏滅は赤で色分けしているので、吉日・凶日をひと目で見分けられます。前月・翌月ボタンで月を移動すれば、結婚式やイベントの候補月をまとめて眺めることもできます。</p>
+
+        <h2>六曜の計算方法</h2>
+        <p>六曜は曜日のように7日周期で回るものではなく、旧暦（太陰太陽暦）の日付から機械的に決まります。本ツールでは、その日の旧暦の「月」と「日」を足した値を6で割り、その余りで六曜を決定します。余りと六曜の対応は次のとおりです。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>(旧暦月＋旧暦日) ÷ 6 の余り</th><th>六曜</th><th>一般的な目安</th></tr>
+            <tr><td>0</td><td>大安</td><td>万事に吉。最も縁起が良い日とされる</td></tr>
+            <tr><td>1</td><td>赤口</td><td>正午前後のみ吉、他は凶とされる</td></tr>
+            <tr><td>2</td><td>先勝</td><td>午前は吉、午後は凶。急ぎ事に良い</td></tr>
+            <tr><td>3</td><td>友引</td><td>朝夕は吉、正午は凶。葬儀は避ける</td></tr>
+            <tr><td>4</td><td>先負</td><td>午前は凶、午後は吉。控えめに過ごす</td></tr>
+            <tr><td>5</td><td>仏滅</td><td>万事に凶。祝い事は避けるとされる</td></tr>
+        </table>
+        </div>
+        <p>この仕組みのため、旧暦の毎月1日は必ず決まった六曜になり、旧暦の月が替わると六曜の並びが一度リセットされます。カレンダー上で六曜が規則正しく並んでいた列が、月の変わり目で急に飛ぶことがあるのはこのためです。</p>
+
+        <h3>旧暦への変換と対応範囲について（正直な注意）</h3>
+        <p>六曜の計算にはグレゴリオ暦（普段使う西暦カレンダー）から旧暦への変換が欠かせません。本ツールは西暦1900年から2100年ごろまでをカバーする旧暦変換テーブルを内蔵しており、この範囲であれば各日の旧暦の月日を求めて六曜を算出できます。対応範囲を外れる日付では正確な計算ができないため、その旨を表示し、無理に推測した値は出しません。また旧暦の朔日（新月）の扱いや過去の改暦の影響で、資料によっては六曜が1日程度異なる場合があります。あくまで参考用途としてご利用ください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">六曜はどうやって計算されるの？</div><div class="a">六曜は旧暦（太陰太陽暦）の日付から機械的に決まります。本ツールでは、その日の旧暦の月と日を足した値を6で割った余りで六曜を求めます。余り0=大安、1=赤口、2=先勝、3=友引、4=先負、5=仏滅の順に対応します。そのため旧暦の各月は必ず「先勝→友引→先負→仏滅→大安→赤口」の同じ順番で始まり、月替わりで六曜の並びがリセットされるのが特徴です。</div></div>
+        <div class="faq-item"><div class="q">対応している期間はいつからいつまで？</div><div class="a">本ツールは西暦1900年から2100年ごろまでを対象としています。六曜の計算にはグレゴリオ暦から旧暦への変換が必要で、当ツールでは1900〜2100年をカバーする旧暦変換テーブルを内蔵しています。この範囲を外れる日付は正しく計算できないため、対応範囲内でご利用ください。無理に範囲外を推測して表示することはしていません。</div></div>
+        <div class="faq-item"><div class="q">六曜の順番と意味を教えて</div><div class="a">六曜は先勝・友引・先負・仏滅・大安・赤口の6種類です。一般的な目安として、大安は万事に吉で結婚や開店に好まれ、友引は「友を引く」ため葬儀を避け慶事に用いられます。先勝は午前が吉、先負は午後が吉、赤口は正午前後のみ吉、仏滅は万事に慎むとされます。あくまで暦注（歴史的な風習）であり、科学的な根拠を示すものではありません。</div></div>
+        <div class="faq-item"><div class="q">計算はどこで行われるの？データは送信される？</div><div class="a">すべての計算はお使いのブラウザ内（クライアントサイド）で完結します。入力した日付や計算結果がサーバーへ送信されることはありません。旧暦変換テーブルと計算処理をページ内に内蔵しているため、外部の暦APIに問い合わせることなく、その日の六曜と月間カレンダーを瞬時に表示します。</div></div>
+        <div class="faq-item"><div class="q">市販の暦やカレンダーと結果がずれることはある？</div><div class="a">まれにずれる可能性があります。六曜は旧暦の日付に基づくため、旧暦の朔日（新月）の扱いや過去の改暦の影響で、資料によって1日程度異なる場合があります。本ツールは一般的な旧暦変換テーブルを用いた参考用途向けです。冠婚葬祭など重要な日取りを最終決定する際は、市販のカレンダーや専門家の情報と併せてご確認ください。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ==== 旧暦変換テーブル（西暦1900〜2100） ====
+// 各要素は該当年の旧暦月の大小・閏月をビットで符号化した公知の暦データ。
+var lunarInfo=[0x04bd8,0x04ae0,0x0a570,0x054d5,0x0d260,0x0d950,0x16554,0x056a0,0x09ad0,0x055d2,
+0x04ae0,0x0a5b6,0x0a4d0,0x0d250,0x1d255,0x0b540,0x0d6a0,0x0ada2,0x095b0,0x14977,
+0x04970,0x0a4b0,0x0b4b5,0x06a50,0x06d40,0x1ab54,0x02b60,0x09570,0x052f2,0x04970,
+0x06566,0x0d4a0,0x0ea50,0x06e95,0x05ad0,0x02b60,0x186e3,0x092e0,0x1c8d7,0x0c950,
+0x0d4a0,0x1d8a6,0x0b550,0x056a0,0x1a5b4,0x025d0,0x092d0,0x0d2b2,0x0a950,0x0b557,
+0x06ca0,0x0b550,0x15355,0x04da0,0x0a5b0,0x14573,0x052b0,0x0a9a8,0x0e950,0x06aa0,
+0x0aea6,0x0ab50,0x04b60,0x0aae4,0x0a570,0x05260,0x0f263,0x0d950,0x05b57,0x056a0,
+0x096d0,0x04dd5,0x04ad0,0x0a4d0,0x0d4d4,0x0d250,0x0d558,0x0b540,0x0b6a0,0x195a6,
+0x095b0,0x049b0,0x0a974,0x0a4b0,0x0b27a,0x06a50,0x06d40,0x0af46,0x0ab60,0x09570,
+0x04af5,0x04970,0x064b0,0x074a3,0x0ea50,0x06b58,0x055c0,0x0ab60,0x096d5,0x092e0,
+0x0c960,0x0d954,0x0d4a0,0x0da50,0x07552,0x056a0,0x0abb7,0x025d0,0x092d0,0x0cab5,
+0x0a950,0x0b4a0,0x0baa4,0x0ad50,0x055d9,0x04ba0,0x0a5b0,0x15176,0x052b0,0x0a930,
+0x07954,0x06aa0,0x0ad50,0x05b52,0x04b60,0x0a6e6,0x0a4e0,0x0d260,0x0ea65,0x0d530,
+0x05aa0,0x076a3,0x096d0,0x04afb,0x04ad0,0x0a4d0,0x1d0b6,0x0d250,0x0d520,0x0dd45,
+0x0b5a0,0x056d0,0x055b2,0x049b0,0x0a577,0x0a4b0,0x0aa50,0x1b255,0x06d20,0x0ada0,
+0x14b63,0x09370,0x049f8,0x04970,0x064b0,0x168a6,0x0ea50,0x06b20,0x1a6c4,0x0aae0,
+0x0a2e0,0x0d2e3,0x0c960,0x0d557,0x0d4a0,0x0da50,0x05d55,0x056a0,0x0a6d0,0x055d4,
+0x052d0,0x0a9b8,0x0a950,0x0b4a0,0x0b6a6,0x0ad50,0x055a0,0x0aba4,0x0a5b0,0x052b0,
+0x0b273,0x06930,0x07337,0x06aa0,0x0ad50,0x14b55,0x04b60,0x0a570,0x054e4,0x0d160,
+0x0e968,0x0d520,0x0daa0,0x16aa6,0x056d0,0x04ae0,0x0a9d4,0x0a2d0,0x0d150,0x0f252,
+0x0d520];
+
+function lYearDays(y){var i,sum=348;for(i=0x8000;i>0x8;i>>=1){sum+=(lunarInfo[y-1900]&i)?1:0;}return sum+leapDays(y);}
+function leapMonth(y){return lunarInfo[y-1900]&0xf;}
+function leapDays(y){if(leapMonth(y)){return (lunarInfo[y-1900]&0x10000)?30:29;}return 0;}
+function monthDays(y,m){return (lunarInfo[y-1900]&(0x10000>>m))?30:29;}
+
+// グレゴリオ暦 -> 旧暦。基準日 1900-01-31 = 旧暦1900年正月初一。
+function solarToLunar(y,m,d){
+    if(y<1900||y>2100) return null;
+    var offset=Math.round((Date.UTC(y,m-1,d)-Date.UTC(1900,0,31))/86400000);
+    var i,temp=0,leap=0,isLeap=false;
+    for(i=1900;i<2101 && offset>0;i++){temp=lYearDays(i);offset-=temp;}
+    if(offset<0){offset+=temp;i--;}
+    var lyear=i;
+    leap=leapMonth(lyear);
+    isLeap=false;
+    for(i=1;i<13 && offset>0;i++){
+        if(leap>0 && i===(leap+1) && isLeap===false){--i;isLeap=true;temp=leapDays(lyear);}
+        else{temp=monthDays(lyear,i);}
+        if(isLeap===true && i===(leap+1)) isLeap=false;
+        offset-=temp;
+    }
+    if(offset===0 && leap>0 && i===leap+1){
+        if(isLeap){isLeap=false;}else{isLeap=true;--i;}
+    }
+    if(offset<0){offset+=temp;--i;}
+    return {year:lyear, month:i, day:offset+1, isLeap:isLeap};
+}
+
+// ==== 六曜 ====
+// (旧暦月 + 旧暦日) mod 6 -> 0=大安,1=赤口,2=先勝,3=友引,4=先負,5=仏滅
+var ROKUYO=['大安','赤口','先勝','友引','先負','仏滅'];
+var MEANINGS={
+    '大安':'万事に吉。六曜で最も縁起が良い日とされ、結婚・入籍・開店・引越しなどお祝い事全般に好まれます。',
+    '赤口':'正午前後（およそ11〜13時）のみ吉、それ以外は凶とされます。祝い事は控えめにする日とされます。',
+    '先勝':'「先んずれば勝つ」。午前は吉、午後は凶とされ、急ぎの用事や勝負事は早めに行うと良い日です。',
+    '友引':'「友を引く」ため葬儀は避けるとされます。朝夕は吉・正午は凶で、慶事や結婚には用いられます。',
+    '先負':'「先んずれば負ける」。午前は凶、午後は吉とされ、急がず控えめに静かに過ごすと良い日です。',
+    '仏滅':'万事に凶とされ、六曜で最も縁起が悪い日。結婚など祝い事は避けるのが一般的とされます。'
+};
+
+function rokuyoOf(y,m,d){
+    var l=solarToLunar(y,m,d);
+    if(!l) return null;
+    var idx=(l.month+l.day)%6;
+    return {idx:idx, name:ROKUYO[idx], lunar:l};
+}
+function rkClass(name){ if(name==='大安') return 'rk-taian'; if(name==='仏滅') return 'rk-butsu'; return 'rk-neutral'; }
+
+function ymd(dt){
+    var y=dt.getFullYear();
+    var m=String(dt.getMonth()+1).padStart(2,'0');
+    var d=String(dt.getDate()).padStart(2,'0');
+    return y+'-'+m+'-'+d;
+}
+
+var now=new Date();
+var calYear, calMonth; // 表示中のカレンダー年月（calMonthは1-12）
+
+function showDate(y,m,d){
+    var headline=document.getElementById('headline');
+    var big=document.getElementById('bigRokuyo');
+    var sub=document.getElementById('bigSub');
+    var mean=document.getElementById('bigMeaning');
+    var todayStr=ymd(now);
+    var thisStr=y+'-'+String(m).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+    headline.textContent=(thisStr===todayStr)?'今日の六曜':thisStr+' の六曜';
+    var r=rokuyoOf(y,m,d);
+    if(!r){
+        big.textContent='—';
+        sub.textContent='対応範囲（1900〜2100年）外の日付です';
+        mean.textContent='お手数ですが対応範囲内の日付を選んでください。';
+        return;
+    }
+    big.textContent=r.name;
+    var lp=r.lunar.isLeap?'閏':'';
+    sub.textContent='旧暦 '+r.lunar.year+'年 '+lp+r.lunar.month+'月'+r.lunar.day+'日 ／ (旧暦月'+r.lunar.month+'＋旧暦日'+r.lunar.day+') mod 6 = '+r.idx;
+    mean.textContent=MEANINGS[r.name];
+}
+
+function renderCalendar(y,m){
+    document.getElementById('calTitle').textContent=y+'年 '+m+'月';
+    var body=document.getElementById('calBody');
+    body.innerHTML='';
+    var first=new Date(y,m-1,1);
+    var startDow=first.getDay();
+    var daysInMonth=new Date(y,m,0).getDate();
+    var selStr=document.getElementById('pickDate').value;
+    var cell=0, row=null;
+    // 先頭の空白
+    for(var e=0;e<startDow;e++){
+        if(cell%7===0){row=document.createElement('tr');body.appendChild(row);}
+        var td=document.createElement('td');td.className='empty';row.appendChild(td);cell++;
+    }
+    for(var d=1;d<=daysInMonth;d++){
+        if(cell%7===0){row=document.createElement('tr');body.appendChild(row);}
+        var td2=document.createElement('td');
+        var dow=(startDow+d-1)%7;
+        if(dow===0) td2.classList.add('sun');
+        if(dow===6) td2.classList.add('sat');
+        var thisStr=y+'-'+String(m).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+        if(thisStr===selStr) td2.classList.add('sel');
+        var num=document.createElement('div');num.className='dnum';num.textContent=d;
+        td2.appendChild(num);
+        var r=rokuyoOf(y,m,d);
+        if(r){
+            var rk=document.createElement('span');
+            rk.className='drk '+rkClass(r.name);
+            rk.textContent=r.name;
+            td2.appendChild(rk);
+        }
+        td2.style.cursor='pointer';
+        (function(dd){td2.onclick=function(){
+            document.getElementById('pickDate').value=y+'-'+String(m).padStart(2,'0')+'-'+String(dd).padStart(2,'0');
+            showDate(y,m,dd);
+            renderCalendar(y,m);
+        };})(d);
+        row.appendChild(td2);cell++;
+    }
+}
+
+function onPick(){
+    var v=document.getElementById('pickDate').value;
+    if(!v) return;
+    var p=v.split('-').map(Number);
+    calYear=p[0];calMonth=p[1];
+    showDate(p[0],p[1],p[2]);
+    renderCalendar(calYear,calMonth);
+}
+
+function shiftMonth(delta){
+    calMonth+=delta;
+    if(calMonth>12){calMonth=1;calYear++;}
+    if(calMonth<1){calMonth=12;calYear--;}
+    renderCalendar(calYear,calMonth);
+}
+
+// 六曜の意味カード
+(function(){
+    var grid=document.getElementById('meanGrid');
+    ROKUYO.forEach(function(name){
+        var item=document.createElement('div');
+        item.className='mean-item';
+        var t=document.createElement('div');
+        t.className='mt '+rkClass(name);
+        t.style.display='inline-block';t.style.padding='2px 10px';t.style.borderRadius='6px';
+        t.textContent=name;
+        var dsc=document.createElement('div');
+        dsc.className='md';dsc.style.marginTop='6px';
+        dsc.textContent=MEANINGS[name];
+        item.appendChild(t);item.appendChild(dsc);
+        grid.appendChild(item);
+    });
+})();
+
+// 初期表示: 今日
+(function(){
+    var y=now.getFullYear(),m=now.getMonth()+1,d=now.getDate();
+    document.getElementById('pickDate').value=ymd(now);
+    calYear=y;calMonth=m;
+    showDate(y,m,d);
+    renderCalendar(y,m);
+})();
+</script>
+</body>
+</html>

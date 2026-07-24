@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unicode 文字インスペクター | コードポイント・UTF-8/UTF-16・エスケープを一括表示【無料】</title>
+    <meta name="description" content="テキストを入力するだけで、各文字のUnicodeコードポイント（U+XXXX）・10進・UTF-8バイト列・UTF-16・HTMLエンティティ・CSS/JSエスケープを一覧表示する無料ツール。絵文字やサロゲートペアも正しく分解。逆引き（U+XXXX→文字）も対応。すべてブラウザ内で完結します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        textarea{width:100%;padding:12px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.95rem;outline:none;resize:vertical;min-height:90px;line-height:1.6}
+        textarea:focus{border-color:var(--accent)}
+        .row input{width:220px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.9rem;outline:none}
+        .row input:focus{border-color:var(--accent)}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        table.insp{width:100%;border-collapse:collapse;margin:4px 0;font-size:0.8rem;white-space:nowrap}
+        table.insp th{background:var(--bg);border:1px solid var(--border);padding:8px 10px;text-align:left;font-weight:600;color:var(--text);position:sticky;top:0}
+        table.insp td{border:1px solid var(--border);padding:8px 10px;color:var(--text2);font-family:'JetBrains Mono',monospace}
+        table.insp td.glyph{font-family:'Noto Sans JP',sans-serif;font-size:1.3rem;text-align:center;color:var(--text)}
+        table.insp td.cat{font-family:'Noto Sans JP',sans-serif;white-space:normal;min-width:120px}
+        .tag{display:inline-block;background:var(--accent-dim);color:var(--accent);border-radius:6px;padding:1px 7px;font-size:0.72rem;margin:1px 2px}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .rev-out{font-family:'JetBrains Mono',monospace;font-size:1.05rem;color:var(--text);margin-top:6px;word-break:break-all}
+        .rev-out .big{font-family:'Noto Sans JP',sans-serif;font-size:1.6rem;margin-right:10px}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-183-unicode-inspector/">
+    <meta property="og:title" content="Unicode 文字インスペクター | コードポイント・UTF-8/UTF-16・エスケープを一括表示【無料】">
+    <meta property="og:description" content="各文字のコードポイント・UTF-8/UTF-16・HTMLエンティティ・CSS/JSエスケープを一覧表示。絵文字やサロゲートペアも正しく分解。逆引きも対応。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-183-unicode-inspector/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Unicode 文字インスペクター【無料】">
+    <meta name="twitter:description" content="コードポイント・UTF-8/UTF-16・HTMLエンティティ・CSS/JSエスケープを一括表示。逆引きも対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Unicode 文字インスペクター","description":"テキストの各文字のコードポイント・UTF-8/UTF-16・HTMLエンティティ・CSS/JSエスケープを一覧表示する無料ツール","url":"https://www.devtools-japan.com/tool-183-unicode-inspector/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"Unicode 文字インスペクター","item":"https://www.devtools-japan.com/tool-183-unicode-inspector/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"絵文字や特殊文字も正しく分解できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。本ツールはコードポイント単位で文字を分解するため、絵文字や補助漢字などUTF-16のサロゲートペア（2つの符号単位で1文字を表す文字）も1文字として正しく扱います。JavaScriptの Array.from によりコードポイントごとに区切って解析するので、絵文字を途中で分断することなく、U+1F600 のような正しいコードポイントを表示します。"}},{"@type":"Question","name":"文字数と文字列長が違うのはなぜですか？","acceptedAnswer":{"@type":"Answer","text":"文字数はコードポイントの個数、文字列長はUTF-16の符号単位（16ビット）の個数です。絵文字や一部の漢字はコードポイント1つがUTF-16では2つの符号単位（サロゲートペア）で表されるため、その分だけ文字列長が文字数より大きくなります。本ツールは両方を同時に表示し、差があればサロゲートペアが含まれることが一目で分かります。"}},{"@type":"Question","name":"入力したテキストはサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。この文字インスペクターは100%クライアントサイドで動作します。入力したテキストの解析はすべてお使いのブラウザ内のJavaScriptだけで行われ、外部サーバーへの送信・保存は一切ありません。パスワードや個人情報を含む文字列の確認にも安心してご利用いただけます。"}},{"@type":"Question","name":"U+XXXX から文字を逆引きできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。逆引きモードに対応しています。U+1F600、0x1F600、128512（10進）、&#x1F600; のいずれの形式でもコードポイントを入力すると、対応する文字を表示します。スペースやカンマで区切って複数のコードポイントをまとめて入力することもでき、コードポイント列から文字列を復元できます。"}},{"@type":"Question","name":"HTMLエンティティやCSS・JSのエスケープも取得できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。各文字について、HTMLエンティティ（&#xXX; 形式）、CSSエスケープ（バックスラッシュ＋16進）、JavaScriptエスケープ（\\uXXXX およびES2015の \\u{...} 形式）を同時に表示します。Webページやスタイルシート、ソースコードに特殊文字を安全に埋め込みたいときに、そのままコピーして使えます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>Unicode 文字インスペクター</h1><p>各文字のコードポイント・UTF-8/UTF-16・エスケープを一覧表示</p></header>
+
+    <div class="card"><h3>テキストを入力</h3>
+        <textarea id="inputText" placeholder="ここに調べたい文字やテキストを入力… 例: A あ 漢 😀 é" oninput="inspect()"></textarea>
+        <div style="margin-top:14px">
+            <div style="font-size:0.75rem;color:var(--text3);margin-bottom:6px">サンプル</div>
+            <div class="preset-row" id="presetRow"></div>
+        </div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">文字数（コードポイント）</div><div class="value" id="cpCount">0</div><div class="sub">見た目の文字数の目安</div></div>
+        <div class="result-item"><div class="label">文字列長（UTF-16）</div><div class="value" id="uCount">0</div><div class="sub">.length と同じ値</div></div>
+    </div>
+
+    <div class="note">文字数は Array.from によるコードポイント数、文字列長は UTF-16 の符号単位数（JavaScript の <code>str.length</code>）です。絵文字や一部の漢字はサロゲートペアのため、両者の値が異なります。すべての解析はブラウザ内で完結し、入力内容は外部に送信されません。</div>
+
+    <div class="card"><h3>解析結果</h3>
+        <div class="table-wrap">
+        <table class="insp">
+            <thead><tr><th>文字</th><th>コードポイント</th><th>10進</th><th>UTF-8 (hex)</th><th>UTF-16</th><th>HTMLエンティティ</th><th>CSS</th><th>JS</th><th>カテゴリ</th></tr></thead>
+            <tbody id="inspBody"><tr><td colspan="9" style="text-align:center;color:var(--text3);font-family:Noto Sans JP,sans-serif;white-space:normal">上の欄に文字を入力すると解析結果が表示されます</td></tr></tbody>
+        </table>
+        </div>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="card"><h3>逆引き（コードポイント → 文字）</h3>
+        <div class="row"><label>U+XXXX / 0x… / 10進 / &amp;#x…；（スペース・カンマ区切りで複数可）</label><input type="text" id="revInput" placeholder="例: U+1F600 3042 0x6F22" oninput="reverse()"></div>
+        <div class="rev-out" id="revOut">コードポイントを入力すると対応する文字を表示します</div>
+    </div>
+
+    <div class="seo-content">
+        <h2>Unicode 文字インスペクターの使い方</h2>
+        <p>テキストを入力するだけで、その中の各文字のUnicode情報を一覧表示する無料ツールです。文字ごとに、コードポイント（U+XXXX表記）、10進数値、UTF-8のバイト列（16進）、UTF-16の符号単位、HTMLエンティティ、CSSエスケープ、JavaScriptエスケープ、そして文字カテゴリの目安をまとめて確認できます。インストールや会員登録は不要で、解析はすべてお使いの端末のブラウザ内で完結します。</p>
+        <p>使い方はかんたんです。入力欄に調べたい文字やテキストを貼り付けると、下の表に1文字ずつ分解された結果がリアルタイムで表示されます。絵文字や補助漢字のようにUTF-16でサロゲートペアになる文字も、コードポイント単位で正しく1文字として扱います。画面上部には「文字数（コードポイント）」と「文字列長（UTF-16）」を並べて表示するので、両者の差からサロゲートペアの有無を一目で把握できます。</p>
+        <h3>こんな場面に</h3>
+        <p>「見た目は同じなのに検索に引っかからない全角・半角の違いを調べたい」「絵文字が期待どおりのコードポイントか確認したい」「テキスト中に紛れ込んだ制御文字やゼロ幅文字を特定したい」「HTMLやCSS・JSに特殊文字を安全に埋め込むためのエスケープを取得したい」といった開発・編集の場面で役立ちます。逆引きモードを使えば、U+XXXXのコードポイントから実際の文字を復元することもできます。</p>
+
+        <h2>コードポイントとUTF-8・UTF-16の関係</h2>
+        <p>Unicodeでは、1つ1つの文字に「コードポイント」と呼ばれる番号が割り当てられています。U+0041（英大文字A）やU+3042（ひらがな「あ」）のように、U+の後ろに16進数で表記します。このコードポイントを実際のバイト列として保存・通信するための方式が符号化方式で、代表的なものがUTF-8とUTF-16です。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>項目</th><th>意味</th><th>例（😀 U+1F600）</th></tr>
+            <tr><td>コードポイント</td><td>文字に割り当てられた番号</td><td>U+1F600</td></tr>
+            <tr><td>UTF-8</td><td>1〜4バイトの可変長バイト列</td><td>F0 9F 98 80（4バイト）</td></tr>
+            <tr><td>UTF-16</td><td>1〜2個の16ビット符号単位</td><td>D83D DE00（サロゲートペア）</td></tr>
+            <tr><td>10進</td><td>コードポイントを10進数で表した値</td><td>128512</td></tr>
+        </table>
+        </div>
+        <h3>サロゲートペアと文字列長</h3>
+        <p>基本多言語面（BMP、U+0000〜U+FFFF）の外にある文字、たとえば多くの絵文字や一部の漢字は、UTF-16では2つの16ビット符号単位の組（サロゲートペア）で表現されます。JavaScriptの文字列は内部的にUTF-16で扱われるため、こうした文字は<code>str.length</code>では2としてカウントされます。一方、<code>Array.from(str)</code>や<code>[...str]</code>はコードポイント単位で区切るため1として数えます。本ツールが両方の値を表示するのは、この差を分かりやすくするためです。</p>
+
+        <h2>HTML・CSS・JavaScriptエスケープ</h2>
+        <p>各文字について、Webの各言語で使える特殊文字エスケープも表示します。HTMLエンティティは <code>&amp;#xXX;</code> の数値文字参照形式、CSSは <code>\XX</code> のようにバックスラッシュと16進で表す形式、JavaScriptは <code>\uXXXX</code> と、コードポイントを直接書けるES2015の <code>\u{...}</code> 形式の両方を表示します。特殊文字や絵文字をソースに直接書くと文字化けやエンコード事故の原因になることがあるため、これらのエスケープをコピーして使うと安全です。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">絵文字や特殊文字も正しく分解できますか？</div><div class="a">はい。本ツールはコードポイント単位で文字を分解するため、絵文字や補助漢字などUTF-16のサロゲートペア（2つの符号単位で1文字を表す文字）も1文字として正しく扱います。JavaScriptの Array.from によりコードポイントごとに区切って解析するので、絵文字を途中で分断することなく、U+1F600 のような正しいコードポイントを表示します。</div></div>
+        <div class="faq-item"><div class="q">文字数と文字列長が違うのはなぜですか？</div><div class="a">文字数はコードポイントの個数、文字列長はUTF-16の符号単位（16ビット）の個数です。絵文字や一部の漢字はコードポイント1つがUTF-16では2つの符号単位（サロゲートペア）で表されるため、その分だけ文字列長が文字数より大きくなります。本ツールは両方を同時に表示し、差があればサロゲートペアが含まれることが一目で分かります。</div></div>
+        <div class="faq-item"><div class="q">入力したテキストはサーバーに送信されますか？</div><div class="a">いいえ。この文字インスペクターは100%クライアントサイドで動作します。入力したテキストの解析はすべてお使いのブラウザ内のJavaScriptだけで行われ、外部サーバーへの送信・保存は一切ありません。パスワードや個人情報を含む文字列の確認にも安心してご利用いただけます。</div></div>
+        <div class="faq-item"><div class="q">U+XXXX から文字を逆引きできますか？</div><div class="a">はい。逆引きモードに対応しています。U+1F600、0x1F600、128512（10進）、&amp;#x1F600; のいずれの形式でもコードポイントを入力すると、対応する文字を表示します。スペースやカンマで区切って複数のコードポイントをまとめて入力することもでき、コードポイント列から文字列を復元できます。</div></div>
+        <div class="faq-item"><div class="q">HTMLエンティティやCSS・JSのエスケープも取得できますか？</div><div class="a">はい。各文字について、HTMLエンティティ（&amp;#xXX; 形式）、CSSエスケープ（バックスラッシュ＋16進）、JavaScriptエスケープ（\uXXXX およびES2015の \u{...} 形式）を同時に表示します。Webページやスタイルシート、ソースコードに特殊文字を安全に埋め込みたいときに、そのままコピーして使えます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+var encoder = new TextEncoder();
+
+function hex(n, pad){
+    var s = n.toString(16).toUpperCase();
+    while (pad && s.length < pad) s = '0' + s;
+    return s;
+}
+
+function escapeHtml(s){
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// UTF-8 bytes as space-separated hex
+function utf8Hex(str){
+    var arr = encoder.encode(str);
+    var out = [];
+    for (var i = 0; i < arr.length; i++) out.push(hex(arr[i], 2));
+    return out.join(' ');
+}
+
+// UTF-16 code units as space-separated 4-hex
+function utf16Hex(str){
+    var out = [];
+    for (var i = 0; i < str.length; i++) out.push(hex(str.charCodeAt(i), 4));
+    return out.join(' ');
+}
+
+// JavaScript escape: surrogate \uXXXX form and ES2015 code point form
+function jsEscape(cp, str){
+    var pair = '';
+    for (var i = 0; i < str.length; i++) pair += '\\u' + hex(str.charCodeAt(i), 4);
+    var brace = '\\u{' + hex(cp, 0) + '}';
+    return pair + ' / ' + brace;
+}
+
+function categories(cp, str){
+    var tags = [];
+    if (cp < 0x20 || (cp >= 0x7F && cp <= 0x9F)) tags.push('制御文字');
+    if (cp === 0x200B || cp === 0x200C || cp === 0x200D || cp === 0xFEFF) tags.push('ゼロ幅');
+    if ((cp >= 0x0300 && cp <= 0x036F) || (cp >= 0x1AB0 && cp <= 0x1AFF) || (cp >= 0x20D0 && cp <= 0x20FF) || (cp >= 0xFE20 && cp <= 0xFE2F)) tags.push('結合文字');
+    if ((cp >= 0x1F000 && cp <= 0x1FAFF) || (cp >= 0x2600 && cp <= 0x27BF) || cp === 0x2764 || (cp >= 0x2190 && cp <= 0x21FF && false)) tags.push('絵文字');
+    if (cp === 0x20 || cp === 0x3000 || cp === 0x09 || cp === 0x0A || cp === 0x0D) tags.push('空白');
+    if ((cp >= 0x21 && cp <= 0x7E)) tags.push('半角');
+    else if (cp >= 0xFF61 && cp <= 0xFF9F) tags.push('半角カナ');
+    else if ((cp >= 0xFF01 && cp <= 0xFF60) || (cp >= 0xFFE0 && cp <= 0xFFE6)) tags.push('全角');
+    else if ((cp >= 0x3000 && cp <= 0x30FF) || (cp >= 0x3400 && cp <= 0x4DBF) || (cp >= 0x4E00 && cp <= 0x9FFF) || (cp >= 0xF900 && cp <= 0xFAFF) || (cp >= 0x20000 && cp <= 0x2FFFF)) tags.push('全角');
+    if (str.length === 2) tags.push('サロゲートペア');
+    if (tags.length === 0) return '&mdash;';
+    return tags.map(function(t){ return '<span class="tag">' + t + '</span>'; }).join('');
+}
+
+function displayGlyph(cp, str){
+    if (cp < 0x20 || (cp >= 0x7F && cp <= 0xA0)) return '&middot;';
+    if (cp === 0x200B || cp === 0x200C || cp === 0x200D || cp === 0xFEFF) return '&middot;';
+    return escapeHtml(str);
+}
+
+function inspect(){
+    var text = document.getElementById('inputText').value;
+    var cps = Array.from(text);
+    document.getElementById('cpCount').textContent = cps.length;
+    document.getElementById('uCount').textContent = text.length;
+    var body = document.getElementById('inspBody');
+    if (cps.length === 0){
+        body.innerHTML = '<tr><td colspan="9" style="text-align:center;color:var(--text3);font-family:Noto Sans JP,sans-serif;white-space:normal">上の欄に文字を入力すると解析結果が表示されます</td></tr>';
+        return;
+    }
+    var rows = [];
+    var limit = Math.min(cps.length, 2000);
+    for (var i = 0; i < limit; i++){
+        var ch = cps[i];
+        var cp = ch.codePointAt(0);
+        var cpStr = 'U+' + hex(cp, 4);
+        var html = '<tr>' +
+            '<td class="glyph">' + displayGlyph(cp, ch) + '</td>' +
+            '<td>' + cpStr + '</td>' +
+            '<td>' + cp + '</td>' +
+            '<td>' + utf8Hex(ch) + '</td>' +
+            '<td>' + utf16Hex(ch) + '</td>' +
+            '<td>&amp;#x' + hex(cp, 0) + ';</td>' +
+            '<td>\\' + hex(cp, 0) + '</td>' +
+            '<td>' + jsEscape(cp, ch) + '</td>' +
+            '<td class="cat">' + categories(cp, ch) + '</td>' +
+            '</tr>';
+        rows.push(html);
+    }
+    if (cps.length > limit){
+        rows.push('<tr><td colspan="9" style="text-align:center;color:var(--text3);font-family:Noto Sans JP,sans-serif;white-space:normal">先頭 ' + limit + ' 文字のみ表示しています（全 ' + cps.length + ' 文字）</td></tr>');
+    }
+    body.innerHTML = rows.join('');
+}
+
+function parseCodePoint(tok){
+    tok = tok.trim();
+    if (!tok) return null;
+    var m;
+    m = tok.match(/^U\+([0-9A-Fa-f]+)$/);
+    if (m) return parseInt(m[1], 16);
+    m = tok.match(/^0x([0-9A-Fa-f]+)$/);
+    if (m) return parseInt(m[1], 16);
+    m = tok.match(/^&#x([0-9A-Fa-f]+);?$/);
+    if (m) return parseInt(m[1], 16);
+    m = tok.match(/^#?x([0-9A-Fa-f]+)$/);
+    if (m) return parseInt(m[1], 16);
+    m = tok.match(/^&#(\d+);?$/);
+    if (m) return parseInt(m[1], 10);
+    if (/^\d+$/.test(tok)) return parseInt(tok, 10);
+    if (/^[0-9A-Fa-f]+$/.test(tok)) return parseInt(tok, 16);
+    return null;
+}
+
+function reverse(){
+    var raw = document.getElementById('revInput').value;
+    var out = document.getElementById('revOut');
+    if (!raw.trim()){
+        out.innerHTML = 'コードポイントを入力すると対応する文字を表示します';
+        return;
+    }
+    var toks = raw.split(/[\s,、，]+/).filter(function(t){ return t.length > 0; });
+    var chars = '';
+    var details = [];
+    var ok = true;
+    for (var i = 0; i < toks.length; i++){
+        var cp = parseCodePoint(toks[i]);
+        if (cp === null || cp < 0 || cp > 0x10FFFF || (cp >= 0xD800 && cp <= 0xDFFF)){
+            details.push('<span style="color:var(--red)">' + escapeHtml(toks[i]) + ' → 無効</span>');
+            ok = false;
+            continue;
+        }
+        var s = String.fromCodePoint(cp);
+        chars += s;
+        details.push('U+' + hex(cp, 4) + '=' + escapeHtml(s));
+    }
+    var head = chars ? '<span class="big">' + escapeHtml(chars) + '</span>' : '';
+    out.innerHTML = head + details.join(' &nbsp; ');
+}
+
+// サンプル（クリックで入力欄へ）
+var samples = [
+    {name:'ABC 123', v:'ABC 123'},
+    {name:'あ 漢 ア', v:'あ 漢 ア'},
+    {name:'絵文字 😀🎉', v:'😀🎉'},
+    {name:'結合文字 é', v:'é'},
+    {name:'全角ＡＢＣ', v:'ＡＢＣ'},
+    {name:'ゼロ幅', v:'a​b'}
+];
+(function(){
+    var row = document.getElementById('presetRow');
+    samples.forEach(function(s){
+        var btn = document.createElement('button');
+        btn.textContent = s.name;
+        btn.onclick = function(){ document.getElementById('inputText').value = s.v; inspect(); };
+        row.appendChild(btn);
+    });
+})();
+
+// 初期表示
+document.getElementById('inputText').value = 'A あ 漢 😀 é';
+inspect();
+</script>
+</body>
+</html>

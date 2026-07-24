@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>パスワード強度チェッカー | 安全度・エントロピー・解読時間を判定【無料・完全ローカル】</title>
+    <meta name="description" content="入力したパスワードの強度をその場で判定する無料ツール。文字種・長さ・エントロピー(bits)・推定解読時間・0〜4の強度スコアをカラーメーターで表示し、改善のヒントも提示。よくある弱いパスワードやキーボード配列も検出。すべて端末内で処理し外部送信は一切なし。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .pw-wrap{position:relative;margin-bottom:6px}
+        .pw-wrap input{width:100%;padding:14px 60px 14px 16px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:1rem;outline:none}
+        .pw-wrap input:focus{border-color:var(--accent)}
+        .pw-toggle{position:absolute;right:8px;top:50%;transform:translateY(-50%);padding:6px 12px;background:transparent;border:1px solid var(--border);border-radius:6px;color:var(--text2);font-size:0.75rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .pw-toggle:hover{border-color:var(--accent);color:var(--accent)}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent)}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .score{font-family:'JetBrains Mono',monospace;font-size:2.4rem;font-weight:700;line-height:1.2}
+        .big-result .crack{font-size:0.85rem;color:var(--text3);margin-top:8px}
+        .meter{display:flex;gap:6px;margin:16px 0 8px}
+        .meter .seg{flex:1;height:10px;border-radius:5px;background:var(--border);transition:background 0.2s}
+        .charset-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+        .chip{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text3);font-size:0.8rem}
+        .chip.on{border-color:var(--green);color:var(--green);background:rgba(34,197,94,0.06)}
+        .tips{list-style:none;margin-top:4px}
+        .tips li{padding:8px 0 8px 26px;position:relative;font-size:0.85rem;color:var(--text2);border-bottom:1px solid var(--border)}
+        .tips li:last-child{border-bottom:none}
+        .tips li:before{content:'!';position:absolute;left:0;top:8px;width:18px;height:18px;line-height:18px;text-align:center;background:var(--red);color:#fff;border-radius:50%;font-size:0.7rem;font-weight:700}
+        .tips li.ok:before{content:'✓';background:var(--green)}
+        .warn{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.25);border-radius:8px;padding:12px 16px;font-size:0.8rem;color:var(--red);margin-bottom:16px;display:none}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-182-password-strength/">
+    <meta property="og:title" content="パスワード強度チェッカー | 安全度・エントロピー・解読時間を判定【無料】">
+    <meta property="og:description" content="入力したパスワードの強度・エントロピー・推定解読時間をその場で判定。すべて端末内で処理し外部送信なし。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-182-password-strength/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="パスワード強度チェッカー【無料・完全ローカル】">
+    <meta name="twitter:description" content="パスワードの強度・エントロピー・推定解読時間を判定。外部送信なし。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"パスワード強度チェッカー","description":"入力したパスワードの文字種・長さ・エントロピー・推定解読時間・強度スコアを端末内で判定する無料ツール","url":"https://www.devtools-japan.com/tool-182-password-strength/","applicationCategory":"SecurityApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"パスワード強度チェッカー","item":"https://www.devtools-japan.com/tool-182-password-strength/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"入力したパスワードは外部に送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。このツールはすべての処理をお使いのブラウザ内（JavaScript）だけで行い、入力したパスワードをサーバーや外部サービスへ送信することは一切ありません。通信も発生せず、履歴として保存もしないため、実際に使っているパスワードを入力しても安全に強度を確認できます。ネットワークを切断した状態でも動作します。"}},{"@type":"Question","name":"エントロピー(bits)とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"エントロピーはパスワードの「推測されにくさ」を情報量のビット数で表した指標です。使われている文字種の数から1文字あたりの組み合わせ数を求め、それを文字数の分だけ掛け合わせて対数(log2)を取って計算します。1bit増えるごとに総当たりに必要な試行回数が約2倍になり、一般的に60bit以上で強い、80bit以上で非常に強いパスワードの目安とされます。"}},{"@type":"Question","name":"表示される解読時間はどのくらい正確ですか？","acceptedAnswer":{"@type":"Answer","text":"解読時間は「攻撃者がハッシュを入手し、GPUで高速に総当たりする」という保守的な前提での概算です。1秒あたり100億回(10^10)程度の試行を想定し、エントロピーから平均的な解読時間の目安を桁数レベルで示します。実際の時間は攻撃手法・ハッシュ方式・ハードウェアで大きく変わるため、正確な数値ではなく「安全度の目安」としてご覧ください。"}},{"@type":"Question","name":"強度スコアはどのように決まりますか？","acceptedAnswer":{"@type":"Answer","text":"スコアは0〜4の5段階で、主にエントロピーの推定値をもとに判定します。目安として28bit未満を0(非常に弱い)、28〜35bitを1(弱い)、36〜59bitを2(普通)、60〜79bitを3(強い)、80bit以上を4(非常に強い)としています。ただし、よくあるパスワード・連続や繰り返し・キーボード配列などの弱いパターンを検出した場合はスコアを引き下げます。"}},{"@type":"Question","name":"強いパスワードを作るコツはありますか？","acceptedAnswer":{"@type":"Answer","text":"最も効果的なのは長さを増やすことです。大文字・小文字・数字・記号を混ぜたうえで、意味のない12文字以上、できれば16文字以上にするとエントロピーが大きく高まります。名前・誕生日・辞書に載る単語・qwertyなどの配列・123456のような連番は避けてください。覚えられない場合はパスワード管理ツールで自動生成し、サービスごとに使い回さないことが安全です。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>パスワード強度チェッカー</h1><p>強度・エントロピー・推定解読時間をその場で判定（完全ローカル）</p></header>
+
+    <div class="card"><h3>パスワードを入力</h3>
+        <div class="pw-wrap">
+            <input type="password" id="pw" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="ここにパスワードを入力…" oninput="evaluatePw()">
+            <button type="button" class="pw-toggle" id="toggleBtn" onclick="togglePw()">表示</button>
+        </div>
+        <div style="font-size:0.72rem;color:var(--text3);margin-top:6px">入力内容は端末内でのみ処理され、送信・保存されません。</div>
+    </div>
+
+    <div class="warn" id="warnBox"></div>
+
+    <div class="big-result">
+        <div class="headline">強度スコア</div>
+        <div class="score" id="scoreVal" style="color:var(--text3)">-</div>
+        <div class="meter" id="meter"><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span></div>
+        <div class="crack" id="crackLabel">パスワードを入力してください</div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">文字数（長さ）</div><div class="value" id="lenVal">-</div></div>
+        <div class="result-item"><div class="label">エントロピー</div><div class="value" id="entVal">-</div></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">文字種の数</div><div class="value" id="poolVal">-</div></div>
+        <div class="result-item"><div class="label">推定解読時間</div><div class="value" id="crackVal" style="font-size:1.05rem">-</div></div>
+    </div>
+
+    <div class="card"><h3>使われている文字種</h3>
+        <div class="charset-list">
+            <span class="chip" id="chip-lower">小文字 a-z</span>
+            <span class="chip" id="chip-upper">大文字 A-Z</span>
+            <span class="chip" id="chip-digit">数字 0-9</span>
+            <span class="chip" id="chip-symbol">記号 !@#…</span>
+        </div>
+    </div>
+
+    <div class="card"><h3>改善のヒント</h3>
+        <ul class="tips" id="tips"><li class="ok">パスワードを入力すると診断結果が表示されます</li></ul>
+    </div>
+
+    <div class="note">このツールは強度の「目安」を示すもので、安全を保証するものではありません。エントロピーは文字種と長さから理論値を推定し、解読時間はGPUによる高速な総当たり（毎秒約100億回）を想定した保守的な概算です。実際に運用中のパスワードでも、すべて端末内で処理され外部送信されないため安心してご利用ください。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>パスワード強度チェッカーの使い方</h2>
+        <p>入力したパスワードがどれくらい安全かを、その場で判定する無料ツールです。文字種（大文字・小文字・数字・記号）の有無、文字数、エントロピー（bits）、推定される解読時間、そして0〜4の強度スコアをカラーメーターで確認できます。よくある弱いパスワードや、連続・繰り返し・キーボード配列（qwertyなど）といった危険なパターンも自動で検出し、具体的な改善のヒントを提示します。</p>
+        <p>使い方はかんたんです。入力欄にチェックしたいパスワードを打ち込むと、リアルタイムで診断結果が更新されます。「表示」ボタンで入力内容の表示・非表示を切り替えられるので、打ち間違いの確認にも便利です。重要な点として、入力したパスワードはお使いのブラウザ内だけで処理され、サーバーや外部サービスへ送信・保存されることは一切ありません。ネットワークを切断した状態でも動作するため、実際に使っているパスワードを安心して入力できます。</p>
+        <h3>こんなときに</h3>
+        <p>新しくアカウントを作るとき、既存のパスワードを見直したいとき、社内やチームでパスワードポリシーを検討するとき、パスワード管理ツールで生成した文字列の強度を確認したいときなどにお使いいただけます。逆に、思いついたパスワードがなぜ弱いのかを理解する学習用途にも役立ちます。</p>
+
+        <h2>強度の判定方法</h2>
+        <p>このツールは、パスワードに含まれる文字種から「1文字あたりの候補数（プール）」を求めます。小文字26種、大文字26種、数字10種、記号は約33種として、使われている文字種の候補数を合計します。そのプール数を底として文字数の分だけ累乗した組み合わせ総数の対数（log2）を取ることで、エントロピー（bits）を推定します。エントロピーが大きいほど総当たりで見つけるまでの試行回数が増え、解読が難しくなります。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>スコア</th><th>エントロピー目安</th><th>評価</th></tr>
+            <tr><td>0</td><td>28bit未満</td><td>非常に弱い（すぐ解読される恐れ）</td></tr>
+            <tr><td>1</td><td>28〜35bit</td><td>弱い</td></tr>
+            <tr><td>2</td><td>36〜59bit</td><td>普通</td></tr>
+            <tr><td>3</td><td>60〜79bit</td><td>強い</td></tr>
+            <tr><td>4</td><td>80bit以上</td><td>非常に強い</td></tr>
+        </table>
+        </div>
+        <p>ただし、エントロピーが高く見えても危険なパスワードはあります。そのため本ツールでは、よくあるパスワードの小さな辞書（password、123456、qwerty など）との一致、同じ文字の繰り返し、連続した文字や数字、キーボード配列に沿った並びを検出した場合、スコアを引き下げて警告します。理論値だけに頼らず、実際に破られやすいパターンを避けることが大切です。</p>
+        <h3>推定解読時間について</h3>
+        <p>解読時間は「攻撃者がパスワードのハッシュを入手し、GPUで高速に総当たりする」という保守的な前提での概算です。毎秒およそ100億回（10^10）の試行を想定し、エントロピーから平均的に見つかるまでの時間の桁を推定して表示します。実際の時間は、攻撃手法、パスワードの保存方式（ハッシュアルゴリズムやソルト・ストレッチの有無）、ハードウェア性能によって大きく変わります。あくまで安全度の相対的な目安としてご覧ください。</p>
+
+        <h2>強いパスワードの作り方</h2>
+        <p>最も効果的なのは「長さを増やす」ことです。文字種を増やすよりも、文字数を増やすほうがエントロピーを大きく高められます。目安として、大文字・小文字・数字・記号を混ぜたうえで12文字以上、重要なアカウントでは16文字以上を推奨します。名前・誕生日・辞書に載る単語・電話番号・qwertyなどの配列・123456のような連番は避けましょう。覚えられない場合は、無関係な単語をつなぐパスフレーズにするか、パスワード管理ツールで自動生成し、サービスごとに使い回さないことが安全です。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">入力したパスワードは外部に送信されますか？</div><div class="a">いいえ。このツールはすべての処理をお使いのブラウザ内（JavaScript）だけで行い、入力したパスワードをサーバーや外部サービスへ送信することは一切ありません。通信も発生せず、履歴として保存もしないため、実際に使っているパスワードを入力しても安全に強度を確認できます。ネットワークを切断した状態でも動作します。</div></div>
+        <div class="faq-item"><div class="q">エントロピー(bits)とは何ですか？</div><div class="a">エントロピーはパスワードの「推測されにくさ」を情報量のビット数で表した指標です。使われている文字種の数から1文字あたりの組み合わせ数を求め、それを文字数の分だけ掛け合わせて対数(log2)を取って計算します。1bit増えるごとに総当たりに必要な試行回数が約2倍になり、一般的に60bit以上で強い、80bit以上で非常に強いパスワードの目安とされます。</div></div>
+        <div class="faq-item"><div class="q">表示される解読時間はどのくらい正確ですか？</div><div class="a">解読時間は「攻撃者がハッシュを入手し、GPUで高速に総当たりする」という保守的な前提での概算です。1秒あたり100億回(10^10)程度の試行を想定し、エントロピーから平均的な解読時間の目安を桁数レベルで示します。実際の時間は攻撃手法・ハッシュ方式・ハードウェアで大きく変わるため、正確な数値ではなく「安全度の目安」としてご覧ください。</div></div>
+        <div class="faq-item"><div class="q">強度スコアはどのように決まりますか？</div><div class="a">スコアは0〜4の5段階で、主にエントロピーの推定値をもとに判定します。目安として28bit未満を0(非常に弱い)、28〜35bitを1(弱い)、36〜59bitを2(普通)、60〜79bitを3(強い)、80bit以上を4(非常に強い)としています。ただし、よくあるパスワード・連続や繰り返し・キーボード配列などの弱いパターンを検出した場合はスコアを引き下げます。</div></div>
+        <div class="faq-item"><div class="q">強いパスワードを作るコツはありますか？</div><div class="a">最も効果的なのは長さを増やすことです。大文字・小文字・数字・記号を混ぜたうえで、意味のない12文字以上、できれば16文字以上にするとエントロピーが大きく高まります。名前・誕生日・辞書に載る単語・qwertyなどの配列・123456のような連番は避けてください。覚えられない場合はパスワード管理ツールで自動生成し、サービスごとに使い回さないことが安全です。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-181-password-gen/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">パスワード生成</a><a href="/tool-183-hash-gen/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ハッシュ生成</a><a href="/tool-180-uuid/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">UUID生成</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// すべて端末内で処理。パスワードは送信・保存しない。
+var SCORE_COLORS = ['#ef4444','#f97316','#eab308','#84cc16','#22c55e'];
+var SCORE_LABELS = ['非常に弱い','弱い','普通','強い','非常に強い'];
+
+// 埋め込みのよくあるパスワード辞書（小規模）
+var COMMON = ['password','passw0rd','123456','12345678','123456789','1234567890',
+    'qwerty','qwertyuiop','abc123','111111','000000','123123','iloveyou',
+    'admin','letmein','welcome','monkey','dragon','sunshine','princess',
+    'football','baseball','master','login','password1','p@ssw0rd','1q2w3e4r',
+    'zaq12wsx','asdfgh','asdfghjkl','zxcvbn','zxcvbnm','1qaz2wsx','trustno1',
+    'superman','batman','test','test123','root','toor','guest','pass',
+    'sakura',' password123','qazwsx','michael','shadow','ninja','love',
+    'hello','freedom','whatever','starwars','666666','555555','121212'];
+
+// キーボード配列の並び（連続検出用）
+var KB_ROWS = ['qwertyuiop','asdfghjkl','zxcvbnm','1234567890'];
+
+function togglePw(){
+    var el = document.getElementById('pw');
+    var btn = document.getElementById('toggleBtn');
+    if (el.type === 'password'){ el.type = 'text'; btn.textContent = '非表示'; }
+    else { el.type = 'password'; btn.textContent = '表示'; }
+}
+
+function poolSize(pw){
+    var pool = 0;
+    if (/[a-z]/.test(pw)) pool += 26;
+    if (/[A-Z]/.test(pw)) pool += 26;
+    if (/[0-9]/.test(pw)) pool += 10;
+    if (/[^a-zA-Z0-9]/.test(pw)) pool += 33;
+    return pool;
+}
+
+// 3文字以上の連続（昇順/降順）または繰り返しを検出
+function hasSequential(pw){
+    var s = pw.toLowerCase();
+    for (var i = 0; i + 2 < s.length; i++){
+        var a = s.charCodeAt(i), b = s.charCodeAt(i+1), c = s.charCodeAt(i+2);
+        if (b - a === 1 && c - b === 1) return true;
+        if (a - b === 1 && b - c === 1) return true;
+    }
+    return false;
+}
+function hasRepeat(pw){ return /(.)\1\1/.test(pw); }
+function hasKeyboard(pw){
+    var s = pw.toLowerCase();
+    for (var r = 0; r < KB_ROWS.length; r++){
+        var row = KB_ROWS[r];
+        for (var i = 0; i + 3 <= row.length; i++){
+            var seg = row.substr(i, 4);
+            if (s.indexOf(seg) !== -1) return true;
+            var rev = seg.split('').reverse().join('');
+            if (s.indexOf(rev) !== -1) return true;
+        }
+    }
+    return false;
+}
+function isCommon(pw){
+    var s = pw.toLowerCase();
+    for (var i = 0; i < COMMON.length; i++){ if (COMMON[i] === s) return true; }
+    return false;
+}
+
+function formatTime(seconds){
+    if (seconds < 1) return '一瞬';
+    var units = [
+        {n:'秒', s:1},
+        {n:'分', s:60},
+        {n:'時間', s:3600},
+        {n:'日', s:86400},
+        {n:'年', s:31557600}
+    ];
+    if (seconds < 60) return Math.round(seconds) + '秒';
+    if (seconds < 3600) return Math.round(seconds/60) + '分';
+    if (seconds < 86400) return Math.round(seconds/3600) + '時間';
+    if (seconds < 31557600) return Math.round(seconds/86400) + '日';
+    var years = seconds / 31557600;
+    if (years < 1e3) return Math.round(years) + '年';
+    if (years < 1e6) return Math.round(years/1e3) + '千年';
+    if (years < 1e9) return Math.round(years/1e6) + '百万年';
+    if (years < 1e12) return Math.round(years/1e9) + '十億年';
+    if (years < 1e15) return Math.round(years/1e12) + '兆年';
+    return '事実上解読不能';
+}
+
+function evaluatePw(){
+    var pw = document.getElementById('pw').value;
+    var len = pw.length;
+    var lowerBox = document.getElementById('chip-lower');
+    var upperBox = document.getElementById('chip-upper');
+    var digitBox = document.getElementById('chip-digit');
+    var symbolBox = document.getElementById('chip-symbol');
+    var hasL = /[a-z]/.test(pw), hasU = /[A-Z]/.test(pw), hasD = /[0-9]/.test(pw), hasS = /[^a-zA-Z0-9]/.test(pw);
+    lowerBox.className = 'chip' + (hasL ? ' on' : '');
+    upperBox.className = 'chip' + (hasU ? ' on' : '');
+    digitBox.className = 'chip' + (hasD ? ' on' : '');
+    symbolBox.className = 'chip' + (hasS ? ' on' : '');
+
+    var scoreEl = document.getElementById('scoreVal');
+    var meter = document.getElementById('meter').children;
+    var crackLabel = document.getElementById('crackLabel');
+    var warnBox = document.getElementById('warnBox');
+    var tips = document.getElementById('tips');
+
+    if (len === 0){
+        document.getElementById('lenVal').textContent = '-';
+        document.getElementById('entVal').textContent = '-';
+        document.getElementById('poolVal').textContent = '-';
+        document.getElementById('crackVal').textContent = '-';
+        scoreEl.textContent = '-';
+        scoreEl.style.color = 'var(--text3)';
+        for (var i = 0; i < meter.length; i++) meter[i].style.background = 'var(--border)';
+        crackLabel.textContent = 'パスワードを入力してください';
+        warnBox.style.display = 'none';
+        tips.innerHTML = '<li class="ok">パスワードを入力すると診断結果が表示されます</li>';
+        return;
+    }
+
+    var pool = poolSize(pw);
+    var entropy = len * (Math.log(pool) / Math.log(2));
+    entropy = Math.round(entropy * 10) / 10;
+
+    // 弱いパターン検出
+    var weak = [];
+    var common = isCommon(pw);
+    if (common) weak.push('よくあるパスワードと一致しています');
+    if (hasSequential(pw)) weak.push('連続した文字・数字（例: abc, 123）が含まれています');
+    if (hasRepeat(pw)) weak.push('同じ文字の繰り返し（例: aaa）が含まれています');
+    if (hasKeyboard(pw)) weak.push('キーボード配列の並び（例: qwerty）が含まれています');
+
+    // 基本スコア（エントロピーから）
+    var score;
+    if (entropy < 28) score = 0;
+    else if (entropy < 36) score = 1;
+    else if (entropy < 60) score = 2;
+    else if (entropy < 80) score = 3;
+    else score = 4;
+
+    // 弱いパターンで引き下げ
+    if (common) score = 0;
+    else if (weak.length > 0) score = Math.max(0, score - 1);
+    if (len < 8) score = Math.min(score, 1);
+
+    // 解読時間（平均: 総当たり空間の半分 / 毎秒10^10試行）
+    var guessesPerSec = 1e10;
+    var combos = Math.pow(pool, len);
+    var seconds = (combos / 2) / guessesPerSec;
+    var crackStr = formatTime(seconds);
+
+    document.getElementById('lenVal').textContent = len + '文字';
+    document.getElementById('entVal').textContent = entropy + ' bit';
+    document.getElementById('poolVal').textContent = pool + '種';
+    document.getElementById('crackVal').textContent = crackStr;
+
+    scoreEl.textContent = score + ' / 4';
+    scoreEl.style.color = SCORE_COLORS[score];
+    for (var i = 0; i < meter.length; i++){
+        meter[i].style.background = (i <= score) ? SCORE_COLORS[score] : 'var(--border)';
+    }
+    crackLabel.textContent = SCORE_LABELS[score] + '（推定解読時間: ' + crackStr + '）';
+
+    if (weak.length > 0){
+        warnBox.style.display = 'block';
+        warnBox.textContent = '⚠ ' + weak.join(' / ');
+    } else {
+        warnBox.style.display = 'none';
+    }
+
+    // 改善のヒント
+    var items = [];
+    items.push({ok: len >= 12, text: len >= 16 ? '16文字以上あります（十分な長さ）' : (len >= 12 ? '12文字以上あります' : '12文字以上に長くしましょう（現在' + len + '文字）')});
+    items.push({ok: hasL && hasU, text: (hasL && hasU) ? '大文字と小文字を併用しています' : '大文字と小文字を混ぜましょう'});
+    items.push({ok: hasD, text: hasD ? '数字を含んでいます' : '数字を追加しましょう'});
+    items.push({ok: hasS, text: hasS ? '記号を含んでいます' : '記号（!@#$%など）を追加しましょう'});
+    items.push({ok: weak.length === 0, text: weak.length === 0 ? 'よくある弱いパターンは検出されませんでした' : '連続・繰り返し・配列・辞書語を避けましょう'});
+    items.push({ok: entropy >= 60, text: entropy >= 60 ? 'エントロピーは十分です（' + entropy + 'bit）' : 'エントロピーを60bit以上に（現在' + entropy + 'bit）'});
+
+    var html = '';
+    for (var i = 0; i < items.length; i++){
+        html += '<li class="' + (items[i].ok ? 'ok' : '') + '">' + items[i].text + '<\/li>';
+    }
+    tips.innerHTML = html;
+}
+</script>
+</body>
+</html>

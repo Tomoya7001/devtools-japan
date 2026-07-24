@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown テーブル生成ツール | 表を編集してMarkdownに変換・CSV/TSV取り込み【無料】</title>
+    <meta name="description" content="スプレッドシート感覚で表を編集してMarkdownテーブルに変換する無料ツール。行・列の追加/削除、列ごとの左寄せ・中央・右寄せ、CSV/TSVや既存Markdown表の取り込みに対応。整列パディングやパイプのエスケープ、コピー、HTMLプレビュー付き。すべてブラウザ内で完結します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+        .toolbar button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .toolbar button:hover{border-color:var(--accent);color:var(--accent)}
+        .grid-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:8px}
+        table.grid{border-collapse:collapse;font-size:0.85rem}
+        table.grid th,table.grid td{border:1px solid var(--border);padding:0}
+        table.grid input.cell,table.grid input.head{width:130px;min-width:90px;padding:8px 10px;background:transparent;border:none;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;outline:none}
+        table.grid input.head{font-weight:700;background:var(--accent-dim)}
+        table.grid input.cell:focus,table.grid input.head:focus{background:rgba(139,92,246,0.06)}
+        table.grid select.align{width:100%;padding:5px 6px;background:#f7f8fb;border:none;color:var(--text2);font-family:'Noto Sans JP',sans-serif;font-size:0.72rem;outline:none;cursor:pointer}
+        .cell-x,.col-x{background:none;border:none;color:var(--text3);cursor:pointer;font-size:0.85rem;padding:6px 8px;line-height:1}
+        .cell-x:hover,.col-x:hover{color:var(--red)}
+        .corner{background:var(--bg)}
+        .options{display:flex;gap:20px;flex-wrap:wrap;padding:10px 0;border-top:1px solid var(--border);margin-top:8px}
+        .options label{display:flex;align-items:center;gap:6px;font-size:0.82rem;color:var(--text2);cursor:pointer}
+        .options input[type=checkbox]{width:16px;height:16px;accent-color:var(--accent);cursor:pointer}
+        .out-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+        .out-head h3{margin-bottom:0}
+        textarea.out{width:100%;min-height:180px;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.82rem;line-height:1.6;outline:none;resize:vertical;white-space:pre;overflow-x:auto}
+        textarea.out:focus{border-color:var(--accent)}
+        textarea.imp{width:100%;min-height:120px;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.82rem;line-height:1.6;outline:none;resize:vertical}
+        textarea.imp:focus{border-color:var(--accent)}
+        .import-msg{font-size:0.78rem;color:var(--text3);margin-top:8px;min-height:1.2em}
+        .preview-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:14px}
+        table.preview{border-collapse:collapse;width:100%;font-size:0.85rem}
+        table.preview th,table.preview td{border:1px solid var(--border);padding:8px 12px}
+        table.preview th{background:var(--bg);font-weight:600;color:var(--text)}
+        table.preview td{color:var(--text2)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn-sm{padding:8px 18px;font-size:0.8rem}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-185-markdown-table/">
+    <meta property="og:title" content="Markdown テーブル生成ツール | 表を編集してMarkdownに変換【無料】">
+    <meta property="og:description" content="スプレッドシート感覚で表を編集してMarkdownテーブルに変換。CSV/TSV・既存Markdown表の取り込み、列ごとの配置指定、整列パディング対応。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-185-markdown-table/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Markdown テーブル生成ツール【無料】">
+    <meta name="twitter:description" content="表を編集してMarkdownに変換。CSV/TSV取り込み・列配置・整列パディング対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Markdown テーブル生成ツール","description":"スプレッドシート感覚で表を編集してMarkdownテーブルに変換する無料ツール。CSV/TSVや既存Markdown表の取り込み、列ごとの配置指定に対応。","url":"https://www.devtools-japan.com/tool-185-markdown-table/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"Markdown テーブル生成ツール","item":"https://www.devtools-japan.com/tool-185-markdown-table/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Markdownの表はどうやって作れますか？","acceptedAnswer":{"@type":"Answer","text":"上のグリッドをスプレッドシートのように編集するだけです。セルをクリックして文字を入力し、「行を追加」「列を追加」ボタンで表を広げられます。編集内容はリアルタイムでMarkdownテーブルとして下の出力欄に変換され、コピーボタンでそのまま貼り付けられます。ヘッダー行・区切り行・データ行を含む正しいMarkdown記法を自動生成します。"}},{"@type":"Question","name":"CSVやExcelのデータを貼り付けて変換できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。取り込み欄にCSV（カンマ区切り）、TSV（タブ区切り、ExcelやGoogleスプレッドシートからのコピーはタブ区切りになります）、または既存のMarkdownテーブルを貼り付けて「取り込む」を押すと、内容を解析してグリッドに反映します。区切り文字は自動判定し、1行目をヘッダーとして扱います。取り込み後はグリッド上で自由に編集できます。"}},{"@type":"Question","name":"列ごとに左寄せ・中央寄せ・右寄せを指定できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。各列のヘッダー下にある配置セレクトで、左寄せ・中央寄せ・右寄せを列単位で選べます。選んだ配置はMarkdownの区切り行のコロン記号（:---、:---:、---:）として出力され、GitHubなどの対応環境で表示時に反映されます。ツール内のHTMLプレビューにも配置が反映されるので、仕上がりを確認しながら調整できます。"}},{"@type":"Question","name":"セル内にパイプ記号「|」を含めるにはどうすればよいですか？","acceptedAnswer":{"@type":"Answer","text":"「パイプをエスケープ」オプションをオンにすると、セル内の「|」を自動的に「\\|」に置き換えて出力します。Markdownでは「|」が列の区切りとして扱われるため、エスケープしないと表が崩れてしまいます。文章やコードにパイプ記号を含めたい場合はこのオプションを有効にしてください。"}},{"@type":"Question","name":"入力したデータはサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。この変換ツールは100%ブラウザ内（クライアントサイド）で動作し、入力した表やデータが外部サーバーに送信・保存されることは一切ありません。オフラインでも利用でき、社内資料や未公開データの整形にも安心してお使いいただけます。ページを閉じるとデータは消去されます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>Markdown テーブル生成ツール</h1><p>表を編集してMarkdownに変換・CSV/TSV取り込み対応</p></header>
+
+    <div class="card"><h3>表を編集</h3>
+        <div class="toolbar">
+            <button type="button" id="btnAddRow">＋ 行を追加</button>
+            <button type="button" id="btnAddCol">＋ 列を追加</button>
+            <button type="button" id="btnClear">クリア</button>
+        </div>
+        <div class="grid-wrap"><table class="grid" id="gridTable"></table></div>
+        <div class="options">
+            <label><input type="checkbox" id="optPad" checked> 見やすく整列（列幅をそろえる）</label>
+            <label><input type="checkbox" id="optEscape" checked> パイプをエスケープ</label>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="out-head"><h3>Markdown 出力</h3><button type="button" class="btn btn-sm" id="btnCopy">コピー</button></div>
+        <textarea class="out" id="mdOutput" readonly spellcheck="false"></textarea>
+        <div class="preview-wrap"><div id="previewTitle" style="font-size:0.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px">プレビュー</div><div id="preview"></div></div>
+    </div>
+
+    <div class="ad-slot"></div>
+
+    <div class="card"><h3>取り込み（CSV / TSV / Markdown）</h3>
+        <textarea class="imp" id="importText" spellcheck="false" placeholder="ここにCSV・TSV・既存のMarkdownテーブルを貼り付けて「取り込む」を押してください。&#10;例）&#10;名前,年齢,所属&#10;田中,28,営業部"></textarea>
+        <div style="margin-top:10px"><button type="button" class="btn btn-sm" id="btnImport">取り込む</button></div>
+        <div class="import-msg" id="importMsg"></div>
+    </div>
+
+    <div class="note">この変換はすべてブラウザ内（クライアントサイド）で行われ、入力したデータが外部に送信されることはありません。区切り文字（カンマ / タブ）は取り込み時に自動判定し、Markdownテーブルの区切り行からは列の配置も読み取ります。</div>
+
+    <div class="seo-content">
+        <h2>Markdown テーブル生成ツールの使い方</h2>
+        <p>ドキュメント・README・技術記事・課題管理などで使うMarkdownの表（テーブル）を、スプレッドシート感覚で作成・編集できる無料ツールです。パイプ「|」やハイフン「-」を手で並べる必要はありません。グリッドのセルに値を入力するだけで、正しいMarkdown記法の表がリアルタイムに生成され、コピーしてそのまま貼り付けられます。インストールや会員登録は不要で、すべての処理はお使いの端末内で完結します。</p>
+        <p>基本の流れはかんたんです。まず上のグリッドで表を編集します。ヘッダー行のセルに列名を、その下のデータ行に値を入力し、「行を追加」「列を追加」で表を広げていきます。各列のヘッダー直下にある配置セレクトで、左寄せ・中央寄せ・右寄せを列ごとに指定できます。編集内容は下の「Markdown 出力」欄に即座に反映され、HTMLプレビューで実際の見た目も確認できます。仕上がったらコピーボタンで貼り付けるだけです。</p>
+        <h3>CSV・TSV・既存の表を取り込む</h3>
+        <p>すでに手元にデータがある場合は、取り込み欄に貼り付けて「取り込む」を押すだけでグリッドに読み込めます。CSV（カンマ区切り）、TSV（タブ区切り）に対応し、ExcelやGoogleスプレッドシートからコピーしたデータはタブ区切りとして自動認識されます。既存のMarkdownテーブルを貼り付ければ、列の配置（コロン記号）も含めて解析してグリッドに復元するので、既存の表の一部だけを修正したい場合にも便利です。</p>
+
+        <h2>Markdownテーブルの記法と配置</h2>
+        <p>Markdownの表は、ヘッダー行・区切り行・データ行の3つの部品で構成されます。区切り行のハイフンにコロンを添えることで、列ごとの文字揃え（アラインメント）を指定します。本ツールの配置セレクトはこの記法を自動で出力します。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>配置</th><th>区切り行の記法</th><th>意味</th></tr>
+            <tr><td>左寄せ</td><td>:---</td><td>セルの内容を左に揃える（既定）</td></tr>
+            <tr><td>中央寄せ</td><td>:---:</td><td>セルの内容を中央に揃える</td></tr>
+            <tr><td>右寄せ</td><td>---:</td><td>数値などを右に揃える</td></tr>
+        </table>
+        </div>
+        <h3>整列パディングとパイプのエスケープ</h3>
+        <p>「見やすく整列」をオンにすると、各列の幅を最大の文字数にそろえて空白を補い、ソースコードとしても読みやすい表を出力します（全角文字は2文字分として幅を計算します）。GitHubなどの表示上の見た目は同じですが、テキストエディタで開いたときに桁がそろって差分も見やすくなります。オフにすると、余分な空白のない最小限の記法で出力します。また「パイプをエスケープ」をオンにすると、セル内の「|」を自動的に「\|」へ置き換え、表が途中で崩れるのを防ぎます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">Markdownの表はどうやって作れますか？</div><div class="a">上のグリッドをスプレッドシートのように編集するだけです。セルをクリックして文字を入力し、「行を追加」「列を追加」ボタンで表を広げられます。編集内容はリアルタイムでMarkdownテーブルとして下の出力欄に変換され、コピーボタンでそのまま貼り付けられます。ヘッダー行・区切り行・データ行を含む正しいMarkdown記法を自動生成します。</div></div>
+        <div class="faq-item"><div class="q">CSVやExcelのデータを貼り付けて変換できますか？</div><div class="a">はい。取り込み欄にCSV（カンマ区切り）、TSV（タブ区切り、ExcelやGoogleスプレッドシートからのコピーはタブ区切りになります）、または既存のMarkdownテーブルを貼り付けて「取り込む」を押すと、内容を解析してグリッドに反映します。区切り文字は自動判定し、1行目をヘッダーとして扱います。取り込み後はグリッド上で自由に編集できます。</div></div>
+        <div class="faq-item"><div class="q">列ごとに左寄せ・中央寄せ・右寄せを指定できますか？</div><div class="a">はい。各列のヘッダー下にある配置セレクトで、左寄せ・中央寄せ・右寄せを列単位で選べます。選んだ配置はMarkdownの区切り行のコロン記号（:---、:---:、---:）として出力され、GitHubなどの対応環境で表示時に反映されます。ツール内のHTMLプレビューにも配置が反映されるので、仕上がりを確認しながら調整できます。</div></div>
+        <div class="faq-item"><div class="q">セル内にパイプ記号「|」を含めるにはどうすればよいですか？</div><div class="a">「パイプをエスケープ」オプションをオンにすると、セル内の「|」を自動的に「\|」に置き換えて出力します。Markdownでは「|」が列の区切りとして扱われるため、エスケープしないと表が崩れてしまいます。文章やコードにパイプ記号を含めたい場合はこのオプションを有効にしてください。</div></div>
+        <div class="faq-item"><div class="q">入力したデータはサーバーに送信されますか？</div><div class="a">いいえ。この変換ツールは100%ブラウザ内（クライアントサイド）で動作し、入力した表やデータが外部サーバーに送信・保存されることは一切ありません。オフラインでも利用でき、社内資料や未公開データの整形にも安心してお使いいただけます。ページを閉じるとデータは消去されます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ===== 状態（source of truth）=====
+var headers = ['名前', '年齢', '所属'];
+var aligns  = ['left', 'right', 'center'];
+var rows = [
+    ['田中', '28', '営業部'],
+    ['佐藤', '34', '開発部'],
+    ['鈴木', '22', '人事部']
+];
+
+var ALIGN_LABELS = [['left','左寄せ'],['center','中央寄せ'],['right','右寄せ']];
+
+// ===== 表示幅（全角=2）=====
+function dispWidth(s){
+    var w = 0;
+    for (var i = 0; i < s.length; i++){
+        var c = s.charCodeAt(i);
+        if ((c >= 0x1100 && c <= 0x115F) || (c >= 0x2E80 && c <= 0xA4CF) ||
+            (c >= 0xAC00 && c <= 0xD7A3) || (c >= 0xF900 && c <= 0xFAFF) ||
+            (c >= 0xFE30 && c <= 0xFE4F) || (c >= 0xFF00 && c <= 0xFF60) ||
+            (c >= 0xFFE0 && c <= 0xFFE6)){
+            w += 2;
+        } else {
+            w += 1;
+        }
+    }
+    return w;
+}
+function padTo(str, width, align){
+    var pad = width - dispWidth(str);
+    if (pad <= 0) return str;
+    if (align === 'right') return spaces(pad) + str;
+    if (align === 'center'){
+        var l = Math.floor(pad / 2);
+        return spaces(l) + str + spaces(pad - l);
+    }
+    return str + spaces(pad);
+}
+function spaces(n){ var s = ''; for (var i = 0; i < n; i++) s += ' '; return s; }
+function repeatDash(n){ var s = ''; for (var i = 0; i < n; i++) s += '-'; return s; }
+
+// ===== グリッド構築 =====
+function buildGrid(){
+    var tbl = document.getElementById('gridTable');
+    tbl.innerHTML = '';
+    var ncol = headers.length;
+
+    // ヘッダー行
+    var trH = document.createElement('tr');
+    for (var c = 0; c < ncol; c++){
+        (function(ci){
+            var th = document.createElement('th');
+            var inp = document.createElement('input');
+            inp.className = 'head';
+            inp.type = 'text';
+            inp.value = headers[ci];
+            inp.addEventListener('input', function(){ headers[ci] = inp.value; updateOutput(); });
+            th.appendChild(inp);
+            trH.appendChild(th);
+        })(c);
+    }
+    var thCorner = document.createElement('th');
+    thCorner.className = 'corner';
+    trH.appendChild(thCorner);
+    tbl.appendChild(trH);
+
+    // 配置行
+    var trA = document.createElement('tr');
+    for (var c2 = 0; c2 < ncol; c2++){
+        (function(ci){
+            var td = document.createElement('td');
+            var sel = document.createElement('select');
+            sel.className = 'align';
+            for (var k = 0; k < ALIGN_LABELS.length; k++){
+                var op = document.createElement('option');
+                op.value = ALIGN_LABELS[k][0];
+                op.textContent = ALIGN_LABELS[k][1];
+                if (ALIGN_LABELS[k][0] === aligns[ci]) op.selected = true;
+                sel.appendChild(op);
+            }
+            sel.addEventListener('change', function(){ aligns[ci] = sel.value; updateOutput(); });
+            td.appendChild(sel);
+            // 列削除ボタンを同セルに
+            var x = document.createElement('button');
+            x.type = 'button';
+            x.className = 'col-x';
+            x.textContent = '✕ 列';
+            x.title = 'この列を削除';
+            x.addEventListener('click', function(){ removeCol(ci); });
+            td.appendChild(x);
+            trA.appendChild(td);
+        })(c2);
+    }
+    var tdCorner = document.createElement('td');
+    tdCorner.className = 'corner';
+    trA.appendChild(tdCorner);
+    tbl.appendChild(trA);
+
+    // データ行
+    for (var r = 0; r < rows.length; r++){
+        (function(ri){
+            var tr = document.createElement('tr');
+            for (var c3 = 0; c3 < ncol; c3++){
+                (function(ci){
+                    var td = document.createElement('td');
+                    var inp = document.createElement('input');
+                    inp.className = 'cell';
+                    inp.type = 'text';
+                    inp.value = (rows[ri][ci] !== undefined) ? rows[ri][ci] : '';
+                    inp.addEventListener('input', function(){ rows[ri][ci] = inp.value; updateOutput(); });
+                    td.appendChild(inp);
+                    tr.appendChild(td);
+                })(c3);
+            }
+            var tdX = document.createElement('td');
+            var xb = document.createElement('button');
+            xb.type = 'button';
+            xb.className = 'cell-x';
+            xb.textContent = '✕';
+            xb.title = 'この行を削除';
+            xb.addEventListener('click', function(){ removeRow(ri); });
+            tdX.appendChild(xb);
+            tr.appendChild(tdX);
+            tbl.appendChild(tr);
+        })(r);
+    }
+}
+
+// ===== 構造操作 =====
+function addRow(){
+    var r = [];
+    for (var c = 0; c < headers.length; c++) r.push('');
+    rows.push(r);
+    buildGrid(); updateOutput();
+}
+function addCol(){
+    headers.push('列' + (headers.length + 1));
+    aligns.push('left');
+    for (var r = 0; r < rows.length; r++) rows[r].push('');
+    buildGrid(); updateOutput();
+}
+function removeRow(i){
+    if (rows.length <= 1){ rows[0] = rows[0].map(function(){ return ''; }); }
+    else { rows.splice(i, 1); }
+    buildGrid(); updateOutput();
+}
+function removeCol(i){
+    if (headers.length <= 1) return;
+    headers.splice(i, 1);
+    aligns.splice(i, 1);
+    for (var r = 0; r < rows.length; r++) rows[r].splice(i, 1);
+    buildGrid(); updateOutput();
+}
+function clearAll(){
+    headers = ['列1', '列2'];
+    aligns  = ['left', 'left'];
+    rows = [['', ''], ['', '']];
+    buildGrid(); updateOutput();
+}
+
+// ===== Markdown 生成 =====
+function escCell(v){
+    v = (v === undefined || v === null) ? '' : String(v);
+    if (document.getElementById('optEscape').checked){
+        v = v.replace(/\|/g, '\\|');
+    }
+    // 改行はスペースに（表崩れ防止）
+    v = v.replace(/\r?\n/g, ' ');
+    return v;
+}
+function sepMarker(width, align, pad){
+    if (!pad){
+        if (align === 'center') return ':---:';
+        if (align === 'right')  return '---:';
+        return ':---';
+    }
+    var w = Math.max(width, 3);
+    if (align === 'center') return ':' + repeatDash(Math.max(1, w - 2)) + ':';
+    if (align === 'right')  return repeatDash(Math.max(2, w - 1)) + ':';
+    return ':' + repeatDash(Math.max(2, w - 1));
+}
+function genMarkdown(){
+    var ncol = headers.length;
+    var pad = document.getElementById('optPad').checked;
+    var H = [];
+    for (var c = 0; c < ncol; c++) H.push(escCell(headers[c]));
+    var R = [];
+    for (var r = 0; r < rows.length; r++){
+        var line = [];
+        for (var c2 = 0; c2 < ncol; c2++) line.push(escCell(rows[r][c2]));
+        R.push(line);
+    }
+    // 列幅
+    var widths = [];
+    for (var c3 = 0; c3 < ncol; c3++){
+        var w = dispWidth(H[c3]);
+        for (var r2 = 0; r2 < R.length; r2++){ w = Math.max(w, dispWidth(R[r2][c3])); }
+        widths.push(Math.max(3, w));
+    }
+    function rowStr(cells){
+        var parts = [];
+        for (var c = 0; c < ncol; c++){
+            parts.push(pad ? padTo(cells[c], widths[c], aligns[c]) : cells[c]);
+        }
+        return '| ' + parts.join(' | ') + ' |';
+    }
+    var out = [];
+    out.push(rowStr(H));
+    var sepParts = [];
+    for (var c4 = 0; c4 < ncol; c4++) sepParts.push(sepMarker(widths[c4], aligns[c4], pad));
+    out.push('| ' + sepParts.join(' | ') + ' |');
+    for (var r3 = 0; r3 < R.length; r3++) out.push(rowStr(R[r3]));
+    return out.join('\n');
+}
+
+// ===== HTML プレビュー =====
+function renderPreview(){
+    var host = document.getElementById('preview');
+    host.innerHTML = '';
+    var wrap = document.createElement('div');
+    var tbl = document.createElement('table');
+    tbl.className = 'preview';
+    var thead = document.createElement('thead');
+    var trh = document.createElement('tr');
+    for (var c = 0; c < headers.length; c++){
+        var th = document.createElement('th');
+        th.textContent = headers[c];
+        th.style.textAlign = aligns[c];
+        trh.appendChild(th);
+    }
+    thead.appendChild(trh);
+    tbl.appendChild(thead);
+    var tbody = document.createElement('tbody');
+    for (var r = 0; r < rows.length; r++){
+        var tr = document.createElement('tr');
+        for (var c2 = 0; c2 < headers.length; c2++){
+            var td = document.createElement('td');
+            td.textContent = (rows[r][c2] !== undefined) ? rows[r][c2] : '';
+            td.style.textAlign = aligns[c2];
+            tr.appendChild(td);
+        }
+        tbody.appendChild(tr);
+    }
+    tbl.appendChild(tbody);
+    wrap.appendChild(tbl);
+    host.appendChild(wrap);
+}
+
+function updateOutput(){
+    document.getElementById('mdOutput').value = genMarkdown();
+    renderPreview();
+}
+
+// ===== 取り込み解析 =====
+function splitDelim(line, delim){
+    // カンマ区切りは簡易クオート対応、タブ区切りは単純分割
+    if (delim === '\t') return line.split('\t');
+    var res = [];
+    var cur = '';
+    var q = false;
+    for (var i = 0; i < line.length; i++){
+        var ch = line[i];
+        if (q){
+            if (ch === '"'){
+                if (line[i + 1] === '"'){ cur += '"'; i++; }
+                else { q = false; }
+            } else { cur += ch; }
+        } else {
+            if (ch === '"'){ q = true; }
+            else if (ch === delim){ res.push(cur); cur = ''; }
+            else { cur += ch; }
+        }
+    }
+    res.push(cur);
+    return res;
+}
+function splitMdRow(line){
+    var s = line.trim();
+    if (s.charAt(0) === '|') s = s.slice(1);
+    if (s.charAt(s.length - 1) === '|') s = s.slice(0, -1);
+    var res = [];
+    var cur = '';
+    for (var i = 0; i < s.length; i++){
+        var ch = s[i];
+        if (ch === '\\' && s[i + 1] === '|'){ cur += '|'; i++; }
+        else if (ch === '|'){ res.push(cur.trim()); cur = ''; }
+        else { cur += ch; }
+    }
+    res.push(cur.trim());
+    return res;
+}
+function isMdSeparator(line){
+    var s = line.trim();
+    if (s.indexOf('-') < 0) return false;
+    return /^\|?[\s:\-|]+\|?$/.test(s) && /-/.test(s);
+}
+function alignFromSep(cell){
+    var s = cell.trim();
+    var l = s.charAt(0) === ':';
+    var r = s.charAt(s.length - 1) === ':';
+    if (l && r) return 'center';
+    if (r) return 'right';
+    if (l) return 'left';
+    return 'left';
+}
+function doImport(){
+    var raw = document.getElementById('importText').value;
+    var msg = document.getElementById('importMsg');
+    var text = raw.replace(/\r\n/g, '\n').replace(/\r/g, '\n').trim();
+    if (!text){ msg.textContent = 'データを入力してください。'; return; }
+    var lines = text.split('\n').filter(function(l){ return l.trim() !== ''; });
+    if (lines.length === 0){ msg.textContent = 'データを入力してください。'; return; }
+
+    var newHeaders, newAligns, newRows = [];
+
+    // Markdown 判定：2行目が区切り行
+    if (lines.length >= 2 && isMdSeparator(lines[1]) && lines[0].indexOf('|') >= 0){
+        newHeaders = splitMdRow(lines[0]);
+        var seps = splitMdRow(lines[1]);
+        newAligns = [];
+        for (var i = 0; i < newHeaders.length; i++){
+            newAligns.push(seps[i] !== undefined ? alignFromSep(seps[i]) : 'left');
+        }
+        for (var r = 2; r < lines.length; r++){
+            newRows.push(normLen(splitMdRow(lines[r]), newHeaders.length));
+        }
+        msg.textContent = 'Markdownテーブルとして取り込みました（' + newHeaders.length + '列 / データ' + newRows.length + '行）。';
+    } else {
+        // CSV / TSV 判定
+        var delim = (text.indexOf('\t') >= 0) ? '\t' : ',';
+        var label = (delim === '\t') ? 'TSV（タブ区切り）' : 'CSV（カンマ区切り）';
+        newHeaders = splitDelim(lines[0], delim).map(function(x){ return x.trim(); });
+        newAligns = [];
+        for (var j = 0; j < newHeaders.length; j++) newAligns.push('left');
+        for (var r2 = 1; r2 < lines.length; r2++){
+            newRows.push(normLen(splitDelim(lines[r2], delim).map(function(x){ return x.trim(); }), newHeaders.length));
+        }
+        msg.textContent = label + 'として取り込みました（' + newHeaders.length + '列 / データ' + newRows.length + '行）。';
+    }
+
+    if (newRows.length === 0) newRows.push(normLen([], newHeaders.length));
+    headers = newHeaders;
+    aligns = newAligns;
+    rows = newRows;
+    buildGrid();
+    updateOutput();
+}
+function normLen(arr, n){
+    var out = arr.slice(0, n);
+    while (out.length < n) out.push('');
+    return out;
+}
+
+// ===== コピー =====
+function copyOut(){
+    var ta = document.getElementById('mdOutput');
+    var btn = document.getElementById('btnCopy');
+    var done = function(){ var o = btn.textContent; btn.textContent = 'コピーしました'; setTimeout(function(){ btn.textContent = o; }, 1400); };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(ta.value).then(done, function(){ ta.select(); document.execCommand('copy'); done(); });
+    } else {
+        ta.select(); document.execCommand('copy'); done();
+    }
+}
+
+// ===== 初期化 =====
+document.getElementById('btnAddRow').addEventListener('click', addRow);
+document.getElementById('btnAddCol').addEventListener('click', addCol);
+document.getElementById('btnClear').addEventListener('click', clearAll);
+document.getElementById('btnImport').addEventListener('click', doImport);
+document.getElementById('btnCopy').addEventListener('click', copyOut);
+document.getElementById('optPad').addEventListener('change', updateOutput);
+document.getElementById('optEscape').addEventListener('change', updateOutput);
+buildGrid();
+updateOutput();
+</script>
+</body>
+</html>
