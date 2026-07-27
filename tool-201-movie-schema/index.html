@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie構造化データ生成ツール | 映画の schema.org JSON-LD を自動作成【無料】</title>
+    <meta name="description" content="映画のタイトル・監督・出演者・公開日・上映時間・ジャンル・評価・画像などを入力するだけで、schema.org Movie の JSON-LD 構造化データをリアルタイム生成する無料ツール。director・actorはPerson、genre・actorは配列、上映時間はISO 8601（PT2H16M）で出力、空欄フィールドは自動除外。映画レビュー・作品ページのSEO対策に。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1;padding-right:12px}
+        .row input,.row select,.row textarea{width:260px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .row textarea{resize:vertical;min-height:64px;line-height:1.6}
+        .row input:focus,.row select:focus,.row textarea:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .row.stack{flex-direction:column;align-items:stretch;gap:8px}
+        .row.stack label{padding-right:0}
+        .row.stack input,.row.stack textarea{width:100%}
+        .addr-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input,.row select,.row textarea{width:100%}.addr-grid{grid-template-columns:1fr}}
+        .output-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .output-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+        .output-head h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em}
+        .copy-btn{padding:8px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .copy-btn:hover{opacity:0.9}
+        pre.code{background:#1e1e35;color:#e6e6f0;border-radius:8px;padding:16px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:0.78rem;line-height:1.7;white-space:pre;-webkit-overflow-scrolling:touch}
+        .hint-list{list-style:none;margin-top:8px}
+        .hint-list li{font-size:0.8rem;color:var(--text2);padding:6px 0 6px 22px;position:relative;line-height:1.6}
+        .hint-list li::before{content:'';position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+        .hint-list li.warn::before{background:var(--red)}
+        .hint-list li.ok::before{background:var(--green)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        code.inline{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--accent)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-201-movie-schema/">
+    <meta property="og:title" content="Movie構造化データ生成ツール | 映画の schema.org JSON-LD を自動作成【無料】">
+    <meta property="og:description" content="映画のタイトル・監督・出演者・公開日・上映時間・ジャンル・評価を入力するだけで schema.org Movie の JSON-LD をリアルタイム生成。映画レビュー・作品ページのSEO対策に。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-201-movie-schema/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Movie構造化データ生成ツール【無料】">
+    <meta name="twitter:description" content="映画の schema.org Movie JSON-LD をリアルタイム生成。監督・出演者・評価も自動出力。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Movie構造化データ生成ツール","description":"映画の schema.org Movie JSON-LD 構造化データをリアルタイム生成する無料ツール","url":"https://www.devtools-japan.com/tool-201-movie-schema/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"Movie構造化データ生成ツール","item":"https://www.devtools-japan.com/tool-201-movie-schema/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Movieの構造化データとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"Movie構造化データは、映画のタイトル・監督・出演者・公開日・上映時間・ジャンル・評価などの情報を検索エンジンが理解できる形式（schema.org の Movie 型）で記述したものです。本ツールは入力内容から JSON-LD 形式の構造化データを生成します。映画のレビューページや作品紹介ページに埋め込むと、Googleが作品の内容を正しく認識しやすくなり、検索結果でのリッチな表示につながる手がかりになります。"}},{"@type":"Question","name":"上映時間（duration）はどのように入力しますか？","acceptedAnswer":{"@type":"Answer","text":"上映時間は分数（例: 136）で入力すると、ISO 8601 の期間形式（例: PT2H16M）に自動変換して出力します。すでに PT2H16M のような ISO 8601 形式で入力した場合はそのまま使用されます。schema.org の duration は ISO 8601 形式が求められるため、本ツールが自動で整形します。上映時間が不明な場合は空欄のままにすれば、duration プロパティは出力から除外されます。"}},{"@type":"Question","name":"監督や出演者はどう入力しますか？","acceptedAnswer":{"@type":"Answer","text":"監督（director）は氏名を1つ入力すると schema.org の Person 型のオブジェクトとして出力されます。出演者（actor）は1行1名で複数入力でき、それぞれ Person 型のオブジェクトの配列として出力されます。ジャンル（genre）も1行1項目で入力すると文字列の配列になります。空行は自動的に除外されるため、必要な人数・項目だけを入力すれば有効な構造化データになります。"}},{"@type":"Question","name":"aggregateRating（総合評価）はどう出力されますか？","acceptedAnswer":{"@type":"Answer","text":"平均評価値（ratingValue）とレビュー件数（reviewCount）を入力すると、schema.org の AggregateRating 型のオブジェクトとして出力されます。評価の最小値・最大値（bestRating・worstRating）も指定できます。評価値とレビュー件数の両方が入力されている場合に出力され、片方でも欠けている場合は aggregateRating プロパティ自体が除外されます。実在しない評価やユーザーに表示されていない評価を記述するとガイドライン違反になるため注意してください。"}},{"@type":"Question","name":"生成したJSON-LDはどこに貼り付けますか？","acceptedAnswer":{"@type":"Answer","text":"生成された ld+json のスクリプトタグ一式をコピーし、映画の作品ページやレビューページのHTMLの head 内、または body 内に貼り付けてください。JSON-LD はページの表示位置に影響しないため配置場所は比較的自由です。ページに実際に表示されている情報と構造化データの内容が一致していることが重要です。貼り付け後は Google のリッチリザルトテストや schema.org バリデータで検証することを推奨します。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>Movie構造化データ生成</h1><p>映画の schema.org Movie JSON-LD をリアルタイム生成</p></header>
+
+    <div class="card"><h3>基本情報</h3>
+        <div class="row stack"><label>タイトル（name） <span style="color:var(--red)">*</span></label><input type="text" id="f_name" placeholder="例: 星降る夜のワルツ" oninput="generate()"></div>
+        <div class="row stack"><label>別題・原題（alternateName）</label><input type="text" id="f_alternate" placeholder="例: Waltz Under the Stars" oninput="generate()"></div>
+        <div class="row stack"><label>あらすじ・説明（description）</label><textarea id="f_desc" placeholder="作品の短いあらすじ・紹介文" oninput="generate()"></textarea></div>
+        <div class="row"><label>公開日（datePublished）</label><input type="date" id="f_date" oninput="generate()"></div>
+        <div class="row"><label>上映時間（分 または PT2H16M）</label><input type="text" id="f_duration" placeholder="例: 136" oninput="generate()"></div>
+        <div class="row"><label>年齢制限（contentRating）</label><input type="text" id="f_rating" placeholder="例: PG12" oninput="generate()"></div>
+        <div class="row"><label>言語（inLanguage）</label><input type="text" id="f_lang" placeholder="例: ja" oninput="generate()"></div>
+    </div>
+
+    <div class="card"><h3>制作スタッフ・出演</h3>
+        <div class="row stack"><label>監督名（director → Person）</label><input type="text" id="f_director" placeholder="例: 佐藤 花子" oninput="generate()"></div>
+        <div class="row stack"><label>制作会社名（productionCompany → Organization）</label><input type="text" id="f_production" placeholder="例: スターライト映画" oninput="generate()"></div>
+        <div class="row stack"><label>出演者（actor・1行1名）</label><textarea id="f_actor" placeholder="例:&#10;山田 太郎&#10;鈴木 美咲&#10;田中 一郎" oninput="generate()" style="min-height:88px"></textarea></div>
+    </div>
+
+    <div class="card"><h3>ジャンル（genre・1行1項目）</h3>
+        <div class="row stack"><textarea id="f_genre" placeholder="例:&#10;ドラマ&#10;ロマンス&#10;音楽" oninput="generate()" style="min-height:88px"></textarea></div>
+    </div>
+
+    <div class="card"><h3>URL・画像</h3>
+        <div class="row stack"><label>作品ページURL（url）</label><input type="text" id="f_url" placeholder="https://www.example.com/movies/waltz" oninput="generate()"></div>
+        <div class="row stack"><label>ポスター・画像URL（image）</label><input type="text" id="f_image" placeholder="https://www.example.com/img/waltz.jpg" oninput="generate()"></div>
+        <div class="row stack"><label>予告編URL（trailer → VideoObject）</label><input type="text" id="f_trailer" placeholder="https://www.example.com/trailer.mp4" oninput="generate()"></div>
+    </div>
+
+    <div class="card"><h3>総合評価（aggregateRating）</h3>
+        <div class="addr-grid">
+            <div><div style="font-size:0.7rem;color:var(--text3);margin-bottom:6px">平均評価（ratingValue）</div><input type="text" id="f_ratingvalue" placeholder="例: 4.5" oninput="generate()" style="width:100%;padding:10px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;font-family:'Noto Sans JP',sans-serif;font-size:0.88rem;outline:none"></div>
+            <div><div style="font-size:0.7rem;color:var(--text3);margin-bottom:6px">レビュー件数（reviewCount）</div><input type="text" id="f_reviewcount" placeholder="例: 1280" oninput="generate()" style="width:100%;padding:10px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;font-family:'Noto Sans JP',sans-serif;font-size:0.88rem;outline:none"></div>
+            <div><div style="font-size:0.7rem;color:var(--text3);margin-bottom:6px">満点（bestRating）</div><input type="text" id="f_bestrating" placeholder="例: 5" oninput="generate()" style="width:100%;padding:10px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;font-family:'Noto Sans JP',sans-serif;font-size:0.88rem;outline:none"></div>
+        </div>
+    </div>
+
+    <div class="output-card">
+        <div class="output-head"><h3>生成された JSON-LD</h3><button class="copy-btn" onclick="copyOutput()" id="copyBtn">コピー</button></div>
+        <pre class="code" id="output">// 入力するとここに JSON-LD が表示されます</pre>
+    </div>
+
+    <div class="card"><h3>Movie 構造化データのヒント</h3>
+        <ul class="hint-list" id="hints"></ul>
+    </div>
+
+    <div class="note">生成される JSON-LD は schema.org の Movie 型に基づきます。空欄のフィールドは自動的に除外され、director・actor は Person 型、productionCompany は Organization 型、genre・actor は配列、上映時間は ISO 8601（PT2H16M）として出力されます。実装後は Google のリッチリザルトテストや schema.org バリデータで検証することを推奨します。すべての処理は端末内で完結し、入力内容は送信されません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>Movie構造化データ生成ツールの使い方</h2>
+        <p>映画のタイトル・監督・出演者・公開日・上映時間・ジャンル・評価・画像などを入力するだけで、schema.org の Movie 型に準拠した JSON-LD 構造化データをリアルタイムに生成する無料ツールです。生成された ld+json のスクリプトタグ一式をコピーして、映画の作品ページやレビューページのHTMLに貼り付けるだけで、検索エンジンに作品の内容を正しく伝えられます。インストールや会員登録は不要で、入力した内容はサーバーに送信されず、すべての生成処理がお使いのブラウザ内で完結します。</p>
+        <p>使い方はシンプルです。まず必須のタイトルを入力し、続いてあらすじ・公開日・上映時間・年齢制限・監督・制作会社・出演者・ジャンル・URL・画像・総合評価などを必要な範囲で埋めます。出演者（actor）とジャンル（genre）は1行1項目で入力すると配列として出力されます。上映時間は分数で入力すると自動的に ISO 8601 形式（PT2H16M）へ変換されます。入力を変更するたびに下部の出力エリアの JSON-LD が即座に更新されるので、内容を確認しながら仕上げられます。空欄の項目は出力から自動で除外されるため、埋めたい項目だけを入力すれば有効な構造化データになります。</p>
+        <h3>映画ページのSEOとリッチリザルト</h3>
+        <p>Googleは映画に関する検索で、作品名・監督・出演者・評価などをリッチな形式で表示することがあります。作品の情報を Movie 構造化データで明示することは、検索エンジンにコンテンツの内容を正確に伝える補助になります。<code class="inline">director</code>（監督）、<code class="inline">actor</code>（出演者）、<code class="inline">datePublished</code>（公開日）、<code class="inline">duration</code>（上映時間）、<code class="inline">genre</code>（ジャンル）、<code class="inline">aggregateRating</code>（総合評価）などを揃えると、作品像がより具体的に伝わります。なお評価はページに実際に表示されているものと一致させる必要があり、実在しない評価を記述するとGoogleのガイドライン違反になります。</p>
+
+        <h2>生成されるプロパティ</h2>
+        <p>本ツールが出力する主な Movie プロパティは次のとおりです。必須項目と任意項目を区別して、必要なものだけを入力してください。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>プロパティ</th><th>内容</th><th>形式</th></tr>
+            <tr><td>name</td><td>作品タイトル</td><td>文字列（必須）</td></tr>
+            <tr><td>alternateName</td><td>別題・原題</td><td>文字列</td></tr>
+            <tr><td>description</td><td>あらすじ・紹介文</td><td>文字列</td></tr>
+            <tr><td>director</td><td>監督</td><td>Person 型</td></tr>
+            <tr><td>actor</td><td>出演者</td><td>Person 型の配列</td></tr>
+            <tr><td>productionCompany</td><td>制作会社</td><td>Organization 型</td></tr>
+            <tr><td>datePublished</td><td>公開日</td><td>日付（YYYY-MM-DD）</td></tr>
+            <tr><td>duration</td><td>上映時間</td><td>ISO 8601（PT2H16M）</td></tr>
+            <tr><td>genre</td><td>ジャンル</td><td>文字列の配列</td></tr>
+            <tr><td>contentRating</td><td>年齢制限・レーティング</td><td>文字列</td></tr>
+            <tr><td>url / image</td><td>作品ページ・ポスター画像</td><td>文字列</td></tr>
+            <tr><td>aggregateRating</td><td>総合評価</td><td>AggregateRating 型</td></tr>
+        </table>
+        </div>
+        <h3>duration と aggregateRating の書き方</h3>
+        <p>上映時間（duration）は schema.org では ISO 8601 の期間形式が求められます。本ツールでは分数（例: 136）を入力すると自動的に <code class="inline">PT2H16M</code> のような形式へ変換します。すでに ISO 8601 形式で入力した場合はそのまま使用されます。総合評価（aggregateRating）は、平均評価値（ratingValue）とレビュー件数（reviewCount）の両方を入力すると schema.org の AggregateRating 型として出力されます。満点（bestRating）も指定できます。評価はページに実際に掲載されている集計値と一致させ、ユーザーに見えない評価を記述しないことが重要です。実装後は Google のリッチリザルトテストや schema.org バリデータでエラー・警告を確認しましょう。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">Movieの構造化データとは何ですか？</div><div class="a">Movie構造化データは、映画のタイトル・監督・出演者・公開日・上映時間・ジャンル・評価などの情報を検索エンジンが理解できる形式（schema.org の Movie 型）で記述したものです。本ツールは入力内容から JSON-LD 形式の構造化データを生成します。映画のレビューページや作品紹介ページに埋め込むと、Googleが作品の内容を正しく認識しやすくなり、検索結果でのリッチな表示につながる手がかりになります。</div></div>
+        <div class="faq-item"><div class="q">上映時間（duration）はどのように入力しますか？</div><div class="a">上映時間は分数（例: 136）で入力すると、ISO 8601 の期間形式（例: PT2H16M）に自動変換して出力します。すでに PT2H16M のような ISO 8601 形式で入力した場合はそのまま使用されます。schema.org の duration は ISO 8601 形式が求められるため、本ツールが自動で整形します。上映時間が不明な場合は空欄のままにすれば、duration プロパティは出力から除外されます。</div></div>
+        <div class="faq-item"><div class="q">監督や出演者はどう入力しますか？</div><div class="a">監督（director）は氏名を1つ入力すると schema.org の Person 型のオブジェクトとして出力されます。出演者（actor）は1行1名で複数入力でき、それぞれ Person 型のオブジェクトの配列として出力されます。ジャンル（genre）も1行1項目で入力すると文字列の配列になります。空行は自動的に除外されるため、必要な人数・項目だけを入力すれば有効な構造化データになります。</div></div>
+        <div class="faq-item"><div class="q">aggregateRating（総合評価）はどう出力されますか？</div><div class="a">平均評価値（ratingValue）とレビュー件数（reviewCount）を入力すると、schema.org の AggregateRating 型のオブジェクトとして出力されます。評価の最小値・最大値（bestRating・worstRating）も指定できます。評価値とレビュー件数の両方が入力されている場合に出力され、片方でも欠けている場合は aggregateRating プロパティ自体が除外されます。実在しない評価やユーザーに表示されていない評価を記述するとガイドライン違反になるため注意してください。</div></div>
+        <div class="faq-item"><div class="q">生成したJSON-LDはどこに貼り付けますか？</div><div class="a">生成された ld+json のスクリプトタグ一式をコピーし、映画の作品ページやレビューページのHTMLの head 内、または body 内に貼り付けてください。JSON-LD はページの表示位置に影響しないため配置場所は比較的自由です。ページに実際に表示されている情報と構造化データの内容が一致していることが重要です。貼り付け後は Google のリッチリザルトテストや schema.org バリデータで検証することを推奨します。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-175-person-schema/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">Person構造化データ生成</a><a href="/tool-142-recipe-schema/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">Recipe構造化データ生成</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧へ</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ---- script タグ文字列はトークン分割して素書きを避ける ----
+var LD_OPEN = '<' + 'script type="application/ld+json">';
+var LD_CLOSE = '<' + '/' + 'script>';
+
+function val(id){
+    var el = document.getElementById(id);
+    return el ? el.value.trim() : '';
+}
+
+// 1行1項目のテキストエリアを配列へ
+function linesToArray(id){
+    var raw = val(id);
+    if (!raw) return [];
+    return raw.split('\n').map(function(s){ return s.trim(); }).filter(function(s){ return s; });
+}
+
+// 上映時間を ISO 8601（PT#H#M）へ変換
+function toISODuration(raw){
+    if (!raw) return '';
+    // すでに ISO 8601 形式ならそのまま
+    if (/^P/i.test(raw)) return raw.toUpperCase();
+    var mins = parseInt(raw, 10);
+    if (isNaN(mins) || mins <= 0) return '';
+    var h = Math.floor(mins / 60);
+    var m = mins % 60;
+    var out = 'PT';
+    if (h > 0) out += h + 'H';
+    if (m > 0) out += m + 'M';
+    if (out === 'PT') out = 'PT0M';
+    return out;
+}
+
+function buildMovie(){
+    var mv = { '@context': 'https://schema.org', '@type': 'Movie' };
+
+    var name = val('f_name');
+    if (name) mv.name = name;
+
+    var alt = val('f_alternate');
+    if (alt) mv.alternateName = alt;
+
+    var url = val('f_url');
+    if (url) mv.url = url;
+
+    var image = val('f_image');
+    if (image) mv.image = image;
+
+    var desc = val('f_desc');
+    if (desc) mv.description = desc;
+
+    var date = val('f_date');
+    if (date) mv.datePublished = date;
+
+    var duration = toISODuration(val('f_duration'));
+    if (duration) mv.duration = duration;
+
+    var contentRating = val('f_rating');
+    if (contentRating) mv.contentRating = contentRating;
+
+    var lang = val('f_lang');
+    if (lang) mv.inLanguage = lang;
+
+    var director = val('f_director');
+    if (director) mv.director = { '@type': 'Person', 'name': director };
+
+    var production = val('f_production');
+    if (production) mv.productionCompany = { '@type': 'Organization', 'name': production };
+
+    var actors = linesToArray('f_actor');
+    if (actors.length){
+        mv.actor = actors.map(function(a){ return { '@type': 'Person', 'name': a }; });
+    }
+
+    var genres = linesToArray('f_genre');
+    if (genres.length) mv.genre = genres;
+
+    var trailer = val('f_trailer');
+    if (trailer) mv.trailer = { '@type': 'VideoObject', 'contentUrl': trailer };
+
+    // 総合評価（AggregateRating）— ratingValue と reviewCount 両方が必要
+    var ratingValue = val('f_ratingvalue');
+    var reviewCount = val('f_reviewcount');
+    var bestRating = val('f_bestrating');
+    if (ratingValue && reviewCount){
+        var ar = { '@type': 'AggregateRating', 'ratingValue': ratingValue, 'reviewCount': reviewCount };
+        if (bestRating) ar.bestRating = bestRating;
+        mv.aggregateRating = ar;
+    }
+
+    return mv;
+}
+
+function buildHints(movie){
+    var hints = document.getElementById('hints');
+    hints.innerHTML = '';
+    var checks = [
+        { ok: !!movie.name, text: 'タイトル（name）— 必須。作品を特定する見出しになります。' },
+        { ok: !!movie.director, text: '監督（director）— Person型で出力。作品の作り手を明示。' },
+        { ok: !!movie.actor, text: '出演者（actor）— Person型の配列。主要キャストを列挙。' },
+        { ok: !!movie.datePublished, text: '公開日（datePublished）— 作品の公開年月日を明示。' },
+        { ok: !!movie.duration, text: '上映時間（duration）— ISO 8601（PT2H16M）で出力。' },
+        { ok: !!movie.aggregateRating, text: 'aggregateRating — 評価値とレビュー件数で総合評価を出力。' }
+    ];
+    for (var i = 0; i < checks.length; i++){
+        var li = document.createElement('li');
+        li.className = checks[i].ok ? 'ok' : 'warn';
+        li.textContent = (checks[i].ok ? '設定済み: ' : '未設定: ') + checks[i].text;
+        hints.appendChild(li);
+    }
+}
+
+function generate(){
+    var movie = buildMovie();
+    var json = JSON.stringify(movie, null, 2);
+    var wrapped = LD_OPEN + '\n' + json + '\n' + LD_CLOSE;
+    document.getElementById('output').textContent = wrapped;
+    buildHints(movie);
+}
+
+function copyOutput(){
+    var text = document.getElementById('output').textContent;
+    var btn = document.getElementById('copyBtn');
+    function done(){ btn.textContent = 'コピー済み'; setTimeout(function(){ btn.textContent = 'コピー'; }, 1400); }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text); done(); });
+    } else {
+        fallbackCopy(text); done();
+    }
+}
+
+function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+}
+
+// 初期サンプル（入力ゼロでもサンプル出力）
+(function init(){
+    document.getElementById('f_name').value = '星降る夜のワルツ';
+    document.getElementById('f_alternate').value = 'Waltz Under the Stars';
+    document.getElementById('f_desc').value = '地方の小さな楽団を舞台に、音楽を通して再会した幼なじみの絆を描く感動のヒューマンドラマ。';
+    document.getElementById('f_date').value = '2025-11-14';
+    document.getElementById('f_duration').value = '136';
+    document.getElementById('f_rating').value = 'PG12';
+    document.getElementById('f_lang').value = 'ja';
+    document.getElementById('f_director').value = '佐藤 花子';
+    document.getElementById('f_production').value = 'スターライト映画';
+    document.getElementById('f_actor').value = '山田 太郎\n鈴木 美咲\n田中 一郎';
+    document.getElementById('f_genre').value = 'ドラマ\nロマンス\n音楽';
+    document.getElementById('f_url').value = 'https://www.example.com/movies/waltz';
+    document.getElementById('f_image').value = 'https://www.example.com/img/waltz.jpg';
+    document.getElementById('f_trailer').value = 'https://www.example.com/trailer.mp4';
+    document.getElementById('f_ratingvalue').value = '4.5';
+    document.getElementById('f_reviewcount').value = '1280';
+    document.getElementById('f_bestrating').value = '5';
+
+    generate();
+})();
+</script>
+</body>
+</html>

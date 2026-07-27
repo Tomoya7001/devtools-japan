@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自動車の維持費・年間コスト計算機 | 車の年間・月間コストを試算【無料】</title>
+    <meta name="description" content="車の維持費・年間コストを自動計算する無料ツール。車両価格の減価、ガソリン・軽油・EVの燃料費、自動車保険、自動車税・重量税、駐車場代、メンテナンス・車検費用をまとめて入力すると、年間と月間の総保有コストを内訳付きで試算します。すべてブラウザ内で完結します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .field{margin-bottom:14px}
+        .field label{display:block;font-size:0.8rem;color:var(--text2);margin-bottom:6px}
+        .field .hint{color:var(--text3);font-size:0.7rem}
+        .input-wrap{display:flex;align-items:center;gap:8px}
+        .input-wrap .unit{font-size:0.78rem;color:var(--text3);white-space:nowrap}
+        input[type=number],select{width:100%;padding:11px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.9rem;outline:none}
+        input[type=number]:focus,select:focus{border-color:var(--accent)}
+        select{font-family:'Noto Sans JP',sans-serif}
+        .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+        @media(max-width:600px){.grid2{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr}}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-align:center}
+        .result-item .label{font-size:0.68rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:1.7rem;font-weight:700;color:var(--accent)}
+        .result-item .value .yen{font-size:0.9rem;margin-left:2px}
+        .result-item.sub .value{font-size:1.25rem;color:var(--text)}
+        .bd-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);font-size:0.82rem}
+        .bd-row:last-child{border-bottom:none}
+        .bd-row .bd-name{flex:0 0 42%;color:var(--text2)}
+        .bd-row .bd-bar{flex:1;height:8px;background:#eceef5;border-radius:4px;overflow:hidden}
+        .bd-row .bd-bar span{display:block;height:100%;background:var(--accent);border-radius:4px}
+        .bd-row .bd-val{flex:0 0 92px;text-align:right;font-family:'JetBrains Mono',monospace;color:var(--text);font-weight:500}
+        .bd-row .bd-pct{flex:0 0 46px;text-align:right;font-family:'JetBrains Mono',monospace;color:var(--text3);font-size:0.72rem}
+        .btn{padding:12px 28px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-199-car-cost/">
+    <meta property="og:title" content="自動車の維持費・年間コスト計算機 | 車の年間・月間コストを試算【無料】">
+    <meta property="og:description" content="車両価格の減価・燃料費・保険・自動車税・重量税・駐車場・メンテナンスをまとめて入力し、年間と月間の総保有コストを内訳付きで試算。すべてブラウザ内で完結。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-199-car-cost/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="自動車の維持費・年間コスト計算機【無料】">
+    <meta name="twitter:description" content="車の維持費（燃料・保険・税金・駐車場・車検）を年間／月間コストに換算し内訳を表示。ブラウザ内で完結。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"自動車の維持費・年間コスト計算機","description":"車両価格の減価・燃料費・保険・自動車税・重量税・駐車場・メンテナンスから年間と月間の総保有コストを内訳付きで試算する無料ツール","url":"https://www.devtools-japan.com/tool-199-car-cost/","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"自動車の維持費・年間コスト計算機","item":"https://www.devtools-japan.com/tool-199-car-cost/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"車の年間維持費の平均はどのくらいですか？","acceptedAnswer":{"@type":"Answer","text":"車種や使い方で大きく変わりますが、一般的な普通車では燃料費・保険・税金・駐車場・車検やメンテナンスを合わせて年間およそ40万〜60万円程度になることが多いとされます。都市部で月極駐車場を借りる場合は駐車場代だけで年20万円を超えることもあり、地方より高くなりがちです。このツールにご自身の条件を入力すると、実際の年間・月間コストを内訳付きで確認できます。"}},{"@type":"Question","name":"車両本体価格は維持費に含めるべきですか？","acceptedAnswer":{"@type":"Answer","text":"厳密には車両本体価格は購入費用ですが、保有コストを比較する際は「減価償却（値下がり分）」として年あたりに按分して含めると実態に近づきます。本ツールでは車両価格と保有予定年数を入力すると、単純に価格を年数で割った額を年間コストに加算します。減価を含めたくない場合は保有年数を長めにするか、車両価格を0にして燃料・保険・税金などのランニングコストだけを試算できます。"}},{"@type":"Question","name":"自動車税と重量税の違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"自動車税（種別割）は排気量に応じて毎年課税される税金で、たとえば1.5リッター超2リッター以下の普通車で年3万6000円程度です。自動車重量税は車両重量に応じてかかる税金で、多くの場合は車検（新車は3年、以降2年ごと）のタイミングでまとめて納めます。本ツールでは両方をまとめて「税金（年額）」として入力する形にしているため、重量税は車検時の金額を1年あたりに換算して入力してください。"}},{"@type":"Question","name":"ガソリン車とEVでは燃料費はどう違いますか？","acceptedAnswer":{"@type":"Answer","text":"ガソリン車は燃費（km/L）と1リットルあたりの価格から燃料費を計算します。EVは電費（km/kWh）と1kWhあたりの電気料金から計算します。一般に自宅での普通充電は1kmあたりの費用がガソリンより安くなる傾向がありますが、急速充電を多用すると割高になることもあります。本ツールでは燃料タイプを切り替えると入力欄の単位が自動で変わるので、それぞれの条件で年間の燃料費を比較できます。"}},{"@type":"Question","name":"この計算ツールはデータを送信しますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。すべての計算はお使いのブラウザ内のJavaScriptで完結し、入力した価格や走行距離などの情報がサーバーへ送信・保存されることは一切ありません。オフライン環境でも動作します。試算結果はあくまで入力値に基づく概算であり、実際の費用は車種・契約内容・地域・年式などによって変動します。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>自動車の維持費・年間コスト計算機</h1><p>燃料・保険・税金・駐車場・車検をまとめて年間／月間コストに換算（すべてブラウザ内で処理）</p></header>
+
+    <div class="card"><h3>車両・走行の条件</h3>
+        <div class="grid2">
+            <div class="field">
+                <label>車両本体価格</label>
+                <div class="input-wrap"><input type="number" id="price" value="2500000" min="0" step="10000"><span class="unit">円</span></div>
+                <div class="hint">減価分として保有年数で按分します（0で除外）</div>
+            </div>
+            <div class="field">
+                <label>保有予定年数</label>
+                <div class="input-wrap"><input type="number" id="years" value="7" min="1" step="1"><span class="unit">年</span></div>
+                <div class="hint">価格 ÷ 年数を年間コストに加算</div>
+            </div>
+            <div class="field">
+                <label>燃料タイプ</label>
+                <select id="fuelType" onchange="onFuelChange()">
+                    <option value="gasoline">ガソリン</option>
+                    <option value="diesel">軽油（ディーゼル）</option>
+                    <option value="hybrid">ハイブリッド</option>
+                    <option value="ev">電気（EV）</option>
+                </select>
+            </div>
+            <div class="field">
+                <label id="effLabel">燃費</label>
+                <div class="input-wrap"><input type="number" id="efficiency" value="15" min="0.1" step="0.1"><span class="unit" id="effUnit">km/L</span></div>
+            </div>
+            <div class="field">
+                <label>年間走行距離</label>
+                <div class="input-wrap"><input type="number" id="mileage" value="10000" min="0" step="100"><span class="unit">km</span></div>
+            </div>
+            <div class="field">
+                <label id="priceLabel">燃料価格</label>
+                <div class="input-wrap"><input type="number" id="fuelPrice" value="175" min="0" step="1"><span class="unit" id="priceUnit">円/L</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card"><h3>固定費・維持費</h3>
+        <div class="grid2">
+            <div class="field">
+                <label>自動車保険（年額）</label>
+                <div class="input-wrap"><input type="number" id="insurance" value="60000" min="0" step="1000"><span class="unit">円</span></div>
+                <div class="hint">任意保険＋自賠責の年あたり</div>
+            </div>
+            <div class="field">
+                <label>税金（自動車税＋重量税・年額）</label>
+                <div class="input-wrap"><input type="number" id="tax" value="45000" min="0" step="1000"><span class="unit">円</span></div>
+                <div class="hint">重量税は車検額を1年に換算</div>
+            </div>
+            <div class="field">
+                <label>駐車場代（月額）</label>
+                <div class="input-wrap"><input type="number" id="parking" value="12000" min="0" step="500"><span class="unit">円/月</span></div>
+            </div>
+            <div class="field">
+                <label>メンテナンス・車検（年額）</label>
+                <div class="input-wrap"><input type="number" id="maint" value="80000" min="0" step="1000"><span class="unit">円</span></div>
+                <div class="hint">車検・オイル・タイヤ等の年あたり</div>
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:8px"><button class="btn" onclick="calc()">コストを計算する</button></div>
+    </div>
+
+    <div id="result" style="display:none">
+        <div class="result-grid">
+            <div class="result-item"><div class="label">年間コスト</div><div class="value"><span id="annualVal">0</span><span class="yen">円/年</span></div></div>
+            <div class="result-item sub"><div class="label">月間コスト</div><div class="value"><span id="monthlyVal">0</span><span class="yen">円/月</span></div></div>
+        </div>
+        <div class="result-grid">
+            <div class="result-item sub"><div class="label">1kmあたり</div><div class="value"><span id="perKmVal">0</span><span class="yen">円/km</span></div></div>
+            <div class="result-item sub"><div class="label">1日あたり</div><div class="value"><span id="perDayVal">0</span><span class="yen">円/日</span></div></div>
+        </div>
+        <div class="card"><h3>年間コストの内訳</h3>
+            <div id="breakdown"></div>
+        </div>
+    </div>
+
+    <div class="note">このツールは 100% クライアントサイドで動作します。入力した価格・走行距離などの情報はサーバーに送信されず、すべてお使いのブラウザ内で計算されます。結果は入力値に基づく概算です。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>自動車の維持費・年間コスト計算機の使い方</h2>
+        <p>車を保有するとかかる維持費を、年間・月間の総コストとして試算できる無料ツールです。車両本体価格と保有予定年数、燃料タイプと燃費（またはEVの電費）、年間走行距離、燃料価格、自動車保険、自動車税・重量税、駐車場代、メンテナンス・車検費用を入力して「コストを計算する」を押すと、年間コスト・月間コスト・1kmあたり・1日あたりの費用と、項目別の内訳がグラフ付きで表示されます。すべての計算はブラウザ内で完結し、入力内容が外部へ送信されることはありません。</p>
+        <h3>燃料費の計算</h3>
+        <p>ガソリン・軽油・ハイブリッドの場合は「年間走行距離 ÷ 燃費 × 燃料価格」で年間の燃料費を求めます。EV（電気自動車）を選ぶと入力欄の単位が電費（km/kWh）と電気料金（円/kWh）に切り替わり、「年間走行距離 ÷ 電費 × 電気料金」で計算します。燃料タイプを変えるだけで比較できるので、乗り換え検討時のシミュレーションにも便利です。</p>
+        <h3>車両価格（減価）の扱い</h3>
+        <p>車両本体価格は「保有予定年数」で割った金額を年間コストに加算します。これは値下がり分（減価償却）を年あたりでならして保有コストに含める考え方です。ランニングコストだけを知りたい場合は、車両価格を0にすれば燃料・保険・税金・駐車場・メンテナンスだけの合計を確認できます。</p>
+
+        <h2>車の維持費に含まれる主な費用</h2>
+        <p>自動車の維持費は、大きく分けて「走った分だけかかる費用」と「乗らなくてもかかる固定費」に分かれます。固定費の割合が高いほど、走行距離が少ない人ほど1kmあたりのコストが割高になります。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>項目</th><th>区分</th><th>ポイント</th></tr>
+            <tr><td>燃料費</td><td>変動費</td><td>走行距離・燃費・燃料価格で決まる</td></tr>
+            <tr><td>車両の減価</td><td>固定費</td><td>価格 ÷ 保有年数で年あたりに按分</td></tr>
+            <tr><td>自動車保険</td><td>固定費</td><td>任意保険＋自賠責の年額</td></tr>
+            <tr><td>自動車税・重量税</td><td>固定費</td><td>排気量・車両重量で決まる税金</td></tr>
+            <tr><td>駐車場代</td><td>固定費</td><td>都市部ほど高く月2万円超も</td></tr>
+            <tr><td>メンテ・車検</td><td>固定費</td><td>車検・オイル・タイヤ等の年あたり</td></tr>
+        </table>
+        </div>
+
+        <h2>維持費を抑えるためのヒント</h2>
+        <p>維持費の内訳を見ると、多くの場合で燃料費・車両の減価・駐車場代の3つが大きな割合を占めます。走行距離が多い人は燃費の良い車やハイブリッド・EVで燃料費を、あまり乗らない人は保険や税金・駐車場などの固定費を見直すと効果が出やすくなります。本ツールで条件を変えながら年間・月間コストを比較し、自分の使い方に合った車選びやプラン見直しの参考にしてください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">車の年間維持費の平均はどのくらいですか？</div><div class="a">車種や使い方で大きく変わりますが、一般的な普通車では燃料費・保険・税金・駐車場・車検やメンテナンスを合わせて年間およそ40万〜60万円程度になることが多いとされます。都市部で月極駐車場を借りる場合は駐車場代だけで年20万円を超えることもあり、地方より高くなりがちです。このツールにご自身の条件を入力すると、実際の年間・月間コストを内訳付きで確認できます。</div></div>
+        <div class="faq-item"><div class="q">車両本体価格は維持費に含めるべきですか？</div><div class="a">厳密には車両本体価格は購入費用ですが、保有コストを比較する際は「減価償却（値下がり分）」として年あたりに按分して含めると実態に近づきます。本ツールでは車両価格と保有予定年数を入力すると、単純に価格を年数で割った額を年間コストに加算します。減価を含めたくない場合は保有年数を長めにするか、車両価格を0にして燃料・保険・税金などのランニングコストだけを試算できます。</div></div>
+        <div class="faq-item"><div class="q">自動車税と重量税の違いは何ですか？</div><div class="a">自動車税（種別割）は排気量に応じて毎年課税される税金で、たとえば1.5リッター超2リッター以下の普通車で年3万6000円程度です。自動車重量税は車両重量に応じてかかる税金で、多くの場合は車検（新車は3年、以降2年ごと）のタイミングでまとめて納めます。本ツールでは両方をまとめて「税金（年額）」として入力する形にしているため、重量税は車検時の金額を1年あたりに換算して入力してください。</div></div>
+        <div class="faq-item"><div class="q">ガソリン車とEVでは燃料費はどう違いますか？</div><div class="a">ガソリン車は燃費（km/L）と1リットルあたりの価格から燃料費を計算します。EVは電費（km/kWh）と1kWhあたりの電気料金から計算します。一般に自宅での普通充電は1kmあたりの費用がガソリンより安くなる傾向がありますが、急速充電を多用すると割高になることもあります。本ツールでは燃料タイプを切り替えると入力欄の単位が自動で変わるので、それぞれの条件で年間の燃料費を比較できます。</div></div>
+        <div class="faq-item"><div class="q">この計算ツールはデータを送信しますか？</div><div class="a">いいえ。すべての計算はお使いのブラウザ内のJavaScriptで完結し、入力した価格や走行距離などの情報がサーバーへ送信・保存されることは一切ありません。オフライン環境でも動作します。試算結果はあくまで入力値に基づく概算であり、実際の費用は車種・契約内容・地域・年式などによって変動します。</div></div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a><a href="/tool-177-data-uri/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">data URI 変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+function onFuelChange(){
+    var t = document.getElementById('fuelType').value;
+    var isEv = (t === 'ev');
+    document.getElementById('effLabel').textContent = isEv ? '電費' : '燃費';
+    document.getElementById('effUnit').textContent = isEv ? 'km/kWh' : 'km/L';
+    document.getElementById('priceLabel').textContent = isEv ? '電気料金' : '燃料価格';
+    document.getElementById('priceUnit').textContent = isEv ? '円/kWh' : '円/L';
+    var eff = document.getElementById('efficiency');
+    var fp = document.getElementById('fuelPrice');
+    if (isEv){
+        if (eff.value === '15') eff.value = '7';
+        if (fp.value === '175') fp.value = '30';
+    } else {
+        if (eff.value === '7') eff.value = '15';
+        if (fp.value === '30') fp.value = '175';
+    }
+}
+
+function num(id){
+    var v = parseFloat(document.getElementById(id).value);
+    return (isNaN(v) || v < 0) ? 0 : v;
+}
+
+function fmt(n){
+    return Math.round(n).toLocaleString('ja-JP');
+}
+
+function calc(){
+    var price = num('price');
+    var years = num('years') || 1;
+    var eff = num('efficiency') || 1;
+    var mileage = num('mileage');
+    var fuelPrice = num('fuelPrice');
+    var insurance = num('insurance');
+    var tax = num('tax');
+    var parking = num('parking') * 12;
+    var maint = num('maint');
+
+    var depreciation = years > 0 ? price / years : price;
+    var fuel = eff > 0 ? (mileage / eff) * fuelPrice : 0;
+
+    var items = [
+        { name: '燃料費', val: fuel },
+        { name: '車両の減価', val: depreciation },
+        { name: '自動車保険', val: insurance },
+        { name: '税金（自動車税＋重量税）', val: tax },
+        { name: '駐車場代', val: parking },
+        { name: 'メンテナンス・車検', val: maint }
+    ];
+
+    var annual = 0;
+    for (var i = 0; i < items.length; i++) annual += items[i].val;
+    var monthly = annual / 12;
+    var perKm = mileage > 0 ? annual / mileage : 0;
+    var perDay = annual / 365;
+
+    document.getElementById('annualVal').textContent = fmt(annual);
+    document.getElementById('monthlyVal').textContent = fmt(monthly);
+    document.getElementById('perKmVal').textContent = perKm.toFixed(1);
+    document.getElementById('perDayVal').textContent = fmt(perDay);
+
+    var max = 0;
+    for (var j = 0; j < items.length; j++) if (items[j].val > max) max = items[j].val;
+
+    var html = '';
+    for (var k = 0; k < items.length; k++){
+        var it = items[k];
+        var pct = annual > 0 ? (it.val / annual * 100) : 0;
+        var barW = max > 0 ? (it.val / max * 100) : 0;
+        html += '<div class="bd-row">'
+            + '<div class="bd-name">' + it.name + '</div>'
+            + '<div class="bd-bar"><span style="width:' + barW.toFixed(1) + '%"></span></div>'
+            + '<div class="bd-val">' + fmt(it.val) + '円</div>'
+            + '<div class="bd-pct">' + pct.toFixed(0) + '%</div>'
+            + '</div>';
+    }
+    document.getElementById('breakdown').innerHTML = html;
+    document.getElementById('result').style.display = 'block';
+}
+
+calc();
+</script>
+</body>
+</html>

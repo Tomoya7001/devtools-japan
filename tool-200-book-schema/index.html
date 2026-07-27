@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book構造化データ生成ツール | 書籍の schema.org JSON-LD を自動作成【無料】</title>
+    <meta name="description" content="書名・著者・ISBN・出版社・出版日・判型・ページ数・言語などを入力するだけで、schema.org Book の JSON-LD 構造化データをリアルタイム生成する無料ツール。authorはPerson、publisherはOrganization、空欄フィールドは自動除外。書籍紹介ページのSEO・リッチリザルト対策に。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1;padding-right:12px}
+        .row input,.row select,.row textarea{width:260px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        .row textarea{resize:vertical;min-height:64px;line-height:1.6}
+        .row input:focus,.row select:focus,.row textarea:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .row.stack{flex-direction:column;align-items:stretch;gap:8px}
+        .row.stack label{padding-right:0}
+        .row.stack input,.row.stack textarea{width:100%}
+        .addr-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input,.row select,.row textarea{width:100%}.addr-grid{grid-template-columns:1fr}}
+        .output-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .output-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+        .output-head h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em}
+        .copy-btn{padding:8px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .copy-btn:hover{opacity:0.9}
+        pre.code{background:#1e1e35;color:#e6e6f0;border-radius:8px;padding:16px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:0.78rem;line-height:1.7;white-space:pre;-webkit-overflow-scrolling:touch}
+        .hint-list{list-style:none;margin-top:8px}
+        .hint-list li{font-size:0.8rem;color:var(--text2);padding:6px 0 6px 22px;position:relative;line-height:1.6}
+        .hint-list li::before{content:'';position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+        .hint-list li.warn::before{background:var(--red)}
+        .hint-list li.ok::before{background:var(--green)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        code.inline{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--accent)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-200-book-schema/">
+    <meta property="og:title" content="Book構造化データ生成ツール | 書籍の schema.org JSON-LD を自動作成【無料】">
+    <meta property="og:description" content="書名・著者・ISBN・出版社・出版日・判型・ページ数を入力するだけで schema.org Book の JSON-LD をリアルタイム生成。書籍紹介ページのSEO対策に。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-200-book-schema/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Book構造化データ生成ツール【無料】">
+    <meta name="twitter:description" content="書籍の schema.org Book JSON-LD をリアルタイム生成。author・publisher・ISBNも自動出力。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Book構造化データ生成ツール","description":"書籍の schema.org Book JSON-LD 構造化データをリアルタイム生成する無料ツール","url":"https://www.devtools-japan.com/tool-200-book-schema/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"Book構造化データ生成ツール","item":"https://www.devtools-japan.com/tool-200-book-schema/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Bookの構造化データとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"Book構造化データは、書籍の書名・著者・ISBN・出版社・出版日・ページ数・言語などの情報を検索エンジンが理解できる形式（schema.org の Book 型）で記述したものです。本ツールは入力内容から JSON-LD 形式の構造化データを生成します。書籍紹介ページや書評ページに埋め込むと、Googleが本の書誌情報を正しく認識しやすくなり、検索結果での見え方の改善に役立つ手がかりになります。"}},{"@type":"Question","name":"ISBNはどの形式で入力すればよいですか？","acceptedAnswer":{"@type":"Answer","text":"ISBNは現在主流の13桁（ISBN-13）で入力するのが一般的です。ハイフンあり（例: 978-4-00-000000-0）でもハイフンなしでも記述できますが、書誌データベースと表記を揃えることを推奨します。旧来の10桁（ISBN-10）を使う場合もそのまま入力できます。本ツールでは入力したISBNをそのまま isbn プロパティとして出力します。"}},{"@type":"Question","name":"bookFormat には何を指定しますか？","acceptedAnswer":{"@type":"Answer","text":"bookFormat には書籍の形態を schema.org の列挙値で指定します。代表的なものは Hardcover（ハードカバー）、Paperback（ペーパーバック・並製）、EBook（電子書籍）、AudiobookFormat（オーディオブック）です。本ツールではプルダウンから選ぶと schema.org/ の完全URL（例: https://schema.org/Paperback）として出力されます。該当しない場合は未選択のままにでき、その場合 bookFormat は出力から除外されます。"}},{"@type":"Question","name":"著者や出版社はどのように出力されますか？","acceptedAnswer":{"@type":"Answer","text":"著者（author）は氏名を入力すると schema.org の Person 型のオブジェクト（@type: Person, name: 著者名）として出力されます。複数著者は1行1名で入力すると Person の配列になります。出版社（publisher）は組織名を入力すると Organization 型のオブジェクトとして出力されます。いずれも未入力の場合はプロパティ自体が出力から除外されます。"}},{"@type":"Question","name":"生成したJSON-LDはどこに貼り付けますか？","acceptedAnswer":{"@type":"Answer","text":"生成された ld+json のスクリプトタグ一式をコピーし、書籍紹介ページや書評ページのHTMLの head 内、または body 内に貼り付けてください。JSON-LD はページの表示位置に影響しないため配置場所は比較的自由です。貼り付け後は Google のリッチリザルトテストや schema.org バリデータで検証し、エラーや警告がないか確認することを推奨します。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>Book構造化データ生成</h1><p>書籍の schema.org Book JSON-LD をリアルタイム生成</p></header>
+
+    <div class="card"><h3>基本情報</h3>
+        <div class="row stack"><label>書名（name） <span style="color:var(--red)">*</span></label><input type="text" id="f_name" placeholder="例: 実践Webフロントエンド入門" oninput="generate()"></div>
+        <div class="row stack"><label>サブタイトル・別名（alternateName）</label><input type="text" id="f_alternate" placeholder="例: 基礎から学ぶモダン開発" oninput="generate()"></div>
+        <div class="row stack"><label>著者名（author → Person・1行1名）</label><textarea id="f_author" placeholder="例:&#10;山田 太郎&#10;佐藤 花子" oninput="generate()" style="min-height:64px"></textarea></div>
+        <div class="row stack"><label>説明・あらすじ（description）</label><textarea id="f_desc" placeholder="書籍の短い内容紹介・あらすじ" oninput="generate()"></textarea></div>
+    </div>
+
+    <div class="card"><h3>出版情報</h3>
+        <div class="row"><label>出版社名（publisher → Organization）</label><input type="text" id="f_publisher" placeholder="例: DevTools出版" oninput="generate()"></div>
+        <div class="row"><label>出版日（datePublished）</label><input type="text" id="f_datepublished" placeholder="例: 2026-04-15" oninput="generate()"></div>
+        <div class="row"><label>ISBN</label><input type="text" id="f_isbn" placeholder="例: 978-4-00-000000-0" oninput="generate()"></div>
+        <div class="row"><label>版（bookEdition）</label><input type="text" id="f_edition" placeholder="例: 第2版" oninput="generate()"></div>
+    </div>
+
+    <div class="card"><h3>書籍の形態・体裁</h3>
+        <div class="row"><label>判型・形態（bookFormat）</label>
+            <select id="f_bookformat" onchange="generate()">
+                <option value="">（指定しない）</option>
+                <option value="https://schema.org/Hardcover">Hardcover（ハードカバー）</option>
+                <option value="https://schema.org/Paperback">Paperback（並製・ペーパーバック）</option>
+                <option value="https://schema.org/EBook">EBook（電子書籍）</option>
+                <option value="https://schema.org/AudiobookFormat">AudiobookFormat（オーディオブック）</option>
+                <option value="https://schema.org/GraphicNovel">GraphicNovel（グラフィックノベル）</option>
+            </select>
+        </div>
+        <div class="row"><label>ページ数（numberOfPages）</label><input type="text" id="f_pages" placeholder="例: 320" oninput="generate()"></div>
+        <div class="row"><label>言語（inLanguage）</label><input type="text" id="f_language" placeholder="例: ja" oninput="generate()"></div>
+        <div class="row"><label>ジャンル（genre）</label><input type="text" id="f_genre" placeholder="例: プログラミング" oninput="generate()"></div>
+    </div>
+
+    <div class="card"><h3>URL・画像</h3>
+        <div class="row stack"><label>書籍ページURL（url）</label><input type="text" id="f_url" placeholder="https://www.example.com/books/webfront" oninput="generate()"></div>
+        <div class="row stack"><label>表紙画像URL（image）</label><input type="text" id="f_image" placeholder="https://www.example.com/img/cover.jpg" oninput="generate()"></div>
+    </div>
+
+    <div class="card"><h3>評価（任意・aggregateRating）</h3>
+        <div class="addr-grid">
+            <div><div style="font-size:0.7rem;color:var(--text3);margin-bottom:6px">平均評価（ratingValue）</div><input type="text" id="f_rating" placeholder="例: 4.6" oninput="generate()" style="width:100%;padding:10px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;font-family:'Noto Sans JP',sans-serif;font-size:0.88rem;outline:none"></div>
+            <div><div style="font-size:0.7rem;color:var(--text3);margin-bottom:6px">評価数（ratingCount）</div><input type="text" id="f_ratingcount" placeholder="例: 128" oninput="generate()" style="width:100%;padding:10px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;font-family:'Noto Sans JP',sans-serif;font-size:0.88rem;outline:none"></div>
+            <div><div style="font-size:0.7rem;color:var(--text3);margin-bottom:6px">満点（bestRating）</div><input type="text" id="f_bestrating" placeholder="例: 5" oninput="generate()" style="width:100%;padding:10px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;font-family:'Noto Sans JP',sans-serif;font-size:0.88rem;outline:none"></div>
+        </div>
+    </div>
+
+    <div class="output-card">
+        <div class="output-head"><h3>生成された JSON-LD</h3><button class="copy-btn" onclick="copyOutput()" id="copyBtn">コピー</button></div>
+        <pre class="code" id="output">// 入力するとここに JSON-LD が表示されます</pre>
+    </div>
+
+    <div class="card"><h3>Book 構造化データのヒント</h3>
+        <ul class="hint-list" id="hints"></ul>
+    </div>
+
+    <div class="note">生成される JSON-LD は schema.org の Book 型に基づきます。空欄のフィールドは自動的に除外され、author は Person 型、publisher は Organization 型として出力されます。複数著者は Person の配列になります。実装後は Google のリッチリザルトテストや schema.org バリデータで検証することを推奨します。すべての処理は端末内で完結し、入力内容は送信されません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>Book構造化データ生成ツールの使い方</h2>
+        <p>書名・著者・ISBN・出版社・出版日・判型・ページ数・言語などを入力するだけで、schema.org の Book 型に準拠した JSON-LD 構造化データをリアルタイムに生成する無料ツールです。生成された ld+json のスクリプトタグ一式をコピーして、書籍紹介ページや書評ページのHTMLに貼り付けるだけで、検索エンジンに本の書誌情報を正しく伝えられます。インストールや会員登録は不要で、入力した内容はサーバーに送信されず、すべての生成処理がお使いのブラウザ内で完結します。</p>
+        <p>使い方はシンプルです。まず必須の書名を入力し、続いて著者・説明・出版社・出版日・ISBN・版・判型・ページ数・言語・ジャンル・URL・画像・評価などを必要な範囲で埋めます。著者（author）は1行1名で入力すると Person の配列として出力されます。入力を変更するたびに下部の出力エリアの JSON-LD が即座に更新されるので、内容を確認しながら仕上げられます。空欄の項目は出力から自動で除外されるため、埋めたい項目だけを入力すれば有効な構造化データになります。</p>
+        <h3>書籍ページのSEOと構造化データ</h3>
+        <p>書籍を紹介するページに Book 構造化データを埋め込むと、検索エンジンが書名・著者・出版社・ISBNといった書誌情報を機械的に理解しやすくなります。<code class="inline">author</code>（著者）、<code class="inline">publisher</code>（出版社）、<code class="inline">isbn</code>（ISBN）、<code class="inline">datePublished</code>（出版日）、<code class="inline">bookFormat</code>（判型）、<code class="inline">numberOfPages</code>（ページ数）などを揃えると、本の全体像がより具体的に伝わります。書評サイトやオンライン書店では、これらの情報と評価（aggregateRating）を組み合わせることで、検索結果での見え方の改善が期待できます。</p>
+
+        <h2>生成されるプロパティ</h2>
+        <p>本ツールが出力する主な Book プロパティは次のとおりです。必須項目と任意項目を区別して、必要なものだけを入力してください。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>プロパティ</th><th>内容</th><th>形式</th></tr>
+            <tr><td>name</td><td>書名</td><td>文字列（必須）</td></tr>
+            <tr><td>alternateName</td><td>サブタイトル・別名</td><td>文字列</td></tr>
+            <tr><td>author</td><td>著者（複数可）</td><td>Person 型の配列</td></tr>
+            <tr><td>publisher</td><td>出版社</td><td>Organization 型</td></tr>
+            <tr><td>datePublished</td><td>出版日</td><td>日付（YYYY-MM-DD）</td></tr>
+            <tr><td>isbn</td><td>ISBN（13桁推奨）</td><td>文字列</td></tr>
+            <tr><td>bookEdition</td><td>版</td><td>文字列</td></tr>
+            <tr><td>bookFormat</td><td>判型・形態</td><td>schema.org 列挙URL</td></tr>
+            <tr><td>numberOfPages</td><td>ページ数</td><td>整数</td></tr>
+            <tr><td>inLanguage</td><td>言語コード</td><td>文字列（例: ja）</td></tr>
+            <tr><td>genre</td><td>ジャンル</td><td>文字列</td></tr>
+            <tr><td>url / image</td><td>書籍ページURL・表紙画像</td><td>文字列</td></tr>
+            <tr><td>aggregateRating</td><td>平均評価・評価数</td><td>AggregateRating 型</td></tr>
+        </table>
+        </div>
+        <h3>author と publisher の書き方</h3>
+        <p>著者（author）には著者名を1行1名で入力します。単著の場合は Person オブジェクト、複数著者の場合は Person の配列として出力されます。監修者や訳者を含めたい場合も、まずは著者欄に列挙して構いません。出版社（publisher）には発行元の組織名を入力すると、schema.org の Organization 型のオブジェクトとして出力されます。ISBNは書誌データベースと表記を揃え、13桁（ISBN-13）で記述するのが一般的です。実装後は Google のリッチリザルトテストや schema.org バリデータでエラー・警告を確認しましょう。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">Bookの構造化データとは何ですか？</div><div class="a">Book構造化データは、書籍の書名・著者・ISBN・出版社・出版日・ページ数・言語などの情報を検索エンジンが理解できる形式（schema.org の Book 型）で記述したものです。本ツールは入力内容から JSON-LD 形式の構造化データを生成します。書籍紹介ページや書評ページに埋め込むと、Googleが本の書誌情報を正しく認識しやすくなり、検索結果での見え方の改善に役立つ手がかりになります。</div></div>
+        <div class="faq-item"><div class="q">ISBNはどの形式で入力すればよいですか？</div><div class="a">ISBNは現在主流の13桁（ISBN-13）で入力するのが一般的です。ハイフンあり（例: 978-4-00-000000-0）でもハイフンなしでも記述できますが、書誌データベースと表記を揃えることを推奨します。旧来の10桁（ISBN-10）を使う場合もそのまま入力できます。本ツールでは入力したISBNをそのまま isbn プロパティとして出力します。</div></div>
+        <div class="faq-item"><div class="q">bookFormat には何を指定しますか？</div><div class="a">bookFormat には書籍の形態を schema.org の列挙値で指定します。代表的なものは Hardcover（ハードカバー）、Paperback（ペーパーバック・並製）、EBook（電子書籍）、AudiobookFormat（オーディオブック）です。本ツールではプルダウンから選ぶと schema.org/ の完全URL（例: https://schema.org/Paperback）として出力されます。該当しない場合は未選択のままにでき、その場合 bookFormat は出力から除外されます。</div></div>
+        <div class="faq-item"><div class="q">著者や出版社はどのように出力されますか？</div><div class="a">著者（author）は氏名を入力すると schema.org の Person 型のオブジェクト（@type: Person, name: 著者名）として出力されます。複数著者は1行1名で入力すると Person の配列になります。出版社（publisher）は組織名を入力すると Organization 型のオブジェクトとして出力されます。いずれも未入力の場合はプロパティ自体が出力から除外されます。</div></div>
+        <div class="faq-item"><div class="q">生成したJSON-LDはどこに貼り付けますか？</div><div class="a">生成された ld+json のスクリプトタグ一式をコピーし、書籍紹介ページや書評ページのHTMLの head 内、または body 内に貼り付けてください。JSON-LD はページの表示位置に影響しないため配置場所は比較的自由です。貼り付け後は Google のリッチリザルトテストや schema.org バリデータで検証し、エラーや警告がないか確認することを推奨します。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-175-person-schema/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">Person構造化データ生成</a><a href="/tool-152-organization-schema/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">Organization構造化データ生成</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧へ</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ---- script タグ文字列はトークン分割して素書きを避ける ----
+var LD_OPEN = '<' + 'script type="application/ld+json">';
+var LD_CLOSE = '<' + '/' + 'script>';
+
+function val(id){
+    var el = document.getElementById(id);
+    return el ? el.value.trim() : '';
+}
+
+// 1行1項目のテキストエリアを配列へ
+function linesToArray(id){
+    var raw = val(id);
+    if (!raw) return [];
+    return raw.split('\n').map(function(s){ return s.trim(); }).filter(function(s){ return s; });
+}
+
+function buildBook(){
+    var b = { '@context': 'https://schema.org', '@type': 'Book' };
+
+    var name = val('f_name');
+    if (name) b.name = name;
+
+    var alt = val('f_alternate');
+    if (alt) b.alternateName = alt;
+
+    // 著者（author）— 1名なら Person、複数なら Person の配列
+    var authors = linesToArray('f_author');
+    if (authors.length === 1){
+        b.author = { '@type': 'Person', 'name': authors[0] };
+    } else if (authors.length > 1){
+        b.author = authors.map(function(a){ return { '@type': 'Person', 'name': a }; });
+    }
+
+    var desc = val('f_desc');
+    if (desc) b.description = desc;
+
+    var publisher = val('f_publisher');
+    if (publisher) b.publisher = { '@type': 'Organization', 'name': publisher };
+
+    var datePublished = val('f_datepublished');
+    if (datePublished) b.datePublished = datePublished;
+
+    var isbn = val('f_isbn');
+    if (isbn) b.isbn = isbn;
+
+    var edition = val('f_edition');
+    if (edition) b.bookEdition = edition;
+
+    var bookFormat = val('f_bookformat');
+    if (bookFormat) b.bookFormat = bookFormat;
+
+    var pages = val('f_pages');
+    if (pages){
+        var n = parseInt(pages, 10);
+        b.numberOfPages = isNaN(n) ? pages : n;
+    }
+
+    var language = val('f_language');
+    if (language) b.inLanguage = language;
+
+    var genre = val('f_genre');
+    if (genre) b.genre = genre;
+
+    var url = val('f_url');
+    if (url) b.url = url;
+
+    var image = val('f_image');
+    if (image) b.image = image;
+
+    // 評価（aggregateRating）— ratingValue と ratingCount があるとき
+    var rating = val('f_rating');
+    var ratingCount = val('f_ratingcount');
+    var bestRating = val('f_bestrating');
+    if (rating && ratingCount){
+        var agg = { '@type': 'AggregateRating', 'ratingValue': rating, 'ratingCount': ratingCount };
+        if (bestRating) agg.bestRating = bestRating;
+        b.aggregateRating = agg;
+    }
+
+    return b;
+}
+
+function buildHints(book){
+    var hints = document.getElementById('hints');
+    hints.innerHTML = '';
+    var checks = [
+        { ok: !!book.name, text: '書名（name）— 必須。書籍を特定する見出しになります。' },
+        { ok: !!book.author, text: '著者（author）— 誰の著作かを Person 型で明示。' },
+        { ok: !!book.publisher, text: '出版社（publisher）— 発行元を Organization 型で出力。' },
+        { ok: !!book.isbn, text: 'ISBN — 書籍を一意に特定する識別子。13桁推奨。' },
+        { ok: !!book.datePublished, text: '出版日（datePublished）— 発行年月日を YYYY-MM-DD で。' },
+        { ok: !!(book.url || book.image), text: 'url / image — 書籍ページや表紙画像で情報を補強。' }
+    ];
+    for (var i = 0; i < checks.length; i++){
+        var li = document.createElement('li');
+        li.className = checks[i].ok ? 'ok' : 'warn';
+        li.textContent = (checks[i].ok ? '設定済み: ' : '未設定: ') + checks[i].text;
+        hints.appendChild(li);
+    }
+}
+
+function generate(){
+    var book = buildBook();
+    var json = JSON.stringify(book, null, 2);
+    var wrapped = LD_OPEN + '\n' + json + '\n' + LD_CLOSE;
+    document.getElementById('output').textContent = wrapped;
+    buildHints(book);
+}
+
+function copyOutput(){
+    var text = document.getElementById('output').textContent;
+    var btn = document.getElementById('copyBtn');
+    function done(){ btn.textContent = 'コピー済み'; setTimeout(function(){ btn.textContent = 'コピー'; }, 1400); }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text); done(); });
+    } else {
+        fallbackCopy(text); done();
+    }
+}
+
+function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+}
+
+// 初期サンプル（入力ゼロでもサンプル出力）
+(function init(){
+    document.getElementById('f_name').value = '実践Webフロントエンド入門';
+    document.getElementById('f_alternate').value = '基礎から学ぶモダン開発';
+    document.getElementById('f_author').value = '山田 太郎\n佐藤 花子';
+    document.getElementById('f_desc').value = 'HTML・CSS・JavaScriptの基礎からモダンなフロントエンド開発までを実例で解説する入門書。';
+    document.getElementById('f_publisher').value = 'DevTools出版';
+    document.getElementById('f_datepublished').value = '2026-04-15';
+    document.getElementById('f_isbn').value = '978-4-00-000000-0';
+    document.getElementById('f_edition').value = '第2版';
+    document.getElementById('f_bookformat').value = 'https://schema.org/Paperback';
+    document.getElementById('f_pages').value = '320';
+    document.getElementById('f_language').value = 'ja';
+    document.getElementById('f_genre').value = 'プログラミング';
+    document.getElementById('f_url').value = 'https://www.example.com/books/webfront';
+    document.getElementById('f_image').value = 'https://www.example.com/img/cover.jpg';
+    document.getElementById('f_rating').value = '4.6';
+    document.getElementById('f_ratingcount').value = '128';
+    document.getElementById('f_bestrating').value = '5';
+
+    generate();
+})();
+</script>
+</body>
+</html>

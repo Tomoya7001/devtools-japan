@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS単位変換ツール | px ⇔ rem ⇔ em ⇔ % ⇔ pt をフォントサイズ換算【無料】</title>
+    <meta name="description" content="px・rem・em・%・pt を相互に即時変換できる無料のCSS単位換算ツール。ルートフォントサイズ（base、既定16px）と親要素フォントサイズを指定して、px→rem・rem→px・em・%・ptを一括計算。12/14/16/18/24/32px→remの早見表付き。結果コピー対応・ブラウザ内完結。remとemの違いも解説。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1;padding-right:12px}
+        .row label small{display:block;color:var(--text3);font-size:0.72rem;margin-top:2px}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.95rem;outline:none;text-align:right}
+        .row select{font-family:'Noto Sans JP',sans-serif;text-align:left}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%;text-align:left}}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}}
+        .res-cell{background:#f7f8fb;border:1px solid var(--border);border-radius:10px;padding:14px}
+        .res-cell.cur{border-color:var(--accent);background:var(--accent-dim)}
+        .res-cell .runit{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px}
+        .res-cell .rrow{display:flex;align-items:center;justify-content:space-between;gap:8px}
+        .res-cell .rval{font-family:'JetBrains Mono',monospace;font-size:1.15rem;color:var(--text);font-weight:500;word-break:break-all}
+        .res-cell .rcopy{padding:5px 12px;background:#fff;border:1px solid rgba(139,92,246,0.35);border-radius:6px;color:var(--accent);font-size:0.72rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif;white-space:nowrap}
+        .res-cell .rcopy:hover{background:var(--accent-dim)}
+        .output-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .output-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+        .output-head h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        table.ref td.mono{font-family:'JetBrains Mono',monospace;color:var(--accent)}
+        code.inline{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--accent)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-193-css-units/">
+    <meta property="og:title" content="CSS単位変換ツール | px ⇔ rem ⇔ em ⇔ % ⇔ pt をフォントサイズ換算【無料】">
+    <meta property="og:description" content="px・rem・em・%・pt を相互に即時変換。base（既定16px）と親要素サイズを指定して px→rem 等を一括計算。早見表・コピー対応・ブラウザ内完結。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-193-css-units/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="CSS単位変換ツール（px⇔rem⇔em⇔%⇔pt）【無料】">
+    <meta name="twitter:description" content="px・rem・em・%・pt を相互に即時換算。フォントサイズの単位変換に。早見表・コピー対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"CSS単位変換ツール（px⇔rem⇔em⇔%⇔pt）","description":"px・rem・em・%・pt を相互に即時変換できる無料のCSS単位換算ツール。ルートフォントサイズと親要素サイズを指定してフォントサイズの単位を一括計算する。","url":"https://www.devtools-japan.com/tool-193-css-units/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"CSS単位変換ツール","item":"https://www.devtools-japan.com/tool-193-css-units/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"remとemの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"rem（root em）はルート要素（html）のフォントサイズを基準にする単位で、ページのどこで使っても同じ基準になります。既定では html の font-size は 16px なので 1rem = 16px です。一方 em は「その要素の親要素のフォントサイズ」を基準にする単位で、入れ子の階層によって実際のpx値が変わります。たとえば親が 20px なら 1em = 20px です。基準がぶれず予測しやすいのが rem、親に応じて相対的に伸縮させたいときに便利なのが em です。本ツールでは base（ルート）と親要素サイズを別々に指定して両方を同時に換算できます。"}},{"@type":"Question","name":"baseフォントサイズを変える意味は何ですか？","acceptedAnswer":{"@type":"Answer","text":"base はルート要素（html）の font-size、つまり rem の基準値です。ブラウザ既定は 16px なので通常は 1rem = 16px ですが、CSS で html{font-size:62.5%} のように指定すると 10px になり、1rem = 10px と計算しやすくなる設計手法があります。またユーザーがブラウザのフォントサイズ設定を変更している場合も rem の実寸は変わります。本ツールの base 入力を実際のサイト設定に合わせて変えると、その環境での px と rem の対応を正確に確認できます。"}},{"@type":"Question","name":"pxからremへの変換式を教えてください。","acceptedAnswer":{"@type":"Answer","text":"rem は px をルートフォントサイズ（base）で割って求めます。式は rem = px ÷ base です。base が既定の 16px の場合、24px は 24 ÷ 16 = 1.5rem、14px は 14 ÷ 16 = 0.875rem になります。逆に rem から px へ戻すときは px = rem × base で計算します。本ツールに px の値を入力すれば rem・em・%・pt がすべて自動計算され、コピーボタンでそのまま貼り付けられます。"}},{"@type":"Question","name":"ptとpxはどう換算しますか？","acceptedAnswer":{"@type":"Answer","text":"CSS における 1pt（ポイント）は 1/72 インチ、1px は 1/96 インチと定義されているため、pt = px × 0.75、px = pt ÷ 0.75（= pt × 4/3）で換算できます。たとえば 16px は 16 × 0.75 = 12pt、12pt は 12 ÷ 0.75 = 16px です。pt は主に印刷向けのスタイルで使われる単位で、画面表示では px や rem を使うのが一般的です。本ツールでは px を含む任意の単位から pt を同時に算出します。"}},{"@type":"Question","name":"%はどのように計算されますか？","acceptedAnswer":{"@type":"Answer","text":"フォントサイズにおける % は em と同じく親要素のフォントサイズを基準とし、em を100倍した値になります。つまり 1em = 100%、0.875em = 87.5% です。px からは (px ÷ 親要素サイズ) × 100 で求めます。親が 16px のとき 12px は (12 ÷ 16) × 100 = 75% です。em と % は基準が同じ（親要素）なので、本ツールでは親要素フォントサイズの入力値をもとに両方を計算します。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>CSS単位変換</h1><p>px ⇔ rem ⇔ em ⇔ % ⇔ pt をフォントサイズ基準で即時換算</p></header>
+
+    <div class="card"><h3>変換する値</h3>
+        <div class="row"><label>変換したい値</label><input type="number" id="inVal" step="any" value="24" oninput="convert()"></div>
+        <div class="row"><label>入力の単位</label>
+            <select id="inUnit" onchange="convert()">
+                <option value="px">px</option>
+                <option value="rem">rem</option>
+                <option value="em">em</option>
+                <option value="percent">%</option>
+                <option value="pt">pt</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="card"><h3>基準となるフォントサイズ</h3>
+        <div class="row"><label>ルートフォントサイズ base<small>rem の基準・既定 16px</small></label><input type="number" id="base" step="any" min="1" value="16" oninput="convert()"></div>
+        <div class="row"><label>親要素フォントサイズ parent<small>em / % の基準・px で指定</small></label><input type="number" id="parent" step="any" min="1" value="16" oninput="convert()"></div>
+    </div>
+
+    <div class="output-card">
+        <div class="output-head"><h3>換算結果</h3><button class="rcopy" onclick="copyAll()" id="copyAllBtn">すべてコピー</button></div>
+        <div class="result-grid" id="results"></div>
+    </div>
+
+    <div class="card"><h3>よく使う値の早見表（px → rem）</h3>
+        <div class="table-wrap">
+        <table class="ref" id="refTable">
+            <tr><th>px</th><th>rem</th><th>pt</th></tr>
+        </table>
+        </div>
+        <p style="font-size:0.72rem;color:var(--text3);margin-top:6px">base = <span id="refBase">16</span>px を基準に計算しています。base を変えると再計算されます。</p>
+    </div>
+
+    <div class="note">px は絶対的なピクセル、rem はルート要素（html）のフォントサイズ基準、em と % は親要素のフォントサイズ基準の相対単位です。pt は px × 0.75（印刷向け）で換算します。すべての計算はお使いのブラウザ内で完結し、入力内容は送信されません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>CSS単位変換ツールの使い方</h2>
+        <p>このツールは、Webデザインやコーディングで頻繁に必要になる CSS のフォントサイズ単位「px・rem・em・%・pt」を相互に即時変換する無料ツールです。変換したい数値と単位を入力するだけで、残りすべての単位への換算結果がリアルタイムに表示されます。ルートフォントサイズ（base、既定16px）と親要素フォントサイズを自由に変更できるため、実際のサイトの設定に合わせた正確な px rem 変換が行えます。インストールや会員登録は不要で、入力内容はサーバーに送信されず、すべての処理がブラウザ内で完結します。</p>
+        <p>使い方はかんたんです。まず「変換したい値」に数値を入力し、その単位を px / rem / em / % / pt から選びます。次に、必要に応じて base（rem の基準）と parent（em・% の基準）を調整します。入力を変えるたびに換算結果が更新され、各単位の値の横にあるコピーボタンで CSS にそのまま貼り付けられます。下部にはよく使う 12・14・16・18・24・32px の rem 換算早見表も用意しています。</p>
+        <h3>各単位の関係</h3>
+        <p>本ツールは入力値をいったん px に正規化し、そこから各単位を算出します。基本となる関係式は次のとおりです。<code class="inline">rem = px ÷ base</code>、<code class="inline">em = px ÷ parent</code>、<code class="inline">% = em × 100</code>、<code class="inline">pt = px × 0.75</code>。逆方向は <code class="inline">px = rem × base</code>、<code class="inline">px = em × parent</code> のように基準値を掛けて戻します。</p>
+
+        <h2>px・rem・em・%・pt の違い</h2>
+        <p>CSS のフォントサイズ単位は「絶対単位」と「相対単位」に大別されます。px と pt は絶対単位で、基準に依存しない固定サイズです。一方 rem・em・% は相対単位で、何らかのフォントサイズを基準に大きさが決まります。rem はルート要素（html）を基準とするため一貫していて予測しやすく、em と % は親要素を基準とするため入れ子で伸縮します。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>単位</th><th>種類</th><th>基準</th><th>換算式（px基準）</th></tr>
+            <tr><td class="mono">px</td><td>絶対</td><td>なし（ピクセル）</td><td class="mono">px</td></tr>
+            <tr><td class="mono">rem</td><td>相対</td><td>ルート（html）</td><td class="mono">px ÷ base</td></tr>
+            <tr><td class="mono">em</td><td>相対</td><td>親要素</td><td class="mono">px ÷ parent</td></tr>
+            <tr><td class="mono">%</td><td>相対</td><td>親要素</td><td class="mono">(px ÷ parent) × 100</td></tr>
+            <tr><td class="mono">pt</td><td>絶対</td><td>1/72 インチ</td><td class="mono">px × 0.75</td></tr>
+        </table>
+        </div>
+        <h3>どの単位を使うべきか</h3>
+        <p>アクセシビリティやレスポンシブ対応を重視するなら、フォントサイズには rem を使うのが主流です。ユーザーがブラウザのフォント設定を変えたときにサイト全体が追従し、拡大縮小が破綻しにくいためです。em はボタンの内側余白（padding）やアイコンサイズなど、その要素のフォントサイズに連動させたい箇所で活躍します。px は境界線（border）など固定したい細部で、pt は印刷用スタイルシート（@media print）で使われます。用途に応じて px rem 変換を使い分けましょう。</p>
+
+        <h2>px → rem 変換のポイント</h2>
+        <p>もっともよく使うのが px から rem への変換です。base が 16px のとき、代表的な値は以下のように換算されます。デザインカンプが px 指定でも、この対応表を使えばフォントサイズ換算がすぐに済みます。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>px</th><th>rem（base 16px）</th><th>用途の目安</th></tr>
+            <tr><td class="mono">12px</td><td class="mono">0.75rem</td><td>注釈・キャプション</td></tr>
+            <tr><td class="mono">14px</td><td class="mono">0.875rem</td><td>補足テキスト</td></tr>
+            <tr><td class="mono">16px</td><td class="mono">1rem</td><td>本文（既定）</td></tr>
+            <tr><td class="mono">18px</td><td class="mono">1.125rem</td><td>やや大きい本文</td></tr>
+            <tr><td class="mono">24px</td><td class="mono">1.5rem</td><td>小見出し</td></tr>
+            <tr><td class="mono">32px</td><td class="mono">2rem</td><td>見出し</td></tr>
+        </table>
+        </div>
+        <h3>base を 10px にする手法</h3>
+        <p><code class="inline">html{font-size:62.5%}</code> と指定すると 16px の 62.5% で 1rem = 10px になり、px から rem を暗算しやすくなります（20px = 2rem など）。この手法を使う場合は、本ツールの base を 10 に変更すると、その環境での換算結果を確認できます。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">remとemの違いは何ですか？</div><div class="a">rem（root em）はルート要素（html）のフォントサイズを基準にする単位で、ページのどこで使っても同じ基準になります。既定では html の font-size は 16px なので 1rem = 16px です。一方 em は「その要素の親要素のフォントサイズ」を基準にする単位で、入れ子の階層によって実際のpx値が変わります。たとえば親が 20px なら 1em = 20px です。基準がぶれず予測しやすいのが rem、親に応じて相対的に伸縮させたいときに便利なのが em です。本ツールでは base（ルート）と親要素サイズを別々に指定して両方を同時に換算できます。</div></div>
+        <div class="faq-item"><div class="q">baseフォントサイズを変える意味は何ですか？</div><div class="a">base はルート要素（html）の font-size、つまり rem の基準値です。ブラウザ既定は 16px なので通常は 1rem = 16px ですが、CSS で html{font-size:62.5%} のように指定すると 10px になり、1rem = 10px と計算しやすくなる設計手法があります。またユーザーがブラウザのフォントサイズ設定を変更している場合も rem の実寸は変わります。本ツールの base 入力を実際のサイト設定に合わせて変えると、その環境での px と rem の対応を正確に確認できます。</div></div>
+        <div class="faq-item"><div class="q">pxからremへの変換式を教えてください。</div><div class="a">rem は px をルートフォントサイズ（base）で割って求めます。式は rem = px ÷ base です。base が既定の 16px の場合、24px は 24 ÷ 16 = 1.5rem、14px は 14 ÷ 16 = 0.875rem になります。逆に rem から px へ戻すときは px = rem × base で計算します。本ツールに px の値を入力すれば rem・em・%・pt がすべて自動計算され、コピーボタンでそのまま貼り付けられます。</div></div>
+        <div class="faq-item"><div class="q">ptとpxはどう換算しますか？</div><div class="a">CSS における 1pt（ポイント）は 1/72 インチ、1px は 1/96 インチと定義されているため、pt = px × 0.75、px = pt ÷ 0.75（= pt × 4/3）で換算できます。たとえば 16px は 16 × 0.75 = 12pt、12pt は 12 ÷ 0.75 = 16px です。pt は主に印刷向けのスタイルで使われる単位で、画面表示では px や rem を使うのが一般的です。本ツールでは px を含む任意の単位から pt を同時に算出します。</div></div>
+        <div class="faq-item"><div class="q">%はどのように計算されますか？</div><div class="a">フォントサイズにおける % は em と同じく親要素のフォントサイズを基準とし、em を100倍した値になります。つまり 1em = 100%、0.875em = 87.5% です。px からは (px ÷ 親要素サイズ) × 100 で求めます。親が 16px のとき 12px は (12 ÷ 16) × 100 = 75% です。em と % は基準が同じ（親要素）なので、本ツールでは親要素フォントサイズの入力値をもとに両方を計算します。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-109-clamp/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">CSS clamp() 流体タイポ生成</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧へ</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// 単位定義（表示ラベルと出力の接尾辞）
+var UNITS = [
+    { key: 'px', label: 'px', suffix: 'px' },
+    { key: 'rem', label: 'rem', suffix: 'rem' },
+    { key: 'em', label: 'em', suffix: 'em' },
+    { key: 'percent', label: '%', suffix: '%' },
+    { key: 'pt', label: 'pt', suffix: 'pt' }
+];
+
+var PT_RATIO = 0.75; // pt = px * 0.75
+
+function num(id, fallback){
+    var el = document.getElementById(id);
+    if (!el) return fallback;
+    var v = parseFloat(el.value);
+    return isNaN(v) ? fallback : v;
+}
+
+// 数値を最大4桁の小数で整形（末尾ゼロ除去）
+function fmt(n){
+    if (n === null || !isFinite(n)) return '—';
+    var r = Math.round(n * 10000) / 10000;
+    if (Object.is(r, -0)) r = 0;
+    return String(r);
+}
+
+// 入力値と単位を px に正規化
+function toPx(value, unit, base, parent){
+    switch (unit){
+        case 'px': return value;
+        case 'rem': return value * base;
+        case 'em': return value * parent;
+        case 'percent': return (value / 100) * parent;
+        case 'pt': return value / PT_RATIO;
+        default: return value;
+    }
+}
+
+// px から各単位へ換算
+function fromPx(px, unit, base, parent){
+    switch (unit){
+        case 'px': return px;
+        case 'rem': return base > 0 ? px / base : null;
+        case 'em': return parent > 0 ? px / parent : null;
+        case 'percent': return parent > 0 ? (px / parent) * 100 : null;
+        case 'pt': return px * PT_RATIO;
+        default: return null;
+    }
+}
+
+function convert(){
+    var raw = document.getElementById('inVal').value;
+    var value = parseFloat(raw);
+    var base = num('base', 16);
+    var parent = num('parent', 16);
+    if (base <= 0) base = 16;
+    if (parent <= 0) parent = 16;
+    var curUnit = document.getElementById('inUnit').value;
+    var hasVal = !(raw === '' || isNaN(value));
+
+    var px = hasVal ? toPx(value, curUnit, base, parent) : null;
+
+    var results = document.getElementById('results');
+    results.innerHTML = '';
+    for (var i = 0; i < UNITS.length; i++){
+        var u = UNITS[i];
+        var out = (px === null) ? null : fromPx(px, u.key, base, parent);
+        var display = (out === null) ? '—' : fmt(out) + u.suffix;
+
+        var cell = document.createElement('div');
+        cell.className = 'res-cell' + (u.key === curUnit ? ' cur' : '');
+
+        var runit = document.createElement('div');
+        runit.className = 'runit';
+        runit.textContent = u.label + (u.key === curUnit ? '（入力）' : '');
+
+        var rrow = document.createElement('div');
+        rrow.className = 'rrow';
+        var rval = document.createElement('span');
+        rval.className = 'rval';
+        rval.textContent = display;
+        var btn = document.createElement('button');
+        btn.className = 'rcopy';
+        btn.textContent = 'コピー';
+        (function(txt, button){
+            button.onclick = function(){
+                if (txt === '—') return;
+                copyText(txt);
+                button.textContent = 'コピー済み';
+                setTimeout(function(){ button.textContent = 'コピー'; }, 1400);
+            };
+        })(display, btn);
+
+        rrow.appendChild(rval);
+        rrow.appendChild(btn);
+        cell.appendChild(runit);
+        cell.appendChild(rrow);
+        results.appendChild(cell);
+    }
+
+    buildRef(base);
+}
+
+// px -> rem 早見表を base に応じて生成
+function buildRef(base){
+    var pxList = [12, 14, 16, 18, 24, 32];
+    var table = document.getElementById('refTable');
+    // ヘッダー行だけ残して再生成
+    table.innerHTML = '<tr><th>px</th><th>rem</th><th>pt</th></tr>';
+    for (var i = 0; i < pxList.length; i++){
+        var p = pxList[i];
+        var rem = base > 0 ? p / base : null;
+        var pt = p * PT_RATIO;
+        var tr = document.createElement('tr');
+        var tdPx = document.createElement('td'); tdPx.className = 'mono'; tdPx.textContent = p + 'px';
+        var tdRem = document.createElement('td'); tdRem.className = 'mono'; tdRem.textContent = (rem === null ? '—' : fmt(rem) + 'rem');
+        var tdPt = document.createElement('td'); tdPt.className = 'mono'; tdPt.textContent = fmt(pt) + 'pt';
+        tr.appendChild(tdPx); tr.appendChild(tdRem); tr.appendChild(tdPt);
+        table.appendChild(tr);
+    }
+    var rb = document.getElementById('refBase');
+    if (rb) rb.textContent = fmt(base);
+}
+
+// 全単位の結果をまとめてコピー
+function copyAll(){
+    var cells = document.querySelectorAll('#results .res-cell');
+    var lines = [];
+    for (var i = 0; i < cells.length; i++){
+        var label = cells[i].querySelector('.runit').textContent.replace('（入力）', '');
+        var val = cells[i].querySelector('.rval').textContent;
+        if (val !== '—') lines.push(label + ': ' + val);
+    }
+    if (!lines.length) return;
+    copyText(lines.join('\n'));
+    var btn = document.getElementById('copyAllBtn');
+    btn.textContent = 'コピー済み';
+    setTimeout(function(){ btn.textContent = 'すべてコピー'; }, 1400);
+}
+
+function copyText(text){
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){}, function(){ fallbackCopy(text); });
+    } else {
+        fallbackCopy(text);
+    }
+}
+
+function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+}
+
+convert();
+</script>
+</body>
+</html>

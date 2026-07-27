@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nginx設定ジェネレーター | server_name・SSL・リバースプロキシ対応の設定を自動生成【無料】</title>
+    <meta name="description" content="server_name・ドキュメントルート・ポート・SSL・リバースプロキシ・gzip・HTTPからHTTPSへのリダイレクト・SPA向けtry_filesを選ぶだけで、そのまま貼り付けられるnginxのserverブロックを自動生成する無料ツール。すべてブラウザ内で完結します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input[type=text],.row input[type=number],.row select{width:260px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.85rem;outline:none;text-align:left}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent);cursor:pointer}
+        .row .hint{display:block;font-size:0.7rem;color:var(--text3);margin-top:3px;font-family:'Noto Sans JP',sans-serif}
+        @media(max-width:600px){.row{flex-wrap:wrap;gap:8px}.row input[type=text],.row input[type=number],.row select{width:100%}}
+        .output-card{background:#1e1e2e;border:1px solid var(--border);border-radius:var(--radius);padding:0;margin-bottom:16px;overflow:hidden}
+        .output-head{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#26263a;border-bottom:1px solid rgba(255,255,255,0.06)}
+        .output-head .label{font-size:0.7rem;color:#b5b8d0;text-transform:uppercase;letter-spacing:0.06em}
+        pre.output{margin:0;padding:18px;color:#e6e6f0;font-family:'JetBrains Mono',monospace;font-size:0.82rem;line-height:1.7;white-space:pre;overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .btn{padding:9px 20px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.copy{background:rgba(139,92,246,0.9)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        code{font-family:'JetBrains Mono',monospace;font-size:0.8rem;background:var(--bg);padding:1px 5px;border-radius:4px;color:var(--accent)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-196-nginx-config/">
+    <meta property="og:title" content="nginx設定ジェネレーター | serverブロックを自動生成【無料】">
+    <meta property="og:description" content="server_name・SSL・リバースプロキシ・gzip・HTTPS化・SPA向けtry_filesを選ぶだけでnginx設定を自動生成。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-196-nginx-config/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="nginx設定ジェネレーター【無料】">
+    <meta name="twitter:description" content="貼り付けるだけで使えるnginxのserverブロックを自動生成。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"nginx設定ジェネレーター","description":"server_name・SSL・リバースプロキシ・gzip・HTTPS化・SPA向けtry_filesに対応したnginxのserverブロックを自動生成する無料ツール","url":"https://www.devtools-japan.com/tool-196-nginx-config/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"nginx設定ジェネレーター","item":"https://www.devtools-japan.com/tool-196-nginx-config/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"生成したnginx設定はどこに貼り付ければいい？","acceptedAnswer":{"@type":"Answer","text":"生成されたserverブロックは、Debian／Ubuntu系では /etc/nginx/sites-available/ 内の設定ファイル、CentOSやその他の構成では /etc/nginx/conf.d/ 内の .conf ファイルに貼り付けます。編集後は nginx -t で構文チェックを行い、問題がなければ systemctl reload nginx または nginx -s reload で反映します。設定は必ず既存構成のバックアップを取ってから適用してください。"}},{"@type":"Question","name":"SSLを有効にすると証明書のパスはどうなる？","acceptedAnswer":{"@type":"Answer","text":"SSLを有効にすると listen 443 ssl; と ssl_certificate・ssl_certificate_key のディレクティブが出力されます。パスはプレースホルダとして /etc/letsencrypt/live/ドメイン/ 形式で入るため、Let's Encrypt（certbot）を利用している場合はそのまま、独自証明書の場合は実際のフルチェーン証明書と秘密鍵のパスに置き換えてください。証明書ファイルの実体はサーバー上に別途用意する必要があります。"}},{"@type":"Question","name":"リバースプロキシとSPAのtry_filesは同時に使える？","acceptedAnswer":{"@type":"Answer","text":"このツールではロケーションの挙動は排他的に扱います。リバースプロキシのアップストリームを指定した場合は location / が proxy_pass を使う設定になり、指定しない場合はSPA向けの try_files（$uri $uri/ /index.html）または静的配信の try_files が出力されます。APIはプロキシ、フロントは静的配信といった構成にしたい場合は、生成後に location ブロックを追加して調整してください。"}},{"@type":"Question","name":"HTTPからHTTPSへのリダイレクトはどう生成される？","acceptedAnswer":{"@type":"Answer","text":"SSLを有効にしたうえでリダイレクトを選ぶと、ポート80で待ち受ける専用のserverブロックが追加され、return 301 https://$host$request_uri; ですべてのアクセスをHTTPSへ転送します。メインのserverブロックは443番で待ち受けます。SSLを無効にしている場合、リダイレクト先のHTTPSが存在しないため、この設定は出力されません。"}},{"@type":"Question","name":"gzipを有効にすると何が追加される？","acceptedAnswer":{"@type":"Answer","text":"gzipを有効にすると gzip on; と gzip_types（text/css・application/javascript・application/json・SVGなど）、gzip_min_length、gzip_vary on; などの圧縮ディレクティブがserverブロック内に追加されます。テキスト系リソースを圧縮して転送量を削減し、表示を高速化します。画像や動画などすでに圧縮済みのバイナリは対象から除外するのが一般的です。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>nginx設定ジェネレーター</h1><p>選ぶだけで貼り付け可能なserverブロックを自動生成</p></header>
+
+    <div class="card"><h3>基本設定</h3>
+        <div class="row"><label>server_name（ドメイン）<span class="hint">例: example.com www.example.com</span></label><input type="text" id="serverName" value="example.com" oninput="generate()"></div>
+        <div class="row"><label>root（ドキュメントルート）<span class="hint">静的ファイルの配置先</span></label><input type="text" id="rootDir" value="/var/www/html" oninput="generate()"></div>
+        <div class="row"><label>listen ポート<span class="hint">SSL無効時に待ち受けるポート</span></label><input type="number" id="port" value="80" min="1" max="65535" oninput="generate()"></div>
+        <div class="row"><label>index ファイル<span class="hint">例: index.html index.htm</span></label><input type="text" id="indexFile" value="index.html" oninput="generate()"></div>
+    </div>
+
+    <div class="card"><h3>オプション</h3>
+        <div class="row"><label>SSL / HTTPS を有効化<span class="hint">listen 443 ssl と証明書ディレクティブを出力</span></label><input type="checkbox" id="ssl" onchange="generate()"></div>
+        <div class="row"><label>HTTP → HTTPS リダイレクト<span class="hint">ポート80から301リダイレクト（SSL有効時のみ）</span></label><input type="checkbox" id="redirect" onchange="generate()"></div>
+        <div class="row"><label>リバースプロキシ upstream<span class="hint">例: http://127.0.0.1:3000（空欄で無効）</span></label><input type="text" id="upstream" placeholder="http://127.0.0.1:3000" oninput="generate()"></div>
+        <div class="row"><label>SPA 向け try_files<span class="hint">$uri $uri/ /index.html にフォールバック</span></label><input type="checkbox" id="spa" onchange="generate()"></div>
+        <div class="row"><label>gzip 圧縮を有効化<span class="hint">テキスト系リソースを圧縮して転送</span></label><input type="checkbox" id="gzip" checked onchange="generate()"></div>
+    </div>
+
+    <div class="output-card">
+        <div class="output-head"><span class="label">生成された nginx 設定</span><button class="btn copy" id="copyBtn" onclick="copyConfig()">コピー</button></div>
+        <pre class="output" id="output"></pre>
+    </div>
+
+    <div class="note">生成される設定はプレースホルダを含む雛形です。適用前に <code>nginx -t</code> で構文チェックを行い、証明書パスや root などを実環境に合わせて調整してください。すべての生成処理はお使いの端末内（ブラウザ）で完結し、サーバーへの送信は一切行いません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>nginx設定ジェネレーターの使い方</h2>
+        <p>server_name・ドキュメントルート・ポート・SSLの有無・リバースプロキシのアップストリーム・gzip・HTTPからHTTPSへのリダイレクト・SPA向けのtry_filesをフォームで選ぶだけで、そのまま貼り付けて使えるnginxのserverブロックを自動生成する無料ツールです。設定ファイルの書式を覚えていなくても、代表的な構成をワンクリックで組み立てられます。インストールや会員登録は不要で、すべての処理はブラウザ内で完結します。</p>
+        <p>入力を変更するたびに下部の出力エリアがリアルタイムで更新されます。「コピー」ボタンで全文をクリップボードにコピーし、サーバー上の設定ファイルに貼り付けてください。証明書のパスやドキュメントルートはご自身の環境に合わせて置き換える前提の雛形です。</p>
+        <h3>こんな用途に</h3>
+        <p>静的サイトの公開、Node.jsやPython・PHPアプリのリバースプロキシ設定、React・VueなどのSPA配信、Let's Encryptを使ったHTTPS化と常時SSL化（HTTP→HTTPSリダイレクト）まで、よくある構成の初期設定をすばやく用意できます。学習用にディレクティブの書き方を確認する用途にも便利です。</p>
+
+        <h2>出力される主なディレクティブ</h2>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>設定項目</th><th>出力されるディレクティブ</th><th>説明</th></tr>
+            <tr><td>server_name</td><td><code>server_name ...;</code></td><td>このブロックが応答するホスト名</td></tr>
+            <tr><td>SSL 有効</td><td><code>listen 443 ssl;</code> / <code>ssl_certificate</code></td><td>HTTPSで待ち受け、証明書と鍵のパスを指定</td></tr>
+            <tr><td>リバースプロキシ</td><td><code>proxy_pass</code> ほか</td><td>location / をバックエンドへ転送</td></tr>
+            <tr><td>SPA try_files</td><td><code>try_files $uri $uri/ /index.html;</code></td><td>存在しないパスをindexへフォールバック</td></tr>
+            <tr><td>HTTP→HTTPS</td><td><code>return 301 https://$host$request_uri;</code></td><td>ポート80から常時HTTPSへ転送</td></tr>
+            <tr><td>gzip</td><td><code>gzip on;</code> / <code>gzip_types</code></td><td>テキスト系リソースを圧縮</td></tr>
+        </table>
+        </div>
+        <h3>適用の手順</h3>
+        <p>生成した設定は、Debian／Ubuntu系なら <code>/etc/nginx/sites-available/</code> に置き <code>sites-enabled</code> へシンボリックリンクを張る、CentOS系やその他の構成では <code>/etc/nginx/conf.d/</code> に <code>.conf</code> ファイルとして配置します。保存後は必ず <code>nginx -t</code> で構文を確認し、成功したら <code>systemctl reload nginx</code> または <code>nginx -s reload</code> で反映してください。証明書のパスやドキュメントルートはプレースホルダなので、実環境の値に置き換えることを忘れないでください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">生成したnginx設定はどこに貼り付ければいい？</div><div class="a">Debian／Ubuntu系では /etc/nginx/sites-available/ 内の設定ファイル、CentOSやその他の構成では /etc/nginx/conf.d/ 内の .conf ファイルに貼り付けます。編集後は nginx -t で構文チェックを行い、問題がなければ systemctl reload nginx または nginx -s reload で反映します。適用前に既存構成のバックアップを取ってください。</div></div>
+        <div class="faq-item"><div class="q">SSLを有効にすると証明書のパスはどうなる？</div><div class="a">SSLを有効にすると listen 443 ssl; と ssl_certificate・ssl_certificate_key が出力されます。パスは /etc/letsencrypt/live/ドメイン/ 形式のプレースホルダで入るため、Let's Encrypt（certbot）ならそのまま、独自証明書なら実際のフルチェーン証明書と秘密鍵のパスに置き換えてください。</div></div>
+        <div class="faq-item"><div class="q">リバースプロキシとSPAのtry_filesは同時に使える？</div><div class="a">このツールではロケーションの挙動を排他的に扱います。アップストリームを指定すると location / が proxy_pass を使い、指定しない場合はSPA向けの try_files または静的配信の try_files が出力されます。API はプロキシ、フロントは静的配信のような構成にしたい場合は、生成後に location ブロックを追加して調整してください。</div></div>
+        <div class="faq-item"><div class="q">HTTPからHTTPSへのリダイレクトはどう生成される？</div><div class="a">SSLを有効にしたうえでリダイレクトを選ぶと、ポート80で待ち受ける専用のserverブロックが追加され、return 301 https://$host$request_uri; ですべてのアクセスをHTTPSへ転送します。メインのserverブロックは443番で待ち受けます。SSL無効時はリダイレクト先が存在しないため出力されません。</div></div>
+        <div class="faq-item"><div class="q">gzipを有効にすると何が追加される？</div><div class="a">gzip on; と gzip_types（text/css・application/javascript・application/json・SVGなど）、gzip_min_length、gzip_vary on; などの圧縮ディレクティブが追加されます。テキスト系リソースを圧縮して転送量を削減します。すでに圧縮済みの画像や動画は対象から除外するのが一般的です。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧へ</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+function val(id){ return document.getElementById(id).value.trim(); }
+function checked(id){ return document.getElementById(id).checked; }
+
+function buildLocation(indent){
+    const upstream = val('upstream');
+    const spa = checked('spa');
+    const idxFile = val('indexFile') || 'index.html';
+    const lines = [];
+    if (upstream){
+        lines.push(indent + 'location / {');
+        lines.push(indent + '    proxy_pass ' + upstream + ';');
+        lines.push(indent + '    proxy_http_version 1.1;');
+        lines.push(indent + '    proxy_set_header Host $host;');
+        lines.push(indent + '    proxy_set_header X-Real-IP $remote_addr;');
+        lines.push(indent + '    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;');
+        lines.push(indent + '    proxy_set_header X-Forwarded-Proto $scheme;');
+        lines.push(indent + '    proxy_set_header Upgrade $http_upgrade;');
+        lines.push(indent + '    proxy_set_header Connection "upgrade";');
+        lines.push(indent + '}');
+    } else if (spa){
+        lines.push(indent + 'location / {');
+        lines.push(indent + '    try_files $uri $uri/ /' + idxFile.split(/\s+/)[0] + ';');
+        lines.push(indent + '}');
+    } else {
+        lines.push(indent + 'location / {');
+        lines.push(indent + '    try_files $uri $uri/ =404;');
+        lines.push(indent + '}');
+    }
+    return lines;
+}
+
+function gzipLines(indent){
+    return [
+        indent + 'gzip on;',
+        indent + 'gzip_vary on;',
+        indent + 'gzip_min_length 1024;',
+        indent + 'gzip_proxied any;',
+        indent + 'gzip_comp_level 6;',
+        indent + 'gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript image/svg+xml;'
+    ];
+}
+
+function generate(){
+    const serverName = val('serverName') || 'example.com';
+    const rootDir = val('rootDir') || '/var/www/html';
+    const port = val('port') || '80';
+    const idxFile = val('indexFile') || 'index.html';
+    const ssl = checked('ssl');
+    const redirect = checked('redirect');
+    const gzip = checked('gzip');
+    const upstream = val('upstream');
+    const firstDomain = serverName.split(/\s+/)[0];
+
+    const out = [];
+
+    // HTTP -> HTTPS redirect block (only when SSL is on)
+    if (ssl && redirect){
+        out.push('# HTTP から HTTPS へリダイレクト');
+        out.push('server {');
+        out.push('    listen 80;');
+        out.push('    listen [::]:80;');
+        out.push('    server_name ' + serverName + ';');
+        out.push('    return 301 https://$host$request_uri;');
+        out.push('}');
+        out.push('');
+    }
+
+    out.push('server {');
+    if (ssl){
+        out.push('    listen 443 ssl;');
+        out.push('    listen [::]:443 ssl;');
+        out.push('    http2 on;');
+    } else {
+        out.push('    listen ' + port + ';');
+        out.push('    listen [::]:' + port + ';');
+    }
+    out.push('    server_name ' + serverName + ';');
+    out.push('');
+
+    if (ssl){
+        out.push('    ssl_certificate     /etc/letsencrypt/live/' + firstDomain + '/fullchain.pem;');
+        out.push('    ssl_certificate_key /etc/letsencrypt/live/' + firstDomain + '/privkey.pem;');
+        out.push('    ssl_protocols TLSv1.2 TLSv1.3;');
+        out.push('    ssl_prefer_server_ciphers off;');
+        out.push('    ssl_session_cache shared:SSL:10m;');
+        out.push('    ssl_session_timeout 1d;');
+        out.push('');
+    }
+
+    // root / index (only meaningful for static / SPA serving; still useful with proxy for fallback)
+    out.push('    root ' + rootDir + ';');
+    out.push('    index ' + idxFile + ';');
+    out.push('');
+
+    if (gzip){
+        gzipLines('    ').forEach(function(l){ out.push(l); });
+        out.push('');
+    }
+
+    // access / error logs
+    out.push('    access_log /var/log/nginx/' + firstDomain + '.access.log;');
+    out.push('    error_log  /var/log/nginx/' + firstDomain + '.error.log;');
+    out.push('');
+
+    buildLocation('    ').forEach(function(l){ out.push(l); });
+
+    // static asset caching when not proxying
+    if (!upstream){
+        out.push('');
+        out.push('    location ~* \\.(?:css|js|jpg|jpeg|png|gif|ico|svg|woff2?)$ {');
+        out.push('        expires 30d;');
+        out.push('        access_log off;');
+        out.push('        add_header Cache-Control "public";');
+        out.push('    }');
+    }
+
+    out.push('}');
+
+    document.getElementById('output').textContent = out.join('\n');
+}
+
+function copyConfig(){
+    const text = document.getElementById('output').textContent;
+    const btn = document.getElementById('copyBtn');
+    const done = function(){ btn.textContent = 'コピーしました'; setTimeout(function(){ btn.textContent = 'コピー'; }, 1600); };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text); done(); });
+    } else {
+        fallbackCopy(text); done();
+    }
+}
+
+function fallbackCopy(text){
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+}
+
+generate();
+</script>
+</body>
+</html>

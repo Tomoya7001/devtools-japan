@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>漢数字・大字変換ツール | アラビア数字⇔漢数字⇔大字（壱弐参）を相互変換【無料】</title>
+    <meta name="description" content="アラビア数字・漢数字（一二三）・大字（壱弐参）を相互に変換できる無料ツール。万・億・兆などの位も自動処理。領収書や契約書、賞状の金額表記に。すべてブラウザ内で完結し登録不要です。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:260px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:left}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+        .result-item .value{font-family:'JetBrains Mono','Noto Sans JP',monospace;font-size:1.4rem;font-weight:700;color:var(--accent);word-break:break-all;line-height:1.4}
+        .result-item .value.tax{color:var(--red)}
+        .result-item .value.take{color:var(--green)}
+        .result-item .sub{font-size:0.75rem;color:var(--text3);margin-top:4px}
+        .result-item .copy{margin-top:10px;padding:6px 14px;background:#fff;border:1px solid var(--border);border-radius:6px;color:var(--text2);font-size:0.72rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .result-item .copy:hover{border-color:var(--accent);color:var(--accent)}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .days{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.2;word-break:break-all}
+        .big-result .days .unit{font-size:1.2rem;margin-left:4px}
+        .big-result .target{font-size:0.8rem;color:var(--text3);margin-top:8px}
+        .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+        .preset-row button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .preset-row button:hover{border-color:var(--accent);color:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-197-kanji-number/">
+    <meta property="og:title" content="漢数字・大字変換ツール | アラビア数字⇔漢数字⇔大字を相互変換【無料】">
+    <meta property="og:description" content="アラビア数字・漢数字（一二三）・大字（壱弐参）を相互変換。万・億・兆の位も自動処理。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-197-kanji-number/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="漢数字・大字変換ツール【無料】">
+    <meta name="twitter:description" content="アラビア数字・漢数字・大字を相互変換。万・億・兆にも対応。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"漢数字・大字変換ツール","description":"アラビア数字・漢数字・大字を相互に変換する無料ツール","url":"https://www.devtools-japan.com/tool-197-kanji-number/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"漢数字・大字変換ツール","item":"https://www.devtools-japan.com/tool-197-kanji-number/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"漢数字とアラビア数字を相互に変換できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。入力欄に数値または漢数字を入れると、アラビア数字・漢数字（一二三）・大字（壱弐参）の3つの表記を同時に表示します。どの表記で入力しても他の2つへ自動変換するため、双方向の変換に対応しています。入力の種類は自動判定され、必要に応じて手動で指定することもできます。"}},{"@type":"Question","name":"大字（だいじ）とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"大字は「壱・弐・参・拾」のように、漢数字を改ざんしにくいよう画数の多い字で表記したものです。一を壱、二を弐、三を参、十を拾のように書きます。領収書・契約書・登記・戸籍・小切手など、金額の書き換えを防ぎたい正式な文書で使われます。本ツールでは入力した数値の大字表記を自動生成します。"}},{"@type":"Question","name":"万・億・兆などの大きな位にも対応していますか？","acceptedAnswer":{"@type":"Answer","text":"はい。万・億・兆・京・垓までの位を自動で処理します。たとえば123456789は「一億二千三百四十五万六千七百八十九」に変換されます。逆に漢数字を入力すればアラビア数字へ戻せます。桁が大きくてもブラウザ内で正確に計算します。"}},{"@type":"Question","name":"入力したデータは送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。変換処理はすべてお使いのブラウザ内（クライアントサイド）で実行され、入力した数値がサーバーへ送信されることはありません。外部ライブラリにも依存しておらず、ネットワークに接続していなくても動作します。金額など秘匿性のある情報も安心してご利用いただけます。"}},{"@type":"Question","name":"「壱百」ではなく「百」と表示されるのはなぜですか？","acceptedAnswer":{"@type":"Answer","text":"漢数字・大字ともに、十・百・千の位で先頭が1のときは慣例に従い数字を省略し「十」「百」「千」と表記します。たとえば110は「百十」、1000は「千」となります。これは日本語の一般的な数の書き方に合わせたもので、逆変換の際もこの表記を正しく読み取ります。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>漢数字・大字変換</h1><p>アラビア数字 ⇔ 漢数字（一二三） ⇔ 大字（壱弐参）を相互変換</p></header>
+
+    <div class="card"><h3>数値・漢数字を入力</h3>
+        <div class="row"><label>入力（数値／漢数字／大字）</label><input type="text" id="src" placeholder="例: 12345 または 一万二千三百四十五" oninput="convert()"></div>
+        <div class="row"><label>入力の種類</label>
+            <select id="mode" onchange="convert()">
+                <option value="auto">自動判定</option>
+                <option value="arabic">アラビア数字</option>
+                <option value="kanji">漢数字・大字</option>
+            </select>
+        </div>
+        <div style="margin-top:14px">
+            <div style="font-size:0.75rem;color:var(--text3);margin-bottom:6px">入力例</div>
+            <div class="preset-row" id="presetRow"></div>
+        </div>
+    </div>
+
+    <div class="big-result">
+        <div class="headline" id="headline">アラビア数字</div>
+        <div class="days"><span id="bigVal">-</span></div>
+        <div class="target" id="targetLabel">数値または漢数字を入力してください</div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-item"><div class="label">漢数字</div><div class="value" id="outKanji">-</div><button class="copy" onclick="copyVal('outKanji')">コピー</button></div>
+        <div class="result-item"><div class="label">大字（壱弐参）</div><div class="value" id="outDaiji">-</div><button class="copy" onclick="copyVal('outDaiji')">コピー</button></div>
+    </div>
+    <div class="result-grid">
+        <div class="result-item"><div class="label">アラビア数字（カンマ区切り）</div><div class="value" id="outArabic">-</div><button class="copy" onclick="copyVal('outArabic')">コピー</button></div>
+        <div class="result-item"><div class="label">桁数</div><div class="value" id="outDigits" style="font-size:1.1rem">-</div></div>
+    </div>
+
+    <div class="note">アラビア数字・漢数字・大字はすべてブラウザ内で相互変換します。万・億・兆・京・垓までの位に対応。十・百・千の位で先頭が1のときは慣例に従い「十」「百」「千」と省略表記します。入力データが外部に送信されることはありません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>漢数字・大字変換ツールの使い方</h2>
+        <p>アラビア数字（0〜9）・漢数字（一二三…）・大字（壱弐参…）の3つの表記を相互に変換できる無料ツールです。入力欄に「12345」のようなアラビア数字を入れても、「一万二千三百四十五」のような漢数字を入れても、残りの表記へ自動で変換して同時に表示します。インストールや会員登録は不要で、すべての計算はお使いの端末内で完結します。</p>
+        <p>使い方はかんたんです。入力欄に数値または漢数字・大字を入力すると、画面に「漢数字」「大字」「アラビア数字（カンマ区切り）」「桁数」が表示されます。入力の種類は自動で判定しますが、うまく判定されない場合はプルダウンで「アラビア数字」または「漢数字・大字」を指定してください。入力例のボタンを押すと代表的な数値をすぐに試せます。変換結果はコピーボタンでそのまま貼り付けできます。</p>
+        <h3>こんな用途に</h3>
+        <p>領収書や契約書、請求書での金額の大字表記に、賞状・招待状・のし袋など縦書き文書の漢数字表記に、登記や戸籍など正式書類での金額記載に。逆に古い文書の漢数字をアラビア数字に直して集計したいときにも便利です。万・億・兆といった大きな位も自動で処理するため、桁数の多い金額でも正確に変換できます。</p>
+
+        <h2>漢数字と大字の対応表</h2>
+        <p>漢数字は日常的に使う「一・二・三」、大字（だいじ）は金額の改ざんを防ぐために画数を増やした「壱・弐・参」です。主な対応は次のとおりです。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>アラビア数字</th><th>漢数字</th><th>大字</th></tr>
+            <tr><td>1</td><td>一</td><td>壱</td></tr>
+            <tr><td>2</td><td>二</td><td>弐</td></tr>
+            <tr><td>3</td><td>三</td><td>参</td></tr>
+            <tr><td>10</td><td>十</td><td>拾</td></tr>
+            <tr><td>100</td><td>百</td><td>百</td></tr>
+            <tr><td>1000</td><td>千</td><td>千</td></tr>
+            <tr><td>10000</td><td>一万</td><td>壱万</td></tr>
+        </table>
+        </div>
+        <h3>位の数え方（万・億・兆）</h3>
+        <p>日本語の数は4桁ごとに位が変わります。1万（10の4乗）、1億（10の8乗）、1兆（10の12乗）、1京（10の16乗）、1垓（10の20乗）です。たとえば「123456789」は下から4桁ずつ区切って「一億／二千三百四十五万／六千七百八十九」と読み、「一億二千三百四十五万六千七百八十九」に変換されます。本ツールはこの区切りを自動で行い、逆に漢数字からアラビア数字へも正確に戻します。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">漢数字とアラビア数字を相互に変換できますか？</div><div class="a">はい。入力欄に数値または漢数字を入れると、アラビア数字・漢数字（一二三）・大字（壱弐参）の3つの表記を同時に表示します。どの表記で入力しても他の2つへ自動変換するため、双方向の変換に対応しています。入力の種類は自動判定され、必要に応じて手動で指定することもできます。</div></div>
+        <div class="faq-item"><div class="q">大字（だいじ）とは何ですか？</div><div class="a">大字は「壱・弐・参・拾」のように、漢数字を改ざんしにくいよう画数の多い字で表記したものです。一を壱、二を弐、三を参、十を拾のように書きます。領収書・契約書・登記・戸籍・小切手など、金額の書き換えを防ぎたい正式な文書で使われます。本ツールでは入力した数値の大字表記を自動生成します。</div></div>
+        <div class="faq-item"><div class="q">万・億・兆などの大きな位にも対応していますか？</div><div class="a">はい。万・億・兆・京・垓までの位を自動で処理します。たとえば123456789は「一億二千三百四十五万六千七百八十九」に変換されます。逆に漢数字を入力すればアラビア数字へ戻せます。桁が大きくてもブラウザ内で正確に計算します。</div></div>
+        <div class="faq-item"><div class="q">入力したデータは送信されますか？</div><div class="a">いいえ。変換処理はすべてお使いのブラウザ内（クライアントサイド）で実行され、入力した数値がサーバーへ送信されることはありません。外部ライブラリにも依存しておらず、ネットワークに接続していなくても動作します。金額など秘匿性のある情報も安心してご利用いただけます。</div></div>
+        <div class="faq-item"><div class="q">「壱百」ではなく「百」と表示されるのはなぜですか？</div><div class="a">漢数字・大字ともに、十・百・千の位で先頭が1のときは慣例に従い数字を省略し「十」「百」「千」と表記します。たとえば110は「百十」、1000は「千」となります。これは日本語の一般的な数の書き方に合わせたもので、逆変換の際もこの表記を正しく読み取ります。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a><a href="/tool-53-age-calc/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">年齢・勤続年数計算</a><a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ===== 変換テーブル =====
+var NORMAL = {
+    zero: '〇',
+    digits: ['', '一', '二', '三', '四', '五', '六', '七', '八', '九'],
+    places: ['', '十', '百', '千'],
+    groups: ['', '万', '億', '兆', '京', '垓']
+};
+var DAIJI = {
+    zero: '零',
+    digits: ['', '壱', '弐', '参', '四', '五', '六', '七', '八', '九'],
+    places: ['', '拾', '百', '千'],
+    groups: ['', '万', '億', '兆', '京', '垓']
+};
+
+// 1〜9999 を漢字表記
+function fourDigit(num, T){
+    var s = '';
+    var th = Math.floor(num / 1000) % 10;
+    var h = Math.floor(num / 100) % 10;
+    var te = Math.floor(num / 10) % 10;
+    var o = num % 10;
+    if (th) s += (th === 1 ? '' : T.digits[th]) + T.places[3];
+    if (h) s += (h === 1 ? '' : T.digits[h]) + T.places[2];
+    if (te) s += (te === 1 ? '' : T.digits[te]) + T.places[1];
+    if (o) s += T.digits[o];
+    return s;
+}
+
+// BigInt -> 漢字（万億兆…）
+function toKanji(n, T){
+    if (n === 0n) return T.zero;
+    var neg = n < 0n;
+    if (neg) n = -n;
+    var groups = [];
+    while (n > 0n){ groups.push(Number(n % 10000n)); n = n / 10000n; }
+    if (groups.length > T.groups.length) return null;
+    var out = '';
+    for (var gi = groups.length - 1; gi >= 0; gi--){
+        if (groups[gi] === 0) continue;
+        out += fourDigit(groups[gi], T) + T.groups[gi];
+    }
+    return (neg ? 'マイナス' : '') + out;
+}
+
+// 文字マップ
+var DIGIT_MAP = {
+    '〇':0,'零':0,
+    '一':1,'壱':1,'壹':1,
+    '二':2,'弐':2,'貳':2,
+    '三':3,'参':3,'參':3,
+    '四':4,'肆':4,
+    '五':5,'伍':5,
+    '六':6,'陸':6,
+    '七':7,'漆':7,
+    '八':8,'捌':8,
+    '九':9,'玖':9
+};
+var SMALL_UNIT = {
+    '十':10n,'拾':10n,
+    '百':100n,'佰':100n,
+    '千':1000n,'仟':1000n,'阡':1000n
+};
+var BIG_UNIT = {
+    '万':10000n,'萬':10000n,
+    '億':100000000n,
+    '兆':1000000000000n,
+    '京':10000000000000000n,
+    '垓':100000000000000000000n
+};
+
+// 漢数字/大字 -> BigInt（不正なら null）
+function kanjiToBigInt(s){
+    s = s.trim();
+    var neg = false;
+    var head = s.charAt(0);
+    if (s.indexOf('マイナス') === 0){ neg = true; s = s.slice(4); }
+    else if (head === '-' || head === '－' || head === 'ー'){ neg = true; s = s.slice(1); }
+    if (s === '') return null;
+    var chars = s.split('');
+    var i, c;
+    // 位の文字を含むか
+    var hasUnit = false;
+    for (i = 0; i < chars.length; i++){
+        c = chars[i];
+        if (SMALL_UNIT[c] || BIG_UNIT[c]){ hasUnit = true; break; }
+    }
+    if (!hasUnit){
+        // 数字の羅列として連結（例: 二〇二五 -> 2025）
+        var out = '';
+        for (i = 0; i < chars.length; i++){
+            c = chars[i];
+            if (!(c in DIGIT_MAP)) return null;
+            out += DIGIT_MAP[c];
+        }
+        if (out === '') return null;
+        var v = BigInt(out);
+        return neg ? -v : v;
+    }
+    var result = 0n, section = 0n, current = 0n;
+    for (i = 0; i < chars.length; i++){
+        c = chars[i];
+        if (c in DIGIT_MAP){
+            current = current * 10n + BigInt(DIGIT_MAP[c]);
+        } else if (SMALL_UNIT[c]){
+            if (current === 0n) current = 1n;
+            section += current * SMALL_UNIT[c];
+            current = 0n;
+        } else if (BIG_UNIT[c]){
+            section += current;
+            result += section * BIG_UNIT[c];
+            section = 0n;
+            current = 0n;
+        } else {
+            return null;
+        }
+    }
+    result += section + current;
+    return neg ? -result : result;
+}
+
+// 入力解釈
+function parseInput(str, mode){
+    str = (str || '').trim();
+    if (str === '') return { empty: true };
+    var arabicLike = /^[+\-－]?[0-9０-９,，\s]+$/.test(str);
+    var value;
+    if (mode === 'arabic' || (mode === 'auto' && arabicLike)){
+        var t = str.replace(/[，,\s]/g, '').replace(/[０-９]/g, function(ch){
+            return String.fromCharCode(ch.charCodeAt(0) - 0xFEE0);
+        }).replace('－', '-');
+        if (!/^[+\-]?\d+$/.test(t)) return { error: true };
+        value = BigInt(t);
+    } else {
+        value = kanjiToBigInt(str);
+        if (value === null) return { error: true };
+    }
+    return { value: value };
+}
+
+// カンマ区切り
+function withCommas(bi){
+    var neg = bi < 0n;
+    var str = (neg ? -bi : bi).toString();
+    str = str.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return (neg ? '-' : '') + str;
+}
+
+function setText(id, txt){ document.getElementById(id).textContent = txt; }
+
+function convert(){
+    var raw = document.getElementById('src').value;
+    var mode = document.getElementById('mode').value;
+    var res = parseInput(raw, mode);
+    if (res.empty){
+        setText('bigVal', '-');
+        setText('headline', 'アラビア数字');
+        setText('targetLabel', '数値または漢数字を入力してください');
+        setText('outKanji', '-'); setText('outDaiji', '-'); setText('outArabic', '-'); setText('outDigits', '-');
+        return;
+    }
+    if (res.error){
+        setText('bigVal', '—');
+        setText('headline', '入力を確認してください');
+        setText('targetLabel', '数値・漢数字・大字として読み取れませんでした');
+        setText('outKanji', '-'); setText('outDaiji', '-'); setText('outArabic', '-'); setText('outDigits', '-');
+        return;
+    }
+    var v = res.value;
+    var kanji = toKanji(v, NORMAL);
+    var daiji = toKanji(v, DAIJI);
+    if (kanji === null || daiji === null){
+        setText('bigVal', '—');
+        setText('headline', '対応範囲外');
+        setText('targetLabel', '垓（10の20乗）を超える数値には未対応です');
+        setText('outKanji', '-'); setText('outDaiji', '-'); setText('outArabic', withCommas(v)); setText('outDigits', '-');
+        return;
+    }
+    setText('headline', 'アラビア数字');
+    setText('bigVal', withCommas(v));
+    setText('targetLabel', '入力を解釈した数値');
+    setText('outKanji', kanji);
+    setText('outDaiji', daiji);
+    setText('outArabic', withCommas(v));
+    var absStr = (v < 0n ? -v : v).toString();
+    setText('outDigits', absStr.length + '桁');
+}
+
+function copyVal(id){
+    var txt = document.getElementById(id).textContent;
+    if (!txt || txt === '-') return;
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt);
+    } else {
+        var ta = document.createElement('textarea');
+        ta.value = txt; document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+    }
+    var btn = event.target;
+    var orig = btn.textContent;
+    btn.textContent = 'コピーしました';
+    setTimeout(function(){ btn.textContent = orig; }, 1200);
+}
+
+// 入力例プリセット
+function buildPresets(){
+    var row = document.getElementById('presetRow');
+    row.innerHTML = '';
+    var examples = [
+        { label: '108', val: '108' },
+        { label: '2025', val: '2025' },
+        { label: '12345', val: '12345' },
+        { label: '100000000', val: '100000000' },
+        { label: '一万五千', val: '一万五千' },
+        { label: '壱億弐万', val: '壱億弐万' }
+    ];
+    examples.forEach(function(ex){
+        var btn = document.createElement('button');
+        btn.textContent = ex.label;
+        btn.onclick = function(){
+            document.getElementById('src').value = ex.val;
+            convert();
+        };
+        row.appendChild(btn);
+    });
+}
+
+buildPresets();
+// 初期表示
+(function(){
+    document.getElementById('src').value = '12345';
+    convert();
+})();
+</script>
+</body>
+</html>

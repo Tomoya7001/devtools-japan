@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>色覚シミュレーター | P型・D型・T型・1色覚の見え方を再現【無料・ブラウザ完結】</title>
+    <meta name="description" content="配色（HEXカラーコード）や画像を、P型（1型）・D型（2型）・T型（3型）・1色覚（全色盲）の見え方でシミュレーションする無料ツール。LMS色空間ベースの色覚変換行列をブラウザ内で実装。画像は送信されずCanvasで処理。色弱・色覚多様性に配慮したカラーユニバーサルデザインの検証に。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .tabs{display:flex;gap:8px;margin-bottom:16px}
+        .tab{flex:1;padding:11px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;color:var(--text2);font-size:0.85rem;font-weight:500;cursor:pointer;font-family:'Noto Sans JP',sans-serif;text-align:center}
+        .tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+        .row.stack{display:flex;flex-direction:column;align-items:stretch;gap:8px;padding:0}
+        .row.stack label{font-size:0.85rem;color:var(--text2)}
+        textarea.codes{width:100%;padding:12px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.9rem;outline:none;resize:vertical;min-height:96px;line-height:1.8}
+        textarea.codes:focus{border-color:var(--accent)}
+        .hintline{font-size:0.75rem;color:var(--text3);margin-top:6px}
+        .btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+        .add-btn{padding:9px 16px;background:var(--accent-dim);border:1px solid rgba(139,92,246,0.3);border-radius:8px;color:var(--accent);font-size:0.82rem;font-weight:500;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .add-btn:hover{background:rgba(139,92,246,0.14)}
+        .file-input{width:100%;padding:10px;background:#f7f8fb;border:1px dashed var(--border);border-radius:8px;font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;color:var(--text2)}
+        .legend{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:10px}
+        .legend .lg{text-align:center;font-size:0.7rem;color:var(--text3);font-weight:600}
+        .swatch-table{width:100%;border-collapse:separate;border-spacing:8px 8px}
+        .swatch-table th{font-size:0.68rem;color:var(--text3);font-weight:600;text-align:center;padding-bottom:2px}
+        .swatch{width:100%;height:52px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);position:relative}
+        .swatch .hx{position:absolute;left:0;right:0;bottom:3px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,0.6);letter-spacing:0.02em}
+        .orig-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--text2);white-space:nowrap}
+        .swatch-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .canvas-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+        .cv-cell{background:#f7f8fb;border:1px solid var(--border);border-radius:10px;padding:10px;text-align:center}
+        .cv-cell .cvname{font-size:0.72rem;color:var(--text2);font-weight:600;margin-bottom:8px}
+        .cv-cell canvas{max-width:100%;height:auto;border-radius:6px;border:1px solid var(--border);background:#fff}
+        @media(max-width:600px){.canvas-grid{grid-template-columns:1fr}}
+        .empty{font-size:0.82rem;color:var(--text3);text-align:center;padding:24px 0}
+        .hint-list{list-style:none;margin-top:8px}
+        .hint-list li{font-size:0.8rem;color:var(--text2);padding:6px 0 6px 22px;position:relative;line-height:1.6}
+        .hint-list li::before{content:'';position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        code.inline{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--accent)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-191-color-blindness/">
+    <meta property="og:title" content="色覚シミュレーター | P型・D型・T型・1色覚の見え方を再現【無料】">
+    <meta property="og:description" content="配色や画像を、P型・D型・T型・1色覚の見え方でシミュレーション。LMS色空間ベースの色覚変換をブラウザ内で実装し、画像は送信されません。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-191-color-blindness/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="色覚シミュレーター【無料・ブラウザ完結】">
+    <meta name="twitter:description" content="配色・画像をP型/D型/T型/1色覚でシミュレーション。カラーユニバーサルデザインの検証に。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"色覚シミュレーター","description":"配色（HEX）や画像を P型・D型・T型・1色覚の見え方でシミュレーションする無料ツール。LMS色空間ベースの色覚変換をブラウザ内で実装し、画像はサーバーに送信されません。","url":"https://www.devtools-japan.com/tool-191-color-blindness/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"色覚シミュレーター","item":"https://www.devtools-japan.com/tool-191-color-blindness/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"色覚多様性（色覚特性）とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"色覚多様性とは、色の見え方に個人差があることを指す考え方です。人の網膜には赤・緑・青に反応する3種類の錐体（すいたい）細胞がありますが、その一部が欠けていたり感度が異なる人がいます。代表的なのがP型（1型・赤の錐体に関するもの）、D型（2型・緑の錐体に関するもの）、T型（3型・青の錐体に関するもの）で、まとめて色弱・色覚特性と呼ばれます。日本人男性の約5%、女性の約0.2%が該当するとされ、決して珍しいものではありません。特定の色の組み合わせが見分けにくくなるため、Webや資料の配色で配慮が求められます。"}},{"@type":"Question","name":"このツールの色覚シミュレーションはどういう仕組みですか？","acceptedAnswer":{"@type":"Answer","text":"入力された色（sRGB）をまずリニアRGBに変換し、次にLMS色空間（人の3種類の錐体の応答に対応する空間）へ変換します。LMS空間上で、対象となる錐体の応答を欠損させる色覚変換行列（Brettel・Viénot系の係数）を適用し、再びリニアRGB、sRGBへ戻すことで各タイプの見え方を再現します。1色覚（全色盲）は輝度に基づくグレースケール化で近似します。すべての計算はお使いのブラウザ内で実行され、外部のAPIやサーバーには一切送信されません。"}},{"@type":"Question","name":"Webデザインで色覚に配慮するにはどうすればよいですか？","acceptedAnswer":{"@type":"Answer","text":"最も重要なのは、色だけで情報を伝えないことです。グラフの系列や必須項目、リンクなどは、色に加えて形・アイコン・テキストラベル・下線・パターンなど別の手がかりを併用します。特に赤と緑、赤と黒、緑と茶、青と紫などは見分けにくい組み合わせなので避けるか、明度差を十分に付けます。文字と背景のコントラスト比はWCAGの基準（通常テキストで4.5:1以上）を満たすようにし、本ツールのようなシミュレーターで実際の見え方を確認することが有効です。これらの配慮をまとめてカラーユニバーサルデザインと呼びます。"}},{"@type":"Question","name":"アップロードした画像は外部に送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ、送信されません。画像モードでは、選択した画像はサーバーにアップロードされず、ブラウザのCanvas上でピクセル単位の色変換を行います。処理はすべて端末内で完結し、画像データが外部に送られることはありません。そのため機密性のあるデザイン案やスクリーンショットでも安心して検証できます。ページを離れると処理した画像はメモリから破棄されます。"}},{"@type":"Question","name":"カラーユニバーサルデザイン（CUD）とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"カラーユニバーサルデザイン（Color Universal Design、CUD）とは、色覚の個人差にかかわらず、できるだけ多くの人に情報が正しく伝わるように配色やデザインを工夫する考え方です。見分けやすい色の組み合わせを選ぶ、色以外の手がかり（形・位置・ラベル）を併用する、十分な明度差・コントラストを確保する、といった原則から成ります。行政資料・地図・路線図・グラフ・UIなど幅広い場面で採用が進んでおり、アクセシビリティ（誰もが使える設計）の重要な一部です。本ツールでシミュレーション結果を確認しながら、CUDに沿った配色改善に役立ててください。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>色覚シミュレーター</h1><p>配色・画像を P型・D型・T型・1色覚の見え方で再現（LMS色空間ベース／ブラウザ完結）</p></header>
+
+    <div class="tabs">
+        <div class="tab active" id="tab-color" onclick="switchMode('color')">① 配色モード（HEX）</div>
+        <div class="tab" id="tab-image" onclick="switchMode('image')">② 画像モード（アップロード）</div>
+    </div>
+
+    <div id="panel-color">
+        <div class="card"><h3>カラーコードを入力（HEX・複数可）</h3>
+            <div class="row stack">
+                <label>1行に1色、または カンマ・空白区切りで入力（#RGB / #RRGGBB）</label>
+                <textarea class="codes" id="hexInput" oninput="renderColors()" spellcheck="false" placeholder="#e63946&#10;#2a9d8f&#10;#e9c46a&#10;#264653"></textarea>
+                <div class="hintline">例: 信号の赤緑、グラフの系列色、ボタンの状態色などを並べて見比べられます。</div>
+            </div>
+            <div class="btnrow">
+                <button class="add-btn" onclick="loadSample('traffic')">信号色サンプル</button>
+                <button class="add-btn" onclick="loadSample('chart')">グラフ系列サンプル</button>
+                <button class="add-btn" onclick="loadSample('ui')">UI状態色サンプル</button>
+            </div>
+        </div>
+
+        <div class="card"><h3>各タイプでの見え方</h3>
+            <div class="swatch-wrap" id="swatchArea"></div>
+        </div>
+    </div>
+
+    <div id="panel-image" style="display:none">
+        <div class="card"><h3>画像をアップロード（端末内で処理・送信しません）</h3>
+            <div class="row stack">
+                <input type="file" class="file-input" id="imgFile" accept="image/*" onchange="handleImage(event)">
+                <div class="hintline">選択した画像はサーバーに送信されず、Canvas上でピクセル処理されます。大きな画像は自動的に縮小して表示します。</div>
+            </div>
+        </div>
+        <div class="card"><h3>各タイプでの見え方</h3>
+            <div id="imgResult"><div class="empty">画像を選択すると、ここに各色覚タイプの見え方が表示されます。</div></div>
+        </div>
+    </div>
+
+    <div class="card"><h3>色覚配慮のヒント</h3>
+        <ul class="hint-list">
+            <li>色だけで情報を伝えず、形・アイコン・ラベル・パターンを併用する。</li>
+            <li>赤と緑、赤と黒、緑と茶、青と紫は見分けにくい。明度差を十分に付ける。</li>
+            <li>文字と背景のコントラスト比は WCAG 基準（通常テキスト 4.5:1 以上）を満たす。</li>
+            <li>グラフは色分けだけでなく、線種・マーカー形状・直接ラベルで区別する。</li>
+        </ul>
+    </div>
+
+    <div class="note">本ツールは sRGB→リニアRGB→LMS色空間→色覚変換行列→sRGB という標準的な手順で、P型（1型）・D型（2型）・T型（3型）・1色覚（全色盲）の見え方を近似します。変換係数は Brettel・Viénot 系の色覚シミュレーション行列を用いており、あくまで再現の目安です。実際の見え方には個人差があります。配色・画像の処理はすべてお使いのブラウザ内で完結し、入力内容や画像は外部に送信されません。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>色覚シミュレーターの使い方</h2>
+        <p>この色覚シミュレーターは、配色（HEXカラーコード）や画像が、色覚特性のある人にどのように見えるかをブラウザ内で再現する無料ツールです。P型（1型・赤系の錐体に関する色弱）、D型（2型・緑系）、T型（3型・青系）、そして1色覚（全色盲）の4タイプについて、色覚シミュレーションの結果を並べて確認できます。インストールや会員登録は不要で、入力した配色や選んだ画像はサーバーに送信されず、すべての計算がお使いの端末内で完結します。カラーユニバーサルデザインの検証や、Web・資料・アプリの配色改善にご活用ください。</p>
+        <p>使い方は2通りです。<strong>①配色モード</strong>では、確認したいカラーコードを1行に1色ずつ（またはカンマ・空白区切りで）入力します。入力するたびに、元の色と各色覚タイプでの見え方がスウォッチで横並びに表示され、見分けにくくなる色の組み合わせを一目で把握できます。<strong>②画像モード</strong>では、ローカルの画像を選ぶだけで、Canvasによるピクセル処理で4タイプの見え方を生成します。グラフ・地図・UIのスクリーンショットなどをそのまま検証できます。</p>
+
+        <h3>4つの色覚タイプ</h3>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>タイプ</th><th>別称</th><th>特徴</th></tr>
+            <tr><td>P型</td><td>1型・protanopia</td><td>赤に反応する錐体（L錐体）に関するタイプ。赤や緑が暗く・見分けにくく感じられる。</td></tr>
+            <tr><td>D型</td><td>2型・deuteranopia</td><td>緑に反応する錐体（M錐体）に関するタイプ。日本人男性で最も多い。赤緑の区別が難しい。</td></tr>
+            <tr><td>T型</td><td>3型・tritanopia</td><td>青に反応する錐体（S錐体）に関するタイプ。頻度は低い。青と緑、黄と紫が見分けにくい。</td></tr>
+            <tr><td>1色覚</td><td>全色盲・achromatopsia</td><td>色の区別がほとんどできず、明暗（グレースケール）で世界を捉える。非常にまれ。</td></tr>
+        </table>
+        </div>
+
+        <h2>色覚シミュレーションの仕組み（LMS色空間）</h2>
+        <p>本ツールの色覚シミュレーションは、人の目の錐体応答をモデル化した<strong>LMS色空間</strong>を利用します。まず画面の色（sRGB）をガンマ補正を外してリニアRGBに変換し、変換行列でLMS（L=長波長・赤、M=中波長・緑、S=短波長・青の錐体応答）へ写します。次に、対象の錐体応答を欠損・置換する色覚変換行列（Brettel・Viénot・Mollon らの研究に基づく係数）を適用し、再びリニアRGB、sRGBへ戻します。この標準的な手順により、P型・D型・T型それぞれの見え方を再現します。1色覚は、リニア輝度（<code class="inline">0.2126R + 0.7152G + 0.0722B</code>）に基づくグレースケール化で近似しています。</p>
+        <p>これらの変換は外部ライブラリやAPIを使わず、すべてJavaScript内にインライン実装しています。依存はゼロで、ネットワーク接続がなくても動作し、配色データや画像がブラウザの外に出ることはありません。機密性のあるデザイン案でも安心して色弱・色覚特性の観点から検証できます。</p>
+
+        <h2>カラーユニバーサルデザインと配慮のポイント</h2>
+        <p>色覚には個人差があり、日本人男性の約5%が何らかの色覚特性を持つとされます。誰にとっても情報が正しく伝わるように配色を工夫する考え方が<strong>カラーユニバーサルデザイン（CUD）</strong>です。最も基本となるのは「色だけで情報を伝えない」こと。グラフの系列や必須マーク、リンク、状態表示などは、色に加えて形・アイコン・テキストラベル・下線・パターンといった別の手がかりを併用します。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>配慮の観点</th><th>具体策</th></tr>
+            <tr><td>見分けにくい配色を避ける</td><td>赤×緑、赤×黒、緑×茶、青×紫などは明度差を付けるか置き換える</td></tr>
+            <tr><td>色以外の手がかり</td><td>形・アイコン・ラベル・下線・線種・ハッチングを併用する</td></tr>
+            <tr><td>コントラスト</td><td>文字と背景は WCAG 基準（通常テキスト 4.5:1 以上）を確保する</td></tr>
+            <tr><td>検証</td><td>本ツールのようなシミュレーターで実際の見え方を確認する</td></tr>
+        </table>
+        </div>
+        <h3>アクセシビリティと専門性（E-E-A-T）</h3>
+        <p>色覚への配慮は、Webアクセシビリティ（誰もが使える設計）の重要な一部です。WCAG（Web Content Accessibility Guidelines）でも「色の使用（1.4.1）」として、色だけを情報伝達の唯一の手段にしないことが求められています。本ツールは、色覚シミュレーションの結果を手元ですぐ確認できるようにすることで、設計・レビューの段階からアクセシブルな配色を選ぶ助けになります。数値上のコントラスト確認と合わせて、実際の見え方の確認を習慣にすることをおすすめします。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">色覚多様性（色覚特性）とは何ですか？</div><div class="a">色覚多様性とは、色の見え方に個人差があることを指す考え方です。人の網膜には赤・緑・青に反応する3種類の錐体細胞がありますが、その一部が欠けていたり感度が異なる人がいます。代表的なのがP型（1型）、D型（2型）、T型（3型）で、まとめて色弱・色覚特性と呼ばれます。日本人男性の約5%、女性の約0.2%が該当するとされ、決して珍しいものではありません。特定の色の組み合わせが見分けにくくなるため、Webや資料の配色で配慮が求められます。</div></div>
+        <div class="faq-item"><div class="q">このツールの色覚シミュレーションはどういう仕組みですか？</div><div class="a">入力された色（sRGB）をまずリニアRGBに変換し、次にLMS色空間へ変換します。LMS空間上で、対象となる錐体の応答を欠損させる色覚変換行列（Brettel・Viénot系の係数）を適用し、再びリニアRGB、sRGBへ戻すことで各タイプの見え方を再現します。1色覚は輝度に基づくグレースケール化で近似します。すべての計算はブラウザ内で実行され、外部には一切送信されません。</div></div>
+        <div class="faq-item"><div class="q">Webデザインで色覚に配慮するにはどうすればよいですか？</div><div class="a">最も重要なのは、色だけで情報を伝えないことです。グラフの系列や必須項目、リンクなどは、色に加えて形・アイコン・テキストラベル・下線・パターンなど別の手がかりを併用します。特に赤と緑、赤と黒、緑と茶、青と紫などは見分けにくい組み合わせなので避けるか、明度差を十分に付けます。文字と背景のコントラスト比はWCAGの基準（通常テキストで4.5:1以上）を満たし、シミュレーターで実際の見え方を確認するのが有効です。</div></div>
+        <div class="faq-item"><div class="q">アップロードした画像は外部に送信されますか？</div><div class="a">いいえ、送信されません。画像モードでは、選択した画像はサーバーにアップロードされず、ブラウザのCanvas上でピクセル単位の色変換を行います。処理はすべて端末内で完結し、画像データが外部に送られることはありません。そのため機密性のあるデザイン案やスクリーンショットでも安心して検証できます。ページを離れると処理した画像はメモリから破棄されます。</div></div>
+        <div class="faq-item"><div class="q">カラーユニバーサルデザイン（CUD）とは何ですか？</div><div class="a">カラーユニバーサルデザイン（Color Universal Design、CUD）とは、色覚の個人差にかかわらず、できるだけ多くの人に情報が正しく伝わるように配色やデザインを工夫する考え方です。見分けやすい色の組み合わせを選ぶ、色以外の手がかりを併用する、十分な明度差・コントラストを確保する、といった原則から成ります。行政資料・地図・路線図・グラフ・UIなど幅広い場面で採用が進んでおり、アクセシビリティの重要な一部です。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧へ</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ===== 色覚変換：sRGB -> linear -> LMS -> 変換行列 -> linear -> sRGB =====
+// 係数は Brettel/Viénot 系（DaltonLens 由来）の色覚シミュレーション行列。
+
+function srgbToLinear(c){
+    c = c / 255;
+    return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+}
+function linearToSrgb(c){
+    c = c <= 0.0031308 ? c * 12.92 : 1.055 * Math.pow(c, 1 / 2.4) - 0.055;
+    c = Math.round(c * 255);
+    return c < 0 ? 0 : (c > 255 ? 255 : c);
+}
+
+// linear RGB -> LMS
+function rgbToLms(r, g, b){
+    return [
+        0.31399022 * r + 0.63951294 * g + 0.04649755 * b,
+        0.15537241 * r + 0.75789446 * g + 0.08670142 * b,
+        0.01775239 * r + 0.10944209 * g + 0.87256922 * b
+    ];
+}
+// LMS -> linear RGB
+function lmsToRgb(l, m, s){
+    return [
+        5.47221206 * l - 4.6419601 * m + 0.16963708 * s,
+        -1.1252419 * l + 2.29317094 * m - 0.1678952 * s,
+        0.02980165 * l - 0.19318073 * m + 1.16364789 * s
+    ];
+}
+
+// 各タイプの LMS 上での欠損変換
+function simulateLms(l, m, s, type){
+    if (type === 'protan'){
+        return [0.0 * l + 1.05118294 * m - 0.05116099 * s, m, s];
+    }
+    if (type === 'deutan'){
+        return [l, 0.9513092 * l + 0.0 * m + 0.04866992 * s, s];
+    }
+    if (type === 'tritan'){
+        return [l, m, -0.86744736 * l + 1.86727089 * m + 0.0 * s];
+    }
+    return [l, m, s];
+}
+
+// 1組の [R,G,B](0-255) をタイプ変換して返す
+function convertRgb(R, G, B, type){
+    if (type === 'normal'){
+        return [R, G, B];
+    }
+    if (type === 'achroma'){
+        var lr = srgbToLinear(R), lg = srgbToLinear(G), lb = srgbToLinear(B);
+        var y = 0.2126 * lr + 0.7152 * lg + 0.0722 * lb;
+        var g = linearToSrgb(y);
+        return [g, g, g];
+    }
+    var r = srgbToLinear(R), gg = srgbToLinear(G), b = srgbToLinear(B);
+    var lms = rgbToLms(r, gg, b);
+    var sim = simulateLms(lms[0], lms[1], lms[2], type);
+    var out = lmsToRgb(sim[0], sim[1], sim[2]);
+    return [linearToSrgb(out[0]), linearToSrgb(out[1]), linearToSrgb(out[2])];
+}
+
+var TYPES = [
+    { key: 'normal', label: '元の色' },
+    { key: 'protan', label: 'P型(1型)' },
+    { key: 'deutan', label: 'D型(2型)' },
+    { key: 'tritan', label: 'T型(3型)' },
+    { key: 'achroma', label: '1色覚' }
+];
+
+// ===== HEX パース =====
+function parseHex(token){
+    token = token.trim().replace(/^#/, '');
+    if (/^[0-9a-fA-F]{3}$/.test(token)){
+        token = token.split('').map(function(ch){ return ch + ch; }).join('');
+    }
+    if (/^[0-9a-fA-F]{6}$/.test(token)){
+        return [
+            parseInt(token.substring(0, 2), 16),
+            parseInt(token.substring(2, 4), 16),
+            parseInt(token.substring(4, 6), 16)
+        ];
+    }
+    return null;
+}
+function toHex(rgb){
+    function h(n){ var s = n.toString(16); return s.length < 2 ? '0' + s : s; }
+    return '#' + h(rgb[0]) + h(rgb[1]) + h(rgb[2]);
+}
+
+// ===== 配色モードの描画 =====
+function renderColors(){
+    var raw = document.getElementById('hexInput').value;
+    var tokens = raw.split(/[\s,]+/).filter(function(t){ return t.length > 0; });
+    var colors = [];
+    for (var i = 0; i < tokens.length; i++){
+        var rgb = parseHex(tokens[i]);
+        if (rgb) colors.push(rgb);
+    }
+    var area = document.getElementById('swatchArea');
+    if (!colors.length){
+        area.innerHTML = '<div class="empty">有効な HEX カラーコードを入力してください（例: #e63946）。</div>';
+        return;
+    }
+    var html = '<table class="swatch-table"><thead><tr>';
+    for (var t = 0; t < TYPES.length; t++){
+        html += '<th>' + TYPES[t].label + '</th>';
+    }
+    html += '</tr></thead><tbody>';
+    for (var c = 0; c < colors.length; c++){
+        html += '<tr>';
+        for (var k = 0; k < TYPES.length; k++){
+            var conv = convertRgb(colors[c][0], colors[c][1], colors[c][2], TYPES[k].key);
+            var hex = toHex(conv);
+            html += '<td><div class="swatch" style="background:' + hex + '"><span class="hx">' + hex + '</span></div></td>';
+        }
+        html += '</tr>';
+    }
+    html += '</tbody></table>';
+    area.innerHTML = html;
+}
+
+function loadSample(kind){
+    var map = {
+        traffic: '#e63946\n#2a9d8f\n#f4a261\n#264653',
+        chart: '#4e79a7\n#f28e2b\n#e15759\n#76b7b2\n#59a14f',
+        ui: '#22c55e\n#ef4444\n#f59e0b\n#3b82f6'
+    };
+    document.getElementById('hexInput').value = map[kind] || map.traffic;
+    renderColors();
+}
+
+// ===== モード切替 =====
+function switchMode(mode){
+    var isColor = (mode === 'color');
+    document.getElementById('panel-color').style.display = isColor ? '' : 'none';
+    document.getElementById('panel-image').style.display = isColor ? 'none' : '';
+    document.getElementById('tab-color').className = 'tab' + (isColor ? ' active' : '');
+    document.getElementById('tab-image').className = 'tab' + (isColor ? '' : ' active');
+}
+
+// ===== 画像モード =====
+function handleImage(ev){
+    var file = ev.target.files && ev.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function(e){
+        var img = new Image();
+        img.onload = function(){ processImage(img); };
+        img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+}
+
+function processImage(img){
+    var MAX = 360;
+    var w = img.width, h = img.height;
+    var scale = Math.min(1, MAX / Math.max(w, h));
+    var dw = Math.max(1, Math.round(w * scale));
+    var dh = Math.max(1, Math.round(h * scale));
+
+    var src = document.createElement('canvas');
+    src.width = dw; src.height = dh;
+    var sctx = src.getContext('2d');
+    sctx.drawImage(img, 0, 0, dw, dh);
+
+    var baseData;
+    try {
+        baseData = sctx.getImageData(0, 0, dw, dh);
+    } catch (err){
+        document.getElementById('imgResult').innerHTML = '<div class="empty">画像を読み込めませんでした。別の画像でお試しください。</div>';
+        return;
+    }
+
+    var container = document.getElementById('imgResult');
+    container.innerHTML = '';
+    var grid = document.createElement('div');
+    grid.className = 'canvas-grid';
+    container.appendChild(grid);
+
+    for (var t = 0; t < TYPES.length; t++){
+        var cell = document.createElement('div');
+        cell.className = 'cv-cell';
+        var name = document.createElement('div');
+        name.className = 'cvname';
+        name.textContent = TYPES[t].label;
+        var cv = document.createElement('canvas');
+        cv.width = dw; cv.height = dh;
+        cell.appendChild(name);
+        cell.appendChild(cv);
+        grid.appendChild(cell);
+
+        var ctx = cv.getContext('2d');
+        var out = ctx.createImageData(dw, dh);
+        var sd = baseData.data;
+        var od = out.data;
+        var type = TYPES[t].key;
+        for (var i = 0; i < sd.length; i += 4){
+            var conv = convertRgb(sd[i], sd[i + 1], sd[i + 2], type);
+            od[i] = conv[0];
+            od[i + 1] = conv[1];
+            od[i + 2] = conv[2];
+            od[i + 3] = sd[i + 3];
+        }
+        ctx.putImageData(out, 0, 0);
+    }
+}
+
+// ===== 初期化 =====
+(function init(){
+    document.getElementById('hexInput').value = '#e63946\n#2a9d8f\n#f4a261\n#264653\n#e9c46a';
+    renderColors();
+})();
+</script>
+</body>
+</html>

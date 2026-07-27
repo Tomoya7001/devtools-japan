@@ -183,6 +183,18 @@
 - Glassmorphism CSS ジェネレーター: https://www.devtools-japan.com/tool-187-glassmorphism/
 - SoftwareApplication構造化データ生成ツール: https://www.devtools-japan.com/tool-188-softwareapplication-schema/
 - QAPage構造化データ生成ツール: https://www.devtools-japan.com/tool-189-qapage-schema/
+- 装飾テキスト・特殊文字生成: https://www.devtools-japan.com/tool-190-fancy-text/
+- 色覚シミュレーター: https://www.devtools-japan.com/tool-191-color-blindness/
+- 不可視文字リムーバー: https://www.devtools-japan.com/tool-192-invisible-char/
+- CSS単位変換: https://www.devtools-japan.com/tool-193-css-units/
+- HMAC生成: https://www.devtools-japan.com/tool-194-hmac/
+- HTML⇔Markdown変換: https://www.devtools-japan.com/tool-195-html-markdown/
+- nginx設定ジェネレーター: https://www.devtools-japan.com/tool-196-nginx-config/
+- 漢数字・大字変換: https://www.devtools-japan.com/tool-197-kanji-number/
+- ミーティングプランナー: https://www.devtools-japan.com/tool-198-meeting-planner/
+- 自動車維持費シミュレーター: https://www.devtools-japan.com/tool-199-car-cost/
+- Book構造化データ生成ツール: https://www.devtools-japan.com/tool-200-book-schema/
+- Movie構造化データ生成ツール: https://www.devtools-japan.com/tool-201-movie-schema/
 
 ## API
 DevTools Japan APIとして30本以上の無料REST APIを提供。認証不要で即利用可能。

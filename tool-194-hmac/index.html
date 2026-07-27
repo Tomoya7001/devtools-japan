@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMAC生成ツール | HMAC-SHA1/SHA-256/SHA-512をブラウザで計算【無料】</title>
+    <meta name="description" content="メッセージと秘密鍵からHMAC（ハッシュベースメッセージ認証コード）を生成する無料ツール。HMAC-SHA1 / SHA-256 / SHA-512に対応し、16進数（hex）・Base64で出力。すべてブラウザのWeb Crypto APIで計算し、データは送信されません。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+        .row:last-child{border-bottom:none}
+        .row label{font-size:0.85rem;color:var(--text2);flex:1}
+        .row input,.row select{width:200px;padding:10px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none;text-align:right}
+        .row input:focus,.row select:focus{border-color:var(--accent)}
+        .row .unit{font-size:0.8rem;color:var(--text3);margin-left:8px;min-width:20px}
+        textarea{width:100%;padding:12px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.85rem;outline:none;resize:vertical;line-height:1.6}
+        textarea:focus{border-color:var(--accent)}
+        .field-label{font-size:0.8rem;color:var(--text2);margin-bottom:6px;display:block}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+        @media(max-width:600px){.result-grid{grid-template-columns:1fr}.row{flex-wrap:wrap;gap:8px}.row input,.row select{width:100%}}
+        .result-item{background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:16px}
+        .result-item .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+        .result-item .value{font-family:'JetBrains Mono',monospace;font-size:0.85rem;font-weight:500;color:var(--accent);word-break:break-all;line-height:1.6}
+        .copy-btn{padding:4px 10px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;color:var(--text2);font-size:0.7rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .copy-btn:hover{border-color:var(--accent);color:var(--accent)}
+        .big-result{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius);padding:24px;margin-bottom:16px}
+        .big-result .headline{font-size:0.8rem;color:var(--text2);margin-bottom:8px}
+        .big-result .digest{font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:500;color:var(--accent);word-break:break-all;line-height:1.7}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        .btn{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-194-hmac/">
+    <meta property="og:title" content="HMAC生成ツール | HMAC-SHA1/SHA-256/SHA-512をブラウザで計算【無料】">
+    <meta property="og:description" content="メッセージと秘密鍵からHMACを生成。SHA-1/SHA-256/SHA-512対応、hex・Base64出力。Web Crypto APIで完結。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-194-hmac/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="HMAC生成ツール【無料】">
+    <meta name="twitter:description" content="メッセージと秘密鍵からHMACを生成。SHA-1/SHA-256/SHA-512対応、hex・Base64出力。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"HMAC生成ツール","description":"メッセージと秘密鍵からHMAC-SHA1/SHA-256/SHA-512を生成する無料ツール","url":"https://www.devtools-japan.com/tool-194-hmac/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"HMAC生成ツール","item":"https://www.devtools-japan.com/tool-194-hmac/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"HMACとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"HMAC（Hash-based Message Authentication Code）は、メッセージと秘密鍵を組み合わせてハッシュ関数で計算する、メッセージ認証コードです。送信者と受信者が同じ秘密鍵を共有していれば、受信側で同じHMACを計算し直すことで、メッセージが改ざんされていないこと（完全性）と、正しい鍵の持ち主が作ったこと（真正性）を検証できます。APIリクエストの署名やWebhookの検証などで広く使われています。"}},{"@type":"Question","name":"どのハッシュアルゴリズムに対応していますか？","acceptedAnswer":{"@type":"Answer","text":"HMAC-SHA1、HMAC-SHA256、HMAC-SHA512の3種類に対応しています。新規の用途ではSHA-256以上を推奨します。SHA-1は互換性のために残していますが、衝突耐性の観点から安全性が低下しているため、新しい設計では避けてください。出力は16進数（hex）とBase64の両方を同時に表示します。"}},{"@type":"Question","name":"入力したデータはサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。HMACの計算はすべてお使いのブラウザ内でWeb Crypto API（crypto.subtle.sign）を使って実行され、メッセージや秘密鍵が外部サーバーに送信されることはありません。秘密鍵を含む機密性の高いデータでも、ネットワークに送られずローカルで完結します。"}},{"@type":"Question","name":"hexとBase64のどちらを使えばよいですか？","acceptedAnswer":{"@type":"Answer","text":"利用先の仕様に合わせてください。多くのHTTPヘッダーやAPI署名では16進数（hex）の小文字表記が使われます。一方、AWSの一部やWebhookの署名などではBase64が指定される場合があります。本ツールは両方を同時に出力するので、必要な形式をコピーしてご利用ください。"}},{"@type":"Question","name":"同じ入力なら必ず同じ結果になりますか？","acceptedAnswer":{"@type":"Answer","text":"はい。HMACは決定的な計算なので、同じメッセージ・同じ秘密鍵・同じアルゴリズムであれば、いつ計算しても必ず同じ値になります。この性質を利用して、受信側で再計算した値と送られてきた署名を比較することで、改ざんの有無を検証します。逆に一文字でも入力が変われば、結果は大きく変化します。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>HMAC生成ツール</h1><p>メッセージと秘密鍵からHMAC-SHA1/SHA-256/SHA-512を計算</p></header>
+
+    <div class="card"><h3>入力</h3>
+        <div style="margin-bottom:16px">
+            <label class="field-label" for="message">メッセージ（署名対象のデータ）</label>
+            <textarea id="message" rows="4" placeholder="ここに署名したいメッセージを入力" oninput="calcHmac()"></textarea>
+        </div>
+        <div style="margin-bottom:16px">
+            <label class="field-label" for="secret">秘密鍵（シークレットキー）</label>
+            <textarea id="secret" rows="2" placeholder="共有する秘密鍵を入力" oninput="calcHmac()"></textarea>
+        </div>
+        <div class="row"><label for="algo">ハッシュアルゴリズム</label>
+            <select id="algo" onchange="calcHmac()">
+                <option value="SHA-256" selected>HMAC-SHA256</option>
+                <option value="SHA-1">HMAC-SHA1</option>
+                <option value="SHA-512">HMAC-SHA512</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="big-result">
+        <div class="headline" id="headline">HMAC（16進数 / hex）</div>
+        <div class="digest" id="bigDigest">メッセージと秘密鍵を入力してください</div>
+    </div>
+
+    <div class="result-item" style="margin-bottom:16px">
+        <div class="label">16進数（hex）<button class="copy-btn" onclick="copyOut('hexOut')">コピー</button></div>
+        <div class="value" id="hexOut">-</div>
+    </div>
+    <div class="result-item" style="margin-bottom:16px">
+        <div class="label">Base64<button class="copy-btn" onclick="copyOut('b64Out')">コピー</button></div>
+        <div class="value" id="b64Out">-</div>
+    </div>
+
+    <div class="note">HMACの計算はすべてお使いのブラウザ内（Web Crypto API・crypto.subtle.sign）で実行され、メッセージや秘密鍵が外部に送信されることはありません。メッセージと鍵はUTF-8としてエンコードして計算します。新規の用途ではSHA-256以上の利用を推奨します。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>HMAC生成ツールの使い方</h2>
+        <p>「メッセージ」欄に署名したいデータを、「秘密鍵」欄に送信者と受信者で共有するシークレットキーを入力すると、HMAC（ハッシュベースのメッセージ認証コード）を自動で計算します。ハッシュアルゴリズムはHMAC-SHA256（既定）・HMAC-SHA1・HMAC-SHA512から選べ、結果を16進数（hex）とBase64の両方で同時に表示します。インストールや会員登録は不要で、計算はすべてブラウザ内で完結します。</p>
+        <p>入力を変更するたびにリアルタイムで再計算されるので、APIリクエストの署名づくりや、Webhookの署名検証のデバッグにそのまま使えます。生成された値は各欄の「コピー」ボタンでクリップボードにコピーできます。メッセージと秘密鍵はUTF-8としてバイト列に変換したうえでHMACを計算します。</p>
+        <h3>こんな用途に</h3>
+        <p>REST APIのリクエスト署名の生成・検証、GitHubやStripeなどのWebhookペイロードの署名照合、トークンやメッセージの改ざん検知、簡易的なメッセージ認証の学習・実験などにお使いいただけます。秘密鍵を含む機密データでも、ネットワークに送られずローカルで処理されるため安心して試せます。</p>
+
+        <h2>HMACの仕組み</h2>
+        <p>HMACは、メッセージと秘密鍵を決められた手順で組み合わせ、SHA-256などのハッシュ関数を2段階で適用して固定長の値を得るアルゴリズムです（RFC 2104で定義）。鍵を知っている人だけが正しいHMACを計算できるため、値が一致すれば「メッセージが改ざんされていない（完全性）」ことと「正しい鍵の持ち主が作った（真正性）」ことを同時に検証できます。単純なハッシュ値と違い、秘密鍵がないと正しい値を偽造できない点が特徴です。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>アルゴリズム</th><th>出力長</th><th>用途の目安</th></tr>
+            <tr><td>HMAC-SHA1</td><td>160ビット（hex 40文字）</td><td>互換性目的のみ。新規設計では非推奨</td></tr>
+            <tr><td>HMAC-SHA256</td><td>256ビット（hex 64文字）</td><td>一般的な用途で推奨。多くのAPIの標準</td></tr>
+            <tr><td>HMAC-SHA512</td><td>512ビット（hex 128文字）</td><td>より長い出力が必要な高強度用途</td></tr>
+        </table>
+        </div>
+        <h3>hexとBase64の違い</h3>
+        <p>HMACの結果は生のバイト列で、そのままでは扱いにくいため、テキストとして表現する際に16進数（hex）またはBase64が使われます。hexは1バイトを2文字の16進数で表す方式で、多くのAPI署名やHTTPヘッダーで小文字表記が使われます。Base64は3バイトを4文字で表す、より短いエンコード方式で、一部のクラウドサービスやWebhook署名で採用されます。どちらも同じHMACを表しているので、利用先の仕様に合わせて選んでください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">HMACとは何ですか？</div><div class="a">HMAC（Hash-based Message Authentication Code）は、メッセージと秘密鍵を組み合わせてハッシュ関数で計算する、メッセージ認証コードです。送信者と受信者が同じ秘密鍵を共有していれば、受信側で同じHMACを計算し直すことで、メッセージが改ざんされていないこと（完全性）と、正しい鍵の持ち主が作ったこと（真正性）を検証できます。APIリクエストの署名やWebhookの検証などで広く使われています。</div></div>
+        <div class="faq-item"><div class="q">どのハッシュアルゴリズムに対応していますか？</div><div class="a">HMAC-SHA1、HMAC-SHA256、HMAC-SHA512の3種類に対応しています。新規の用途ではSHA-256以上を推奨します。SHA-1は互換性のために残していますが、衝突耐性の観点から安全性が低下しているため、新しい設計では避けてください。出力は16進数（hex）とBase64の両方を同時に表示します。</div></div>
+        <div class="faq-item"><div class="q">入力したデータはサーバーに送信されますか？</div><div class="a">いいえ。HMACの計算はすべてお使いのブラウザ内でWeb Crypto API（crypto.subtle.sign）を使って実行され、メッセージや秘密鍵が外部サーバーに送信されることはありません。秘密鍵を含む機密性の高いデータでも、ネットワークに送られずローカルで完結します。</div></div>
+        <div class="faq-item"><div class="q">hexとBase64のどちらを使えばよいですか？</div><div class="a">利用先の仕様に合わせてください。多くのHTTPヘッダーやAPI署名では16進数（hex）の小文字表記が使われます。一方、AWSの一部やWebhookの署名などではBase64が指定される場合があります。本ツールは両方を同時に出力するので、必要な形式をコピーしてご利用ください。</div></div>
+        <div class="faq-item"><div class="q">同じ入力なら必ず同じ結果になりますか？</div><div class="a">はい。HMACは決定的な計算なので、同じメッセージ・同じ秘密鍵・同じアルゴリズムであれば、いつ計算しても必ず同じ値になります。この性質を利用して、受信側で再計算した値と送られてきた署名を比較することで、改ざんの有無を検証します。逆に一文字でも入力が変われば、結果は大きく変化します。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-193-sha256/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">SHA-256ハッシュ生成</a><a href="/tool-192-base64/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">Base64エンコード</a><a href="/tool-190-uuid/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">UUID生成</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+const enc = new TextEncoder();
+
+function bufToHex(buf){
+    const bytes = new Uint8Array(buf);
+    let out = '';
+    for (let i = 0; i < bytes.length; i++){
+        out += bytes[i].toString(16).padStart(2, '0');
+    }
+    return out;
+}
+
+function bufToBase64(buf){
+    const bytes = new Uint8Array(buf);
+    let bin = '';
+    for (let i = 0; i < bytes.length; i++){
+        bin += String.fromCharCode(bytes[i]);
+    }
+    return btoa(bin);
+}
+
+let calcToken = 0;
+
+async function calcHmac(){
+    const message = document.getElementById('message').value;
+    const secret = document.getElementById('secret').value;
+    const algo = document.getElementById('algo').value;
+    const bigDigest = document.getElementById('bigDigest');
+    const hexOut = document.getElementById('hexOut');
+    const b64Out = document.getElementById('b64Out');
+    const headline = document.getElementById('headline');
+
+    headline.textContent = 'HMAC-' + algo.replace('-', '') + '（16進数 / hex）';
+
+    if (!secret){
+        bigDigest.textContent = '秘密鍵を入力してください';
+        hexOut.textContent = '-';
+        b64Out.textContent = '-';
+        return;
+    }
+
+    const token = ++calcToken;
+    try {
+        const key = await crypto.subtle.importKey(
+            'raw',
+            enc.encode(secret),
+            { name: 'HMAC', hash: { name: algo } },
+            false,
+            ['sign']
+        );
+        const sig = await crypto.subtle.sign('HMAC', key, enc.encode(message));
+        if (token !== calcToken) return;
+        const hex = bufToHex(sig);
+        const b64 = bufToBase64(sig);
+        hexOut.textContent = hex;
+        b64Out.textContent = b64;
+        bigDigest.textContent = hex;
+    } catch (e){
+        if (token !== calcToken) return;
+        bigDigest.textContent = '計算エラー: ' + e.message;
+        hexOut.textContent = '-';
+        b64Out.textContent = '-';
+    }
+}
+
+function copyOut(id){
+    const text = document.getElementById(id).textContent;
+    if (!text || text === '-') return;
+    navigator.clipboard.writeText(text).then(function(){
+        const btns = document.querySelectorAll('.copy-btn');
+        for (let i = 0; i < btns.length; i++){
+            if (btns[i].getAttribute('onclick') === "copyOut('" + id + "')"){
+                const orig = btns[i].textContent;
+                btns[i].textContent = 'コピーしました';
+                setTimeout(function(){ btns[i].textContent = orig; }, 1200);
+            }
+        }
+    });
+}
+
+// 初期例
+document.getElementById('message').value = 'hello world';
+document.getElementById('secret').value = 'my-secret-key';
+calcHmac();
+</script>
+</body>
+</html>

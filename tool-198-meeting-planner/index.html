@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会議・打ち合わせ日程調整ツール（複数タイムゾーン対応） | ミーティングプランナー【無料】</title>
+    <meta name="description" content="複数のタイムゾーン（都市）に対応した無料の会議日程調整ツール。基準となる日時と都市を選ぶと、各国・各地域の現地時刻を横並びで表示。海外拠点やリモートメンバーと打ち合わせをするとき、全員に都合の良いミーティング枠を見つけられます。営業時間帯かどうかも色で判定。すべてブラウザ内で完結します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--amber:#f59e0b;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        label.fld{display:block;font-size:0.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px}
+        input[type=datetime-local],select{width:100%;padding:11px 12px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:0.9rem;outline:none}
+        input[type=datetime-local]:focus,select:focus{border-color:var(--accent)}
+        .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        @media(max-width:600px){.row2{grid-template-columns:1fr}}
+        .add-row{display:flex;gap:8px;margin-top:8px}
+        .add-row select{flex:1}
+        .btn{padding:10px 20px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn:hover{opacity:0.9}
+        .btn.ghost{background:var(--bg-card);color:var(--accent);border:1px solid var(--accent)}
+        .btn.sm{padding:8px 14px;font-size:0.8rem}
+        .quick{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+        .quick button{padding:6px 12px;background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:6px;color:var(--accent);font-size:0.72rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .quick button:hover{background:rgba(139,92,246,0.15)}
+        .zone-list{display:flex;flex-direction:column;gap:10px}
+        .zone{display:flex;align-items:center;gap:12px;background:#f7f8fb;border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;border-left:5px solid var(--border)}
+        .zone.base{border-left-color:var(--accent);background:var(--accent-dim)}
+        .zone.good{border-left-color:var(--green)}
+        .zone.ok{border-left-color:var(--amber)}
+        .zone.poor{border-left-color:var(--red)}
+        .zone .city{flex:1;min-width:0}
+        .zone .city .name{font-weight:700;font-size:0.95rem;color:var(--text)}
+        .zone .city .sub{font-size:0.7rem;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-top:2px}
+        .zone .time{text-align:right;white-space:nowrap}
+        .zone .time .clock{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--accent);line-height:1.1}
+        .zone .time .date{font-size:0.72rem;color:var(--text2);margin-top:2px}
+        .zone .badge{font-size:0.62rem;padding:2px 8px;border-radius:20px;font-weight:600;white-space:nowrap}
+        .zone .badge.good{background:rgba(34,197,94,0.14);color:#15803d}
+        .zone .badge.ok{background:rgba(245,158,11,0.16);color:#b45309}
+        .zone .badge.poor{background:rgba(239,68,68,0.12);color:#b91c1c}
+        .zone .rm{background:none;border:none;color:var(--text3);cursor:pointer;font-size:1.1rem;padding:2px 6px;line-height:1}
+        .zone .rm:hover{color:var(--red)}
+        .legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:0.72rem;color:var(--text2)}
+        .legend span{display:inline-flex;align-items:center;gap:6px}
+        .dot{width:10px;height:10px;border-radius:3px;display:inline-block}
+        .dot.good{background:var(--green)}.dot.ok{background:var(--amber)}.dot.poor{background:var(--red)}
+        .summary{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.2);border-radius:8px;padding:12px 16px;font-size:0.8rem;color:var(--text2);margin-top:14px;line-height:1.7}
+        .summary b{color:var(--accent)}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-198-meeting-planner/">
+    <meta property="og:title" content="会議・打ち合わせ日程調整ツール（複数タイムゾーン対応）| ミーティングプランナー【無料】">
+    <meta property="og:description" content="基準の日時と都市を選ぶと、各国・各地域の現地時刻を横並びで表示。海外拠点やリモートメンバーと全員に都合の良いミーティング枠を見つけられる無料ツール。すべてブラウザ内で完結。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-198-meeting-planner/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="複数タイムゾーン対応 ミーティングプランナー【無料】">
+    <meta name="twitter:description" content="基準日時から各都市の現地時刻を横並び表示。海外・リモートメンバーとの会議日程調整に。営業時間帯かどうかも色判定。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"会議・打ち合わせ日程調整ツール（複数タイムゾーン対応）ミーティングプランナー","description":"基準となる日時と都市を選ぶと、複数のタイムゾーンの現地時刻を横並びで表示し、全員に都合の良い会議枠を見つけられる無料ツール","url":"https://www.devtools-japan.com/tool-198-meeting-planner/","applicationCategory":"BusinessApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"会議・打ち合わせ日程調整ツール（複数タイムゾーン対応）","item":"https://www.devtools-japan.com/tool-198-meeting-planner/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"このミーティングプランナーは何ができますか？","acceptedAnswer":{"@type":"Answer","text":"基準となる日時と都市（タイムゾーン）を選ぶと、追加した複数の都市の現地時刻を横並びで一覧表示します。たとえば東京の午前10時が、ロサンゼルスでは前日の午後5時、ロンドンでは午前1時、といった対応関係が一目で分かります。海外拠点やリモートメンバーとオンライン会議・打ち合わせをするとき、全員にとって無理のない時間帯を素早く見つけるためのツールです。"}},{"@type":"Question","name":"サマータイム（夏時間・DST）には対応していますか？","acceptedAnswer":{"@type":"Answer","text":"はい。時刻の計算にはブラウザ標準のIntl.DateTimeFormat（IANAタイムゾーンデータベース）を利用しているため、各都市のサマータイムの有無や切り替え日も自動で反映されます。ニューヨークやロンドンなど夏時間を採用している地域も、その日付の正しいUTCオフセットで現地時刻を表示します。"}},{"@type":"Question","name":"入力した予定や時刻はサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。日時の変換はすべてお使いのブラウザ内のJavaScriptで完結し、入力した日時や選んだ都市がサーバーへ送信・保存されることは一切ありません。社外秘のミーティング予定でも安心して利用でき、オフライン環境でも動作します。"}},{"@type":"Question","name":"時間帯の色（緑・オレンジ・赤）は何を表していますか？","acceptedAnswer":{"@type":"Answer","text":"各都市の現地時刻が一般的な業務時間に収まっているかの目安です。おおむね9時〜18時を緑（良好）、7時〜9時と18時〜22時をオレンジ（許容範囲）、それ以外の深夜・早朝を赤（避けたい時間帯）として色分けしています。全員が緑またはオレンジになる枠を探すと、無理のない会議日程を組みやすくなります。"}},{"@type":"Question","name":"都市は追加・削除できますか？基準はどこですか？","acceptedAnswer":{"@type":"Answer","text":"はい。上の選択欄から都市を選んで「追加」すると一覧に加わり、各行の×ボタンで削除できます。一番上に紫色で表示されるのが基準の都市で、入力した日時はこの都市の現地時刻として解釈されます。基準の都市を切り替えると、その時刻を軸に各地の現地時刻が再計算されます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>ミーティングプランナー</h1><p>複数タイムゾーン対応 会議・打ち合わせ日程調整（すべてブラウザ内で処理）</p></header>
+
+    <div class="card"><h3>基準の日時と都市</h3>
+        <div class="row2">
+            <div>
+                <label class="fld" for="baseDate">基準の日時</label>
+                <input type="datetime-local" id="baseDate" oninput="render()">
+            </div>
+            <div>
+                <label class="fld" for="baseTz">基準の都市（タイムゾーン）</label>
+                <select id="baseTz" onchange="render()"></select>
+            </div>
+        </div>
+        <div class="quick">
+            <button onclick="setNow()">現在時刻</button>
+            <button onclick="setHour(9)">09:00に</button>
+            <button onclick="setHour(10)">10:00に</button>
+            <button onclick="setHour(14)">14:00に</button>
+            <button onclick="setHour(21)">21:00に</button>
+        </div>
+    </div>
+
+    <div class="card"><h3>比較する都市を追加</h3>
+        <div class="add-row">
+            <select id="addTz"></select>
+            <button class="btn sm" onclick="addZone()">追加</button>
+        </div>
+    </div>
+
+    <div class="card"><h3>各都市の現地時刻</h3>
+        <div class="zone-list" id="zoneList"></div>
+        <div class="summary" id="summary"></div>
+        <div class="legend">
+            <span><i class="dot good"></i>9〜18時（良好）</span>
+            <span><i class="dot ok"></i>7〜9・18〜22時（許容）</span>
+            <span><i class="dot poor"></i>深夜・早朝（避けたい）</span>
+        </div>
+    </div>
+
+    <div class="note">このツールは 100% クライアントサイドで動作します。入力した日時や選んだ都市はサーバーに送信されず、すべてお使いのブラウザ内（Intl.DateTimeFormat）で処理されます。サマータイムはIANAタイムゾーンデータに基づいて自動反映され、オフラインでも利用できます。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>ミーティングプランナー（複数タイムゾーン対応）の使い方</h2>
+        <p>海外拠点や在宅・リモートのメンバーとオンライン会議や打ち合わせをするとき、「こちらの午前10時は相手の国では何時なのか」を毎回計算するのは面倒で、間違えるとお互いの深夜に会議を設定してしまいかねません。このツールは、基準となる日時と都市を選ぶだけで、追加した複数のタイムゾーンの現地時刻を横並びで表示し、全員に都合の良いミーティング枠をひと目で見つけられる無料の日程調整ツールです。すべての計算はブラウザ内で完結し、予定がサーバーへ送られることはありません。</p>
+        <h3>基準の日時と都市を決める</h3>
+        <p>まず「基準の日時」に会議を検討している日付と時刻を入力し、「基準の都市」でその時刻がどの地域の現地時間かを選びます。たとえば日本から声をかける会議なら、基準の都市を東京にして日時を入れれば、その瞬間が各国で何時になるかが下の一覧に表示されます。「現在時刻」や「10:00に」などのボタンで素早く時刻を合わせることもできます。</p>
+        <h3>比較する都市を追加して枠を探す</h3>
+        <p>「比較する都市を追加」から相手先の都市を選んで追加すると、一覧に現地時刻・日付・曜日が並びます。各都市の行は業務時間の目安に応じて緑（良好）・オレンジ（許容）・赤（避けたい）に色分けされるため、基準の時刻を少しずつ動かしながら、できるだけ全員が緑またはオレンジになる枠を探せます。不要な都市は各行の×ボタンで削除できます。</p>
+
+        <h2>タイムゾーンとサマータイムの考え方</h2>
+        <p>世界の各地域は協定世界時（UTC）からのずれ（オフセット）で時刻が決まります。日本はUTC+9で年間を通して一定ですが、欧米の多くの地域では夏の間だけ時計を1時間進める「サマータイム（夏時間・DST）」を採用しており、同じ都市でも季節によってオフセットが変わります。本ツールはブラウザ標準のIntl.DateTimeFormatとIANAタイムゾーンデータベースを用いているため、指定した日付のサマータイムの有無を自動判定し、正しい現地時刻を表示します。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>都市</th><th>標準時のUTCオフセット</th><th>備考</th></tr>
+            <tr><td>東京 / ソウル</td><td>UTC+9</td><td>サマータイムなし（通年一定）</td></tr>
+            <tr><td>ロンドン</td><td>UTC+0</td><td>夏時間はUTC+1</td></tr>
+            <tr><td>ニューヨーク</td><td>UTC-5</td><td>夏時間はUTC-4</td></tr>
+            <tr><td>ロサンゼルス</td><td>UTC-8</td><td>夏時間はUTC-7</td></tr>
+        </table>
+        </div>
+
+        <h2>会議日程を決めるときのコツ</h2>
+        <p>参加者の地域が3つ以上に分かれると、全員が快適な時間に会議を開くのは難しくなります。まずはどの地域も深夜・早朝（赤）にならない枠を優先し、次に負担の偏りが出ないよう回によって時間帯を交代するのがおすすめです。アジアと北米のように昼夜がほぼ逆転する組み合わせでは、片方の朝ともう片方の夕方が重なる時間帯が現実的な落としどころになります。本ツールで基準時刻を動かしながら、緑とオレンジがそろう時間を探してみてください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">このミーティングプランナーは何ができますか？</div><div class="a">基準となる日時と都市（タイムゾーン）を選ぶと、追加した複数の都市の現地時刻を横並びで一覧表示します。たとえば東京の午前10時が、ロサンゼルスでは前日の午後5時、ロンドンでは午前1時、といった対応関係が一目で分かります。海外拠点やリモートメンバーとオンライン会議・打ち合わせをするとき、全員にとって無理のない時間帯を素早く見つけるためのツールです。</div></div>
+        <div class="faq-item"><div class="q">サマータイム（夏時間・DST）には対応していますか？</div><div class="a">はい。時刻の計算にはブラウザ標準のIntl.DateTimeFormat（IANAタイムゾーンデータベース）を利用しているため、各都市のサマータイムの有無や切り替え日も自動で反映されます。ニューヨークやロンドンなど夏時間を採用している地域も、その日付の正しいUTCオフセットで現地時刻を表示します。</div></div>
+        <div class="faq-item"><div class="q">入力した予定や時刻はサーバーに送信されますか？</div><div class="a">いいえ。日時の変換はすべてお使いのブラウザ内のJavaScriptで完結し、入力した日時や選んだ都市がサーバーへ送信・保存されることは一切ありません。社外秘のミーティング予定でも安心して利用でき、オフライン環境でも動作します。</div></div>
+        <div class="faq-item"><div class="q">時間帯の色（緑・オレンジ・赤）は何を表していますか？</div><div class="a">各都市の現地時刻が一般的な業務時間に収まっているかの目安です。おおむね9時〜18時を緑（良好）、7時〜9時と18時〜22時をオレンジ（許容範囲）、それ以外の深夜・早朝を赤（避けたい時間帯）として色分けしています。全員が緑またはオレンジになる枠を探すと、無理のない会議日程を組みやすくなります。</div></div>
+        <div class="faq-item"><div class="q">都市は追加・削除できますか？基準はどこですか？</div><div class="a">はい。上の選択欄から都市を選んで「追加」すると一覧に加わり、各行の×ボタンで削除できます。一番上に紫色で表示されるのが基準の都市で、入力した日時はこの都市の現地時刻として解釈されます。基準の都市を切り替えると、その時刻を軸に各地の現地時刻が再計算されます。</div></div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-91-countdown/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">カウントダウン計算</a><a href="/tool-12-wareki/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">和暦西暦変換</a><a href="/tool-177-data-uri/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">data URI 変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ---- city / timezone catalog ----
+var CITIES = [
+    { tz:'Asia/Tokyo',          name:'東京' },
+    { tz:'Asia/Seoul',          name:'ソウル' },
+    { tz:'Asia/Shanghai',       name:'北京 / 上海' },
+    { tz:'Asia/Taipei',         name:'台北' },
+    { tz:'Asia/Singapore',      name:'シンガポール' },
+    { tz:'Asia/Bangkok',        name:'バンコク' },
+    { tz:'Asia/Kolkata',        name:'ムンバイ / インド' },
+    { tz:'Asia/Dubai',          name:'ドバイ' },
+    { tz:'Australia/Sydney',    name:'シドニー' },
+    { tz:'Pacific/Auckland',    name:'オークランド' },
+    { tz:'Europe/Moscow',       name:'モスクワ' },
+    { tz:'Europe/Paris',        name:'パリ' },
+    { tz:'Europe/Berlin',       name:'ベルリン' },
+    { tz:'Europe/London',       name:'ロンドン' },
+    { tz:'UTC',                 name:'UTC（協定世界時）' },
+    { tz:'America/Sao_Paulo',   name:'サンパウロ' },
+    { tz:'America/New_York',    name:'ニューヨーク' },
+    { tz:'America/Chicago',     name:'シカゴ' },
+    { tz:'America/Denver',      name:'デンバー' },
+    { tz:'America/Los_Angeles', name:'ロサンゼルス' }
+];
+
+// selected comparison zones (in addition to the base zone)
+var selected = ['America/Los_Angeles', 'Europe/London', 'Asia/Singapore'];
+
+function cityName(tz){
+    for (var i = 0; i < CITIES.length; i++){ if (CITIES[i].tz === tz) return CITIES[i].name; }
+    return tz;
+}
+
+// ---- setup selects ----
+function fillSelect(sel){
+    sel.innerHTML = '';
+    for (var i = 0; i < CITIES.length; i++){
+        var o = document.createElement('option');
+        o.value = CITIES[i].tz;
+        o.textContent = CITIES[i].name + '（' + CITIES[i].tz + '）';
+        sel.appendChild(o);
+    }
+}
+
+// ---- time-zone math ----
+function pad(n){ return (n < 10 ? '0' : '') + n; }
+
+// offset (ms) that the given timezone had at a specific UTC instant
+function offsetMsAt(utcMs, tz){
+    var dtf = new Intl.DateTimeFormat('en-US', {
+        timeZone: tz, hour12: false,
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+    });
+    var parts = dtf.formatToParts(new Date(utcMs));
+    var m = {};
+    for (var i = 0; i < parts.length; i++){ m[parts[i].type] = parts[i].value; }
+    var hour = m.hour === '24' ? '0' : m.hour;
+    var asUTC = Date.UTC(+m.year, +m.month - 1, +m.day, +hour, +m.minute, +m.second);
+    return asUTC - utcMs;
+}
+
+// interpret wall-clock (y,mo,d,h,mi) as local time in tz -> UTC ms instant
+function zonedToUtc(y, mo, d, h, mi, tz){
+    var guess = Date.UTC(y, mo - 1, d, h, mi, 0);
+    var off = offsetMsAt(guess, tz);
+    var utc = guess - off;
+    off = offsetMsAt(utc, tz);      // refine once for DST boundaries
+    return guess - off;
+}
+
+var WD = ['日', '月', '火', '水', '木', '金', '土'];
+
+// return {y,mo,d,h,mi,wd,offMin} for a UTC instant rendered in tz
+function partsInZone(utcMs, tz){
+    var dtf = new Intl.DateTimeFormat('en-US', {
+        timeZone: tz, hour12: false, weekday: 'short',
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit'
+    });
+    var parts = dtf.formatToParts(new Date(utcMs));
+    var m = {};
+    for (var i = 0; i < parts.length; i++){ m[parts[i].type] = parts[i].value; }
+    var hour = m.hour === '24' ? '0' : m.hour;
+    var off = offsetMsAt(utcMs, tz) / 60000;
+    // weekday from a stable UTC reconstruction
+    var wd = new Date(Date.UTC(+m.year, +m.month - 1, +m.day)).getUTCDay();
+    return { y: +m.year, mo: +m.month, d: +m.day, h: +hour, mi: +m.minute, wd: wd, offMin: off };
+}
+
+function offsetLabel(offMin){
+    var sign = offMin >= 0 ? '+' : '-';
+    var a = Math.abs(offMin);
+    var hh = Math.floor(a / 60);
+    var mm = a % 60;
+    return 'UTC' + sign + hh + (mm ? ':' + pad(mm) : '');
+}
+
+function slotClass(h){
+    if (h >= 9 && h < 18) return 'good';
+    if ((h >= 7 && h < 9) || (h >= 18 && h < 22)) return 'ok';
+    return 'poor';
+}
+function slotLabel(cls){
+    if (cls === 'good') return '業務時間';
+    if (cls === 'ok') return '早朝/夜間';
+    return '深夜';
+}
+
+// ---- render ----
+function currentBaseUtc(){
+    var v = document.getElementById('baseDate').value; // "YYYY-MM-DDTHH:MM"
+    var tz = document.getElementById('baseTz').value;
+    if (!v) return null;
+    var dp = v.split('T');
+    var ymd = dp[0].split('-');
+    var hm = dp[1].split(':');
+    return zonedToUtc(+ymd[0], +ymd[1], +ymd[2], +hm[0], +hm[1], tz);
+}
+
+function render(){
+    var baseTz = document.getElementById('baseTz').value;
+    var utc = currentBaseUtc();
+    var list = document.getElementById('zoneList');
+    var sum = document.getElementById('summary');
+    list.innerHTML = '';
+    if (utc === null){ sum.innerHTML = '基準の日時を入力してください。'; return; }
+
+    var order = [baseTz];
+    for (var i = 0; i < selected.length; i++){
+        if (selected[i] !== baseTz && order.indexOf(selected[i]) === -1) order.push(selected[i]);
+    }
+
+    var counts = { good: 0, ok: 0, poor: 0 };
+    for (var j = 0; j < order.length; j++){
+        var tz = order[j];
+        var p = partsInZone(utc, tz);
+        var cls = slotClass(p.h);
+        counts[cls]++;
+        var isBase = (tz === baseTz);
+
+        var row = document.createElement('div');
+        row.className = 'zone ' + (isBase ? 'base' : cls);
+
+        var city = document.createElement('div');
+        city.className = 'city';
+        var nm = document.createElement('div');
+        nm.className = 'name';
+        nm.textContent = cityName(tz) + (isBase ? '（基準）' : '');
+        var sub = document.createElement('div');
+        sub.className = 'sub';
+        sub.textContent = tz + ' ・ ' + offsetLabel(p.offMin);
+        city.appendChild(nm);
+        city.appendChild(sub);
+
+        var timeWrap = document.createElement('div');
+        timeWrap.className = 'time';
+        var clock = document.createElement('div');
+        clock.className = 'clock';
+        clock.textContent = pad(p.h) + ':' + pad(p.mi);
+        var dt = document.createElement('div');
+        dt.className = 'date';
+        dt.textContent = p.y + '/' + pad(p.mo) + '/' + pad(p.d) + '（' + WD[p.wd] + '）';
+        timeWrap.appendChild(clock);
+        timeWrap.appendChild(dt);
+
+        var badge = document.createElement('span');
+        badge.className = 'badge ' + cls;
+        badge.textContent = slotLabel(cls);
+
+        row.appendChild(city);
+        row.appendChild(timeWrap);
+        row.appendChild(badge);
+
+        if (!isBase){
+            var rm = document.createElement('button');
+            rm.className = 'rm';
+            rm.title = '削除';
+            rm.textContent = '×';
+            (function(t){ rm.onclick = function(){ removeZone(t); }; })(tz);
+            row.appendChild(rm);
+        }
+        list.appendChild(row);
+    }
+
+    var total = order.length;
+    sum.innerHTML = '合計 <b>' + total + '</b> 都市 ／ 業務時間帯 <b>' + counts.good + '</b>・許容 <b>' + counts.ok + '</b>・避けたい <b>' + counts.poor + '</b>。' +
+        (counts.poor === 0 ? 'すべての都市が無理のない時間帯です。この枠は有力な候補です。' : '深夜・早朝になる都市があります。基準時刻を少しずらして再確認してみてください。');
+}
+
+function addZone(){
+    var tz = document.getElementById('addTz').value;
+    if (selected.indexOf(tz) === -1) selected.push(tz);
+    render();
+}
+function removeZone(tz){
+    var idx = selected.indexOf(tz);
+    if (idx !== -1) selected.splice(idx, 1);
+    render();
+}
+
+// ---- quick time helpers ----
+function twoDigit(n){ return (n < 10 ? '0' : '') + n; }
+function setNow(){
+    var now = new Date();
+    // express "now" as wall clock in the base timezone
+    var tz = document.getElementById('baseTz').value;
+    var p = partsInZone(now.getTime(), tz);
+    setField(p.y, p.mo, p.d, p.h, p.mi);
+    render();
+}
+function setHour(h){
+    var v = document.getElementById('baseDate').value;
+    var y, mo, d;
+    if (v){
+        var ymd = v.split('T')[0].split('-');
+        y = +ymd[0]; mo = +ymd[1]; d = +ymd[2];
+    } else {
+        var tz = document.getElementById('baseTz').value;
+        var p = partsInZone(new Date().getTime(), tz);
+        y = p.y; mo = p.mo; d = p.d;
+    }
+    setField(y, mo, d, h, 0);
+    render();
+}
+function setField(y, mo, d, h, mi){
+    document.getElementById('baseDate').value =
+        y + '-' + twoDigit(mo) + '-' + twoDigit(d) + 'T' + twoDigit(h) + ':' + twoDigit(mi);
+}
+
+// ---- init ----
+(function init(){
+    var baseSel = document.getElementById('baseTz');
+    var addSel = document.getElementById('addTz');
+    fillSelect(baseSel);
+    fillSelect(addSel);
+    baseSel.value = 'Asia/Tokyo';
+    addSel.value = 'America/New_York';
+    // default base time = next round hour, today, in base tz
+    var p = partsInZone(new Date().getTime(), 'Asia/Tokyo');
+    setField(p.y, p.mo, p.d, 10, 0);
+    render();
+})();
+</script>
+</body>
+</html>

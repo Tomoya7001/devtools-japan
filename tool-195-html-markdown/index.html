@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML⇔Markdown相互変換ツール | HTMLとMarkdownを双方向で変換【無料】</title>
+    <meta name="description" content="HTMLをMarkdownに、MarkdownをHTMLに双方向で相互変換できる無料ツール。見出し・太字・斜体・リンク・画像・リスト・コードブロック・引用・テーブルに対応。すべてブラウザ内で処理し、外部送信もインストールも不要です。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:900px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .dir-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+        .seg{display:inline-flex;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+        .seg button{padding:10px 18px;background:transparent;border:none;color:var(--text2);font-size:0.85rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .seg button.active{background:var(--accent);color:#fff;font-weight:600}
+        .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+        .toolbar button{padding:8px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:0.8rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .toolbar button:hover{border-color:var(--accent);color:var(--accent)}
+        .io-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+        @media(max-width:700px){.io-grid{grid-template-columns:1fr}}
+        .io-panel .io-label{display:flex;justify-content:space-between;align-items:center;font-size:0.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
+        textarea{width:100%;min-height:320px;padding:14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.82rem;line-height:1.6;outline:none;resize:vertical}
+        textarea:focus{border-color:var(--accent)}
+        .copy-btn{padding:5px 12px;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:0.72rem;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .copy-btn:hover{opacity:0.9}
+        .swap-note{font-size:0.75rem;color:var(--text3)}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-195-html-markdown/">
+    <meta property="og:title" content="HTML⇔Markdown相互変換ツール | HTMLとMarkdownを双方向で変換【無料】">
+    <meta property="og:description" content="HTMLをMarkdownに、MarkdownをHTMLに双方向で相互変換。見出し・太字・リンク・画像・リスト・コードブロック・引用・テーブルに対応。ブラウザ内で完結。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-195-html-markdown/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="HTML⇔Markdown相互変換ツール【無料】">
+    <meta name="twitter:description" content="HTMLとMarkdownを双方向で相互変換。ブラウザ内で完結し外部送信なし。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"HTML⇔Markdown相互変換ツール","description":"HTMLとMarkdownを双方向で相互変換できる無料ツール","url":"https://www.devtools-japan.com/tool-195-html-markdown/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"HTML⇔Markdown相互変換ツール","item":"https://www.devtools-japan.com/tool-195-html-markdown/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"HTMLとMarkdownを両方向で変換できる？","acceptedAnswer":{"@type":"Answer","text":"はい。上部のトグルで「HTML → Markdown」と「Markdown → HTML」を切り替えられ、どちらの向きでも変換できます。左側にソースを入力すると右側に変換結果がリアルタイムで表示され、コピーボタンでワンクリックでコピーできます。入れ替えボタンを押すと、いま出力されている結果を入力側に移して逆方向の変換も試せます。"}},{"@type":"Question","name":"どの記法に対応している？","acceptedAnswer":{"@type":"Answer","text":"見出し（h1〜h6）、太字、斜体、リンク、画像、番号なし・番号付きリスト、コードブロック（フェンス）、インラインコード、引用（blockquote）、水平線、テーブルに対応しています。一般的な文書やドキュメント、READMEなどで使われる主要な記法を軽量な独自コンバータでカバーしています。"}},{"@type":"Question","name":"入力した内容は外部に送信される？","acceptedAnswer":{"@type":"Answer","text":"いいえ。変換処理はすべてお使いのブラウザ内（クライアントサイド）のJavaScriptだけで実行され、入力内容がサーバーや外部サービスに送信されることはありません。外部ライブラリの読み込みもなく、ネットワーク接続がない状態でもページが開いていれば動作します。社内文書や未公開の原稿も安心して変換できます。"}},{"@type":"Question","name":"複雑なHTMLも正しく変換できる？","acceptedAnswer":{"@type":"Answer","text":"本ツールは軽量な変換器のため、主要なタグを対象としています。ネストが深いリストや、divやspanによる複雑なレイアウト、独自の属性・スタイルは、Markdownに対応する記法がないため無視されたり簡略化されることがあります。ブログ記事や技術ドキュメントなど、構造化された標準的なHTMLで最も安定して動作します。"}},{"@type":"Question","name":"変換結果をそのまま使える？","acceptedAnswer":{"@type":"Answer","text":"はい。Markdown→HTMLの結果はそのままWebページやCMSに貼り付けて利用でき、HTML→Markdownの結果はREADMEやWiki、各種Markdown対応エディタに貼り付けて使えます。ただし用途によっては細かな調整が必要な場合があるため、重要な文書では変換後に一度プレビューで確認することをおすすめします。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>HTML⇔Markdown相互変換</h1><p>HTMLとMarkdownを双方向で相互変換（ブラウザ内で完結）</p></header>
+
+    <div class="card"><h3>変換の向き</h3>
+        <div class="dir-row">
+            <div class="seg" id="dirSeg">
+                <button id="dirH2M" class="active" onclick="setDir('h2m')">HTML → Markdown</button>
+                <button id="dirM2H" onclick="setDir('m2h')">Markdown → HTML</button>
+            </div>
+            <span class="swap-note">左に入力すると右に変換結果が表示されます</span>
+        </div>
+        <div class="toolbar">
+            <button onclick="loadSample()">サンプルを読み込む</button>
+            <button onclick="swapIO()">⇅ 結果を入力に入れ替え</button>
+            <button onclick="clearAll()">クリア</button>
+        </div>
+        <div class="io-grid">
+            <div class="io-panel">
+                <div class="io-label"><span id="inLabel">HTML 入力</span></div>
+                <textarea id="input" spellcheck="false" placeholder="ここにソースを貼り付け / 入力してください" oninput="convert()"></textarea>
+            </div>
+            <div class="io-panel">
+                <div class="io-label"><span id="outLabel">Markdown 出力</span><button class="copy-btn" onclick="copyOut()">コピー</button></div>
+                <textarea id="output" spellcheck="false" readonly placeholder="変換結果がここに表示されます"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="note">変換はすべてブラウザ内のJavaScriptで実行され、入力内容が外部へ送信されることはありません。見出し・太字・斜体・リンク・画像・リスト・コードブロック・引用・テーブルに対応した軽量コンバータです。複雑なレイアウトや独自属性は簡略化される場合があります。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>HTML⇔Markdown相互変換ツールの使い方</h2>
+        <p>HTMLをMarkdownに、あるいはMarkdownをHTMLに、双方向で相互変換できる無料ツールです。上部のトグルで変換の向きを切り替え、左側のエリアにソースを入力すると、右側に変換結果がリアルタイムで表示されます。すべての処理はお使いのブラウザ内で完結するため、インストールや会員登録は不要で、入力した内容が外部に送信されることもありません。</p>
+        <p>使い方はシンプルです。まず「HTML → Markdown」か「Markdown → HTML」のどちらかを選び、左のテキストエリアに変換したい内容を貼り付けます。右側に出た結果は「コピー」ボタンでワンクリックでコピーできます。「⇅ 結果を入力に入れ替え」を押すと、いまの出力を入力側に移動して逆方向の変換もすぐに試せます。「サンプルを読み込む」で記法の例を確認することもできます。</p>
+        <h3>こんな場面に</h3>
+        <p>ブログCMSやWebページ用にMarkdownの原稿をHTMLへ変換したいとき、逆にWebから取得したHTMLをREADMEやWiki用のMarkdownに整えたいとき、技術ドキュメントの記法を相互に変換したいときなどに便利です。エンジニアのドキュメント作成から、ライターの原稿整形まで幅広く活用できます。</p>
+
+        <h2>対応している記法</h2>
+        <p>本ツールは、一般的な文書で使われる主要な記法を軽量な独自コンバータでカバーしています。下記の記法について、双方向の変換に対応しています。</p>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>要素</th><th>Markdown</th><th>HTML</th></tr>
+            <tr><td>見出し</td><td># 〜 ######</td><td>&lt;h1&gt;〜&lt;h6&gt;</td></tr>
+            <tr><td>太字</td><td>**太字**</td><td>&lt;strong&gt;</td></tr>
+            <tr><td>斜体</td><td>*斜体*</td><td>&lt;em&gt;</td></tr>
+            <tr><td>リンク</td><td>[文字](URL)</td><td>&lt;a href&gt;</td></tr>
+            <tr><td>画像</td><td>![alt](URL)</td><td>&lt;img&gt;</td></tr>
+            <tr><td>リスト</td><td>- 項目 / 1. 項目</td><td>&lt;ul&gt; / &lt;ol&gt;</td></tr>
+            <tr><td>コードブロック</td><td>```</td><td>&lt;pre&gt;&lt;code&gt;</td></tr>
+            <tr><td>引用</td><td>&gt; 引用</td><td>&lt;blockquote&gt;</td></tr>
+            <tr><td>テーブル</td><td>| 列 | 列 |</td><td>&lt;table&gt;</td></tr>
+        </table>
+        </div>
+        <h3>変換の仕組みと注意点</h3>
+        <p>Markdown→HTMLは行単位のパーサーでブロック（見出し・リスト・コードブロック・テーブルなど）を判定し、インライン記法（太字・斜体・リンク・画像・インラインコード）を変換します。HTML→Markdownはブラウザ標準のDOMParserでHTMLを構文解析し、要素を再帰的にたどってMarkdownへ書き戻します。いずれも外部ライブラリを使わないため軽量ですが、対応表にない独自タグや深いネスト、複雑なレイアウトは簡略化・省略される場合があります。重要な文書では変換後にプレビューで確認してください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">HTMLとMarkdownを両方向で変換できる？</div><div class="a">はい。上部のトグルで「HTML → Markdown」と「Markdown → HTML」を切り替えられ、どちらの向きでも変換できます。左側にソースを入力すると右側に変換結果がリアルタイムで表示され、コピーボタンでワンクリックでコピーできます。入れ替えボタンを押すと、いま出力されている結果を入力側に移して逆方向の変換も試せます。</div></div>
+        <div class="faq-item"><div class="q">どの記法に対応している？</div><div class="a">見出し（h1〜h6）、太字、斜体、リンク、画像、番号なし・番号付きリスト、コードブロック（フェンス）、インラインコード、引用（blockquote）、水平線、テーブルに対応しています。一般的な文書やドキュメント、READMEなどで使われる主要な記法を軽量な独自コンバータでカバーしています。</div></div>
+        <div class="faq-item"><div class="q">入力した内容は外部に送信される？</div><div class="a">いいえ。変換処理はすべてお使いのブラウザ内（クライアントサイド）のJavaScriptだけで実行され、入力内容がサーバーや外部サービスに送信されることはありません。外部ライブラリの読み込みもなく、ネットワーク接続がない状態でもページが開いていれば動作します。社内文書や未公開の原稿も安心して変換できます。</div></div>
+        <div class="faq-item"><div class="q">複雑なHTMLも正しく変換できる？</div><div class="a">本ツールは軽量な変換器のため、主要なタグを対象としています。ネストが深いリストや、divやspanによる複雑なレイアウト、独自の属性・スタイルは、Markdownに対応する記法がないため無視されたり簡略化されることがあります。ブログ記事や技術ドキュメントなど、構造化された標準的なHTMLで最も安定して動作します。</div></div>
+        <div class="faq-item"><div class="q">変換結果をそのまま使える？</div><div class="a">はい。Markdown→HTMLの結果はそのままWebページやCMSに貼り付けて利用でき、HTML→Markdownの結果はREADMEやWiki、各種Markdown対応エディタに貼り付けて使えます。ただし用途によっては細かな調整が必要な場合があるため、重要な文書では変換後に一度プレビューで確認することをおすすめします。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/tool-2-json-formatter/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">JSON整形</a><a href="/tool-6-html-entity/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">HTMLエンティティ変換</a><a href="/tool-3-base64/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">Base64変換</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+let direction = 'h2m';
+
+function setDir(d){
+    direction = d;
+    document.getElementById('dirH2M').classList.toggle('active', d==='h2m');
+    document.getElementById('dirM2H').classList.toggle('active', d==='m2h');
+    if(d==='h2m'){
+        document.getElementById('inLabel').textContent = 'HTML 入力';
+        document.getElementById('outLabel').textContent = 'Markdown 出力';
+    } else {
+        document.getElementById('inLabel').textContent = 'Markdown 入力';
+        document.getElementById('outLabel').textContent = 'HTML 出力';
+    }
+    convert();
+}
+
+function escapeHtml(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+/* Private-use-area placeholder delimiters (never NUL, never appear in normal text) */
+var PH_OPEN = String.fromCharCode(0xE000);
+var PH_CLOSE = String.fromCharCode(0xE001);
+
+/* ---------- Markdown -> HTML ---------- */
+function inlineMd(t){
+    const store = [];
+    const stash = (html)=>{ store.push(html); return PH_OPEN + (store.length-1) + PH_CLOSE; };
+    t = escapeHtml(t);
+    // images
+    t = t.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)/g, (m,alt,url,title)=>
+        stash('<img src="'+url+'" alt="'+alt+'"'+(title?' title="'+title+'"':'')+'>'));
+    // links
+    t = t.replace(/\[([^\]]+)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)/g, (m,txt,url,title)=>
+        stash('<a href="'+url+'"'+(title?' title="'+title+'"':'')+'>'+txt+'</a>'));
+    // inline code
+    t = t.replace(/`([^`]+)`/g, (m,c)=> stash('<code>'+c+'</code>'));
+    // bold
+    t = t.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    t = t.replace(/__([^_]+)__/g, '<strong>$1</strong>');
+    // italic
+    t = t.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+    t = t.replace(/(^|[^A-Za-z0-9])_([^_]+)_/g, '$1<em>$2</em>');
+    // restore protected spans
+    const re = new RegExp(PH_OPEN + '(\\d+)' + PH_CLOSE, 'g');
+    t = t.replace(re, (m,idx)=> store[Number(idx)]);
+    return t;
+}
+
+function splitRow(row){
+    let r = row.trim().replace(/^\|/,'').replace(/\|$/,'');
+    return r.split('|').map(c=>c.trim());
+}
+
+function mdToHtml(md){
+    md = md.replace(/\r\n?/g,'\n');
+    const lines = md.split('\n');
+    const out = [];
+    let i = 0;
+    while(i < lines.length){
+        const line = lines[i];
+        // fenced code block
+        const fence = line.match(/^```(.*)$/);
+        if(fence){
+            const lang = fence[1].trim();
+            const buf = [];
+            i++;
+            while(i < lines.length && !/^```/.test(lines[i])){ buf.push(lines[i]); i++; }
+            i++; // skip closing fence
+            out.push('<pre><code'+(lang?' class="language-'+lang+'"':'')+'>'+escapeHtml(buf.join('\n'))+'</code></pre>');
+            continue;
+        }
+        // heading
+        const h = line.match(/^(#{1,6})\s+(.*)$/);
+        if(h){ out.push('<h'+h[1].length+'>'+inlineMd(h[2].trim())+'</h'+h[1].length+'>'); i++; continue; }
+        // horizontal rule
+        if(/^\s*([-*_])\s*(\1\s*){2,}$/.test(line)){ out.push('<hr>'); i++; continue; }
+        // blockquote
+        if(/^>\s?/.test(line)){
+            const buf = [];
+            while(i < lines.length && /^>\s?/.test(lines[i])){ buf.push(lines[i].replace(/^>\s?/,'')); i++; }
+            out.push('<blockquote>'+mdToHtml(buf.join('\n'))+'</blockquote>');
+            continue;
+        }
+        // table
+        if(/\|/.test(line) && i+1 < lines.length && /^\s*\|?[\s:|-]+\|?\s*$/.test(lines[i+1]) && /-/.test(lines[i+1])){
+            const header = splitRow(line);
+            const aligns = splitRow(lines[i+1]).map(c=>{
+                const l = c.startsWith(':'), r = c.endsWith(':');
+                if(l && r) return 'center';
+                if(r) return 'right';
+                if(l) return 'left';
+                return '';
+            });
+            i += 2;
+            const rows = [];
+            while(i < lines.length && /\|/.test(lines[i]) && lines[i].trim() !== ''){ rows.push(splitRow(lines[i])); i++; }
+            let tb = '<table><thead><tr>';
+            header.forEach((c,idx)=>{ tb += '<th'+(aligns[idx]?' style="text-align:'+aligns[idx]+'"':'')+'>'+inlineMd(c)+'</th>'; });
+            tb += '</tr></thead><tbody>';
+            rows.forEach(r=>{
+                tb += '<tr>';
+                r.forEach((c,idx)=>{ tb += '<td'+(aligns[idx]?' style="text-align:'+aligns[idx]+'"':'')+'>'+inlineMd(c)+'</td>'; });
+                tb += '</tr>';
+            });
+            tb += '</tbody></table>';
+            out.push(tb);
+            continue;
+        }
+        // list (unordered or ordered)
+        if(/^\s*([-*+])\s+/.test(line) || /^\s*\d+\.\s+/.test(line)){
+            const ordered = /^\s*\d+\.\s+/.test(line);
+            const buf = [];
+            while(i < lines.length && (/^\s*([-*+])\s+/.test(lines[i]) || /^\s*\d+\.\s+/.test(lines[i]))){
+                buf.push(lines[i].replace(/^\s*([-*+]|\d+\.)\s+/,''));
+                i++;
+            }
+            const tag = ordered ? 'ol' : 'ul';
+            out.push('<'+tag+'>'+buf.map(b=>'<li>'+inlineMd(b)+'</li>').join('')+'</'+tag+'>');
+            continue;
+        }
+        // blank line
+        if(line.trim() === ''){ i++; continue; }
+        // paragraph
+        const buf = [line];
+        i++;
+        while(i < lines.length && lines[i].trim() !== ''
+            && !/^(#{1,6}\s|>|```)/.test(lines[i])
+            && !/^\s*([-*+])\s+/.test(lines[i])
+            && !/^\s*\d+\.\s+/.test(lines[i])
+            && !/^\s*([-*_])\s*(\1\s*){2,}$/.test(lines[i])){
+            buf.push(lines[i]);
+            i++;
+        }
+        out.push('<p>'+inlineMd(buf.join('\n')).replace(/\n/g,'<br>')+'</p>');
+    }
+    return out.join('\n');
+}
+
+/* ---------- HTML -> Markdown ---------- */
+function walkNodes(node){
+    let md = '';
+    node.childNodes.forEach(child=>{ md += nodeToMd(child); });
+    return md;
+}
+
+function nodeToMd(node){
+    if(node.nodeType === 3){ // text
+        return node.textContent.replace(/\s+/g,' ');
+    }
+    if(node.nodeType !== 1) return '';
+    const tag = node.tagName.toLowerCase();
+    switch(tag){
+        case 'h1': case 'h2': case 'h3': case 'h4': case 'h5': case 'h6':
+            return '\n'+'#'.repeat(Number(tag[1]))+' '+walkNodes(node).trim()+'\n\n';
+        case 'strong': case 'b':
+            return '**'+walkNodes(node).trim()+'**';
+        case 'em': case 'i':
+            return '*'+walkNodes(node).trim()+'*';
+        case 'a':
+            return '['+walkNodes(node).trim()+']('+(node.getAttribute('href')||'')+')';
+        case 'img':
+            return '!['+(node.getAttribute('alt')||'')+']('+(node.getAttribute('src')||'')+')';
+        case 'pre': {
+            let code = node.textContent.replace(/\n$/,'');
+            const codeEl = node.querySelector('code');
+            let lang = '';
+            if(codeEl){
+                const cls = codeEl.getAttribute('class')||'';
+                const m = cls.match(/language-([\w-]+)/);
+                if(m) lang = m[1];
+            }
+            return '\n```'+lang+'\n'+code+'\n```\n\n';
+        }
+        case 'code':
+            return '`'+node.textContent+'`';
+        case 'blockquote':
+            return '\n'+walkNodes(node).trim().split('\n').map(l=>'> '+l).join('\n')+'\n\n';
+        case 'ul': {
+            let s = '\n';
+            node.querySelectorAll(':scope > li').forEach(li=>{ s += '- '+walkNodes(li).trim()+'\n'; });
+            return s+'\n';
+        }
+        case 'ol': {
+            let s = '\n';
+            let n = 1;
+            node.querySelectorAll(':scope > li').forEach(li=>{ s += (n++)+'. '+walkNodes(li).trim()+'\n'; });
+            return s+'\n';
+        }
+        case 'br':
+            return '  \n';
+        case 'hr':
+            return '\n---\n\n';
+        case 'p':
+            return '\n'+walkNodes(node).trim()+'\n\n';
+        case 'table': {
+            const rows = Array.prototype.slice.call(node.querySelectorAll('tr'));
+            if(!rows.length) return '';
+            const cellsOf = r => Array.prototype.slice.call(r.children).map(c=> walkNodes(c).trim().replace(/\|/g,'\\|') || ' ');
+            let s = '\n';
+            const header = cellsOf(rows[0]);
+            s += '| '+header.join(' | ')+' |\n';
+            s += '| '+header.map(()=>'---').join(' | ')+' |\n';
+            rows.slice(1).forEach(r=>{ s += '| '+cellsOf(r).join(' | ')+' |\n'; });
+            return s+'\n';
+        }
+        default:
+            return walkNodes(node);
+    }
+}
+
+function htmlToMd(html){
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    let md = walkNodes(doc.body);
+    return md.replace(/\n{3,}/g,'\n\n').replace(/[ \t]+\n/g,'\n').trim();
+}
+
+/* ---------- UI ---------- */
+function convert(){
+    const src = document.getElementById('input').value;
+    const out = document.getElementById('output');
+    if(!src.trim()){ out.value = ''; return; }
+    try {
+        out.value = (direction === 'h2m') ? htmlToMd(src) : mdToHtml(src);
+    } catch(e){
+        out.value = '変換中にエラーが発生しました: ' + e.message;
+    }
+}
+
+function copyOut(){
+    const out = document.getElementById('output');
+    if(!out.value) return;
+    out.select();
+    navigator.clipboard.writeText(out.value).catch(()=>{ try{ document.execCommand('copy'); }catch(_){} });
+    window.getSelection().removeAllRanges();
+}
+
+function swapIO(){
+    const inp = document.getElementById('input');
+    const out = document.getElementById('output');
+    if(!out.value) return;
+    inp.value = out.value;
+    setDir(direction === 'h2m' ? 'm2h' : 'h2m');
+}
+
+function clearAll(){
+    document.getElementById('input').value = '';
+    document.getElementById('output').value = '';
+}
+
+const SAMPLE_HTML = '<h1>見出し1</h1>\n<p>これは<strong>太字</strong>と<em>斜体</em>、<a href="https://example.com">リンク</a>を含む段落です。</p>\n<ul>\n<li>項目A</li>\n<li>項目B</li>\n</ul>\n<blockquote>引用文です。</blockquote>\n<pre><code class="language-js">console.log("hello");</code></pre>\n<table><thead><tr><th>名前</th><th>値</th></tr></thead><tbody><tr><td>幅</td><td>100</td></tr></tbody></table>';
+
+const SAMPLE_MD = '# 見出し1\n\nこれは **太字** と *斜体*、[リンク](https://example.com) を含む段落です。\n\n- 項目A\n- 項目B\n\n> 引用文です。\n\n```js\nconsole.log("hello");\n```\n\n| 名前 | 値 |\n| --- | --- |\n| 幅 | 100 |';
+
+function loadSample(){
+    document.getElementById('input').value = (direction === 'h2m') ? SAMPLE_HTML : SAMPLE_MD;
+    convert();
+}
+
+setDir('h2m');
+</script>
+</body>
+</html>

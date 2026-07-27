@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E27Q8YTG7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E27Q8YTG7L');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7300747004702072"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゼロ幅・不可視文字リムーバー | ゼロ幅スペース削除・不可視文字除去ができる文字化けクリーナー【無料】</title>
+    <meta name="description" content="貼り付けたテキストからゼロ幅スペース(U+200B)・BOM(U+FEFF)・NBSP(U+00A0)・ソフトハイフン・制御文字などの不可視文字を検出してハイライト表示し、ワンクリックで除去する無料ツール。ゼロ幅スペース削除・不可視文字除去・文字化けクリーナーとして、コードやコピペ事故・SEOトラブルの原因になる見えない文字を一括クリーニング。検出した文字のコードポイントと出現数、除去前後の文字数・バイト数の差分も表示。すべてブラウザ内で完結し外部送信はありません。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#f7f8fb;--bg-card:#ffffff;--border:#e0e2ed;--text:#1e1e35;--text2:#5a5f78;--text3:#9498b0;--accent:#8b5cf6;--accent-dim:rgba(139,92,246,0.08);--green:#22c55e;--red:#ef4444;--amber:#f59e0b;--radius:12px}
+        ::selection{background:rgba(139,92,246,0.15);color:#1e1e35}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        .ad-slot{display:none}
+        header{text-align:center;margin-bottom:36px}header h1{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}header p{color:var(--text2);font-size:0.85rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+        .card h3{font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+        .ta{width:100%;padding:12px 14px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono','Noto Sans JP',monospace;font-size:0.9rem;line-height:1.7;outline:none;resize:vertical;min-height:150px}
+        .ta:focus{border-color:var(--accent)}
+        .ta[readonly]{background:#1e1e35;color:#e6e6f0}
+        .opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+        @media(max-width:600px){.opts{grid-template-columns:1fr}}
+        .opt{display:flex;align-items:flex-start;gap:10px;background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:11px 13px;cursor:pointer;transition:border-color 0.15s}
+        .opt:hover{border-color:var(--accent)}
+        .opt input{margin-top:3px;width:16px;height:16px;accent-color:var(--accent);cursor:pointer;flex-shrink:0}
+        .opt .ot{font-size:0.82rem;color:var(--text);line-height:1.5}
+        .opt .ot small{display:block;color:var(--text3);font-size:0.72rem;margin-top:2px}
+        .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+        .btn{padding:11px 22px;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+        .btn-primary{background:var(--accent);color:#fff}.btn-primary:hover{opacity:0.9}
+        .btn-ghost{background:var(--accent-dim);border:1px solid rgba(139,92,246,0.3);color:var(--accent)}.btn-ghost:hover{background:rgba(139,92,246,0.14)}
+        .highlight-box{width:100%;min-height:120px;max-height:360px;overflow:auto;padding:12px 14px;background:#fbfbfe;border:1px solid var(--border);border-radius:8px;font-family:'JetBrains Mono','Noto Sans JP',monospace;font-size:0.9rem;line-height:1.9;white-space:pre-wrap;word-break:break-word;color:var(--text)}
+        .inv{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:0.62rem;font-weight:600;line-height:1;padding:2px 4px;margin:0 1px;border-radius:4px;vertical-align:middle;color:#fff;letter-spacing:0.02em}
+        .inv-zw{background:var(--red)}
+        .inv-nbsp{background:var(--accent)}
+        .inv-shy{background:var(--amber)}
+        .inv-ctrl{background:#0ea5e9}
+        .stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+        @media(max-width:600px){.stat-grid{grid-template-columns:1fr}}
+        .stat{background:#f7f8fb;border:1px solid var(--border);border-radius:8px;padding:13px 14px;text-align:center}
+        .stat .sv{font-family:'JetBrains Mono',monospace;font-size:1.15rem;font-weight:600;color:var(--text)}
+        .stat .sv .diff{font-size:0.75rem;margin-left:4px}
+        .stat .sv .diff.down{color:var(--green)}
+        .stat .sl{font-size:0.7rem;color:var(--text3);margin-top:4px}
+        table.det{width:100%;border-collapse:collapse;font-size:0.8rem}
+        table.det th{background:var(--bg);border:1px solid var(--border);padding:8px 10px;text-align:left;font-weight:600;color:var(--text);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.04em}
+        table.det td{border:1px solid var(--border);padding:8px 10px;color:var(--text2);vertical-align:middle}
+        table.det td.cp{font-family:'JetBrains Mono',monospace;color:var(--accent)}
+        table.det td.cnt{font-family:'JetBrains Mono',monospace;text-align:right;font-weight:600;color:var(--text)}
+        .tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:0.62rem;font-weight:600;padding:2px 6px;border-radius:4px;color:#fff}
+        .tag.zw{background:var(--red)}.tag.nbsp{background:var(--accent)}.tag.shy{background:var(--amber)}.tag.ctrl{background:#0ea5e9}
+        .clean-msg{display:flex;align-items:center;gap:10px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px 16px;font-size:0.85rem;color:#15803d}
+        .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+        .seo-content{margin-top:40px;padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:0.85rem;line-height:2}
+        .seo-content h2{color:var(--text);font-size:1.05rem;margin-bottom:12px}.seo-content h3{color:var(--text);font-size:0.95rem;margin-top:20px;margin-bottom:8px}.seo-content p{margin-bottom:10px}
+        .faq-item{margin-bottom:14px}
+        .faq-item .q{font-weight:500;color:var(--text);margin-bottom:4px}
+        .faq-item .a{color:var(--text2)}
+        footer{text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.75rem}
+        .note{background:var(--accent-dim);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:12px 16px;font-size:0.75rem;color:var(--text2);margin-bottom:24px}
+        table.ref{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.8rem}
+        table.ref th{background:var(--bg);border:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:600;color:var(--text)}
+        table.ref td{border:1px solid var(--border);padding:8px 12px;color:var(--text2)}
+        code.inline{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--accent)}
+        .empty{color:var(--text3);font-size:0.82rem;padding:10px 2px}
+    </style>
+    <link rel="canonical" href="https://www.devtools-japan.com/tool-192-invisible-char/">
+    <meta property="og:title" content="ゼロ幅・不可視文字リムーバー | ゼロ幅スペース削除・不可視文字除去【無料】">
+    <meta property="og:description" content="ゼロ幅スペース・BOM・NBSP・制御文字などの不可視文字を検出・ハイライトし、ワンクリックで除去する無料の文字化けクリーナー。すべてブラウザ内で完結。">
+    <meta property="og:url" content="https://www.devtools-japan.com/tool-192-invisible-char/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ゼロ幅・不可視文字リムーバー【無料】">
+    <meta name="twitter:description" content="ゼロ幅スペース削除・不可視文字除去・文字化けクリーナー。見えない文字を検出してワンクリック除去。">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"ゼロ幅・不可視文字リムーバー","description":"テキストからゼロ幅スペース・BOM・NBSP・ソフトハイフン・制御文字などの不可視文字を検出して除去する無料ツール。ゼロ幅スペース削除・不可視文字除去・文字化けクリーナー。","url":"https://www.devtools-japan.com/tool-192-invisible-char/","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"provider":{"@type":"Organization","name":"DevTools Japan","url":"https://www.devtools-japan.com"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.devtools-japan.com/"},{"@type":"ListItem","position":2,"name":"ゼロ幅・不可視文字リムーバー","item":"https://www.devtools-japan.com/tool-192-invisible-char/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"なぜテキストにゼロ幅スペースや不可視文字が混入するのですか？","acceptedAnswer":{"@type":"Answer","text":"最も多い原因は、Webサイト・PDF・チャット・ワープロソフトからのコピー＆ペーストです。これらはレイアウト調整や単語の区切りのためにゼロ幅スペース(U+200B)・NBSP(U+00A0)・ソフトハイフン(U+00AD)・BOM(U+FEFF)などの見えない文字を埋め込んでいることがあり、コピーすると一緒に貼り付いてしまいます。また、一部のCMSや翻訳ツール、コード整形サービス、SNSの装飾テキストも不可視文字を挿入します。ファイル先頭のBOMはエディタや書き出し設定によって付与されます。これらは画面上ほとんど見えないため、混入に気づかないまま残りがちです。"}},{"@type":"Question","name":"不可視文字が残っているとどんな問題（SEO・コピペ事故）が起きますか？","acceptedAnswer":{"@type":"Answer","text":"プログラムのソースコードにゼロ幅文字やNBSPが混入すると、見た目は正常でも構文エラーや意図しない挙動を起こし、原因特定が非常に困難なバグになります。CSVやJSON、設定ファイルではパースエラーや値の不一致の原因になります。文章面では、検索フォームやパスワード入力で一致しなくなる、コピー先で文字化けする、といったコピペ事故につながります。SEOの観点でも、タイトルや見出し・URL・キーワードに不可視文字が入るとテキストが本来の語句と別物として扱われ、検索エンジンの評価や表示に悪影響を及ぼす可能性があります。本ツールでこうした見えない文字を除去しておくと安全です。"}},{"@type":"Question","name":"NBSP（U+00A0）は削除すべきですか、半角スペースに置換すべきですか？","acceptedAnswer":{"@type":"Answer","text":"用途によります。NBSP（ノーブレークスペース）は本来「そこで改行させないための空白」で、見た目は半角スペースと同じですが別の文字です。プレーンテキストやコードとして扱う場合は、通常の半角スペースに置換するのが安全で、本ツールの初期設定も置換になっています。一方、意図的に改行防止を効かせたいHTML表示などでは残す判断もあり得ます。本ツールでは「NBSPを半角スペースに置換」オプションをオン・オフで切り替えられるので、目的に合わせて選んでください。ゼロ幅スペースやBOMのように見た目の幅を持たない文字は、置換ではなく除去が基本です。"}},{"@type":"Question","name":"このツールは入力したテキストを外部に送信しますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。検出・ハイライト・除去・文字数やバイト数の計算まで、すべての処理がお使いのブラウザ内のJavaScriptだけで完結します。入力したテキストがサーバーや外部サービスに送信されることは一切ありません。外部ライブラリやAPIにも依存していないため、機密情報を含むコードや文章でも安心して貼り付けられます。ネットワークを切断した状態でも動作します。"}},{"@type":"Question","name":"どんな不可視文字を検出・除去できますか？","acceptedAnswer":{"@type":"Answer","text":"ゼロ幅スペース(U+200B)、ゼロ幅非接合子ZWNJ(U+200C)、ゼロ幅接合子ZWJ(U+200D)、ワードジョイナー(U+2060)、BOM/ゼロ幅ノーブレークスペース(U+FEFF)、左右方向マークLRM/RLM(U+200E/200F)、ソフトハイフン(U+00AD)、NBSP(U+00A0)やナローNBSP(U+202F)、異体字セレクタ(U+FE00〜FE0F)、そしてタブ・改行を除くC0/C1制御文字などを検出します。検出した文字はコードポイント(U+xxxx)・名称・出現数を一覧で表示し、種類ごとにオプションで除去または置換を選べます。除去前後の文字数・バイト数の差分も確認できます。"}}]}
+    </script>
+</head>
+<body>
+<div style="max-width:960px;margin:0 auto;padding:12px 20px 0"><a href="/" style="display:inline-flex;align-items:center;gap:6px;color:#5a5f78;text-decoration:none;font-size:0.8rem;font-family:Noto Sans JP,sans-serif"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg> DevTools Japan トップへ</a></div>
+<div class="container">
+    <div class="ad-slot"></div>
+    <header><h1>ゼロ幅・不可視文字リムーバー</h1><p>ゼロ幅スペース・BOM・NBSP・制御文字などの見えない文字を検出してワンクリック除去する文字化けクリーナー</p></header>
+
+    <div class="card"><h3>入力テキスト</h3>
+        <textarea class="ta" id="input" placeholder="ここに調べたいテキストを貼り付けてください。ゼロ幅スペースや不可視文字を自動で検出します。" oninput="process()"></textarea>
+    </div>
+
+    <div class="card"><h3>除去オプション</h3>
+        <div class="opts">
+            <label class="opt"><input type="checkbox" id="opt_zw" checked onchange="process()"><span class="ot">ゼロ幅文字を除去<small>ZWSP / ZWNJ / ZWJ / WORD JOINER / BOM / 方向マーク / 異体字セレクタ など</small></span></label>
+            <label class="opt"><input type="checkbox" id="opt_nbsp" checked onchange="process()"><span class="ot">NBSPを半角スペースに置換<small>U+00A0 / U+202F などの特殊スペースを通常の空白へ</small></span></label>
+            <label class="opt"><input type="checkbox" id="opt_shy" checked onchange="process()"><span class="ot">ソフトハイフンを除去<small>U+00AD（表示されない改行位置マーカー）</small></span></label>
+            <label class="opt"><input type="checkbox" id="opt_ctrl" checked onchange="process()"><span class="ot">その他の制御文字を除去<small>タブ・改行を除く C0 / C1 制御文字・DEL</small></span></label>
+        </div>
+        <div class="btn-row">
+            <button class="btn btn-primary" onclick="applyClean()">除去して整形</button>
+            <button class="btn btn-ghost" onclick="loadSample()">サンプルを読み込む</button>
+            <button class="btn btn-ghost" onclick="clearAll()">クリア</button>
+        </div>
+    </div>
+
+    <div class="card"><h3>検出結果のハイライト</h3>
+        <div class="highlight-box" id="highlight"></div>
+    </div>
+
+    <div class="card"><h3>検出した不可視文字の一覧</h3>
+        <div class="table-wrap" id="detWrap"></div>
+    </div>
+
+    <div class="card"><h3>除去前後の差分</h3>
+        <div class="stat-grid">
+            <div class="stat"><div class="sv" id="stat_chars">0</div><div class="sl">文字数（コードポイント）</div></div>
+            <div class="stat"><div class="sv" id="stat_bytes">0</div><div class="sl">バイト数（UTF-8）</div></div>
+            <div class="stat"><div class="sv" id="stat_removed">0</div><div class="sl">検出した不可視文字</div></div>
+        </div>
+    </div>
+
+    <div class="card"><h3>整形後テキスト</h3>
+        <div style="display:flex;justify-content:flex-end;margin-bottom:10px"><button class="btn btn-primary" style="padding:8px 18px" onclick="copyOutput()" id="copyBtn">結果をコピー</button></div>
+        <textarea class="ta" id="output" readonly placeholder="不可視文字を除去した結果がここに表示されます。"></textarea>
+    </div>
+
+    <div class="note">検出・ハイライト・除去・文字数／バイト数の計算まで、すべての処理はお使いのブラウザ内で完結します。入力したテキストが外部に送信されることは一切なく、外部ライブラリやAPIにも依存していません。ゼロ幅スペース削除・不可視文字除去・文字化けクリーナーとして、コードやコピペ事故・SEOトラブルの原因になる見えない文字を安全にクリーニングできます。</div>
+
+    <div class="ad-slot"></div>
+
+    <div class="seo-content">
+        <h2>ゼロ幅・不可視文字リムーバーの使い方</h2>
+        <p>本ツールは、テキストに紛れ込んだ<strong>ゼロ幅スペース（U+200B）</strong>や<strong>BOM（U+FEFF）</strong>、<strong>NBSP（U+00A0）</strong>、ソフトハイフン、制御文字といった「見えない文字（不可視文字）」を検出してハイライト表示し、ワンクリックで除去する無料のオンライン文字化けクリーナーです。上部のテキストエリアに調べたい文字列を貼り付けるだけで、どこにどんな不可視文字が入っているかがリアルタイムで可視化され、コードポイントと出現数も一覧で確認できます。インストールや会員登録は不要で、入力内容はサーバーに送信されず、すべての処理がブラウザ内で完結します。</p>
+        <p>使い方はシンプルです。テキストを貼り付けると、不可視文字が色付きのバッジ（例: <span class="inv inv-zw">ZWSP</span>）としてハイライト表示されます。除去オプションで「ゼロ幅文字を除去」「NBSPを半角スペースに置換」「ソフトハイフンを除去」「その他の制御文字を除去」を目的に合わせて選び、「除去して整形」ボタンを押すと、下部の整形後テキストにクリーニング済みの文字列が出力されます。除去前後で文字数（コードポイント数）とバイト数がどれだけ変化したかも表示されるので、確かに不要な文字が消えたことを確認できます。結果は「結果をコピー」ボタンでそのままクリップボードに取得できます。</p>
+        <h3>検出・除去できる主な不可視文字</h3>
+        <div class="table-wrap">
+        <table class="ref">
+            <tr><th>文字</th><th>コードポイント</th><th>説明</th></tr>
+            <tr><td>ゼロ幅スペース (ZWSP)</td><td><code class="inline">U+200B</code></td><td>幅を持たない空白。単語区切りやコピペで混入し、コードのバグ原因に。</td></tr>
+            <tr><td>ゼロ幅非接合子 (ZWNJ)</td><td><code class="inline">U+200C</code></td><td>結合を防ぐ制御用の見えない文字。</td></tr>
+            <tr><td>ゼロ幅接合子 (ZWJ)</td><td><code class="inline">U+200D</code></td><td>絵文字の連結などに使われる不可視文字。</td></tr>
+            <tr><td>ワードジョイナー</td><td><code class="inline">U+2060</code></td><td>改行を防ぐ幅ゼロの文字。</td></tr>
+            <tr><td>BOM / ゼロ幅ノーブレークスペース</td><td><code class="inline">U+FEFF</code></td><td>ファイル先頭に付くバイト順マーク。文字化けや先頭空白の原因。</td></tr>
+            <tr><td>方向マーク (LRM / RLM)</td><td><code class="inline">U+200E / U+200F</code></td><td>文字の並び方向を制御する不可視文字。</td></tr>
+            <tr><td>ノーブレークスペース (NBSP)</td><td><code class="inline">U+00A0</code></td><td>見た目は半角スペースだが別文字。置換が安全。</td></tr>
+            <tr><td>ソフトハイフン (SHY)</td><td><code class="inline">U+00AD</code></td><td>普段は表示されない改行位置マーカー。</td></tr>
+            <tr><td>異体字セレクタ</td><td><code class="inline">U+FE00〜FE0F</code></td><td>直前の文字の字形を変える見えない指定子。</td></tr>
+            <tr><td>制御文字 (C0 / C1)</td><td><code class="inline">U+0000〜001F など</code></td><td>タブ・改行を除く制御文字。表示されず不具合の原因に。</td></tr>
+        </table>
+        </div>
+
+        <h2>不可視文字が引き起こすトラブル</h2>
+        <p>不可視文字は画面上ほとんど見えないため、混入していても気づきにくく、原因不明のトラブルにつながります。代表的なのが<strong>ソースコードのバグ</strong>で、ゼロ幅スペースやNBSPが変数名や記号の間に入り込むと、見た目は正しいのに構文エラーや予期せぬ動作を起こします。CSV・JSON・設定ファイルではパースエラーや値の不一致を招き、検索やパスワード照合では「同じに見えるのに一致しない」という現象が発生します。SNSやWebからコピーした文章をそのまま使うと、貼り付け先で文字化けするコピペ事故の原因にもなります。</p>
+        <p>SEOの面でも不可視文字は無視できません。タイトルタグ・見出し・URLスラッグ・メタ情報・キーワードにゼロ幅文字やBOMが紛れ込むと、検索エンジンはその語句を本来の単語と別のものとして扱う可能性があり、評価や検索結果の表示に悪影響を与えることがあります。公開前のテキストを本ツールでクリーニングしておくことで、こうしたリスクを未然に防げます。</p>
+
+        <h2>NBSPの置換と除去の考え方</h2>
+        <p>不可視文字への対処は「除去」と「置換」の2通りがあります。ゼロ幅スペースやBOM、方向マークのように<strong>本来そこに幅も意味も不要な文字は除去</strong>するのが基本です。一方、NBSP（U+00A0）のように<strong>見た目は半角スペースと同じ空白</strong>は、プレーンテキストやコードとして扱うなら通常の半角スペースへ<strong>置換</strong>するのが安全です。本ツールは初期状態でNBSPを半角スペースに置換する設定になっており、必要に応じてオプションで切り替えられます。目的に応じて、どの種類をどう処理するかを選んでください。</p>
+
+        <h2>よくある質問</h2>
+        <div class="faq-item"><div class="q">なぜテキストにゼロ幅スペースや不可視文字が混入するのですか？</div><div class="a">最も多い原因は、Webサイト・PDF・チャット・ワープロソフトからのコピー＆ペーストです。これらはレイアウト調整や単語の区切りのためにゼロ幅スペース(U+200B)・NBSP(U+00A0)・ソフトハイフン(U+00AD)・BOM(U+FEFF)などの見えない文字を埋め込んでいることがあり、コピーすると一緒に貼り付いてしまいます。また、一部のCMSや翻訳ツール、コード整形サービス、SNSの装飾テキストも不可視文字を挿入します。ファイル先頭のBOMはエディタや書き出し設定によって付与されます。これらは画面上ほとんど見えないため、混入に気づかないまま残りがちです。</div></div>
+        <div class="faq-item"><div class="q">不可視文字が残っているとどんな問題（SEO・コピペ事故）が起きますか？</div><div class="a">プログラムのソースコードにゼロ幅文字やNBSPが混入すると、見た目は正常でも構文エラーや意図しない挙動を起こし、原因特定が非常に困難なバグになります。CSVやJSON、設定ファイルではパースエラーや値の不一致の原因になります。文章面では、検索フォームやパスワード入力で一致しなくなる、コピー先で文字化けする、といったコピペ事故につながります。SEOの観点でも、タイトルや見出し・URL・キーワードに不可視文字が入るとテキストが本来の語句と別物として扱われ、検索エンジンの評価や表示に悪影響を及ぼす可能性があります。本ツールでこうした見えない文字を除去しておくと安全です。</div></div>
+        <div class="faq-item"><div class="q">NBSP（U+00A0）は削除すべきですか、半角スペースに置換すべきですか？</div><div class="a">用途によります。NBSP（ノーブレークスペース）は本来「そこで改行させないための空白」で、見た目は半角スペースと同じですが別の文字です。プレーンテキストやコードとして扱う場合は、通常の半角スペースに置換するのが安全で、本ツールの初期設定も置換になっています。一方、意図的に改行防止を効かせたいHTML表示などでは残す判断もあり得ます。本ツールでは「NBSPを半角スペースに置換」オプションをオン・オフで切り替えられるので、目的に合わせて選んでください。ゼロ幅スペースやBOMのように見た目の幅を持たない文字は、置換ではなく除去が基本です。</div></div>
+        <div class="faq-item"><div class="q">このツールは入力したテキストを外部に送信しますか？</div><div class="a">いいえ。検出・ハイライト・除去・文字数やバイト数の計算まで、すべての処理がお使いのブラウザ内のJavaScriptだけで完結します。入力したテキストがサーバーや外部サービスに送信されることは一切ありません。外部ライブラリやAPIにも依存していないため、機密情報を含むコードや文章でも安心して貼り付けられます。ネットワークを切断した状態でも動作します。</div></div>
+        <div class="faq-item"><div class="q">どんな不可視文字を検出・除去できますか？</div><div class="a">ゼロ幅スペース(U+200B)、ゼロ幅非接合子ZWNJ(U+200C)、ゼロ幅接合子ZWJ(U+200D)、ワードジョイナー(U+2060)、BOM/ゼロ幅ノーブレークスペース(U+FEFF)、左右方向マークLRM/RLM(U+200E/200F)、ソフトハイフン(U+00AD)、NBSP(U+00A0)やナローNBSP(U+202F)、異体字セレクタ(U+FE00〜FE0F)、そしてタブ・改行を除くC0/C1制御文字などを検出します。検出した文字はコードポイント(U+xxxx)・名称・出現数を一覧で表示し、種類ごとにオプションで除去または置換を選べます。除去前後の文字数・バイト数の差分も確認できます。</div></div>
+    </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px;margin-bottom:24px">
+      <h3 style="font-size:0.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">関連ツール</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="/" style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">ツール一覧へ</a>
+      </div>
+    </div>
+    <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+</div>
+<script>
+// ---- 既知の不可視文字データベース ----
+var CHAR_DB = {
+    0x200B: { name: 'ZERO WIDTH SPACE', abbr: 'ZWSP', cat: 'zw' },
+    0x200C: { name: 'ZERO WIDTH NON-JOINER', abbr: 'ZWNJ', cat: 'zw' },
+    0x200D: { name: 'ZERO WIDTH JOINER', abbr: 'ZWJ', cat: 'zw' },
+    0x2060: { name: 'WORD JOINER', abbr: 'WJ', cat: 'zw' },
+    0xFEFF: { name: 'ZERO WIDTH NO-BREAK SPACE (BOM)', abbr: 'BOM', cat: 'zw' },
+    0x200E: { name: 'LEFT-TO-RIGHT MARK', abbr: 'LRM', cat: 'zw' },
+    0x200F: { name: 'RIGHT-TO-LEFT MARK', abbr: 'RLM', cat: 'zw' },
+    0x061C: { name: 'ARABIC LETTER MARK', abbr: 'ALM', cat: 'zw' },
+    0x180E: { name: 'MONGOLIAN VOWEL SEPARATOR', abbr: 'MVS', cat: 'zw' },
+    0x2061: { name: 'FUNCTION APPLICATION', abbr: 'INV', cat: 'zw' },
+    0x2062: { name: 'INVISIBLE TIMES', abbr: 'INV', cat: 'zw' },
+    0x2063: { name: 'INVISIBLE SEPARATOR', abbr: 'INV', cat: 'zw' },
+    0x2064: { name: 'INVISIBLE PLUS', abbr: 'INV', cat: 'zw' },
+    0x00A0: { name: 'NO-BREAK SPACE', abbr: 'NBSP', cat: 'nbsp' },
+    0x202F: { name: 'NARROW NO-BREAK SPACE', abbr: 'NNBSP', cat: 'nbsp' },
+    0x00AD: { name: 'SOFT HYPHEN', abbr: 'SHY', cat: 'shy' }
+};
+
+// コードポイントを分類。不可視なら {name, abbr, cat}、可視なら null
+function classify(cp){
+    if (Object.prototype.hasOwnProperty.call(CHAR_DB, cp)) return CHAR_DB[cp];
+    if (cp >= 0xFE00 && cp <= 0xFE0F) return { name: 'VARIATION SELECTOR', abbr: 'VS', cat: 'zw' };
+    if (cp >= 0xE0100 && cp <= 0xE01EF) return { name: 'VARIATION SELECTOR SUPPLEMENT', abbr: 'VS', cat: 'zw' };
+    if (cp === 0xFFF9 || cp === 0xFFFA || cp === 0xFFFB) return { name: 'INTERLINEAR ANNOTATION', abbr: 'IA', cat: 'zw' };
+    // C0 制御（タブ 0x09・LF 0x0A・CR 0x0D は除外）
+    if (cp < 0x20 && cp !== 0x09 && cp !== 0x0A && cp !== 0x0D) return { name: 'C0 CONTROL', abbr: 'CTRL', cat: 'ctrl' };
+    if (cp === 0x7F) return { name: 'DELETE', abbr: 'DEL', cat: 'ctrl' };
+    if (cp >= 0x80 && cp <= 0x9F) return { name: 'C1 CONTROL', abbr: 'CTRL', cat: 'ctrl' };
+    return null;
+}
+
+function catEnabled(cat){
+    if (cat === 'zw') return document.getElementById('opt_zw').checked;
+    if (cat === 'nbsp') return document.getElementById('opt_nbsp').checked;
+    if (cat === 'shy') return document.getElementById('opt_shy').checked;
+    if (cat === 'ctrl') return document.getElementById('opt_ctrl').checked;
+    return false;
+}
+
+function hex4(cp){
+    var h = cp.toString(16).toUpperCase();
+    while (h.length < 4) h = '0' + h;
+    return 'U+' + h;
+}
+
+function escapeHtml(s){
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function utf8bytes(s){
+    if (typeof TextEncoder !== 'undefined'){
+        return new TextEncoder().encode(s).length;
+    }
+    // フォールバック
+    var n = 0;
+    for (var i = 0; i < s.length; i++){
+        var c = s.charCodeAt(i);
+        if (c < 0x80) n += 1;
+        else if (c < 0x800) n += 2;
+        else if (c >= 0xD800 && c <= 0xDBFF){ n += 4; i++; }
+        else n += 3;
+    }
+    return n;
+}
+
+function countCodePoints(s){
+    var n = 0;
+    for (var it = 0, arr = Array.from(s); it < arr.length; it++) n++;
+    return n;
+}
+
+// テキストを走査して {highlight, counts, cleaned} を返す
+function analyze(text){
+    var chars = Array.from(text);
+    var html = '';
+    var counts = {}; // cp -> count
+    var cleaned = '';
+    for (var i = 0; i < chars.length; i++){
+        var ch = chars[i];
+        var cp = ch.codePointAt(0);
+        var info = classify(cp);
+        if (info){
+            counts[cp] = (counts[cp] || 0) + 1;
+            html += '<span class="inv inv-' + info.cat + '" title="' + hex4(cp) + ' ' + info.name + '">' + info.abbr + '</span>';
+            if (catEnabled(info.cat)){
+                if (info.cat === 'nbsp') cleaned += ' ';
+                // それ以外は除去（何も足さない）
+            } else {
+                cleaned += ch;
+            }
+        } else {
+            html += escapeHtml(ch);
+            cleaned += ch;
+        }
+    }
+    return { html: html, counts: counts, cleaned: cleaned };
+}
+
+function process(){
+    var text = document.getElementById('input').value;
+    var res = analyze(text);
+
+    // ハイライト
+    var hl = document.getElementById('highlight');
+    if (text.length === 0){
+        hl.innerHTML = '<span class="empty">テキストを入力すると、不可視文字がここにハイライト表示されます。</span>';
+    } else {
+        hl.innerHTML = res.html;
+    }
+
+    // 検出一覧
+    renderDetection(res.counts);
+
+    // 差分統計
+    var beforeChars = countCodePoints(text);
+    var afterChars = countCodePoints(res.cleaned);
+    var beforeBytes = utf8bytes(text);
+    var afterBytes = utf8bytes(res.cleaned);
+    var totalInv = 0;
+    for (var k in res.counts){ if (res.counts.hasOwnProperty(k)) totalInv += res.counts[k]; }
+
+    document.getElementById('stat_chars').innerHTML = afterChars + diffTag(afterChars - beforeChars);
+    document.getElementById('stat_bytes').innerHTML = afterBytes + diffTag(afterBytes - beforeBytes);
+    document.getElementById('stat_removed').textContent = totalInv;
+
+    // 出力
+    document.getElementById('output').value = res.cleaned;
+}
+
+function diffTag(delta){
+    if (delta === 0) return '';
+    if (delta < 0) return ' <span class="diff down">(' + delta + ')</span>';
+    return ' <span class="diff">(+' + delta + ')</span>';
+}
+
+function renderDetection(counts){
+    var wrap = document.getElementById('detWrap');
+    var keys = Object.keys(counts);
+    if (keys.length === 0){
+        wrap.innerHTML = '<div class="empty">不可視文字は検出されませんでした。</div>';
+        return;
+    }
+    keys.sort(function(a, b){ return counts[b] - counts[a] || (a - b); });
+    var rows = '';
+    for (var i = 0; i < keys.length; i++){
+        var cp = parseInt(keys[i], 10);
+        var info = classify(cp) || { name: 'UNKNOWN', abbr: '?', cat: 'zw' };
+        rows += '<tr>'
+            + '<td><span class="tag ' + info.cat + '">' + info.abbr + '</span></td>'
+            + '<td class="cp">' + hex4(cp) + '</td>'
+            + '<td>' + escapeHtml(info.name) + '</td>'
+            + '<td class="cnt">' + counts[cp] + '</td>'
+            + '</tr>';
+    }
+    wrap.innerHTML = '<table class="det"><tr><th>種別</th><th>コードポイント</th><th>名称</th><th>出現数</th></tr>' + rows + '</table>';
+}
+
+function applyClean(){
+    var out = document.getElementById('output').value;
+    document.getElementById('input').value = out;
+    process();
+}
+
+function copyOutput(){
+    var text = document.getElementById('output').value;
+    var btn = document.getElementById('copyBtn');
+    function done(){ btn.textContent = 'コピー済み'; setTimeout(function(){ btn.textContent = '結果をコピー'; }, 1400); }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text); done(); });
+    } else {
+        fallbackCopy(text); done();
+    }
+}
+
+function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+}
+
+function clearAll(){
+    document.getElementById('input').value = '';
+    process();
+}
+
+function loadSample(){
+    // サンプル: 各種不可視文字を意図的に埋め込む
+    var ZWSP = String.fromCharCode(0x200B);
+    var BOM = String.fromCharCode(0xFEFF);
+    var NBSP = String.fromCharCode(0x00A0);
+    var SHY = String.fromCharCode(0x00AD);
+    var ZWJ = String.fromCharCode(0x200D);
+    var sample = BOM + 'const price' + ZWSP + ' = 1000;' + '\n'
+        + 'ゼロ幅スペースやNBSP' + NBSP + 'が' + ZWSP + '混入した例です。' + '\n'
+        + 'soft' + SHY + 'hyphen と ゼロ幅接合子' + ZWJ + 'のテスト。';
+    document.getElementById('input').value = sample;
+    process();
+}
+
+// 初期化: サンプルを読み込んで表示
+(function init(){
+    loadSample();
+})();
+</script>
+</body>
+</html>
