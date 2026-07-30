@@ -414,6 +414,64 @@
             font-size: 0.75rem;
         }
 
+        .all-tools-index {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            text-align: left;
+        }
+        .all-tools-index h2 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+        .all-tools-lead {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+        .all-tools-group { margin-bottom: 20px; }
+        .all-tools-group h3 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .all-tools-count {
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1px 6px;
+        }
+        .all-tools-group ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 14px;
+            padding: 0;
+            margin: 0;
+        }
+        .all-tools-group li { font-size: 0.72rem; }
+        .all-tools-group a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+        .all-tools-group a:hover {
+            color: var(--accent-primary);
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            .all-tools-group ul { gap: 6px 10px; }
+            .all-tools-group li { font-size: 0.7rem; }
+        }
+
+
         footer .brand {
             font-family: 'Inter', sans-serif;
             font-weight: 700;
@@ -520,7 +578,249 @@
         <div class="ad-slot" style="display:none"></div>
 
         <footer><p style="margin-bottom:8px">&copy; 2026 DevTools Japan — 無料オンラインツール</p>
-            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/blog/" style="color:inherit;text-decoration:none;margin:0 8px">ブログ</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p></footer>
+            <p style="font-size:0.65rem"><a href="/about/" style="color:inherit;text-decoration:none;margin:0 8px">サイトについて</a> | <a href="/blog/" style="color:inherit;text-decoration:none;margin:0 8px">ブログ</a> | <a href="/privacy/" style="color:inherit;text-decoration:none;margin:0 8px">プライバシーポリシー</a> | <a href="/contact/" style="color:inherit;text-decoration:none;margin:0 8px">お問い合わせ</a></p>
+            <section class="all-tools-index" aria-labelledby="all-tools-heading">
+            <h2 id="all-tools-heading">全ツール一覧</h2>
+            <p class="all-tools-lead">DevTools Japan で公開している 201 本のツールをカテゴリ別に掲載しています。</p>
+            <div class="all-tools-group">
+            <h3>今すぐ確認<span class="all-tools-count">10</span></h3>
+            <ul>
+            <li><a href="/tool-97-wareki-today/">今日の和暦ダッシュボード</a></li>
+            <li><a href="/tool-98-holidays/">今年の祝日カレンダー</a></li>
+            <li><a href="/tool-99-unixtime-now/">現在のUNIXタイムスタンプ</a></li>
+            <li><a href="/tool-100-device-info/">ブラウザ・端末情報</a></li>
+            <li><a href="/tool-101-world-clock/">世界時計</a></li>
+            <li><a href="/tool-102-year-progress/">今年の進捗バー</a></li>
+            <li><a href="/tool-103-week-number/">ISO週番号・年間通算日</a></li>
+            <li><a href="/tool-104-moon-phase/">月齢・月の満ち欠け</a></li>
+            <li><a href="/tool-105-sekki/">二十四節気カレンダー</a></li>
+            <li><a href="/tool-106-keycode/">キーコードチェッカー</a></li>
+            </ul></div>
+            <div class="all-tools-group">
+            <h3>開発<span class="all-tools-count">76</span></h3>
+            <ul>
+            <li><a href="/tool-03-json-formatter/">JSON整形</a></li>
+            <li><a href="/tool-06-base64/">Base64変換</a></li>
+            <li><a href="/tool-07-url-encode/">URLエンコード</a></li>
+            <li><a href="/tool-08-regex-tester/">正規表現テスター</a></li>
+            <li><a href="/tool-09-diff/">テキスト比較（Diff）</a></li>
+            <li><a href="/tool-13-csv-json/">CSV ⇔ JSON変換</a></li>
+            <li><a href="/tool-14-html-escape/">HTML特殊文字変換</a></li>
+            <li><a href="/tool-15-case-converter/">文字列ケース変換</a></li>
+            <li><a href="/tool-16-timestamp/">タイムスタンプ変換</a></li>
+            <li><a href="/tool-29-byte-converter/">バイト変換</a></li>
+            <li><a href="/tool-30-cron-generator/">Cron式ジェネレーター</a></li>
+            <li><a href="/tool-36-uuid-gen/">UUID生成</a></li>
+            <li><a href="/tool-37-number-base/">進数変換</a></li>
+            <li><a href="/tool-44-tab-space/">タブ⇔スペース変換</a></li>
+            <li><a href="/tool-45-chmod-calc/">chmod計算</a></li>
+            <li><a href="/tool-49-sql-formatter/">SQLフォーマッター</a></li>
+            <li><a href="/tool-50-htaccess-gen/">.htaccess生成</a></li>
+            <li><a href="/tool-82-llm-token/">LLMトークン数カウンター</a></li>
+            <li><a href="/tool-111-ulid/">ULID/NanoID/UUIDv7生成</a></li>
+            <li><a href="/tool-112-json-yaml/">JSON⇔YAML変換</a></li>
+            <li><a href="/tool-113-toml-json/">TOML⇔JSON変換</a></li>
+            <li><a href="/tool-114-json-typescript/">JSON→TypeScript型生成</a></li>
+            <li><a href="/tool-115-xml-format/">XML整形・検証</a></li>
+            <li><a href="/tool-116-mermaid/">Mermaid図ジェネレーター</a></li>
+            <li><a href="/tool-117-minify/">JS/CSS/HTML Minify・整形</a></li>
+            <li><a href="/tool-118-env-format/">.envフォーマッター・検証</a></li>
+            <li><a href="/tool-123-jsonld/">JSON-LD構造化データ生成</a></li>
+            <li><a href="/tool-124-faq-schema/">FAQ構造化データ生成</a></li>
+            <li><a href="/tool-125-breadcrumb-schema/">パンくず構造化データ生成</a></li>
+            <li><a href="/tool-126-howto-schema/">HowTo構造化データ生成</a></li>
+            <li><a href="/tool-127-ogp-meta/">OGP・Twitterカード生成</a></li>
+            <li><a href="/tool-128-robots-txt/">robots.txt生成</a></li>
+            <li><a href="/tool-129-xml-sitemap/">XMLサイトマップ生成</a></li>
+            <li><a href="/tool-130-canonical-hreflang/">canonical・hreflang生成</a></li>
+            <li><a href="/tool-131-meta-length/">title/meta長さチェッカー</a></li>
+            <li><a href="/tool-132-http-status/">HTTPステータスコード早見表</a></li>
+            <li><a href="/tool-133-utm-builder/">UTMキャンペーンURL生成</a></li>
+            <li><a href="/tool-134-serp-preview/">Google SERPプレビュー</a></li>
+            <li><a href="/tool-135-llms-txt/">llms.txt生成</a></li>
+            <li><a href="/tool-136-heading-outline/">見出しアウトライン抽出</a></li>
+            <li><a href="/tool-137-keyword-density/">キーワード出現頻度・密度</a></li>
+            <li><a href="/tool-138-localbusiness-schema/">LocalBusiness構造化データ生成</a></li>
+            <li><a href="/tool-139-product-schema/">Product構造化データ生成</a></li>
+            <li><a href="/tool-140-video-schema/">VideoObject構造化データ生成</a></li>
+            <li><a href="/tool-141-event-schema/">Event構造化データ生成</a></li>
+            <li><a href="/tool-142-recipe-schema/">Recipe構造化データ生成</a></li>
+            <li><a href="/tool-149-jsonschema-gen/">JSON Schema ジェネレーター</a></li>
+            <li><a href="/tool-151-article-schema/">Article構造化データ生成ツール</a></li>
+            <li><a href="/tool-152-organization-schema/">Organization構造化データ生成ツール</a></li>
+            <li><a href="/tool-153-jobposting-schema/">JobPosting 求人 構造化データ生成ツール</a></li>
+            <li><a href="/tool-154-course-schema/">Course構造化データ生成ツール</a></li>
+            <li><a href="/tool-155-website-schema/">WebSite構造化データ生成ツール</a></li>
+            <li><a href="/tool-156-review-schema/">Review / AggregateRating 構造化データ生成ツール</a></li>
+            <li><a href="/tool-157-slugify/">URLスラッグ生成ツール（日本語・ローマ字変換対応）</a></li>
+            <li><a href="/tool-158-gitignore/">.gitignore ジェネレーター</a></li>
+            <li><a href="/tool-159-useragent/">User-Agent 解析ツール</a></li>
+            <li><a href="/tool-168-dedupe-lines/">行の重複削除・並べ替えツール</a></li>
+            <li><a href="/tool-169-newline-converter/">改行コード・空白 変換ツール</a></li>
+            <li><a href="/tool-170-find-replace/">文字列 一括置換ツール</a></li>
+            <li><a href="/tool-174-jsonld-validator/">JSON-LD 構造化データ 検証・プレビューツール</a></li>
+            <li><a href="/tool-175-person-schema/">Person構造化データ生成ツール</a></li>
+            <li><a href="/tool-176-url-query/">URLクエリ文字列 パーサ／ビルダー</a></li>
+            <li><a href="/tool-177-data-uri/">data URI 変換ツール（画像⇄Base64）</a></li>
+            <li><a href="/tool-182-password-strength/">パスワード強度チェッカー</a></li>
+            <li><a href="/tool-183-unicode-inspector/">Unicode 文字インスペクター</a></li>
+            <li><a href="/tool-184-barcode/">バーコード生成ツール</a></li>
+            <li><a href="/tool-185-markdown-table/">Markdown テーブル生成ツール</a></li>
+            <li><a href="/tool-187-glassmorphism/">Glassmorphism CSS ジェネレーター</a></li>
+            <li><a href="/tool-188-softwareapplication-schema/">SoftwareApplication構造化データ生成ツール</a></li>
+            <li><a href="/tool-189-qapage-schema/">QAPage構造化データ生成ツール</a></li>
+            <li><a href="/tool-192-invisible-char/">不可視文字リムーバー</a></li>
+            <li><a href="/tool-193-css-units/">CSS単位変換</a></li>
+            <li><a href="/tool-195-html-markdown/">HTML⇔Markdown変換</a></li>
+            <li><a href="/tool-196-nginx-config/">nginx設定ジェネレーター</a></li>
+            <li><a href="/tool-200-book-schema/">Book構造化データ生成ツール</a></li>
+            <li><a href="/tool-201-movie-schema/">Movie構造化データ生成ツール</a></li>
+            </ul></div>
+            <div class="all-tools-group">
+            <h3>デザイン<span class="all-tools-count">18</span></h3>
+            <ul>
+            <li><a href="/tool-05-color-converter/">カラーコード変換</a></li>
+            <li><a href="/tool-10-image-compress/">画像圧縮</a></li>
+            <li><a href="/tool-18-dummy-text/">ダミーテキスト生成</a></li>
+            <li><a href="/tool-20-favicon/">Favicon生成</a></li>
+            <li><a href="/tool-23-sns-image-sizes/">SNS画像サイズ一覧</a></li>
+            <li><a href="/tool-24-ogp-preview/">OGPプレビュー</a></li>
+            <li><a href="/tool-28-aspect-ratio/">アスペクト比計算</a></li>
+            <li><a href="/tool-38-gradient-gen/">CSSグラデーション生成</a></li>
+            <li><a href="/tool-39-shadow-gen/">CSSボックスシャドウ生成</a></li>
+            <li><a href="/tool-40-placeholder-img/">プレースホルダー画像</a></li>
+            <li><a href="/tool-46-color-palette/">カラーパレット生成</a></li>
+            <li><a href="/tool-47-html-color-names/">HTMLカラーネーム一覧</a></li>
+            <li><a href="/tool-90-ogp-image/">OGP画像ジェネレーター</a></li>
+            <li><a href="/tool-107-oklch/">OKLCHカラー変換・ピッカー</a></li>
+            <li><a href="/tool-108-contrast/">コントラストチェッカー</a></li>
+            <li><a href="/tool-109-clamp/">CSS clamp()流体タイポ生成</a></li>
+            <li><a href="/tool-110-cubic-bezier/">cubic-bezierイージング</a></li>
+            <li><a href="/tool-191-color-blindness/">色覚シミュレーター</a></li>
+            </ul></div>
+            <div class="all-tools-group">
+            <h3>ライティング<span class="all-tools-count">11</span></h3>
+            <ul>
+            <li><a href="/tool-01-moji-counter/">文字数カウンター</a></li>
+            <li><a href="/tool-11-markdown-preview/">Markdownプレビュー</a></li>
+            <li><a href="/tool-25-speech-time/">読み上げ時間計算</a></li>
+            <li><a href="/tool-41-text-reverse/">テキスト反転</a></li>
+            <li><a href="/tool-43-word-counter-en/">英文ワードカウンター</a></li>
+            <li><a href="/tool-76-manuscript-paper/">原稿用紙換算</a></li>
+            <li><a href="/tool-78-sns-char-limit/">SNS文字数制限カウンター</a></li>
+            <li><a href="/tool-83-reading-time/">読了時間計算</a></li>
+            <li><a href="/tool-96-transcription/">音声文字起こし</a></li>
+            <li><a href="/tool-150-prompt-template/">AIプロンプト テンプレート</a></li>
+            <li><a href="/tool-190-fancy-text/">装飾テキスト・特殊文字生成</a></li>
+            </ul></div>
+            <div class="all-tools-group">
+            <h3>セキュリティ<span class="all-tools-count">4</span></h3>
+            <ul>
+            <li><a href="/tool-02-password-gen/">パスワード生成</a></li>
+            <li><a href="/tool-17-hash/">ハッシュ生成</a></li>
+            <li><a href="/tool-48-jwt-decoder/">JWTデコーダー</a></li>
+            <li><a href="/tool-194-hmac/">HMAC生成</a></li>
+            </ul></div>
+            <div class="all-tools-group">
+            <h3>日本特化<span class="all-tools-count">12</span></h3>
+            <ul>
+            <li><a href="/tool-12-wareki/">和暦・西暦変換</a></li>
+            <li><a href="/tool-19-zenkaku-hankaku/">全角半角変換</a></li>
+            <li><a href="/tool-21-tax-simulator/">確定申告シミュレーター</a></li>
+            <li><a href="/tool-22-withholding-tax/">源泉徴収税計算</a></li>
+            <li><a href="/tool-26-proofreader/">文章校正チェッカー</a></li>
+            <li><a href="/tool-27-loan-calc/">ローン返済シミュレーター</a></li>
+            <li><a href="/tool-34-text-counter-detail/">テキスト統計</a></li>
+            <li><a href="/tool-42-number-format/">数値フォーマッター</a></li>
+            <li><a href="/tool-119-furigana/">ふりがな/ルビ変換</a></li>
+            <li><a href="/tool-120-romaji/">ローマ字変換</a></li>
+            <li><a href="/tool-121-encoding/">文字コード変換・文字化け判定</a></li>
+            <li><a href="/tool-197-kanji-number/">漢数字・大字変換</a></li>
+            </ul></div>
+            <div class="all-tools-group">
+            <h3>ビジネス<span class="all-tools-count">14</span></h3>
+            <ul>
+            <li><a href="/tool-51-business-day-calc/">営業日計算</a></li>
+            <li><a href="/tool-52-invoice-calc/">請求書金額計算</a></li>
+            <li><a href="/tool-53-age-calc/">年齢・勤続年数計算</a></li>
+            <li><a href="/tool-54-working-hours/">残業代・割増賃金計算</a></li>
+            <li><a href="/tool-55-late-fee-calc/">遅延損害金計算</a></li>
+            <li><a href="/tool-56-inheritance-tax/">相続税シミュレーター</a></li>
+            <li><a href="/tool-57-stamp-duty/">印紙税額検索</a></li>
+            <li><a href="/tool-71-car-depreciation/">車の減価償却計算</a></li>
+            <li><a href="/tool-84-discount-calc/">割引・値引き計算</a></li>
+            <li><a href="/tool-85-year-end-tax/">年末調整 還付金シミュレーター</a></li>
+            <li><a href="/tool-86-tax-refund/">確定申告 還付金・医療費控除</a></li>
+            <li><a href="/tool-89-warikan/">割り勘計算</a></li>
+            <li><a href="/tool-92-single-tax/">独身税シミュレーター</a></li>
+            <li><a href="/tool-198-meeting-planner/">ミーティングプランナー</a></li>
+            </ul></div>
+            <div class="all-tools-group">
+            <h3>フリーランス<span class="all-tools-count">12</span></h3>
+            <ul>
+            <li><a href="/tool-58-freelance-income/">フリーランス年収シミュレーター</a></li>
+            <li><a href="/tool-59-depreciation/">減価償却計算</a></li>
+            <li><a href="/tool-60-nhi-calc/">国民健康保険料計算</a></li>
+            <li><a href="/tool-61-business-tax/">個人事業税計算</a></li>
+            <li><a href="/tool-64-take-home-pay/">手取り計算</a></li>
+            <li><a href="/tool-66-furusato-tax/">ふるさと納税 上限額シミュレーター</a></li>
+            <li><a href="/tool-67-wage-converter/">時給・月給・年収 換算</a></li>
+            <li><a href="/tool-72-bonus-take-home/">ボーナス手取り計算</a></li>
+            <li><a href="/tool-73-retirement-tax/">退職金手取り計算</a></li>
+            <li><a href="/tool-74-social-insurance/">社会保険料計算</a></li>
+            <li><a href="/tool-75-residence-tax/">住民税計算</a></li>
+            <li><a href="/tool-77-income-wall/">年収の壁シミュレーター</a></li>
+            </ul></div>
+            <div class="all-tools-group">
+            <h3>ユーティリティ<span class="all-tools-count">44</span></h3>
+            <ul>
+            <li><a href="/tool-04-qr-generator/">QRコード生成</a></li>
+            <li><a href="/tool-31-ip-checker/">IPアドレス確認</a></li>
+            <li><a href="/tool-32-unit-converter/">単位変換</a></li>
+            <li><a href="/tool-33-emoji-search/">絵文字検索</a></li>
+            <li><a href="/tool-35-random-number/">乱数生成</a></li>
+            <li><a href="/tool-62-subnet-calc/">サブネット計算（CIDR）</a></li>
+            <li><a href="/tool-63-mac-address/">MACアドレス整形</a></li>
+            <li><a href="/tool-65-consumption-tax/">消費税計算</a></li>
+            <li><a href="/tool-68-invoice-tax/">インボイス消費税計算</a></li>
+            <li><a href="/tool-69-currency-calc/">為替計算</a></li>
+            <li><a href="/tool-70-zip-password/">パスワード付きZIP作成</a></li>
+            <li><a href="/tool-79-image-convert/">画像形式変換</a></li>
+            <li><a href="/tool-80-image-to-pdf/">画像→PDF変換</a></li>
+            <li><a href="/tool-81-pdf-merge/">PDF結合</a></li>
+            <li><a href="/tool-87-pdf-split/">PDF分割・ページ抽出</a></li>
+            <li><a href="/tool-88-image-resize/">画像リサイズ</a></li>
+            <li><a href="/tool-91-countdown/">日付カウントダウン</a></li>
+            <li><a href="/tool-93-zip-extract/">ZIP解凍（文字化け修復）</a></li>
+            <li><a href="/tool-94-heic-to-jpg/">HEIC→JPG一括変換</a></li>
+            <li><a href="/tool-95-webp-convert/">WebP⇔JPG/PNG一括変換</a></li>
+            <li><a href="/tool-122-bmi/">BMI計算</a></li>
+            <li><a href="/tool-143-percent/">パーセント計算機</a></li>
+            <li><a href="/tool-144-time-calc/">時間・時刻の計算機</a></li>
+            <li><a href="/tool-145-stats-calc/">数値の統計・平均・中央値計算ツール</a></li>
+            <li><a href="/tool-146-fraction/">分数計算機</a></li>
+            <li><a href="/tool-147-exif-viewer/">画像EXIF確認・削除ツール</a></li>
+            <li><a href="/tool-148-pdf-to-image/">PDF→画像変換</a></li>
+            <li><a href="/tool-160-due-date/">出産予定日計算ツール</a></li>
+            <li><a href="/tool-161-electricity-bill/">電気代計算ツール</a></li>
+            <li><a href="/tool-162-fuel-cost/">ガソリン代・燃費計算ツール</a></li>
+            <li><a href="/tool-163-sleep-cycle/">睡眠時間・最適起床/就寝時刻 計算ツール</a></li>
+            <li><a href="/tool-164-running-pace/">ランニング／ウォーキング ペース計算ツール</a></li>
+            <li><a href="/tool-165-bmr/">基礎代謝(BMR)・消費カロリー(TDEE)計算ツール</a></li>
+            <li><a href="/tool-166-compound-interest/">複利・積立シミュレーター</a></li>
+            <li><a href="/tool-167-date-calc/">日付計算ツール（日数差・日付の加減算）</a></li>
+            <li><a href="/tool-171-image-mosaic/">画像モザイク・ぼかしツール</a></li>
+            <li><a href="/tool-172-image-palette/">画像から色を抽出（カラーパレット抽出）ツール</a></li>
+            <li><a href="/tool-173-image-watermark/">画像に文字入れ・透かしツール</a></li>
+            <li><a href="/tool-178-tsubo/">坪・平米・畳 面積変換ツール</a></li>
+            <li><a href="/tool-179-unit-price/">単価・コスパ比較計算ツール</a></li>
+            <li><a href="/tool-180-rokuyo/">六曜カレンダー・計算ツール</a></li>
+            <li><a href="/tool-181-zodiac/">誕生日から星座・干支・誕生花</a></li>
+            <li><a href="/tool-186-text-to-speech/">テキスト読み上げツール</a></li>
+            <li><a href="/tool-199-car-cost/">自動車維持費シミュレーター</a></li>
+            </ul></div>
+            </section>
+        </footer>
     </div>
 
 <script>
